@@ -1,0 +1,29 @@
+# OpenHands Autonomous Codebase Agent Configuration
+# Replaces static meta-prompt templates (BMAD) with sandboxed real-world execution
+
+[core]
+workspace_base = "/Users/nitinagga/Documents/ideas-mining"
+cache_dir = "/tmp/openhands-cache"
+run_as_openhands = true
+enable_auto_lint = true
+max_iterations = 50
+
+[llm]
+model = "vertex_ai/gemini-4-argon"
+api_version = "v1"
+location = "global"
+max_output_tokens = 32768
+reasoning_effort = "HIGH"
+
+[agent]
+name = "CodeActAgent"
+enable_browsing = true
+enable_llm_editor = true
+enable_prompt_extensions = true
+microagents_dir = ".openhands/microagents"
+
+[sandbox]
+runtime_container_image = "ghcr.io/all-hands-ai/runtime:0.28-nikolaik"
+use_host_network = false
+timeout = 180
+verify_tests_before_commit = true

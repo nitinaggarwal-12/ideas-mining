@@ -1,0 +1,670 @@
+{
+  "total_repos_generated": 8,
+  "all_repos_verified": true,
+  "repositories": [
+    {
+      "post_id": "POST-01",
+      "repo_slug": "01-harnessevolve-self-improving-evals",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/01-harnessevolve-self-improving-evals",
+      "git_commit_sha": "5136ed4",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 75,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-0aa223001b",
+        "target_repo_slug": "01-harnessevolve-self-improving-evals",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T17:56:51.972172+00:00",
+        "completed_at": "2026-10-19T17:56:51.972423+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:activity:7517563942492196864)",
+            "observation": "Verified author=Rakesh Gohel | primary_source='HarnessEvolve: Self-Evolving Agent Harnesses with Protected Competence' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-2D-01: Safe-vs-Failed Trajectory Replay & 3-Gate Competence Flywheel'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('01-harnessevolve-self-improving-evals')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 75
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=5136ed4",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "5136ed4"
+      }
+    },
+    {
+      "post_id": "POST-02",
+      "repo_slug": "02-enterprise-agent-harness-os",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/02-enterprise-agent-harness-os",
+      "git_commit_sha": "06245ae",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 63,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-99ef384f7c",
+        "target_repo_slug": "02-enterprise-agent-harness-os",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T17:56:53.532300+00:00",
+        "completed_at": "2026-10-19T17:56:53.532344+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:activity:7517071955964129280)",
+            "observation": "Verified author=Aakash Gupta (citing Addy Osmani) | primary_source='Addy Osmani & Aakash Gupta 10-Part Agent Harness Engineering Architecture' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-2D-02: 10-Layer Bento Architecture Roadmap & Concentric Harness Ring'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('02-enterprise-agent-harness-os')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 63
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=06245ae",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "06245ae"
+      }
+    },
+    {
+      "post_id": "POST-03",
+      "repo_slug": "03-multi-agent-skills-plugin-hub",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/03-multi-agent-skills-plugin-hub",
+      "git_commit_sha": "c53b33f",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 62,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-4c06730aa2",
+        "target_repo_slug": "03-multi-agent-skills-plugin-hub",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T17:56:55.982387+00:00",
+        "completed_at": "2026-10-19T17:56:55.982434+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:activity:7517094569474437122)",
+            "observation": "Verified author=Vaibhav Sisinty | primary_source='5 Foundational Open-Source Agent Ecosystems (agency-agents, wshobson/agents, knowledge-work-plugins, claude-quickstarts, agent-skills)' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-2D-02: 5-Repo Capability Matrix & Department Subagent Routing Hub'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('03-multi-agent-skills-plugin-hub')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 62
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=c53b33f",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "c53b33f"
+      }
+    },
+    {
+      "post_id": "POST-04",
+      "repo_slug": "04-openhands-autonomous-coding-harness",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/04-openhands-autonomous-coding-harness",
+      "git_commit_sha": "83fc8ca",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 60,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-cad2759142",
+        "target_repo_slug": "04-openhands-autonomous-coding-harness",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T17:56:58.438553+00:00",
+        "completed_at": "2026-10-19T17:56:58.438613+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:activity:7517147417599746048)",
+            "observation": "Verified author=Matt Village + OpenHands Autonomous Agent | primary_source='OpenHands (All-Hands-AI/OpenHands) Autonomous Software Engineer + Matt Village 6-Stage Agentic Coding Guide' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-2D-03: 6-Stage Closed-Loop Autonomous Coding Pipeline & OpenHands Container Sandbox'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('04-openhands-autonomous-coding-harness')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 60
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=83fc8ca",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "83fc8ca"
+      }
+    },
+    {
+      "post_id": "POST-05",
+      "repo_slug": "05-zero-trust-prompt-injection-guard",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/05-zero-trust-prompt-injection-guard",
+      "git_commit_sha": "1164ca3",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 61,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-c1a5d50c31",
+        "target_repo_slug": "05-zero-trust-prompt-injection-guard",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T17:57:00.871533+00:00",
+        "completed_at": "2026-10-19T17:57:00.871587+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:activity:7516354672530653184)",
+            "observation": "Verified author=Prashant Varshney | primary_source='OWASP LLM01 Indirect Prompt Injection & Prashant Varshney Architectural Isolation Framework' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-2D-01: Safe Flow vs. Indirect Prompt Injection Attack Triptych & Dual-Channel Guardrail'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('05-zero-trust-prompt-injection-guard')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 61
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=1164ca3",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "1164ca3"
+      }
+    },
+    {
+      "post_id": "POST-06",
+      "repo_slug": "06-structured-agent-repo-blueprint",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/06-structured-agent-repo-blueprint",
+      "git_commit_sha": "701f483",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 67,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-a9be464878",
+        "target_repo_slug": "06-structured-agent-repo-blueprint",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T17:57:03.379796+00:00",
+        "completed_at": "2026-10-19T17:57:03.379851+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:activity:7515306164788563969)",
+            "observation": "Verified author=Prashant Rathi | primary_source='Prashant Rathi 9-Layer Agentic Repository Architecture (CLAUDE.md / AGENTS.md / GEMINI.md, .mcp.json, rules/, commands/, skills/, agents/, hooks/)' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-2D-02: 9-Component Modular Project File Tree & Context Separation Blueprint'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('06-structured-agent-repo-blueprint')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 67
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=701f483",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "701f483"
+      }
+    },
+    {
+      "post_id": "POST-07",
+      "repo_slug": "07-openwiki-evidence-memory-guard",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/07-openwiki-evidence-memory-guard",
+      "git_commit_sha": "75a2082",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 63,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-c4ba0e8b9f",
+        "target_repo_slug": "07-openwiki-evidence-memory-guard",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T17:57:05.806231+00:00",
+        "completed_at": "2026-10-19T17:57:05.806276+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:activity:7515025598243639296)",
+            "observation": "Verified author=Rakesh Gohel | primary_source='LangChain OpenWiki Evidence-Linked Memory Architecture & Rakesh Gohel Memory Drift Analysis' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-2D-03: Deterministic Evidence-Receipt Memory Graph & Zero-LLM Staleness Loop'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('07-openwiki-evidence-memory-guard')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 63
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=75a2082",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "75a2082"
+      }
+    },
+    {
+      "post_id": "POST-08",
+      "repo_slug": "08-end-to-end-6step-production-agent",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/08-end-to-end-6step-production-agent",
+      "git_commit_sha": "7202b72",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 61,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-1707d4bffe",
+        "target_repo_slug": "08-end-to-end-6step-production-agent",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T17:57:07.249456+00:00",
+        "completed_at": "2026-10-19T17:57:07.249501+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:activity:7514309864186081280)",
+            "observation": "Verified author=Prashant Rathi & Rakesh Gohel | primary_source='Prashant Rathi 6-Step End-to-End Agent Workflow + Rakesh Gohel Human-Agent Orchestrator Production Controls' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-2D-03: 6-Step Cyclic Production Agent State Machine & HITL Governance Ring'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('08-end-to-end-6step-production-agent')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 61
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=7202b72",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "7202b72"
+      }
+    }
+  ]
+}

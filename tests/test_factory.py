@@ -1,0 +1,66 @@
+"""Master Unit Test Suite for the Ideas Mining & OpenHands Repo Factory."""
+
+import unittest
+from pathlib import Path
+
+from src.catalog.posts_catalog import CREATOR_MINING_PLAYBOOK, POSTS_CATALOG, USER_PROFILE
+from src.harvester.idea_miner import AgenticIdeaMiner
+from src.slides.slide_deck_compiler import build_12_slide_specs
+from src.visuals.diagram_2d_engine import (
+    generate_gcp_arch_78_drawio,
+    generate_gcp_arch_78_svg,
+    generate_linkedin_infographic_svg,
+)
+
+
+class TestIdeasMiningFactory(unittest.TestCase):
+    def test_catalog_contains_all_8_posts_and_primary_sources(self) -> None:
+        self.assertEqual(len(POSTS_CATALOG), 8)
+        for post in POSTS_CATALOG:
+            self.assertTrue(post["id"].startswith("POST-0"))
+            self.assertTrue(post["activity_urn"].startswith("urn:li:activity:"))
+            self.assertGreaterEqual(len(post["primary_source"]["verified_claims"]), 3)
+            self.assertEqual(len(post["core_steps"]), 6)
+
+    def test_creator_mining_playbook_and_openhands_comparison(self) -> None:
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["signal_channels"]), 4)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["diagram_archetypes_2d"]), 4)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["openhands_superiority"]["comparison"]), 3)
+        self.assertIn("nitin-aggarwal-b49786a", USER_PROFILE["linkedin_url"])
+
+    def test_2d_visual_generators_produce_valid_light_theme_svg_and_drawio(self) -> None:
+        sample = POSTS_CATALOG[0]
+        poster_svg = generate_linkedin_infographic_svg(sample)
+        arch_svg = generate_gcp_arch_78_svg(sample)
+        drawio_xml = generate_gcp_arch_78_drawio(sample)
+
+        self.assertIn("#f8fafc", poster_svg)
+        self.assertIn("Proprietary + Confidential", poster_svg)
+        self.assertIn("FIGURE 1", arch_svg)
+        self.assertIn("<mxGraphModel", drawio_xml)
+
+    def test_12_slide_story_arc_and_spoken_notes(self) -> None:
+        for post in POSTS_CATALOG:
+            slides = build_12_slide_specs(post)
+            self.assertEqual(len(slides), 12)
+            for s in slides:
+                self.assertEqual(len(s["spoken_notes"]), 3)
+
+    def test_idea_miner_url_ingestion_matches_catalog_and_custom_urls(self) -> None:
+        miner = AgenticIdeaMiner()
+        matched = miner.ingest_custom_post_or_url(
+            "https://www.linkedin.com/feed/update/urn:li:activity:7517563942492196864/"
+        )
+        self.assertEqual(matched["status"], "MATCHED_EXISTING_VERIFIED_POST")
+        self.assertEqual(matched["matched_post_id"], "POST-01")
+
+        custom = miner.ingest_custom_post_or_url(
+            "https://arxiv.org/abs/2610.99999",
+            custom_title="Multi-Agent Context Compaction on Vertex AI",
+        )
+        self.assertEqual(custom["status"], "SYNTHESIZED_GROUNDED_BLUEPRINT")
+        self.assertTrue(custom["repo_slug"].startswith("custom-"))
+
+
+if __name__ == "__main__":
+    unittest.main()

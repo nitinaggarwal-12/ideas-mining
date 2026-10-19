@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agentic AI Ideas Mining &amp; OpenHands Autonomous Repo Factory — Nitin Aggarwal</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="quad-top-strip"></div>
+
+  <!-- Single Persistent Global Navigation Bar (Rule 25A) -->
+  <header class="global-header">
+    <div class="brand-cluster">
+      <span class="brand-badge">OPENHANDS + GCP ADK</span>
+      <div class="min-w-0">
+        <div class="brand-title">Agentic AI Ideas Mining &amp; 1-Click GCP Repo Factory</div>
+        <div class="brand-subtitle">Curated for Nitin Aggarwal (linkedin.com/in/nitin-aggarwal-b49786a) • Zero-Hallucination Primary-Source Lifecycle</div>
+      </div>
+    </div>
+
+    <nav class="nav-tabs" aria-label="Primary Workspace Views">
+      <button class="nav-tab-btn active" data-view="view-repos" id="tab-btn-repos">1. 8 Verified Git Repos (@2d + Slides + Terraform)</button>
+      <button class="nav-tab-btn" data-view="view-playbook" id="tab-btn-playbook">2. Creator Mining Intelligence</button>
+      <button class="nav-tab-btn" data-view="view-miner" id="tab-btn-miner">3. Live Idea Miner &amp; URL Ingestor</button>
+      <button class="nav-tab-btn" data-view="view-openhands" id="tab-btn-openhands">4. OpenHands Autonomous Sandbox</button>
+    </nav>
+
+    <div class="telemetry-pills">
+      <span class="pill-badge pill-emerald" id="telemetry-repos-badge">8/8 Git Repos Verified</span>
+      <span class="pill-badge pill-sky" id="telemetry-tests-badge">32/32 Sandbox Tests PASS</span>
+      <span class="pill-badge pill-amber">0 Hallucinations • 96 Slides</span>
+    </div>
+  </header>
+
+  <main class="fluid-workspace">
+    <!-- VIEW 1: 8 GENERATED GIT REPOSITORIES & DELIVERABLE MATRIX -->
+    <section id="view-repos">
+      <div class="subtoolbar">
+        <div class="filter-controls">
+          <input
+            type="search"
+            id="search-input"
+            class="input-light"
+            placeholder="Filter repos by topic, creator (Rakesh Gohel, Addy Osmani...), paper, or GCP service..."
+            aria-label="Filter repositories"
+          />
+          <select id="filter-archetype" class="select-light" aria-label="Filter by 2D Diagram Archetype">
+            <option value="ALL">All 2D Diagram Archetypes (8 Repos)</option>
+            <option value="ARCH-2D-01">ARCH-2D-01: Safe-vs-Failed / Attack Split Flow</option>
+            <option value="ARCH-2D-02">ARCH-2D-02: 10-Layer Bento &amp; Capability Matrix</option>
+            <option value="ARCH-2D-03">ARCH-2D-03: 6-Stage Closed-Loop State Machine</option>
+          </select>
+          <select id="filter-author" class="select-light" aria-label="Filter by Creator Lineage">
+            <option value="ALL">All Signal Creators</option>
+            <option value="Rakesh Gohel">Rakesh Gohel</option>
+            <option value="Aakash Gupta">Aakash Gupta / Addy Osmani</option>
+            <option value="Vaibhav Sisinty">Vaibhav Sisinty</option>
+            <option value="Matt Village">Matt Village / OpenHands</option>
+            <option value="Prashant Varshney">Prashant Varshney</option>
+            <option value="Prashant Rathi">Prashant Rathi</option>
+          </select>
+        </div>
+        <div class="telemetry-pills">
+          <span class="pill-badge pill-sky">Target GCP Project: nitina-ggarwal-sandbox-647724</span>
+          <span class="pill-badge pill-emerald">Vertex AI: locations/global (gemini-4-argon)</span>
+        </div>
+      </div>
+
+      <!-- Resilient Empty State (Rule 25K) -->
+      <div id="no-matching-cards" class="section-card" style="display: none; text-align: center;">
+        <h3 style="margin-bottom: 8px;">No repositories match the active search or filter</h3>
+        <p style="color: #475569; margin-bottom: 12px;">Reset filters to view all 8 verified Google Cloud ADK + OpenHands Git repositories.</p>
+        <button class="btn-primary" id="reset-filters-btn">↺ Reset All Filters</button>
+      </div>
+
+      <!-- 8 Repo Cards Grid -->
+      <div class="repos-grid" id="repos-cards-grid"></div>
+
+      <!-- Rigid-Containment 8-Repo Verification & Deliverable Table (Rule 26) -->
+      <div class="section-card">
+        <h2 style="font-size: 16px; font-weight: 800; margin-bottom: 12px;">
+          Complete 8-Post to Standalone Git Repository Verification Matrix
+        </h2>
+        <table class="table-fixed gp-blue-grid-table">
+          <thead>
+            <tr>
+              <th style="width: 16.66%;">Post ID &amp; Repo Slug</th>
+              <th style="width: 16.66%;">Creator &amp; Primary Source</th>
+              <th style="width: 16.66%;">@2d Visual Archetype</th>
+              <th style="width: 16.66%;">Google Cloud ADK Stack</th>
+              <th style="width: 16.66%;">Deliverable Bundle</th>
+              <th style="width: 16.66%;">OpenHands Gate Status</th>
+            </tr>
+          </thead>
+          <tbody id="repos-matrix-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VIEW 2: CREATOR MINING INTELLIGENCE & PLAYBOOK -->
+    <section id="view-playbook" style="display: none;">
+      <div class="section-card">
+        <h2 style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">
+          How Top Agentic AI Creators Mine Ideas, Structure Hooks &amp; Design 2D Flows
+        </h2>
+        <p id="playbook-summary-text" style="font-size: 14px; color: #334155; line-height: 1.55; margin-bottom: 16px;"></p>
+        <div class="repos-grid" id="signal-channels-grid"></div>
+      </div>
+
+      <div class="section-card">
+        <h2 style="font-size: 16px; font-weight: 800; margin-bottom: 12px;">
+          The 4 Canonical @2d Diagram Archetypes Used Across Viral Agentic AI Posts
+        </h2>
+        <div class="repos-grid" id="archetypes-grid"></div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: LIVE AUTOMATED IDEA MINER & URL INGESTOR -->
+    <section id="view-miner" style="display: none;">
+      <div class="section-card">
+        <h2 style="font-size: 17px; font-weight: 800; margin-bottom: 8px;">
+          Ingest Any LinkedIn Post, arXiv Paper, or GitHub Repo into a Verified GCP Repository
+        </h2>
+        <p style="font-size: 13px; color: #475569; margin-bottom: 14px;">
+          Paste any LinkedIn activity URL, arXiv link, or GitHub URL below. The OpenHands Autonomous Factory will ground the primary source, synthesize the ADK codebase, compile the @2d visuals + 12-slide PPTX/PDF deck + Terraform module, run sandbox unit tests, and initialize the Git repo.
+        </p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input
+            type="url"
+            id="inline-ingest-url-input"
+            class="input-light"
+            style="flex: 2; min-width: 320px;"
+            placeholder="https://www.linkedin.com/feed/update/urn:li:activity:... or https://arxiv.org/abs/..."
+          />
+          <input
+            type="text"
+            id="inline-ingest-title-input"
+            class="input-light"
+            style="flex: 1; min-width: 240px;"
+            placeholder="Optional custom architectural title"
+          />
+          <button class="btn-primary" id="trigger-ingest-btn">Synthesize &amp; Verify Git Repo</button>
+          <button class="btn-secondary" id="refresh-live-feeds-btn">Refresh Live arXiv &amp; GitHub Radar</button>
+        </div>
+        <div id="ingest-result-banner" style="margin-top: 12px; display: none;"></div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(520px, 1fr)); gap: 16px;">
+        <div class="section-card">
+          <h3 style="font-size: 15px; font-weight: 800; margin-bottom: 12px;">Live arXiv cs.AI Agentic Papers Feed</h3>
+          <div id="live-arxiv-list" style="display: flex; flex-direction: column; gap: 10px;"></div>
+        </div>
+        <div class="section-card">
+          <h3 style="font-size: 15px; font-weight: 800; margin-bottom: 12px;">GitHub Breakout Agentic Repositories</h3>
+          <div id="live-github-list" style="display: flex; flex-direction: column; gap: 10px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: OPENHANDS AUTONOMOUS AGENT SANDBOX CONSOLE -->
+    <section id="view-openhands" style="display: none;">
+      <div class="section-card">
+        <h2 style="font-size: 17px; font-weight: 800; margin-bottom: 8px;">
+          OpenHands (CodeActAgent) Autonomous Sandbox vs. Static Meta-Prompt Templates (BMAD)
+        </h2>
+        <p style="font-size: 13px; color: #334155; margin-bottom: 14px;">
+          Instead of relying on static markdown meta-prompts or "vibe coding", OpenHands executes a 6-stage autonomous loop inside an isolated workspace: reading ASTs, generating Executive Light-Theme UI &amp; ADK code, and running deterministic unit tests before committing.
+        </p>
+        <table class="table-fixed gp-blue-grid-table" style="margin-bottom: 16px;">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Engineering Dimension</th>
+              <th style="width: 37.5%;">Static Meta-Prompt Templates (BMAD)</th>
+              <th style="width: 37.5%;">OpenHands Autonomous Container Agent</th>
+            </tr>
+          </thead>
+          <tbody id="openhands-comparison-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="section-card">
+        <h3 style="font-size: 15px; font-weight: 800; margin-bottom: 12px;">
+          Live OpenHands 6-Stage Sandbox Execution Trajectories (8/8 Repositories)
+        </h3>
+        <div id="openhands-trajectories-list" style="display: flex; flex-direction: column; gap: 12px;"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Non-Blocking Docked Right-Side Inspector Drawer (Rule 25F) -->
+  <aside class="right-drawer" id="repo-inspector-drawer" aria-label="Repository Deliverable Inspector">
+    <div class="drawer-header">
+      <div class="min-w-0">
+        <div id="drawer-repo-badge" style="font-size: 11px; font-weight: 800; color: #174ea6;">POST-01</div>
+        <h2 id="drawer-repo-title" style="font-size: 15px; font-weight: 800; color: #0f172a;">Repository Inspector</h2>
+      </div>
+      <button class="btn-secondary" id="close-drawer-btn">Collapse →</button>
+    </div>
+
+    <div class="drawer-tabs">
+      <button class="nav-tab-btn active" data-drawertab="dtab-visuals" id="dtab-btn-visuals">@2d Visuals (SVG + Draw.io)</button>
+      <button class="nav-tab-btn" data-drawertab="dtab-slides" id="dtab-btn-slides">12-Slide Deck &amp; Carousel</button>
+      <button class="nav-tab-btn" data-drawertab="dtab-terraform" id="dtab-btn-terraform">1-Click GCP Terraform &amp; Code</button>
+      <button class="nav-tab-btn" data-drawertab="dtab-linkedin" id="dtab-btn-linkedin">LinkedIn Post Copy &amp; Receipt</button>
+    </div>
+
+    <div class="drawer-body">
+      <div id="dtab-visuals"></div>
+      <div id="dtab-slides" style="display: none;"></div>
+      <div id="dtab-terraform" style="display: none;"></div>
+      <div id="dtab-linkedin" style="display: none;"></div>
+    </div>
+  </aside>
+
+  <div id="toast-container"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

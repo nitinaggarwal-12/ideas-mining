@@ -13,7 +13,7 @@ def write_terraform_suite_for_post(post: Dict[str, Any], repo_dir: Path) -> Dict
     tf_dir.mkdir(parents=True, exist_ok=True)
     scripts_dir.mkdir(parents=True, exist_ok=True)
 
-    service_name = post["repo_name"][:48]
+    service_name = post.get("repo_name", post["repo_slug"])[:48]
     slug = post["repo_slug"]
 
     versions_tf = """terraform {

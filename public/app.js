@@ -48,6 +48,7 @@ function getFilteredRepos() {
       r.repo_slug.toLowerCase().includes(q) ||
       r.author_name.toLowerCase().includes(q) ||
       r.primary_source.title.toLowerCase().includes(q) ||
+      (r.daily_problem_short || "").toLowerCase().includes(q) ||
       r.gcp_stack.join(" ").toLowerCase().includes(q);
     const matchesArch = arch === "ALL" || r.diagram_archetype.startsWith(arch);
     const matchesAuthor = author === "ALL" || r.author_name.toLowerCase().includes(author.toLowerCase());
@@ -75,20 +76,23 @@ function renderReposView() {
       <article class="repo-card" data-testid="repo-card-${escapeHtml(r.id)}">
         <div>
           <div class="repo-card-header">
-            <span class="brand-badge">${escapeHtml(r.id)} • ${escapeHtml(r.author_name)}</span>
+            <span class="brand-badge">${escapeHtml(r.id)} • ${escapeHtml(r.est_post_time || r.author_name)}</span>
             <span class="pill-badge pill-emerald">GIT HEAD: ${escapeHtml(r.git_commit_sha || "verified")}</span>
           </div>
           <h3 class="repo-card-title" style="margin: 10px 0 8px 0;">${escapeHtml(r.post_title)}</h3>
-          <div class="repo-card-hook">${escapeHtml(r.original_hook)}</div>
-          <div style="margin-top: 10px; font-size: 11.5px; color: #475569; font-weight: 600;">
+          <div class="repo-card-hook">${escapeHtml(r.daily_problem_short || r.original_hook)}</div>
+          <div style="margin: 10px 0; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #ffffff; cursor: pointer;" onclick="openRepoInspector('${escapeHtml(r.repo_slug)}')">
+            <img src="/repos/${encodeURIComponent(r.repo_slug)}/visuals/dynamic-solution-flow.svg" alt="Dynamic Moving-Arrow Solution Diagram" style="width: 100%; height: auto; display: block;" loading="lazy" />
+          </div>
+          <div style="margin-top: 6px; font-size: 11.5px; color: #475569; font-weight: 600;">
             Primary Source: <strong style="color: #0f172a;">${escapeHtml(r.primary_source.title)}</strong>
           </div>
         </div>
         <div>
           <div class="deliverable-chips" style="margin-bottom: 10px;">
-            <span class="deliverable-chip">ADK Code + 4 Tests</span>
-            <span class="deliverable-chip">@2d Poster SVG/PNG</span>
-            <span class="deliverable-chip">GCP #78 .drawio + SVG</span>
+            <span class="deliverable-chip" style="background:#eff6ff;border-color:#93c5fd;color:#1d4ed8;">⚡ Moving-Arrow SVG + GIF</span>
+            <span class="deliverable-chip">Nano Banana 3 2D Poster</span>
+            <span class="deliverable-chip">GCP #78 .drawio + PNG</span>
             <span class="deliverable-chip">12-Slide .pptx + .pdf</span>
             <span class="deliverable-chip">1-Click Terraform</span>
           </div>
@@ -97,7 +101,7 @@ function renderReposView() {
               generated-repos/${escapeHtml(r.repo_slug)}
             </span>
             <button class="btn-primary" onclick="openRepoInspector('${escapeHtml(r.repo_slug)}')">
-              Inspect Bundle &amp; 2D Visuals →
+              Inspect Moving-Arrow &amp; Bundle →
             </button>
           </div>
         </div>
@@ -112,19 +116,19 @@ function renderReposView() {
       <tr>
         <td>
           <div class="cell-card-equal">
-            <strong style="font-size: 12px; color: #174ea6;">${escapeHtml(r.id)}</strong>
+            <strong style="font-size: 12px; color: #174ea6;">${escapeHtml(r.id)} (${escapeHtml(r.est_post_time || "Verified Signal")})</strong>
             <span class="truncate" style="font-size: 11.5px; font-family: monospace; color: #0f172a;">${escapeHtml(r.repo_slug)}</span>
           </div>
         </td>
         <td>
           <div class="cell-card-equal">
-            <strong style="font-size: 12px;">${escapeHtml(r.author_name)}</strong>
+            <strong style="font-size: 12px;">${escapeHtml(r.daily_problem_short || r.author_name)}</strong>
             <span style="font-size: 11.5px; color: #475569;">${escapeHtml(r.primary_source.title)}</span>
           </div>
         </td>
         <td>
           <div class="cell-card-equal">
-            <span style="font-size: 11.5px; font-weight: 700; color: #0f172a;">${escapeHtml(r.diagram_archetype)}</span>
+            <span style="font-size: 11.5px; font-weight: 700; color: #0f172a;">Moving-Arrow SVG/GIF • Nano Banana 3 • GCP #78 Draw.io</span>
           </div>
         </td>
         <td>
@@ -134,7 +138,7 @@ function renderReposView() {
         </td>
         <td>
           <div class="cell-card-equal">
-            <span style="font-size: 11.5px; color: #065f46; font-weight: 700;">Code • README • 2D SVG/Draw.io • 12-Slide PPTX/PDF • Terraform</span>
+            <span style="font-size: 11.5px; color: #065f46; font-weight: 700;">Code • README • Dynamic GIF/SVG • 12-Slide PPTX/PDF • Terraform</span>
           </div>
         </td>
         <td>
@@ -231,23 +235,35 @@ async function openRepoInspector(slug) {
   const res = await fetch(`/api/repo-detail/${encodeURIComponent(slug)}`);
   const detail = await res.json();
 
-  document.getElementById("drawer-repo-badge").textContent = `${detail.id} • ${detail.activity_urn} • HEAD ${detail.git_commit_sha}`;
+  document.getElementById("drawer-repo-badge").textContent = `${detail.id} • ${detail.est_post_time || detail.activity_urn} • HEAD ${detail.git_commit_sha}`;
   document.getElementById("drawer-repo-title").textContent = detail.post_title;
 
-  // Tab 1: @2d Visuals
+  // Tab 1: Dynamic Moving-Arrow & @2d Visuals
   document.getElementById("dtab-visuals").innerHTML = `
     <div style="margin-bottom: 14px; display: flex; gap: 8px; flex-wrap: wrap;">
-      <a class="btn-primary" href="/repos/${encodeURIComponent(slug)}/visuals/linkedin-infographic-2d.svg" target="_blank">Open 2D LinkedIn Poster (.svg) ↗</a>
-      <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.svg" target="_blank">Open GCP #78 2D Diagram (.svg) ↗</a>
+      <a class="btn-primary" href="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg" target="_blank">Open Moving-Arrow Diagram (.svg) ↗</a>
+      <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.gif" download>Download Animated LinkedIn GIF (.gif)</a>
+      <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/linkedin-infographic-2d.png" target="_blank">Open Nano Banana 3 Poster (.png) ↗</a>
       <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.drawio" download>Download Editable Draw.io (.drawio)</a>
     </div>
     <div class="visual-preview-box">
-      <div style="font-size: 12px; font-weight: 800; margin-bottom: 8px; color: #0f172a;">Figure 1 — Official Google Cloud #78 4-Zone Hub-and-Spoke 2D Architecture</div>
-      <img src="/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.svg" alt="GCP 2D Architecture" />
+      <div style="font-size: 12px; font-weight: 800; margin-bottom: 8px; color: #0f172a;">Figure 1 — Live Dynamic Daily Problem → 4-Step Solution Flow (With Moving Arrows)</div>
+      <img src="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg" alt="Dynamic Moving-Arrow Solution Flow" />
     </div>
     <div class="visual-preview-box">
-      <div style="font-size: 12px; font-weight: 800; margin-bottom: 8px; color: #0f172a;">Figure 2 — High-Res 2D LinkedIn Infographic Poster (1200x1350)</div>
-      <img src="/repos/${encodeURIComponent(slug)}/visuals/linkedin-infographic-2d.svg" alt="LinkedIn 2D Infographic" />
+      <div style="font-size: 12px; font-weight: 800; margin-bottom: 8px; color: #0f172a;">Figure 2 — Official Google Cloud #78 4-Zone Hub-and-Spoke 2D Architecture (Nano Banana 3 + Draw.io)</div>
+      <img src="/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.png" alt="GCP 2D Architecture" />
+    </div>
+    <div class="visual-preview-box">
+      <div style="font-size: 12px; font-weight: 800; margin-bottom: 8px; color: #0f172a;">Figure 3 — High-Res 2D LinkedIn Infographic Poster (Nano Banana 3)</div>
+      <img src="/repos/${encodeURIComponent(slug)}/visuals/linkedin-infographic-2d.png" alt="LinkedIn 2D Infographic" />
+    </div>
+    <div class="visual-preview-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <span style="font-size: 12px; font-weight: 800; color: #0f172a;">Nano Banana 3 Detailed Generation Prompt (visuals/nano_banana_3_prompt.md)</span>
+        <button class="btn-secondary" onclick="navigator.clipboard.writeText(document.getElementById('nb3-prompt-pre').innerText); showToast('Copied Nano Banana 3 prompt!');">Copy Prompt</button>
+      </div>
+      <pre class="code-block-light" id="nb3-prompt-pre">${escapeHtml(detail.nano_banana_3_prompt || "")}</pre>
     </div>
   `;
 
@@ -295,7 +311,7 @@ async function openRepoInspector(slug) {
   // Tab 4: LinkedIn Post Copy & Receipt
   document.getElementById("dtab-linkedin").innerHTML = `
     <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-      <strong style="font-size: 13px;">Ready-to-Post LinkedIn Draft for Nitin Aggarwal</strong>
+      <strong style="font-size: 13px;">Ready-to-Post LinkedIn Draft for Nitin Aggarwal (${escapeHtml(detail.est_post_time || "Morning EST")})</strong>
       <button class="btn-primary" onclick="navigator.clipboard.writeText(document.getElementById('linkedin-copy-pre').innerText); showToast('Copied LinkedIn Post Draft to clipboard!');">
         Copy LinkedIn Post Copy
       </button>
@@ -343,7 +359,6 @@ async function refreshLiveFeeds() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Top navigation switching
   document.querySelectorAll(".global-header .nav-tab-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".global-header .nav-tab-btn").forEach((b) => b.classList.remove("active"));
@@ -358,7 +373,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Drawer tab switching
   document.querySelectorAll(".drawer-tabs .nav-tab-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".drawer-tabs .nav-tab-btn").forEach((b) => b.classList.remove("active"));

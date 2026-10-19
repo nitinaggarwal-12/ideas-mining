@@ -1,9 +1,10 @@
-"""Master Unit Test Suite for the Ideas Mining & OpenHands Repo Factory."""
+"""Master Unit Test Suite for the Ideas Mining & OpenHands Repo Factory (8 Analyzed Posts + 10 Tomorrow Morning EST Daily Pain-Point Ideas)."""
 
 import unittest
-from pathlib import Path
+import xml.etree.ElementTree as ET
 
 from src.catalog.posts_catalog import CREATOR_MINING_PLAYBOOK, POSTS_CATALOG, USER_PROFILE
+from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 from src.harvester.idea_miner import AgenticIdeaMiner
 from src.slides.slide_deck_compiler import build_12_slide_specs
 from src.visuals.diagram_2d_engine import (
@@ -11,6 +12,7 @@ from src.visuals.diagram_2d_engine import (
     generate_gcp_arch_78_svg,
     generate_linkedin_infographic_svg,
 )
+from src.visuals.dynamic_diagram_engine import generate_dynamic_solution_svg
 
 
 class TestIdeasMiningFactory(unittest.TestCase):
@@ -21,6 +23,22 @@ class TestIdeasMiningFactory(unittest.TestCase):
             self.assertTrue(post["activity_urn"].startswith("urn:li:activity:"))
             self.assertGreaterEqual(len(post["primary_source"]["verified_claims"]), 3)
             self.assertEqual(len(post["core_steps"]), 6)
+
+    def test_tomorrow_top10_daily_pain_point_ideas_and_dynamic_moving_arrow_svgs(self) -> None:
+        self.assertEqual(len(TOMORROW_TOP10_IDEAS), 10)
+        for idx, idea in enumerate(TOMORROW_TOP10_IDEAS, start=1):
+            self.assertEqual(idea["id"], f"IDEA-{idx:02d}")
+            self.assertIn("EST", idea["est_post_time"])
+            self.assertEqual(len(idea["problem_flow_nodes"]), 3)
+            self.assertEqual(len(idea["dynamic_steps"]), 4)
+            self.assertEqual(len(idea["core_steps"]), 6)
+
+            dyn_svg = generate_dynamic_solution_svg(idea)
+            ET.fromstring(dyn_svg)
+            self.assertIn("moving-arrow-line", dyn_svg)
+            self.assertIn("animateMotion", dyn_svg)
+            self.assertIn("CLOSED-LOOP FEEDBACK", dyn_svg)
+            self.assertIn("#F8FAFC", dyn_svg)
 
     def test_creator_mining_playbook_and_openhands_comparison(self) -> None:
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["signal_channels"]), 4)
@@ -44,7 +62,7 @@ class TestIdeasMiningFactory(unittest.TestCase):
             self.assertIn("e_alb_to_mid_left", drawio_xml)
 
     def test_12_slide_story_arc_and_spoken_notes(self) -> None:
-        for post in POSTS_CATALOG:
+        for post in list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG):
             slides = build_12_slide_specs(post)
             self.assertEqual(len(slides), 12)
             for s in slides:

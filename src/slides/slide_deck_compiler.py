@@ -554,16 +554,22 @@ def compile_linkedin_carousel_html(post: Dict[str, Any], slides: List[Dict[str, 
                 """
             )
         diagram_embed_html = ""
-        if s["slide_num"] == 4:
+        if s["slide_num"] == 3:
             diagram_embed_html = (
                 '<div class="slide-diagram-embed">'
-                '<img src="../visuals/linkedin-infographic-2d.svg" alt="Bespoke 2D Architecture Infographic" />'
+                '<img src="../visuals/dynamic-solution-flow.svg" alt="Dynamic Moving-Arrow Problem-to-Solution Flow" />'
+                "</div>"
+            )
+        elif s["slide_num"] == 4:
+            diagram_embed_html = (
+                '<div class="slide-diagram-embed">'
+                '<img src="../visuals/linkedin-infographic-2d.png" alt="Nano Banana 3 2D Architecture Infographic" />'
                 "</div>"
             )
         elif s["slide_num"] == 5:
             diagram_embed_html = (
                 '<div class="slide-diagram-embed">'
-                '<img src="../visuals/gcp-architecture-2d.svg" alt="Official Google Cloud #78 Hub-and-Spoke 2D Blueprint" />'
+                '<img src="../visuals/gcp-architecture-2d.png" alt="Official Google Cloud #78 Hub-and-Spoke 2D Blueprint" />'
                 "</div>"
             )
         notes_html = "".join(f"<p>{_xml_esc(p)}</p>" for p in s["spoken_notes"])

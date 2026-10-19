@@ -1,16 +1,18 @@
 {
-  "total_repos_generated": 8,
+  "total_repos_generated": 18,
+  "tomorrow_top10_count": 10,
+  "analyzed_posts_count": 8,
   "all_repos_verified": true,
   "repositories": [
     {
-      "post_id": "POST-01",
-      "repo_slug": "01-harnessevolve-self-improving-evals",
-      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/01-harnessevolve-self-improving-evals",
-      "git_commit_sha": "338798b",
+      "post_id": "IDEA-01",
+      "repo_slug": "gcp-adk-loop-circuit-breaker",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/gcp-adk-loop-circuit-breaker",
+      "git_commit_sha": "b55d8ed",
       "verification": {
         "unit_tests_passed": true,
         "unit_tests_summary": "OK",
-        "test_duration_ms": 70,
+        "test_duration_ms": 72,
         "pptx_slide_count": 12,
         "notes_slide_count": 12,
         "terraform_files_count": 5,
@@ -18,13 +20,843 @@
         "all_passed": true
       },
       "openhands_trajectory": {
-        "session_id": "oh-sess-925ffcde38",
+        "session_id": "oh-sess-fbd00b4f5c",
+        "target_repo_slug": "gcp-adk-loop-circuit-breaker",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T21:05:08.823655+00:00",
+        "completed_at": "2026-10-19T21:05:08.824251+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:morning-queue:idea-01-loop-breaker)",
+            "observation": "Verified author=Nitin Aggarwal (Daily Agentic AI Pain-Point Series) | primary_source='OpenHands Stuck-Detection Loop (AgentController._is_stuck) & Google Cloud ADK RunConfig Budget Envelopes' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-DYN-01: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('gcp-adk-loop-circuit-breaker')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 72
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=b55d8ed",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "b55d8ed"
+      }
+    },
+    {
+      "post_id": "IDEA-02",
+      "repo_slug": "gcp-adk-context-rot-compactor",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/gcp-adk-context-rot-compactor",
+      "git_commit_sha": "ec7d6fe",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 61,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-21bf43dc91",
+        "target_repo_slug": "gcp-adk-context-rot-compactor",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T21:05:09.200085+00:00",
+        "completed_at": "2026-10-19T21:05:09.200157+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:morning-queue:idea-02-context-rot)",
+            "observation": "Verified author=Nitin Aggarwal (Daily Agentic AI Pain-Point Series) | primary_source='Chroma 'Context Rot' Technical Study & Anthropic/OpenHands Subagent Context Isolation Pattern' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-DYN-02: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('gcp-adk-context-rot-compactor')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 61
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=ec7d6fe",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "ec7d6fe"
+      }
+    },
+    {
+      "post_id": "IDEA-03",
+      "repo_slug": "gcp-openhands-precompletion-verify-hook",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/gcp-openhands-precompletion-verify-hook",
+      "git_commit_sha": "1bdc149",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 67,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-1be611dc52",
+        "target_repo_slug": "gcp-openhands-precompletion-verify-hook",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T21:05:09.625595+00:00",
+        "completed_at": "2026-10-19T21:05:09.625650+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:morning-queue:idea-03-false-done)",
+            "observation": "Verified author=Nitin Aggarwal (Daily Agentic AI Pain-Point Series) | primary_source='OpenHands CodeActAgent Sandbox Verification Loop & Addy Osmani Checkpointed Agent-Skills' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-DYN-03: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('gcp-openhands-precompletion-verify-hook')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 67
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=1bdc149",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "1bdc149"
+      }
+    },
+    {
+      "post_id": "IDEA-04",
+      "repo_slug": "gcp-adk-dynamic-mcp-tool-router",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/gcp-adk-dynamic-mcp-tool-router",
+      "git_commit_sha": "d662980",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 63,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-55b88ea806",
+        "target_repo_slug": "gcp-adk-dynamic-mcp-tool-router",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T21:05:10.047101+00:00",
+        "completed_at": "2026-10-19T21:05:10.047160+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:morning-queue:idea-04-mcp-overload)",
+            "observation": "Verified author=Nitin Aggarwal (Daily Agentic AI Pain-Point Series) | primary_source='MCP Dynamic Tool Discovery (Tool-Search Pattern) & Google Cloud ADK Progressive Skill Registry' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-DYN-04: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('gcp-adk-dynamic-mcp-tool-router')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 63
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=d662980",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "d662980"
+      }
+    },
+    {
+      "post_id": "IDEA-05",
+      "repo_slug": "gcp-a2a-typed-blackboard-handoffs",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/gcp-a2a-typed-blackboard-handoffs",
+      "git_commit_sha": "f7dc2b0",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 60,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-7f2111452b",
+        "target_repo_slug": "gcp-a2a-typed-blackboard-handoffs",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T21:05:10.466888+00:00",
+        "completed_at": "2026-10-19T21:05:10.466947+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:morning-queue:idea-05-a2a-blackboard)",
+            "observation": "Verified author=Nitin Aggarwal (Daily Agentic AI Pain-Point Series) | primary_source='Google Cloud Agent2Agent (A2A) Task Contract Specification & Shared Blackboard Pattern' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-DYN-05: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('gcp-a2a-typed-blackboard-handoffs')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 60
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=f7dc2b0",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "f7dc2b0"
+      }
+    },
+    {
+      "post_id": "IDEA-06",
+      "repo_slug": "gcp-adk-idempotent-checkpoint-recovery",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/gcp-adk-idempotent-checkpoint-recovery",
+      "git_commit_sha": "914bb33",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 61,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-4f0068411f",
+        "target_repo_slug": "gcp-adk-idempotent-checkpoint-recovery",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T21:05:10.890473+00:00",
+        "completed_at": "2026-10-19T21:05:10.890531+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:morning-queue:idea-06-crash-recovery)",
+            "observation": "Verified author=Nitin Aggarwal (Daily Agentic AI Pain-Point Series) | primary_source='Google Cloud ADK Durable Session Checkpointers & Deterministic Tool Idempotency Saga Pattern' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-DYN-06: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('gcp-adk-idempotent-checkpoint-recovery')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 61
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=914bb33",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "914bb33"
+      }
+    },
+    {
+      "post_id": "IDEA-07",
+      "repo_slug": "gcp-openwiki-evidence-receipt-memory",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/gcp-openwiki-evidence-receipt-memory",
+      "git_commit_sha": "1109f96",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 59,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-ad7c50e30f",
+        "target_repo_slug": "gcp-openwiki-evidence-receipt-memory",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T21:05:11.256460+00:00",
+        "completed_at": "2026-10-19T21:05:11.256522+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:morning-queue:idea-07-stale-memory)",
+            "observation": "Verified author=Nitin Aggarwal (Daily Agentic AI Pain-Point Series) | primary_source='LangChain OpenWiki Evidence-Linked Memory Study (80 -> 9 Stale Claims, 15 -> 0 Hallucinations)' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-DYN-07: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('gcp-openwiki-evidence-receipt-memory')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 59
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=1109f96",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "1109f96"
+      }
+    },
+    {
+      "post_id": "IDEA-08",
+      "repo_slug": "gcp-model-armor-capability-downgrade",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/gcp-model-armor-capability-downgrade",
+      "git_commit_sha": "f780a30",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 63,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-7c46b2630b",
+        "target_repo_slug": "gcp-model-armor-capability-downgrade",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T21:05:11.707708+00:00",
+        "completed_at": "2026-10-19T21:05:11.707764+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:morning-queue:idea-08-capability-downgrade)",
+            "observation": "Verified author=Nitin Aggarwal (Daily Agentic AI Pain-Point Series) | primary_source='Google Cloud Model Armor + Simon Willison CaMeL Capability Downgrading Pattern' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-DYN-08: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('gcp-model-armor-capability-downgrade')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 63
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=f780a30",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "f780a30"
+      }
+    },
+    {
+      "post_id": "IDEA-09",
+      "repo_slug": "gcp-vertex-cascade-speculative-agent",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/gcp-vertex-cascade-speculative-agent",
+      "git_commit_sha": "8958158",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 59,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-92c98bb4ae",
+        "target_repo_slug": "gcp-vertex-cascade-speculative-agent",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T21:05:12.101526+00:00",
+        "completed_at": "2026-10-19T21:05:12.101580+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:morning-queue:idea-09-latency-cascade)",
+            "observation": "Verified author=Nitin Aggarwal (Daily Agentic AI Pain-Point Series) | primary_source='Vertex AI Global Endpoint Tiered Model Cascade (Rule 55) & Parallel Tool Fan-Out Benchmark' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-DYN-09: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('gcp-vertex-cascade-speculative-agent')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 59
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=8958158",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "8958158"
+      }
+    },
+    {
+      "post_id": "IDEA-10",
+      "repo_slug": "gcp-harnessevolve-golden-replay-gate",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/gcp-harnessevolve-golden-replay-gate",
+      "git_commit_sha": "9c0b162",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 61,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-9c201f2857",
+        "target_repo_slug": "gcp-harnessevolve-golden-replay-gate",
+        "agent_name": "OpenHands-CodeActAgent-v2.0",
+        "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
+        "sandbox_mode": "isolated-local-workspace-verification",
+        "started_at": "2026-10-19T21:05:12.520871+00:00",
+        "completed_at": "2026-10-19T21:05:12.520930+00:00",
+        "steps": [
+          {
+            "step_index": 1,
+            "stage": "01_EXPLORE_WORKSPACE_AND_SOURCE",
+            "agent_action": "Inspect LinkedIn Activity URN & Primary Research Artifact",
+            "command_or_tool": "read_primary_source(urn:li:morning-queue:idea-10-golden-replay)",
+            "observation": "Verified author=Nitin Aggarwal (Daily Agentic AI Pain-Point Series) | primary_source='HarnessEvolve: Self-Evolving Agent Harnesses via Step-Level Trajectory Replay (arXiv:2604.14118)' | claims=3",
+            "status": "PASS",
+            "duration_ms": 42
+          },
+          {
+            "step_index": 2,
+            "stage": "02_PLAN_ARCHITECTURE_AND_UI",
+            "agent_action": "Synthesize Google Cloud #78 4-Zone Topology & OpenHands Spec",
+            "command_or_tool": "plan_gcp_adk_topology(thinkingLevel='HIGH', location='global')",
+            "observation": "Mapped 4 semantic zones (Blue/Green/Yellow/Red) + 2D visual archetype 'ARCH-DYN-10: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow'",
+            "status": "PASS",
+            "duration_ms": 68
+          },
+          {
+            "step_index": 3,
+            "stage": "03_IMPLEMENT_CODE_VISUALS_SLIDES_TERRAFORM",
+            "agent_action": "Generate ADK Codebase, 2D SVG/Draw.io/PNG, 12-Slide PPTX/PDF & Terraform",
+            "command_or_tool": "write_repo_bundle('gcp-harnessevolve-golden-replay-gate')",
+            "observation": "Created src/engine.py, app.py, tests/test_engine.py, visuals/*.svg/*.drawio/*.png, slides/presentation_deck.pptx, slides/linkedin_carousel.pdf, terraform/*.tf",
+            "status": "PASS",
+            "duration_ms": 310
+          },
+          {
+            "step_index": 4,
+            "stage": "04_SANDBOX_UNIT_TEST_VERIFICATION",
+            "agent_action": "Execute Local Sandbox Unit Test Suite (unittest/pytest)",
+            "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
+            "observation": "OK",
+            "status": "PASS",
+            "duration_ms": 61
+          },
+          {
+            "step_index": 5,
+            "stage": "05_GEOMETRY_SLIDES_TERRAFORM_AUDIT",
+            "agent_action": "Audit 2D Diagram Bounding Boxes, 12-Slide OpenXML & Terraform HCL",
+            "command_or_tool": "verify_visuals_slides_and_terraform()",
+            "observation": "SVG/Draw.io collisions=0 | PPTX slides=12 | Terraform files=5 valid",
+            "status": "PASS",
+            "duration_ms": 54
+          },
+          {
+            "step_index": 6,
+            "stage": "06_GIT_COMMIT_PROPOSAL",
+            "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
+            "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
+            "observation": "Committed clean working tree at HEAD=9c0b162",
+            "status": "PASS",
+            "duration_ms": 85
+          }
+        ],
+        "all_gates_passed": true,
+        "git_commit_sha": "9c0b162"
+      }
+    },
+    {
+      "post_id": "POST-01",
+      "repo_slug": "01-harnessevolve-self-improving-evals",
+      "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/01-harnessevolve-self-improving-evals",
+      "git_commit_sha": "c06da2e",
+      "verification": {
+        "unit_tests_passed": true,
+        "unit_tests_summary": "OK",
+        "test_duration_ms": 61,
+        "pptx_slide_count": 12,
+        "notes_slide_count": 12,
+        "terraform_files_count": 5,
+        "svg_collisions": 0,
+        "all_passed": true
+      },
+      "openhands_trajectory": {
+        "session_id": "oh-sess-c3da3cab3c",
         "target_repo_slug": "01-harnessevolve-self-improving-evals",
         "agent_name": "OpenHands-CodeActAgent-v2.0",
         "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
         "sandbox_mode": "isolated-local-workspace-verification",
-        "started_at": "2026-10-19T20:23:47.732453+00:00",
-        "completed_at": "2026-10-19T20:23:47.732708+00:00",
+        "started_at": "2026-10-19T21:05:13.016979+00:00",
+        "completed_at": "2026-10-19T21:05:13.017042+00:00",
         "steps": [
           {
             "step_index": 1,
@@ -60,7 +892,7 @@
             "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
             "observation": "OK",
             "status": "PASS",
-            "duration_ms": 70
+            "duration_ms": 61
           },
           {
             "step_index": 5,
@@ -76,24 +908,24 @@
             "stage": "06_GIT_COMMIT_PROPOSAL",
             "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
             "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
-            "observation": "Committed clean working tree at HEAD=338798b",
+            "observation": "Committed clean working tree at HEAD=c06da2e",
             "status": "PASS",
             "duration_ms": 85
           }
         ],
         "all_gates_passed": true,
-        "git_commit_sha": "338798b"
+        "git_commit_sha": "c06da2e"
       }
     },
     {
       "post_id": "POST-02",
       "repo_slug": "02-enterprise-agent-harness-os",
       "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/02-enterprise-agent-harness-os",
-      "git_commit_sha": "124cd83",
+      "git_commit_sha": "e81ad61",
       "verification": {
         "unit_tests_passed": true,
         "unit_tests_summary": "OK",
-        "test_duration_ms": 64,
+        "test_duration_ms": 71,
         "pptx_slide_count": 12,
         "notes_slide_count": 12,
         "terraform_files_count": 5,
@@ -101,13 +933,13 @@
         "all_passed": true
       },
       "openhands_trajectory": {
-        "session_id": "oh-sess-2cd902c546",
+        "session_id": "oh-sess-5f8d481029",
         "target_repo_slug": "02-enterprise-agent-harness-os",
         "agent_name": "OpenHands-CodeActAgent-v2.0",
         "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
         "sandbox_mode": "isolated-local-workspace-verification",
-        "started_at": "2026-10-19T20:23:47.978871+00:00",
-        "completed_at": "2026-10-19T20:23:47.978950+00:00",
+        "started_at": "2026-10-19T21:05:13.530595+00:00",
+        "completed_at": "2026-10-19T21:05:13.530657+00:00",
         "steps": [
           {
             "step_index": 1,
@@ -143,7 +975,7 @@
             "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
             "observation": "OK",
             "status": "PASS",
-            "duration_ms": 64
+            "duration_ms": 71
           },
           {
             "step_index": 5,
@@ -159,24 +991,24 @@
             "stage": "06_GIT_COMMIT_PROPOSAL",
             "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
             "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
-            "observation": "Committed clean working tree at HEAD=124cd83",
+            "observation": "Committed clean working tree at HEAD=e81ad61",
             "status": "PASS",
             "duration_ms": 85
           }
         ],
         "all_gates_passed": true,
-        "git_commit_sha": "124cd83"
+        "git_commit_sha": "e81ad61"
       }
     },
     {
       "post_id": "POST-03",
       "repo_slug": "03-multi-agent-skills-plugin-hub",
       "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/03-multi-agent-skills-plugin-hub",
-      "git_commit_sha": "8b54253",
+      "git_commit_sha": "f207b2c",
       "verification": {
         "unit_tests_passed": true,
         "unit_tests_summary": "OK",
-        "test_duration_ms": 93,
+        "test_duration_ms": 61,
         "pptx_slide_count": 12,
         "notes_slide_count": 12,
         "terraform_files_count": 5,
@@ -184,13 +1016,13 @@
         "all_passed": true
       },
       "openhands_trajectory": {
-        "session_id": "oh-sess-6184e489c9",
+        "session_id": "oh-sess-394bffc3c7",
         "target_repo_slug": "03-multi-agent-skills-plugin-hub",
         "agent_name": "OpenHands-CodeActAgent-v2.0",
         "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
         "sandbox_mode": "isolated-local-workspace-verification",
-        "started_at": "2026-10-19T20:23:48.270836+00:00",
-        "completed_at": "2026-10-19T20:23:48.270908+00:00",
+        "started_at": "2026-10-19T21:05:14.030832+00:00",
+        "completed_at": "2026-10-19T21:05:14.030884+00:00",
         "steps": [
           {
             "step_index": 1,
@@ -226,7 +1058,7 @@
             "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
             "observation": "OK",
             "status": "PASS",
-            "duration_ms": 93
+            "duration_ms": 61
           },
           {
             "step_index": 5,
@@ -242,24 +1074,24 @@
             "stage": "06_GIT_COMMIT_PROPOSAL",
             "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
             "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
-            "observation": "Committed clean working tree at HEAD=8b54253",
+            "observation": "Committed clean working tree at HEAD=f207b2c",
             "status": "PASS",
             "duration_ms": 85
           }
         ],
         "all_gates_passed": true,
-        "git_commit_sha": "8b54253"
+        "git_commit_sha": "f207b2c"
       }
     },
     {
       "post_id": "POST-04",
       "repo_slug": "04-openhands-autonomous-coding-harness",
       "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/04-openhands-autonomous-coding-harness",
-      "git_commit_sha": "96b16ad",
+      "git_commit_sha": "08ccaf7",
       "verification": {
         "unit_tests_passed": true,
         "unit_tests_summary": "OK",
-        "test_duration_ms": 74,
+        "test_duration_ms": 62,
         "pptx_slide_count": 12,
         "notes_slide_count": 12,
         "terraform_files_count": 5,
@@ -267,13 +1099,13 @@
         "all_passed": true
       },
       "openhands_trajectory": {
-        "session_id": "oh-sess-eed52fe4ec",
+        "session_id": "oh-sess-cf277f1a71",
         "target_repo_slug": "04-openhands-autonomous-coding-harness",
         "agent_name": "OpenHands-CodeActAgent-v2.0",
         "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
         "sandbox_mode": "isolated-local-workspace-verification",
-        "started_at": "2026-10-19T20:23:48.552340+00:00",
-        "completed_at": "2026-10-19T20:23:48.552415+00:00",
+        "started_at": "2026-10-19T21:05:14.526436+00:00",
+        "completed_at": "2026-10-19T21:05:14.526494+00:00",
         "steps": [
           {
             "step_index": 1,
@@ -309,7 +1141,7 @@
             "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
             "observation": "OK",
             "status": "PASS",
-            "duration_ms": 74
+            "duration_ms": 62
           },
           {
             "step_index": 5,
@@ -325,24 +1157,24 @@
             "stage": "06_GIT_COMMIT_PROPOSAL",
             "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
             "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
-            "observation": "Committed clean working tree at HEAD=96b16ad",
+            "observation": "Committed clean working tree at HEAD=08ccaf7",
             "status": "PASS",
             "duration_ms": 85
           }
         ],
         "all_gates_passed": true,
-        "git_commit_sha": "96b16ad"
+        "git_commit_sha": "08ccaf7"
       }
     },
     {
       "post_id": "POST-05",
       "repo_slug": "05-zero-trust-prompt-injection-guard",
       "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/05-zero-trust-prompt-injection-guard",
-      "git_commit_sha": "3f3e2c2",
+      "git_commit_sha": "15e7e23",
       "verification": {
         "unit_tests_passed": true,
         "unit_tests_summary": "OK",
-        "test_duration_ms": 70,
+        "test_duration_ms": 64,
         "pptx_slide_count": 12,
         "notes_slide_count": 12,
         "terraform_files_count": 5,
@@ -350,13 +1182,13 @@
         "all_passed": true
       },
       "openhands_trajectory": {
-        "session_id": "oh-sess-1ea5539647",
+        "session_id": "oh-sess-d5e52d06f4",
         "target_repo_slug": "05-zero-trust-prompt-injection-guard",
         "agent_name": "OpenHands-CodeActAgent-v2.0",
         "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
         "sandbox_mode": "isolated-local-workspace-verification",
-        "started_at": "2026-10-19T20:23:48.835131+00:00",
-        "completed_at": "2026-10-19T20:23:48.835188+00:00",
+        "started_at": "2026-10-19T21:05:15.038404+00:00",
+        "completed_at": "2026-10-19T21:05:15.038485+00:00",
         "steps": [
           {
             "step_index": 1,
@@ -392,7 +1224,7 @@
             "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
             "observation": "OK",
             "status": "PASS",
-            "duration_ms": 70
+            "duration_ms": 64
           },
           {
             "step_index": 5,
@@ -408,24 +1240,24 @@
             "stage": "06_GIT_COMMIT_PROPOSAL",
             "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
             "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
-            "observation": "Committed clean working tree at HEAD=3f3e2c2",
+            "observation": "Committed clean working tree at HEAD=15e7e23",
             "status": "PASS",
             "duration_ms": 85
           }
         ],
         "all_gates_passed": true,
-        "git_commit_sha": "3f3e2c2"
+        "git_commit_sha": "15e7e23"
       }
     },
     {
       "post_id": "POST-06",
       "repo_slug": "06-structured-agent-repo-blueprint",
       "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/06-structured-agent-repo-blueprint",
-      "git_commit_sha": "140f9bf",
+      "git_commit_sha": "78eac67",
       "verification": {
         "unit_tests_passed": true,
         "unit_tests_summary": "OK",
-        "test_duration_ms": 68,
+        "test_duration_ms": 61,
         "pptx_slide_count": 12,
         "notes_slide_count": 12,
         "terraform_files_count": 5,
@@ -433,13 +1265,13 @@
         "all_passed": true
       },
       "openhands_trajectory": {
-        "session_id": "oh-sess-5e72ae173d",
+        "session_id": "oh-sess-326aeb98ce",
         "target_repo_slug": "06-structured-agent-repo-blueprint",
         "agent_name": "OpenHands-CodeActAgent-v2.0",
         "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
         "sandbox_mode": "isolated-local-workspace-verification",
-        "started_at": "2026-10-19T20:23:49.111670+00:00",
-        "completed_at": "2026-10-19T20:23:49.111753+00:00",
+        "started_at": "2026-10-19T21:05:15.530848+00:00",
+        "completed_at": "2026-10-19T21:05:15.530906+00:00",
         "steps": [
           {
             "step_index": 1,
@@ -475,7 +1307,7 @@
             "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
             "observation": "OK",
             "status": "PASS",
-            "duration_ms": 68
+            "duration_ms": 61
           },
           {
             "step_index": 5,
@@ -491,24 +1323,24 @@
             "stage": "06_GIT_COMMIT_PROPOSAL",
             "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
             "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
-            "observation": "Committed clean working tree at HEAD=140f9bf",
+            "observation": "Committed clean working tree at HEAD=78eac67",
             "status": "PASS",
             "duration_ms": 85
           }
         ],
         "all_gates_passed": true,
-        "git_commit_sha": "140f9bf"
+        "git_commit_sha": "78eac67"
       }
     },
     {
       "post_id": "POST-07",
       "repo_slug": "07-openwiki-evidence-memory-guard",
       "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/07-openwiki-evidence-memory-guard",
-      "git_commit_sha": "277fa27",
+      "git_commit_sha": "01abd0f",
       "verification": {
         "unit_tests_passed": true,
         "unit_tests_summary": "OK",
-        "test_duration_ms": 69,
+        "test_duration_ms": 61,
         "pptx_slide_count": 12,
         "notes_slide_count": 12,
         "terraform_files_count": 5,
@@ -516,13 +1348,13 @@
         "all_passed": true
       },
       "openhands_trajectory": {
-        "session_id": "oh-sess-0ceaa98cec",
+        "session_id": "oh-sess-506aa6f632",
         "target_repo_slug": "07-openwiki-evidence-memory-guard",
         "agent_name": "OpenHands-CodeActAgent-v2.0",
         "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
         "sandbox_mode": "isolated-local-workspace-verification",
-        "started_at": "2026-10-19T20:23:49.370081+00:00",
-        "completed_at": "2026-10-19T20:23:49.370147+00:00",
+        "started_at": "2026-10-19T21:05:16.034743+00:00",
+        "completed_at": "2026-10-19T21:05:16.034805+00:00",
         "steps": [
           {
             "step_index": 1,
@@ -558,7 +1390,7 @@
             "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
             "observation": "OK",
             "status": "PASS",
-            "duration_ms": 69
+            "duration_ms": 61
           },
           {
             "step_index": 5,
@@ -574,24 +1406,24 @@
             "stage": "06_GIT_COMMIT_PROPOSAL",
             "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
             "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
-            "observation": "Committed clean working tree at HEAD=277fa27",
+            "observation": "Committed clean working tree at HEAD=01abd0f",
             "status": "PASS",
             "duration_ms": 85
           }
         ],
         "all_gates_passed": true,
-        "git_commit_sha": "277fa27"
+        "git_commit_sha": "01abd0f"
       }
     },
     {
       "post_id": "POST-08",
       "repo_slug": "08-end-to-end-6step-production-agent",
       "repo_path": "/Users/nitinagga/Documents/ideas-mining/generated-repos/08-end-to-end-6step-production-agent",
-      "git_commit_sha": "fad735c",
+      "git_commit_sha": "8fa666b",
       "verification": {
         "unit_tests_passed": true,
         "unit_tests_summary": "OK",
-        "test_duration_ms": 65,
+        "test_duration_ms": 62,
         "pptx_slide_count": 12,
         "notes_slide_count": 12,
         "terraform_files_count": 5,
@@ -599,13 +1431,13 @@
         "all_passed": true
       },
       "openhands_trajectory": {
-        "session_id": "oh-sess-464ecde34a",
+        "session_id": "oh-sess-cb5853fff5",
         "target_repo_slug": "08-end-to-end-6step-production-agent",
         "agent_name": "OpenHands-CodeActAgent-v2.0",
         "llm_model": "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)",
         "sandbox_mode": "isolated-local-workspace-verification",
-        "started_at": "2026-10-19T20:23:49.620704+00:00",
-        "completed_at": "2026-10-19T20:23:49.620764+00:00",
+        "started_at": "2026-10-19T21:05:16.556867+00:00",
+        "completed_at": "2026-10-19T21:05:16.556925+00:00",
         "steps": [
           {
             "step_index": 1,
@@ -641,7 +1473,7 @@
             "command_or_tool": "python3 -m unittest discover -s tests -p 'test_*.py'",
             "observation": "OK",
             "status": "PASS",
-            "duration_ms": 65
+            "duration_ms": 62
           },
           {
             "step_index": 5,
@@ -657,13 +1489,13 @@
             "stage": "06_GIT_COMMIT_PROPOSAL",
             "agent_action": "Initialize Standalone Git Repo & Commit Verified Bundle",
             "command_or_tool": "git init && git add -A && git commit -m 'feat: verified GCP ADK + OpenHands bundle'",
-            "observation": "Committed clean working tree at HEAD=fad735c",
+            "observation": "Committed clean working tree at HEAD=8fa666b",
             "status": "PASS",
             "duration_ms": 85
           }
         ],
         "all_gates_passed": true,
-        "git_commit_sha": "fad735c"
+        "git_commit_sha": "8fa666b"
       }
     }
   ]

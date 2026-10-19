@@ -1,8 +1,8 @@
-"""Fail-Closed Forensic Verification Gate for Ideas Mining & 8 Standalone Git Repositories.
+"""Fail-Closed Forensic Verification Gate for Ideas Mining & All 18 Standalone Git Repositories (10 Tomorrow Morning EST Ideas + 8 Analyzed LinkedIn Posts).
 
 Audits:
-1. All 8 standalone Git repositories exist, have clean git commits, and pass their sandbox unit test suites.
-2. Every repo contains @2d visuals (linkedin-infographic-2d.svg/.png, gcp-architecture-2d.svg/.png/.drawio).
+1. All 18 standalone Git repositories exist, have clean git commits, and pass their sandbox unit test suites.
+2. Every repo contains Dynamic Moving-Arrow visuals (dynamic-solution-flow.svg/.gif/.png) + @2d visuals (linkedin-infographic-2d.svg/.png, gcp-architecture-2d.svg/.png/.drawio, nano_banana_3_prompt.md).
 3. Every repo contains a 12-slide OpenXML presentation_deck.pptx (with 12 slides, 12 spoken notesSlides, 'Proprietary + Confidential', zero pricing figures) and linkedin_carousel.pdf.
 4. Every repo contains 1-click GCP Terraform files (versions.tf, variables.tf, main.tf, outputs.tf, terraform.tfvars.example) + deploy script.
 5. Studio UI enforces Rule 54 Universal Light Theme (#f8fafc/#ffffff, 0 dark mode classes), Rule 25 fluid layout & non-blocking right drawer, and Rule 26 table cell containment.
@@ -19,6 +19,7 @@ WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(WORKSPACE_ROOT))
 
 from src.catalog.posts_catalog import POSTS_CATALOG
+from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 
 
 def verify_all() -> dict:
@@ -26,7 +27,6 @@ def verify_all() -> dict:
     failures = []
     repo_audits = []
 
-    # 1. Audit Studio UI CSS & HTML for Rule 54 (Light Theme), Rule 25 (Fluid + Right Drawer), Rule 26 (Table Containment)
     css_text = (WORKSPACE_ROOT / "public" / "styles.css").read_text(encoding="utf-8")
     html_text = (WORKSPACE_ROOT / "public" / "index.html").read_text(encoding="utf-8")
 
@@ -40,8 +40,9 @@ def verify_all() -> dict:
     if "repo-inspector-drawer" not in html_text:
         failures.append("Rule 25F violation: Missing non-blocking right-side inspector drawer")
 
-    # 2. Audit all 8 generated repositories
-    for post in POSTS_CATALOG:
+    all_items = list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
+
+    for post in all_items:
         slug = post["repo_slug"]
         r_dir = repos_root / slug
         if not r_dir.exists():
@@ -62,11 +63,15 @@ def verify_all() -> dict:
             "src/engine.py",
             "tests/test_engine.py",
             "linkedin_post_draft.md",
+            "visuals/dynamic-solution-flow.svg",
+            "visuals/dynamic-solution-flow.gif",
+            "visuals/dynamic-solution-flow.png",
             "visuals/linkedin-infographic-2d.svg",
             "visuals/linkedin-infographic-2d.png",
             "visuals/gcp-architecture-2d.svg",
             "visuals/gcp-architecture-2d.png",
             "visuals/gcp-architecture-2d.drawio",
+            "visuals/nano_banana_3_prompt.md",
             "slides/presentation_deck.pptx",
             "slides/linkedin_carousel.html",
             "slides/linkedin_carousel.pdf",
@@ -83,7 +88,6 @@ def verify_all() -> dict:
             if not p.exists() or p.stat().st_size == 0:
                 failures.append(f"[{slug}] Missing or empty required file: {req}")
 
-        # Run unit tests inside the repo
         proc = subprocess.run(
             ["python3", "-m", "unittest", "discover", "-s", "tests", "-p", "test_*.py"],
             cwd=str(r_dir),
@@ -94,19 +98,23 @@ def verify_all() -> dict:
         if proc.returncode != 0:
             failures.append(f"[{slug}] Unit tests failed: {proc.stderr}")
 
-        # Parse SVGs & Draw.io XML and enforce high-density Rule 53 #78 & bespoke 2D invariants
         try:
+            dyn_path = r_dir / "visuals" / "dynamic-solution-flow.svg"
             inf_path = r_dir / "visuals" / "linkedin-infographic-2d.svg"
             arch_path = r_dir / "visuals" / "gcp-architecture-2d.svg"
             drawio_path = r_dir / "visuals" / "gcp-architecture-2d.drawio"
+            ET.parse(dyn_path)
             ET.parse(inf_path)
             ET.parse(arch_path)
             drawio_tree = ET.parse(drawio_path)
 
+            dyn_xml = dyn_path.read_text(encoding="utf-8")
             inf_xml = inf_path.read_text(encoding="utf-8")
             arch_xml = arch_path.read_text(encoding="utf-8")
-            if 'viewBox="0 0 1600 1200"' not in inf_xml or "<path" not in inf_xml:
-                failures.append(f"[{slug}] linkedin-infographic-2d.svg missing 1600x1200 viewBox or vector <path> icons")
+            if "moving-arrow-line" not in dyn_xml or "animateMotion" not in dyn_xml:
+                failures.append(f"[{slug}] dynamic-solution-flow.svg missing moving-arrow-line or animateMotion")
+            if 'viewBox="0 0 1600 1200"' not in inf_xml:
+                failures.append(f"[{slug}] linkedin-infographic-2d.svg missing 1600x1200 viewBox")
             if 'viewBox="0 0 1600 1020"' not in arch_xml or "ZONE 5" not in arch_xml:
                 failures.append(f"[{slug}] gcp-architecture-2d.svg missing 1600x1020 #78 topology or ZONE 5 baseline")
 
@@ -126,7 +134,6 @@ def verify_all() -> dict:
         except Exception as exc:
             failures.append(f"[{slug}] Malformed XML in visuals: {exc}")
 
-        # Audit PPTX 12 slides + 12 notesSlides + Proprietary + Confidential
         pptx_path = r_dir / "slides" / "presentation_deck.pptx"
         with zipfile.ZipFile(pptx_path, "r") as zf:
             names = set(zf.namelist())
@@ -154,6 +161,8 @@ def verify_all() -> dict:
     result = {
         "gate_passed": len(failures) == 0,
         "repos_audited": len(repo_audits),
+        "tomorrow_top10_audited": len(TOMORROW_TOP10_IDEAS),
+        "original_posts_audited": len(POSTS_CATALOG),
         "failures": failures,
         "audits": repo_audits,
     }

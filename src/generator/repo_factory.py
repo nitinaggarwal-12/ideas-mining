@@ -291,16 +291,25 @@ def _build_repo_readme(post: Dict[str, Any]) -> str:
 
 ---
 
-## 2. `@2d` Architecture Diagrams & Visuals
+## 2. `@2d` Dynamic Moving-Arrow & Architecture Diagrams
 
-### Figure 1 — Official Google Cloud `#78` 4-Zone Hub-and-Spoke 2D Topology
-![Google Cloud #78 2D Architecture](./visuals/gcp-architecture-2d.svg)
+### Figure 1 — Dynamic Daily Problem $\rightarrow$ 4-Step Solution Flow (With Moving Arrows)
+![Dynamic Solution Flow With Moving Arrows](./visuals/dynamic-solution-flow.svg)
 
-- **Editable Draw.io Source**: [`./visuals/gcp-architecture-2d.drawio`](./visuals/gcp-architecture-2d.drawio)
-- **High-Res PNG Export**: [`./visuals/gcp-architecture-2d.png`](./visuals/gcp-architecture-2d.png)
+- **Animated Moving-Arrow SVG (60fps Browser Native)**: [`./visuals/dynamic-solution-flow.svg`](./visuals/dynamic-solution-flow.svg)
+- **Animated Moving-Arrow GIF (Direct LinkedIn Upload)**: [`./visuals/dynamic-solution-flow.gif`](./visuals/dynamic-solution-flow.gif)
+- **High-Res Static Frame PNG**: [`./visuals/dynamic-solution-flow.png`](./visuals/dynamic-solution-flow.png)
 
-### Figure 2 — LinkedIn 2D Infographic Poster (`1200x1350`)
-![LinkedIn 2D Infographic](./visuals/linkedin-infographic-2d.svg)
+### Figure 2 — Official Google Cloud `#78` 4-Zone Hub-and-Spoke 2D Topology
+![Google Cloud #78 2D Architecture](./visuals/gcp-architecture-2d.png)
+
+- **Editable Draw.io Source (18 Cards + 23 Edges)**: [`./visuals/gcp-architecture-2d.drawio`](./visuals/gcp-architecture-2d.drawio)
+- **Editable Vector SVG**: [`./visuals/gcp-architecture-2d.svg`](./visuals/gcp-architecture-2d.svg)
+
+### Figure 3 — LinkedIn 2D Infographic Poster (`Nano Banana 3` + Vector SVG)
+![LinkedIn 2D Infographic](./visuals/linkedin-infographic-2d.png)
+
+- **Nano Banana 3 Detailed Prompts**: [`./visuals/nano_banana_3_prompt.md`](./visuals/nano_banana_3_prompt.md)
 
 ---
 
@@ -363,11 +372,13 @@ def _build_linkedin_post_draft(post: Dict[str, Any]) -> str:
         f"{s['step']}. {s['title']} — {s['desc']}" for s in post["core_steps"]
     )
     claims_list = "\n".join(f"• {c}" for c in post["primary_source"]["verified_claims"])
+    est_slot = post.get("est_post_time", "Morning EST Slot")
     return f"""# Ready-to-Publish LinkedIn Post Copy for Nitin Aggarwal
 
 **Author Profile**: https://www.linkedin.com/in/nitin-aggarwal-b49786a/
-**Recommended Visual Attachment**: `visuals/linkedin-infographic-2d.png` OR `slides/linkedin_carousel.pdf`
-**Inspired By**: {post['author_name']} ({post['linkedin_url']})
+**Scheduled Posting Window**: {est_slot}
+**Recommended Visual Attachment**: `visuals/dynamic-solution-flow.gif` (Moving Arrows) OR `visuals/linkedin-infographic-2d.png` OR `slides/linkedin_carousel.pdf`
+**Inspired By / Series**: {post['author_name']} ({post['linkedin_url']})
 
 ---
 

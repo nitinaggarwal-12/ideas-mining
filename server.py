@@ -8,6 +8,7 @@ from pathlib import Path
 from urllib.parse import unquote
 
 from src.catalog.posts_catalog import CREATOR_MINING_PLAYBOOK, POSTS_CATALOG, USER_PROFILE
+from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 from src.harvester.idea_miner import AgenticIdeaMiner
 
 
@@ -15,6 +16,7 @@ WORKSPACE_ROOT = Path(__file__).resolve().parent
 PUBLIC_DIR = WORKSPACE_ROOT / "public"
 REPOS_ROOT = WORKSPACE_ROOT / "generated-repos"
 MINER = AgenticIdeaMiner()
+ALL_CATALOG_ITEMS = list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
 
 
 class StudioRequestHandler(BaseHTTPRequestHandler):
@@ -36,6 +38,8 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         ctype, _ = mimetypes.guess_type(str(file_path))
         if file_path.suffix == ".svg":
             ctype = "image/svg+xml"
+        elif file_path.suffix == ".gif":
+            ctype = "image/gif"
         elif file_path.suffix == ".drawio":
             ctype = "application/xml"
         elif file_path.suffix == ".pptx":
@@ -61,13 +65,14 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
 
         if path == "/api/workspace-state":
             enriched_repos = []
-            for p in POSTS_CATALOG:
+            for p in ALL_CATALOG_ITEMS:
                 r_dir = REPOS_ROOT / p["repo_slug"]
                 receipt_file = r_dir / "openhands_verification_receipt.json"
                 receipt = {}
                 if receipt_file.exists():
                     receipt = json.loads(receipt_file.read_text(encoding="utf-8"))
                 item = dict(p)
+                item["category"] = "TOMORROW_TOP10" if p["id"].startswith("IDEA-") else "ANALYZED_POSTS"
                 item["git_commit_sha"] = receipt.get("openhands_trajectory", {}).get("git_commit_sha", "verified")
                 item["verification"] = receipt.get("verification", {})
                 item["openhands_trajectory"] = receipt.get("openhands_trajectory", {})
@@ -78,6 +83,8 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 {
                     "user_profile": USER_PROFILE,
                     "playbook": CREATOR_MINING_PLAYBOOK,
+                    "tomorrow_top10_count": len(TOMORROW_TOP10_IDEAS),
+                    "analyzed_posts_count": len(POSTS_CATALOG),
                     "repos": enriched_repos,
                 },
             )
@@ -85,7 +92,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
 
         if path.startswith("/api/repo-detail/"):
             slug = path.replace("/api/repo-detail/", "").strip("/")
-            matched = next((p for p in POSTS_CATALOG if p["repo_slug"] == slug), None)
+            matched = next((p for p in ALL_CATALOG_ITEMS if p["repo_slug"] == slug), None)
             if not matched:
                 self._send_json(404, {"error": "Unknown repository slug"})
                 return
@@ -93,6 +100,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             tf_main = (r_dir / "terraform" / "main.tf").read_text(encoding="utf-8") if (r_dir / "terraform" / "main.tf").exists() else ""
             engine_py = (r_dir / "src" / "engine.py").read_text(encoding="utf-8") if (r_dir / "src" / "engine.py").exists() else ""
             li_draft = (r_dir / "linkedin_post_draft.md").read_text(encoding="utf-8") if (r_dir / "linkedin_post_draft.md").exists() else ""
+            nb3_prompt = (r_dir / "visuals" / "nano_banana_3_prompt.md").read_text(encoding="utf-8") if (r_dir / "visuals" / "nano_banana_3_prompt.md").exists() else ""
             slides_manifest = {}
             if (r_dir / "slides" / "slide_manifest.json").exists():
                 slides_manifest = json.loads((r_dir / "slides" / "slide_manifest.json").read_text(encoding="utf-8"))
@@ -105,6 +113,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             detail["terraform_main"] = tf_main
             detail["engine_py"] = engine_py
             detail["linkedin_post_draft"] = li_draft
+            detail["nano_banana_3_prompt"] = nb3_prompt
             detail["slides"] = slides_manifest.get("slides", [])
             self._send_json(200, detail)
             return

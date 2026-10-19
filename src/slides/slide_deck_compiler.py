@@ -553,6 +553,19 @@ def compile_linkedin_carousel_html(post: Dict[str, Any], slides: List[Dict[str, 
                 </div>
                 """
             )
+        diagram_embed_html = ""
+        if s["slide_num"] == 4:
+            diagram_embed_html = (
+                '<div class="slide-diagram-embed">'
+                '<img src="../visuals/linkedin-infographic-2d.svg" alt="Bespoke 2D Architecture Infographic" />'
+                "</div>"
+            )
+        elif s["slide_num"] == 5:
+            diagram_embed_html = (
+                '<div class="slide-diagram-embed">'
+                '<img src="../visuals/gcp-architecture-2d.svg" alt="Official Google Cloud #78 Hub-and-Spoke 2D Blueprint" />'
+                "</div>"
+            )
         notes_html = "".join(f"<p>{_xml_esc(p)}</p>" for p in s["spoken_notes"])
         slide_blocks.append(
             f"""
@@ -564,6 +577,7 @@ def compile_linkedin_carousel_html(post: Dict[str, Any], slides: List[Dict[str, 
               <div class="slide-main">
                 <h1>{_xml_esc(s["headline"])}</h1>
                 <p class="slide-sub">{_xml_esc(s["subtitle"])}</p>
+                {diagram_embed_html}
                 <div class="cards-grid">
                   {"".join(cards_html)}
                 </div>
@@ -594,6 +608,21 @@ def compile_linkedin_carousel_html(post: Dict[str, Any], slides: List[Dict[str, 
       background: #f8fafc;
       color: #0f172a;
       padding: 24px;
+    }}
+    .slide-diagram-embed {{
+      margin-bottom: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 6px;
+      text-align: center;
+    }}
+    .slide-diagram-embed img {{
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
     }}
     .slide-page {{
       width: 100%;

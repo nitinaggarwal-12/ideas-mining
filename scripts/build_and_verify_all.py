@@ -29,45 +29,42 @@ def render_png_and_pdf_for_repo(repo_dir: Path) -> None:
     carousel_html = repo_dir / "slides" / "linkedin_carousel.html"
     carousel_pdf = repo_dir / "slides" / "linkedin_carousel.pdf"
 
-    if not infographic_png.exists() or infographic_png.stat().st_size == 0:
-        subprocess.run(
-            [
-                str(chrome),
-                "--headless",
-                "--disable-gpu",
-                "--window-size=1200,1350",
-                f"--screenshot={infographic_png}",
-                f"file://{infographic_svg}",
-            ],
-            check=False,
-            capture_output=True,
-        )
-    if not arch_png.exists() or arch_png.stat().st_size == 0:
-        subprocess.run(
-            [
-                str(chrome),
-                "--headless",
-                "--disable-gpu",
-                "--window-size=1280,780",
-                f"--screenshot={arch_png}",
-                f"file://{arch_svg}",
-            ],
-            check=False,
-            capture_output=True,
-        )
-    if not carousel_pdf.exists() or carousel_pdf.stat().st_size == 0:
-        subprocess.run(
-            [
-                str(chrome),
-                "--headless",
-                "--disable-gpu",
-                f"--print-to-pdf={carousel_pdf}",
-                "--no-pdf-header-footer",
-                f"file://{carousel_html}",
-            ],
-            check=False,
-            capture_output=True,
-        )
+    subprocess.run(
+        [
+            str(chrome),
+            "--headless",
+            "--disable-gpu",
+            "--window-size=1600,1200",
+            f"--screenshot={infographic_png}",
+            f"file://{infographic_svg}",
+        ],
+        check=False,
+        capture_output=True,
+    )
+    subprocess.run(
+        [
+            str(chrome),
+            "--headless",
+            "--disable-gpu",
+            "--window-size=1600,1020",
+            f"--screenshot={arch_png}",
+            f"file://{arch_svg}",
+        ],
+        check=False,
+        capture_output=True,
+    )
+    subprocess.run(
+        [
+            str(chrome),
+            "--headless",
+            "--disable-gpu",
+            f"--print-to-pdf={carousel_pdf}",
+            "--no-pdf-header-footer",
+            f"file://{carousel_html}",
+        ],
+        check=False,
+        capture_output=True,
+    )
 
     # Commit the rendered PNG and PDF files into the standalone Git repo
     subprocess.run(["git", "add", "-A"], cwd=str(repo_dir), check=True, capture_output=True)
@@ -80,16 +77,23 @@ def render_png_and_pdf_for_repo(repo_dir: Path) -> None:
 
 
 def main() -> None:
+    from concurrent.futures import ThreadPoolExecutor
+
     repos_root = WORKSPACE_ROOT / "generated-repos"
     repos_root.mkdir(parents=True, exist_ok=True)
     harness = OpenHandsAutonomousHarness(WORKSPACE_ROOT)
 
     results = []
+    repo_dirs = []
     for post in POSTS_CATALOG:
         print(f"==> [OpenHands Factory] Building & verifying {post['id']} -> {post['repo_slug']}...")
         res = generate_and_verify_single_repo(post, repos_root, harness)
-        render_png_and_pdf_for_repo(Path(res["repo_path"]))
         results.append(res)
+        repo_dirs.append(Path(res["repo_path"]))
+
+    print("==> [Headless Chrome] Rendering 16 high-density @2d PNGs and 8 12-slide PDF carousels in parallel...")
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        list(pool.map(render_png_and_pdf_for_repo, repo_dirs))
 
     summary = {
         "total_repos_generated": len(results),

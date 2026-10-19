@@ -94,11 +94,35 @@ def verify_all() -> dict:
         if proc.returncode != 0:
             failures.append(f"[{slug}] Unit tests failed: {proc.stderr}")
 
-        # Parse SVGs & Draw.io XML
+        # Parse SVGs & Draw.io XML and enforce high-density Rule 53 #78 & bespoke 2D invariants
         try:
-            ET.parse(r_dir / "visuals" / "linkedin-infographic-2d.svg")
-            ET.parse(r_dir / "visuals" / "gcp-architecture-2d.svg")
-            ET.parse(r_dir / "visuals" / "gcp-architecture-2d.drawio")
+            inf_path = r_dir / "visuals" / "linkedin-infographic-2d.svg"
+            arch_path = r_dir / "visuals" / "gcp-architecture-2d.svg"
+            drawio_path = r_dir / "visuals" / "gcp-architecture-2d.drawio"
+            ET.parse(inf_path)
+            ET.parse(arch_path)
+            drawio_tree = ET.parse(drawio_path)
+
+            inf_xml = inf_path.read_text(encoding="utf-8")
+            arch_xml = arch_path.read_text(encoding="utf-8")
+            if 'viewBox="0 0 1600 1200"' not in inf_xml or "<path" not in inf_xml:
+                failures.append(f"[{slug}] linkedin-infographic-2d.svg missing 1600x1200 viewBox or vector <path> icons")
+            if 'viewBox="0 0 1600 1020"' not in arch_xml or "ZONE 5" not in arch_xml:
+                failures.append(f"[{slug}] gcp-architecture-2d.svg missing 1600x1020 #78 topology or ZONE 5 baseline")
+
+            cells = drawio_tree.getroot().findall(".//mxCell")
+            card_cells = [
+                c
+                for c in cells
+                if (c.attrib.get("id") or "").startswith("c")
+                and len(c.attrib.get("id") or "") > 1
+                and (c.attrib.get("id") or "")[1].isdigit()
+            ]
+            edge_cells = [c for c in cells if c.attrib.get("edge") == "1"]
+            if len(card_cells) < 18 or len(edge_cells) < 23:
+                failures.append(
+                    f"[{slug}] gcp-architecture-2d.drawio density failure: cards={len(card_cells)} (min 18), edges={len(edge_cells)} (min 23)"
+                )
         except Exception as exc:
             failures.append(f"[{slug}] Malformed XML in visuals: {exc}")
 

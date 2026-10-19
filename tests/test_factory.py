@@ -29,15 +29,19 @@ class TestIdeasMiningFactory(unittest.TestCase):
         self.assertIn("nitin-aggarwal-b49786a", USER_PROFILE["linkedin_url"])
 
     def test_2d_visual_generators_produce_valid_light_theme_svg_and_drawio(self) -> None:
-        sample = POSTS_CATALOG[0]
-        poster_svg = generate_linkedin_infographic_svg(sample)
-        arch_svg = generate_gcp_arch_78_svg(sample)
-        drawio_xml = generate_gcp_arch_78_drawio(sample)
+        for post in POSTS_CATALOG:
+            poster_svg = generate_linkedin_infographic_svg(post)
+            arch_svg = generate_gcp_arch_78_svg(post)
+            drawio_xml = generate_gcp_arch_78_drawio(post)
 
-        self.assertIn("#f8fafc", poster_svg)
-        self.assertIn("Proprietary + Confidential", poster_svg)
-        self.assertIn("FIGURE 1", arch_svg)
-        self.assertIn("<mxGraphModel", drawio_xml)
+            self.assertIn("#f8fafc", poster_svg.lower())
+            self.assertIn("Proprietary + Confidential", poster_svg)
+            self.assertIn(f'id="bespoke-{post["id"].lower()}"', poster_svg)
+            self.assertIn("TEMPLATE #78 HUB-AND-SPOKE BLUEPRINT", arch_svg)
+            self.assertIn("18/18 CARDS • 23 EDGES", arch_svg)
+            self.assertIn("ZONE 5 • PRODUCTION TELEMETRY", arch_svg)
+            self.assertIn("<mxGraphModel", drawio_xml)
+            self.assertIn("e_alb_to_mid_left", drawio_xml)
 
     def test_12_slide_story_arc_and_spoken_notes(self) -> None:
         for post in POSTS_CATALOG:

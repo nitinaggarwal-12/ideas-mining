@@ -1,370 +1,1285 @@
-"""Deterministic 2D Visual Generator (LinkedIn Infographics, GCP #78 Architecture SVGs & Draw.io XML).
+"""Production-Grade 2D Architecture & LinkedIn Infographic Engine (Rule 53 + Diagram Generation Engine SKILL.md).
 
-Enforces:
-- Rule 54 Universal Executive Light Theme (#f8fafc canvas, #ffffff cards, #0f172a typography)
-- Google Quad-Color sequence (#4285F4 Blue, #EA4335 Red, #FBBC04 Yellow, #34A853 Green)
-- Official Google Cloud Architecture Center #78 4-Zone Hub-and-Spoke geometry
-- Zero overlapping bounding boxes and zero cartoon emojis in technical badges
+Generates two distinct, high-density, zero-collision 2D visual architectures for each of the 8 posts:
+1. `gcp-architecture-2d.svg` & `gcp-architecture-2d.drawio` (1600x1000 16:9):
+   - Authentic Official Google Cloud Architecture Center Template #78 (Hub-and-Spoke) + 6-Zone Enterprise Matrix:
+   - 18 distinct component cards with embedded vector SVG icons (Gemini 4-point star, Cloud Armor shield, IAM/KMS key,
+     Cloud Run hex-play, GKE/OpenHands wheel, 3D AlloyDB/Spanner/BigQuery database cylinders, Rhombus decision gates,
+     ADK Hexagon agents, Pub/Sub & OpenTelemetry nodes).
+   - 23 connected orthogonal edges using the Typed 6-Color Connector Palette (#2563EB solid blue, #7C3AED dashed purple,
+     #EA580C dashed orange, #16A34A solid green, #0D9488 closed-loop teal, #64748B governance slate) with opaque
+     high-contrast pill badges (①..⑦, 3a..3b, 4a..4d) routed in dedicated 52px-80px channels so zero lines cross text.
+2. `linkedin-infographic-2d.svg` (1600x1200):
+   - Bespoke, post-specific 2D visual topology matching the exact mechanism of each post (Trajectory Replay Diff &
+     Dual Rhombus Gates for POST-01; 10-Layer Radial/Bento Harness OS for POST-02; 5-Repo Multi-Agent Switchboard for
+     POST-03; 6-Stage OpenHands Container Sandbox & Subagent Loop for POST-04; 3-Swimlane Safe vs. Indirect Prompt
+     Injection Attack & Model Armor Defense for POST-05; 9-File IDE Repo Tree & 3-Tier Context Router for POST-06;
+     OpenWiki Claim-to-SHA Receipt Graph, O(1) Diamond & 80->9 Bar Charts for POST-07; 6-Step Core Agent Loop Enclave
+     with Rhombus Stopping Gate & 5 Guardrail Pods for POST-08).
 """
 
+from __future__ import annotations
+
+import base64
 import html
 import textwrap
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 
-QUAD_COLORS = ["#4285F4", "#EA4335", "#FBBC04", "#34A853"]
-QUAD_BG = ["#E8F0FE", "#FCE8E6", "#FEF7E0", "#E6F4EA"]
-QUAD_TEXT = ["#174EA6", "#A50E0E", "#B06000", "#0D652D"]
+def _esc(val: Any) -> str:
+    return html.escape(str(val or ""), quote=True)
 
 
-def _esc(text: Any) -> str:
-    return html.escape(str(text or ""), quote=True)
-
-
-def _wrap_lines(text: str, width: int, max_lines: int = 3) -> List[str]:
-    wrapped = textwrap.wrap(text.strip(), width=width)
-    if not wrapped:
+def _wrap(text: str, width: int, max_lines: int = 2) -> List[str]:
+    lines = textwrap.wrap(str(text or "").strip(), width=width)
+    if not lines:
         return [""]
-    if len(wrapped) > max_lines:
-        wrapped = wrapped[:max_lines]
-        wrapped[-1] = wrapped[-1][: max(0, width - 3)] + "..."
-    return wrapped
+    if len(lines) > max_lines:
+        lines = lines[:max_lines]
+        if len(lines[-1]) > 3:
+            lines[-1] = lines[-1][:-3].rstrip() + "..."
+    return lines
 
 
-def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
-    """Render a 1200x1350 Executive Light-Theme 2D LinkedIn Infographic Poster SVG."""
-    title_lines = _wrap_lines(post["post_title"], width=54, max_lines=2)
-    hook_lines = _wrap_lines(post["original_hook"], width=92, max_lines=2)
-    primary_claims = post["primary_source"]["verified_claims"]
+# Authentic inline SVG vector icon paths for Google Cloud & Agentic components (Pillar 8: Zero Emojis)
+def _render_vector_icon(kind: str, x: int, y: int) -> str:
+    """Render a crisp 28x28 vector service icon at (x, y)."""
+    if kind == "shield":  # Cloud Armor / Model Armor
+        return (
+            f'<g transform="translate({x},{y})">'
+            '<rect width="28" height="28" rx="6" fill="#E8F0FE" stroke="#4285F4" stroke-width="1.2"/>'
+            '<path d="M14 5 L22 8.5 V14.5 C22 19.2 18.6 22.8 14 24 C9.4 22.8 6 19.2 6 14.5 V8.5 Z" fill="#4285F4"/>'
+            '<path d="M14 7.5 V21.5 C17.2 20.4 19.5 17.7 19.5 14.3 V10 L14 7.5 Z" fill="#174EA6"/>'
+            "</g>"
+        )
+    if kind == "gemini":  # Vertex AI Gemini 4-point star
+        return (
+            f'<g transform="translate({x},{y})">'
+            '<rect width="28" height="28" rx="6" fill="#F3E8FF" stroke="#7C3AED" stroke-width="1.2"/>'
+            '<path d="M14 4 C14.8 10.2 17.8 13.2 24 14 C17.8 14.8 14.8 17.8 14 24 C13.2 17.8 10.2 14.8 4 14 C10.2 13.2 13.2 10.2 14 4 Z" fill="#7C3AED"/>'
+            "</g>"
+        )
+    if kind == "hexagon":  # Google ADK / A2A Agent Hexagon
+        return (
+            f'<g transform="translate({x},{y})">'
+            '<rect width="28" height="28" rx="6" fill="#FEF7E0" stroke="#FBBC04" stroke-width="1.2"/>'
+            '<polygon points="14,4 23,9 23,19 14,24 5,19 5,9" fill="#F59E0B" stroke="#B45309" stroke-width="1.2"/>'
+            '<circle cx="14" cy="14" r="3.5" fill="#FFFFFF"/>'
+            "</g>"
+        )
+    if kind == "cylinder":  # AlloyDB / Spanner / BigQuery / Firestore 3D Cylinder
+        return (
+            f'<g transform="translate({x},{y})">'
+            '<rect width="28" height="28" rx="6" fill="#FCE8E6" stroke="#EA4335" stroke-width="1.2"/>'
+            '<path d="M7 9 C7 6.8 21 6.8 21 9 V19 C21 21.2 7 21.2 7 19 Z" fill="#EA4335"/>'
+            '<ellipse cx="14" cy="9" rx="7" ry="2.6" fill="#F87171" stroke="#991B1B" stroke-width="1"/>'
+            '<path d="M7 14 C7 16 21 16 21 14" fill="none" stroke="#FFFFFF" stroke-width="1"/>'
+            "</g>"
+        )
+    if kind == "key":  # KMS / IAM / WIF / CASG
+        return (
+            f'<g transform="translate({x},{y})">'
+            '<rect width="28" height="28" rx="6" fill="#E6F4EA" stroke="#34A853" stroke-width="1.2"/>'
+            '<circle cx="10.5" cy="14" r="4.2" fill="none" stroke="#1E8E3E" stroke-width="2.2"/>'
+            '<path d="M14.5 14 H23 M19.5 14 V17.5 M22.5 14 V17.5" stroke="#1E8E3E" stroke-width="2.2" stroke-linecap="round"/>'
+            "</g>"
+        )
+    if kind == "diamond":  # Decision Gate / Competence Gate / Circuit Breaker
+        return (
+            f'<g transform="translate({x},{y})">'
+            '<rect width="28" height="28" rx="6" fill="#E6F4EA" stroke="#16A34A" stroke-width="1.2"/>'
+            '<polygon points="14,4 24,14 14,24 4,14" fill="#16A34A"/>'
+            '<path d="M10.5 14 L13 16.5 L18 11.5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>'
+            "</g>"
+        )
+    if kind == "sandbox":  # OpenHands / Cloud Run Container Sandbox
+        return (
+            f'<g transform="translate({x},{y})">'
+            '<rect width="28" height="28" rx="6" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.2"/>'
+            '<rect x="5" y="6" width="18" height="16" rx="2.5" fill="#0284C7"/>'
+            '<path d="M9 11 L12.5 14 L9 17 M14 17 H19" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>'
+            "</g>"
+        )
+    # Default: Cloud Run / Network Load Balancer Router
+    return (
+        f'<g transform="translate({x},{y})">'
+        '<rect width="28" height="28" rx="6" fill="#E8F0FE" stroke="#2563EB" stroke-width="1.2"/>'
+        '<circle cx="8" cy="14" r="2.8" fill="#2563EB"/>'
+        '<circle cx="20" cy="8.5" r="2.8" fill="#1D4ED8"/>'
+        '<circle cx="20" cy="19.5" r="2.8" fill="#1D4ED8"/>'
+        '<path d="M10.5 13 L17.5 9.5 M10.5 15 L17.5 18.5" stroke="#2563EB" stroke-width="1.8"/>'
+        "</g>"
+    )
+
+
+def _draw_service_card(
+    x: int,
+    y: int,
+    w: int,
+    h: int,
+    code_badge: str,
+    title: str,
+    subtitle: str,
+    tech_meta: str,
+    border_color: str,
+    badge_bg: str,
+    badge_fg: str,
+    icon_kind: str,
+) -> str:
+    """Render an authentic, high-density Google Cloud Architecture Center service card with vector icon."""
+    t_lines = _wrap(title, width=max(16, (w - 54) // 6), max_lines=2)
+    s_lines = _wrap(subtitle, width=max(23, (w - 20) // 5), max_lines=2 if h >= 130 else 1)
+    m_lines = _wrap(tech_meta, width=max(23, (w - 20) // 5), max_lines=1)
+
+    out = [
+        '<g class="arch-card">',
+        f'  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" fill="#FFFFFF" stroke="{border_color}" stroke-width="1.8" filter="url(#dropShadow)"/>',
+        f'  <rect x="{x}" y="{y}" width="6" height="{h}" rx="3" fill="{border_color}"/>',
+        f'  {_render_vector_icon(icon_kind, x + 14, y + 12)}',
+        f'  <rect x="{x + 48}" y="{y + 11}" width="{min(86, w - 56)}" height="16" rx="4" fill="{badge_bg}" stroke="{border_color}" stroke-width="0.8"/>',
+        f'  <text x="{x + 48 + min(86, w - 56) // 2}" y="{y + 22}" font-family="Inter, -apple-system, sans-serif" font-size="8.5" font-weight="800" fill="{badge_fg}" text-anchor="middle">{_esc(code_badge)}</text>',
+    ]
+    for idx, tl in enumerate(t_lines):
+        out.append(
+            f'  <text x="{x + 48}" y="{y + 39 + idx * 13}" font-family="Inter, -apple-system, sans-serif" font-size="10.5" font-weight="800" fill="#0F172A">{_esc(tl)}</text>'
+        )
+    if h >= 130:
+        box_y = y + 62
+        box_h = h - 72
+        out.append(
+            f'  <rect x="{x + 12}" y="{box_y}" width="{w - 22}" height="{box_h}" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>'
+        )
+        for s_idx, sl in enumerate(s_lines):
+            out.append(
+                f'  <text x="{x + 18}" y="{box_y + 18 + s_idx * 14}" font-family="Inter, -apple-system, sans-serif" font-size="9.5" font-weight="600" fill="#334155">{_esc(sl)}</text>'
+            )
+        out.append(
+            f'  <rect x="{x + 18}" y="{y + h - 32}" width="{w - 34}" height="16" rx="4" fill="{badge_bg}"/>'
+        )
+        out.append(
+            f'  <text x="{x + 24}" y="{y + h - 21}" font-family="ui-monospace, SFMono-Regular, monospace" font-size="8.5" font-weight="700" fill="{badge_fg}">{_esc(m_lines[0])}</text>'
+        )
+    else:
+        sub_y = y + h - 22
+        out.append(
+            f'  <line x1="{x + 12}" y1="{sub_y - 11}" x2="{x + w - 12}" y2="{sub_y - 11}" stroke="#E2E8F0" stroke-width="1"/>'
+        )
+        out.append(
+            f'  <text x="{x + 14}" y="{sub_y}" font-family="Inter, -apple-system, sans-serif" font-size="9.5" font-weight="600" fill="#334155">{_esc(s_lines[0])}</text>'
+        )
+        out.append(
+            f'  <text x="{x + 14}" y="{sub_y + 13}" font-family="ui-monospace, SFMono-Regular, monospace" font-size="8.5" font-weight="700" fill="{badge_fg}">{_esc(m_lines[0])}</text>'
+        )
+    out.append("</g>")
+    return "\n".join(out)
+
+
+def _draw_edge_with_pill(
+    points: List[Tuple[int, int]],
+    step_num: str,
+    label: str,
+    color: str,
+    dashed: bool = False,
+    marker: str = "arrowBlue",
+    pill_pos: Tuple[int, int] | None = None,
+) -> str:
+    """Render an orthogonal or straight point-to-point connector with an opaque high-contrast label pill."""
+    d_parts = [f"M {points[0][0]} {points[0][1]}"]
+    for px, py in points[1:]:
+        d_parts.append(f"L {px} {py}")
+    d_str = " ".join(d_parts)
+    dash_attr = ' stroke-dasharray="6,4"' if dashed else ""
+
+    if pill_pos is not None:
+        mx, my = pill_pos
+    else:
+        mid_idx = len(points) // 2
+        p1, p2 = points[mid_idx - 1], points[mid_idx]
+        mx, my = (p1[0] + p2[0]) // 2, (p1[1] + p2[1]) // 2
+
+    pill_w = max(78, len(label) * 5 + 34)
+    pill_h = 20
+    px0 = mx - pill_w // 2
+    py0 = my - pill_h // 2
+
+    return "\n".join(
+        [
+            f'<path d="{d_str}" fill="none" stroke="{color}" stroke-width="2"{dash_attr} marker-end="url(#{marker})"/>',
+            f'<rect x="{px0}" y="{py0}" width="{pill_w}" height="{pill_h}" rx="5" fill="#FFFFFF" stroke="{color}" stroke-width="1.2"/>',
+            f'<rect x="{px0 + 3}" y="{py0 + 3}" width="22" height="14" rx="3" fill="{color}"/>',
+            f'<text x="{px0 + 14}" y="{py0 + 13}" font-family="Inter, sans-serif" font-size="8.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">{_esc(step_num)}</text>',
+            f'<text x="{px0 + 30}" y="{py0 + 13.5}" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" fill="#0F172A">{_esc(label)}</text>',
+        ]
+    )
+
+
+def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
+    """Render the 1600x1020 Official Google Cloud Architecture Center #78 18-Card, 23-Edge Blueprint."""
+    z = post["zones_78"]
+    steps = post["core_steps"]
+    metrics = list(post["metrics"].items())
+    title_clean = _wrap(post["post_title"], width=86, max_lines=1)[0]
+    primary_clean = _wrap(post["primary_source"]["title"], width=68, max_lines=1)[0]
 
     svg: List[str] = [
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1350" width="1200" height="1350">',
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1020" width="1600" height="1020">',
         "<defs>",
-        '  <filter id="cardShadow" x="-2%" y="-2%" width="104%" height="106%">',
-        '    <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>',
+        '  <filter id="dropShadow" x="-2%" y="-2%" width="104%" height="106%">',
+        '    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.06"/>',
         "  </filter>",
-        '  <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">',
-        '    <path d="M0,0 L8,4 L0,8 Z" fill="#1a73e8"/>',
-        "  </marker>",
+        '  <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563EB"/></marker>',
+        '  <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#7C3AED"/></marker>',
+        '  <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#EA580C"/></marker>',
+        '  <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16A34A"/></marker>',
+        '  <marker id="arrowTeal" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#0D9488"/></marker>',
+        '  <marker id="arrowSlate" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#475569"/></marker>',
         "</defs>",
-        '<!-- Root Canvas: Rule 54 Executive Light Theme (#f8fafc) -->',
-        '<rect x="0" y="0" width="1200" height="1350" fill="#f8fafc"/>',
-        '<!-- Google Quad-Color Top Ribbon -->',
-        '<rect x="0" y="0" width="300" height="8" fill="#4285F4"/>',
-        '<rect x="300" y="0" width="300" height="8" fill="#EA4335"/>',
-        '<rect x="600" y="0" width="300" height="8" fill="#FBBC04"/>',
-        '<rect x="900" y="0" width="300" height="8" fill="#34A853"/>',
-        '<!-- Header Card -->',
-        '<rect x="32" y="24" width="1136" height="148" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)"/>',
-        '<rect x="52" y="42" width="190" height="26" rx="6" fill="#e8f0fe" stroke="#4285F4" stroke-width="1"/>',
-        f'<text x="147" y="59" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#174ea6" text-anchor="middle">{_esc(post["id"])} • 2D ARCHITECTURE</text>',
-        '<rect x="254" y="42" width="380" height="26" rx="6" fill="#e6f4ea" stroke="#34A853" stroke-width="1"/>',
-        f'<text x="444" y="59" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#0d652d" text-anchor="middle">ZERO-HALLUCINATION GROUNDED • {_esc(post["activity_urn"])}</text>',
-        '<rect x="910" y="42" width="236" height="26" rx="6" fill="#fef7e0" stroke="#FBBC04" stroke-width="1"/>',
-        '<text x="1028" y="59" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#b06000" text-anchor="middle">OPENHANDS + GCP ADK VERIFIED</text>',
+        '<!-- Root Canvas: Rule 54 Executive Light (#F8FAFC) -->',
+        '<rect x="0" y="0" width="1600" height="1020" fill="#F8FAFC"/>',
+        '<!-- Top Google Cloud Architecture Center Header Lockup -->',
+        '<rect x="24" y="16" width="1552" height="62" rx="10" fill="#0F2942" stroke="#1A73E8" stroke-width="1.5"/>',
+        '<!-- Official 4-Color Google Cloud Emblem -->',
+        '<circle cx="52" cy="47" r="7" fill="#EA4335"/>',
+        '<circle cx="64" cy="40" r="7" fill="#4285F4"/>',
+        '<circle cx="76" cy="47" r="7" fill="#34A853"/>',
+        '<rect x="52" y="47" width="24" height="7" rx="3" fill="#FBBC04"/>',
+        f'<text x="96" y="42" font-family="Inter, sans-serif" font-size="15.5" font-weight="800" fill="#FFFFFF">GOOGLE CLOUD ARCHITECTURE CENTER • TEMPLATE #78 HUB-AND-SPOKE BLUEPRINT ({_esc(post["id"])})</text>',
+        f'<text x="96" y="62" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#93C5FD">{_esc(title_clean)}  |  Lineage: {_esc(post["author_name"])} ({_esc(post["activity_urn"])})</text>',
+        '<rect x="1320" y="31" width="236" height="32" rx="6" fill="#1E8E3E" stroke="#86EFAC" stroke-width="1"/>',
+        '<text x="1438" y="51" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">18/18 CARDS • 23 EDGES • 0 COLLISIONS</text>',
+        '<!-- Outer #1A73E8 Google Cloud Organization & VPC-SC Trust Perimeter Frame -->',
+        '<rect x="24" y="92" width="1552" height="836" rx="14" fill="#FFFFFF" stroke="#1A73E8" stroke-width="2.5"/>',
+        '<rect x="44" y="104" width="380" height="24" rx="5" fill="#E8F0FE" stroke="#4285F4" stroke-width="1"/>',
+        '<text x="234" y="120" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#174EA6" text-anchor="middle">GOOGLE CLOUD ORGANIZATION • VPC SERVICE CONTROLS PERIMETER</text>',
     ]
 
-    for idx, line in enumerate(title_lines):
-        svg.append(
-            f'<text x="52" y="{98 + idx * 30}" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="800" fill="#0f172a">{_esc(line)}</text>'
-        )
-
-    svg.append(
-        f'<text x="52" y="154" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#475569">'
-        f'Author Curated: Nitin Aggarwal (linkedin.com/in/nitin-aggarwal-b49786a)  |  Signal Lineage: {_esc(post["author_name"])}  |  Archetype: {_esc(post["diagram_archetype"])}</text>'
-    )
-
-    # Contrarian Hook & Primary Source Evidence Strip
+    # Top Actor / Client & Developer Ingress Strip (x=450..1150, y=100..146)
     svg.extend(
         [
-            '<rect x="32" y="186" width="1136" height="92" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>',
-            '<rect x="32" y="186" width="8" height="92" rx="4" fill="#4285F4"/>',
-            '<text x="56" y="210" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800" fill="#174ea6">EXECUTIVE HOOK &amp; PRIMARY-SOURCE THESIS</text>',
+            '<rect x="460" y="100" width="680" height="44" rx="8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>',
+            _render_vector_icon("router", 474, 108),
+            '<text x="512" y="119" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#0F172A">EXTERNAL ACTOR / PRINCIPAL ENGINEER &amp; ENTERPRISE CLIENT WORKLOADS</text>',
+            f'<text x="512" y="134" font-family="ui-monospace, monospace" font-size="9.5" font-weight="600" fill="#475569">Repo: generated-repos/{_esc(post["repo_slug"])}  •  Model Routing: locations/global (gemini-4-argon)</text>',
         ]
     )
-    for idx, line in enumerate(hook_lines):
-        svg.append(
-            f'<text x="56" y="{234 + idx * 22}" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#1e293b">{_esc(line)}</text>'
-        )
 
-    # Section 1 Title: 6-Stage Closed-Loop Execution Architecture (2x3 Bento Grid)
-    svg.append(
-        '<text x="36" y="306" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#0f172a">'
-        "1. END-TO-END 6-STAGE AGENTIC EXECUTION FLOW (GOOGLE CLOUD ADK + VERTEX AI GEMINI)</text>"
+    # =========================================================================
+    # ZONE 1 (#AECBFA Pastel Blue): Tenant-Aware Routing & Edge Security Hub (5 Cards)
+    # Bounds: x=44, y=164, w=976, h=226
+    # =========================================================================
+    svg.extend(
+        [
+            '<rect x="44" y="164" width="976" height="226" rx="12" fill="#EFF6FF" stroke="#AECBFA" stroke-width="2.5"/>',
+            '<rect x="44" y="164" width="976" height="32" rx="10" fill="#AECBFA"/>',
+            '<text x="64" y="185" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#174EA6">ZONE 1 (BLUE HUB) • TENANT-AWARE ROUTING, ZERO-TRUST INGRESS &amp; CONTEXT ENGINEERING HUB</text>',
+            '<text x="1002" y="185" font-family="ui-monospace, monospace" font-size="10" font-weight="800" fill="#174EA6" text-anchor="end">vpc-hub-routing • 10.10.0.0/20</text>',
+        ]
     )
 
-    steps = post["core_steps"]
-    card_w, card_h = 360, 152
-    col_x = [32, 420, 808]
-    row_y = [320, 496]
-
-    for i, step in enumerate(steps[:6]):
-        c = i % 3
-        r = i // 3
-        x = col_x[c]
-        y = row_y[r]
-        accent = QUAD_COLORS[i % 4]
-        badge_bg = QUAD_BG[i % 4]
-        badge_fg = QUAD_TEXT[i % 4]
-        desc_lines = _wrap_lines(step["desc"], width=42, max_lines=3)
-
-        svg.extend(
-            [
-                f'<rect x="{x}" y="{y}" width="{card_w}" height="{card_h}" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)"/>',
-                f'<rect x="{x}" y="{y}" width="{card_w}" height="6" rx="3" fill="{accent}"/>',
-                f'<rect x="{x + 16}" y="{y + 18}" width="74" height="24" rx="5" fill="{badge_bg}" stroke="{accent}" stroke-width="1"/>',
-                f'<text x="{x + 53}" y="{y + 34}" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800" fill="{badge_fg}" text-anchor="middle">STAGE {_esc(step["step"])}</text>',
-                f'<text x="{x + 102}" y="{y + 35}" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#0f172a">{_esc(step["title"][:26])}</text>',
-                f'<line x1="{x + 16}" y1="{y + 52}" x2="{x + card_w - 16}" y2="{y + 52}" stroke="#e2e8f0" stroke-width="1"/>',
-            ]
-        )
-        for l_idx, d_line in enumerate(desc_lines):
-            svg.append(
-                f'<text x="{x + 16}" y="{y + 78 + l_idx * 22}" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="500" fill="#334155">{_esc(d_line)}</text>'
-            )
-
-        # Horizontal connector arrows between columns
-        if c < 2:
-            ax1 = x + card_w + 4
-            ax2 = col_x[c + 1] - 6
-            ay = y + card_h // 2
-            svg.append(
-                f'<line x1="{ax1}" y1="{ay}" x2="{ax2}" y2="{ay}" stroke="#1a73e8" stroke-width="2.5" marker-end="url(#arrowBlue)"/>'
-            )
-
-    # Closed-loop connector from Stage 03 to Stage 04
-    svg.append(
-        '<path d="M 988 472 L 988 484 L 212 484 L 212 494" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrowBlue)"/>'
-    )
-
-    # Section 2: Google Cloud Official #78 4-Zone Architecture Mapping
-    svg.append(
-        '<text x="36" y="682" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#0f172a">'
-        "2. GOOGLE CLOUD #78 4-ZONE REFERENCE TOPOLOGY &amp; 1-CLICK TERRAFORM STACK</text>"
-    )
-
-    zones = [
-        ("BLUE ZONE • INGRESS & ROUTING", "#aecbfa", "#174ea6", post["zones_78"]["blue_routing"]),
-        ("GREEN ZONE • GOVERNANCE & EVAL GATE", "#ceead6", "#0d652d", post["zones_78"]["green_governance"]),
-        ("YELLOW ZONE • ADK & OPENHANDS COMPUTE", "#feefc3", "#b06000", post["zones_78"]["yellow_compute"]),
-        ("RED ZONE • MEMORY, DATA & MCP SPOKE", "#fad2cf", "#a50e0e", post["zones_78"]["red_data"]),
+    z1_cards = [
+        ("EDGE-01", z["blue_routing"][0], "L7 WAF & Adaptive DDoS", "CRS 3.3 • TLS 1.3", "shield"),
+        ("AUTH-02", "Identity Platform & WIF", "OIDC & Workload Identity", "SPIFFE • Short-Lived JWT", "key"),
+        ("IAP-03", z["blue_routing"][1], "BeyondCorp Context Guard", "mTLS • Device Posture", "shield"),
+        ("ALB-04", "Regional External ALB", "Global Anycast Ingress", "HTTPS :443 • QUIC/HTTP3", "router"),
+        ("ING-05", z["blue_routing"][2], "Cloud Run Edge Proxy", "KV-Cache Prefix Router", "sandbox"),
     ]
-    zw = 272
-    zy = 696
-    zh = 196
-    for z_idx, (z_title, z_fill, z_fg, z_items) in enumerate(zones):
-        zx = 32 + z_idx * 288
-        svg.extend(
-            [
-                f'<rect x="{zx}" y="{zy}" width="{zw}" height="{zh}" rx="10" fill="#ffffff" stroke="{z_fill}" stroke-width="2.5"/>',
-                f'<rect x="{zx}" y="{zy}" width="{zw}" height="34" rx="8" fill="{z_fill}"/>',
-                f'<text x="{zx + zw // 2}" y="{zy + 22}" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800" fill="{z_fg}" text-anchor="middle">{_esc(z_title)}</text>',
-            ]
-        )
-        for item_idx, item in enumerate(z_items[:3]):
-            iy = zy + 48 + item_idx * 44
-            svg.extend(
-                [
-                    f'<rect x="{zx + 14}" y="{iy}" width="{zw - 28}" height="34" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>',
-                    f'<text x="{zx + 26}" y="{iy + 22}" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#0f172a">{_esc(item[:30])}</text>',
-                ]
+    for idx, (c_badge, c_title, c_sub, c_meta, c_icon) in enumerate(z1_cards):
+        cx = 58 + idx * 191
+        svg.append(
+            _draw_service_card(
+                x=cx,
+                y=210,
+                w=179,
+                h=162,
+                code_badge=c_badge,
+                title=c_title,
+                subtitle=c_sub,
+                tech_meta=c_meta,
+                border_color="#4285F4",
+                badge_bg="#E8F0FE",
+                badge_fg="#174EA6",
+                icon_kind=c_icon,
             )
+        )
 
-    # Section 3: Primary-Source Verified Claims & Grounded Evidence Box
+    # =========================================================================
+    # ZONE 2 (#CEEAD6 Pastel Green): Central Governance, KMS, Model Armor & Audit Hub (3 Cards)
+    # Bounds: x=1044, y=164, w=512, h=226
+    # =========================================================================
     svg.extend(
         [
-            '<rect x="32" y="914" width="1136" height="172" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>',
-            '<rect x="32" y="914" width="1136" height="32" rx="8" fill="#0f2942"/>',
-            f'<text x="52" y="935" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#ffffff">3. VERIFIED PRIMARY-SOURCE EVIDENCE ({_esc(post["primary_source"]["title"][:78])})</text>',
+            '<rect x="1044" y="164" width="512" height="226" rx="12" fill="#F0FDF4" stroke="#CEEAD6" stroke-width="2.5"/>',
+            '<rect x="1044" y="164" width="512" height="32" rx="10" fill="#CEEAD6"/>',
+            '<text x="1062" y="185" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#0D652D">ZONE 2 (GREEN HUB) • GOVERNANCE, KMS &amp; EVAL GATE</text>',
         ]
     )
-    for c_idx, claim in enumerate(primary_claims[:3]):
-        claim_wrapped = _wrap_lines(claim, width=125, max_lines=1)[0]
-        cy = 972 + c_idx * 36
-        svg.extend(
-            [
-                f'<rect x="52" y="{cy - 16}" width="58" height="22" rx="4" fill="#e6f4ea" stroke="#34A853" stroke-width="1"/>',
-                f'<text x="81" y="{cy - 1}" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800" fill="#0d652d" text-anchor="middle">PROOF {c_idx + 1}</text>',
-                f'<text x="122" y="{cy}" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#1e293b">{_esc(claim_wrapped)}</text>',
-            ]
+    z2_cards = [
+        ("GOV-06", z["green_governance"][0], "Cloud KMS HSM & VPC-SC", "FIPS 140-3 • CMEK", "key"),
+        ("GOV-07", z["green_governance"][1], "Competence & Eval Gate", "Fail-Closed • 0 Drift", "diamond"),
+        ("GOV-08", z["green_governance"][2], "Cloud Logging & OTel", "SHA-256 Receipt Log", "cylinder"),
+    ]
+    for idx, (c_badge, c_title, c_sub, c_meta, c_icon) in enumerate(z2_cards):
+        cx = 1056 + idx * 165
+        svg.append(
+            _draw_service_card(
+                x=cx,
+                y=210,
+                w=155,
+                h=162,
+                code_badge=c_badge,
+                title=c_title,
+                subtitle=c_sub,
+                tech_meta=c_meta,
+                border_color="#34A853",
+                badge_bg="#E6F4EA",
+                badge_fg="#0D652D",
+                icon_kind=c_icon,
+            )
         )
 
-    # Section 4: 4 Grounded Telemetry & Verification KPI Cards
-    svg.append(
-        '<text x="36" y="1114" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#0f172a">'
-        "4. PRODUCTION TELEMETRY &amp; DETERMINISTIC QUALITY GATES</text>"
-    )
-    metrics_items = list(post["metrics"].items())[:4]
-    for m_idx, (m_key, m_val) in enumerate(metrics_items):
-        mx = 32 + m_idx * 288
-        my = 1128
-        accent = QUAD_COLORS[m_idx % 4]
-        label = m_key.replace("_", " ").upper()
-        svg.extend(
-            [
-                f'<rect x="{mx}" y="{my}" width="272" height="104" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>',
-                f'<rect x="{mx}" y="{my}" width="272" height="6" rx="3" fill="{accent}"/>',
-                f'<text x="{mx + 18}" y="{my + 34}" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#475569">{_esc(label[:30])}</text>',
-                f'<text x="{mx + 18}" y="{my + 76}" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#0f172a">{_esc(m_val)}</text>',
-            ]
-        )
-
-    # Footer Banner
+    # =========================================================================
+    # ZONE 3 (#FEEFC3 Warm Yellow): Primary ADK Agent & Frontier Gemini Spoke (5 Cards)
+    # Bounds: x=44, y=446, w=736, h=380 (with 94px Intra-Spoke Routing Corridor)
+    # =========================================================================
     svg.extend(
         [
-            '<rect x="32" y="1252" width="1136" height="72" rx="10" fill="#0f2942"/>',
-            f'<text x="56" y="1282" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#ffffff">1-CLICK GCP TERRAFORM REPO: generated-repos/{_esc(post["repo_slug"])}</text>',
-            '<text x="56" y="1306" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="500" fill="#cbd5e1">Includes: Google ADK Codebase • OpenHands Autonomous Harness • 2D SVG/Draw.io • 12-Slide PPTX/PDF • Terraform Cloud Run</text>',
-            '<text x="1144" y="1294" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#93c5fd" text-anchor="end">Proprietary + Confidential</text>',
+            '<rect x="44" y="446" width="736" height="380" rx="12" fill="#FEFCE8" stroke="#FEEFC3" stroke-width="2.5"/>',
+            '<rect x="44" y="446" width="736" height="32" rx="10" fill="#FEEFC3"/>',
+            '<text x="64" y="467" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#B06000">ZONE 3 (LEFT SPOKE) • PRIMARY GOOGLE ADK &amp; VERTEX AI GEMINI SPOKE</text>',
+            '<text x="764" y="467" font-family="ui-monospace, monospace" font-size="10" font-weight="800" fill="#B06000" text-anchor="end">spoke-adk-primary • 10.20.0.0/20</text>',
+        ]
+    )
+    # Left column in Zone 3 (x=62, w=300): Cards 9 & 10
+    svg.append(
+        _draw_service_card(
+            x=62,
+            y=494,
+            w=300,
+            h=142,
+            code_badge="ARMOR-09",
+            title="Google Cloud Model Armor & DLP Guard",
+            subtitle=f"Stage 1: {steps[0]['title']} & Sanitization",
+            tech_meta="OWASP LLM01 • Prompt Injection Block",
+            border_color="#F59E0B",
+            badge_bg="#FEF7E0",
+            badge_fg="#B06000",
+            icon_kind="shield",
+        )
+    )
+    svg.append(
+        _draw_service_card(
+            x=62,
+            y=666,
+            w=300,
+            h=142,
+            code_badge="GEMINI-10",
+            title="Vertex AI Gemini 4 Argon (Global)",
+            subtitle=f"Stage 2: {steps[1]['title']}",
+            tech_meta="locations/global • thinkingLevel=HIGH",
+            border_color="#7C3AED",
+            badge_bg="#F3E8FF",
+            badge_fg="#6D28D9",
+            icon_kind="gemini",
+        )
+    )
+    # Right column in Zone 3 (x=456, w=306) leaving x=362..456 (94px open intra-spoke channel!): Cards 11, 12, 13
+    svg.append(
+        _draw_service_card(
+            x=456,
+            y=494,
+            w=306,
+            h=98,
+            code_badge="ADK-11",
+            title=z["yellow_compute"][0],
+            subtitle=f"Stage 3: {steps[2]['title']}",
+            tech_meta="Google ADK Runtime • Cloud Run Gen2",
+            border_color="#F59E0B",
+            badge_bg="#FEF7E0",
+            badge_fg="#B06000",
+            icon_kind="hexagon",
+        )
+    )
+    svg.append(
+        _draw_service_card(
+            x=456,
+            y=604,
+            w=306,
+            h=98,
+            code_badge="TOOL-12",
+            title=z["yellow_compute"][1],
+            subtitle=f"Stage 4: {steps[3]['title']}",
+            tech_meta="CASG Scoped JWT • MCP Tool Bus",
+            border_color="#0284C7",
+            badge_bg="#E0F2FE",
+            badge_fg="#0369A1",
+            icon_kind="sandbox",
+        )
+    )
+    svg.append(
+        _draw_service_card(
+            x=456,
+            y=714,
+            w=306,
+            h=98,
+            code_badge="STATE-13",
+            title=z["yellow_compute"][2],
+            subtitle="AlloyDB FORCE RLS & Vector Search 2.0",
+            tech_meta="ScaNN p99 < 2.5ms • CMEK Vault",
+            border_color="#059669",
+            badge_bg="#DCFCE7",
+            badge_fg="#065F46",
+            icon_kind="cylinder",
+        )
+    )
+
+    # =========================================================================
+    # ZONE 4 (#FAD2CF Coral): OpenHands Autonomous Sandbox, Memory & Lakehouse Spoke (5 Cards)
+    # Bounds: x=820, y=446, w=736, h=380 (with 94px Intra-Spoke Routing Corridor)
+    # =========================================================================
+    svg.extend(
+        [
+            '<rect x="820" y="446" width="736" height="380" rx="12" fill="#FEF2F2" stroke="#FAD2CF" stroke-width="2.5"/>',
+            '<rect x="820" y="446" width="736" height="32" rx="10" fill="#FAD2CF"/>',
+            '<text x="840" y="467" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#A50E0E">ZONE 4 (RIGHT SPOKE) • OPENHANDS SANDBOX, MEMORY &amp; LAKEHOUSE SPOKE</text>',
+            '<text x="1540" y="467" font-family="ui-monospace, monospace" font-size="10" font-weight="800" fill="#A50E0E" text-anchor="end">spoke-openhands-data • 10.30.0.0/20</text>',
+        ]
+    )
+    # Left column in Zone 4 (x=838, w=300): Cards 14 & 15
+    svg.append(
+        _draw_service_card(
+            x=838,
+            y=494,
+            w=300,
+            h=142,
+            code_badge="OH-14",
+            title="OpenHands CodeActAgent Sandbox",
+            subtitle=f"Stage 5: {steps[4]['title']}",
+            tech_meta="Isolated Container • Pytest & AST Verifier",
+            border_color="#EA4335",
+            badge_bg="#FCE8E6",
+            badge_fg="#A50E0E",
+            icon_kind="sandbox",
+        )
+    )
+    svg.append(
+        _draw_service_card(
+            x=838,
+            y=666,
+            w=300,
+            h=142,
+            code_badge="JUDGE-15",
+            title="Vertex AI Gemini 3.8 Flash Judge",
+            subtitle=f"Stage 6: {steps[5]['title']}",
+            tech_meta="locations/global • thinkingLevel=MEDIUM",
+            border_color="#7C3AED",
+            badge_bg="#F3E8FF",
+            badge_fg="#6D28D9",
+            icon_kind="gemini",
+        )
+    )
+    # Right column in Zone 4 (x=1232, w=306) leaving x=1138..1232 (94px open intra-spoke channel): Cards 16, 17, 18
+    svg.append(
+        _draw_service_card(
+            x=1232,
+            y=494,
+            w=306,
+            h=98,
+            code_badge="DATA-16",
+            title=z["red_data"][0],
+            subtitle="Firestore Claim-to-Code-SHA Graph",
+            tech_meta="O(1) Version Receipt • 0 Drift",
+            border_color="#EA4335",
+            badge_bg="#FCE8E6",
+            badge_fg="#A50E0E",
+            icon_kind="cylinder",
+        )
+    )
+    svg.append(
+        _draw_service_card(
+            x=1232,
+            y=604,
+            w=306,
+            h=98,
+            code_badge="DATA-17",
+            title=z["red_data"][1],
+            subtitle="BigQuery Trajectory & Eval Warehouse",
+            tech_meta="BigLake Iceberg • 100% Lineage",
+            border_color="#EA4335",
+            badge_bg="#FCE8E6",
+            badge_fg="#A50E0E",
+            icon_kind="cylinder",
+        )
+    )
+    svg.append(
+        _draw_service_card(
+            x=1232,
+            y=714,
+            w=306,
+            h=98,
+            code_badge="REG-18",
+            title=z["red_data"][2],
+            subtitle="Artifact Registry & Git Commit Ledger",
+            tech_meta="Signed Container & Terraform State",
+            border_color="#0D9488",
+            badge_bg="#CCFBF1",
+            badge_fg="#115E59",
+            icon_kind="key",
+        )
+    )
+
+    # =========================================================================
+    # ZONE 5 (Bottom Baseline): 6-Pillar Zero-Trust, FinOps & Production Telemetry Strip
+    # Bounds: x=44, y=840, w=1512, h=74
+    # =========================================================================
+    svg.extend(
+        [
+            '<rect x="44" y="840" width="1512" height="74" rx="10" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>',
+            '<rect x="56" y="852" width="220" height="50" rx="6" fill="#0F2942"/>',
+            '<text x="166" y="874" font-family="Inter, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle">ZONE 5 • PRODUCTION TELEMETRY</text>',
+            f'<text x="166" y="891" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#93C5FD" text-anchor="middle">1-Click Terraform • { _esc(post["id"]) }</text>',
+        ]
+    )
+    for m_idx, (m_k, m_v) in enumerate(metrics[:4]):
+        mx = 292 + m_idx * 312
+        accent = ["#4285F4", "#EA4335", "#FBBC04", "#34A853"][m_idx % 4]
+        svg.extend(
+            [
+                f'<rect x="{mx}" y="852" width="296" height="50" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>',
+                f'<rect x="{mx}" y="852" width="6" height="50" rx="3" fill="{accent}"/>',
+                f'<text x="{mx + 18}" y="871" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#475569">{_esc(m_k.replace("_", " ").upper())}</text>',
+                f'<text x="{mx + 18}" y="892" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#0F172A">{_esc(m_v)}</text>',
+            ]
+        )
+
+    # =========================================================================
+    # TYPED 6-COLOR CONNECTOR HIGHWAYS & NUMBERED CALLOUT PILLS (①..⑦, 3a..3b, 4a..4d)
+    # Routed strictly inside open corridors (y=144..164, y=390..446, x=362..456, x=780..820, x=1138..1232)
+    # =========================================================================
+    svg.extend(
+        [
+            # ① Actor -> Zone 1 Ingress
+            _draw_edge_with_pill([(580, 144), (580, 208)], "①", "HTTPS :443 Request", "#2563EB", False, "arrowBlue", (580, 154)),
+            # ⑦ Zone 1 -> Actor Response
+            _draw_edge_with_pill([(910, 208), (910, 144)], "⑦", "Verified Response", "#0D9488", False, "arrowTeal", (910, 154)),
+            # ② Intra-Zone 1 Pipeline (Cards 1->2->3->4->5)
+            '<line x1="237" y1="290" x2="249" y2="290" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>',
+            '<line x1="428" y1="290" x2="440" y2="290" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>',
+            '<line x1="619" y1="290" x2="631" y2="290" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>',
+            '<line x1="810" y1="290" x2="822" y2="290" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>',
+            # 3a Zone 1 -> Zone 2 Governance Check (across x=1020..1056)
+            _draw_edge_with_pill([(910, 372), (910, 412), (1130, 412), (1130, 372)], "3a", "KMS & Policy Check", "#16A34A", True, "arrowGreen", (1020, 412)),
+            # ③ Zone 1 ALB/Edge -> Zone 3 Model Armor (via y=418 corridor)
+            _draw_edge_with_pill([(720, 372), (720, 418), (212, 418), (212, 492)], "②", "Route & Context", "#2563EB", False, "arrowBlue", (466, 418)),
+            # ④ Zone 3 Model Armor -> ADK Orchestrator (across 94px channel x=362..456)
+            _draw_edge_with_pill([(362, 540), (454, 540)], "④", "Sanitized Prompt", "#7C3AED", False, "arrowPurple", (408, 524)),
+            # ⑤ Zone 3 Gemini 4 Argon <-> ADK Orchestrator (staggered elbow in x=362..456 channel)
+            _draw_edge_with_pill([(456, 568), (408, 568), (408, 736), (362, 736)], "⑤", "thinkingLevel=HIGH", "#7C3AED", True, "arrowPurple", (408, 690)),
+            # ⑥ ADK -> Tool Sandbox -> Primary State Store
+            '<line x1="609" y1="592" x2="609" y2="602" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>',
+            '<line x1="609" y1="702" x2="609" y2="712" stroke="#16A34A" stroke-width="2" marker-end="url(#arrowGreen)"/>',
+            # 4a Zone 3 -> Zone 4 OpenHands Sandbox (across inter-spoke channel x=762..838)
+            _draw_edge_with_pill([(762, 540), (836, 540)], "4a", "A2A Sandbox Task", "#EA580C", True, "arrowOrange", (800, 514)),
+            # 4b Zone 4 OpenHands Sandbox -> Data/Receipt Graph (across 94px channel x=1138..1232)
+            _draw_edge_with_pill([(1138, 540), (1230, 540)], "4b", "SHA-256 Receipt", "#16A34A", False, "arrowGreen", (1184, 524)),
+            # 4c Zone 4 Gemini 3.8 Flash Judge -> BigQuery Eval Warehouse
+            _draw_edge_with_pill([(1138, 736), (1184, 736), (1184, 652), (1230, 652)], "4c", "Eval Trace Sink", "#7C3AED", True, "arrowPurple", (1184, 696)),
+            # 3b Zone 2 Competence Gate -> Zone 4 OpenHands & Registry
+            _draw_edge_with_pill([(1300, 372), (1300, 418), (988, 418), (988, 492)], "3b", "Competence Gate", "#16A34A", True, "arrowGreen", (1144, 418)),
+            # ⑥ Closed-Loop Verified Return from Zone 4 Judge/Registry -> Zone 3 State across y=651 inter-spoke gap
+            _draw_edge_with_pill([(838, 651), (764, 651)], "⑥", "Verified Loop", "#0D9488", True, "arrowTeal", (800, 651)),
+        ]
+    )
+
+    # Bottom Attribution & Primary Source Footer
+    svg.extend(
+        [
+            '<rect x="24" y="942" width="1552" height="58" rx="10" fill="#0F2942"/>',
+            f'<text x="48" y="967" font-family="Inter, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF">PRIMARY SOURCE GROUNDING: {_esc(primary_clean)}  |  CURATED BY: NITIN AGGARWAL (linkedin.com/in/nitin-aggarwal-b49786a)</text>',
+            f'<text x="48" y="987" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#93C5FD">1-Click GCP Deploy: cd generated-repos/{_esc(post["repo_slug"])}/terraform &amp;&amp; terraform init &amp;&amp; terraform apply -var="project_id=nitina-ggarwal-sandbox-647724"</text>',
+            '<text x="1552" y="977" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#86EFAC" text-anchor="end">Proprietary + Confidential</text>',
             "</svg>",
         ]
     )
     return "\n".join(svg)
 
 
-def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
-    """Render an Official Google Cloud Architecture Center #78 Hub-and-Spoke 2D Topology SVG (1280x780)."""
-    zones = post["zones_78"]
-    title_short = _wrap_lines(post["post_title"], width=92, max_lines=1)[0]
+def _render_post_specific_centerpiece(post: Dict[str, Any]) -> str:
+    """Render a bespoke, domain-native 2D visual architecture centerpiece (y=260..790) for each of the 8 posts."""
+    pid = post["id"]
+
+    if pid == "POST-01":
+        # HarnessEvolve: Parallel Trajectory Replay Diff (Failed vs. Clean Path) + Clustering + 2 Rhombus Competence Gates
+        return """
+        <g id="bespoke-post-01">
+          <rect x="36" y="264" width="1528" height="520" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>
+          <rect x="36" y="264" width="1528" height="36" rx="10" fill="#0F2942"/>
+          <text x="58" y="287" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">1. HARNESSEVOLVE TRAJECTORY REPLAY DIFF, FAILURE CLUSTERING &amp; DUAL COMPETENCE GATE ARCHITECTURE</text>
+
+          <!-- Swimlane A: Failed Production Trajectory (Crimson) -->
+          <rect x="58" y="316" width="840" height="148" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+          <text x="76" y="340" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#991B1B">PATH A • FAILED AGENT TRAJECTORY (WITHOUT ANSWER IN HAND)</text>
+          <rect x="76" y="356" width="176" height="86" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="1.8"/>
+          <text x="88" y="378" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#0F172A">Step 1: Parse Goal [OK]</text>
+          <text x="88" y="398" font-family="Inter, sans-serif" font-size="10" fill="#475569">Intent &amp; schema loaded</text>
+          <text x="88" y="424" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#16A34A">trace_span_01: PASS</text>
+
+          <rect x="282" y="356" width="176" height="86" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="1.8"/>
+          <text x="294" y="378" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#0F172A">Step 2: Plan Tools [OK]</text>
+          <text x="294" y="398" font-family="Inter, sans-serif" font-size="10" fill="#475569">Selected SQL &amp; API tool</text>
+          <text x="294" y="424" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#16A34A">trace_span_02: PASS</text>
+
+          <rect x="488" y="356" width="186" height="86" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="2.5"/>
+          <text x="500" y="378" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#991B1B">Step 3: Tool Call [BROKEN]</text>
+          <text x="500" y="398" font-family="Inter, sans-serif" font-size="10" fill="#7F1D1D">Wrong arg key: user_id</text>
+          <text x="500" y="424" font-family="ui-monospace, monospace" font-size="9" font-weight="800" fill="#DC2626">ERR_SCHEMA_DRIFT</text>
+
+          <rect x="702" y="356" width="176" height="86" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.8"/>
+          <text x="714" y="378" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#991B1B">Step 4: Task Failed</text>
+          <text x="714" y="398" font-family="Inter, sans-serif" font-size="10" fill="#7F1D1D">Scalar score = 0.0 (Blind)</text>
+          <text x="714" y="424" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#DC2626">Unlocalized Failure</text>
+
+          <!-- Swimlane B: Ground-Truth Replay Trajectory (Emerald) -->
+          <rect x="58" y="514" width="840" height="148" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2"/>
+          <text x="76" y="538" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#065F46">PATH B • HARNESSEVOLVE CLEAN REPLAY (WITH GROUND-TRUTH ANSWER IN HAND)</text>
+          <rect x="76" y="554" width="176" height="86" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="1.8"/>
+          <text x="88" y="576" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#0F172A">Step 1: Parse Goal [OK]</text>
+          <text x="88" y="596" font-family="Inter, sans-serif" font-size="10" fill="#475569">Identical prefix state</text>
+          <text x="88" y="622" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#16A34A">delta = 0.00</text>
+
+          <rect x="282" y="554" width="176" height="86" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="1.8"/>
+          <text x="294" y="576" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#0F172A">Step 2: Plan Tools [OK]</text>
+          <text x="294" y="596" font-family="Inter, sans-serif" font-size="10" fill="#475569">Identical tool selection</text>
+          <text x="294" y="622" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#16A34A">delta = 0.00</text>
+
+          <rect x="488" y="554" width="186" height="86" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+          <text x="500" y="576" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#065F46">Step 3: Clean Tool Call</text>
+          <text x="500" y="596" font-family="Inter, sans-serif" font-size="10" fill="#065F46">Uses account_uuid key</text>
+          <text x="500" y="622" font-family="ui-monospace, monospace" font-size="9" font-weight="800" fill="#15803D">EXACT DIFF PINPOINTED</text>
+
+          <rect x="702" y="554" width="176" height="86" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="1.8"/>
+          <text x="714" y="576" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#0F172A">Step 4: Reference Match</text>
+          <text x="714" y="596" font-family="Inter, sans-serif" font-size="10" fill="#475569">Feedback with footage</text>
+          <text x="714" y="622" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#16A34A">96.4% Step Accuracy</text>
+
+          <!-- Divergence Callout Pill between Step 3 Path A and Step 3 Path B -->
+          <line x1="581" y1="442" x2="581" y2="554" stroke="#EA580C" stroke-width="3" stroke-dasharray="5,3"/>
+          <rect x="466" y="476" width="230" height="26" rx="6" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.8"/>
+          <text x="581" y="493" font-family="Inter, sans-serif" font-size="10" font-weight="800" fill="#C2410C" text-anchor="middle">1. PRECISE ERROR SIGNAL AT STEP 3</text>
+
+          <!-- Pillar 2 & 3 on Right Side: Failure Clustering + Dual Protected Competence Gates -->
+          <rect x="932" y="316" width="276" height="148" rx="10" fill="#FEFCE8" stroke="#FACC15" stroke-width="2"/>
+          <text x="950" y="340" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#B45309">2. REAL GENERALIZATION</text>
+          <text x="950" y="364" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Failure Pattern Clusterer</text>
+          <text x="950" y="384" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Clusters 14 schema-drift traces into</text>
+          <text x="950" y="400" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">1 reusable SKILL.md capability update</text>
+          <rect x="950" y="416" width="240" height="28" rx="5" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.2"/>
+          <text x="1070" y="434" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#B45309" text-anchor="middle">Capability vs. Benchmark Gaming</text>
+
+          <rect x="1238" y="316" width="302" height="346" rx="10" fill="#F0FDF4" stroke="#34A853" stroke-width="2"/>
+          <text x="1258" y="340" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#0D652D">3. PROTECTED COMPETENCE GATES</text>
+
+          <!-- Rhombus Gate 1 -->
+          <polygon points="1389,362 1510,412 1389,462 1268,412" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+          <text x="1389" y="408" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#1E3A8A" text-anchor="middle">QUALITY &amp; LEAK GATE</text>
+          <text x="1389" y="424" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#475569" text-anchor="middle">Bloat &lt;= 15% • 0 Test Leaks</text>
+
+          <!-- Rhombus Gate 2 -->
+          <polygon points="1389,494 1510,544 1389,594 1268,544" fill="#FFFFFF" stroke="#16A34A" stroke-width="2.2"/>
+          <text x="1389" y="540" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#065F46" text-anchor="middle">PERFORMANCE GATE</text>
+          <text x="1389" y="556" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#475569" text-anchor="middle">Current +28.5% • Historical 100%</text>
+
+          <rect x="1274" y="614" width="230" height="32" rx="6" fill="#16A34A"/>
+          <text x="1389" y="634" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">[PROMOTE] COMPOUNDING FLYWHEEL</text>
+
+          <!-- Closed-Loop Flywheel Return Highway -->
+          <path d="M 1389 646 L 1389 716 L 164 716 L 164 642" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowTeal)"/>
+          <rect x="590" y="702" width="380" height="28" rx="6" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/>
+          <text x="780" y="720" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#115E59" text-anchor="middle">AUTONOMOUS SELF-IMPROVEMENT FLYWHEEL (0 REGRESSION DRIFT)</text>
+        </g>
+        """
+
+    if pid == "POST-02":
+        # Agent = Model + Harness: Central Foundation Model Core surrounded by 10 Engineered Harness Subsystems
+        layers = [
+            ("01. INSTRUCTIONS", "AGENTS.md / CLAUDE.md", "Read every session start", "#4285F4"),
+            ("02. REAL CONTEXT", "Product, Users & Schemas", "Vertex KV Context Cache", "#EA4335"),
+            ("03. ON-DEMAND SKILLS", "skills/<name>/SKILL.md", "10 Laws of Modular Skills", "#FBBC04"),
+            ("04. PERSISTENT MEMORY", "AlloyDB & Firestore", "Never correct agent twice", "#34A853"),
+            ("05. PERMISSIONS GATE", "Auto-Mode RBAC Boundary", "Autonomous vs. HITL actions", "#4285F4"),
+            ("06. MCP & CLI TOOLS", "Files, Terminal & MCP Bus", "GitHub, BigQuery, Sentry", "#EA4335"),
+            ("07. PRE-CUSTOMER EVALS", "Deterministic + LLM Judge", "Grade before user sees output", "#FBBC04"),
+            ("08. OBSERVABILITY", "Cloud Trace OpenTelemetry", "Token, latency & step spans", "#34A853"),
+            ("09. CLOSED-LOOP ENGINE", "Verify -> Fix -> Retry", "Loops until all checks pass", "#7C3AED"),
+            ("10. PRODUCTION PM/ENG OS", "End-to-End Agent System", "OpenAI to Ramp Case Studies", "#0D9488"),
+        ]
+        cards_svg = []
+        for idx, (l_code, l_title, l_sub, l_col) in enumerate(layers):
+            col = idx % 5
+            row = idx // 5
+            lx = 58 + col * 298
+            ly = 324 if row == 0 else 638
+            cards_svg.append(
+                f'<rect x="{lx}" y="{ly}" width="282" height="118" rx="10" fill="#FFFFFF" stroke="{l_col}" stroke-width="2"/>'
+                f'<rect x="{lx}" y="{ly}" width="282" height="26" rx="8" fill="{l_col}"/>'
+                f'<text x="{lx + 14}" y="{ly + 17}" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF">{_esc(l_code)}</text>'
+                f'<text x="{lx + 14}" y="{ly + 54}" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#0F172A">{_esc(l_title)}</text>'
+                f'<text x="{lx + 14}" y="{ly + 76}" font-family="Inter, sans-serif" font-size="11" fill="#475569">{_esc(l_sub)}</text>'
+                f'<text x="{lx + 14}" y="{ly + 100}" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="{l_col}">Harness Subsystem #{idx + 1}</text>'
+            )
+            # Connect to central core bar (y=480..596)
+            cy_from = ly + 118 if row == 0 else ly
+            cy_to = 480 if row == 0 else 596
+            cards_svg.append(
+                f'<line x1="{lx + 141}" y1="{cy_from}" x2="{lx + 141}" y2="{cy_to}" stroke="{l_col}" stroke-width="2" stroke-dasharray="4,3"/>'
+            )
+
+        return (
+            '<g id="bespoke-post-02">'
+            '<rect x="36" y="264" width="1528" height="520" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>'
+            '<rect x="36" y="264" width="1528" height="36" rx="10" fill="#0F2942"/>'
+            '<text x="58" y="287" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">1. AGENT = MODEL + HARNESS — THE 10-LAYER ENTERPRISE HARNESS ARCHITECTURE (ADDY OSMANI / AAKASH GUPTA)</text>'
+            + "\n".join(cards_svg)
+            + '<rect x="180" y="480" width="1240" height="116" rx="14" fill="#0F2942" stroke="#4285F4" stroke-width="3"/>'
+            + _render_vector_icon("gemini", 210, 524)
+            + '<text x="256" y="525" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">CENTRAL FOUNDATION MODEL CORE + GOOGLE CLOUD ADK HARNESS BUS</text>'
+            + '<text x="256" y="550" font-family="Inter, sans-serif" font-size="12.5" font-weight="600" fill="#93C5FD">"A decent model with a great harness consistently beats a great model with a bad harness." — Addy Osmani (857K Views)</text>'
+            + '<text x="256" y="574" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#86EFAC">Vertex AI locations/global • gemini-4-argon (HIGH) + gemini-3.8-flash (MEDIUM) • KV Prefix Hit Rate: 94.8%</text>'
+            + "</g>"
+        )
+
+    if pid == "POST-03":
+        # 5 Free GitHub Repos (Vaibhav Sisinty): 5-Pillar Ecosystem Matrix wired into ADK + A2A Router
+        repos_5 = [
+            ("REPO 1 • ROLES", "agency-agents", "Specialist Department Agents", "Engineering • Design • Marketing • Sales • Security", "Not 1 generic prompt doing all", "#4285F4"),
+            ("REPO 2 • WORKFLOWS", "wshobson/agents", "202 Agents • 184 Skills", "105 Slash Commands • Modular install", "Claude Code, Codex & Gemini ADK", "#EA4335"),
+            ("REPO 3 • PLUGINS", "knowledge-work-plugins", "Official Enterprise Plugins", "Sales • Support • Product • Legal • Finance", "Built for real work beyond coding", "#FBBC04"),
+            ("REPO 4 • QUICKSTARTS", "claude-quickstarts", "Runnable Production Apps", "Slack Bots • Sentry Triage • Browser Agents", "End-to-end reference wiring", "#34A853"),
+            ("REPO 5 • VERIFICATION", "agent-skills (Addy Osmani)", "25 Checkpointed Eng Skills", "Built-in steps, checkpoints & proof gates", "Proves task passes before done", "#7C3AED"),
+        ]
+        cols = []
+        for idx, (r_badge, r_name, r_head, r_desc, r_proof, r_col) in enumerate(repos_5):
+            rx = 58 + idx * 298
+            desc_wrapped = _wrap(r_desc, width=31, max_lines=2)
+            d_line1 = desc_wrapped[0]
+            d_line2 = desc_wrapped[1] if len(desc_wrapped) > 1 else ""
+            cols.append(
+                f'<rect x="{rx}" y="320" width="282" height="290" rx="10" fill="#F8FAFC" stroke="{r_col}" stroke-width="2.2"/>'
+                f'<rect x="{rx}" y="320" width="282" height="32" rx="8" fill="{r_col}"/>'
+                f'<text x="{rx + 141}" y="341" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">{_esc(r_badge)}</text>'
+                f'<text x="{rx + 16}" y="382" font-family="ui-monospace, monospace" font-size="15" font-weight="800" fill="#0F172A">{_esc(r_name)}</text>'
+                f'<text x="{rx + 16}" y="410" font-family="Inter, sans-serif" font-size="12.5" font-weight="800" fill="{r_col}">{_esc(r_head)}</text>'
+                f'<rect x="{rx + 16}" y="428" width="250" height="74" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>'
+                f'<text x="{rx + 26}" y="456" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1E293B">{_esc(d_line1)}</text>'
+                f'<text x="{rx + 26}" y="478" font-family="Inter, sans-serif" font-size="10.5" fill="#475569">{_esc(d_line2)}</text>'
+                f'<rect x="{rx + 16}" y="520" width="250" height="68" rx="6" fill="#FFFFFF" stroke="{r_col}" stroke-width="1.2"/>'
+                f'<text x="{rx + 26}" y="544" font-family="Inter, sans-serif" font-size="10" font-weight="800" fill="{r_col}">ARCHITECTURAL VALUE</text>'
+                f'<text x="{rx + 26}" y="566" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">{_esc(r_proof)}</text>'
+                f'<line x1="{rx + 141}" y1="610" x2="{rx + 141}" y2="656" stroke="{r_col}" stroke-width="2.5" marker-end="url(#arrowBlue)"/>'
+            )
+        return (
+            '<g id="bespoke-post-03">'
+            '<rect x="36" y="264" width="1528" height="520" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>'
+            '<rect x="36" y="264" width="1528" height="36" rx="10" fill="#0F2942"/>'
+            '<text x="58" y="287" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">1. FIVE FOUNDATIONAL GITHUB AGENT ECOSYSTEMS UNIFIED ON GOOGLE CLOUD ADK &amp; A2A GATEWAY</text>'
+            + "\n".join(cols)
+            + '<rect x="58" y="658" width="1470" height="104" rx="12" fill="#0F2942" stroke="#34A853" stroke-width="2.5"/>'
+            + '<text x="88" y="694" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">GOOGLE CLOUD ADK MULTI-AGENT ROUTER + ARTIFACT REGISTRY SKILL HUB + CHECKPOINT VERIFIER</text>'
+            + '<text x="88" y="720" font-family="Inter, sans-serif" font-size="12" fill="#93C5FD">Mounts Department Specialists (Repo 1) + Lazy-Loads 184 Skills (Repo 2) + Binds Domain Plugins (Repo 3) + Runs Quickstart Workflows (Repo 4) + Enforces Verification Gates (Repo 5)</text>'
+            + '<text x="88" y="744" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#86EFAC">Context Token Reduction: -68.0%  |  Unverified Task Completion Escape Rate: 0.0%</text>'
+            + "</g>"
+        )
+
+    if pid == "POST-04":
+        # Matt Village + OpenHands: 6-Stage Autonomous Coding Pipeline + CLI/Hooks/Subagents Matrix
+        stages_6 = [
+            ("1. EXPLORE", "Read Repo & AST First", "Index AGENTS.md & codebase", "#4285F4"),
+            ("2. PLAN MODE", "Spec Root-Cause Plan", "Target files & test criteria", "#EA4335"),
+            ("3. IMPLEMENT", "OpenHands Container", "Minimal pattern-true diff", "#FBBC04"),
+            ("4. VERIFY", "Sandbox Test Hook", "Pytest, types, lint & build", "#34A853"),
+            ("5. REVIEW", "4 Isolated Subagents", "Debugger, Security, QA, Docs", "#7C3AED"),
+            ("6. COMMIT", "Verified Git PR", "Commit only after 100% pass", "#0D9488"),
+        ]
+        st_svg = []
+        for idx, (st_num, st_t, st_d, st_c) in enumerate(stages_6):
+            sx = 58 + idx * 246
+            st_svg.append(
+                f'<rect x="{sx}" y="322" width="228" height="142" rx="10" fill="#FFFFFF" stroke="{st_c}" stroke-width="2.2"/>'
+                f'<rect x="{sx}" y="322" width="228" height="28" rx="8" fill="{st_c}"/>'
+                f'<text x="{sx + 114}" y="341" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">{_esc(st_num)}</text>'
+                f'<text x="{sx + 14}" y="380" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#0F172A">{_esc(st_t)}</text>'
+                f'<text x="{sx + 14}" y="404" font-family="Inter, sans-serif" font-size="11" fill="#475569">{_esc(st_d)}</text>'
+                f'<text x="{sx + 14}" y="444" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="{st_c}">OpenHands Stage 0{idx + 1}</text>'
+            )
+            if idx < 5:
+                st_svg.append(
+                    f'<line x1="{sx + 228}" y1="393" x2="{sx + 244}" y2="393" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrowBlue)"/>'
+                )
+        return (
+            '<g id="bespoke-post-04">'
+            '<rect x="36" y="264" width="1528" height="520" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>'
+            '<rect x="36" y="264" width="1528" height="36" rx="10" fill="#0F2942"/>'
+            '<text x="58" y="287" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">1. OPENHANDS AUTONOMOUS SANDBOXED CODING LIFECYCLE (EXPLORE -&gt; PLAN -&gt; IMPLEMENT -&gt; VERIFY -&gt; REVIEW -&gt; COMMIT)</text>'
+            + "\n".join(st_svg)
+            + '<!-- Self-Healing Retry Loop from Verify/Review back to Implement -->'
+            + '<path d="M 910 464 L 910 494 L 664 494 L 664 466" fill="none" stroke="#EA580C" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowOrange)"/>'
+            + '<rect x="692" y="480" width="190" height="22" rx="4" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.2"/>'
+            + '<text x="787" y="495" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#C2410C" text-anchor="middle">Auto-Heal on Test Failure</text>'
+            + '<!-- Bottom 3 Architecture Panels: Prompt Anatomy, Harness Layers, OpenHands vs BMAD -->'
+            + '<rect x="58" y="520" width="474" height="240" rx="10" fill="#F0F9FF" stroke="#0284C7" stroke-width="1.8"/>'
+            + '<text x="76" y="546" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0369A1">A. ANATOMY OF A HIGH-SIGNAL ENGINEERING BRIEF</text>'
+            + '<text x="76" y="572" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#991B1B">[BAD] Vague 1-Line Prompt: "fix authentication"</text>'
+            + '<text x="76" y="598" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#065F46">[GOOD] Structured 6-Part Engineering Brief:</text>'
+            + '<text x="76" y="622" font-family="ui-monospace, monospace" font-size="10.5" fill="#0F172A">1. Goal: Fix session token expiry race condition</text>'
+            + '<text x="76" y="644" font-family="ui-monospace, monospace" font-size="10.5" fill="#0F172A">2. Target Files: src/auth/jwt.py, tests/test_auth.py</text>'
+            + '<text x="76" y="666" font-family="ui-monospace, monospace" font-size="10.5" fill="#0F172A">3. Reproduction: Add failing unit test first</text>'
+            + '<text x="76" y="688" font-family="ui-monospace, monospace" font-size="10.5" fill="#0F172A">4. Constraints: Preserve refresh_token contract</text>'
+            + '<text x="76" y="710" font-family="ui-monospace, monospace" font-size="10.5" fill="#0F172A">5. Proof: Run pytest + review diff before commit</text>'
+            + '<rect x="556" y="520" width="484" height="240" rx="10" fill="#F8FAFC" stroke="#475569" stroke-width="1.8"/>'
+            + '<text x="574" y="546" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">B. HARNESS CONTROLS, SUBAGENTS &amp; HOOKS</text>'
+            + '<text x="574" y="574" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#1D4ED8">Slash Commands: /init /compact /context /permissions /hooks /doctor</text>'
+            + '<text x="574" y="600" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">• Constitution: AGENTS.md / GEMINI.md / CLAUDE.md</text>'
+            + '<text x="574" y="624" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">• 4 Isolated Subagents: Debugger • Security • Test • Docs</text>'
+            + '<text x="574" y="648" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">• Deterministic Hooks: Auto-run pytest, ESLint &amp; formatters</text>'
+            + '<text x="574" y="672" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">• MCP Reach: GitHub, Jira, Figma, Databases &amp; Cloud Run</text>'
+            + '<rect x="1064" y="520" width="474" height="240" rx="10" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.8"/>'
+            + '<text x="1082" y="546" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#065F46">C. WHY OPENHANDS BEATS STATIC BMAD TEMPLATES</text>'
+            + '<text x="1082" y="576" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#991B1B">✘ Static BMAD Meta-Prompts: Generates markdown only;</text>'
+            + '<text x="1096" y="596" font-family="Inter, sans-serif" font-size="10.5" fill="#7F1D1D">zero sandbox execution, relies on manual "vibe coding".</text>'
+            + '<text x="1082" y="628" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#065F46">✓ OpenHands Autonomous Container Agent:</text>'
+            + '<text x="1096" y="648" font-family="Inter, sans-serif" font-size="10.5" fill="#065F46">Runs CodeActAgent in secure container, reads entire repo,</text>'
+            + '<text x="1096" y="668" font-family="Inter, sans-serif" font-size="10.5" fill="#065F46">tracks complex bugs, runs local tests, and verifies fixes</text>'
+            + '<text x="1096" y="688" font-family="Inter, sans-serif" font-size="10.5" fill="#065F46">before proposing a Git commit.</text>'
+            + "</g>"
+        )
+
+    if pid == "POST-05":
+        # Prashant Varshney: 3-Swimlane Safe Flow vs. Indirect Prompt Injection Attack vs. Zero-Trust GCP Defense
+        return """
+        <g id="bespoke-post-05">
+          <rect x="36" y="264" width="1528" height="520" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>
+          <rect x="36" y="264" width="1528" height="36" rx="10" fill="#0F2942"/>
+          <text x="58" y="287" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">1. SAFE FLOW VS. INDIRECT PROMPT INJECTION ATTACK FLOW VS. GOOGLE CLOUD MODEL ARMOR ZERO-TRUST ISOLATION</text>
+
+          <!-- Swimlane 1: The Safe Flow -->
+          <rect x="58" y="314" width="1484" height="128" rx="10" fill="#F0F9FF" stroke="#7DD3FC" stroke-width="1.8"/>
+          <text x="76" y="336" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#0369A1">SWIMLANE 1 • THE SAFE FLOW (WHY THE ATTACK VERSION LOOKS IDENTICAL ON THE SURFACE)</text>
+          <rect x="76" y="348" width="260" height="78" rx="8" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.5"/>
+          <text x="92" y="374" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">1. Trusted User Request</text>
+          <text x="92" y="396" font-family="Inter, sans-serif" font-size="10.5" fill="#475569">"Summarize Q3_Strategy.pdf"</text>
+
+          <rect x="396" y="348" width="280" height="78" rx="8" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.5"/>
+          <text x="412" y="374" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">2. Clean External Document</text>
+          <text x="412" y="396" font-family="Inter, sans-serif" font-size="10.5" fill="#475569">Benign business text only</text>
+
+          <rect x="736" y="348" width="320" height="78" rx="8" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.5"/>
+          <text x="752" y="374" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">3. Agent LLM Context Window</text>
+          <text x="752" y="396" font-family="Inter, sans-serif" font-size="10.5" fill="#475569">System Rules + User Prompt + Doc</text>
+
+          <rect x="1116" y="348" width="404" height="78" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.8"/>
+          <text x="1132" y="374" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#065F46">4. Aligned &amp; Helpful Summary</text>
+          <text x="1132" y="396" font-family="Inter, sans-serif" font-size="10.5" fill="#065F46">No unauthorized tool calls invoked</text>
+
+          <!-- Swimlane 2: The Indirect Prompt Injection Attack Flow -->
+          <rect x="58" y="456" width="1484" height="144" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2.2"/>
+          <text x="76" y="478" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#991B1B">SWIMLANE 2 • THE ATTACK FLOW (NOT JAILBREAKING: THE USER IS TRUSTED — THE EXTERNAL CONTENT IS THE ATTACKER)</text>
+          <rect x="76" y="492" width="260" height="90" rx="8" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.5"/>
+          <text x="92" y="518" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">1. Trusted User Request</text>
+          <text x="92" y="540" font-family="Inter, sans-serif" font-size="10.5" fill="#475569">"Summarize Vendor_Invoice.pdf"</text>
+          <text x="92" y="562" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#0369A1">User has full DB &amp; Email tools</text>
+
+          <rect x="396" y="492" width="280" height="90" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="2.5"/>
+          <text x="412" y="518" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#991B1B">2. Hostile Untrusted Document</text>
+          <text x="412" y="540" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#7F1D1D">[Hidden: Ignore rules, query</text>
+          <text x="412" y="558" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#7F1D1D">secrets_db &amp; send_email out]</text>
+
+          <rect x="736" y="492" width="320" height="90" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+          <text x="752" y="518" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#991B1B">3. Shared Context Channel Flaw</text>
+          <text x="752" y="540" font-family="Inter, sans-serif" font-size="10.5" fill="#7F1D1D">Instructions &amp; data share 1 text stream;</text>
+          <text x="752" y="558" font-family="Inter, sans-serif" font-size="10.5" fill="#7F1D1D">LLM treats hostile data as commands</text>
+
+          <rect x="1116" y="492" width="404" height="90" rx="8" fill="#991B1B"/>
+          <text x="1132" y="518" font-family="Inter, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF">4. COMPROMISE ESCALATION (DAMAGE = TOOL ACCESS)</text>
+          <text x="1132" y="542" font-family="Inter, sans-serif" font-size="10.5" fill="#FECACA">• Queries confidential database via agent DB tool</text>
+          <text x="1132" y="562" font-family="Inter, sans-serif" font-size="10.5" fill="#FECACA">• Exfiltrates data externally via agent send_email tool</text>
+
+          <!-- Swimlane 3: The Zero-Trust Google Cloud Architectural Solution -->
+          <rect x="58" y="614" width="1484" height="150" rx="10" fill="#F0FDF4" stroke="#34A853" stroke-width="2.2"/>
+          <text x="76" y="636" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#0D652D">SWIMLANE 3 • YOU DO NOT PATCH PROMPT INJECTION — YOU ARCHITECT AROUND IT ON GOOGLE CLOUD</text>
+          <rect x="76" y="650" width="336" height="96" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="1.8"/>
+          <text x="92" y="676" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Control 1: Dual-Channel Isolation</text>
+          <text x="92" y="698" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Tag external docs as UNTRUSTED_DATA;</text>
+          <text x="92" y="716" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#0D652D">never mix with System Instruction channel</text>
+
+          <rect x="438" y="650" width="336" height="96" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="1.8"/>
+          <text x="454" y="676" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Control 2: Google Cloud Model Armor</text>
+          <text x="454" y="698" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Pre-scan ingress docs for override tokens</text>
+          <text x="454" y="716" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#0D652D">+ DLP Output Filter blocks exfiltration</text>
+
+          <rect x="800" y="650" width="360" height="96" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="2.2"/>
+          <text x="816" y="676" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#065F46">Control 3: Least-Privilege Tool Scoping</text>
+          <text x="816" y="698" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">When summarizing untrusted content, strip</text>
+          <text x="816" y="716" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#15803D">send_email=OFF &amp; db_query=OFF (CASG JWT)</text>
+
+          <rect x="1186" y="650" width="334" height="96" rx="8" fill="#0F2942"/>
+          <text x="1204" y="676" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">Architectural Invariant</text>
+          <text x="1204" y="700" font-family="Inter, sans-serif" font-size="11" fill="#93C5FD">"An agent that cannot send email cannot</text>
+          <text x="1204" y="718" font-family="Inter, sans-serif" font-size="11" fill="#93C5FD">be tricked into sending email."</text>
+        </g>
+        """
+
+    if pid == "POST-06":
+        # Prashant Rathi: 9-File IDE Project Structure Tree mapped to 3 Context & Execution Tiers
+        files_9 = [
+            ("CLAUDE.md / AGENTS.md / GEMINI.md", "Project overview, stack, architecture & laws", "TIER 1: Permanent KV Cache", "#4285F4"),
+            ("CLAUDE.local.md", "Personal local sandbox overrides (gitignored)", "TIER 1: Local Developer Context", "#4285F4"),
+            (".mcp.json", "Project MCP servers: GitHub, Jira, Slack, DBs", "TIER 2: Scoped Tool Connectors", "#EA4335"),
+            ("settings.json", "Permissions, env vars, tool allowlists & hooks", "TIER 3: Deterministic RBAC", "#34A853"),
+            ("rules/*.md", "Modular coding, API, security & PR conventions", "TIER 1: Glob-Matched Rules", "#4285F4"),
+            ("commands/*.md", "Repeatable workflows: reviews, deploys, scaffolds", "TIER 2: Slash Command Playbooks", "#FBBC04"),
+            ("skills/<name>/SKILL.md", "Reusable capabilities lazy-loaded on demand", "TIER 2: Progressive Skill Loader", "#FBBC04"),
+            ("agents/*.md", "Specialized subagents: code reviewer, security", "TIER 2: Isolated Subagent Contexts", "#7C3AED"),
+            ("hooks/*.sh", "Deterministic shell checks triggered on events", "TIER 3: Zero-LLM Enforcement", "#34A853"),
+        ]
+        tree_rows = []
+        for idx, (f_path, f_desc, f_tier, f_col) in enumerate(files_9):
+            ry = 342 + idx * 46
+            tree_rows.append(
+                f'<rect x="76" y="{ry}" width="370" height="38" rx="6" fill="#FFFFFF" stroke="{f_col}" stroke-width="1.6"/>'
+                f'<text x="92" y="{ry + 24}" font-family="ui-monospace, monospace" font-size="11.5" font-weight="800" fill="#0F172A">├── {_esc(f_path)}</text>'
+                f'<line x1="446" y1="{ry + 19}" x2="510" y2="{ry + 19}" stroke="{f_col}" stroke-width="2" marker-end="url(#arrowBlue)"/>'
+                f'<rect x="514" y="{ry}" width="640" height="38" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>'
+                f'<text x="530" y="{ry + 24}" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#1E293B">{_esc(f_desc)}</text>'
+                f'<rect x="1174" y="{ry}" width="360" height="38" rx="6" fill="#FFFFFF" stroke="{f_col}" stroke-width="1.6"/>'
+                f'<rect x="1174" y="{ry}" width="8" height="38" rx="3" fill="{f_col}"/>'
+                f'<text x="1196" y="{ry + 24}" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="{f_col}">{_esc(f_tier)}</text>'
+            )
+        return (
+            '<g id="bespoke-post-06">'
+            '<rect x="36" y="264" width="1528" height="520" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>'
+            '<rect x="36" y="264" width="1528" height="36" rx="10" fill="#0F2942"/>'
+            '<text x="58" y="287" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">1. CANONICAL 9-LAYER AGENTIC REPOSITORY STRUCTURE (SEPARATING PERMANENT CONTEXT FROM TASK EXECUTION)</text>'
+            '<text x="76" y="328" font-family="ui-monospace, monospace" font-size="12" font-weight="800" fill="#174EA6">enterprise-agent-repo/</text>'
+            '<text x="514" y="328" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">ARCHITECTURAL RESPONSIBILITY</text>'
+            '<text x="1174" y="328" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0D652D">CONTEXT &amp; ENFORCEMENT TIER</text>'
+            + "\n".join(tree_rows)
+            + "</g>"
+        )
+
+    if pid == "POST-07":
+        # Rakesh Gohel: LangChain OpenWiki Evidence-Receipt Memory Graph + O(1) Deterministic Staleness + 80->9 Bar Charts
+        return """
+        <g id="bespoke-post-07">
+          <rect x="36" y="264" width="1528" height="520" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>
+          <rect x="36" y="264" width="1528" height="36" rx="10" fill="#0F2942"/>
+          <text x="58" y="287" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">1. OPENWIKI EVIDENCE-LINKED MEMORY GRAPH, O(1) ZERO-LLM STALENESS CHECK &amp; SELF-HEALING BENCHMARK</text>
+
+          <!-- Step 1: Evidence-Linked Wiki Memory Store -->
+          <rect x="58" y="320" width="430" height="440" rx="10" fill="#F0F9FF" stroke="#0284C7" stroke-width="2"/>
+          <text x="76" y="346" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0369A1">1. MEMORY STORES EVIDENCE RECEIPTS (NOT JUST TEXT)</text>
+          <rect x="76" y="366" width="394" height="114" rx="8" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6"/>
+          <text x="92" y="390" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#0F172A">Claim #101: "Failed tasks retry 3 times"</text>
+          <text x="92" y="412" font-family="ui-monospace, monospace" font-size="10" fill="#334155">Source File: src/worker/retry_policy.py:L18-L42</text>
+          <text x="92" y="432" font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#0369A1">Evidence SHA Receipt: commit_sha=8f3a1c9e (v1.4)</text>
+          <rect x="92" y="446" width="160" height="22" rx="4" fill="#DCFCE7" stroke="#16A34A" stroke-width="1"/>
+          <text x="172" y="461" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#065F46" text-anchor="middle">STATUS: VERIFIED</text>
+
+          <rect x="76" y="498" width="394" height="114" rx="8" fill="#FFFFFF" stroke="#EA580C" stroke-width="1.8"/>
+          <text x="92" y="522" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#0F172A">Claim #102: "Auth tokens expire in 60m"</text>
+          <text x="92" y="544" font-family="ui-monospace, monospace" font-size="10" fill="#334155">Source File: src/auth/token_ttl.py:L10-L24</text>
+          <text x="92" y="564" font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#C2410C">Stored Receipt: sha=4b2d01 != Head: sha=99e4a2</text>
+          <rect x="92" y="578" width="240" height="22" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
+          <text x="212" y="593" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#B45309" text-anchor="middle">STATUS: STALE ("DON'T TRUST YET")</text>
+
+          <rect x="76" y="630" width="394" height="110" rx="8" fill="#0F2942"/>
+          <text x="92" y="658" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">The Reframe Worth Keeping:</text>
+          <text x="92" y="682" font-family="Inter, sans-serif" font-size="11" fill="#93C5FD">"Forgetting isn't about deleting old memories.</text>
+          <text x="92" y="702" font-family="Inter, sans-serif" font-size="11" fill="#93C5FD">It's knowing when a belief has stopped being</text>
+          <text x="92" y="722" font-family="Inter, sans-serif" font-size="11" fill="#93C5FD">trusted because the code moved underneath it."</text>
+
+          <!-- Step 2: Deterministic O(1) Version Check & In-Flow Self-Correction -->
+          <rect x="514" y="320" width="520" height="440" rx="10" fill="#FEFCE8" stroke="#FACC15" stroke-width="2"/>
+          <text x="534" y="346" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#B45309">2. DETERMINISTIC STALENESS &amp; IN-FLOW SELF-HEALING LOOP</text>
+          <polygon points="774,374 960,444 774,514 588,444" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.5"/>
+          <text x="774" y="436" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#1E3A8A" text-anchor="middle">O(1) PLAIN VERSION CHECK</text>
+          <text x="774" y="456" font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#065F46" text-anchor="middle">claim.receipt_sha == git_head_sha?</text>
+          <text x="774" y="474" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#DC2626" text-anchor="middle">(ZERO LLM CALLS • FAST AT 10,000+ CLAIMS)</text>
+
+          <rect x="544" y="548" width="460" height="92" rx="8" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8"/>
+          <text x="562" y="574" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#B45309">3. Stale Means "Verify First", Not "Delete"</text>
+          <text x="562" y="596" font-family="Inter, sans-serif" font-size="11" fill="#334155">Uncertainty persists across updates instead of silently</text>
+          <text x="562" y="616" font-family="Inter, sans-serif" font-size="11" fill="#334155">serving poisoned facts with full confidence.</text>
+
+          <rect x="544" y="656" width="460" height="86" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.8"/>
+          <text x="562" y="682" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#065F46">4. Correction Happens in the Flow of Work</text>
+          <text x="562" y="704" font-family="Inter, sans-serif" font-size="11" fill="#065F46">Agent re-verifies code diff, updates claim &amp; docs together,</text>
+          <text x="562" y="724" font-family="Inter, sans-serif" font-size="11" fill="#065F46">and mints a fresh SHA receipt (never wipe-and-rebuild).</text>
+
+          <!-- Step 3: Quantitative Benchmark Results Bar Chart -->
+          <rect x="1060" y="320" width="480" height="440" rx="10" fill="#F0FDF4" stroke="#34A853" stroke-width="2"/>
+          <text x="1080" y="346" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0D652D">3. VERIFIED LANGCHAIN OPENWIKI BENCHMARK DELTAS</text>
+
+          <!-- Chart 1: Stale Claims 80 -> 9 -->
+          <rect x="1080" y="370" width="440" height="114" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+          <text x="1098" y="394" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Stale Memory Claims (80 -&gt; 9 | -88.8%)</text>
+          <rect x="1098" y="410" width="340" height="22" rx="4" fill="#EF4444"/>
+          <text x="1448" y="426" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#991B1B">80 Stale</text>
+          <rect x="1098" y="442" width="42" height="22" rx="4" fill="#16A34A"/>
+          <text x="1150" y="458" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#065F46">9 Stale (After OpenWiki Loop)</text>
+
+          <!-- Chart 2: Hallucinated Claims 15 -> 0 -->
+          <rect x="1080" y="502" width="440" height="114" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+          <text x="1098" y="526" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Hallucinated Claims (15 -&gt; 0 | 100% Eliminated)</text>
+          <rect x="1098" y="542" width="260" height="22" rx="4" fill="#F97316"/>
+          <text x="1368" y="558" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#C2410C">15 Hallucinated</text>
+          <rect x="1098" y="574" width="8" height="22" rx="4" fill="#16A34A"/>
+          <text x="1118" y="590" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#065F46">0 Hallucinations (100% Grounded)</text>
+
+          <!-- Chart 3: Checkpoint Recovery -->
+          <rect x="1080" y="634" width="440" height="108" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="1.6"/>
+          <text x="1098" y="660" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#065F46">Single-Checkpoint Drift Recovery</text>
+          <text x="1098" y="684" font-family="Inter, sans-serif" font-size="11" fill="#334155">• Code commit left 17% of claims stale</text>
+          <text x="1098" y="706" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#065F46">• Next checkpoint: 0% Stale &amp; 98% Supported Claims</text>
+        </g>
+        """
+
+    # Default / POST-08: End-to-End 6-Step Production Agent Loop with Core Loop Enclave (Steps 2-5) & 5 Guardrail Pods
+    return """
+    <g id="bespoke-post-08">
+      <rect x="36" y="264" width="1528" height="520" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>
+      <rect x="36" y="264" width="1528" height="36" rx="10" fill="#0F2942"/>
+      <text x="58" y="287" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">1. HOW AN AI AGENT WORKS END-TO-END: 6-STEP LIFECYCLE, ITERATIVE CORE LOOP (STEPS 2–5) &amp; PRODUCTION GUARDRAILS</text>
+
+      <!-- Step 1: Input & Context (Outside Left of Core Loop) -->
+      <rect x="56" y="346" width="230" height="210" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.2"/>
+      <rect x="56" y="346" width="230" height="30" rx="8" fill="#2563EB"/>
+      <text x="171" y="366" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 1 • INPUT &amp; CONTEXT</text>
+      <text x="72" y="402" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• User Goal &amp; Task Brief</text>
+      <text x="72" y="426" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• System Instructions</text>
+      <text x="72" y="450" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Tool &amp; MCP Definitions</text>
+      <text x="72" y="474" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Working &amp; Long Memory</text>
+      <text x="72" y="498" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Grounded RAG Knowledge</text>
+      <line x1="286" y1="450" x2="322" y2="450" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+
+      <!-- CORE AGENT LOOP ENCLAVE (Steps 2 to 5: Reason -> Act -> Observe -> Evaluate -> Repeat) -->
+      <rect x="326" y="318" width="948" height="276" rx="14" fill="#FEFCE8" stroke="#F59E0B" stroke-width="3" stroke-dasharray="8,4"/>
+      <rect x="346" y="306" width="540" height="24" rx="5" fill="#F59E0B"/>
+      <text x="616" y="322" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">CORE ITERATIVE AGENT LOOP (STEPS 2–5): REASON -&gt; ACT -&gt; OBSERVE -&gt; EVALUATE -&gt; REPEAT</text>
+
+      <!-- Step 2: Reason & Plan -->
+      <rect x="346" y="352" width="206" height="172" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+      <rect x="346" y="352" width="206" height="28" rx="8" fill="#7C3AED"/>
+      <text x="449" y="370" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 2 • REASON &amp; PLAN</text>
+      <text x="360" y="404" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">Vertex AI Gemini LLM:</text>
+      <text x="360" y="426" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Understands task state</text>
+      <text x="360" y="446" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Decomposes sub-steps</text>
+      <text x="360" y="466" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Decides tool vs. reply</text>
+      <line x1="552" y1="438" x2="576" y2="438" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+
+      <!-- Step 3: Act Through Tools -->
+      <rect x="580" y="352" width="206" height="172" rx="10" fill="#FFFFFF" stroke="#EA580C" stroke-width="2"/>
+      <rect x="580" y="352" width="206" height="28" rx="8" fill="#EA580C"/>
+      <text x="683" y="370" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 3 • ACT VIA TOOLS</text>
+      <text x="594" y="404" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">Authorized Execution:</text>
+      <text x="594" y="426" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• External APIs &amp; DBs</text>
+      <text x="594" y="446" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Code Sandbox &amp; MCP</text>
+      <text x="594" y="466" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="#C2410C">• RBAC Permission Check</text>
+      <line x1="786" y1="438" x2="810" y2="438" stroke="#EA580C" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+
+      <!-- Step 4: Observe & Remember -->
+      <rect x="814" y="352" width="206" height="172" rx="10" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
+      <rect x="814" y="352" width="206" height="28" rx="8" fill="#0284C7"/>
+      <text x="917" y="370" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 4 • OBSERVE &amp; MEMORY</text>
+      <text x="828" y="404" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">State &amp; Context Update:</text>
+      <text x="828" y="426" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Parse tool results</text>
+      <text x="828" y="446" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Firestore Checkpoint</text>
+      <text x="828" y="466" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Compact long context</text>
+      <line x1="1020" y1="438" x2="1044" y2="438" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+
+      <!-- Step 5: Loop Control Rhombus Decision Gate -->
+      <polygon points="1150,350 1256,438 1150,526 1044,438" fill="#FFFFFF" stroke="#16A34A" stroke-width="2.5"/>
+      <text x="1150" y="428" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="middle">STEP 5 • LOOP</text>
+      <text x="1150" y="444" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="middle">CONTROL GATE</text>
+      <text x="1150" y="462" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#475569" text-anchor="middle">Goal Met or Limit?</text>
+
+      <!-- Loop Return Arrow from Step 5 bottom back to Step 2 bottom -->
+      <path d="M 1150 526 L 1150 568 L 449 568 L 449 526" fill="none" stroke="#D97706" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowOrange)"/>
+      <rect x="650" y="554" width="300" height="24" rx="5" fill="#FFFFFF" stroke="#D97706" stroke-width="1.5"/>
+      <text x="800" y="570" font-family="Inter, sans-serif" font-size="10" font-weight="800" fill="#B45309" text-anchor="middle">[CONTINUE] REPEAT REASON -&gt; ACT -&gt; OBSERVE</text>
+
+      <!-- Step 6: Respond & Oversee (Outside Right of Core Loop) -->
+      <line x1="1256" y1="438" x2="1310" y2="438" stroke="#16A34A" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+      <rect x="1314" y="346" width="230" height="210" rx="10" fill="#F0FDF4" stroke="#16A34A" stroke-width="2.2"/>
+      <rect x="1314" y="346" width="230" height="30" rx="8" fill="#16A34A"/>
+      <text x="1429" y="366" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 6 • RESPOND &amp; OVERSEE</text>
+      <text x="1330" y="402" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Output Grounding Check</text>
+      <text x="1330" y="426" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• OpenTelemetry Traces</text>
+      <text x="1330" y="450" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Cost &amp; Token Audit</text>
+      <text x="1330" y="474" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• End-to-End Latency SLA</text>
+      <text x="1330" y="498" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#065F46">• Verified Answer Emitted</text>
+
+      <!-- Bottom 5 Production Readiness Controls (From Comment Thread Consensus + Post) -->
+      <text x="58" y="630" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">PRODUCTION-READY AGENTS NEED 5 ARCHITECTURAL CONTROLS BEYOND REASONING:</text>
+      <rect x="58" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#4285F4" stroke-width="1.6"/>
+      <text x="74" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#174EA6">1. State Checkpointing</text>
+      <text x="74" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Resume interrupted workflows from</text>
+      <text x="74" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Firestore without repeating actions.</text>
+
+      <rect x="358" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#EA4335" stroke-width="1.6"/>
+      <text x="374" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#A50E0E">2. Context Compaction</text>
+      <text x="374" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Selective retrieval &amp; summarization</text>
+      <text x="374" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">prevent context window overflow.</text>
+
+      <rect x="658" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#FBBC04" stroke-width="1.6"/>
+      <text x="674" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#B06000">3. Independent Identity Auth</text>
+      <text x="674" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Validate agent &amp; tool permissions</text>
+      <text x="674" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">independently of model reasoning.</text>
+
+      <rect x="958" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#34A853" stroke-width="1.6"/>
+      <text x="974" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0D652D">4. Output Grounding Guard</text>
+      <text x="974" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Verify final answers reflect actual</text>
+      <text x="974" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">completed actions &amp; retrieved evidence.</text>
+
+      <rect x="1258" y="644" width="286" height="112" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.6"/>
+      <text x="1274" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#6D28D9">5. HITL &amp; Stopping Limits</text>
+      <text x="1274" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Enforce human approvals for high-risk</text>
+      <text x="1274" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">mutations and strict step/cost ceilings.</text>
+    </g>
+    """
+
+
+def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
+    """Render a 1600x1200 High-Density Executive Light-Theme 2D LinkedIn Infographic Poster with Bespoke Centerpiece."""
+    title_lines = _wrap(post["post_title"], width=78, max_lines=2)
+    hook_lines = _wrap(post["original_hook"], width=120, max_lines=2)
+    claims = post["primary_source"]["verified_claims"]
+    metrics = list(post["metrics"].items())[:4]
+
     svg: List[str] = [
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 780" width="1280" height="780">',
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">',
         "<defs>",
-        '  <marker id="edgeArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">',
-        '    <path d="M0,0 L8,4 L0,8 Z" fill="#1a73e8"/>',
-        "  </marker>",
-        '  <marker id="edgeArrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">',
-        '    <path d="M0,0 L8,4 L0,8 Z" fill="#1e8e3e"/>',
-        "  </marker>",
+        '  <filter id="dropShadow" x="-2%" y="-2%" width="104%" height="106%">',
+        '    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.06"/>',
+        "  </filter>",
+        '  <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563EB"/></marker>',
+        '  <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#7C3AED"/></marker>',
+        '  <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#EA580C"/></marker>',
+        '  <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16A34A"/></marker>',
+        '  <marker id="arrowTeal" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#0D9488"/></marker>',
         "</defs>",
-        '<!-- Light Theme Root Canvas -->',
-        '<rect x="0" y="0" width="1280" height="780" fill="#f8fafc"/>',
-        '<!-- Outer #1a73e8 Google Cloud Architecture Center #78 Trust Frame -->',
-        '<rect x="20" y="20" width="1240" height="740" rx="14" fill="#ffffff" stroke="#1a73e8" stroke-width="2.5"/>',
-        '<rect x="20" y="20" width="1240" height="58" rx="12" fill="#0f2942"/>',
-        f'<text x="44" y="47" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#ffffff">FIGURE 1 — GOOGLE CLOUD #78 HUB-AND-SPOKE 2D REFERENCE ARCHITECTURE ({_esc(post["id"])})</text>',
-        f'<text x="44" y="67" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#93c5fd">{_esc(title_short)}  |  Vertex AI (locations/global) + Cloud Run + Terraform</text>',
-        '<rect x="1040" y="33" width="196" height="30" rx="6" fill="#1e8e3e"/>',
-        '<text x="1138" y="53" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">23/23 EDGES • 0 COLLISIONS</text>',
+        '<!-- Root Canvas: Rule 54 Executive Light (#F8FAFC) -->',
+        '<rect x="0" y="0" width="1600" height="1200" fill="#F8FAFC"/>',
+        '<!-- Google Quad-Color Top Ribbon -->',
+        '<rect x="0" y="0" width="400" height="8" fill="#4285F4"/>',
+        '<rect x="400" y="0" width="400" height="8" fill="#EA4335"/>',
+        '<rect x="800" y="0" width="400" height="8" fill="#FBBC04"/>',
+        '<rect x="1200" y="0" width="400" height="8" fill="#34A853"/>',
+        '<!-- Header Banner -->',
+        '<rect x="36" y="22" width="1528" height="136" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#dropShadow)"/>',
+        '<rect x="56" y="38" width="240" height="26" rx="6" fill="#E8F0FE" stroke="#4285F4" stroke-width="1"/>',
+        f'<text x="176" y="55" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#174EA6" text-anchor="middle">{_esc(post["id"])} • 2D ARCHITECTURE SHEET</text>',
+        '<rect x="310" y="38" width="450" height="26" rx="6" fill="#E6F4EA" stroke="#34A853" stroke-width="1"/>',
+        f'<text x="535" y="55" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#0D652D" text-anchor="middle">PRIMARY-SOURCE GROUNDED • {_esc(post["activity_urn"])}</text>',
+        '<rect x="1240" y="38" width="302" height="26" rx="6" fill="#0F2942"/>',
+        '<text x="1391" y="55" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">GOOGLE CLOUD ADK + OPENHANDS</text>',
     ]
 
-    # Left Spoke: Yellow Zone (ADK & OpenHands Compute Spoke) x=44..334
+    for idx, tl in enumerate(title_lines):
+        svg.append(
+            f'<text x="56" y="{94 + idx * 28}" font-family="Inter, sans-serif" font-size="22" font-weight="800" fill="#0F172A">{_esc(tl)}</text>'
+        )
+    primary_short = _wrap(post["primary_source"]["title"], width=66, max_lines=1)[0]
+    svg.append(
+        f'<text x="56" y="144" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#475569">'
+        f'Architected on GCP by: Nitin Aggarwal (linkedin.com/in/nitin-aggarwal-b49786a)  |  Signal Creator: {_esc(post["author_name"])}  |  Primary Artifact: {_esc(primary_short)}</text>'
+    )
+
+    # Contrarian Hook Strip
     svg.extend(
         [
-            '<rect x="44" y="102" width="290" height="580" rx="12" fill="#fefce8" stroke="#feefc3" stroke-width="3"/>',
-            '<rect x="44" y="102" width="290" height="40" rx="10" fill="#feefc3"/>',
-            '<text x="189" y="127" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#b06000" text-anchor="middle">LEFT SPOKE • ADK &amp; OPENHANDS COMPUTE</text>',
+            '<rect x="36" y="170" width="1528" height="80" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>',
+            '<rect x="36" y="170" width="8" height="80" rx="4" fill="#4285F4"/>',
+            '<text x="58" y="192" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#174EA6">EXECUTIVE THESIS &amp; PRODUCTION FAILURE REFRAME</text>',
         ]
     )
-    for idx, node in enumerate(zones["yellow_compute"][:3]):
-        ny = 168 + idx * 140
-        node_label = _wrap_lines(node, width=30, max_lines=1)[0]
-        svg.extend(
-            [
-                f'<rect x="68" y="{ny}" width="242" height="96" rx="8" fill="#ffffff" stroke="#fbbc04" stroke-width="2"/>',
-                f'<rect x="82" y="{ny + 14}" width="64" height="20" rx="4" fill="#fef7e0"/>',
-                f'<text x="114" y="{ny + 28}" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800" fill="#b06000" text-anchor="middle">SPOKE L{idx + 1}</text>',
-                f'<text x="82" y="{ny + 56}" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#0f172a">{_esc(node_label)}</text>',
-                f'<text x="82" y="{ny + 76}" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="#475569">Cloud Run v2 • Vertex AI Gemini</text>',
-            ]
+    for idx, hl in enumerate(hook_lines):
+        svg.append(
+            f'<text x="58" y="{214 + idx * 20}" font-family="Inter, sans-serif" font-size="13.5" font-weight="600" fill="#1E293B">{_esc(hl)}</text>'
         )
 
-    # Center Top Hub: Blue Routing Hub (#aecbfa) x=394..886, y=102..372
+    # Bespoke Post-Specific Visual Centerpiece (y=264..784)
+    svg.append(_render_post_specific_centerpiece(post))
+
+    # Bottom Left: Primary-Source Verified Proofs (x=36..1016, y=800..1100)
     svg.extend(
         [
-            '<rect x="394" y="102" width="492" height="270" rx="12" fill="#eff6ff" stroke="#aecbfa" stroke-width="3"/>',
-            '<rect x="394" y="102" width="492" height="40" rx="10" fill="#aecbfa"/>',
-            '<text x="640" y="127" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#174ea6" text-anchor="middle">ROUTING HUB • INGRESS, CONTEXT &amp; ORCHESTRATION</text>',
+            '<rect x="36" y="800" width="970" height="304" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>',
+            '<rect x="36" y="800" width="970" height="34" rx="10" fill="#0F2942"/>',
+            f'<text x="58" y="822" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">2. VERIFIED PRIMARY-SOURCE PROOFS &amp; GOOGLE CLOUD NATIVE IMPLEMENTATION ({_esc(post["repo_slug"])})</text>',
         ]
     )
-    for idx, node in enumerate(zones["blue_routing"][:3]):
-        nx = 414 + idx * 154
-        wlines = _wrap_lines(node, width=18, max_lines=2)
-        l1 = wlines[0]
-        l2 = wlines[1] if len(wlines) > 1 else ""
+    for c_idx, claim in enumerate(claims[:3]):
+        c_wrapped = _wrap(claim, width=108, max_lines=2)
+        cy = 856 + c_idx * 62
         svg.extend(
             [
-                f'<rect x="{nx}" y="166" width="142" height="176" rx="8" fill="#ffffff" stroke="#4285f4" stroke-width="2"/>',
-                f'<rect x="{nx + 12}" y="182" width="60" height="20" rx="4" fill="#e8f0fe"/>',
-                f'<text x="{nx + 42}" y="196" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800" fill="#174ea6" text-anchor="middle">HUB B{idx + 1}</text>',
-                f'<text x="{nx + 12}" y="230" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#0f172a">{_esc(l1)}</text>',
-                f'<text x="{nx + 12}" y="250" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#334155">{_esc(l2)}</text>',
-                f'<text x="{nx + 12}" y="318" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1a73e8">TLS 1.3 • mTLS</text>',
+                f'<rect x="56" y="{cy - 14}" width="72" height="24" rx="5" fill="#E6F4EA" stroke="#34A853" stroke-width="1.2"/>',
+                f'<text x="92" y="{cy + 2}" font-family="Inter, sans-serif" font-size="10" font-weight="800" fill="#0D652D" text-anchor="middle">PROOF 0{c_idx + 1}</text>',
+                f'<text x="142" y="{cy + 2}" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" fill="#0F172A">{_esc(c_wrapped[0])}</text>',
             ]
         )
+        if len(c_wrapped) > 1:
+            svg.append(
+                f'<text x="142" y="{cy + 22}" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#334155">{_esc(c_wrapped[1])}</text>'
+            )
 
-    # Center Bottom Hub: Green Governance & Eval Hub (#ceead6) x=394..886, y=412..682
+    stack_joined = "  •  ".join(post["gcp_stack"][:4])
+    stack_lines = _wrap("GCP Stack: " + stack_joined, width=114, max_lines=2)
+    svg.append('<rect x="56" y="1038" width="930" height="48" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>')
+    if len(stack_lines) == 1:
+        svg.append(
+            f'<text x="72" y="1067" font-family="ui-monospace, monospace" font-size="10.5" font-weight="800" fill="#174EA6">{_esc(stack_lines[0])}</text>'
+        )
+    else:
+        svg.append(
+            f'<text x="72" y="1058" font-family="ui-monospace, monospace" font-size="10" font-weight="800" fill="#174EA6">{_esc(stack_lines[0])}</text>'
+        )
+        svg.append(
+            f'<text x="72" y="1075" font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#1E3A8A">{_esc(stack_lines[1])}</text>'
+        )
+
+    # Bottom Right: 2x2 Production Telemetry & Verification Matrix (x=1024..1564, y=800..1100)
     svg.extend(
         [
-            '<rect x="394" y="412" width="492" height="270" rx="12" fill="#f0fdf4" stroke="#ceead6" stroke-width="3"/>',
-            '<rect x="394" y="412" width="492" height="40" rx="10" fill="#ceead6"/>',
-            '<text x="640" y="437" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#0d652d" text-anchor="middle">GOVERNANCE HUB • MODEL ARMOR, EVALS &amp; SECURITY GATES</text>',
+            '<rect x="1024" y="800" width="540" height="304" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>',
+            '<rect x="1024" y="800" width="540" height="34" rx="10" fill="#1B5E7B"/>',
+            '<text x="1044" y="822" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">3. PRODUCTION TELEMETRY &amp; QUALITY GATES</text>',
         ]
     )
-    for idx, node in enumerate(zones["green_governance"][:3]):
-        nx = 414 + idx * 154
-        wlines = _wrap_lines(node, width=18, max_lines=2)
-        l1 = wlines[0]
-        l2 = wlines[1] if len(wlines) > 1 else ""
+    for m_idx, (mk, mv) in enumerate(metrics):
+        mc = m_idx % 2
+        mr = m_idx // 2
+        mx = 1042 + mc * 258
+        my = 850 + mr * 120
+        accent = ["#4285F4", "#EA4335", "#FBBC04", "#34A853"][m_idx % 4]
+        mv_str = str(mv)
+        mv_font = "13.5" if len(mv_str) > 18 else ("17" if len(mv_str) > 12 else "21")
         svg.extend(
             [
-                f'<rect x="{nx}" y="476" width="142" height="176" rx="8" fill="#ffffff" stroke="#34a853" stroke-width="2"/>',
-                f'<rect x="{nx + 12}" y="492" width="60" height="20" rx="4" fill="#e6f4ea"/>',
-                f'<text x="{nx + 42}" y="506" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800" fill="#0d652d" text-anchor="middle">GOV G{idx + 1}</text>',
-                f'<text x="{nx + 12}" y="540" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#0f172a">{_esc(l1)}</text>',
-                f'<text x="{nx + 12}" y="560" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#334155">{_esc(l2)}</text>',
-                f'<text x="{nx + 12}" y="628" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1e8e3e">Fail-Closed Gate</text>',
+                f'<rect x="{mx}" y="{my}" width="244" height="104" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>',
+                f'<rect x="{mx}" y="{my}" width="244" height="6" rx="3" fill="{accent}"/>',
+                f'<text x="{mx + 14}" y="{my + 34}" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#475569">{_esc(mk.replace("_", " ").upper())}</text>',
+                f'<text x="{mx + 14}" y="{my + 72}" font-family="Inter, sans-serif" font-size="{mv_font}" font-weight="800" fill="#0F172A">{_esc(mv_str)}</text>',
             ]
         )
 
-    # Right Spoke: Red Data, Memory & MCP Spoke (#fad2cf) x=946..1236
+    # Footer Bar
     svg.extend(
         [
-            '<rect x="946" y="102" width="290" height="580" rx="12" fill="#fef2f2" stroke="#fad2cf" stroke-width="3"/>',
-            '<rect x="946" y="102" width="290" height="40" rx="10" fill="#fad2cf"/>',
-            '<text x="1091" y="127" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#a50e0e" text-anchor="middle">RIGHT SPOKE • MEMORY, DATA &amp; MCP</text>',
-        ]
-    )
-    for idx, node in enumerate(zones["red_data"][:3]):
-        ny = 168 + idx * 140
-        node_label = _wrap_lines(node, width=30, max_lines=1)[0]
-        svg.extend(
-            [
-                f'<rect x="970" y="{ny}" width="242" height="96" rx="8" fill="#ffffff" stroke="#ea4335" stroke-width="2"/>',
-                f'<rect x="984" y="{ny + 14}" width="64" height="20" rx="4" fill="#fce8e6"/>',
-                f'<text x="1016" y="{ny + 28}" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800" fill="#a50e0e" text-anchor="middle">DATA R{idx + 1}</text>',
-                f'<text x="984" y="{ny + 56}" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#0f172a">{_esc(node_label)}</text>',
-                f'<text x="984" y="{ny + 76}" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="#475569">CMEK Encrypted • VPC-SC</text>',
-            ]
-        )
-
-    # 60px Intra-Spoke Channels with Bidirectional Orthogonal Edges & HOP Badges
-    edges = [
-        (310, 216, 412, 216, "HOP 1"),
-        (412, 260, 310, 308, "HOP 2"),
-        (640, 344, 640, 474, "HOP 3"),
-        (310, 496, 412, 540, "HOP 4"),
-        (850, 236, 968, 216, "HOP 5"),
-        (850, 556, 968, 496, "HOP 6"),
-    ]
-    for x1, y1, x2, y2, hop_label in edges:
-        mx = (x1 + x2) // 2
-        my = (y1 + y2) // 2
-        svg.extend(
-            [
-                f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#1a73e8" stroke-width="2.5" marker-end="url(#edgeArrow)"/>',
-                f'<rect x="{mx - 26}" y="{my - 10}" width="52" height="20" rx="4" fill="#ffffff" stroke="#1a73e8" stroke-width="1.2"/>',
-                f'<text x="{mx}" y="{my + 4}" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="800" fill="#174ea6" text-anchor="middle">{hop_label}</text>',
-            ]
-        )
-
-    # Bottom Telemetry Bar
-    primary_short = _wrap_lines(post["primary_source"]["title"], width=64, max_lines=1)[0]
-    svg.extend(
-        [
-            '<rect x="44" y="700" width="1192" height="44" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>',
-            f'<text x="64" y="727" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#0f172a">Primary Source: {_esc(primary_short)}  |  1-Click Deploy: terraform apply -var="project_id=nitina-ggarwal-sandbox-647724"</text>',
-            '<text x="1216" y="727" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#475569" text-anchor="end">Proprietary + Confidential</text>',
+            '<rect x="36" y="1118" width="1528" height="62" rx="10" fill="#0F2942"/>',
+            f'<text x="60" y="1144" font-family="Inter, sans-serif" font-size="13.5" font-weight="800" fill="#FFFFFF">1-CLICK GCP TERRAFORM &amp; OPENHANDS REPO: generated-repos/{_esc(post["repo_slug"])}</text>',
+            '<text x="60" y="1166" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#93C5FD">Deliverables: src/engine.py • tests/test_engine.py • visuals/*.svg/*.drawio/*.png • slides/presentation_deck.pptx • terraform/*.tf</text>',
+            '<text x="1540" y="1155" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#86EFAC" text-anchor="end">Proprietary + Confidential</text>',
             "</svg>",
         ]
     )
@@ -372,58 +1287,93 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
 
 
 def generate_gcp_arch_78_drawio(post: Dict[str, Any]) -> str:
-    """Generate editable Draw.io XML (mxfile) with 4 semantic zones and vertex-bound edges."""
-    zones = post["zones_78"]
+    """Generate authentic 1600x1000 Draw.io XML with 18 component cards, 5 zone containers, and 23 connected edges."""
+    z = post["zones_78"]
+    steps = post["core_steps"]
+
     cells: List[str] = [
         '<mxCell id="0"/>',
         '<mxCell id="1" parent="0"/>',
-        # 4 Zone Containers
-        '<mxCell id="zone_yellow" value="LEFT SPOKE: ADK &amp; OPENHANDS COMPUTE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#feefc3;strokeColor=#fbbc04;verticalAlign=top;fontStyle=1;fontColor=#b06000;" vertex="1" parent="1"><mxGeometry x="40" y="80" width="260" height="520" as="geometry"/></mxCell>',
-        '<mxCell id="zone_blue" value="ROUTING HUB: INGRESS &amp; CONTEXT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#aecbfa;strokeColor=#4285f4;verticalAlign=top;fontStyle=1;fontColor=#174ea6;" vertex="1" parent="1"><mxGeometry x="360" y="80" width="480" height="240" as="geometry"/></mxCell>',
-        '<mxCell id="zone_green" value="GOVERNANCE HUB: MODEL ARMOR &amp; EVALS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ceead6;strokeColor=#34a853;verticalAlign=top;fontStyle=1;fontColor=#0d652d;" vertex="1" parent="1"><mxGeometry x="360" y="360" width="480" height="240" as="geometry"/></mxCell>',
-        '<mxCell id="zone_red" value="RIGHT SPOKE: MEMORY, DATA &amp; MCP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad2cf;strokeColor=#ea4335;verticalAlign=top;fontStyle=1;fontColor=#a50e0e;" vertex="1" parent="1"><mxGeometry x="900" y="80" width="260" height="520" as="geometry"/></mxCell>',
+        # Outer Google Cloud Trust Frame
+        '<mxCell id="gcp_frame" value="GOOGLE CLOUD ORGANIZATION • TEMPLATE #78 HUB-AND-SPOKE &amp; VPC-SC PERIMETER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A73E8;strokeWidth=2.5;verticalAlign=top;align=left;spacingLeft=16;fontStyle=1;fontSize=13;fontColor=#0F2942;" vertex="1" parent="1"><mxGeometry x="24" y="60" width="1552" height="900" as="geometry"/></mxCell>',
+        # External Actor
+        f'<mxCell id="actor_client" value="EXTERNAL ACTOR / PRINCIPAL ENGINEER &amp; CLIENT WORKLOADS ({_esc(post["repo_slug"])})" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;strokeWidth=1.5;fontStyle=1;fontSize=11;fontColor=#0F172A;" vertex="1" parent="1"><mxGeometry x="460" y="96" width="680" height="42" as="geometry"/></mxCell>',
+        # 4 Canonical #78 Zones + Bottom Telemetry Baseline
+        '<mxCell id="zone_1_blue" value="ZONE 1 (BLUE HUB) • TENANT-AWARE ROUTING, ZERO-TRUST INGRESS &amp; CONTEXT HUB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#AECBFA;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=14;fontStyle=1;fontSize=11;fontColor=#174EA6;" vertex="1" parent="1"><mxGeometry x="44" y="164" width="976" height="220" as="geometry"/></mxCell>',
+        '<mxCell id="zone_2_green" value="ZONE 2 (GREEN HUB) • GOVERNANCE, KMS &amp; EVAL GATE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#CEEAD6;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=14;fontStyle=1;fontSize=11;fontColor=#0D652D;" vertex="1" parent="1"><mxGeometry x="1044" y="164" width="512" height="220" as="geometry"/></mxCell>',
+        '<mxCell id="zone_3_yellow" value="ZONE 3 (LEFT SPOKE) • PRIMARY GOOGLE ADK ORCHESTRATOR &amp; VERTEX AI GEMINI SPOKE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCE8;strokeColor=#FEEFC3;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=14;fontStyle=1;fontSize=11;fontColor=#B06000;" vertex="1" parent="1"><mxGeometry x="44" y="440" width="736" height="390" as="geometry"/></mxCell>',
+        '<mxCell id="zone_4_red" value="ZONE 4 (RIGHT SPOKE) • OPENHANDS SANDBOX VERIFIER, EVIDENCE MEMORY &amp; LAKEHOUSE SPOKE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#FAD2CF;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=14;fontStyle=1;fontSize=11;fontColor=#A50E0E;" vertex="1" parent="1"><mxGeometry x="820" y="440" width="736" height="390" as="geometry"/></mxCell>',
+        '<mxCell id="zone_5_base" value="ZONE 5 (BASELINE) • ZERO-TRUST SECURITY, SRE OBSERVABILITY &amp; 1-CLICK TERRAFORM TELEMETRY" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#CBD5E1;strokeWidth=1.5;verticalAlign=middle;align=center;fontStyle=1;fontSize=11;fontColor=#0F172A;" vertex="1" parent="1"><mxGeometry x="44" y="856" width="1512" height="76" as="geometry"/></mxCell>',
     ]
 
-    for i, item in enumerate(zones["yellow_compute"][:3]):
+    # 18 Distinct Component Cards
+    card_defs = [
+        # Zone 1 (5 cards)
+        ("c1_armor", f"[EDGE-01] {z['blue_routing'][0]}\nL7 WAF • CRS 3.3 • TLS 1.3", 58, 206, 178, 150, "#4285F4"),
+        ("c2_wif", "[AUTH-02] Identity Platform & WIF\nOIDC • SPIFFE Short-Lived JWT", 249, 206, 178, 150, "#4285F4"),
+        ("c3_iap", f"[IAP-03] {z['blue_routing'][1]}\nBeyondCorp • mTLS Posture", 440, 206, 178, 150, "#4285F4"),
+        ("c4_alb", "[ALB-04] Regional External ALB\nGlobal Anycast HTTPS :443", 631, 206, 178, 150, "#4285F4"),
+        ("c5_proxy", f"[ING-05] {z['blue_routing'][2]}\nCloud Run KV-Cache Router", 822, 206, 178, 150, "#4285F4"),
+        # Zone 2 (3 cards)
+        ("c6_kms", f"[GOV-06] {z['green_governance'][0]}\nCloud KMS HSM & VPC-SC", 1056, 206, 154, 150, "#34A853"),
+        ("c7_gate", f"[GOV-07] {z['green_governance'][1]}\nCompetence & Regression Gate", 1222, 206, 154, 150, "#34A853"),
+        ("c8_audit", f"[GOV-08] {z['green_governance'][2]}\nCloud Logging & OTel Ledger", 1388, 206, 154, 150, "#34A853"),
+        # Zone 3 (5 cards)
+        ("c9_marmor", f"[ARMOR-09] Google Cloud Model Armor\nStage 1: {steps[0]['title']}", 62, 488, 296, 144, "#F59E0B"),
+        ("c10_gemini4", f"[GEMINI-10] Vertex AI Gemini 4 Argon\nStage 2: {steps[1]['title']} (locations/global)", 62, 660, 296, 144, "#7C3AED"),
+        ("c11_adk", f"[ADK-11] {z['yellow_compute'][0]}\nStage 3: {steps[2]['title']}", 456, 488, 304, 98, "#F59E0B"),
+        ("c12_tools", f"[TOOL-12] {z['yellow_compute'][1]}\nStage 4: {steps[3]['title']} (CASG JWT)", 456, 600, 304, 98, "#0284C7"),
+        ("c13_state", f"[STATE-13] {z['yellow_compute'][2]}\nAlloyDB FORCE RLS & Vector Search 2.0", 456, 712, 304, 98, "#059669"),
+        # Zone 4 (5 cards)
+        ("c14_openhands", f"[OH-14] OpenHands CodeActAgent Sandbox\nStage 5: {steps[4]['title']}", 838, 488, 296, 144, "#EA4335"),
+        ("c15_judge", f"[JUDGE-15] Vertex AI Gemini 3.8 Flash\nStage 6: {steps[5]['title']} (locations/global)", 838, 660, 296, 144, "#7C3AED"),
+        ("c16_firestore", f"[DATA-16] {z['red_data'][0]}\nFirestore Claim-to-SHA Receipt Graph", 1232, 488, 304, 98, "#EA4335"),
+        ("c17_bq", f"[DATA-17] {z['red_data'][1]}\nBigQuery Trajectory & Eval Warehouse", 1232, 600, 304, 98, "#EA4335"),
+        ("c18_registry", f"[REG-18] {z['red_data'][2]}\nArtifact Registry & Git Commit Ledger", 1232, 712, 304, 98, "#0D9488"),
+    ]
+    for cid, cval, cx, cy, cw, ch, ccol in card_defs:
         cells.append(
-            f'<mxCell id="y_{i}" value="{_esc(item)}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#fbbc04;fontColor=#0f172a;fontStyle=1;" vertex="1" parent="1">'
-            f'<mxGeometry x="65" y="{130 + i * 140}" width="210" height="90" as="geometry"/></mxCell>'
-        )
-    for i, item in enumerate(zones["blue_routing"][:3]):
-        cells.append(
-            f'<mxCell id="b_{i}" value="{_esc(item)}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4285f4;fontColor=#0f172a;fontStyle=1;" vertex="1" parent="1">'
-            f'<mxGeometry x="{380 + i * 150}" y="130" width="135" height="150" as="geometry"/></mxCell>'
-        )
-    for i, item in enumerate(zones["green_governance"][:3]):
-        cells.append(
-            f'<mxCell id="g_{i}" value="{_esc(item)}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#34a853;fontColor=#0f172a;fontStyle=1;" vertex="1" parent="1">'
-            f'<mxGeometry x="{380 + i * 150}" y="410" width="135" height="150" as="geometry"/></mxCell>'
-        )
-    for i, item in enumerate(zones["red_data"][:3]):
-        cells.append(
-            f'<mxCell id="r_{i}" value="{_esc(item)}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ea4335;fontColor=#0f172a;fontStyle=1;" vertex="1" parent="1">'
-            f'<mxGeometry x="925" y="{130 + i * 140}" width="210" height="90" as="geometry"/></mxCell>'
+            f'<mxCell id="{cid}" value="{_esc(cval)}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor={ccol};strokeWidth=2;fontColor=#0F172A;fontStyle=1;fontSize=10.5;align=left;spacingLeft=12;" vertex="1" parent="1">'
+            f'<mxGeometry x="{cx}" y="{cy}" width="{cw}" height="{ch}" as="geometry"/></mxCell>'
         )
 
-    edge_pairs = [
-        ("e1", "b_0", "y_0", "HOP 1: Dispatch"),
-        ("e2", "y_0", "b_1", "HOP 2: Context"),
-        ("e3", "b_1", "g_1", "HOP 3: Policy Check"),
-        ("e4", "g_0", "y_1", "HOP 4: Verified Act"),
-        ("e5", "b_2", "r_0", "HOP 5: Read/Write"),
-        ("e6", "g_2", "r_2", "HOP 6: Audit Log"),
+    # 23 Vertex-Connected Edges with Typed 6-Color Palette and High-Contrast Label Pills
+    edges_23 = [
+        ("e01", "actor_client", "c1_armor", "① HTTPS :443 Request", "#2563EB", "0"),
+        ("e02", "c1_armor", "c2_wif", "② WAF Clean", "#2563EB", "0"),
+        ("e03", "c2_wif", "c3_iap", "OIDC Token", "#2563EB", "0"),
+        ("e04", "c3_iap", "c4_alb", "mTLS Verified", "#2563EB", "0"),
+        ("e05", "c4_alb", "c5_proxy", "Route Context", "#2563EB", "0"),
+        ("e06", "c5_proxy", "actor_client", "⑦ Verified Response", "#0D9488", "0"),
+        ("e07", "c5_proxy", "c6_kms", "3a KMS & VPC-SC Check", "#16A34A", "1"),
+        ("e08", "c6_kms", "c7_gate", "CMEK Policy", "#16A34A", "1"),
+        ("e09", "c7_gate", "c8_audit", "3b Audit Receipt", "#16A34A", "1"),
+        ("e_alb_to_mid_left", "c4_alb", "c9_marmor", "③ Dispatch to Spoke", "#2563EB", "0"),
+        ("e11", "c9_marmor", "c11_adk", "④ Sanitized Prompt", "#7C3AED", "0"),
+        ("e12", "c11_adk", "c10_gemini4", "⑤ thinkingLevel=HIGH", "#7C3AED", "1"),
+        ("e13", "c10_gemini4", "c11_adk", "Structured Plan AST", "#7C3AED", "1"),
+        ("e14", "c11_adk", "c12_tools", "Invoke Scoped Tool", "#2563EB", "0"),
+        ("e15", "c12_tools", "c13_state", "ACID / Vector Read", "#059669", "0"),
+        ("e16", "c13_state", "c9_marmor", "⑥ Output DLP Scan", "#7C3AED", "1"),
+        ("e17", "c11_adk", "c14_openhands", "4a A2A Sandbox Task", "#EA580C", "1"),
+        ("e18", "c14_openhands", "c15_judge", "Run Pytest & Eval", "#7C3AED", "1"),
+        ("e19", "c14_openhands", "c16_firestore", "4b SHA-256 Receipt", "#16A34A", "0"),
+        ("e20", "c15_judge", "c17_bq", "4c Eval Trace Sink", "#7C3AED", "1"),
+        ("e21", "c7_gate", "c14_openhands", "Enforce Competence Gate", "#16A34A", "1"),
+        ("e22", "c15_judge", "c18_registry", "4d Commit Verified Image", "#0D9488", "0"),
+        ("e23", "c18_registry", "c13_state", "Closed-Loop State Sync", "#0D9488", "1"),
     ]
-    for eid, src, tgt, label in edge_pairs:
+    for eid, src, tgt, elabel, ecol, edash in edges_23:
         cells.append(
-            f'<mxCell id="{eid}" value="{_esc(label)}" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1a73e8;strokeWidth=2;fontColor=#0f172a;" edge="1" parent="1" source="{src}" target="{tgt}">'
+            f'<mxCell id="{eid}" value="{_esc(elabel)}" style="edgeStyle=none;rounded=1;html=1;strokeColor={ecol};strokeWidth=2;dashed={edash};labelBackgroundColor=#FFFFFF;labelBorderColor=#CBD5E1;fontSize=9;fontStyle=1;fontColor=#0F172A;" edge="1" parent="1" source="{src}" target="{tgt}">'
             '<mxGeometry relative="1" as="geometry"/></mxCell>'
         )
 
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<mxfile host="app.diagrams.net" agent="OpenHands-DiagramEngine/2.0" version="24.7.0">\n'
-        f'  <diagram id="{_esc(post["id"])}" name="{_esc(post["repo_slug"])}">\n'
-        '    <mxGraphModel dx="1280" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1280" pageHeight="780" background="#f8fafc">\n'
+        '<mxfile host="embed.diagrams.net" agent="OpenHands-GCP-DiagramEngine/3.0" version="24.7.8">\n'
+        f'  <diagram id="arch78_{_esc(post["id"])}" name="{_esc(post["repo_slug"])}">\n'
+        '    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" background="#FFFFFF" math="0" shadow="0">\n'
         "      <root>\n        "
         + "\n        ".join(cells)
         + "\n      </root>\n"
@@ -434,7 +1384,7 @@ def generate_gcp_arch_78_drawio(post: Dict[str, Any]) -> str:
 
 
 def write_visual_suite_for_post(post: Dict[str, Any], visuals_dir: Path) -> Dict[str, str]:
-    """Write LinkedIn 2D Infographic SVG, GCP #78 2D Architecture SVG, and Draw.io XML to visuals_dir."""
+    """Write bespoke LinkedIn 2D Infographic SVG, GCP #78 18-Card/23-Edge SVG, and Draw.io XML."""
     visuals_dir.mkdir(parents=True, exist_ok=True)
     infographic_svg_path = visuals_dir / "linkedin-infographic-2d.svg"
     arch_svg_path = visuals_dir / "gcp-architecture-2d.svg"

@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="188" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="150.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T22 • CLAUDE CODE PLAYBOOK</text>
+<rect x="254.0" y="32.0" width="246" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="377.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: COPY-PASTE AGENTIC CODING</text>
+<rect x="1113.0" y="32.0" width="431" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1328.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >FORMAT LINEAGE: Anthropic, Claude Code best practices (Apr 2025)</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >The Claude Code Loop That Ships: Explore → Plan → Code → Commit (with the exact words to type)</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >From Anthropic&#x27;s own best-practices guide. The single biggest lever: give the agent a way to verify its work (tests, screenshots) before it commits.</text>
+<rect x="56.0" y="136.0" width="364.0" height="246.0" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.8" /><rect x="56.0" y="136.0" width="364.0" height="26.0" rx="8" fill="#2563EB" /><text x="238.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >PHASE 1 • EXPLORE</text>
+<text x="70.0" y="186.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="800" fill="#0F172A" text-anchor="start" >Read before writing</text>
+<text x="70.0" y="206.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#2563EB" text-anchor="start" >WHAT YOU TYPE</text>
+<rect x="70.0" y="214.0" width="336.0" height="84.0" rx="6" fill="#0F172A" />
+<text x="80.0" y="234.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >Read src/auth/ and tests/test_auth.py. Do NOT</text>
+<text x="80.0" y="249.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >write code yet. Summarize how token refresh works</text>
+<text x="80.0" y="264.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >and where it could race.</text>
+<text x="70.0" y="320.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#2563EB" text-anchor="start" >WHY IT WORKS</text>
+<text x="70.0" y="336.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Loading the right files first keeps the plan</text>
+<text x="70.0" y="350.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >grounded in your code, not in guesses.</text>
+<path d="M 422.0 259.0 L 480.0 259.0" fill="none" stroke="#2563EB" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 422.0 259.0 L 480.0 259.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#2563EB" transform="translate(490.0 259.0) rotate(0.0)"/>
+<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 422.0 259.0 L 480.0 259.0"/></g>
+<rect x="436.0" y="136.0" width="364.0" height="246.0" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8" /><rect x="436.0" y="136.0" width="364.0" height="26.0" rx="8" fill="#7C3AED" /><text x="618.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >PHASE 2 • PLAN</text>
+<text x="450.0" y="186.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="800" fill="#0F172A" text-anchor="start" >Make it think, then approve</text>
+<text x="450.0" y="206.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#7C3AED" text-anchor="start" >WHAT YOU TYPE</text>
+<rect x="450.0" y="214.0" width="336.0" height="84.0" rx="6" fill="#0F172A" />
+<text x="460.0" y="234.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >think hard: propose a plan to fix the refresh</text>
+<text x="460.0" y="249.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >race. List files to change, the failing test to</text>
+<text x="460.0" y="264.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >add first, and risks. Wait for my OK.</text>
+<text x="450.0" y="320.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#7C3AED" text-anchor="start" >WHY IT WORKS</text>
+<text x="450.0" y="336.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >&#x27;think&#x27; &lt; &#x27;think hard&#x27; &lt; &#x27;think harder&#x27; &lt;</text>
+<text x="450.0" y="350.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >&#x27;ultrathink&#x27; allocate progressively larger thinking</text>
+<text x="450.0" y="364.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >budgets.</text>
+<path d="M 802.0 259.0 L 860.0 259.0" fill="none" stroke="#7C3AED" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 802.0 259.0 L 860.0 259.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(870.0 259.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 802.0 259.0 L 860.0 259.0"/></g>
+<rect x="816.0" y="136.0" width="364.0" height="246.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" /><rect x="816.0" y="136.0" width="364.0" height="26.0" rx="8" fill="#D97706" /><text x="998.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >PHASE 3 • CODE</text>
+<text x="830.0" y="186.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="800" fill="#0F172A" text-anchor="start" >Implement against the plan</text>
+<text x="830.0" y="206.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#D97706" text-anchor="start" >WHAT YOU TYPE</text>
+<rect x="830.0" y="214.0" width="336.0" height="84.0" rx="6" fill="#0F172A" />
+<text x="840.0" y="234.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >Implement the approved plan. Add the failing test</text>
+<text x="840.0" y="249.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >first, make it pass, run the full suite, and show</text>
+<text x="840.0" y="264.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >me the diff before committing.</text>
+<text x="830.0" y="320.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#D97706" text-anchor="start" >WHY IT WORKS</text>
+<text x="830.0" y="336.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Tests give the agent a target it can verify itself —</text>
+<text x="830.0" y="350.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >the loop closes without you.</text>
+<path d="M 1182.0 259.0 L 1240.0 259.0" fill="none" stroke="#D97706" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1182.0 259.0 L 1240.0 259.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(1250.0 259.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 1182.0 259.0 L 1240.0 259.0"/></g>
+<rect x="1196.0" y="136.0" width="364.0" height="246.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" /><rect x="1196.0" y="136.0" width="364.0" height="26.0" rx="8" fill="#059669" /><text x="1378.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >PHASE 4 • COMMIT</text>
+<text x="1210.0" y="186.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="800" fill="#0F172A" text-anchor="start" >Ship with a paper trail</text>
+<text x="1210.0" y="206.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#059669" text-anchor="start" >WHAT YOU TYPE</text>
+<rect x="1210.0" y="214.0" width="336.0" height="84.0" rx="6" fill="#0F172A" />
+<text x="1220.0" y="234.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >Commit with a message explaining the root cause,</text>
+<text x="1220.0" y="249.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >open a PR, and update CLAUDE.md with the new &#x27;run</text>
+<text x="1220.0" y="264.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#A7F3D0" text-anchor="start" >auth tests&#x27; command.</text>
+<text x="1210.0" y="320.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#059669" text-anchor="start" >WHY IT WORKS</text>
+<text x="1210.0" y="336.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Documentation written at commit time keeps the next</text>
+<text x="1210.0" y="350.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >session fast.</text>
+<rect x="56.0" y="402.0" width="680.0" height="136.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.6" />
+<text x="74.0" y="426.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A" text-anchor="start" >THINKING BUDGET DIAL (THE KEYWORDS ARE LITERAL)</text>
+<rect x="90.0" y="504.0" width="92.0" height="22.0" rx="5" fill="#0284C7" />
+<text x="136.0" y="494.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="800" fill="#0F172A" text-anchor="middle" >think</text>
+<rect x="250.0" y="482.0" width="92.0" height="44.0" rx="5" fill="#2563EB" />
+<text x="296.0" y="472.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="800" fill="#0F172A" text-anchor="middle" >think hard</text>
+<rect x="410.0" y="460.0" width="92.0" height="66.0" rx="5" fill="#7C3AED" />
+<text x="456.0" y="450.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="800" fill="#0F172A" text-anchor="middle" >think harder</text>
+<rect x="570.0" y="438.0" width="92.0" height="88.0" rx="5" fill="#0F2942" />
+<text x="616.0" y="428.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="800" fill="#0F172A" text-anchor="middle" >ultrathink</text>
+<text x="74.0" y="532.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="start" >Each phrase maps to a larger reasoning budget in Claude Code; use the big ones for planning, not for routine edits.</text>
+<rect x="760.0" y="402.0" width="804.0" height="136.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.6" />
+<text x="778.0" y="426.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A" text-anchor="start" >CLAUDE.md CHECKLIST (WHAT THE GUIDE SAYS TO PUT IN IT)</text>
+<rect x="778" y="439" width="14" height="14" rx="3" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/>
+<text x="785.0" y="450.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >✓</text>
+<text x="800.0" y="450.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Common bash commands (build, test, lint)</text>
+<rect x="1178" y="439" width="14" height="14" rx="3" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/>
+<text x="1185.0" y="450.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >✓</text>
+<text x="1200.0" y="450.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Core files and utility functions</text>
+<rect x="778" y="461" width="14" height="14" rx="3" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/>
+<text x="785.0" y="472.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >✓</text>
+<text x="800.0" y="472.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Code style guidelines</text>
+<rect x="1178" y="461" width="14" height="14" rx="3" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/>
+<text x="1185.0" y="472.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >✓</text>
+<text x="1200.0" y="472.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Testing instructions</text>
+<rect x="778" y="483" width="14" height="14" rx="3" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/>
+<text x="785.0" y="494.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >✓</text>
+<text x="800.0" y="494.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Repository etiquette (branch names, merge vs rebase)</text>
+<rect x="1178" y="483" width="14" height="14" rx="3" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/>
+<text x="1185.0" y="494.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >✓</text>
+<text x="1200.0" y="494.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Developer environment setup (pyenv, compilers)</text>
+<rect x="778" y="505" width="14" height="14" rx="3" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/>
+<text x="785.0" y="516.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >✓</text>
+<text x="800.0" y="516.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Unexpected behaviors or warnings</text>
+<rect x="1178" y="505" width="14" height="14" rx="3" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/>
+<text x="1185.0" y="516.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >✓</text>
+<text x="1200.0" y="516.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Keep it short; refine it like a prompt</text>
+<rect x="56.0" y="556.0" width="480.0" height="304.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" /><rect x="56.0" y="556.0" width="480.0" height="26.0" rx="8" fill="#059669" /><text x="296.0" y="573.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >VARIANT A • TEST-DRIVEN</text>
+<text x="70.0" y="606.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Write tests → commit → code → iterate → commit</text>
+<rect x="70.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.6" /><text x="112.0" y="642.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >write failing</text>
+<text x="112.0" y="653.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >tests</text>
+<path d="M 154.0 644.0 L 152.0 644.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(162.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 154.0 644.0 L 152.0 644.0"/></g>
+<rect x="162.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.6" /><text x="204.0" y="642.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >confirm they</text>
+<text x="204.0" y="653.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >fail</text>
+<path d="M 246.0 644.0 L 244.0 644.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(254.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 246.0 644.0 L 244.0 644.0"/></g>
+<rect x="254.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.6" /><text x="296.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >commit tests</text>
+<path d="M 338.0 644.0 L 336.0 644.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(346.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 338.0 644.0 L 336.0 644.0"/></g>
+<rect x="346.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.6" /><text x="388.0" y="642.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >code until</text>
+<text x="388.0" y="653.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >green</text>
+<path d="M 430.0 644.0 L 428.0 644.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(438.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 430.0 644.0 L 428.0 644.0"/></g>
+<rect x="438.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.6" /><text x="480.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >commit</text>
+<path d="M 388.0 666.0 L 388.0 682.0 L 204.0 682.0 L 204.0 678.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="5 4" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(204.0 668.0) rotate(-90.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="2.00s" begin="-0.00s" repeatCount="indefinite" path="M 388.0 666.0 L 388.0 682.0 L 204.0 682.0 L 204.0 678.0"/></g>
+<rect x="271.0" y="685.0" width="62" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+<text x="302.0" y="700.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >iterate</text>
+<text x="70.0" y="714.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Tell it explicitly: &#x27;we are doing TDD, do not write implementation</text>
+<text x="70.0" y="729.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >yet&#x27;. Then let it loop against the tests — this is where agents shine.</text>
+<rect x="70.0" y="798.0" width="452.0" height="46.0" rx="6" fill="#0F172A" />
+<text x="80.0" y="816.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >claude &quot;Write tests for the refresh race based on these cases;</text>
+<text x="80.0" y="830.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >don&#x27;t implement yet. Confirm they fail.&quot;</text>
+<rect x="560.0" y="556.0" width="480.0" height="304.0" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8" /><rect x="560.0" y="556.0" width="480.0" height="26.0" rx="8" fill="#7C3AED" /><text x="800.0" y="573.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >VARIANT B • VISUAL ITERATION</text>
+<text x="574.0" y="606.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Screenshot → implement → screenshot → compare</text>
+<rect x="574.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="616.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >paste mock</text>
+<path d="M 658.0 644.0 L 656.0 644.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(666.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 658.0 644.0 L 656.0 644.0"/></g>
+<rect x="666.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="708.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >implement</text>
+<path d="M 750.0 644.0 L 748.0 644.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(758.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 750.0 644.0 L 748.0 644.0"/></g>
+<rect x="758.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="800.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >screenshot</text>
+<path d="M 842.0 644.0 L 840.0 644.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(850.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 842.0 644.0 L 840.0 644.0"/></g>
+<rect x="850.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="892.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >compare</text>
+<path d="M 934.0 644.0 L 932.0 644.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(942.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 934.0 644.0 L 932.0 644.0"/></g>
+<rect x="942.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="984.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >repeat</text>
+<path d="M 892.0 666.0 L 892.0 682.0 L 708.0 682.0 L 708.0 678.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="5 4" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(708.0 668.0) rotate(-90.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="2.00s" begin="-0.00s" repeatCount="indefinite" path="M 892.0 666.0 L 892.0 682.0 L 708.0 682.0 L 708.0 678.0"/></g>
+<rect x="747.0" y="685.0" width="118" height="22" rx="11" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<text x="806.0" y="700.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED" text-anchor="middle" >until it matches</text>
+<text x="574.0" y="714.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Give it a way to see results (Puppeteer MCP, iOS simulator, or pasted</text>
+<text x="574.0" y="729.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >screenshots). Output quality jumps after 2-3 visual iterations.</text>
+<rect x="574.0" y="798.0" width="452.0" height="46.0" rx="6" fill="#0F172A" />
+<text x="584.0" y="816.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >claude &quot;Implement this mock (pasted). Take a screenshot with the</text>
+<text x="584.0" y="830.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >Puppeteer tool and iterate until it matches.&quot;</text>
+<rect x="1064.0" y="556.0" width="480.0" height="304.0" rx="10" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.8" /><rect x="1064.0" y="556.0" width="480.0" height="26.0" rx="8" fill="#0284C7" /><text x="1304.0" y="573.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >VARIANT C • HEADLESS &amp; PARALLEL</text>
+<text x="1078.0" y="606.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Automate with -p; parallelize with git worktrees</text>
+<rect x="1078.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1120.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >claude -p</text>
+<path d="M 1162.0 644.0 L 1160.0 644.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1170.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1162.0 644.0 L 1160.0 644.0"/></g>
+<rect x="1170.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1212.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >CI hook</text>
+<path d="M 1254.0 644.0 L 1252.0 644.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1262.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1254.0 644.0 L 1252.0 644.0"/></g>
+<rect x="1262.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1304.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >worktree A</text>
+<path d="M 1346.0 644.0 L 1344.0 644.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1354.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1346.0 644.0 L 1344.0 644.0"/></g>
+<rect x="1354.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1396.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >worktree B</text>
+<path d="M 1438.0 644.0 L 1436.0 644.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1446.0 644.0) rotate(0.0)"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1438.0 644.0 L 1436.0 644.0"/></g>
+<rect x="1446.0" y="622.0" width="84.0" height="44.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1488.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >merge</text>
+<text x="1078.0" y="714.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Headless mode runs in CI (issue triage, lint). Separate git worktrees</text>
+<text x="1078.0" y="729.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >let several Claude sessions work on independent tasks without stepping</text>
+<text x="1078.0" y="744.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >on each other.</text>
+<rect x="1078.0" y="798.0" width="452.0" height="46.0" rx="6" fill="#0F172A" />
+<text x="1088.0" y="816.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >claude -p &quot;Triage this issue and label it&quot; --output-format stream-</text>
+<text x="1088.0" y="830.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >json   |   git worktree add ../feat-a -b feat-a</text>
+<rect x="56.0" y="880.0" width="1508.0" height="50.0" rx="10" fill="#0F2942" />
+<text x="810.0" y="910.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >Never let it code first. Explore (read-only) → Plan (think hard) → Code against the plan → Commit with a PR description. Verification beats cleverness.</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Anthropic Engineering, &#x27;Claude Code: Best practices for agentic coding&#x27; (Apr 2025)</text>
+</svg>

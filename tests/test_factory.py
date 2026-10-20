@@ -59,8 +59,8 @@ class TestIdeasMiningFactory(unittest.TestCase):
         self.assertIn("| **Agent orchestration", pairing_rows_markdown())
 
     def test_template_gallery_renders_20_valid_dynamic_templates_with_oss_and_google(self) -> None:
-        self.assertEqual(len(TEMPLATE_META), 20)
-        self.assertEqual([t["id"] for t in list_templates()], [f"T{i:02d}" for i in range(1, 21)])
+        self.assertEqual(len(TEMPLATE_META), 40)
+        self.assertEqual([t["id"] for t in list_templates()], [f"T{i:02d}" for i in range(1, 41)])
         oss_markers = ("LangGraph", "OpenHands", "vLLM", "PostgreSQL", "OpenTelemetry", "Llama Guard", "Temporal", "Promptfoo", "MCP", "Knative", "pgvector", "Redis", "Qdrant", "LiteLLM")
         google_markers = ("Google", "Vertex", "Gemini", "Firestore", "Cloud Run", "ADK", "Model Armor", "BigQuery", "AlloyDB", "Cloud Trace")
         for tid, meta in TEMPLATE_META.items():
@@ -75,6 +75,37 @@ class TestIdeasMiningFactory(unittest.TestCase):
             self.assertTrue(any(m in svg_live for m in oss_markers), f"{tid} missing open-source stack mention")
             self.assertTrue(any(m in svg_live for m in google_markers), f"{tid} missing Google Cloud stack mention")
             self.assertNotIn("animateMotion", svg_frame, tid)
+            if int(tid[1:]) >= 21:
+                self.assertTrue(meta.get("lineage"), f"{tid} must declare its creator/source lineage")
+                self.assertIn("FORMAT LINEAGE:", svg_live, tid)
+
+    def test_t31_demo_code_really_runs_and_matches_the_printed_output(self) -> None:
+        import contextlib
+        import io
+        from src.visuals.template_gallery_v2 import DEMO_CODE_T31, DEMO_OUTPUT_T31
+
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            exec("\n".join(DEMO_CODE_T31), {})
+        self.assertEqual(buf.getvalue().strip().splitlines(), DEMO_OUTPUT_T31)
+        self.assertLessEqual(len(DEMO_CODE_T31), 26)
+
+    def test_t29_kappa_worked_example_is_arithmetically_correct(self) -> None:
+        from src.visuals.template_gallery_v2 import demo_specs_v2
+
+        items = demo_specs_v2()["T29"]["items"]
+        n = len(items)
+        a = sum(1 for it in items if it["human"] == "PASS" and it["judge"] == "PASS")
+        d = sum(1 for it in items if it["human"] == "FAIL" and it["judge"] == "FAIL")
+        po = (a + d) / n
+        ph = sum(1 for it in items if it["human"] == "PASS") / n
+        pj = sum(1 for it in items if it["judge"] == "PASS") / n
+        pe = ph * pj + (1 - ph) * (1 - pj)
+        kappa = (po - pe) / (1 - pe)
+        self.assertEqual(n, 10)
+        self.assertAlmostEqual(po, 0.8)
+        self.assertAlmostEqual(pe, 0.52)
+        self.assertAlmostEqual(kappa, 0.5833, places=3)
 
     def test_creator_mining_playbook_and_openhands_comparison(self) -> None:
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["signal_channels"]), 4)

@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="201" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="156.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T25 • JUDGE CALIBRATION CARD</text>
+<rect x="267.0" y="32.0" width="252" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="393.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: TRUSTWORTHY LLM-AS-A-JUDGE</text>
+<rect x="1049.0" y="32.0" width="495" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1296.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >FORMAT LINEAGE: Eugene Yan • Shreya Shankar • MT-Bench (Zheng et al. 2023)</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Before You Quote a Judge Score: Calibrate It Like a Lab Instrument</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >A judge is only as good as its agreement with humans on cases where you know the answer. Example: 100 hand-labeled traces, one binary judge.</text>
+<rect x="56.0" y="136.0" width="470.0" height="520.0" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.8" /><rect x="56.0" y="136.0" width="470.0" height="26.0" rx="8" fill="#2563EB" /><text x="291.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >JUDGE VS. 100 HUMAN-LABELED TRACES (CONFUSION MATRIX)</text>
+<text x="290.0" y="190.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >HUMAN SAYS →</text>
+<text x="230.0" y="210.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >PASS</text>
+<text x="400.0" y="210.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626" text-anchor="middle" >FAIL</text>
+<text x="92.0" y="300.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" transform="rotate(-90 92 300)">JUDGE</text>
+<text x="126.0" y="282.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >PASS</text>
+<text x="126.0" y="392.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626" text-anchor="middle" >FAIL</text>
+<rect x="150.0" y="224.0" width="160.0" height="100.0" rx="8" fill="#DCFCE7" stroke="#059669" stroke-width="1.6" />
+<text x="230.0" y="274.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#059669" text-anchor="middle" >46</text>
+<text x="230.0" y="304.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >true pass</text>
+<rect x="320.0" y="224.0" width="160.0" height="100.0" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.6" />
+<text x="400.0" y="274.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#DC2626" text-anchor="middle" >3</text>
+<text x="400.0" y="304.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >judge too lenient</text>
+<rect x="150.0" y="334.0" width="160.0" height="100.0" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.6" />
+<text x="230.0" y="384.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#DC2626" text-anchor="middle" >4</text>
+<text x="230.0" y="414.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >judge too strict</text>
+<rect x="320.0" y="334.0" width="160.0" height="100.0" rx="8" fill="#DCFCE7" stroke="#059669" stroke-width="1.6" />
+<text x="400.0" y="384.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#059669" text-anchor="middle" >47</text>
+<text x="400.0" y="414.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >true fail</text>
+<path d="M 230.0 436.0 L 230.0 452.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(230.0 462.0) rotate(90.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.20s" begin="-0.00s" repeatCount="indefinite" path="M 230.0 436.0 L 230.0 452.0"/></g>
+<path d="M 400.0 436.0 L 400.0 452.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#DC2626" transform="translate(400.0 462.0) rotate(90.0)"/>
+<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="1.20s" begin="-0.00s" repeatCount="indefinite" path="M 400.0 436.0 L 400.0 452.0"/></g>
+<rect x="72.0" y="470.0" width="210.0" height="72.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.4" />
+<text x="84.0" y="494.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="start" >TPR (catches real passes)</text>
+<text x="84.0" y="526.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#059669" text-anchor="start" >0.92</text>
+<rect x="294.0" y="470.0" width="210.0" height="72.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.4" />
+<text x="306.0" y="494.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="start" >TNR (catches real fails)</text>
+<text x="306.0" y="526.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#059669" text-anchor="start" >0.94</text>
+<rect x="72.0" y="554.0" width="210.0" height="72.0" rx="8" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.4" />
+<text x="84.0" y="578.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="start" >Agreement</text>
+<text x="84.0" y="610.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#2563EB" text-anchor="start" >93%</text>
+<rect x="294.0" y="554.0" width="210.0" height="72.0" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.4" />
+<text x="306.0" y="578.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="start" >Cohen&#x27;s κ</text>
+<text x="306.0" y="610.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#7C3AED" text-anchor="start" >0.86</text>
+<text x="74.0" y="640.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#1E293B" text-anchor="start" >Numbers are an example calibration set; re-run yours every release.</text>
+<rect x="560.0" y="136.0" width="480.0" height="520.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" /><rect x="560.0" y="136.0" width="480.0" height="26.0" rx="8" fill="#D97706" /><text x="800.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >5 KNOWN JUDGE BIASES → THE FIX THAT ACTUALLY WORKS</text>
+<rect x="576.0" y="178.0" width="200.0" height="80.0" rx="8" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.4" />
+<text x="588.0" y="198.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#9A3412" text-anchor="start" >Position bias</text>
+<text x="588.0" y="216.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >Prefers whichever answer is</text>
+<text x="588.0" y="229.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >shown first in pairwise</text>
+<text x="588.0" y="242.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >grading.</text>
+<path d="M 778.0 218.0 L 810.0 218.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(820.0 218.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 778.0 218.0 L 810.0 218.0"/></g>
+<rect x="824.0" y="178.0" width="200.0" height="80.0" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.4" />
+<text x="836.0" y="198.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >FIX</text>
+<text x="836.0" y="216.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >Grade both orders and average;</text>
+<text x="836.0" y="229.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >or switch to single-answer</text>
+<text x="836.0" y="242.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >PASS/FAIL.</text>
+<rect x="576.0" y="272.0" width="200.0" height="80.0" rx="8" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.4" />
+<text x="588.0" y="292.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#9A3412" text-anchor="start" >Verbosity bias</text>
+<text x="588.0" y="310.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >Longer answers score higher</text>
+<text x="588.0" y="323.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >even when they add nothing.</text>
+<path d="M 778.0 312.0 L 810.0 312.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(820.0 312.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 778.0 312.0 L 810.0 312.0"/></g>
+<rect x="824.0" y="272.0" width="200.0" height="80.0" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.4" />
+<text x="836.0" y="292.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >FIX</text>
+<text x="836.0" y="310.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >Length-normalize; tell the</text>
+<text x="836.0" y="323.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >rubric that extra words are</text>
+<text x="836.0" y="336.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >not merit.</text>
+<rect x="576.0" y="366.0" width="200.0" height="80.0" rx="8" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.4" />
+<text x="588.0" y="386.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#9A3412" text-anchor="start" >Self-preference</text>
+<text x="588.0" y="404.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >A model rates its own outputs</text>
+<text x="588.0" y="417.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >higher.</text>
+<path d="M 778.0 406.0 L 810.0 406.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(820.0 406.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 778.0 406.0 L 810.0 406.0"/></g>
+<rect x="824.0" y="366.0" width="200.0" height="80.0" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.4" />
+<text x="836.0" y="386.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >FIX</text>
+<text x="836.0" y="404.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >Judge with a different model</text>
+<text x="836.0" y="417.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >family than the one being</text>
+<text x="836.0" y="430.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >judged.</text>
+<rect x="576.0" y="460.0" width="200.0" height="80.0" rx="8" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.4" />
+<text x="588.0" y="480.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#9A3412" text-anchor="start" >Likert drift</text>
+<text x="588.0" y="498.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >1-5 scores cluster at 3-4 and</text>
+<text x="588.0" y="511.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >mean different things to</text>
+<text x="588.0" y="524.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >different graders.</text>
+<path d="M 778.0 500.0 L 810.0 500.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(820.0 500.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 778.0 500.0 L 810.0 500.0"/></g>
+<rect x="824.0" y="460.0" width="200.0" height="80.0" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.4" />
+<text x="836.0" y="480.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >FIX</text>
+<text x="836.0" y="498.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >Binary PASS/FAIL per failure</text>
+<text x="836.0" y="511.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >mode with a quoted reason.</text>
+<rect x="576.0" y="554.0" width="200.0" height="80.0" rx="8" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.4" />
+<text x="588.0" y="574.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#9A3412" text-anchor="start" >Shallow math/logic grading</text>
+<text x="588.0" y="592.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >Misses wrong reasoning when</text>
+<text x="588.0" y="605.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >the final answer looks fine.</text>
+<path d="M 778.0 594.0 L 810.0 594.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(820.0 594.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 778.0 594.0 L 810.0 594.0"/></g>
+<rect x="824.0" y="554.0" width="200.0" height="80.0" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.4" />
+<text x="836.0" y="574.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >FIX</text>
+<text x="836.0" y="592.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >Provide a reference solution;</text>
+<text x="836.0" y="605.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >ask the judge to verify step</text>
+<text x="836.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#064E3B" text-anchor="start" >by step.</text>
+<rect x="1074.0" y="136.0" width="490.0" height="520.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" /><rect x="1074.0" y="136.0" width="490.0" height="26.0" rx="8" fill="#059669" /><text x="1319.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >JUDGE PROMPT SKELETON (COPY, THEN FILL THE RUBRIC)</text>
+<rect x="1090.0" y="176.0" width="458.0" height="330.0" rx="6" fill="#0F172A" />
+<text x="1102.0" y="196.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >SYSTEM: You grade one criterion only.</text>
+<text x="1102.0" y="211.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >CRITERION: &lt;one failure mode, e.g. &#x27;fabricated tool result&#x27;&gt;</text>
+<text x="1102.0" y="226.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >RUBRIC:</text>
+<text x="1102.0" y="241.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >  PASS = every claimed action has a matching tool call</text>
+<text x="1102.0" y="256.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >  FAIL = any claimed action lacks a tool call</text>
+<text x="1102.0" y="271.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >DO NOT reward length, tone, or politeness.</text>
+<text x="1102.0" y="286.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" ></text>
+<text x="1102.0" y="301.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >INPUT:</text>
+<text x="1102.0" y="316.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >  user_message: ...</text>
+<text x="1102.0" y="331.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >  trace (tool calls + results): ...</text>
+<text x="1102.0" y="346.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >  final_answer: ...</text>
+<text x="1102.0" y="361.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" ></text>
+<text x="1102.0" y="376.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >OUTPUT (JSON only):</text>
+<text x="1102.0" y="391.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >  {&quot;verdict&quot;: &quot;PASS&quot; | &quot;FAIL&quot;,</text>
+<text x="1102.0" y="406.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >   &quot;evidence&quot;: &quot;&lt;quote from the trace&gt;&quot;,</text>
+<text x="1102.0" y="421.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" >   &quot;confidence&quot;: 0.0-1.0}</text>
+<text x="1102.0" y="436.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" ></text>
+<text x="1102.0" y="451.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" ># Calibrate: compare to 40+ human labels;</text>
+<text x="1102.0" y="466.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" fill="#A7F3D0" text-anchor="start" ># require TPR &gt;= 0.90 and TNR &gt;= 0.90.</text>
+<text x="1090.0" y="532.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >CALIBRATION ROUTINE</text>
+<text x="1090.0" y="552.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#064E3B" text-anchor="start" >Every release: re-grade 50 human-labeled traces; alert if TPR or</text>
+<text x="1090.0" y="567.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#064E3B" text-anchor="start" >TNR drops more than 5 points; keep 20% of labels hidden from</text>
+<text x="1090.0" y="582.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#064E3B" text-anchor="start" >prompt tuning.</text>
+<rect x="56.0" y="676.0" width="1508.0" height="60.0" rx="10" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.6" />
+<text x="74.0" y="700.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#92400E" text-anchor="start" >THE ONE NUMBER TO WATCH</text>
+<text x="74.0" y="722.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#1E293B" text-anchor="start" >Watch TNR (does the judge catch real failures?) — a lenient judge quietly inflates every dashboard.</text>
+<rect x="56.0" y="752.0" width="1508.0" height="120.0" rx="12" fill="#0F2942" />
+<text x="78.0" y="780.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#93C5FD" text-anchor="start" >WHERE THESE RULES COME FROM</text>
+<text x="78.0" y="806.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >MT-Bench: GPT-4 agreed with humans ~80%, the same as humans with each</text>
+<text x="78.0" y="821.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >other — but showed position, verbosity, and self-enhancement bias.</text>
+<text x="578.0" y="806.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >Who Validates the Validators: humans&#x27; criteria drift as they grade;</text>
+<text x="578.0" y="821.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >align judges iteratively, keep labeling.</text>
+<text x="1078.0" y="806.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >Hamel Husain: binary pass/fail beats Likert; validate judges with</text>
+<text x="1078.0" y="821.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >TPR/TNR on held-out labels.</text>
+<text x="810.0" y="914.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#475569" text-anchor="middle" >If you cannot show the confusion matrix, you do not have a judge — you have an opinion generator.</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Zheng et al., &#x27;Judging LLM-as-a-Judge with MT-Bench&#x27; (2023) • Shankar et al., &#x27;Who Validates the Validators?&#x27; (2024) • Eugene Yan, evaluating LLM-evaluators</text>
+</svg>

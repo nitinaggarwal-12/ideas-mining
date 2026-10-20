@@ -1,5 +1,5 @@
 {
-  "template_count": 20,
+  "template_count": 40,
   "templates": [
     {
       "id": "T01",
@@ -339,6 +339,366 @@
         "svg": "T20.svg",
         "gif": "T20.gif",
         "png": "T20.png"
+      }
+    },
+    {
+      "id": "T21",
+      "name": "Pattern Picker",
+      "best_for_short": "Which agent pattern to use",
+      "content_types": [
+        "Educational",
+        "Grounded concepts",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "A reader asks 'should this be a chain, a router, parallel calls, an orchestrator, an evaluator loop, or an agent?'",
+      "dynamic": "Six live mini-schematics with packets; gate diamonds; feedback loops.",
+      "lineage": "Anthropic, Building effective agents (Dec 2024)",
+      "files": {
+        "svg": "T21.svg",
+        "gif": "T21.gif",
+        "png": "T21.png"
+      }
+    },
+    {
+      "id": "T22",
+      "name": "Claude Code Playbook",
+      "best_for_short": "Copy-paste agentic coding",
+      "content_types": [
+        "Working solution",
+        "Professional knowledge sharing",
+        "Easy to understand"
+      ],
+      "when_to_use": "Teach the Explore \u2192 Plan \u2192 Code \u2192 Commit loop with the exact prompts and the thinking-budget keywords.",
+      "dynamic": "Phase arrows, growing thinking-budget bars, TDD loop-back arrow.",
+      "lineage": "Anthropic, Claude Code best practices (Apr 2025)",
+      "files": {
+        "svg": "T22.svg",
+        "gif": "T22.gif",
+        "png": "T22.png"
+      }
+    },
+    {
+      "id": "T23",
+      "name": "Context Budget Ledger",
+      "best_for_short": "Token budgets & compaction",
+      "content_types": [
+        "Grounded concepts",
+        "Information",
+        "Working solution"
+      ],
+      "when_to_use": "Show exactly where 200K tokens go and what compaction + just-in-time retrieval frees up.",
+      "dynamic": "Stacked ledgers grow; packets migrate from the bloated budget to the lean one.",
+      "lineage": "Anthropic, Effective context engineering (Sep 2025)",
+      "files": {
+        "svg": "T23.svg",
+        "gif": "T23.gif",
+        "png": "T23.png"
+      }
+    },
+    {
+      "id": "T24",
+      "name": "Error Analysis Board",
+      "best_for_short": "Evals that start from real traces",
+      "content_types": [
+        "Evaluation results",
+        "Professional knowledge sharing",
+        "Working solution"
+      ],
+      "when_to_use": "Walk a team from 100 traces to a failure taxonomy, a Pareto, and a binary judge per failure mode.",
+      "dynamic": "Notes flow into taxonomy buckets; Pareto bars grow.",
+      "lineage": "Hamel Husain & Shreya Shankar, AI Evals method",
+      "files": {
+        "svg": "T24.svg",
+        "gif": "T24.gif",
+        "png": "T24.png"
+      }
+    },
+    {
+      "id": "T25",
+      "name": "Judge Calibration Card",
+      "best_for_short": "Trustworthy LLM-as-a-judge",
+      "content_types": [
+        "Evaluation results",
+        "Research topics",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Before anyone quotes a judge score: confusion matrix vs humans, known biases, the fix for each, a prompt skeleton.",
+      "dynamic": "Matrix cells reveal in sequence; bias \u2192 fix arrows carry packets.",
+      "lineage": "Eugene Yan \u2022 Shreya Shankar \u2022 MT-Bench (Zheng et al. 2023)",
+      "files": {
+        "svg": "T25.svg",
+        "gif": "T25.gif",
+        "png": "T25.png"
+      }
+    },
+    {
+      "id": "T26",
+      "name": "Trajectory Scorecard",
+      "best_for_short": "Scoring agent tool calls",
+      "content_types": [
+        "Evaluation results",
+        "Proof of concept",
+        "Grounded concepts"
+      ],
+      "when_to_use": "Explain how to grade an agent's tool-call sequence, not just its final answer.",
+      "dynamic": "Packets step through expected vs actual calls; metric rows compute live.",
+      "lineage": "Google, Agents Companion whitepaper (Feb 2025)",
+      "files": {
+        "svg": "T26.svg",
+        "gif": "T26.gif",
+        "png": "T26.png"
+      }
+    },
+    {
+      "id": "T27",
+      "name": "How-It-Works Walkthrough",
+      "best_for_short": "Protocol explainers (MCP)",
+      "content_types": [
+        "Educational",
+        "Easy to understand",
+        "Information"
+      ],
+      "when_to_use": "A ByteByteGo-style numbered walkthrough of a protocol or system, one message per step.",
+      "dynamic": "Numbered messages light up in order with packets between lanes.",
+      "lineage": "Alex Xu / ByteByteGo format \u2022 MCP specification",
+      "files": {
+        "svg": "T27.svg",
+        "gif": "T27.gif",
+        "png": "T27.png"
+      }
+    },
+    {
+      "id": "T28",
+      "name": "Sketch Explainer",
+      "best_for_short": "Hand-drawn concept cards",
+      "content_types": [
+        "Educational",
+        "Easy to understand",
+        "Grounded concepts"
+      ],
+      "when_to_use": "A warm, sketched comparison of 5 options (here: chunking strategies) with 'start with' defaults.",
+      "dynamic": "Scissor packets travel the cut lines; tilted cards; marker typography.",
+      "lineage": "Avi Chawla & Akshay Pachaar sketch format \u2022 Anthropic Contextual Retrieval (Sep 2024)",
+      "files": {
+        "svg": "T28.svg",
+        "gif": "T28.gif",
+        "png": "T28.png"
+      }
+    },
+    {
+      "id": "T29",
+      "name": "AI by Hand",
+      "best_for_short": "Worked calculations",
+      "content_types": [
+        "Educational",
+        "Evaluation results",
+        "Grounded concepts"
+      ],
+      "when_to_use": "Readers verify the math themselves: here Cohen's kappa for judge vs human agreement on grid paper.",
+      "dynamic": "Steps reveal one by one; a packet traces the computation path.",
+      "lineage": "Tom Yeh, AI by Hand format",
+      "files": {
+        "svg": "T29.svg",
+        "gif": "T29.gif",
+        "png": "T29.png"
+      }
+    },
+    {
+      "id": "T30",
+      "name": "Paper of the Day",
+      "best_for_short": "30-second paper digests",
+      "content_types": [
+        "Research topics",
+        "Information",
+        "Educational"
+      ],
+      "when_to_use": "One paper, one recreated chart, problem/method/result, caveats, and a read/skim/skip verdict.",
+      "dynamic": "Chart bars grow; verdict gauge fills; method pipeline carries a packet.",
+      "lineage": "Pascal Biese (LLM Watch) & Elvis Saravia (DAIR.AI) digest format",
+      "files": {
+        "svg": "T30.svg",
+        "gif": "T30.gif",
+        "png": "T30.png"
+      }
+    },
+    {
+      "id": "T31",
+      "name": "Runnable Demo Card",
+      "best_for_short": "'I built it in 26 lines'",
+      "content_types": [
+        "Working solution",
+        "Proof of concept",
+        "Easy to understand"
+      ],
+      "when_to_use": "Show real code, the real output, and what it proves \u2014 then the clone command.",
+      "dynamic": "Terminal output types in line by line; a packet runs down the code gutter.",
+      "lineage": "Shubham Saboo (awesome-llm-apps) & Nir Diamant demo-repo format",
+      "files": {
+        "svg": "T31.svg",
+        "gif": "T31.gif",
+        "png": "T31.png"
+      }
+    },
+    {
+      "id": "T32",
+      "name": "Ng's Four Patterns",
+      "best_for_short": "Agentic workflow basics",
+      "content_types": [
+        "Educational",
+        "Ideas",
+        "Easy to understand"
+      ],
+      "when_to_use": "Explain why agentic loops beat bigger models with the HumanEval chart and the four design patterns.",
+      "dynamic": "Bars grow to 95.1%; each pattern has a live mini-loop.",
+      "lineage": "Andrew Ng, Sequoia AI Ascent (Mar 2024)",
+      "files": {
+        "svg": "T32.svg",
+        "gif": "T32.gif",
+        "png": "T32.png"
+      }
+    },
+    {
+      "id": "T33",
+      "name": "Jagged Frontier Map",
+      "best_for_short": "Where agents work today",
+      "content_types": [
+        "Ideas",
+        "Professional knowledge sharing",
+        "Grounded concepts"
+      ],
+      "when_to_use": "Place concrete tasks inside/outside the capability frontier and show how to redraw it monthly.",
+      "dynamic": "Frontier edge pulses with orbiting packets.",
+      "lineage": "Ethan Mollick, jagged frontier (Dell'Acqua et al. 2023)",
+      "files": {
+        "svg": "T33.svg",
+        "gif": "T33.gif",
+        "png": "T33.png"
+      }
+    },
+    {
+      "id": "T34",
+      "name": "Lethal Trifecta Venn",
+      "best_for_short": "5-second agent security test",
+      "content_types": [
+        "Easy to understand",
+        "Grounded concepts",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Any agent that has private data + untrusted content + outbound comms can be made to leak; show which leg to remove.",
+      "dynamic": "Packets from each circle converge on a pulsing danger core.",
+      "lineage": "Simon Willison, The lethal trifecta for AI agents (Jun 2025)",
+      "files": {
+        "svg": "T34.svg",
+        "gif": "T34.gif",
+        "png": "T34.png"
+      }
+    },
+    {
+      "id": "T35",
+      "name": "Orchestrator + Subagents",
+      "best_for_short": "Multi-agent research systems",
+      "content_types": [
+        "Grounded concepts",
+        "Research topics",
+        "Working solution"
+      ],
+      "when_to_use": "Explain lead/subagent fan-out and when 15x tokens is worth it, with Anthropic's reported numbers.",
+      "dynamic": "Spawn packets fan out and results fan back in to synthesis.",
+      "lineage": "Anthropic, How we built our multi-agent research system (Jun 2025)",
+      "files": {
+        "svg": "T35.svg",
+        "gif": "T35.gif",
+        "png": "T35.png"
+      }
+    },
+    {
+      "id": "T36",
+      "name": "Cost Waterfall",
+      "best_for_short": "Where the money goes",
+      "content_types": [
+        "Evaluation results",
+        "Information",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Decompose cost per task into tokens, tools, retries, judges \u2014 then show the four levers.",
+      "dynamic": "Waterfall bars drop in sequence; a scan packet crosses the chart.",
+      "lineage": "Chip Huyen-style practical AI economics",
+      "files": {
+        "svg": "T36.svg",
+        "gif": "T36.gif",
+        "png": "T36.png"
+      }
+    },
+    {
+      "id": "T37",
+      "name": "Incident Postmortem",
+      "best_for_short": "AgentOps war stories",
+      "content_types": [
+        "Easy to understand",
+        "Professional knowledge sharing",
+        "Working solution"
+      ],
+      "when_to_use": "Tell the $84 retry-storm story on a timeline and name the control that would have stopped it at each step.",
+      "dynamic": "Severity packets run down the timeline; green control cards attach per event.",
+      "lineage": "Google SRE postmortem format applied to AgentOps",
+      "files": {
+        "svg": "T37.svg",
+        "gif": "T37.gif",
+        "png": "T37.png"
+      }
+    },
+    {
+      "id": "T38",
+      "name": "Tool Spec Clinic",
+      "best_for_short": "Tool definitions agents use well",
+      "content_types": [
+        "Working solution",
+        "Proof of concept",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Bad vs good tool JSON side by side with the five rules from Anthropic's tool-writing guide.",
+      "dynamic": "Transformation arrows jump from each flaw to its fix.",
+      "lineage": "Anthropic, Writing effective tools for agents (Sep 2025)",
+      "files": {
+        "svg": "T38.svg",
+        "gif": "T38.gif",
+        "png": "T38.png"
+      }
+    },
+    {
+      "id": "T39",
+      "name": "Memory Design Matrix",
+      "best_for_short": "Agent memory decisions",
+      "content_types": [
+        "Grounded concepts",
+        "Educational",
+        "Information"
+      ],
+      "when_to_use": "One request touches four memory types; decide what to store where, with freshness rules.",
+      "dynamic": "A request packet touches each memory store before the agent acts.",
+      "lineage": "CoALA (Sumers et al. 2023) \u2022 Lilian Weng (2023) \u2022 Aishwarya Naresh Reganti memory infographics",
+      "files": {
+        "svg": "T39.svg",
+        "gif": "T39.gif",
+        "png": "T39.png"
+      }
+    },
+    {
+      "id": "T40",
+      "name": "One-Chart Changelog",
+      "best_for_short": "Cause \u2192 effect on one metric",
+      "content_types": [
+        "Evaluation results",
+        "Proof of concept",
+        "Ideas"
+      ],
+      "when_to_use": "One metric over time, four annotated architecture changes, what each changed \u2014 build-in-public style.",
+      "dynamic": "The line draws progressively; flags appear as the line reaches them.",
+      "lineage": "Nate B. Jones 'one chart' \u2022 Santiago Valdarrama build-in-public",
+      "files": {
+        "svg": "T40.svg",
+        "gif": "T40.gif",
+        "png": "T40.png"
       }
     }
   ]

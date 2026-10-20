@@ -34,7 +34,7 @@ Instead of generating static markdown prompt templates (`BMAD`) or relying on un
 
 | Post ID | Standalone Git Repo Path | Source Activity URN & Creator | Primary Technical Source |
 | :--- | :--- | :--- | :--- |
-| **`POST-01`** | [`generated-repos/01-harnessevolve-self-improving-evals`](./generated-repos/01-harnessevolve-self-improving-evals) | `7517563942492196864` • Rakesh Gohel | *HarnessEvolve: Self-Evolving Agent Harnesses with Protected Competence* |
+| **`POST-01`** | [`generated-repos/01-harnessevolve-self-improving-evals`](./generated-repos/01-harnessevolve-self-improving-evals) | `7517563942492196864` • Rakesh Gohel | *HarnessEvolve: Learning from Reference Trajectories for Reliable Agent Self-Evolution (`arXiv:2609.00829`)* |
 | **`POST-02`** | [`generated-repos/02-enterprise-agent-harness-os`](./generated-repos/02-enterprise-agent-harness-os) | `7517071955964129280` • Aakash Gupta / Addy Osmani | *Agent = Model + Harness: 10-Layer Enterprise Harness Roadmap* |
 | **`POST-03`** | [`generated-repos/03-multi-agent-skills-plugin-hub`](./generated-repos/03-multi-agent-skills-plugin-hub) | `7517094569474437122` • Vaibhav Sisinty | *5 Foundational Agent Ecosystems (`agency-agents`, `wshobson/agents`, `agent-skills`)* |
 | **`POST-04`** | [`generated-repos/04-openhands-autonomous-coding-harness`](./generated-repos/04-openhands-autonomous-coding-harness) | `7517147417599746048` • Matt Village + OpenHands | *OpenHands (`All-Hands-AI/OpenHands`) + 6-Stage Agentic Coding Lifecycle* |
@@ -45,10 +45,17 @@ Instead of generating static markdown prompt templates (`BMAD`) or relying on un
 
 ---
 
-## 4. Quickstart Commands
+## 4. 40 Dynamic Visual Templates (`T01`–`T40` in `assets/template-gallery/`)
+
+- **Pack 1 (`T01`–`T20`, [`src/visuals/template_gallery.py`](./src/visuals/template_gallery.py))**: 20 visual archetypes pairing Google Cloud primitives with open-source equivalents (`Pain-Point Flow`, `Split-Path Divergence`, `Hub-and-Spoke Core`, `Layered Stack`, `Swimlane Sequence`, `State Machine & Gates`, `Trade-off Matrix`, `Benchmark Delta Board`, `Evolution Timeline`, `Refinement Funnel`, `2x2 Risk Quadrant`, `Annotated Artifact`, `Code Diff & Proof`, `Readiness Scorecard`, `Research Mind-Map`, `Maturity Matrix`, `Attack & Defense Chain`, `Repo Anatomy Map`, `Myth vs. Reality`, `6-Axis Radar`).
+- **Pack 2 (`T21`–`T40`, [`src/visuals/template_gallery_v2.py`](./src/visuals/template_gallery_v2.py))**: 20 creator-signature formats modeled on top-followed Agentic AI / GenAI / LLM / Evaluation / Claude publications and primary sources (`Anthropic Building Effective Agents`, `Claude Code Best Practices`, `200K->60K Context Budget Ledger`, `Hamel Husain & Shreya Shankar Error Analysis`, `Eugene Yan / MT-Bench Judge Calibration`, `Google Agents Companion Trajectory Metrics`, `ByteByteGo MCP Sequence`, `Contextual Retrieval Sketch`, `Tom Yeh AI-by-Hand Cohen's κ`, `HarnessEvolve arXiv:2609.00829 Paper Digest`, `26-Line Runnable Loop Guard`, `Andrew Ng 4 Agentic Patterns`, `Ethan Mollick Jagged Frontier`, `Simon Willison Lethal Trifecta`, `Anthropic Multi-Agent Research Economics`, `Chip Huyen Cost Waterfall`, `AgentOps Incident Postmortem`, `Anthropic Tool-Schema Redesign`, `CoALA & Lilian Weng Agent Memory Map`, `14-Day Build-in-Public Reliability Staircase`).
+
+---
+
+## 5. Quickstart Commands
 
 ```bash
-# 1. Build and verify all 8 standalone Git repositories (code + 2D SVG/PNG/Draw.io + 12-slide PPTX/PDF + Terraform)
+# 1. Build and verify all 18 standalone Git repositories (code + 2D SVG/PNG/Draw.io + 12-slide PPTX/PDF + Terraform)
 python3 scripts/build_and_verify_all.py
 
 # 2. Run the fail-closed forensic verification gate & master test suite

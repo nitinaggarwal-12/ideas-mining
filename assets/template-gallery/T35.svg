@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="214" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="163.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T35 • ORCHESTRATOR + SUBAGENTS</text>
+<rect x="280.0" y="32.0" width="265" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="412.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: MULTI-AGENT RESEARCH SYSTEMS</text>
+<rect x="998.0" y="32.0" width="546" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1271.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >FORMAT LINEAGE: Anthropic, How we built our multi-agent research system (Jun 2025)</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >How Anthropic&#x27;s Research Agent Beat a Single Agent by 90% — and Spent 15x the Tokens Doing It</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >A lead agent plans and spawns parallel subagents, each with its own context window; a citation agent finishes. Here is the shape, the numbers, and when it is worth it.</text>
+<rect x="56.0" y="136.0" width="980.0" height="740.0" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" />
+<rect x="76.0" y="480.0" width="110.0" height="60.0" rx="6" fill="#FFFFFF" stroke="#475569" stroke-width="1.6" /><text x="131.0" y="508.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F172A" text-anchor="middle" >User question</text>
+<text x="131.0" y="519.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F172A" text-anchor="middle" >(open-ended</text>
+<path d="M 186.0 510.0 L 226.0 510.0" class="flow-line" fill="none" stroke="#475569" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#475569" transform="translate(236.0 510.0) rotate(0.0)"/>
+<g><circle r="8" fill="#475569" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#475569" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 186.0 510.0 L 226.0 510.0"/></g>
+<rect x="240.0" y="440.0" width="220.0" height="140.0" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8" /><rect x="240.0" y="440.0" width="220.0" height="24.0" rx="8" fill="#7C3AED" /><text x="350.0" y="455.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >LEAD AGENT (ORCHESTRATOR)</text>
+<text x="254.0" y="486.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#0F172A" text-anchor="start" >Reads the question, writes a</text>
+<text x="254.0" y="500.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#0F172A" text-anchor="start" >plan to memory, decides how</text>
+<text x="254.0" y="514.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#0F172A" text-anchor="start" >many subagents and what each</text>
+<text x="254.0" y="528.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#0F172A" text-anchor="start" >searches, then synthesizes.</text>
+<path d="M 460.0 510.0 L 500.0 226.0 L 526.0 226.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="4 4" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(536.0 226.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 460.0 510.0 L 500.0 226.0 L 526.0 226.0"/></g>
+<rect x="457.3" y="330.1" width="49" height="22" rx="11" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<text x="481.8" y="345.1" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED" text-anchor="middle" >spawn</text>
+<rect x="540.0" y="176.0" width="250.0" height="100.0" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.8" /><rect x="540.0" y="176.0" width="250.0" height="22.0" rx="8" fill="#2563EB" /><text x="665.0" y="190.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >SUBAGENT 1 • SONNET-CLASS</text>
+<text x="552.0" y="218.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >Search angle A (e.g. market size);</text>
+<text x="552.0" y="231.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >own context; returns a condensed</text>
+<text x="552.0" y="244.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >digest.</text>
+<text x="552.0" y="266.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#2563EB" text-anchor="start" >budget: 3-10 tool calls</text>
+<path d="M 790.0 226.0 L 826.0 226.0 L 860.0 510.0 L 874.0 510.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#2563EB" transform="translate(884.0 510.0) rotate(0.0)"/>
+<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="2.00s" begin="-0.00s" repeatCount="indefinite" path="M 790.0 226.0 L 826.0 226.0 L 860.0 510.0 L 874.0 510.0"/></g>
+<path d="M 460.0 510.0 L 500.0 376.0 L 526.0 376.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="4 4" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(536.0 376.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 460.0 510.0 L 500.0 376.0 L 526.0 376.0"/></g>
+<rect x="540.0" y="326.0" width="250.0" height="100.0" rx="10" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.8" /><rect x="540.0" y="326.0" width="250.0" height="22.0" rx="8" fill="#0284C7" /><text x="665.0" y="340.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >SUBAGENT 2</text>
+<text x="552.0" y="368.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >Search angle B (competitors); runs</text>
+<text x="552.0" y="381.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >in parallel with 1.</text>
+<text x="552.0" y="416.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#0284C7" text-anchor="start" >budget: 10-15 calls for comparisons</text>
+<path d="M 790.0 376.0 L 826.0 376.0 L 860.0 510.0 L 874.0 510.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(884.0 510.0) rotate(0.0)"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="2.00s" begin="-0.00s" repeatCount="indefinite" path="M 790.0 376.0 L 826.0 376.0 L 860.0 510.0 L 874.0 510.0"/></g>
+<path d="M 460.0 510.0 L 500.0 526.0 L 526.0 526.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="4 4" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(536.0 526.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 460.0 510.0 L 500.0 526.0 L 526.0 526.0"/></g>
+<rect x="540.0" y="476.0" width="250.0" height="100.0" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8" /><rect x="540.0" y="476.0" width="250.0" height="22.0" rx="8" fill="#7C3AED" /><text x="665.0" y="490.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >SUBAGENT 3</text>
+<text x="552.0" y="518.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >Search angle C (regulation);</text>
+<text x="552.0" y="531.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >parallel tool calls inside the</text>
+<text x="552.0" y="544.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >subagent too.</text>
+<text x="552.0" y="566.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#7C3AED" text-anchor="start" >parallel tool calls: up to 90% faster</text>
+<path d="M 790.0 526.0 L 826.0 526.0 L 860.0 510.0 L 874.0 510.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(884.0 510.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="2.00s" begin="-0.00s" repeatCount="indefinite" path="M 790.0 526.0 L 826.0 526.0 L 860.0 510.0 L 874.0 510.0"/></g>
+<path d="M 460.0 510.0 L 500.0 676.0 L 526.0 676.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="4 4" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(536.0 676.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 460.0 510.0 L 500.0 676.0 L 526.0 676.0"/></g>
+<rect x="540.0" y="626.0" width="250.0" height="100.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" /><rect x="540.0" y="626.0" width="250.0" height="22.0" rx="8" fill="#D97706" /><text x="665.0" y="640.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >SUBAGENT N (10+ FOR COMPLEX)</text>
+<text x="552.0" y="668.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >Spawned only when the lead judges</text>
+<text x="552.0" y="681.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >the query complex enough.</text>
+<text x="552.0" y="716.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#D97706" text-anchor="start" >scaled to complexity</text>
+<path d="M 790.0 676.0 L 826.0 676.0 L 860.0 510.0 L 874.0 510.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(884.0 510.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="2.00s" begin="-0.00s" repeatCount="indefinite" path="M 790.0 676.0 L 826.0 676.0 L 860.0 510.0 L 874.0 510.0"/></g>
+<rect x="886.0" y="460.0" width="130.0" height="100.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" /><rect x="886.0" y="460.0" width="130.0" height="22.0" rx="8" fill="#059669" /><text x="951.0" y="474.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >SYNTHESIS</text>
+<text x="896.0" y="500.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >Lead merges</text>
+<text x="896.0" y="513.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >digests,</text>
+<text x="896.0" y="526.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >resolves</text>
+<path d="M 951.0 560.0 L 951.0 590.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(951.0 600.0) rotate(90.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.20s" begin="-0.00s" repeatCount="indefinite" path="M 951.0 560.0 L 951.0 590.0"/></g>
+<rect x="846.0" y="604.0" width="170.0" height="76.0" rx="10" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.8" /><rect x="846.0" y="604.0" width="170.0" height="22.0" rx="8" fill="#0D9488" /><text x="931.0" y="618.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >CITATION AGENT</text>
+<text x="858.0" y="646.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >Attributes every claim</text>
+<text x="858.0" y="659.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A" text-anchor="start" >to a source</text>
+<path d="M 931.0 680.0 L 931.0 710.0" class="flow-line" fill="none" stroke="#0D9488" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0D9488" transform="translate(931.0 720.0) rotate(90.0)"/>
+<g><circle r="8" fill="#0D9488" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0D9488" stroke-width="2.6"/><animateMotion dur="1.20s" begin="-0.00s" repeatCount="indefinite" path="M 931.0 680.0 L 931.0 710.0"/></g>
+<rect x="846.0" y="724.0" width="170.0" height="50.0" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.6" /><text x="931.0" y="753.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F172A" text-anchor="middle" >Answer with sources</text>
+<rect x="76.0" y="700.0" width="700.0" height="160.0" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.4" />
+<text x="92.0" y="724.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F172A" text-anchor="start" >THE SCALING RULES THE LEAD AGENT IS TAUGHT (FROM THE POST)</text>
+<text x="92.0" y="750.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#7C3AED" text-anchor="start" >→</text>
+<text x="112.0" y="750.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B" text-anchor="start" >Simple fact-finding: 1 agent, 3-10 tool calls.</text>
+<text x="92.0" y="782.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#7C3AED" text-anchor="start" >→</text>
+<text x="112.0" y="782.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B" text-anchor="start" >Direct comparisons: 2-4 subagents, 10-15 calls each.</text>
+<text x="92.0" y="814.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#7C3AED" text-anchor="start" >→</text>
+<text x="112.0" y="814.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B" text-anchor="start" >Complex research: 10+ subagents with clearly divided responsibilities.</text>
+<rect x="1060.0" y="136.0" width="504.0" height="420.0" rx="10" fill="#FFFFFF" stroke="#0F2942" stroke-width="1.8" /><rect x="1060.0" y="136.0" width="504.0" height="26.0" rx="8" fill="#0F2942" /><text x="1312.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >THE NUMBERS ANTHROPIC REPORTED</text>
+<rect x="1076.0" y="176.0" width="472.0" height="80.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.6" />
+<text x="1092.0" y="212.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#059669" text-anchor="start" >+90.2%</text>
+<text x="1092.0" y="236.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >over single-agent Claude Opus 4 on Anthropic&#x27;s internal research</text>
+<text x="1536.0" y="196.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#475569" text-anchor="end" >reported</text>
+<rect x="1076.0" y="268.0" width="472.0" height="80.0" rx="8" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.6" />
+<text x="1092.0" y="304.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2563EB" text-anchor="start" >80%</text>
+<text x="1092.0" y="328.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >of performance variance on BrowseComp explained by token usage</text>
+<text x="1536.0" y="288.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#475569" text-anchor="end" >reported</text>
+<rect x="1076.0" y="360.0" width="472.0" height="80.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.6" />
+<text x="1092.0" y="396.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#D97706" text-anchor="start" >~15x</text>
+<text x="1092.0" y="420.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >tokens vs a chat interaction (single agents use ~4x)</text>
+<text x="1536.0" y="380.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#475569" text-anchor="end" >reported</text>
+<rect x="1076.0" y="452.0" width="472.0" height="80.0" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.6" />
+<text x="1092.0" y="488.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#7C3AED" text-anchor="start" >up to 90%</text>
+<text x="1092.0" y="512.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >research time cut by parallel tool calls + parallel subagents on</text>
+<text x="1536.0" y="472.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#475569" text-anchor="end" >reported</text>
+<rect x="1060.0" y="576.0" width="504.0" height="300.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" /><rect x="1060.0" y="576.0" width="504.0" height="26.0" rx="8" fill="#D97706" /><text x="1312.0" y="593.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >USE IT ONLY WHEN THE TASK LOOKS LIKE THIS</text>
+<text x="1076.0" y="626.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#059669" text-anchor="start" >✓</text>
+<text x="1096.0" y="622.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#064E3B" text-anchor="start" >The task is breadth-first and parallelizable (survey many</text>
+<text x="1096.0" y="636.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#064E3B" text-anchor="start" >sources, compare many options).</text>
+<text x="1076.0" y="676.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#059669" text-anchor="start" >✓</text>
+<text x="1096.0" y="672.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#064E3B" text-anchor="start" >The answer is worth far more than the tokens (due diligence,</text>
+<text x="1096.0" y="686.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#064E3B" text-anchor="start" >research, incident investigation).</text>
+<text x="1076.0" y="726.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#059669" text-anchor="start" >✓</text>
+<text x="1096.0" y="722.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#064E3B" text-anchor="start" >Subagents can return condensed digests — the lead never needs</text>
+<text x="1096.0" y="736.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#064E3B" text-anchor="start" >their raw context.</text>
+<text x="1076.0" y="780.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#DC2626" text-anchor="start" >✘</text>
+<text x="1096.0" y="776.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#7F1D1D" text-anchor="start" >Steps depend on each other in sequence (most coding tasks) — a</text>
+<text x="1096.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#7F1D1D" text-anchor="start" >single agent with good tools wins.</text>
+<text x="1076.0" y="826.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#DC2626" text-anchor="start" >✘</text>
+<text x="1096.0" y="822.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#7F1D1D" text-anchor="start" >You cannot afford 15x tokens or the added latency and debugging</text>
+<text x="1096.0" y="836.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#7F1D1D" text-anchor="start" >surface.</text>
+<rect x="56.0" y="892.0" width="1508.0" height="40.0" rx="10" fill="#0F2942" />
+<text x="810.0" y="917.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF" text-anchor="middle" >Open-source twins: LangGraph Send() fan-out or ADK ParallelAgent for subagents; Firestore / PostgreSQL for the lead&#x27;s plan memory.</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Anthropic Engineering, &#x27;How we built our multi-agent research system&#x27; (Jun 13 2025)</text>
+</svg>

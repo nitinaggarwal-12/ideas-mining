@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="182" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="147.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T40 • ONE-CHART CHANGELOG</text>
+<rect x="248.0" y="32.0" width="265" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="380.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: CAUSE → EFFECT ON ONE METRIC</text>
+<rect x="1017.0" y="32.0" width="527" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1280.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >FORMAT LINEAGE: Nate B. Jones &#x27;one chart&#x27; • Santiago Valdarrama build-in-public</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >One Metric, Eight Releases, Four Flags: How p95 Latency Went From 42 s to 1.9 s</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Build-in-public format: one chart, every architecture change annotated where it landed. Reference-harness path from IDEA-09 (measured endpoints; weekly points interpolated).</text>
+<rect x="56.0" y="136.0" width="1024.0" height="690.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" />
+<line x1="120" y1="760.0" x2="1040" y2="760.0" stroke="#E2E8F0" stroke-width="1"/>
+<text x="110.0" y="764.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="end" >0 s</text>
+<line x1="120" y1="612.5" x2="1040" y2="612.5" stroke="#E2E8F0" stroke-width="1"/>
+<text x="110.0" y="616.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="end" >10 s</text>
+<line x1="120" y1="465.0" x2="1040" y2="465.0" stroke="#E2E8F0" stroke-width="1"/>
+<text x="110.0" y="469.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="end" >21 s</text>
+<line x1="120" y1="317.5" x2="1040" y2="317.5" stroke="#E2E8F0" stroke-width="1"/>
+<text x="110.0" y="321.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="end" >32 s</text>
+<line x1="120" y1="170.0" x2="1040" y2="170.0" stroke="#E2E8F0" stroke-width="1"/>
+<text x="110.0" y="174.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="end" >42 s</text>
+<text x="120.0" y="778.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle" >wk 1</text>
+<text x="251.4" y="778.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle" >wk 2</text>
+<text x="382.9" y="778.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle" >wk 3</text>
+<text x="514.3" y="778.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle" >wk 4</text>
+<text x="645.7" y="778.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle" >wk 5</text>
+<text x="777.1" y="778.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle" >wk 6</text>
+<text x="908.6" y="778.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle" >wk 7</text>
+<text x="1040.0" y="778.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle" >wk 8</text>
+<path d="M 120.0 170.0 L 251.4 191.1 L 382.9 451.0 L 514.3 477.6 L 645.7 622.3 L 777.1 701.0 L 908.6 723.5 L 1040.0 733.3" fill="none" stroke="#2563EB" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/>
+<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="5.00s" begin="-0.00s" repeatCount="indefinite" path="M 120.0 170.0 L 251.4 191.1 L 382.9 451.0 L 514.3 477.6 L 645.7 622.3 L 777.1 701.0 L 908.6 723.5 L 1040.0 733.3"/></g>
+<circle cx="120.0" cy="170.0" r="5.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="2"/>
+<text x="120.0" y="158.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >42.0 s</text>
+<circle cx="251.4" cy="191.1" r="5.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="2"/>
+<text x="251.4" y="179.1" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >40.5 s</text>
+<circle cx="382.9" cy="451.0" r="5.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="2"/>
+<text x="382.9" y="439.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >22.0 s</text>
+<circle cx="514.3" cy="477.6" r="5.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="2"/>
+<text x="514.3" y="465.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >20.1 s</text>
+<circle cx="645.7" cy="622.3" r="5.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="2"/>
+<text x="645.7" y="610.3" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >9.8 s</text>
+<circle cx="777.1" cy="701.0" r="5.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="2"/>
+<text x="777.1" y="689.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >4.2 s</text>
+<circle cx="908.6" cy="723.5" r="5.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="2"/>
+<text x="908.6" y="711.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >2.6 s</text>
+<circle cx="1040.0" cy="733.3" r="5.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="2"/>
+<text x="1040.0" y="721.3" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >1.9 s</text>
+<line x1="382.85714285714283" y1="450.95238095238096" x2="382.85714285714283" y2="226" stroke="#2563EB" stroke-width="1.6" stroke-dasharray="4 4"/>
+<rect x="312.9" y="196.0" width="140.0" height="30.0" rx="6" fill="#2563EB" />
+<text x="382.9" y="215.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >1. KV / prefix cache</text>
+<line x1="645.7142857142857" y1="622.3333333333334" x2="645.7142857142857" y2="226" stroke="#7C3AED" stroke-width="1.6" stroke-dasharray="4 4"/>
+<rect x="575.7" y="196.0" width="140.0" height="30.0" rx="6" fill="#7C3AED" />
+<text x="645.7" y="215.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >2. Flash routing</text>
+<line x1="777.1428571428571" y1="701.0" x2="777.1428571428571" y2="226" stroke="#D97706" stroke-width="1.6" stroke-dasharray="4 4"/>
+<rect x="707.1" y="196.0" width="140.0" height="30.0" rx="6" fill="#D97706" />
+<text x="777.1" y="215.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >3. Parallel reads</text>
+<line x1="1040.0" y1="733.3095238095239" x2="1040.0" y2="226" stroke="#059669" stroke-width="1.6" stroke-dasharray="4 4"/>
+<rect x="970.0" y="196.0" width="140.0" height="30.0" rx="6" fill="#059669" />
+<text x="1040.0" y="215.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >4. Top-3 tools</text>
+<text x="568.0" y="800.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle" >p95 latency per agent turn, seconds (lower is better). Weekly points between measured endpoints are interpolated for illustration.</text>
+<rect x="1104.0" y="136.0" width="460.0" height="690.0" rx="10" fill="#FFFFFF" stroke="#0F2942" stroke-width="1.8" /><rect x="1104.0" y="136.0" width="460.0" height="26.0" rx="8" fill="#0F2942" /><text x="1334.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >WHAT EACH FLAG CHANGED</text>
+<rect x="1120.0" y="176.0" width="428.0" height="116.0" rx="8" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.6" />
+<rect x="1120.0" y="176.0" width="8.0" height="116.0" rx="4" fill="#2563EB" />
+<text x="1140.0" y="198.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#2563EB" text-anchor="start" >1. Prefix caching on</text>
+<text x="1536.0" y="198.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="800" fill="#2563EB" text-anchor="end" >−18.5 s</text>
+<text x="1140.0" y="218.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >System prompt, rules, and tool schemas served from Vertex</text>
+<text x="1140.0" y="232.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >context cache (vLLM prefix cache in the OSS twin); prefill</text>
+<text x="1140.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >latency collapsed.</text>
+<rect x="1140.0" y="262.0" width="245" height="20" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/><text x="1262.5" y="275.1" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#2563EB" text-anchor="middle" >Vertex AI context caching ⇄ vLLM / SGLang</text>
+<rect x="1120.0" y="304.0" width="428.0" height="116.0" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.6" />
+<rect x="1120.0" y="304.0" width="8.0" height="116.0" rx="4" fill="#7C3AED" />
+<text x="1140.0" y="326.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#7C3AED" text-anchor="start" >2. Route easy turns to a small model</text>
+<text x="1536.0" y="326.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="800" fill="#7C3AED" text-anchor="end" >−10.3 s</text>
+<text x="1140.0" y="346.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Gemini 3.8 Flash (or Gemma 3 via LiteLLM) handles triage</text>
+<text x="1140.0" y="360.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >and extraction; the frontier model only sees complexity &gt;</text>
+<text x="1140.0" y="374.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >0.75.</text>
+<rect x="1140.0" y="390.0" width="130" height="20" rx="10.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.4"/><text x="1205.0" y="403.1" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#7C3AED" text-anchor="middle" >ADK router ⇄ LiteLLM</text>
+<rect x="1120.0" y="432.0" width="428.0" height="116.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.6" />
+<rect x="1120.0" y="432.0" width="8.0" height="116.0" rx="4" fill="#D97706" />
+<text x="1140.0" y="454.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#D97706" text-anchor="start" >3. Fan out independent read tools</text>
+<text x="1536.0" y="454.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="800" fill="#D97706" text-anchor="end" >−5.6 s</text>
+<text x="1140.0" y="474.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Four read-only tools that ran one after another now run in</text>
+<text x="1140.0" y="488.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >one wave (ParallelAgent / LangGraph Send()).</text>
+<rect x="1140.0" y="518.0" width="217" height="20" rx="10.0" fill="#FFFFFF" stroke="#D97706" stroke-width="1.4"/><text x="1248.5" y="531.1" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#D97706" text-anchor="middle" >ADK ParallelAgent ⇄ LangGraph Send()</text>
+<rect x="1120.0" y="560.0" width="428.0" height="116.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.6" />
+<rect x="1120.0" y="560.0" width="8.0" height="116.0" rx="4" fill="#059669" />
+<text x="1140.0" y="582.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="start" >4. Mount only the three relevant tools</text>
+<text x="1536.0" y="582.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="800" fill="#059669" text-anchor="end" >−0.7 s</text>
+<text x="1140.0" y="602.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >35K tokens of tool schemas per turn became 2.4K; shorter</text>
+<text x="1140.0" y="616.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >prompts, faster first token, fewer wrong tool picks.</text>
+<rect x="1140.0" y="646.0" width="239" height="20" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="1.4"/><text x="1259.5" y="659.1" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#059669" text-anchor="middle" >AlloyDB pgvector ⇄ Qdrant + MCP registry</text>
+<rect x="1120.0" y="692.0" width="428.0" height="118.0" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.6" />
+<text x="1136.0" y="716.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#065F46" text-anchor="start" >MAKE YOUR OWN IN A WEEK</text>
+<text x="1136.0" y="736.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >Pick one metric your users feel. Log it per release. Every</text>
+<text x="1136.0" y="750.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >time you change the architecture, drop a flag on the chart</text>
+<text x="1136.0" y="764.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >with the delta. Share the chart weekly — the flags become</text>
+<text x="1136.0" y="778.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >your changelog.</text>
+<rect x="56.0" y="846.0" width="1508.0" height="84.0" rx="12" fill="#0F2942" />
+<text x="78.0" y="874.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#93C5FD" text-anchor="start" >WHY THIS FORMAT WORKS</text>
+<text x="78.0" y="896.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >Readers trust cause-and-effect they can see. A single annotated line answers &#x27;what did you change and did it work?&#x27; faster than any architecture diagram.</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >IDEA-09 reference harness (p95 agent turn latency) • Cloud Trace / Langfuse spans</text>
+</svg>

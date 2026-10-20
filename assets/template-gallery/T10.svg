@@ -24,7 +24,7 @@
 <rect x="235.0" y="32.0" width="207" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="338.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: FILTERING PIPELINES</text>
 <rect x="1222.0" y="32.0" width="322" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1383.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >DYNAMIC TEMPLATE • MOVING ARROWS &amp; LIVE PACKETS</text>
 <text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >From 10,000 Trajectories to One Promoted Harness Patch: The HarnessEvolve Refinement Funnel</text>
-<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Each stage applies a stricter deterministic filter on Google Cloud or open-source tooling; only patches that fix the new bug AND keep 100% of history pass.</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Each stage applies a stricter deterministic filter on Google Cloud or open-source tooling; only patches that pass the two-tier competence gate ship.</text>
 <polygon points="110.0,150 1010.0,150 940.0,268 180.0,268" fill="#3B82F6" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="3"/>
 <text x="500.0" y="196.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF" text-anchor="middle" >10,000</text>
 <text x="500.0" y="222.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle" >RAW EXECUTION TRAJECTORIES</text>
@@ -42,13 +42,13 @@
 <polygon points="180.0,282 940.0,282 870.0,400 250.0,400" fill="#6366F1" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="3"/>
 <text x="500.0" y="328.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF" text-anchor="middle" >1,240</text>
 <text x="500.0" y="354.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle" >FAILED OR DIVERGENT STEPS</text>
-<text x="500.0" y="376.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F1F5F9" text-anchor="middle" >Step t where success and failure split</text>
+<text x="500.0" y="376.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F1F5F9" text-anchor="middle" >Step t compared against reference trajectory</text>
 <rect x="1080.0" y="282.0" width="484.0" height="118.0" rx="10" fill="#FFFFFF" stroke="#6366F1" stroke-width="1.8" />
 <rect x="1080.0" y="282.0" width="8.0" height="118.0" rx="4" fill="#6366F1" />
-<text x="1104.0" y="306.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#6366F1" text-anchor="start" >STAGE 2 FILTER • STEP-LEVEL DIFF</text>
-<text x="1104.0" y="328.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Replay from the shared prefix (steps 1..t-1) in a</text>
-<text x="1104.0" y="344.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >LangGraph / ADK runner and diff the failed path against a</text>
-<text x="1104.0" y="360.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >succeeded path at step t.</text>
+<text x="1104.0" y="306.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#6366F1" text-anchor="start" >STAGE 2 FILTER • REFERENCE DIFF</text>
+<text x="1104.0" y="328.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Compare the failed execution trace against a clean</text>
+<text x="1104.0" y="344.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >reference trajectory at step t to isolate the exact broken</text>
+<text x="1104.0" y="360.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >decision (step-level credit assignment).</text>
 <path d="M 909.0 341.0 L 1066.0 341.0" fill="none" stroke="#6366F1" stroke-opacity="0.14" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 909.0 341.0 L 1066.0 341.0" class="flow-line" fill="none" stroke="#6366F1" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7" stroke-dashoffset="0.0"/>
 <polygon points="0,0 -15,-9 -11,0 -15,9" fill="#6366F1" transform="translate(1076.0 341.0) rotate(0.0)"/>
@@ -61,8 +61,8 @@
 <rect x="1080.0" y="414.0" width="8.0" height="118.0" rx="4" fill="#8B5CF6" />
 <text x="1104.0" y="438.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#8B5CF6" text-anchor="start" >STAGE 3 FILTER • CLUSTER</text>
 <text x="1104.0" y="460.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Group divergences by tool, argument shape, and error</text>
-<text x="1104.0" y="476.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >signature (pgvector or Qdrant embeddings); discard</text>
-<text x="1104.0" y="492.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >singletons.</text>
+<text x="1104.0" y="476.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >signature (pgvector or Qdrant embeddings) into reusable</text>
+<text x="1104.0" y="492.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >skill updates.</text>
 <path d="M 839.0 473.0 L 1066.0 473.0" fill="none" stroke="#8B5CF6" stroke-opacity="0.14" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 839.0 473.0 L 1066.0 473.0" class="flow-line" fill="none" stroke="#8B5CF6" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7" stroke-dashoffset="0.0"/>
 <polygon points="0,0 -15,-9 -11,0 -15,9" fill="#8B5CF6" transform="translate(1076.0 473.0) rotate(0.0)"/>
@@ -70,13 +70,13 @@
 <polygon points="320.0,546 800.0,546 730.0,664 390.0,664" fill="#D97706" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="3"/>
 <text x="500.0" y="592.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF" text-anchor="middle" >6</text>
 <text x="500.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle" >TARGETED PATCH PROPOSALS</text>
-<text x="500.0" y="640.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F1F5F9" text-anchor="middle" >Instruction, tool-description, or rule edits</text>
+<text x="500.0" y="640.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F1F5F9" text-anchor="middle" >Skill, instruction, or tool-description edits</text>
 <rect x="1080.0" y="546.0" width="484.0" height="118.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" />
 <rect x="1080.0" y="546.0" width="8.0" height="118.0" rx="4" fill="#D97706" />
-<text x="1104.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706" text-anchor="start" >STAGE 4 FILTER • BLOAT &amp; LEAK GATE</text>
-<text x="1104.0" y="592.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Reject any patch that grows the prompt &gt; 15% or embeds</text>
-<text x="1104.0" y="608.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >benchmark-specific strings (tree-sitter AST + ruff</text>
-<text x="1104.0" y="624.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >checks).</text>
+<text x="1104.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706" text-anchor="start" >STAGE 4 FILTER • TIER-1 QUALITY GATE</text>
+<text x="1104.0" y="592.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Reject any candidate patch that bloats instructions (&gt;</text>
+<text x="1104.0" y="608.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >15%) or embeds benchmark-specific test leakage (tree-</text>
+<text x="1104.0" y="624.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >sitter AST + ruff checks).</text>
 <path d="M 769.0 605.0 L 1066.0 605.0" fill="none" stroke="#D97706" stroke-opacity="0.14" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 769.0 605.0 L 1066.0 605.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7" stroke-dashoffset="0.0"/>
 <polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(1076.0 605.0) rotate(0.0)"/>
@@ -87,10 +87,10 @@
 <text x="500.0" y="772.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F1F5F9" text-anchor="middle" >Fixes the bug, regresses nothing</text>
 <rect x="1080.0" y="678.0" width="484.0" height="118.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" />
 <rect x="1080.0" y="678.0" width="8.0" height="118.0" rx="4" fill="#059669" />
-<text x="1104.0" y="702.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="start" >STAGE 5 FILTER • GOLDEN REPLAY GATE</text>
-<text x="1104.0" y="724.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Promote only if the new fixture passes AND 100% of golden</text>
-<text x="1104.0" y="740.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >trajectories still pass — Promptfoo or Inspect AI in Cloud</text>
-<text x="1104.0" y="756.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Build / GitHub Actions.</text>
+<text x="1104.0" y="702.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="start" >STAGE 5 FILTER • TIER-2 SNAPSHOT GATE</text>
+<text x="1104.0" y="724.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Promote only if peak accuracy in the snapshot pool</text>
+<text x="1104.0" y="740.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >improves AND golden trajectories still pass — Promptfoo or</text>
+<text x="1104.0" y="756.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Inspect AI in Cloud Build / GitHub Actions.</text>
 <path d="M 704.0 737.0 L 1066.0 737.0" fill="none" stroke="#059669" stroke-opacity="0.14" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 704.0 737.0 L 1066.0 737.0" class="flow-line" fill="none" stroke="#059669" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7" stroke-dashoffset="0.0"/>
 <polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1076.0 737.0) rotate(0.0)"/>
@@ -102,14 +102,14 @@
 <g><circle r="8" fill="#0F2942" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0F2942" stroke-width="2.6"/><animateMotion dur="3.00s" begin="-1.00s" repeatCount="indefinite" path="M 680.0 140.0 L 680.0 802.0"/></g>
 <g><circle r="8" fill="#0F2942" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0F2942" stroke-width="2.6"/><animateMotion dur="3.00s" begin="-2.00s" repeatCount="indefinite" path="M 680.0 140.0 L 680.0 802.0"/></g>
 <rect x="56.0" y="824.0" width="1508.0" height="96.0" rx="12" fill="#0F2942" />
-<text x="78.0" y="852.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#93C5FD" text-anchor="start" >VERIFIED OUTCOME OF THE FULL FUNNEL</text>
-<text x="78.0" y="884.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#86EFAC" text-anchor="start" >+28.5%</text>
-<text x="163.0" y="884.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >relative gain (Tau-Bench Airline)</text>
-<text x="578.0" y="884.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#86EFAC" text-anchor="start" >&lt;= 15%</text>
-<text x="663.0" y="884.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >prompt bloat ceiling enforced</text>
+<text x="78.0" y="852.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#93C5FD" text-anchor="start" >VERIFIED OUTCOME OF THE FULL FUNNEL (arXiv:2609.00829)</text>
+<text x="78.0" y="884.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#86EFAC" text-anchor="start" >43.4→86.9%</text>
+<text x="213.0" y="884.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >CloudCoreNetwork-QA (+21.6 pts vs GEPA)</text>
+<text x="578.0" y="884.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#86EFAC" text-anchor="start" >44.3→76.4%</text>
+<text x="713.0" y="884.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >SpreadsheetBench accuracy (Table 2)</text>
 <text x="1078.0" y="884.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#86EFAC" text-anchor="start" >100%</text>
-<text x="1138.0" y="884.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >historical trajectories still pass</text>
-<text x="1544.0" y="140.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#991B1B" text-anchor="end" >Stage counts are an illustrative sample run; gate thresholds and gains are the verified figures.</text>
+<text x="1138.0" y="884.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="start" >snapshot pool regression gate</text>
+<text x="1544.0" y="140.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#991B1B" text-anchor="end" >Stage counts are an illustrative sample run; gate thresholds and benchmark gains are from arXiv:2609.00829.</text>
 <text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
-<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: HarnessEvolve arXiv:2604.14118 (POST-01) • BigQuery / ClickHouse • Promptfoo / Inspect AI • IDEA-10</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: HarnessEvolve arXiv:2609.00829 (POST-01) • BigQuery / ClickHouse • Promptfoo / Inspect AI • IDEA-10</text>
 </svg>

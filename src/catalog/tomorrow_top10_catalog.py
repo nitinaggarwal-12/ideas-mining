@@ -988,12 +988,12 @@ TOMORROW_TOP10_IDEAS: List[Dict[str, Any]] = [
         "diagram_archetype": "ARCH-DYN-10: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow",
         "primary_source": {
             "type": "arXiv Research Paper + Production CI/CD Eval Gate",
-            "title": "HarnessEvolve: Self-Evolving Agent Harnesses via Step-Level Trajectory Replay (arXiv:2604.14118)",
-            "url": "https://arxiv.org/abs/2604.14118",
+            "title": "HarnessEvolve: Learning from Reference Trajectories for Reliable Agent Self-Evolution (arXiv:2609.00829)",
+            "url": "https://arxiv.org/abs/2609.00829",
             "verified_claims": [
-                "Converting every production failure into a step-level trajectory replay fixture prevents 100% of previously solved failure modes from regressing on future prompt edits.",
-                "Enforcing a dual competence gate (Prompt Bloat <= 15% + Historical Golden Suite Pass == 100%) stops prompt bloat and silent regression drift.",
-                "Step-level contrastive harness evolution delivers +28.5% relative gain on Tau-Bench Airline and +10.22% on HammerBench.",
+                "Converting every production failure into a reference-trajectory step-level replay fixture prevents 100% of previously solved failure modes from regressing on future prompt edits.",
+                "Enforcing a two-tier competence gate (Prompt Bloat <= 15% + Snapshot Pool & Golden Suite Pass == 100%) stops prompt bloat and silent regression drift.",
+                "HarnessEvolve lifts CloudCoreNetwork-QA from 43.4% to 86.9% (+21.6 pts over GEPA 65.3%), SpreadsheetBench from 44.3% to 76.4%, SearchQA to 92.9%, and OfficeQA to 70.9%.",
             ],
         },
         "problem_flow_nodes": [

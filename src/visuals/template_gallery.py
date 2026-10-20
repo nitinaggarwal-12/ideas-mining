@@ -185,10 +185,11 @@ CSS = """
 """
 
 
-def _frame(tid: str, meta: Dict[str, Any], title: str, subtitle: str, body: Sequence[str], source_note: str) -> str:
+def _frame(tid: str, meta: Dict[str, Any], title: str, subtitle: str, body: Sequence[str], source_note: str,
+           lineage: Optional[str] = None) -> str:
     p1, w1 = _pill(56, 32, f"{tid} • {meta['name'].upper()}", BLUE, "#EFF6FF")
     p2, _ = _pill(56 + w1 + 10, 32, f"BEST FOR: {meta['best_for_short'].upper()}", GREEN, "#ECFDF5")
-    p3, _ = _pill(1544, 32, "DYNAMIC TEMPLATE • MOVING ARROWS & LIVE PACKETS", "#38BDF8", NAVY, text_fill="#38BDF8", anchor_end=True)
+    p3, _ = _pill(1544, 32, (f"FORMAT LINEAGE: {lineage}" if lineage else "DYNAMIC TEMPLATE • MOVING ARROWS & LIVE PACKETS"), "#38BDF8", NAVY, text_fill="#38BDF8", anchor_end=True)
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">',
         "<defs>",
@@ -1096,7 +1097,7 @@ def _demo_specs() -> Dict[str, Dict[str, Any]]:
     from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 
     idea01 = TOMORROW_TOP10_IDEAS[0]
-    return {
+    specs: Dict[str, Dict[str, Any]] = {
         "T01": idea01,
         "T02": {
             "title": "Indirect Prompt Injection: Why the Attack Path Looks Identical to the Safe Path",
@@ -1244,12 +1245,12 @@ def _demo_specs() -> Dict[str, Dict[str, Any]]:
         "T09": {
             "title": "From Prompt Chains to Self-Evolving Harnesses: Each Era's Failure Became the Next Era's Architecture",
             "subtitle": "A grounded timeline of the agentic stack across open-source and Google milestones — follow the spine, then read the pattern chain.",
-            "source": "Sources: ReAct arXiv:2210.03629 • LangChain • MCP (Nov 2024) • A2A & ADK (Apr 2025) • HarnessEvolve arXiv:2604.14118",
+            "source": "Sources: ReAct arXiv:2210.03629 • LangChain • MCP (Nov 2024) • A2A & ADK (Apr 2025) • HarnessEvolve arXiv:2609.00829",
             "eras": [
                 {"year": "2022-2023", "name": "Prompt chaining & ReAct loops", "capability": "Interleaved reasoning and acting with a single model; first open-source agent frameworks.", "failure": "Hallucinated tool results; no durable memory, budgets, or stop conditions.", "artifact": "ReAct (arXiv:2210.03629) • LangChain (Oct 2022) • AutoGen (Sep 2023)", "color": "#334155"},
                 {"year": "2024", "name": "RAG, function calling, graphs & MCP", "capability": "Grounded retrieval, typed tool schemas, stateful graphs; MCP standardizes connectors.", "failure": "Context rot and tool overload as schemas and documents pile up.", "artifact": "MCP (Nov 2024) • LangGraph (Jan 2024) • CrewAI • OpenHands (Mar 2024)", "color": BLUE},
                 {"year": "2025", "name": "Open protocols, ADK & sandboxes", "capability": "A2A handoffs, Google ADK open-sourced, OpenAI Agents SDK, sandboxed coding agents.", "failure": "Prose 'telephone game' handoffs; prompt injection through tools.", "artifact": "A2A (Apr 2025, now Linux Foundation) • ADK open-sourced • OpenAI Agents SDK", "color": PURPLE},
-                {"year": "2026", "name": "Harness engineering & self-evolution", "capability": "Step-level trajectory replay; evidence-receipt memory; golden replay gates in CI.", "failure": "Addressed: regression drift, memory poisoning, fake completions.", "artifact": "HarnessEvolve (arXiv:2604.14118) • OpenWiki (LangChain)", "color": AMBER},
+                {"year": "2026", "name": "Harness engineering & self-evolution", "capability": "Reference-trajectory credit assignment; evidence-receipt memory; two-tier replay gates in CI.", "failure": "Addressed: regression drift, memory poisoning, fake completions.", "artifact": "HarnessEvolve (arXiv:2609.00829) • OpenWiki (LangChain)", "color": AMBER},
                 {"year": "NEXT (OUTLOOK)", "name": "Verified autonomous agents", "capability": "Deterministic gates (exit codes, SHA receipts, idempotency) as the default harness on any stack.", "failure": "Open: cross-org trust, long-horizon evaluation, cost governance.", "artifact": "Direction, not a shipped artifact — treat as a hypothesis", "color": GREEN},
             ],
             "pattern_title": "THE REPEATING PATTERN — WHY THIS TIMELINE PREDICTS WHAT TO BUILD NEXT",
@@ -1263,18 +1264,18 @@ def _demo_specs() -> Dict[str, Dict[str, Any]]:
         },
         "T10": {
             "title": "From 10,000 Trajectories to One Promoted Harness Patch: The HarnessEvolve Refinement Funnel",
-            "subtitle": "Each stage applies a stricter deterministic filter on Google Cloud or open-source tooling; only patches that fix the new bug AND keep 100% of history pass.",
-            "source": "Sources: HarnessEvolve arXiv:2604.14118 (POST-01) • BigQuery / ClickHouse • Promptfoo / Inspect AI • IDEA-10",
-            "sample_note": "Stage counts are an illustrative sample run; gate thresholds and gains are the verified figures.",
+            "subtitle": "Each stage applies a stricter deterministic filter on Google Cloud or open-source tooling; only patches that pass the two-tier competence gate ship.",
+            "source": "Sources: HarnessEvolve arXiv:2609.00829 (POST-01) • BigQuery / ClickHouse • Promptfoo / Inspect AI • IDEA-10",
+            "sample_note": "Stage counts are an illustrative sample run; gate thresholds and benchmark gains are from arXiv:2609.00829.",
             "stages": [
                 {"count": "10,000", "name": "RAW EXECUTION TRAJECTORIES", "sub": "Every production run, step by step", "color": "#3B82F6", "filter_head": "CAPTURE", "filter_body": "Persist each trajectory with tool calls, arguments, outputs, and step index to BigQuery — or ClickHouse / Parquet via OpenTelemetry export."},
-                {"count": "1,240", "name": "FAILED OR DIVERGENT STEPS", "sub": "Step t where success and failure split", "color": "#6366F1", "filter_head": "STEP-LEVEL DIFF", "filter_body": "Replay from the shared prefix (steps 1..t-1) in a LangGraph / ADK runner and diff the failed path against a succeeded path at step t."},
-                {"count": "38", "name": "RECURRING FAILURE CLUSTERS", "sub": "Patterns, not one-off flukes", "color": "#8B5CF6", "filter_head": "CLUSTER", "filter_body": "Group divergences by tool, argument shape, and error signature (pgvector or Qdrant embeddings); discard singletons."},
-                {"count": "6", "name": "TARGETED PATCH PROPOSALS", "sub": "Instruction, tool-description, or rule edits", "color": "#D97706", "filter_head": "BLOAT & LEAK GATE", "filter_body": "Reject any patch that grows the prompt > 15% or embeds benchmark-specific strings (tree-sitter AST + ruff checks)."},
-                {"count": "1", "name": "PROMOTED HARNESS PATCH", "sub": "Fixes the bug, regresses nothing", "color": "#059669", "filter_head": "GOLDEN REPLAY GATE", "filter_body": "Promote only if the new fixture passes AND 100% of golden trajectories still pass — Promptfoo or Inspect AI in Cloud Build / GitHub Actions."},
+                {"count": "1,240", "name": "FAILED OR DIVERGENT STEPS", "sub": "Step t compared against reference trajectory", "color": "#6366F1", "filter_head": "REFERENCE DIFF", "filter_body": "Compare the failed execution trace against a clean reference trajectory at step t to isolate the exact broken decision (step-level credit assignment)."},
+                {"count": "38", "name": "RECURRING FAILURE CLUSTERS", "sub": "Patterns, not one-off flukes", "color": "#8B5CF6", "filter_head": "CLUSTER", "filter_body": "Group divergences by tool, argument shape, and error signature (pgvector or Qdrant embeddings) into reusable skill updates."},
+                {"count": "6", "name": "TARGETED PATCH PROPOSALS", "sub": "Skill, instruction, or tool-description edits", "color": "#D97706", "filter_head": "TIER-1 QUALITY GATE", "filter_body": "Reject any candidate patch that bloats instructions (> 15%) or embeds benchmark-specific test leakage (tree-sitter AST + ruff checks)."},
+                {"count": "1", "name": "PROMOTED HARNESS PATCH", "sub": "Fixes the bug, regresses nothing", "color": "#059669", "filter_head": "TIER-2 SNAPSHOT GATE", "filter_body": "Promote only if peak accuracy in the snapshot pool improves AND golden trajectories still pass — Promptfoo or Inspect AI in Cloud Build / GitHub Actions."},
             ],
-            "outcome_head": "VERIFIED OUTCOME OF THE FULL FUNNEL",
-            "outcomes": [{"value": "+28.5%", "label": "relative gain (Tau-Bench Airline)"}, {"value": "<= 15%", "label": "prompt bloat ceiling enforced"}, {"value": "100%", "label": "historical trajectories still pass"}],
+            "outcome_head": "VERIFIED OUTCOME OF THE FULL FUNNEL (arXiv:2609.00829)",
+            "outcomes": [{"value": "43.4→86.9%", "label": "CloudCoreNetwork-QA (+21.6 pts vs GEPA)"}, {"value": "44.3→76.4%", "label": "SpreadsheetBench accuracy (Table 2)"}, {"value": "100%", "label": "snapshot pool regression gate"}],
         },
         "T11": {
             "title": "Where Does Your Agent Sit? Autonomy vs. Blast Radius — and the Open-Source + Google Moves to Safe Autonomy",
@@ -1414,7 +1415,7 @@ def _demo_specs() -> Dict[str, Dict[str, Any]]:
             "center_tag": "18 LEAVES • 6 BRANCHES • OSS + GOOGLE • ALL SOURCED",
             "branches": [
                 {"code": "BRANCH 1", "name": "Harness Engineering", "color": BLUE, "leaves": [
-                    {"name": "HarnessEvolve step-level trajectory replay", "tag": "arXiv:2604.14118"},
+                    {"name": "HarnessEvolve reference-trajectory replay", "tag": "arXiv:2609.00829"},
                     {"name": "Harness primitives: Google ADK (OSS), LangGraph, CrewAI", "tag": "Apache-2.0 / MIT"},
                     {"name": "Golden replay gates: Promptfoo / Inspect AI in CI", "tag": "IDEA-10"}]},
                 {"code": "BRANCH 2", "name": "Memory & Context", "color": PURPLE, "leaves": [
@@ -1427,7 +1428,7 @@ def _demo_specs() -> Dict[str, Dict[str, Any]]:
                     {"name": "Capability downgrading via OPA / IAM policy", "tag": "IDEA-08"}]},
                 {"code": "BRANCH 4", "name": "Evaluation", "color": GREEN, "leaves": [
                     {"name": "Deterministic gates + LLM-as-a-judge", "tag": "POST-08"},
-                    {"name": "Tau-Bench / HammerBench harness deltas", "tag": "arXiv:2604.14118"},
+                    {"name": "SpreadsheetBench / SearchQA harness deltas", "tag": "arXiv:2609.00829"},
                     {"name": "Eval stacks: Vertex Eval, DeepEval, Ragas", "tag": "IDEA-03"}]},
                 {"code": "BRANCH 5", "name": "Multi-Agent Protocols", "color": AMBER, "leaves": [
                     {"name": "Agent2Agent (A2A) — now Linux Foundation", "tag": "Google, Apr 2025"},
@@ -1552,6 +1553,19 @@ def _demo_specs() -> Dict[str, Dict[str, Any]]:
             "rubric_note": "1 = no control • 3 = prompt-level guidance • 5 = deterministic control verified by tests or published benchmark",
         },
     }
+    for provider in _EXTRA_SPEC_PROVIDERS:
+        specs.update(provider())
+    return specs
+
+
+_EXTRA_SPEC_PROVIDERS: List[Any] = []
+
+
+def register_templates(meta: Dict[str, Dict[str, Any]], renderers: Dict[str, Any], spec_provider: Any) -> None:
+    """Register an additional template pack (used by template_gallery_v2 for T21-T40)."""
+    TEMPLATE_META.update(meta)
+    RENDERERS.update(renderers)
+    _EXTRA_SPEC_PROVIDERS.append(spec_provider)
 
 
 def list_templates() -> List[Dict[str, Any]]:
@@ -1587,3 +1601,7 @@ def render_template_gif(tid: str, gif_path: Path, png_path: Optional[Path] = Non
                         "split[s0][s1];[s0]palettegen=max_colors=128:stats_mode=diff[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5",
                         "-loop", "0", str(gif_path)], check=False, capture_output=True)
     return gif_path.exists()
+
+
+# Register the second template pack (T21-T40) modeled on top creators' signature formats.
+from src.visuals import template_gallery_v2  # noqa: E402,F401

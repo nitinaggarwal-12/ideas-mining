@@ -145,13 +145,13 @@ POSTS_CATALOG: List[Dict[str, Any]] = [
             "when one thing is strong enough to trust: the eval."
         ),
         "primary_source": {
-            "title": "HarnessEvolve: Self-Evolving Agent Harnesses with Protected Competence",
+            "title": "HarnessEvolve: Learning from Reference Trajectories for Reliable Agent Self-Evolution (arXiv:2609.00829)",
             "type": "Research Paper + Enterprise AI Governance Pattern",
-            "url": "https://arxiv.org/abs/2503.00001",
+            "url": "https://arxiv.org/abs/2609.00829",
             "verified_claims": [
-                "Step-level trajectory replay compares failed execution trace against ground-truth clean path to isolate exact broken step.",
+                "Reference-trajectory step-level credit assignment compares a failed execution trace against a clean reference path to isolate the exact broken step.",
                 "Failure clustering groups recurring error signatures into generalizable skill updates rather than one-off benchmark memorization.",
-                "Dual Quality + Regression Competence Gate blocks prompt bloat, test data leakage, and regressions on historical task suites.",
+                "Two-tier competence gating (quality/leakage gate + snapshot pool regression gate) improves CloudCoreNetwork-QA from 43.4% to 86.9% and SpreadsheetBench from 44.3% to 76.4% without regressing historical tasks.",
             ],
         },
         "diagram_archetype": "ARCH-2D-01: Safe-vs-Failed Trajectory Replay & 3-Gate Competence Flywheel",

@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="182" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="147.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T37 • INCIDENT POSTMORTEM</text>
+<rect x="248.0" y="32.0" width="214" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="355.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: AGENTOPS WAR STORIES</text>
+<rect x="1113.0" y="32.0" width="431" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1328.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >FORMAT LINEAGE: Google SRE postmortem format applied to AgentOps</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Postmortem: How One 429 Error Became an $84 Night and a Duplicate Ticket — and Where Each Control Would Have Stopped It</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Composite incident written in Google SRE postmortem style (illustrative, built from the IDEA-01 and IDEA-06 failure patterns). Blameless; controls, not people.</text>
+<path d="M 130.0 156.0 L 130.0 822.0" fill="none" stroke="#DC2626" stroke-opacity="0.14" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 130.0 156.0 L 130.0 822.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="4" stroke-linejoin="round" stroke-dasharray="12 9" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#DC2626" transform="translate(130.0 832.0) rotate(90.0)"/>
+<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="6.00s" begin="-0.00s" repeatCount="indefinite" path="M 130.0 156.0 L 130.0 822.0"/></g>
+<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="6.00s" begin="-2.00s" repeatCount="indefinite" path="M 130.0 156.0 L 130.0 822.0"/></g>
+<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="6.00s" begin="-4.00s" repeatCount="indefinite" path="M 130.0 156.0 L 130.0 822.0"/></g>
+<circle cx="130" cy="200" r="15" fill="#FFFFFF" stroke="#D97706" stroke-width="4"/>
+<text x="130.0" y="204.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706" text-anchor="middle" >1</text>
+<text x="118.0" y="174.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#D97706" text-anchor="end" >T+0:00</text>
+<rect x="168.0" y="176.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" />
+<rect x="168.0" y="176.0" width="8.0" height="82.0" rx="4" fill="#D97706" />
+<text x="190.0" y="198.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Vendor API starts returning 429 (rate limited)</text>
+<text x="190.0" y="218.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >The agent&#x27;s create_ticket call fails with a generic error string; nothing in the harness</text>
+<text x="190.0" y="232.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >distinguishes &#x27;retry later&#x27; from &#x27;try something else&#x27;.</text>
+<text x="852.0" y="198.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#D97706" text-anchor="end" >$0.00</text>
+<circle cx="130" cy="298" r="15" fill="#FFFFFF" stroke="#D97706" stroke-width="4"/>
+<text x="130.0" y="302.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706" text-anchor="middle" >2</text>
+<text x="118.0" y="272.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#D97706" text-anchor="end" >T+0:04</text>
+<rect x="168.0" y="274.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" />
+<rect x="168.0" y="274.0" width="8.0" height="82.0" rx="4" fill="#D97706" />
+<text x="190.0" y="296.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Agent retries the identical call</text>
+<text x="190.0" y="316.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Same tool, same arguments. The model reads the error, concludes &#x27;try again&#x27;, and does — the</text>
+<text x="190.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >context barely changed.</text>
+<text x="852.0" y="296.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#D97706" text-anchor="end" >$0.02</text>
+<path d="M 868.0 315.0 L 902.0 315.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(912.0 315.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 315.0 L 902.0 315.0"/></g>
+<rect x="916.0" y="278.0" width="648.0" height="74.0" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.6" />
+<text x="932.0" y="300.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#065F46" text-anchor="start" >WOULD HAVE STOPPED IT HERE: Loop circuit breaker</text>
+<text x="932.0" y="318.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >sha256(tool+args) seen twice in 5 turns → block the 3rd call, inject a strategy-</text>
+<text x="932.0" y="331.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >shift directive (ask for a different approach or escalate).</text>
+<text x="1548.0" y="300.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#059669" text-anchor="end" >saves $83.9</text>
+<circle cx="130" cy="396" r="15" fill="#FFFFFF" stroke="#DC2626" stroke-width="4"/>
+<text x="130.0" y="400.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="middle" >3</text>
+<text x="118.0" y="370.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >T+2:10</text>
+<rect x="168.0" y="372.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" />
+<rect x="168.0" y="372.0" width="8.0" height="82.0" rx="4" fill="#DC2626" />
+<text x="190.0" y="394.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >48th identical retry; context full of error strings</text>
+<text x="190.0" y="414.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Each turn re-reads the growing history (~20K tokens); cost per turn climbs; no step ceiling</text>
+<text x="190.0" y="428.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >exists.</text>
+<text x="852.0" y="394.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >$9.40</text>
+<path d="M 868.0 413.0 L 902.0 413.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(912.0 413.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 413.0 L 902.0 413.0"/></g>
+<rect x="916.0" y="376.0" width="648.0" height="74.0" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.6" />
+<text x="932.0" y="398.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#065F46" text-anchor="start" >WOULD HAVE STOPPED IT HERE: Step ceiling (max_steps=15)</text>
+<text x="932.0" y="416.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >ADK RunConfig / LangGraph recursion_limit / OpenHands max_iterations end the run</text>
+<text x="932.0" y="429.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >with a clean checkpoint at step 15.</text>
+<text x="1548.0" y="398.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#059669" text-anchor="end" >saves $74</text>
+<circle cx="130" cy="494" r="15" fill="#FFFFFF" stroke="#DC2626" stroke-width="4"/>
+<text x="130.0" y="498.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="middle" >4</text>
+<text x="118.0" y="468.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >T+41:00</text>
+<rect x="168.0" y="470.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" />
+<rect x="168.0" y="470.0" width="8.0" height="82.0" rx="4" fill="#DC2626" />
+<text x="190.0" y="492.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Billing alert fires at $84</text>
+<text x="190.0" y="512.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >The only control that worked was a daily budget alert — 41 minutes late.</text>
+<text x="852.0" y="492.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >$84.00</text>
+<path d="M 868.0 511.0 L 902.0 511.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(912.0 511.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 511.0 L 902.0 511.0"/></g>
+<rect x="916.0" y="474.0" width="648.0" height="74.0" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.6" />
+<text x="932.0" y="496.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#065F46" text-anchor="start" >WOULD HAVE STOPPED IT HERE: Cost ceiling per task ($0.25)</text>
+<text x="932.0" y="514.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >Cumulative spend checked before every model call; LiteLLM max_budget or Cloud</text>
+<text x="932.0" y="527.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >Billing budgets as the outer fence.</text>
+<text x="1548.0" y="496.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#059669" text-anchor="end" >caps at $0.25</text>
+<circle cx="130" cy="592" r="15" fill="#FFFFFF" stroke="#DC2626" stroke-width="4"/>
+<text x="130.0" y="596.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="middle" >5</text>
+<text x="118.0" y="566.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >T+45:00</text>
+<rect x="168.0" y="568.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" />
+<rect x="168.0" y="568.0" width="8.0" height="82.0" rx="4" fill="#DC2626" />
+<text x="190.0" y="590.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >On-call kills the job</text>
+<text x="190.0" y="610.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >No checkpoint exists; the whole task state lived in RAM.</text>
+<text x="852.0" y="590.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >task lost</text>
+<path d="M 868.0 609.0 L 902.0 609.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(912.0 609.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 609.0 L 902.0 609.0"/></g>
+<rect x="916.0" y="572.0" width="648.0" height="74.0" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.6" />
+<text x="932.0" y="594.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#065F46" text-anchor="start" >WOULD HAVE STOPPED IT HERE: Durable step checkpoints</text>
+<text x="932.0" y="612.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >Firestore / PostgresSaver snapshot after every tool turn; resume at the last good</text>
+<text x="932.0" y="625.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >step in ~40 ms instead of restarting.</text>
+<text x="1548.0" y="594.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#059669" text-anchor="end" >0 rework</text>
+<circle cx="130" cy="690" r="15" fill="#FFFFFF" stroke="#DC2626" stroke-width="4"/>
+<text x="130.0" y="694.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="middle" >6</text>
+<text x="118.0" y="664.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >T+52:00</text>
+<rect x="168.0" y="666.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" />
+<rect x="168.0" y="666.0" width="8.0" height="82.0" rx="4" fill="#DC2626" />
+<text x="190.0" y="688.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Duplicate ticket discovered</text>
+<text x="190.0" y="708.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >The 1st call had actually succeeded upstream before the 429 — the retries created a second</text>
+<text x="190.0" y="722.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >ticket under the user&#x27;s name.</text>
+<text x="852.0" y="688.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >customer-visible</text>
+<path d="M 868.0 707.0 L 902.0 707.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(912.0 707.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 707.0 L 902.0 707.0"/></g>
+<rect x="916.0" y="670.0" width="648.0" height="74.0" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.6" />
+<text x="932.0" y="692.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#065F46" text-anchor="start" >WOULD HAVE STOPPED IT HERE: Idempotency key on every write</text>
+<text x="932.0" y="710.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >sha256(workflow+step+tool+args) ledger (Firestore / Redis SETNX); a repeated write</text>
+<text x="932.0" y="723.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >returns the cached receipt instead of acting twice.</text>
+<text x="1548.0" y="692.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#059669" text-anchor="end" >0 duplicates</text>
+<circle cx="130" cy="788" r="15" fill="#FFFFFF" stroke="#059669" stroke-width="4"/>
+<text x="130.0" y="792.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >7</text>
+<text x="118.0" y="762.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#059669" text-anchor="end" >T+1 day</text>
+<rect x="168.0" y="764.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" />
+<rect x="168.0" y="764.0" width="8.0" height="82.0" rx="4" fill="#059669" />
+<text x="190.0" y="786.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Blameless postmortem</text>
+<text x="190.0" y="806.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Root cause: the model was the only control. Every fix below is deterministic code outside</text>
+<text x="190.0" y="820.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >the model.</text>
+<text x="852.0" y="786.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#059669" text-anchor="end" >5 actions</text>
+<rect x="56.0" y="866.0" width="1508.0" height="64.0" rx="12" fill="#0F2942" />
+<text x="78.0" y="890.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#93C5FD" text-anchor="start" >ACTION ITEMS (OWNER • DUE)</text>
+<text x="78.0" y="914.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >Loop breaker + step ceiling in the harness • platform team • this sprint</text>
+<text x="578.0" y="914.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >Idempotency keys on create_ticket, send_email • integrations team • this sprint</text>
+<text x="1078.0" y="914.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >Per-task cost ceiling + checkpoint/resume • SRE • next sprint</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Google SRE Book, postmortem culture • IDEA-01 loop breaker • IDEA-06 idempotent checkpoints • OpenHands stuck detection</text>
+</svg>

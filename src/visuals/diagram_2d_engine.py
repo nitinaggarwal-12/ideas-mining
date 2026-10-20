@@ -1394,13 +1394,13 @@ Include a bottom Zone 5 Baseline telemetry strip showing: "Zero-Trust VPC-SC •
 
 NANO_BANANA_3_PROMPTS: Dict[str, str] = {
     "POST-01": """Create a publication-grade 2D technical architecture infographic poster in a crisp executive light theme (white and slate-50 background, deep navy #0F2942 headers, Google Cloud blue #4285F4, emerald #34A853, amber #FBBC04, coral #EA4335 accents, zero 3D clutter, razor-sharp typography).
-Title at top: "HARNESSEVOLVE: SELF-EVOLVING AGENT HARNESSES VIA STEP-LEVEL TRAJECTORY REPLAY"
-Subtitle: "Why Most AI Agents Repeat the Same Mistakes — And How Closed-Loop Harness Evolution Fixes Them (arXiv:2604.14118 • Google Cloud ADK + OpenHands)"
+Title at top: "HARNESSEVOLVE: LEARNING FROM REFERENCE TRAJECTORIES FOR RELIABLE AGENT SELF-EVOLUTION"
+Subtitle: "Why Most AI Agents Repeat the Same Mistakes — And How Closed-Loop Harness Evolution Fixes Them (arXiv:2609.00829 • Google Cloud ADK + OpenHands)"
 Divide the canvas into 3 clear visual zones connected by directional arrows:
-1. LEFT ZONE ("1. STEP-LEVEL TRAJECTORY REPLAY DIFF"): Show a shared trajectory prefix node (Steps 1 to t-1) branching at Step t into TWO contrasting execution paths: a Red Failed Path ("Tool Error / Context Drift at Step t") vs a Green Succeeded Path ("Verified Tool Execution at Step t") fed into a "Step-Level Contrastive Diff Analyzer".
-2. CENTER ZONE ("2. FAILURE PATTERN CLUSTERING FUNNEL"): Show a 3-stage funnel narrowing from "100+ Raw Execution Traces" -> "Recurring Failure Modes (Not One-Off Flukes)" -> "Targeted Patch Proposal (Instructions, Tool Descriptions, Verification Rules)".
-3. RIGHT ZONE ("3. DUAL COMPETENCE GATES & FLYWHEEL"): Show two diamond decision gates: Gate 1 "Quality & Leak Check (Prompt Bloat <= 15%, 0 Test Leaks)" and Gate 2 "Performance Check (+28.5% Relative Gain, 100% Historical Pass)" leading to a green "[PROMOTE TO PRODUCTION]" badge with a closed-loop flywheel arrow returning to Zone 1.
-Bottom KPI strip: "+3.77 pts Tau-Bench Airline | +28.5% Relative Gain | <=15% Prompt Bloat Ceiling | 100% Zero Regression Drift".""",
+1. LEFT ZONE ("1. REFERENCE-TRAJECTORY STEP-LEVEL DIFF"): Show a shared trajectory prefix node (Steps 1 to t-1) branching at Step t into TWO contrasting execution paths: a Red Failed Path ("Tool Error / Context Drift at Step t") vs a Green Reference Path ("Verified Reference Execution at Step t") fed into a "Step-Level Credit Assignment Analyzer".
+2. CENTER ZONE ("2. FAILURE PATTERN CLUSTERING FUNNEL"): Show a 3-stage funnel narrowing from "100+ Raw Execution Traces" -> "Recurring Failure Modes (Not One-Off Flukes)" -> "Targeted Skill & Harness Patch Proposal (Instructions, Tool Descriptions, Verification Rules)".
+3. RIGHT ZONE ("3. TWO-TIER COMPETENCE GATES & FLYWHEEL"): Show two diamond decision gates: Gate 1 "Quality & Leak Check (Prompt Bloat <= 15%, 0 Test Leaks)" and Gate 2 "Snapshot Pool Check (43.4% -> 86.9% CloudCoreNetwork-QA, 100% Historical Pass)" leading to a green "[PROMOTE TO PRODUCTION]" badge with a closed-loop flywheel arrow returning to Zone 1.
+Bottom KPI strip: "43.4% -> 86.9% CloudCoreNetwork-QA | 44.3% -> 76.4% SpreadsheetBench | <=15% Prompt Bloat Ceiling | 100% Zero Regression Drift".""",
     "POST-02": """Create a publication-grade 2D enterprise architecture infographic poster in a crisp light theme (white cards, #F8FAFC background, deep navy #0F2942 header bar, Google Cloud quad-color accents).
 Title at top: "AGENT = MODEL + HARNESS: THE 10-LAYER ENTERPRISE HARNESS ARCHITECTURE"
 Subtitle: "Why a Decent Model with a Great Harness Beats a Great Model with a Bad Harness (Addy Osmani / Google Cloud ADK)"

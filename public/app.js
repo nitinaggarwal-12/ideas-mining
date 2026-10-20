@@ -373,7 +373,7 @@ function renderGalleryView() {
   const q = (document.getElementById("gallery-search-input")?.value || "").trim().toLowerCase();
   const type = document.getElementById("gallery-filter-type")?.value || "ALL";
   const items = (STATE.templates || []).filter((t) => {
-    const hay = `${t.id} ${t.name} ${t.best_for_short} ${t.when_to_use} ${t.dynamic} ${(t.content_types || []).join(" ")}`.toLowerCase();
+    const hay = `${t.id} ${t.name} ${t.best_for_short} ${t.when_to_use} ${t.dynamic} ${t.lineage || ""} ${(t.content_types || []).join(" ")}`.toLowerCase();
     const matchesQ = !q || hay.includes(q);
     const matchesType = type === "ALL" || (t.content_types || []).includes(type);
     return matchesQ && matchesType;
@@ -397,6 +397,7 @@ function renderGalleryView() {
           </div>
           <div class="repo-card-hook">${escapeHtml(t.when_to_use)}</div>
           <div style="margin-top: 8px; font-size: 11.5px; color: #475569; font-weight: 600;">Dynamic elements: <strong style="color: #0f172a;">${escapeHtml(t.dynamic)}</strong></div>
+          ${t.lineage ? `<div style="margin-top: 6px; font-size: 11px; color: #1d4ed8; font-weight: 700;">Format lineage: ${escapeHtml(t.lineage)}</div>` : ""}
         </div>
         <div>
           <div class="deliverable-chips" style="margin: 10px 0;">

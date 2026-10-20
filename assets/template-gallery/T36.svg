@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="150" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="131.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T36 • COST WATERFALL</text>
+<rect x="216.0" y="32.0" width="214" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="323.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: WHERE THE MONEY GOES</text>
+<rect x="1170.0" y="32.0" width="374" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1357.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >FORMAT LINEAGE: Chip Huyen-style practical AI economics</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Where the $0.68 per Agent Task Went — and the Four Levers That Took It to $0.06</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >A cost waterfall built from OpenTelemetry spans. Reference-harness decomposition of the measured before/after from IDEA-09; your split will differ, the levers will not.</text>
+<rect x="56.0" y="136.0" width="1000.0" height="640.0" rx="10" fill="#FFFFFF" stroke="#0F2942" stroke-width="1.8" /><rect x="56.0" y="136.0" width="1000.0" height="26.0" rx="8" fill="#0F2942" /><text x="556.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >COST PER COMPLETED TASK — BEFORE (LEFT), LEVERS (MIDDLE), AFTER (RIGHT)</text>
+<rect x="80.0" y="565.6" width="88.0" height="134.4" rx="4" fill="#94A3B8" />
+<text x="124.0" y="557.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.21</text>
+<text x="124.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Input tokens</text>
+<text x="124.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >(every turn</text>
+<text x="124.0" y="744.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >re-reads 20K)</text>
+<rect x="188.0" y="476.0" width="88.0" height="89.6" rx="4" fill="#94A3B8" />
+<text x="232.0" y="468.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.14</text>
+<line x1="168" y1="565.6" x2="188" y2="565.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="232.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Output tokens</text>
+<rect x="296.0" y="437.6" width="88.0" height="38.4" rx="4" fill="#94A3B8" />
+<text x="340.0" y="429.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.06</text>
+<line x1="276" y1="476.0" x2="296" y2="476.0" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="340.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Tool / API</text>
+<text x="340.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >calls</text>
+<rect x="404.0" y="316.0" width="88.0" height="121.6" rx="4" fill="#DC2626" />
+<text x="448.0" y="308.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#DC2626" text-anchor="middle" >+$0.19</text>
+<line x1="384" y1="437.6" x2="404" y2="437.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="448.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Retries &amp;</text>
+<text x="448.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >loops</text>
+<rect x="512.0" y="264.8" width="88.0" height="51.2" rx="4" fill="#94A3B8" />
+<text x="556.0" y="256.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.08</text>
+<line x1="492" y1="316.0" x2="512" y2="316.0" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="556.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Judge / eval</text>
+<text x="556.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >calls</text>
+<rect x="620.0" y="264.8" width="88.0" height="435.2" rx="4" fill="#0F2942" />
+<text x="664.0" y="256.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="middle" >$0.68</text>
+<text x="664.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >BEFORE</text>
+<rect x="728.0" y="264.8" width="88.0" height="76.8" rx="4" fill="#059669" />
+<text x="772.0" y="256.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="middle" >−$0.12</text>
+<line x1="600" y1="264.80000000000007" x2="728" y2="264.80000000000007" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="772.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Prompt /</text>
+<text x="772.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >context</text>
+<text x="772.0" y="744.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >caching</text>
+<rect x="836.0" y="341.6" width="88.0" height="192.0" rx="4" fill="#059669" />
+<text x="880.0" y="333.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="middle" >−$0.30</text>
+<line x1="816" y1="341.6" x2="836" y2="341.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="880.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Flash / Gemma</text>
+<text x="880.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >routing</text>
+<rect x="944.0" y="533.6" width="88.0" height="108.8" rx="4" fill="#059669" />
+<text x="988.0" y="525.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="middle" >−$0.17</text>
+<line x1="924" y1="533.6" x2="944" y2="533.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="988.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Loop guard (no</text>
+<text x="988.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >retry storms)</text>
+<rect x="1052.0" y="642.4" width="88.0" height="19.2" rx="4" fill="#059669" />
+<text x="1096.0" y="634.4" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="middle" >−$0.03</text>
+<line x1="1032" y1="642.4000000000001" x2="1052" y2="642.4000000000001" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="1096.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Top-3 tool</text>
+<text x="1096.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >schemas</text>
+<rect x="1160.0" y="661.6" width="88.0" height="38.4" rx="4" fill="#059669" />
+<text x="1204.0" y="653.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="middle" >$0.06</text>
+<text x="1204.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >AFTER</text>
+<line x1="72" y1="700" x2="1040" y2="700" stroke="#334155" stroke-width="1.5"/>
+<path d="M 72.0 180.0 L 1030.0 180.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 6" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#2563EB" transform="translate(1040.0 180.0) rotate(0.0)"/>
+<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="4.00s" begin="-0.00s" repeatCount="indefinite" path="M 72.0 180.0 L 1030.0 180.0"/></g>
+<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="4.00s" begin="-2.00s" repeatCount="indefinite" path="M 72.0 180.0 L 1030.0 180.0"/></g>
+<text x="80.0" y="172.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="start" >Bars are USD per task; levers are applied in order, so each saving is measured after the previous one.</text>
+<rect x="1080.0" y="136.0" width="484.0" height="640.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" /><rect x="1080.0" y="136.0" width="484.0" height="26.0" rx="8" fill="#059669" /><text x="1322.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >THE FOUR LEVERS (GOOGLE CLOUD ⇄ OPEN SOURCE)</text>
+<rect x="1096.0" y="176.0" width="452.0" height="136.0" rx="8" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.6" />
+<rect x="1096.0" y="176.0" width="8.0" height="136.0" rx="4" fill="#2563EB" />
+<text x="1116.0" y="198.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#2563EB" text-anchor="start" >1. Cache the prefix</text>
+<text x="1536.0" y="198.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#2563EB" text-anchor="end" >−$0.12</text>
+<text x="1116.0" y="218.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >System prompt, rules, and tool schemas are identical every</text>
+<text x="1116.0" y="232.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >turn — serve them from cache instead of re-billing them.</text>
+<rect x="1116.0" y="276.0" width="299" height="20" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/><text x="1265.5" y="289.1" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#2563EB" text-anchor="middle" >Vertex context caching ⇄ vLLM / SGLang prefix cache</text>
+<rect x="1096.0" y="326.0" width="452.0" height="136.0" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.6" />
+<rect x="1096.0" y="326.0" width="8.0" height="136.0" rx="4" fill="#7C3AED" />
+<text x="1116.0" y="348.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#7C3AED" text-anchor="start" >2. Route by difficulty</text>
+<text x="1536.0" y="348.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#7C3AED" text-anchor="end" >−$0.30</text>
+<text x="1116.0" y="368.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Send triage and extraction to a small model; reserve the</text>
+<text x="1116.0" y="382.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >frontier model for complexity &gt; 0.75.</text>
+<rect x="1116.0" y="426.0" width="299" height="20" rx="10.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.4"/><text x="1265.5" y="439.1" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#7C3AED" text-anchor="middle" >ADK model router ⇄ LiteLLM router (Gemma 3 / Llama)</text>
+<rect x="1096.0" y="476.0" width="452.0" height="136.0" rx="8" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.6" />
+<rect x="1096.0" y="476.0" width="8.0" height="136.0" rx="4" fill="#DC2626" />
+<text x="1116.0" y="498.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#DC2626" text-anchor="start" >3. Stop paying for loops</text>
+<text x="1536.0" y="498.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#DC2626" text-anchor="end" >−$0.17</text>
+<text x="1116.0" y="518.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Block the third identical call; hard step and dollar ceilings</text>
+<text x="1116.0" y="532.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >outside the model.</text>
+<rect x="1116.0" y="576.0" width="288" height="20" rx="10.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.4"/><text x="1260.0" y="589.1" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#DC2626" text-anchor="middle" >ADK RunConfig ⇄ LangGraph recursion_limit + Redis</text>
+<rect x="1096.0" y="626.0" width="452.0" height="136.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.6" />
+<rect x="1096.0" y="626.0" width="8.0" height="136.0" rx="4" fill="#D97706" />
+<text x="1116.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#D97706" text-anchor="start" >4. Mount only Top-3 tools</text>
+<text x="1536.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#D97706" text-anchor="end" >−$0.03</text>
+<text x="1116.0" y="668.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >85 schemas cost 35K tokens per turn; three cost 2.4K. Index</text>
+<text x="1116.0" y="682.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >the rest and load on demand.</text>
+<rect x="1116.0" y="726.0" width="239" height="20" rx="10.0" fill="#FFFFFF" stroke="#D97706" stroke-width="1.4"/><text x="1235.5" y="739.1" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#D97706" text-anchor="middle" >AlloyDB pgvector ⇄ Qdrant + MCP registry</text>
+<rect x="56.0" y="796.0" width="1508.0" height="76.0" rx="12" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.8" />
+<text x="74.0" y="822.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#92400E" text-anchor="start" >HOW TO BUILD YOUR OWN WATERFALL (30 MINUTES WITH OPENTELEMETRY SPANS)</text>
+<text x="74.0" y="844.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B" text-anchor="start" >Tag every span with task_id, model, input/output tokens, cached tokens, tool name, retry flag, and judge flag → sum by category in BigQuery or ClickHouse → plot the waterfall →</text>
+<text x="74.0" y="859.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B" text-anchor="start" >apply one lever per week and keep the chart updated.</text>
+<rect x="56.0" y="892.0" width="1508.0" height="40.0" rx="10" fill="#0F2942" />
+<text x="810.0" y="917.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF" text-anchor="middle" >Cost per completed task — not per token — is the only unit that survives a budget review.</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >IDEA-09 reference harness • vendor pricing: Anthropic prompt caching (cache reads ≈10% of input price), Vertex AI context caching discounts</text>
+</svg>

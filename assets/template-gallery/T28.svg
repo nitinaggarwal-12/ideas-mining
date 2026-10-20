@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="162" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="137.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T28 • SKETCH EXPLAINER</text>
+<rect x="228.0" y="32.0" width="239" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="347.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: HAND-DRAWN CONCEPT CARDS</text>
+<rect x="876.0" y="32.0" width="668" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1210.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >FORMAT LINEAGE: Avi Chawla &amp; Akshay Pachaar sketch format • Anthropic Contextual Retrieval (Sep 2024)</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Five Ways to Chop a Document — and the One Anthropic Measured a 67% Retrieval Win With</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Sketch-style card you can read in ten seconds. Chunking is the quiet reason most RAG agents feel dumb.</text>
+<rect x="36.0" y="128.0" width="1528.0" height="812.0" rx="16" fill="#FFFDF5" stroke="#E7E5E4" stroke-width="2" />
+<rect x="56.0" y="146.0" width="284.0" height="600.0" rx="14" fill="#FFFFFF" stroke="#64748B" stroke-width="2.2" transform="rotate(-0.4)"/>
+<text x="198.0" y="176.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="16" font-weight="800" fill="#64748B" text-anchor="middle" >1. Fixed-size</text>
+<rect x="98.0" y="196.0" width="200.0" height="150.0" rx="4" fill="#FAFAF9" stroke="#A8A29E" stroke-width="1.5" />
+<line x1="110" y1="210" x2="286" y2="210" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="110" y1="225" x2="286" y2="225" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="110" y1="240" x2="268" y2="240" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="110" y1="255" x2="286" y2="255" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="110" y1="270" x2="286" y2="270" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="110" y1="285" x2="268" y2="285" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="110" y1="300" x2="286" y2="300" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="110" y1="315" x2="286" y2="315" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="110" y1="330" x2="268" y2="330" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="98" y1="233" x2="298" y2="233" stroke="#64748B" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<line x1="98" y1="271" x2="298" y2="271" stroke="#64748B" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<line x1="98" y1="308" x2="298" y2="308" stroke="#64748B" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<path d="M 98.0 233.0 L 298.0 233.0" class="flow-line" fill="none" stroke="#64748B" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5" stroke-dashoffset="0.0"/>
+<g><circle r="8" fill="#64748B" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#64748B" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 98.0 233.0 L 298.0 233.0"/></g>
+<text x="72.0" y="372.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="start" >HOW IT CUTS</text>
+<text x="72.0" y="392.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >Cut every N tokens with a small</text>
+<text x="72.0" y="408.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >overlap. Blind to meaning.</text>
+<text x="72.0" y="452.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#059669" text-anchor="start" >BEST FOR</text>
+<text x="72.0" y="472.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#064E3B" text-anchor="start" >Logs, transcripts, anything</text>
+<text x="72.0" y="488.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#064E3B" text-anchor="start" >without structure. Fast baseline.</text>
+<text x="72.0" y="532.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#DC2626" text-anchor="start" >WATCH OUT</text>
+<text x="72.0" y="552.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#7F1D1D" text-anchor="start" >Splits sentences and tables mid-</text>
+<text x="72.0" y="568.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#7F1D1D" text-anchor="start" >thought; retrieval misses context.</text>
+<rect x="72.0" y="608.0" width="252.0" height="46.0" rx="8" fill="#F5F5F4" stroke="#64748B" stroke-width="1.4" />
+<text x="84.0" y="628.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="9.5" font-weight="800" fill="#64748B" text-anchor="start" >START WITH</text>
+<text x="84.0" y="646.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11.5" font-weight="800" fill="#0F172A" text-anchor="start" >500 tokens • 10% overlap</text>
+<text x="72.0" y="686.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="start" >TOOLS</text>
+<text x="72.0" y="706.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >LangChain CharacterTextSplitter •</text>
+<text x="72.0" y="721.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >LlamaIndex TokenTextSplitter</text>
+<rect x="356.0" y="146.0" width="284.0" height="600.0" rx="14" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2" transform="rotate(0.4)"/>
+<text x="498.0" y="176.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="16" font-weight="800" fill="#2563EB" text-anchor="middle" >2. Recursive</text>
+<rect x="398.0" y="196.0" width="200.0" height="150.0" rx="4" fill="#FAFAF9" stroke="#A8A29E" stroke-width="1.5" />
+<line x1="410" y1="210" x2="586" y2="210" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="410" y1="225" x2="586" y2="225" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="410" y1="240" x2="568" y2="240" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="410" y1="255" x2="586" y2="255" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="410" y1="270" x2="586" y2="270" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="410" y1="285" x2="568" y2="285" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="410" y1="300" x2="586" y2="300" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="410" y1="315" x2="586" y2="315" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="410" y1="330" x2="568" y2="330" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="398" y1="248" x2="598" y2="248" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<line x1="398" y1="294" x2="598" y2="294" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<line x1="458" y1="294" x2="458" y2="346" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<path d="M 398.0 248.0 L 598.0 248.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5" stroke-dashoffset="0.0"/>
+<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 398.0 248.0 L 598.0 248.0"/></g>
+<text x="372.0" y="372.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="start" >HOW IT CUTS</text>
+<text x="372.0" y="392.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >Try paragraphs, then sentences,</text>
+<text x="372.0" y="408.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >then words until chunks fit.</text>
+<text x="372.0" y="452.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#059669" text-anchor="start" >BEST FOR</text>
+<text x="372.0" y="472.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#064E3B" text-anchor="start" >Most prose, docs, emails. The</text>
+<text x="372.0" y="488.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#064E3B" text-anchor="start" >sensible default.</text>
+<text x="372.0" y="532.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#DC2626" text-anchor="start" >WATCH OUT</text>
+<text x="372.0" y="552.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#7F1D1D" text-anchor="start" >Still ignores headings and tables.</text>
+<rect x="372.0" y="608.0" width="252.0" height="46.0" rx="8" fill="#F5F5F4" stroke="#2563EB" stroke-width="1.4" />
+<text x="384.0" y="628.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="9.5" font-weight="800" fill="#2563EB" text-anchor="start" >START WITH</text>
+<text x="384.0" y="646.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11.5" font-weight="800" fill="#0F172A" text-anchor="start" >400-800 tokens • 10-15% overlap</text>
+<text x="372.0" y="686.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="start" >TOOLS</text>
+<text x="372.0" y="706.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >RecursiveCharacterTextSplitter •</text>
+<text x="372.0" y="721.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >Vertex AI RAG Engine chunking</text>
+<rect x="656.0" y="146.0" width="284.0" height="600.0" rx="14" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2" transform="rotate(-0.4)"/>
+<text x="798.0" y="176.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="16" font-weight="800" fill="#7C3AED" text-anchor="middle" >3. Structure-aware</text>
+<rect x="698.0" y="196.0" width="200.0" height="150.0" rx="4" fill="#FAFAF9" stroke="#A8A29E" stroke-width="1.5" />
+<line x1="710" y1="210" x2="886" y2="210" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="710" y1="225" x2="886" y2="225" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="710" y1="240" x2="868" y2="240" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="710" y1="255" x2="886" y2="255" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="710" y1="270" x2="886" y2="270" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="710" y1="285" x2="868" y2="285" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="710" y1="300" x2="886" y2="300" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="710" y1="315" x2="886" y2="315" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="710" y1="330" x2="868" y2="330" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<rect x="710.0" y="208.0" width="70.0" height="10.0" rx="2" fill="#7C3AED" />
+<rect x="710.0" y="268.0" width="70.0" height="10.0" rx="2" fill="#7C3AED" />
+<line x1="698" y1="226" x2="898" y2="226" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<line x1="698" y1="286" x2="898" y2="286" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<path d="M 698.0 226.0 L 898.0 226.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5" stroke-dashoffset="0.0"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 698.0 226.0 L 898.0 226.0"/></g>
+<text x="672.0" y="372.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="start" >HOW IT CUTS</text>
+<text x="672.0" y="392.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >Split on headings, code blocks,</text>
+<text x="672.0" y="408.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >table rows — the document&#x27;s own</text>
+<text x="672.0" y="424.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >skeleton.</text>
+<text x="672.0" y="452.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#059669" text-anchor="start" >BEST FOR</text>
+<text x="672.0" y="472.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#064E3B" text-anchor="start" >Markdown, HTML, PDFs with real</text>
+<text x="672.0" y="488.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#064E3B" text-anchor="start" >headings, code.</text>
+<text x="672.0" y="532.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#DC2626" text-anchor="start" >WATCH OUT</text>
+<text x="672.0" y="552.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#7F1D1D" text-anchor="start" >Huge sections need a second pass.</text>
+<rect x="672.0" y="608.0" width="252.0" height="46.0" rx="8" fill="#F5F5F4" stroke="#7C3AED" stroke-width="1.4" />
+<text x="684.0" y="628.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="9.5" font-weight="800" fill="#7C3AED" text-anchor="start" >START WITH</text>
+<text x="684.0" y="646.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11.5" font-weight="800" fill="#0F172A" text-anchor="start" >one chunk per H2/H3 • cap 1K</text>
+<text x="672.0" y="686.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="start" >TOOLS</text>
+<text x="672.0" y="706.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >MarkdownHeaderTextSplitter •</text>
+<text x="672.0" y="721.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >Document AI layout parser</text>
+<rect x="956.0" y="146.0" width="284.0" height="600.0" rx="14" fill="#FFFFFF" stroke="#D97706" stroke-width="2.2" transform="rotate(0.4)"/>
+<text x="1098.0" y="176.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="16" font-weight="800" fill="#D97706" text-anchor="middle" >4. Semantic</text>
+<rect x="998.0" y="196.0" width="200.0" height="150.0" rx="4" fill="#FAFAF9" stroke="#A8A29E" stroke-width="1.5" />
+<line x1="1010" y1="210" x2="1186" y2="210" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1010" y1="225" x2="1186" y2="225" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1010" y1="240" x2="1168" y2="240" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1010" y1="255" x2="1186" y2="255" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1010" y1="270" x2="1186" y2="270" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1010" y1="285" x2="1168" y2="285" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1010" y1="300" x2="1186" y2="300" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1010" y1="315" x2="1186" y2="315" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1010" y1="330" x2="1168" y2="330" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<circle cx="1168" cy="218" r="7" fill="#F59E0B" fill-opacity="0.8"/>
+<circle cx="1168" cy="276" r="7" fill="#3B82F6" fill-opacity="0.8"/>
+<circle cx="1168" cy="330" r="7" fill="#10B981" fill-opacity="0.8"/>
+<line x1="998" y1="240" x2="1198" y2="240" stroke="#D97706" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<line x1="998" y1="314" x2="1198" y2="314" stroke="#D97706" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<path d="M 998.0 240.0 L 1198.0 240.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5" stroke-dashoffset="0.0"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 998.0 240.0 L 1198.0 240.0"/></g>
+<text x="972.0" y="372.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="start" >HOW IT CUTS</text>
+<text x="972.0" y="392.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >Embed sentences; start a new chunk</text>
+<text x="972.0" y="408.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >when meaning shifts.</text>
+<text x="972.0" y="452.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#059669" text-anchor="start" >BEST FOR</text>
+<text x="972.0" y="472.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#064E3B" text-anchor="start" >Long narrative docs where topics</text>
+<text x="972.0" y="488.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#064E3B" text-anchor="start" >drift.</text>
+<text x="972.0" y="532.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#DC2626" text-anchor="start" >WATCH OUT</text>
+<text x="972.0" y="552.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#7F1D1D" text-anchor="start" >Slower; variable sizes; thresholds</text>
+<text x="972.0" y="568.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#7F1D1D" text-anchor="start" >need tuning.</text>
+<rect x="972.0" y="608.0" width="252.0" height="46.0" rx="8" fill="#F5F5F4" stroke="#D97706" stroke-width="1.4" />
+<text x="984.0" y="628.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="9.5" font-weight="800" fill="#D97706" text-anchor="start" >START WITH</text>
+<text x="984.0" y="646.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11.5" font-weight="800" fill="#0F172A" text-anchor="start" >similarity threshold ~0.8 • cap 1K</text>
+<text x="972.0" y="686.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="start" >TOOLS</text>
+<text x="972.0" y="706.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >LangChain SemanticChunker • Gemini</text>
+<text x="972.0" y="721.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >Embedding 2</text>
+<rect x="1256.0" y="146.0" width="284.0" height="600.0" rx="14" fill="#FFFFFF" stroke="#059669" stroke-width="2.2" transform="rotate(-0.4)"/>
+<text x="1398.0" y="176.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="16" font-weight="800" fill="#059669" text-anchor="middle" >5. Contextual retrieval</text>
+<rect x="1298.0" y="196.0" width="200.0" height="150.0" rx="4" fill="#FAFAF9" stroke="#A8A29E" stroke-width="1.5" />
+<line x1="1310" y1="210" x2="1486" y2="210" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1310" y1="225" x2="1486" y2="225" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1310" y1="240" x2="1468" y2="240" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1310" y1="255" x2="1486" y2="255" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1310" y1="270" x2="1486" y2="270" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1310" y1="285" x2="1468" y2="285" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1310" y1="300" x2="1486" y2="300" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1310" y1="315" x2="1486" y2="315" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<line x1="1310" y1="330" x2="1468" y2="330" stroke="#D6D3D1" stroke-width="2" stroke-linecap="round"/>
+<rect x="1304.0" y="260.0" width="110.0" height="12.0" rx="3" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1" />
+<text x="1308.0" y="269.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="8" font-weight="700" fill="#92400E" text-anchor="start" >+ 50-token context</text>
+<rect x="1304.0" y="310.0" width="110.0" height="12.0" rx="3" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1" />
+<text x="1308.0" y="319.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="8" font-weight="700" fill="#92400E" text-anchor="start" >+ 50-token context</text>
+<line x1="1298" y1="256" x2="1498" y2="256" stroke="#059669" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<line x1="1298" y1="306" x2="1498" y2="306" stroke="#059669" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+<path d="M 1298.0 256.0 L 1498.0 256.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5" stroke-dashoffset="0.0"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 1298.0 256.0 L 1498.0 256.0"/></g>
+<text x="1272.0" y="372.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="start" >HOW IT CUTS</text>
+<text x="1272.0" y="392.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >Prepend a 50-100 token summary of</text>
+<text x="1272.0" y="408.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >where the chunk sits in the doc,</text>
+<text x="1272.0" y="424.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#0F172A" text-anchor="start" >then embed + BM25.</text>
+<text x="1272.0" y="452.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#059669" text-anchor="start" >BEST FOR</text>
+<text x="1272.0" y="472.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#064E3B" text-anchor="start" >Knowledge bases where chunks lose</text>
+<text x="1272.0" y="488.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#064E3B" text-anchor="start" >meaning alone (contracts, specs).</text>
+<text x="1272.0" y="532.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#DC2626" text-anchor="start" >WATCH OUT</text>
+<text x="1272.0" y="552.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#7F1D1D" text-anchor="start" >One LLM call per chunk at index</text>
+<text x="1272.0" y="568.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#7F1D1D" text-anchor="start" >time (prompt caching makes it</text>
+<text x="1272.0" y="584.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#7F1D1D" text-anchor="start" >cheap).</text>
+<rect x="1272.0" y="608.0" width="252.0" height="46.0" rx="8" fill="#F5F5F4" stroke="#059669" stroke-width="1.4" />
+<text x="1284.0" y="628.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >START WITH</text>
+<text x="1284.0" y="646.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11.5" font-weight="800" fill="#0F172A" text-anchor="start" >recursive chunks + context prefix</text>
+<text x="1272.0" y="686.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="start" >TOOLS</text>
+<text x="1272.0" y="706.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >Claude prompt caching • Vertex AI</text>
+<text x="1272.0" y="721.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >Search hybrid • Elasticsearch BM25</text>
+<rect x="56.0" y="766.0" width="1508.0" height="86.0" rx="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2" />
+<text x="74.0" y="792.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="800" fill="#92400E" text-anchor="start" >THE MEASURED WIN (ANTHROPIC, SEP 2024)</text>
+<text x="74.0" y="814.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="13" font-weight="700" fill="#1E293B" text-anchor="start" >Contextual embeddings + contextual BM25 cut top-20 retrieval failures by 49%; adding a reranker cut them by 67%. Same documents, same questions — only</text>
+<text x="74.0" y="832.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="13" font-weight="700" fill="#1E293B" text-anchor="start" >the chunk preparation changed.</text>
+<rect x="56.0" y="866.0" width="1508.0" height="62.0" rx="12" fill="#0F2942" />
+<text x="810.0" y="892.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11" font-weight="800" fill="#93C5FD" text-anchor="middle" >START HERE IF YOU HAVE NO TIME</text>
+<text x="810.0" y="914.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="14" font-weight="800" fill="#FFFFFF" text-anchor="middle" >Recursive 400-800 tokens → measure recall@5 on 50 real questions → add contextual retrieval → add a reranker.</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Anthropic, &#x27;Introducing Contextual Retrieval&#x27; (Sep 2024) • LangChain / LlamaIndex text splitters • Jina &#x27;late chunking&#x27;</text>
+</svg>

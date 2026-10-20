@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="162" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="137.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T38 • TOOL SPEC CLINIC</text>
+<rect x="228.0" y="32.0" width="290" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="373.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: TOOL DEFINITIONS AGENTS USE WELL</text>
+<rect x="1062.0" y="32.0" width="482" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1303.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >FORMAT LINEAGE: Anthropic, Writing effective tools for agents (Sep 2025)</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Tool Spec Clinic: The Same Tool, Written So an Agent Fails With It — and Written So It Succeeds</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Anthropic&#x27;s finding after letting Claude optimize its own tools: descriptions and response shapes matter as much as the API. Five rules from the guide, applied to one search tool.</text>
+<rect x="56.0" y="136.0" width="664.0" height="560.0" rx="12" fill="#FFF5F5" stroke="#DC2626" stroke-width="2" />
+<rect x="56.0" y="136.0" width="664.0" height="34.0" rx="10" fill="#DC2626" />
+<text x="72.0" y="158.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >BEFORE — what most teams ship (the agent guesses)</text>
+<rect x="68.0" y="182.0" width="640.0" height="330.0" rx="6" fill="#0F172A" />
+<text x="80.0" y="202.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >{</text>
+<text x="80.0" y="219.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >  &quot;name&quot;: &quot;search&quot;,</text>
+<text x="80.0" y="236.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >  &quot;description&quot;: &quot;Searches things.&quot;,</text>
+<text x="80.0" y="253.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >  &quot;input_schema&quot;: {</text>
+<text x="80.0" y="270.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >    &quot;type&quot;: &quot;object&quot;,</text>
+<text x="80.0" y="287.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >    &quot;properties&quot;: {</text>
+<text x="80.0" y="304.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >      &quot;q&quot;: {&quot;type&quot;: &quot;string&quot;},</text>
+<text x="80.0" y="321.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >      &quot;limit&quot;: {&quot;type&quot;: &quot;integer&quot;}</text>
+<text x="80.0" y="338.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >    }</text>
+<text x="80.0" y="355.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >  }</text>
+<text x="80.0" y="372.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >}</text>
+<text x="80.0" y="389.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" ></text>
+<text x="80.0" y="406.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#86EFAC" text-anchor="start" >// response: entire JSON dump, 40 KB,</text>
+<text x="80.0" y="423.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#86EFAC" text-anchor="start" >// UUIDs instead of names, no paging,</text>
+<text x="80.0" y="440.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#86EFAC" text-anchor="start" >// error: &quot;Error 500&quot;</text>
+<text x="72.0" y="536.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#DC2626" text-anchor="start" >✘</text>
+<text x="92.0" y="532.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >&#x27;search&#x27; collides with three other tools — the agent picks the wrong one a third of</text>
+<text x="92.0" y="545.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >the time.</text>
+<text x="72.0" y="576.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#DC2626" text-anchor="start" >✘</text>
+<text x="92.0" y="572.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >No guidance on when (not) to use it, no example, no defaults.</text>
+<text x="72.0" y="616.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#DC2626" text-anchor="start" >✘</text>
+<text x="92.0" y="612.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >40 KB responses flood the context window; UUIDs force extra lookups.</text>
+<text x="72.0" y="656.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#DC2626" text-anchor="start" >✘</text>
+<text x="92.0" y="652.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >&#x27;Error 500&#x27; gives the agent nothing to act on, so it retries blindly.</text>
+<rect x="880.0" y="136.0" width="684.0" height="560.0" rx="12" fill="#F0FDF4" stroke="#059669" stroke-width="2" />
+<rect x="880.0" y="136.0" width="684.0" height="34.0" rx="10" fill="#059669" />
+<text x="896.0" y="158.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >AFTER — written for the agent that will read it</text>
+<rect x="892.0" y="182.0" width="660.0" height="330.0" rx="6" fill="#0F172A" />
+<text x="904.0" y="202.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >{</text>
+<text x="904.0" y="219.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >  &quot;name&quot;: &quot;github.search_pull_requests&quot;,</text>
+<text x="904.0" y="236.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >  &quot;description&quot;: &quot;Find open or merged PRs in ONE repo by</text>
+<text x="904.0" y="253.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >    text, label, or author. Use for &#x27;which PRs touch X&#x27;.</text>
+<text x="904.0" y="270.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >    Do NOT use for issues (github.search_issues) or</text>
+<text x="904.0" y="287.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >    commits. Example: query=&#x27;auth refresh&#x27;, state=&#x27;open&#x27;.&quot;,</text>
+<text x="904.0" y="304.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >  &quot;input_schema&quot;: {</text>
+<text x="904.0" y="321.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >    &quot;type&quot;: &quot;object&quot;,</text>
+<text x="904.0" y="338.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >    &quot;required&quot;: [&quot;repo&quot;, &quot;query&quot;],</text>
+<text x="904.0" y="355.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >    &quot;properties&quot;: {</text>
+<text x="904.0" y="372.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >      &quot;repo&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;owner/name&quot;},</text>
+<text x="904.0" y="389.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >      &quot;query&quot;: {&quot;type&quot;: &quot;string&quot;},</text>
+<text x="904.0" y="406.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >      &quot;state&quot;: {&quot;enum&quot;: [&quot;open&quot;,&quot;merged&quot;,&quot;all&quot;], &quot;default&quot;: &quot;open&quot;},</text>
+<text x="904.0" y="423.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >      &quot;page_size&quot;: {&quot;type&quot;: &quot;integer&quot;, &quot;default&quot;: 10, &quot;maximum&quot;: 50},</text>
+<text x="904.0" y="440.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >      &quot;response_format&quot;: {&quot;enum&quot;: [&quot;concise&quot;,&quot;detailed&quot;], &quot;default&quot;: &quot;concise&quot;}</text>
+<text x="904.0" y="457.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="start" >  }}}</text>
+<text x="904.0" y="474.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#86EFAC" text-anchor="start" >// response: title, number, author NAME, url, 1-line summary;</text>
+<text x="904.0" y="491.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#86EFAC" text-anchor="start" >// next_page_token when truncated;</text>
+<text x="904.0" y="508.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#86EFAC" text-anchor="start" >// error: &quot;repo not found: did you mean acme/auth-service?&quot;</text>
+<text x="896.0" y="536.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#059669" text-anchor="start" >✓</text>
+<text x="916.0" y="532.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >Namespaced name + &#x27;use for / do not use for&#x27; + an example — the model routes</text>
+<text x="916.0" y="545.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >correctly.</text>
+<text x="896.0" y="576.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#059669" text-anchor="start" >✓</text>
+<text x="916.0" y="572.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >Enums and defaults remove invalid calls; required fields are explicit.</text>
+<text x="896.0" y="616.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#059669" text-anchor="start" >✓</text>
+<text x="916.0" y="612.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >Concise mode + pagination keep each result under ~1K tokens; names instead of UUIDs</text>
+<text x="916.0" y="625.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >save a round trip.</text>
+<text x="896.0" y="656.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#059669" text-anchor="start" >✓</text>
+<text x="916.0" y="652.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >Errors tell the agent what to do next — the difference between a fix and a retry</text>
+<text x="916.0" y="665.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="start" >storm.</text>
+<path d="M 722.0 212.0 L 760.0 212.0 L 760.0 238.0 L 866.0 238.0" fill="none" stroke="#7C3AED" stroke-opacity="0.14" stroke-width="8.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 722.0 212.0 L 760.0 212.0 L 760.0 238.0 L 866.0 238.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="7 6" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(876.0 238.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 722.0 212.0 L 760.0 212.0 L 760.0 238.0 L 866.0 238.0"/></g>
+<rect x="776.7" y="211.0" width="131" height="22" rx="11" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<text x="842.2" y="226.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED" text-anchor="middle" >namespace + intent</text>
+<path d="M 722.0 292.0 L 774.0 292.0 L 774.0 318.0 L 866.0 318.0" fill="none" stroke="#D97706" stroke-opacity="0.14" stroke-width="8.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 722.0 292.0 L 774.0 292.0 L 774.0 318.0 L 866.0 318.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="7 6" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(876.0 318.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 722.0 292.0 L 774.0 292.0 L 774.0 318.0 L 866.0 318.0"/></g>
+<rect x="783.2" y="291.0" width="118" height="22" rx="11" fill="#FFFFFF" stroke="#D97706" stroke-width="1.5"/>
+<text x="842.2" y="306.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#D97706" text-anchor="middle" >enums + defaults</text>
+<path d="M 722.0 372.0 L 788.0 372.0 L 788.0 398.0 L 866.0 398.0" fill="none" stroke="#2563EB" stroke-opacity="0.14" stroke-width="8.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 722.0 372.0 L 788.0 372.0 L 788.0 398.0 L 866.0 398.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="7 6" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#2563EB" transform="translate(876.0 398.0) rotate(0.0)"/>
+<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 722.0 372.0 L 788.0 372.0 L 788.0 398.0 L 866.0 398.0"/></g>
+<rect x="757.7" y="371.0" width="169" height="22" rx="11" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="842.2" y="386.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB" text-anchor="middle" >token-efficient response</text>
+<path d="M 722.0 452.0 L 802.0 452.0 L 802.0 478.0 L 866.0 478.0" fill="none" stroke="#059669" stroke-opacity="0.14" stroke-width="8.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 722.0 452.0 L 802.0 452.0 L 802.0 478.0 L 866.0 478.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="7 6" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(876.0 478.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 722.0 452.0 L 802.0 452.0 L 802.0 478.0 L 866.0 478.0"/></g>
+<rect x="779.7" y="451.0" width="125" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+<text x="842.2" y="466.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >actionable errors</text>
+<rect x="56.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="1.8" />
+<rect x="56.0" y="716.0" width="290.0" height="26.0" rx="8" fill="#334155" />
+<text x="68.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >RULE 1 • FEWER, BETTER TOOLS</text>
+<text x="68.0" y="762.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Consolidate: one schedule_event beats</text>
+<text x="68.0" y="776.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >list_users + list_events + create_event.</text>
+<text x="68.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Build for the workflow the agent needs,</text>
+<text x="68.0" y="804.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >not a 1:1 API mirror.</text>
+<text x="68.0" y="856.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#334155" text-anchor="start" >schedule_event(attendees, window)</text>
+<rect x="358.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8" />
+<rect x="358.0" y="716.0" width="290.0" height="26.0" rx="8" fill="#7C3AED" />
+<text x="370.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >RULE 2 • NAMESPACE</text>
+<text x="370.0" y="762.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Prefix by service and resource so</text>
+<text x="370.0" y="776.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >similar tools stop colliding:</text>
+<text x="370.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >github.search_pull_requests,</text>
+<text x="370.0" y="804.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >asana.search_tasks.</text>
+<text x="370.0" y="856.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#7C3AED" text-anchor="start" >service.resource_action</text>
+<rect x="660.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.8" />
+<rect x="660.0" y="716.0" width="290.0" height="26.0" rx="8" fill="#2563EB" />
+<text x="672.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >RULE 3 • RETURN MEANINGFUL CONTEXT</text>
+<text x="672.0" y="762.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Names over UUIDs, summaries over dumps;</text>
+<text x="672.0" y="776.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >offer concise vs detailed response</text>
+<text x="672.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >formats.</text>
+<text x="672.0" y="856.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#2563EB" text-anchor="start" >response_format: concise</text>
+<rect x="962.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" />
+<rect x="962.0" y="716.0" width="290.0" height="26.0" rx="8" fill="#D97706" />
+<text x="974.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >RULE 4 • TOKEN EFFICIENCY</text>
+<text x="974.0" y="762.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Paginate, filter, truncate with a</text>
+<text x="974.0" y="776.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >next_page_token; make errors say what to</text>
+<text x="974.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >do instead of a status code.</text>
+<text x="974.0" y="856.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#D97706" text-anchor="start" >page_size &lt;= 50, next_page_token</text>
+<rect x="1264.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" />
+<rect x="1264.0" y="716.0" width="290.0" height="26.0" rx="8" fill="#059669" />
+<text x="1276.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >RULE 5 • PROMPT-ENGINEER THE DESCRIPTION, THEN EVAL</text>
+<text x="1276.0" y="762.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Write it like onboarding a new hire;</text>
+<text x="1276.0" y="776.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >test it on real tasks; let the agent</text>
+<text x="1276.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >propose rewrites from its failures.</text>
+<text x="1276.0" y="856.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#059669" text-anchor="start" >eval: 30 real tasks, before/after</text>
+<rect x="56.0" y="886.0" width="1508.0" height="44.0" rx="10" fill="#0F2942" />
+<text x="810.0" y="913.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >Anthropic let Claude rewrite its own tool descriptions from failed transcripts — and accuracy went up. Do the same with your traces.</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Anthropic Engineering, &#x27;Writing effective tools for agents — with agents&#x27; (Sep 2025) • MCP tool schema conventions</text>
+</svg>

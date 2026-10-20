@@ -83,13 +83,13 @@
 <text x="939.0" y="550.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Harness engineering &amp; self-</text>
 <text x="939.0" y="567.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >evolution</text>
 <text x="939.0" y="592.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >CAPABILITY</text>
-<text x="939.0" y="607.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Step-level trajectory replay; evidence-</text>
-<text x="939.0" y="620.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >receipt memory; golden replay gates in</text>
+<text x="939.0" y="607.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Reference-trajectory credit assignment;</text>
+<text x="939.0" y="620.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >evidence-receipt memory; two-tier replay</text>
 <text x="939.0" y="642.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#DC2626" text-anchor="start" >FAILURE MODE</text>
 <text x="939.0" y="657.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Addressed: regression drift, memory</text>
 <text x="939.0" y="670.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >poisoning, fake completions.</text>
 <text x="939.0" y="692.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB" text-anchor="start" >KEY ARTIFACT</text>
-<text x="939.0" y="707.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >HarnessEvolve (arXiv:2604.14118) •</text>
+<text x="939.0" y="707.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >HarnessEvolve (arXiv:2609.00829) •</text>
 <text x="939.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >OpenWiki (LangChain)</text>
 <circle cx="1360" cy="448" r="16" fill="#FFFFFF" stroke="#059669" stroke-width="4"/>
 <circle cx="1360" cy="448" r="6" fill="#059669"/>
@@ -144,5 +144,5 @@
 <text x="1290.0" y="858.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >The guard becomes table stakes in</text>
 <text x="1290.0" y="872.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >every framework.</text>
 <text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
-<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: ReAct arXiv:2210.03629 • LangChain • MCP (Nov 2024) • A2A &amp; ADK (Apr 2025) • HarnessEvolve arXiv:2604.14118</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: ReAct arXiv:2210.03629 • LangChain • MCP (Nov 2024) • A2A &amp; ADK (Apr 2025) • HarnessEvolve arXiv:2609.00829</text>
 </svg>

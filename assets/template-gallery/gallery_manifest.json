@@ -1,5 +1,6 @@
 {
   "template_count": 40,
+  "count": 40,
   "templates": [
     {
       "id": "T01",
@@ -12,11 +13,9 @@
       ],
       "when_to_use": "A reader feels a daily pain and wants the exact 4-step fix with before/after proof.",
       "dynamic": "Moving arrows between steps, closed-loop return highway, traveling packets, upgrade arrow.",
-      "files": {
-        "svg": "T01.svg",
-        "gif": "T01.gif",
-        "png": "T01.png"
-      }
+      "svg": "assets/template-gallery/T01.svg",
+      "gif": "assets/template-gallery/T01.gif",
+      "png": "assets/template-gallery/T01.png"
     },
     {
       "id": "T02",
@@ -29,11 +28,9 @@
       ],
       "when_to_use": "Two paths look identical at the start but diverge (security, reliability, compliance).",
       "dynamic": "Green vs. red packet streams, purple control-intercept flows, pulsing invariant.",
-      "files": {
-        "svg": "T02.svg",
-        "gif": "T02.gif",
-        "png": "T02.png"
-      }
+      "svg": "assets/template-gallery/T02.svg",
+      "gif": "assets/template-gallery/T02.gif",
+      "png": "assets/template-gallery/T02.png"
     },
     {
       "id": "T03",
@@ -46,11 +43,9 @@
       ],
       "when_to_use": "One central engine with many orbiting subsystems (harness layers, platform services).",
       "dynamic": "10 spokes streaming packets into a pulsing core.",
-      "files": {
-        "svg": "T03.svg",
-        "gif": "T03.gif",
-        "png": "T03.png"
-      }
+      "svg": "assets/template-gallery/T03.svg",
+      "gif": "assets/template-gallery/T03.gif",
+      "png": "assets/template-gallery/T03.png"
     },
     {
       "id": "T04",
@@ -63,11 +58,9 @@
       ],
       "when_to_use": "Explain a platform from foundation to experience with guarantees per layer.",
       "dynamic": "Request descends on the left rail, verified response ascends on the right rail.",
-      "files": {
-        "svg": "T04.svg",
-        "gif": "T04.gif",
-        "png": "T04.png"
-      }
+      "svg": "assets/template-gallery/T04.svg",
+      "gif": "assets/template-gallery/T04.gif",
+      "png": "assets/template-gallery/T04.png"
     },
     {
       "id": "T05",
@@ -80,11 +73,9 @@
       ],
       "when_to_use": "A process repeats until a gate exits (agent loops, CI loops, retraining).",
       "dynamic": "Packets orbit the loop arcs; entry and exit arrows; pulsing core.",
-      "files": {
-        "svg": "T05.svg",
-        "gif": "T05.gif",
-        "png": "T05.png"
-      }
+      "svg": "assets/template-gallery/T05.svg",
+      "gif": "assets/template-gallery/T05.gif",
+      "png": "assets/template-gallery/T05.png"
     },
     {
       "id": "T06",
@@ -97,11 +88,9 @@
       ],
       "when_to_use": "Show exactly who calls whom, in what order, including retry loops.",
       "dynamic": "Numbered messages stream packets between lifelines; loop fragment highlighted.",
-      "files": {
-        "svg": "T06.svg",
-        "gif": "T06.gif",
-        "png": "T06.png"
-      }
+      "svg": "assets/template-gallery/T06.svg",
+      "gif": "assets/template-gallery/T06.gif",
+      "png": "assets/template-gallery/T06.png"
     },
     {
       "id": "T07",
@@ -114,11 +103,9 @@
       ],
       "when_to_use": "A routing policy or architectural decision with 2-3 gates.",
       "dynamic": "YES/NO branches carry packets to color-coded outcomes.",
-      "files": {
-        "svg": "T07.svg",
-        "gif": "T07.gif",
-        "png": "T07.png"
-      }
+      "svg": "assets/template-gallery/T07.svg",
+      "gif": "assets/template-gallery/T07.gif",
+      "png": "assets/template-gallery/T07.png"
     },
     {
       "id": "T08",
@@ -131,11 +118,9 @@
       ],
       "when_to_use": "Before/after measurements with sources and deltas.",
       "dynamic": "Bars grow on load; delta pills; methodology panel.",
-      "files": {
-        "svg": "T08.svg",
-        "gif": "T08.gif",
-        "png": "T08.png"
-      }
+      "svg": "assets/template-gallery/T08.svg",
+      "gif": "assets/template-gallery/T08.gif",
+      "png": "assets/template-gallery/T08.png"
     },
     {
       "id": "T09",
@@ -148,11 +133,9 @@
       ],
       "when_to_use": "How a field evolved and why each era's failure created the next architecture.",
       "dynamic": "Packets travel the spine; era cards alternate above/below; pattern chain arrows.",
-      "files": {
-        "svg": "T09.svg",
-        "gif": "T09.gif",
-        "png": "T09.png"
-      }
+      "svg": "assets/template-gallery/T09.svg",
+      "gif": "assets/template-gallery/T09.gif",
+      "png": "assets/template-gallery/T09.png"
     },
     {
       "id": "T10",
@@ -165,11 +148,9 @@
       ],
       "when_to_use": "Large raw input is filtered through gates into a few promoted outputs.",
       "dynamic": "Packets fall through the funnel; stage filters connect to annotation cards.",
-      "files": {
-        "svg": "T10.svg",
-        "gif": "T10.gif",
-        "png": "T10.png"
-      }
+      "svg": "assets/template-gallery/T10.svg",
+      "gif": "assets/template-gallery/T10.gif",
+      "png": "assets/template-gallery/T10.png"
     },
     {
       "id": "T11",
@@ -182,11 +163,9 @@
       ],
       "when_to_use": "Position options on two axes and show the migration path to the target quadrant.",
       "dynamic": "Breathing dots, axis flows, dashed migration arrows with labels.",
-      "files": {
-        "svg": "T11.svg",
-        "gif": "T11.gif",
-        "png": "T11.png"
-      }
+      "svg": "assets/template-gallery/T11.svg",
+      "gif": "assets/template-gallery/T11.gif",
+      "png": "assets/template-gallery/T11.png"
     },
     {
       "id": "T12",
@@ -199,11 +178,9 @@
       ],
       "when_to_use": "Explain each part of a prompt, brief, config, or payload and why it matters.",
       "dynamic": "Leader packets flow from 6 callouts into the central artifact.",
-      "files": {
-        "svg": "T12.svg",
-        "gif": "T12.gif",
-        "png": "T12.png"
-      }
+      "svg": "assets/template-gallery/T12.svg",
+      "gif": "assets/template-gallery/T12.gif",
+      "png": "assets/template-gallery/T12.png"
     },
     {
       "id": "T13",
@@ -216,11 +193,9 @@
       ],
       "when_to_use": "Show the naive implementation next to the production one, line by line.",
       "dynamic": "Transformation arrows jump from the bad lines to the fixed lines.",
-      "files": {
-        "svg": "T13.svg",
-        "gif": "T13.gif",
-        "png": "T13.png"
-      }
+      "svg": "assets/template-gallery/T13.svg",
+      "gif": "assets/template-gallery/T13.gif",
+      "png": "assets/template-gallery/T13.png"
     },
     {
       "id": "T14",
@@ -233,11 +208,9 @@
       ],
       "when_to_use": "A pass/partial/fail audit with evidence and the next fixes.",
       "dynamic": "Scan packet sweeps the rows; FAIL pills blink; gauge arc fills.",
-      "files": {
-        "svg": "T14.svg",
-        "gif": "T14.gif",
-        "png": "T14.png"
-      }
+      "svg": "assets/template-gallery/T14.svg",
+      "gif": "assets/template-gallery/T14.gif",
+      "png": "assets/template-gallery/T14.png"
     },
     {
       "id": "T15",
@@ -250,11 +223,9 @@
       ],
       "when_to_use": "Map a field: center topic, 6 branches, 18 grounded leaves.",
       "dynamic": "Curved branch flows stream packets outward from a pulsing center.",
-      "files": {
-        "svg": "T15.svg",
-        "gif": "T15.gif",
-        "png": "T15.png"
-      }
+      "svg": "assets/template-gallery/T15.svg",
+      "gif": "assets/template-gallery/T15.gif",
+      "png": "assets/template-gallery/T15.png"
     },
     {
       "id": "T16",
@@ -267,11 +238,9 @@
       ],
       "when_to_use": "Compare levels or options across capabilities with a highlighted recommendation.",
       "dynamic": "Recommended column pulses with a vertical scan; color-graded cells.",
-      "files": {
-        "svg": "T16.svg",
-        "gif": "T16.gif",
-        "png": "T16.png"
-      }
+      "svg": "assets/template-gallery/T16.svg",
+      "gif": "assets/template-gallery/T16.gif",
+      "png": "assets/template-gallery/T16.png"
     },
     {
       "id": "T17",
@@ -284,11 +253,9 @@
       ],
       "when_to_use": "Six headline metrics with trend, delta, and measurement method.",
       "dynamic": "Packets trace each sparkline from BEFORE to AFTER.",
-      "files": {
-        "svg": "T17.svg",
-        "gif": "T17.gif",
-        "png": "T17.png"
-      }
+      "svg": "assets/template-gallery/T17.svg",
+      "gif": "assets/template-gallery/T17.gif",
+      "png": "assets/template-gallery/T17.png"
     },
     {
       "id": "T18",
@@ -301,11 +268,9 @@
       ],
       "when_to_use": "Walk readers through a repository: file -> responsibility -> architectural tier.",
       "dynamic": "Leader packets link tree rows to responsibility cards and tier badges.",
-      "files": {
-        "svg": "T18.svg",
-        "gif": "T18.gif",
-        "png": "T18.png"
-      }
+      "svg": "assets/template-gallery/T18.svg",
+      "gif": "assets/template-gallery/T18.gif",
+      "png": "assets/template-gallery/T18.png"
     },
     {
       "id": "T19",
@@ -318,11 +283,9 @@
       ],
       "when_to_use": "Bust 5 common assumptions with evidence-backed realities.",
       "dynamic": "GROUNDED FIX arrows carry packets from each myth to its reality.",
-      "files": {
-        "svg": "T19.svg",
-        "gif": "T19.gif",
-        "png": "T19.png"
-      }
+      "svg": "assets/template-gallery/T19.svg",
+      "gif": "assets/template-gallery/T19.gif",
+      "png": "assets/template-gallery/T19.png"
     },
     {
       "id": "T20",
@@ -335,11 +298,9 @@
       ],
       "when_to_use": "Compare two designs across 6 dimensions with a rubric.",
       "dynamic": "Polygon grows into place while packets orbit its outline.",
-      "files": {
-        "svg": "T20.svg",
-        "gif": "T20.gif",
-        "png": "T20.png"
-      }
+      "svg": "assets/template-gallery/T20.svg",
+      "gif": "assets/template-gallery/T20.gif",
+      "png": "assets/template-gallery/T20.png"
     },
     {
       "id": "T21",
@@ -353,11 +314,9 @@
       "when_to_use": "A reader asks 'should this be a chain, a router, parallel calls, an orchestrator, an evaluator loop, or an agent?'",
       "dynamic": "Six live mini-schematics with packets; gate diamonds; feedback loops.",
       "lineage": "Anthropic, Building effective agents (Dec 2024)",
-      "files": {
-        "svg": "T21.svg",
-        "gif": "T21.gif",
-        "png": "T21.png"
-      }
+      "svg": "assets/template-gallery/T21.svg",
+      "gif": "assets/template-gallery/T21.gif",
+      "png": "assets/template-gallery/T21.png"
     },
     {
       "id": "T22",
@@ -368,14 +327,12 @@
         "Professional knowledge sharing",
         "Easy to understand"
       ],
-      "when_to_use": "Teach the Explore \u2192 Plan \u2192 Code \u2192 Commit loop with the exact prompts and the thinking-budget keywords.",
+      "when_to_use": "Teach the Explore \u2192 Plan \u2192 Code \u2192 Commit loop + Boris Cherny's 10 internal Claude Code habits (/loop, /desktop, /context, Goal+Effort+Check).",
       "dynamic": "Phase arrows, growing thinking-budget bars, TDD loop-back arrow.",
-      "lineage": "Anthropic, Claude Code best practices (Apr 2025)",
-      "files": {
-        "svg": "T22.svg",
-        "gif": "T22.gif",
-        "png": "T22.png"
-      }
+      "lineage": "Charlie Hills (Boris Cherny 10 Claude Code tips & 42 add-ons) \u2022 Anthropic Claude Code guide",
+      "svg": "assets/template-gallery/T22.svg",
+      "gif": "assets/template-gallery/T22.gif",
+      "png": "assets/template-gallery/T22.png"
     },
     {
       "id": "T23",
@@ -389,11 +346,9 @@
       "when_to_use": "Show exactly where 200K tokens go and what compaction + just-in-time retrieval frees up.",
       "dynamic": "Stacked ledgers grow; packets migrate from the bloated budget to the lean one.",
       "lineage": "Anthropic, Effective context engineering (Sep 2025)",
-      "files": {
-        "svg": "T23.svg",
-        "gif": "T23.gif",
-        "png": "T23.png"
-      }
+      "svg": "assets/template-gallery/T23.svg",
+      "gif": "assets/template-gallery/T23.gif",
+      "png": "assets/template-gallery/T23.png"
     },
     {
       "id": "T24",
@@ -407,11 +362,9 @@
       "when_to_use": "Walk a team from 100 traces to a failure taxonomy, a Pareto, and a binary judge per failure mode.",
       "dynamic": "Notes flow into taxonomy buckets; Pareto bars grow.",
       "lineage": "Hamel Husain & Shreya Shankar, AI Evals method",
-      "files": {
-        "svg": "T24.svg",
-        "gif": "T24.gif",
-        "png": "T24.png"
-      }
+      "svg": "assets/template-gallery/T24.svg",
+      "gif": "assets/template-gallery/T24.gif",
+      "png": "assets/template-gallery/T24.png"
     },
     {
       "id": "T25",
@@ -425,11 +378,9 @@
       "when_to_use": "Before anyone quotes a judge score: confusion matrix vs humans, known biases, the fix for each, a prompt skeleton.",
       "dynamic": "Matrix cells reveal in sequence; bias \u2192 fix arrows carry packets.",
       "lineage": "Eugene Yan \u2022 Shreya Shankar \u2022 MT-Bench (Zheng et al. 2023)",
-      "files": {
-        "svg": "T25.svg",
-        "gif": "T25.gif",
-        "png": "T25.png"
-      }
+      "svg": "assets/template-gallery/T25.svg",
+      "gif": "assets/template-gallery/T25.gif",
+      "png": "assets/template-gallery/T25.png"
     },
     {
       "id": "T26",
@@ -443,11 +394,9 @@
       "when_to_use": "Explain how to grade an agent's tool-call sequence, not just its final answer.",
       "dynamic": "Packets step through expected vs actual calls; metric rows compute live.",
       "lineage": "Google, Agents Companion whitepaper (Feb 2025)",
-      "files": {
-        "svg": "T26.svg",
-        "gif": "T26.gif",
-        "png": "T26.png"
-      }
+      "svg": "assets/template-gallery/T26.svg",
+      "gif": "assets/template-gallery/T26.gif",
+      "png": "assets/template-gallery/T26.png"
     },
     {
       "id": "T27",
@@ -458,14 +407,12 @@
         "Easy to understand",
         "Information"
       ],
-      "when_to_use": "A ByteByteGo-style numbered walkthrough of a protocol or system, one message per step.",
-      "dynamic": "Numbered messages light up in order with packets between lanes.",
-      "lineage": "Alex Xu / ByteByteGo format \u2022 MCP specification",
-      "files": {
-        "svg": "T27.svg",
-        "gif": "T27.gif",
-        "png": "T27.png"
-      }
+      "when_to_use": "A numbered sequence & lifeline walkthrough of a protocol or control plane (MCP 9-message JSON-RPC 2.0 flow).",
+      "dynamic": "Numbered message cards light up in order with packets traveling across 3 lifelines.",
+      "lineage": "Brij Kishore Pandey (7-Layer Control Plane & MCP) \u2022 ByteByteGo \u2022 MCP specification",
+      "svg": "assets/template-gallery/T27.svg",
+      "gif": "assets/template-gallery/T27.gif",
+      "png": "assets/template-gallery/T27.png"
     },
     {
       "id": "T28",
@@ -479,11 +426,9 @@
       "when_to_use": "A warm, sketched comparison of 5 options (here: chunking strategies) with 'start with' defaults.",
       "dynamic": "Scissor packets travel the cut lines; tilted cards; marker typography.",
       "lineage": "Avi Chawla & Akshay Pachaar sketch format \u2022 Anthropic Contextual Retrieval (Sep 2024)",
-      "files": {
-        "svg": "T28.svg",
-        "gif": "T28.gif",
-        "png": "T28.png"
-      }
+      "svg": "assets/template-gallery/T28.svg",
+      "gif": "assets/template-gallery/T28.gif",
+      "png": "assets/template-gallery/T28.png"
     },
     {
       "id": "T29",
@@ -497,11 +442,9 @@
       "when_to_use": "Readers verify the math themselves: here Cohen's kappa for judge vs human agreement on grid paper.",
       "dynamic": "Steps reveal one by one; a packet traces the computation path.",
       "lineage": "Tom Yeh, AI by Hand format",
-      "files": {
-        "svg": "T29.svg",
-        "gif": "T29.gif",
-        "png": "T29.png"
-      }
+      "svg": "assets/template-gallery/T29.svg",
+      "gif": "assets/template-gallery/T29.gif",
+      "png": "assets/template-gallery/T29.png"
     },
     {
       "id": "T30",
@@ -515,11 +458,9 @@
       "when_to_use": "One paper, one recreated chart, problem/method/result, caveats, and a read/skim/skip verdict.",
       "dynamic": "Chart bars grow; verdict gauge fills; method pipeline carries a packet.",
       "lineage": "Pascal Biese (LLM Watch) & Elvis Saravia (DAIR.AI) digest format",
-      "files": {
-        "svg": "T30.svg",
-        "gif": "T30.gif",
-        "png": "T30.png"
-      }
+      "svg": "assets/template-gallery/T30.svg",
+      "gif": "assets/template-gallery/T30.gif",
+      "png": "assets/template-gallery/T30.png"
     },
     {
       "id": "T31",
@@ -533,11 +474,9 @@
       "when_to_use": "Show real code, the real output, and what it proves \u2014 then the clone command.",
       "dynamic": "Terminal output types in line by line; a packet runs down the code gutter.",
       "lineage": "Shubham Saboo (awesome-llm-apps) & Nir Diamant demo-repo format",
-      "files": {
-        "svg": "T31.svg",
-        "gif": "T31.gif",
-        "png": "T31.png"
-      }
+      "svg": "assets/template-gallery/T31.svg",
+      "gif": "assets/template-gallery/T31.gif",
+      "png": "assets/template-gallery/T31.png"
     },
     {
       "id": "T32",
@@ -551,11 +490,9 @@
       "when_to_use": "Explain why agentic loops beat bigger models with the HumanEval chart and the four design patterns.",
       "dynamic": "Bars grow to 95.1%; each pattern has a live mini-loop.",
       "lineage": "Andrew Ng, Sequoia AI Ascent (Mar 2024)",
-      "files": {
-        "svg": "T32.svg",
-        "gif": "T32.gif",
-        "png": "T32.png"
-      }
+      "svg": "assets/template-gallery/T32.svg",
+      "gif": "assets/template-gallery/T32.gif",
+      "png": "assets/template-gallery/T32.png"
     },
     {
       "id": "T33",
@@ -569,11 +506,9 @@
       "when_to_use": "Place concrete tasks inside/outside the capability frontier and show how to redraw it monthly.",
       "dynamic": "Frontier edge pulses with orbiting packets.",
       "lineage": "Ethan Mollick, jagged frontier (Dell'Acqua et al. 2023)",
-      "files": {
-        "svg": "T33.svg",
-        "gif": "T33.gif",
-        "png": "T33.png"
-      }
+      "svg": "assets/template-gallery/T33.svg",
+      "gif": "assets/template-gallery/T33.gif",
+      "png": "assets/template-gallery/T33.png"
     },
     {
       "id": "T34",
@@ -587,11 +522,9 @@
       "when_to_use": "Any agent that has private data + untrusted content + outbound comms can be made to leak; show which leg to remove.",
       "dynamic": "Packets from each circle converge on a pulsing danger core.",
       "lineage": "Simon Willison, The lethal trifecta for AI agents (Jun 2025)",
-      "files": {
-        "svg": "T34.svg",
-        "gif": "T34.gif",
-        "png": "T34.png"
-      }
+      "svg": "assets/template-gallery/T34.svg",
+      "gif": "assets/template-gallery/T34.gif",
+      "png": "assets/template-gallery/T34.png"
     },
     {
       "id": "T35",
@@ -605,11 +538,9 @@
       "when_to_use": "Explain lead/subagent fan-out and when 15x tokens is worth it, with Anthropic's reported numbers.",
       "dynamic": "Spawn packets fan out and results fan back in to synthesis.",
       "lineage": "Anthropic, How we built our multi-agent research system (Jun 2025)",
-      "files": {
-        "svg": "T35.svg",
-        "gif": "T35.gif",
-        "png": "T35.png"
-      }
+      "svg": "assets/template-gallery/T35.svg",
+      "gif": "assets/template-gallery/T35.gif",
+      "png": "assets/template-gallery/T35.png"
     },
     {
       "id": "T36",
@@ -623,29 +554,25 @@
       "when_to_use": "Decompose cost per task into tokens, tools, retries, judges \u2014 then show the four levers.",
       "dynamic": "Waterfall bars drop in sequence; a scan packet crosses the chart.",
       "lineage": "Chip Huyen-style practical AI economics",
-      "files": {
-        "svg": "T36.svg",
-        "gif": "T36.gif",
-        "png": "T36.png"
-      }
+      "svg": "assets/template-gallery/T36.svg",
+      "gif": "assets/template-gallery/T36.gif",
+      "png": "assets/template-gallery/T36.png"
     },
     {
       "id": "T37",
       "name": "Incident Postmortem",
-      "best_for_short": "AgentOps war stories",
+      "best_for_short": "AgentOps & Kill-Switch",
       "content_types": [
         "Easy to understand",
         "Professional knowledge sharing",
         "Working solution"
       ],
-      "when_to_use": "Tell the $84 retry-storm story on a timeline and name the control that would have stopped it at each step.",
+      "when_to_use": "Tell the $84 retry-storm story on a timeline and name the control + kill-switch that stops it at each step.",
       "dynamic": "Severity packets run down the timeline; green control cards attach per event.",
-      "lineage": "Google SRE postmortem format applied to AgentOps",
-      "files": {
-        "svg": "T37.svg",
-        "gif": "T37.gif",
-        "png": "T37.png"
-      }
+      "lineage": "Brij Kishore Pandey (How Do We Turn It Off? & 10-Field Agent Record) \u2022 Google SRE Postmortem",
+      "svg": "assets/template-gallery/T37.svg",
+      "gif": "assets/template-gallery/T37.gif",
+      "png": "assets/template-gallery/T37.png"
     },
     {
       "id": "T38",
@@ -658,12 +585,10 @@
       ],
       "when_to_use": "Bad vs good tool JSON side by side with the five rules from Anthropic's tool-writing guide.",
       "dynamic": "Transformation arrows jump from each flaw to its fix.",
-      "lineage": "Anthropic, Writing effective tools for agents (Sep 2025)",
-      "files": {
-        "svg": "T38.svg",
-        "gif": "T38.gif",
-        "png": "T38.png"
-      }
+      "lineage": "Anthropic (Writing effective tools) \u2022 Brij Kishore Pandey (5-Layer Claude Code ADK & SKILL.md)",
+      "svg": "assets/template-gallery/T38.svg",
+      "gif": "assets/template-gallery/T38.gif",
+      "png": "assets/template-gallery/T38.png"
     },
     {
       "id": "T39",
@@ -677,11 +602,9 @@
       "when_to_use": "One request touches four memory types; decide what to store where, with freshness rules.",
       "dynamic": "A request packet touches each memory store before the agent acts.",
       "lineage": "CoALA (Sumers et al. 2023) \u2022 Lilian Weng (2023) \u2022 Aishwarya Naresh Reganti memory infographics",
-      "files": {
-        "svg": "T39.svg",
-        "gif": "T39.gif",
-        "png": "T39.png"
-      }
+      "svg": "assets/template-gallery/T39.svg",
+      "gif": "assets/template-gallery/T39.gif",
+      "png": "assets/template-gallery/T39.png"
     },
     {
       "id": "T40",
@@ -695,11 +618,9 @@
       "when_to_use": "One metric over time, four annotated architecture changes, what each changed \u2014 build-in-public style.",
       "dynamic": "The line draws progressively; flags appear as the line reaches them.",
       "lineage": "Nate B. Jones 'one chart' \u2022 Santiago Valdarrama build-in-public",
-      "files": {
-        "svg": "T40.svg",
-        "gif": "T40.gif",
-        "png": "T40.png"
-      }
+      "svg": "assets/template-gallery/T40.svg",
+      "gif": "assets/template-gallery/T40.gif",
+      "png": "assets/template-gallery/T40.png"
     }
   ]
 }

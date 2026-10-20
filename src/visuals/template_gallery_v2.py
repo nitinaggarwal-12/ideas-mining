@@ -41,7 +41,7 @@ def _htl(x: float, y: float, lines: Sequence[str], size: float = 13, weight: int
 
 
 def _reveal(phase: Optional[float], n: int) -> int:
-    return n if phase is None else max(1, min(n, int(phase * n) + 1))
+    return n if (phase is None or phase >= 0.8) else max(1, min(n, int(phase * (n + 1)) + 1))
 
 
 def _mb(x: float, y: float, w: float, h: float, label: str, col: str, fill: str = WHITE, size: float = 9.5) -> str:
@@ -77,50 +77,51 @@ def _schematic(kind: str, x: float, y: float, w: float, h: float, col: str, phas
         o.append(_fl([(x + 422, cy), (x + 444, cy)], GREEN, phase))
         o.append(_t(x + 196, cy + 44, "gate = programmatic check between steps (e.g. 'is the outline on-brief?')", 9, 700, SLATE, "middle"))
     elif kind == "route":
-        o.append(_mb(x, cy - 15, 46, 30, "In", SLATE))
-        o.append(_fl([(x + 46, cy), (x + 86, cy)], col, phase))
-        o.append(_mb(x + 88, cy - 17, 92, 34, "Router (LLM or classifier)", col))
+        o.append(_mb(x, cy - 15, 42, 30, "In", SLATE))
+        o.append(_fl([(x + 42, cy), (x + 76, cy)], col, phase))
+        o.append(_mb(x + 78, cy - 17, 92, 34, "Router (LLM or classifier)", col))
         for j, lbl in enumerate(["Cheap model: FAQ", "Strong model: hard", "Refund specialist"]):
-            yy = y + 12 + j * 42
-            o.append(_fl([(x + 180, cy), (x + 212, yy + 15), (x + 250, yy + 15)], col, phase))
-            o.append(_mb(x + 252, yy, 130, 30, lbl, col))
-            o.append(_fl([(x + 382, yy + 15), (x + 414, cy), (x + 440, cy)], GREEN, phase))
+            yy = y + 8 + j * 39
+            o.append(_fl([(x + 170, cy), (x + 202, yy + 14), (x + 234, yy + 14)], col, phase))
+            o.append(_mb(x + 236, yy, 126, 28, lbl, col))
+            o.append(_fl([(x + 362, yy + 14), (x + 388, cy), (x + 402, cy)], GREEN, phase))
+        o.append(_mb(x + 404, cy - 15, 40, 30, "Out", GREEN))
     elif kind == "parallel":
         o.append(_mb(x, cy - 15, 46, 30, "In", SLATE))
         for j, lbl in enumerate(["LLM: section A", "LLM: section B", "LLM: vote / guardrail"]):
-            yy = y + 12 + j * 42
-            o.append(_fl([(x + 46, cy), (x + 80, yy + 15), (x + 118, yy + 15)], col, phase))
-            o.append(_mb(x + 120, yy, 130, 30, lbl, col))
-            o.append(_fl([(x + 250, yy + 15), (x + 290, cy), (x + 316, cy)], col, phase))
+            yy = y + 8 + j * 39
+            o.append(_fl([(x + 46, cy), (x + 80, yy + 14), (x + 118, yy + 14)], col, phase))
+            o.append(_mb(x + 120, yy, 130, 28, lbl, col))
+            o.append(_fl([(x + 250, yy + 14), (x + 290, cy), (x + 316, cy)], col, phase))
         o.append(_mb(x + 318, cy - 15, 92, 30, "Aggregate", col))
         o.append(_fl([(x + 410, cy), (x + 444, cy)], GREEN, phase))
     elif kind == "orchestrator":
-        o.append(_mb(x, cy - 17, 112, 34, "Orchestrator LLM decides subtasks", col))
+        o.append(_mb(x, cy - 22, 112, 34, "Orchestrator LLM decides subtasks", col))
         for j, lbl in enumerate(["Worker: file A", "Worker: file B", "Worker: tests"]):
-            yy = y + 12 + j * 42
-            o.append(_fl([(x + 112, cy), (x + 150, yy + 15), (x + 178, yy + 15)], col, phase, dash="3 4"))
-            o.append(_mb(x + 180, yy, 120, 30, lbl, col))
-            o.append(_fl([(x + 300, yy + 15), (x + 332, cy), (x + 352, cy)], col, phase))
-        o.append(_mb(x + 354, cy - 15, 60, 30, "Merge", col))
-        o.append(_fl([(x + 414, cy), (x + 444, cy)], GREEN, phase))
-        o.append(_t(x + 240, y + h - 2, "dashed = subtasks are decided at run time, not hard-coded", 9, 700, SLATE, "middle"))
+            yy = y + 2 + j * 35
+            o.append(_fl([(x + 112, cy - 5), (x + 150, yy + 13), (x + 178, yy + 13)], col, phase, dash="3 4"))
+            o.append(_mb(x + 180, yy, 120, 26, lbl, col))
+            o.append(_fl([(x + 300, yy + 13), (x + 332, cy - 5), (x + 352, cy - 5)], col, phase))
+        o.append(_mb(x + 354, cy - 20, 60, 30, "Merge", col))
+        o.append(_fl([(x + 414, cy - 5), (x + 444, cy - 5)], GREEN, phase))
+        o.append(_t(x + 224, y + h - 1, "dashed = subtasks are decided at run time, not hard-coded", 8.8, 700, SLATE, "middle"))
     elif kind == "evaluator":
         o.append(_mb(x + 40, cy - 17, 120, 34, "Generator LLM", col))
         o.append(_fl([(x + 160, cy - 8), (x + 300, cy - 8)], col, phase, label="draft"))
         o.append(_mb(x + 300, cy - 17, 120, 34, "Evaluator LLM", AMBER))
         o.append(_fl([(x + 300, cy + 10), (x + 160, cy + 10)], AMBER, phase, label="feedback", dash="4 4"))
         o.append(_fl([(x + 360, cy + 17), (x + 360, cy + 48), (x + 444, cy + 48)], GREEN, phase, label="accepted"))
-        o.append(_t(x + 230, y + 14, "loop until the evaluator says 'meets the bar' (or max rounds)", 9, 700, SLATE, "middle"))
+        o.append(_t(x + 230, y + 10, "loop until the evaluator says 'meets the bar' (or max rounds)", 8.8, 700, SLATE, "middle"))
     else:  # agent
-        o.append(_mb(x, cy - 15, 56, 30, "Human", SLATE))
-        o.append(_fl([(x + 56, cy), (x + 92, cy)], col, phase, label="task"))
-        o.append(_mb(x + 94, cy - 17, 110, 34, "LLM plans next step", col))
-        o.append(_fl([(x + 204, cy - 8), (x + 300, cy - 8)], col, phase, label="action"))
-        o.append(_mb(x + 300, cy - 17, 112, 34, "Environment / tools", TEAL))
-        o.append(_fl([(x + 300, cy + 10), (x + 204, cy + 10)], TEAL, phase, label="result", dash="4 4"))
-        o.append(_diamond(x + 440, cy, 22, 20, ["done?"], GREEN, 8.5))
-        o.append(_fl([(x + 412, cy), (x + 418, cy)], GREEN, phase))
-        o.append(_t(x + 230, y + 14, "stop on: task complete, max steps, or a human checkpoint", 9, 700, SLATE, "middle"))
+        o.append(_mb(x, cy - 15, 50, 30, "Human", SLATE))
+        o.append(_fl([(x + 50, cy), (x + 84, cy)], col, phase, label="task"))
+        o.append(_mb(x + 86, cy - 17, 102, 34, "LLM plans next step", col))
+        o.append(_fl([(x + 188, cy - 8), (x + 272, cy - 8)], col, phase, label="action"))
+        o.append(_mb(x + 274, cy - 17, 104, 34, "Environment / tools", TEAL))
+        o.append(_fl([(x + 274, cy + 10), (x + 188, cy + 10)], TEAL, phase, label="result", dash="4 4"))
+        o.append(_fl([(x + 378, cy), (x + 394, cy)], GREEN, phase))
+        o.append(_diamond(x + 416, cy, 22, 20, ["done?"], GREEN, 8.5))
+        o.append(_t(x + 220, y + 10, "stop on: task complete, max steps, or a human checkpoint", 8.8, 700, SLATE, "middle"))
     return o
 
 
@@ -162,13 +163,13 @@ def render_t22(s: Dict[str, Any], phase: Optional[float] = None) -> str:
         if i < 3:
             b.append(_flow([(x + 366, y + 123), (x + 434, y + 123)], ph["color"], phase, None, 1.4, 3.2, True, 1))
     b.append(_r(56, 402, 680, 136, 12, WHITE, LINE, 1.6))
-    b.append(_t(74, 426, s["dial_title"], 11, 800, INK))
-    for i, (kw, hgt) in enumerate(zip(s["dial_keywords"], (22, 44, 66, 88))):
+    b.append(_t(74, 424, s["dial_title"], 11, 800, INK))
+    for i, (kw, hgt) in enumerate(zip(s["dial_keywords"], (16, 30, 46, 62))):
         bx = 90 + i * 160
         g = _grow(phase)
-        b.append(_r(bx, 526 - hgt * g, 92, hgt * g, 5, [SKY, BLUE, PURPLE, NAVY][i]))
-        b.append(_t(bx + 46, 522 - hgt * g - 6, kw, 10.5, 800, INK, "middle", mono=True))
-    b.append(_t(74, 532, s["dial_note"], 9.5, 700, SLATE))
+        b.append(_r(bx, 510 - hgt * g, 92, hgt * g, 5, [SKY, BLUE, PURPLE, NAVY][i]))
+        b.append(_t(bx + 46, 506 - hgt * g - 4, kw, 10, 800, INK, "middle", mono=True))
+    b.append(_t(74, 528, s["dial_note"], 9.2, 700, SLATE))
     b.append(_r(760, 402, 804, 136, 12, WHITE, LINE, 1.6))
     b.append(_t(778, 426, s["claude_md_title"], 11, 800, INK))
     for i, item in enumerate(s["claude_md_items"][:8]):
@@ -183,12 +184,12 @@ def render_t22(s: Dict[str, Any], phase: Optional[float] = None) -> str:
         steps = v["steps"][:5]
         for j, st in enumerate(steps):
             sx = x + 14 + j * 92
-            b.append(_mb(sx, y + 66, 84, 44, st, v["color"]))
+            b.append(_mb(sx, y + 64, 84, 42, st, v["color"]))
             if j < len(steps) - 1:
-                b.append(_fl([(sx + 84, y + 88), (sx + 92, y + 88)], v["color"], phase))
+                b.append(_fl([(sx + 84, y + 85), (sx + 92, y + 85)], v["color"], phase))
         if v.get("loop_back"):
-            b.append(_flow([(x + 14 + 3 * 92 + 42, y + 110), (x + 14 + 3 * 92 + 42, y + 126), (x + 14 + 1 * 92 + 42, y + 126), (x + 14 + 1 * 92 + 42, y + 112)], v["color"], phase, v["loop_back"], 2.0, 2.4, True, 1, dash="5 4", track=False, label_dy=14))
-        b.append(_tl(x + 14, y + 158, _wrap(v["detail"], 70, 5), 10.5, 600, "#1E293B", 15))
+            b.append(_flow([(x + 14 + 3 * 92 + 42, y + 106), (x + 14 + 3 * 92 + 42, y + 120), (x + 14 + 1 * 92 + 42, y + 120), (x + 14 + 1 * 92 + 42, y + 108)], v["color"], phase, v["loop_back"], 2.0, 2.4, True, 1, dash="5 4", track=False, label_dy=12))
+        b.append(_tl(x + 14, y + 168, _wrap(v["detail"], 68, 4), 10.2, 600, "#1E293B", 14.5))
         b.append(_r(x + 14, y + 242, 452, 46, 6, "#0F172A"))
         b.append(_tl(x + 24, y + 260, _wrap(v["command"], 66, 2), 9.5, 700, "#A7F3D0", 14, mono=True))
     b.append(_r(56, 880, 1508, 50, 10, NAVY))
@@ -286,12 +287,12 @@ def render_t24(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     cum = 0
     for i, bk in enumerate(ordered[:5]):
         y = 184 + i * 46
-        w = 300 * bk["count"] / mx * g
+        w = 216 * bk["count"] / mx * g
         cum += bk["count"]
-        b.append(_t(1050, y + 18, _wrap(bk["name"], 22, 1)[0], 10, 800, INK))
-        b.append(_r(1200, y, 300, 26, 4, "#F1F5F9"))
-        b.append(_r(1200, y, max(3, w), 26, 4, bk["color"]))
-        b.append(_t(1508, y + 18, f"{bk['count']}  (cum {int(100 * cum / max(1, total - s['pass_count']))}%)", 9.5, 800, SLATE))
+        b.append(_t(1048, y + 18, bk["name"], 9.6, 800, INK))
+        b.append(_r(1232, y, 216, 26, 4, "#F1F5F9"))
+        b.append(_r(1232, y, max(3, w), 26, 4, bk["color"]))
+        b.append(_t(1548, y + 18, f"{bk['count']}  (cum {int(100 * cum / max(1, total - s['pass_count']))}%)", 9.5, 800, SLATE, "end"))
     b.append(_t(1050, 420, s["pareto_note"], 10, 700, "#92400E"))
     b.append(_card_head(1034, 452, 530, 244, GREEN, "STEP 4 • ONE BINARY JUDGE PER TOP FAILURE MODE"))
     b.append(_r(1050, 492, 498, 112, 6, "#0F172A"))
@@ -423,44 +424,67 @@ def render_t26(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-# T27 — "How MCP works" numbered walkthrough (ByteByteGo style)
+# T27 — "How MCP works" 9-Step Sequence & Architecture Walkthrough (ByteByteGo + Brij Kishore Pandey format)
 # ----------------------------------------------------------------------------------------------------------------------
 def render_t27(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b: List[str] = []
     lanes = s["lanes"][:3]
-    lx = [56, 610, 1164]
+    lx = [56, 606, 1156]
+    lw = 408
+    cx = [x + lw / 2 for x in lx]  # [260, 810, 1360] -> 550px between adjacent lifelines!
+    b.append(_r(56, 222, 1508, 562, 14, "#F8FAFC", LINE, 1.5))
     for i, ln in enumerate(lanes):
-        b.append(_r(lx[i], 136, 380, 648, 14, ln["fill"], ln["color"], 2))
-        b.append(_r(lx[i], 136, 380, 44, 12, ln["color"]))
-        b.append(_t(lx[i] + 190, 156, ln["name"], 12.5, 800, WHITE, "middle"))
-        b.append(_t(lx[i] + 190, 172, ln["sub"], 9.5, 700, "#F1F5F9", "middle"))
-        for j, ch in enumerate(ln["chips"][:3]):
-            b.append(_pill(lx[i] + 16 + j * 118, 190, ch, ln["color"], WHITE, 8.5, 20)[0])
+        # Subtle vertical column band & lifeline so there are zero giant empty boxes
+        b.append(_r(cx[i] - 92, 228, 184, 550, 10, ln["fill"], ln["color"], 1.0, 'stroke-opacity="0.35"'))
+        b.append(f'<line x1="{cx[i]:.1f}" y1="216" x2="{cx[i]:.1f}" y2="776" stroke="{ln["color"]}" stroke-width="2.2" stroke-dasharray="6 6" stroke-opacity="0.65"/>')
+        # Top Actor Header Card (80px tall)
+        b.append(_r(lx[i], 136, lw, 80, 12, WHITE, ln["color"], 2))
+        b.append(_r(lx[i], 136, lw, 42, 10, ln["color"]))
+        b.append(_t(cx[i], 155, ln["name"], 12.5, 800, WHITE, "middle"))
+        b.append(_t(cx[i], 171, ln["sub"], 9.2, 700, "#F1F5F9", "middle"))
+        # Center the 3 capability pills cleanly inside the 408px actor card
+        chip_svgs: List[Tuple[str, int]] = []
+        for ch in ln["chips"][:3]:
+            w_ch = int(len(ch) * 8.2 * 0.62 + 18)
+            chip_svgs.append((ch, w_ch))
+        tot_w = sum(w for _, w in chip_svgs) + 10 * (len(chip_svgs) - 1)
+        cur_x = cx[i] - tot_w / 2
+        for ch_text, w_ch in chip_svgs:
+            b.append(f'<rect x="{cur_x:.1f}" y="186" width="{w_ch}" height="20" rx="10" fill="{ln["fill"]}" stroke="{ln["color"]}" stroke-width="1.3"/>')
+            b.append(_t(cur_x + w_ch / 2, 199, ch_text, 8.3, 800, ln["color"], "middle"))
+            cur_x += w_ch + 10
     msgs = s["messages"][:9]
     shown = _reveal(phase, len(msgs))
     for i, m in enumerate(msgs):
-        y = 246 + i * 60
+        y = 252 + i * 58
         a, c = m["from"], m["to"]
-        if a == c:
-            x0 = lx[a] + 30
-            b.append(_num(x0 - 2, y, i + 1, m["color"]))
-            b.append(_r(x0 + 18, y - 18, 330, 36, 8, WHITE, m["color"], 1.6))
-            b.append(_t(x0 + 30, y - 2, m["text"], 10, 800, INK))
-            b.append(_t(x0 + 30, y + 12, m["sub"], 8.5, 700, SLATE, mono=True))
-            continue
-        xa = lx[a] + 380 if c > a else lx[a]
-        xc = lx[c] if c > a else lx[c] + 380
         active = i < shown
-        b.append(_flow([(xa, y), (xc, y)], m["color"] if active else "#CBD5E1", phase, None, 1.6, 3 if active else 2, True, 1 if active else 0, dash="10 7" if active else "4 6", track=active))
-        b.append(_num(min(xa, xc) + 24, y - 20, i + 1, m["color"]))
-        b.append(_t((xa + xc) / 2, y - 14, m["text"], 10.5, 800, INK, "middle"))
-        b.append(_t((xa + xc) / 2, y + 20, m["sub"], 8.5, 700, SLATE, "middle", mono=True))
+        col = m["color"] if active else "#94A3B8"
+        if a == c:
+            cw = 376
+            x0 = cx[a] - cw / 2
+            b.append(_r(x0, y - 20, cw, 40, 8, WHITE, col, 2.0 if active else 1.4))
+            b.append(_num(x0 + 22, y, i + 1, col, 12))
+            b.append(_t(x0 + 42, y - 4, m["text"], 10.2, 800, INK))
+            b.append(_t(x0 + 42, y + 12, m["sub"], 8.6, 700, SLATE, mono=True))
+            continue
+        xa, xc = cx[a], cx[c]
+        b.append(_flow([(xa, y), (xc, y)], col, phase, None, 1.6, 3.0 if active else 2.0, True, 1 if active else 0, dash="10 7" if active else "4 6", track=active))
+        b.append(f'<circle cx="{xa:.1f}" cy="{y:.1f}" r="4.5" fill="{col}"/>')
+        mid_x = (xa + xc) / 2
+        cw = 432
+        card_x = mid_x - cw / 2
+        b.append(_r(card_x, y - 20, cw, 40, 8, WHITE, col, 1.8 if active else 1.2))
+        b.append(_num(card_x + 22, y, i + 1, col, 12))
+        b.append(_t(card_x + 42, y - 4, m["text"], 10.2, 800, INK))
+        dir_tag = "→" if c > a else "←"
+        b.append(_t(card_x + 42, y + 12, f"{dir_tag} {m['sub']}", 8.6, 700, SLATE, mono=True))
     for i, nt in enumerate(s["notes"][:3]):
-        x = 56 + i * 504
-        b.append(_r(x, 800, 480, 72, 10, WHITE, nt["color"], 1.6))
-        b.append(_r(x, 800, 8, 72, 4, nt["color"]))
-        b.append(_t(x + 20, 822, nt["head"], 10, 800, nt["color"]))
-        b.append(_tl(x + 20, 840, _wrap(nt["body"], 68, 2), 10, 600, "#1E293B", 14))
+        x = 56 + i * 510
+        b.append(_r(x, 796, 488, 78, 10, WHITE, nt["color"], 1.6))
+        b.append(_r(x, 796, 8, 78, 4, nt["color"]))
+        b.append(_t(x + 20, 816, nt["head"], 10, 800, nt["color"]))
+        b.append(_tl(x + 20, 833, _wrap(nt["body"], 64, 3), 9.6, 600, "#1E293B", 13))
     b.append(_r(56, 886, 1508, 44, 10, NAVY))
     b.append(_t(810, 913, s["rule"], 12.5, 800, WHITE, "middle"))
     return _frame("T27", META["T27"], s["title"], s["subtitle"], b, s["source"], s["lineage"])
@@ -565,13 +589,13 @@ def render_t29(s: Dict[str, Any], phase: Optional[float] = None) -> str:
         if show >= 2:
             b.append(_ht(gx + 72, gy + 48, str(v), 30, 800, PURPLE, "middle"))
             b.append(_ht(gx + 72, gy + 78, lbl, 8.5, 700, SLATE, "middle"))
-    b.append(_ht(590, 290, "judge", 10, 800, SLATE, "middle", extra='transform="rotate(-90 590 290)"'))
+    b.append(_ht(586, 290, "judge", 10, 800, SLATE, "middle", extra='transform="rotate(-90 586 290)"'))
     b.append(_ht(560, 470, "③ Observed agreement", 15, 800, BLUE))
     if show >= 3:
         b.append(_ht(560, 500, f"po = (a + d) / n = ({a} + {d}) / {n} = {po:.2f}", 15, 800, INK))
     b.append(_ht(560, 548, "④ Agreement expected by pure chance", 15, 800, AMBER))
     if show >= 4:
-        b.append(_ht(560, 578, f"P(human PASS) = {a + c}/{n} = {ph_:.1f}    P(judge PASS) = {a + bb}/{n} = {pj:.1f}", 13, 800, INK))
+        b.append(_ht(560, 578, f"P(human PASS) = {a + c}/{n} = {ph_:.1f}   •   P(judge PASS) = {a + bb}/{n} = {pj:.1f}", 13, 800, INK))
         b.append(_ht(560, 604, f"pe = {ph_:.1f}×{pj:.1f} + {1 - ph_:.1f}×{1 - pj:.1f} = {ph_ * pj:.2f} + {(1 - ph_) * (1 - pj):.2f} = {pe:.2f}", 15, 800, INK))
     b.append(_ht(560, 652, "⑤ Cohen's kappa = (po − pe) / (1 − pe)", 15, 800, GREEN))
     if show >= 5:
@@ -589,8 +613,9 @@ def render_t29(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b.append(_ht(1150, 528, "Why not plain agreement (80%)?", 12, 800, "#92400E"))
     b.append(_htl(1150, 550, _wrap(s["why_kappa"], 46, 5), 11.5, 700, "#1E293B", 17))
     b.append(_ht(1150, 660, "Landis & Koch (1977) bands; recompute every release.", 10.5, 700, SLATE))
-    path = [(140, 560), (460, 560), (460, 290), (600, 290), (600, 470), (560, 684), (1120, 684), (1120, 230), (1140, 230)]
-    b.append(_flow(path, SKY, phase, None, 5.0, 2.4, True, 2, dash="6 6", track=False))
+    # Route dashed connectors cleanly through the column gutters without crossing text
+    b.append(_flow([(250, 572), (496, 572), (496, 282), (566, 282)], SKY, phase, None, 2.8, 2.2, True, 1, dash="6 6", track=False))
+    b.append(_flow([(980, 678), (1096, 678), (1096, 358), (1146, 358)], GREEN, phase, None, 2.8, 2.2, True, 1, dash="6 6", track=False))
     b.append(_r(56, 760, 1508, 92, 12, NAVY))
     b.append(_ht(78, 790, "DO THIS WITH YOUR OWN JUDGE (20 MINUTES)", 12, 800, "#93C5FD"))
     for i, stp in enumerate(s["today"][:3]):
@@ -726,13 +751,20 @@ def render_t32(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     for i, p in enumerate(s["patterns"][:4]):
         x, y = 720 + (i % 2) * 424, 136 + (i // 2) * 224
         b.append(_card_head(x, y, 412, 212, p["color"], f"{p['name'].upper()}  •  {p['maturity']}", head_h=26))
-        b += _schematic(p["kind"], x + 14, y + 36, 384, 92, p["color"], phase) if p["kind"] in ("evaluator", "agent") else []
+        if p["kind"] == "evaluator":
+            cy = y + 84
+            b.append(_t(x + 206, y + 44, "loop until evaluator says 'meets the bar' (or max rounds)", 8.6, 700, SLATE, "middle"))
+            b.append(_mb(x + 20, cy - 16, 108, 32, "Generator LLM", p["color"]))
+            b.append(_fl([(x + 128, cy - 7), (x + 244, cy - 7)], p["color"], phase, label="draft"))
+            b.append(_mb(x + 246, cy - 16, 110, 32, "Evaluator LLM", AMBER))
+            b.append(_fl([(x + 246, cy + 9), (x + 128, cy + 9)], AMBER, phase, label="feedback", dash="4 4"))
+            b.append(_fl([(x + 301, cy + 16), (x + 301, cy + 40), (x + 392, cy + 40)], GREEN, phase, label="accepted"))
         if p["kind"] == "tools":
-            b.append(_mb(x + 24, y + 70, 110, 34, "LLM", p["color"]))
+            b.append(_mb(x + 18, y + 70, 96, 34, "LLM", p["color"]))
             for j, t in enumerate(["web search", "code exec", "calendar"]):
-                b.append(_fl([(x + 134, y + 87), (x + 190, y + 50 + j * 36)], p["color"], phase))
-                b.append(_mb(x + 192, y + 36 + j * 36, 96, 28, t, p["color"]))
-            b.append(_t(x + 320, y + 92, "calls, reads, acts", 9, 700, SLATE, "middle"))
+                b.append(_fl([(x + 114, y + 87), (x + 166, y + 50 + j * 36)], p["color"], phase))
+                b.append(_mb(x + 168, y + 36 + j * 36, 94, 28, t, p["color"]))
+            b.append(_t(x + 336, y + 91, "calls, reads, acts", 8.8, 700, SLATE, "middle"))
         if p["kind"] == "planning":
             steps = ["goal", "step 1", "step 2", "step 3", "done"]
             for j, t in enumerate(steps):
@@ -788,7 +820,7 @@ def render_t33(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     for tsk in s["outside"]:
         x, y = tsk["x"], tsk["y"]
         b.append(f'<circle cx="{x}" cy="{y}" r="9" fill="{RED}" stroke="{WHITE}" stroke-width="2.5"/>')
-        b.append(_tl(x + 14, y - 2, _wrap(tsk["label"], 26, 2), 10.5, 800, "#7F1D1D", 12))
+        b.append(_tl(x + 14, y - 2, _wrap(tsk["label"], 22, 2), 10.2, 800, "#7F1D1D", 12))
     b.append(_t(540, 858, s["map_note"], 9.5, 700, SLATE, "middle"))
     b.append(_card_head(1040, 136, 524, 300, BLUE, "THE STUDY BEHIND THE IDEA (DELL'ACQUA ET AL., 2023 — 758 BCG CONSULTANTS)"))
     for i, st in enumerate(s["stats"][:4]):
@@ -820,22 +852,23 @@ def render_t34(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b.append(_r(56, 136, 920, 740, 14, WHITE, LINE, 1.8))
     for (cx_, cy_), col, circ in zip(cxs, cols, s["circles"]):
         b.append(f'<circle cx="{cx_}" cy="{cy_}" r="{r}" fill="{col}" fill-opacity="0.16" stroke="{col}" stroke-width="2.5"/>')
-    labels_pos = [(230, 258), (790, 258), (510, 826)]
+    labels_pos = [(230, 258), (790, 258), (510, 816)]
     anchors = ["start", "end", "middle"]
-    for (lx, ly), anc, col, circ in zip(labels_pos, anchors, cols, s["circles"]):
+    for idx_c, ((lx, ly), anc, col, circ) in enumerate(zip(labels_pos, anchors, cols, s["circles"])):
         b.append(_t(lx, ly, circ["name"], 12.5, 800, col, anc))
-        b.append(_tl(lx, ly + 16, _wrap(circ["examples"], 34, 2), 9.5, 700, SLATE, 12, anc))
+        wrap_w, max_l = (60, 1) if idx_c == 2 else (34, 2)
+        b.append(_tl(lx, ly + 16, _wrap(circ["examples"], wrap_w, max_l), 9.5, 700, SLATE, 12, anc))
     b.append(f'<circle cx="510" cy="482" r="58" fill="{RED}" fill-opacity="0.9" class="breathe"/>')
-    b.append(_t(510, 476, "LETHAL", 12, 800, WHITE, "middle"))
-    b.append(_t(510, 492, "TRIFECTA", 12, 800, WHITE, "middle"))
-    b.append(_t(510, 508, "data walks out", 8.5, 800, "#FECACA", "middle"))
+    b.append(_t(510, 462, "LETHAL", 11.5, 800, WHITE, "middle"))
+    b.append(_t(510, 476, "TRIFECTA", 11.5, 800, WHITE, "middle"))
+    b.append(_t(510, 490, "data walks out", 8.5, 800, "#FECACA", "middle"))
     for (cx_, cy_), col in zip(cxs, cols):
-        b.append(_flow([(cx_, cy_), (510 + (cx_ - 510) * 0.32, 482 + (cy_ - 482) * 0.32)], col, phase, None, 1.8, 2, True, 1, dash="5 5", track=False))
+        b.append(_flow([(cx_, cy_), (510 + (cx_ - 510) * 0.36, 482 + (cy_ - 482) * 0.36)], col, phase, None, 1.8, 2, True, 1, dash="5 5", track=False))
     for st in s["setups"]:
         x, y = st["x"], st["y"]
         b.append(f'<circle cx="{x}" cy="{y}" r="11" fill="{st["color"]}" stroke="{WHITE}" stroke-width="2.5"/>')
         b.append(_t(x, y + 4, st["id"], 9.5, 800, WHITE, "middle"))
-    b.append(_t(516, 858, s["venn_note"], 9.5, 700, SLATE, "middle"))
+    b.append(_t(516, 860, s["venn_note"], 9.5, 700, SLATE, "middle"))
     b.append(_card_head(1000, 136, 564, 470, RED, "SIX REAL SETUPS — WHICH LEGS DO THEY HAVE?"))
     for i, st in enumerate(s["setups"][:6]):
         y = 176 + i * 70
@@ -847,10 +880,10 @@ def render_t34(s: Dict[str, Any], phase: Optional[float] = None) -> str:
         b.append(_tl(1058, y + 40, _wrap(st["why"], 72, 1), 9.5, 600, "#1E293B", 12))
     b.append(_card_head(1000, 626, 564, 250, GREEN, "THE FIX IS STRUCTURAL: REMOVE ONE LEG"))
     for i, fx in enumerate(s["fixes"][:3]):
-        y = 666 + i * 64
-        b.append(_r(1016, y, 532, 54, 8, "#ECFDF5", "#6EE7B7", 1.2))
-        b.append(_t(1030, y + 20, fx["head"], 10.5, 800, "#065F46"))
-        b.append(_tl(1030, y + 38, _wrap(fx["body"], 74, 1), 9.5, 700, "#064E3B", 12))
+        y = 664 + i * 66
+        b.append(_r(1016, y, 532, 58, 8, "#ECFDF5", "#6EE7B7", 1.2))
+        b.append(_t(1030, y + 18, fx["head"], 10.2, 800, "#065F46"))
+        b.append(_tl(1030, y + 34, _wrap(fx["body"], 76, 2), 9.2, 700, "#064E3B", 12))
     b.append(_r(56, 892, 1508, 40, 10, NAVY))
     b.append(_t(810, 917, s["rule"], 12, 800, WHITE, "middle"))
     return _frame("T34", META["T34"], s["title"], s["subtitle"], b, s["source"], s["lineage"])
@@ -862,26 +895,26 @@ def render_t34(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 def render_t35(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b: List[str] = []
     b.append(_r(56, 136, 980, 740, 14, WHITE, LINE, 1.8))
-    b.append(_mb(76, 480, 110, 60, "User question (open-ended research)", SLATE, size=10))
+    b.append(_mb(76, 480, 110, 60, "User question (open-ended)", SLATE, size=10))
     b.append(_fl([(186, 510), (236, 510)], SLATE, phase, 1.4))
     b.append(_card_head(240, 440, 220, 140, PURPLE, "LEAD AGENT (ORCHESTRATOR)", head_h=24))
     b.append(_tl(254, 486, _wrap(s["lead"], 30, 5), 10, 700, INK, 14))
     subs = s["subagents"][:4]
     for i, sa in enumerate(subs):
-        y = 176 + i * 150
-        b.append(_fl([(460, 510), (500, y + 50), (536, y + 50)], PURPLE, phase, 1.8, "spawn" if i == 0 else None, dash="4 4"))
-        b.append(_card_head(540, y, 250, 100, sa["color"], sa["badge"], head_h=22))
-        b.append(_tl(552, y + 42, _wrap(sa["task"], 36, 3), 9.5, 700, INK, 13))
-        b.append(_t(552, y + 90, sa["budget"], 8.5, 800, sa["color"], mono=True))
-        b.append(_fl([(790, y + 50), (826, y + 50), (860, 510), (884, 510)], sa["color"], phase, 2.0, dash="6 5"))
-    b.append(_card_head(886, 460, 130, 100, GREEN, "SYNTHESIS", head_h=22))
-    b.append(_tl(896, 500, _wrap(s["synthesis"], 16, 3), 9.5, 700, INK, 13))
+        y = 160 + i * 132
+        b.append(_fl([(460, 510), (500, y + 48), (536, y + 48)], PURPLE, phase, 1.8, "spawn" if i == 0 else None, dash="4 4"))
+        b.append(_card_head(540, y, 250, 96, sa["color"], sa["badge"], head_h=22))
+        b.append(_tl(552, y + 40, _wrap(sa["task"], 36, 3), 9.5, 700, INK, 12.5))
+        b.append(_t(552, y + 86, sa["budget"], 8.5, 800, sa["color"], mono=True))
+        b.append(_fl([(790, y + 48), (826, y + 48), (860, 510), (884, 510)], sa["color"], phase, 2.0, dash="6 5"))
+    b.append(_card_head(886, 460, 134, 100, GREEN, "SYNTHESIS", head_h=22))
+    b.append(_tl(896, 498, _wrap(s["synthesis"], 18, 4), 9.5, 700, INK, 13))
     b.append(_fl([(951, 560), (951, 600)], GREEN, phase, 1.2))
-    b.append(_card_head(846, 604, 170, 76, TEAL, "CITATION AGENT", head_h=22))
-    b.append(_tl(858, 646, _wrap(s["citations"], 24, 2), 9.5, 700, INK, 13))
+    b.append(_card_head(846, 604, 174, 76, TEAL, "CITATION AGENT", head_h=22))
+    b.append(_tl(858, 646, _wrap(s["citations"], 24, 3), 9.5, 700, INK, 13))
     b.append(_fl([(931, 680), (931, 720)], TEAL, phase, 1.2))
-    b.append(_mb(846, 724, 170, 50, "Answer with sources", GREEN, size=10))
-    b.append(_r(76, 700, 700, 160, 10, "#F8FAFC", LINE, 1.4))
+    b.append(_mb(846, 724, 174, 50, "Answer with sources", GREEN, size=10))
+    b.append(_r(76, 700, 720, 160, 10, "#F8FAFC", LINE, 1.4))
     b.append(_t(92, 724, "THE SCALING RULES THE LEAD AGENT IS TAUGHT (FROM THE POST)", 10, 800, INK))
     for i, rule in enumerate(s["scaling"][:3]):
         b.append(_t(92, 750 + i * 32, "→", 12, 800, PURPLE))
@@ -889,9 +922,9 @@ def render_t35(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b.append(_card_head(1060, 136, 504, 420, NAVY, "THE NUMBERS ANTHROPIC REPORTED"))
     for i, st in enumerate(s["numbers"][:4]):
         y = 176 + i * 92
-        b.append(_r(1076, y, 472, 80, 8, "#F8FAFC", st["color"], 1.6))
-        b.append(_t(1092, y + 36, st["value"], 24, 800, st["color"]))
-        b.append(_tl(1092, y + 60, _wrap(st["label"], 64, 1), 10, 700, "#1E293B", 13))
+        b.append(_r(1076, y, 472, 82, 8, "#F8FAFC", st["color"], 1.6))
+        b.append(_t(1092, y + 32, st["value"], 23, 800, st["color"]))
+        b.append(_tl(1092, y + 52, _wrap(st["label"], 64, 2), 9.6, 700, "#1E293B", 12.5))
         b.append(_t(1536, y + 20, st["tag"], 8.5, 800, SLATE, "end", mono=True))
     b.append(_card_head(1060, 576, 504, 300, AMBER, "USE IT ONLY WHEN THE TASK LOOKS LIKE THIS"))
     for i, c in enumerate(s["use_when"][:3]):
@@ -917,8 +950,8 @@ def render_t36(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     base_y, scale = 700, 640
     g = _grow(phase)
     running = 0.0
-    x = 80
-    bw, gap = 88, 20
+    x = 76
+    bw, gap = 72, 15
     prev_top: Optional[Tuple[float, float]] = None
     shown = _reveal(phase, len(steps)) if phase is not None else len(steps)
     for i, st in enumerate(steps):
@@ -926,7 +959,7 @@ def render_t36(s: Dict[str, Any], phase: Optional[float] = None) -> str:
         if kind == "total":
             top = base_y - running * scale * g
             b.append(_r(x, top, bw, running * scale * g, 4, st["color"]))
-            b.append(_t(x + bw / 2, top - 8, f"${running:.2f}", 12, 800, INK, "middle"))
+            b.append(_t(x + bw / 2, top - 8, f"${running:.2f}", 11.5, 800, INK, "middle"))
         else:
             delta = st["value"]
             if i >= shown:
@@ -936,11 +969,11 @@ def render_t36(s: Dict[str, Any], phase: Optional[float] = None) -> str:
             y1 = base_y - running * scale * g
             top, h = min(y0, y1), abs(y1 - y0)
             b.append(_r(x, top, bw, max(2, h), 4, st["color"]))
-            b.append(_t(x + bw / 2, top - 8, f"{'+' if delta >= 0 else '−'}${abs(delta):.2f}", 11, 800, st["color"], "middle"))
+            b.append(_t(x + bw / 2, top - 8, f"{'+' if delta >= 0 else '−'}${abs(delta):.2f}", 10.5, 800, st["color"], "middle"))
             if prev_top is not None:
                 b.append(f'<line x1="{prev_top[0]}" y1="{prev_top[1]}" x2="{x}" y2="{y0}" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>')
             prev_top = (x + bw, y1)
-        b.append(_tl(x + bw / 2, base_y + 20, _wrap(st["label"], 14, 3), 9.5, 800, SLATE, 12, "middle"))
+        b.append(_tl(x + bw / 2, base_y + 20, _wrap(st["label"], 13, 3), 9, 800, SLATE, 11.5, "middle"))
         x += bw + gap
     b.append(f'<line x1="72" y1="{base_y}" x2="1040" y2="{base_y}" stroke="#334155" stroke-width="1.5"/>')
     b.append(_flow([(72, 180), (1040, 180)], BLUE, phase, None, 4.0, 2, True, 2, dash="6 6", track=False))
@@ -990,7 +1023,7 @@ def render_t37(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b.append(_r(56, 866, 1508, 64, 12, NAVY))
     b.append(_t(78, 890, "ACTION ITEMS (OWNER • DUE)", 10, 800, "#93C5FD"))
     for i, ai in enumerate(s["actions"][:3]):
-        b.append(_t(78 + i * 500, 914, ai, 10.5, 800, WHITE))
+        b.append(_t(78 + i * 494, 914, ai, 10.0, 800, WHITE))
     return _frame("T37", META["T37"], s["title"], s["subtitle"], b, s["source"], s["lineage"])
 
 
@@ -1000,27 +1033,27 @@ def render_t37(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 def render_t38(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b: List[str] = []
     for (x, w, col, fill, head, lines, notes) in [
-        (56, 664, RED, "#FFF5F5", s["bad_head"], s["bad_lines"], s["bad_notes"]),
-        (880, 684, GREEN, "#F0FDF4", s["good_head"], s["good_lines"], s["good_notes"]),
+        (56, 628, RED, "#FFF5F5", s["bad_head"], s["bad_lines"], s["bad_notes"]),
+        (908, 656, GREEN, "#F0FDF4", s["good_head"], s["good_lines"], s["good_notes"]),
     ]:
         b.append(_r(x, 136, w, 560, 12, fill, col, 2))
         b.append(_r(x, 136, w, 34, 10, col))
         b.append(_t(x + 16, 158, head, 11.5, 800, WHITE))
         b.append(_r(x + 12, 182, w - 24, 330, 6, "#0F172A"))
         for i, ln in enumerate(lines[:19]):
-            b.append(_t(x + 24, 202 + i * 17, ln, 10, 700, "#F8FAFC" if not ln.strip().startswith("//") else "#86EFAC", mono=True))
+            b.append(_t(x + 20, 202 + i * 17, ln, 9.6, 700, "#F8FAFC" if not ln.strip().startswith("//") else "#86EFAC", mono=True))
         for i, nt in enumerate(notes[:4]):
             y = 526 + i * 40
             b.append(_t(x + 16, y + 10, "✘" if col == RED else "✓", 13, 800, col))
-            b.append(_tl(x + 36, y + 6, _wrap(nt, 86, 2), 10, 700, "#1E293B", 13))
+            b.append(_tl(x + 36, y + 6, _wrap(nt, 82, 2), 9.8, 700, "#1E293B", 13))
     for i, tr in enumerate(s["arrows"][:4]):
-        y = 212 + i * 80
-        b.append(_flow([(722, y), (760 + i * 14, y), (760 + i * 14, y + 26), (876, y + 26)], tr["color"], phase, tr["label"], 1.8, 2.6, True, 1, dash="7 6", label_at=0.86, label_dy=-16))
+        y = 228 + i * 80
+        b.append(_flow([(686, y), (904, y)], tr["color"], phase, tr["label"], 1.8, 2.6, True, 1, dash="7 6", label_at=0.5, label_dy=-15))
     for i, rl in enumerate(s["rules"][:5]):
         x = 56 + i * 302
         b.append(_r(x, 716, 290, 150, 10, WHITE, rl["color"], 1.8))
         b.append(_r(x, 716, 290, 26, 8, rl["color"]))
-        b.append(_t(x + 12, 734, f"RULE {i + 1} • {rl['name']}", 9.5, 800, WHITE))
+        b.append(_t(x + 12, 734, f"RULE {i + 1} • {rl['name']}", 9.2, 800, WHITE))
         b.append(_tl(x + 12, 762, _wrap(rl["body"], 40, 5), 10, 600, "#1E293B", 14))
         b.append(_t(x + 12, 856, rl["example"], 8.5, 800, rl["color"], mono=True))
     b.append(_r(56, 886, 1508, 44, 10, NAVY))
@@ -1075,7 +1108,7 @@ def render_t39(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 # ----------------------------------------------------------------------------------------------------------------------
 def render_t40(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b: List[str] = []
-    x0, y0, x1, y1 = 120, 170, 1040, 760
+    x0, y0, x1, y1 = 120, 170, 1004, 760
     b.append(_r(56, 136, 1024, 690, 12, WHITE, LINE, 1.8))
     pts_v = s["points"]
     mxv = max(p["value"] for p in pts_v)
@@ -1091,20 +1124,23 @@ def render_t40(s: Dict[str, Any], phase: Optional[float] = None) -> str:
         b.append(_t(x0 - 10, gy + 4, f"{mxv * k / 4:.0f}{s['unit']}", 9.5, 700, SLATE, "end"))
     for i, (px, py) in enumerate(coords):
         b.append(_t(px, y1 + 18, pts_v[i]["x"], 9.5, 700, SLATE, "middle"))
-    reveal_n = n if phase is None else max(2, int(phase * (n - 1)) + 2)
+    reveal_n = max(2, _reveal(phase, n))
     b.append(_flow(coords[:reveal_n], BLUE, phase, None, 5.0, 3.4, False, 1, track=False, solid=True))
     for i, (px, py) in enumerate(coords[:reveal_n]):
         b.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="5.5" fill="{BLUE}" stroke="{WHITE}" stroke-width="2"/>')
         b.append(_t(px, py - 12, f"{pts_v[i]['value']}{s['unit']}", 9.5, 800, INK, "middle"))
+    flag_ys = [188, 188, 232, 188]
     for j, ev in enumerate(s["events"][:4]):
         idx = ev["point_index"]
         if idx >= reveal_n:
             continue
         px, py = coords[idx]
-        fx, fy = px, 196 + j * 0
-        b.append(f'<line x1="{px}" y1="{py}" x2="{px}" y2="{fy + 30}" stroke="{ev["color"]}" stroke-width="1.6" stroke-dasharray="4 4"/>')
-        b.append(_r(px - 70, fy, 140, 30, 6, ev["color"]))
-        b.append(_t(px, fy + 19, f"{j + 1}. {ev['flag']}", 9.5, 800, WHITE, "middle"))
+        fy = flag_ys[j] if j < len(flag_ys) else 188
+        fw = 132
+        fx = min(max(px - fw / 2, x0), 1068 - fw)
+        b.append(f'<line x1="{px}" y1="{py - 22}" x2="{px}" y2="{fy + 28}" stroke="{ev["color"]}" stroke-width="1.6" stroke-dasharray="4 4"/>')
+        b.append(_r(fx, fy, fw, 28, 6, ev["color"]))
+        b.append(_t(fx + fw / 2, fy + 18, f"{j + 1}. {ev['flag']}", 9.2, 800, WHITE, "middle"))
     b.append(_t(568, 800, s["chart_note"], 9.5, 700, SLATE, "middle"))
     b.append(_card_head(1104, 136, 460, 690, NAVY, "WHAT EACH FLAG CHANGED"))
     for j, ev in enumerate(s["events"][:4]):
@@ -1129,12 +1165,12 @@ def render_t40(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 # ----------------------------------------------------------------------------------------------------------------------
 META: Dict[str, Dict[str, Any]] = {
     "T21": {"name": "Pattern Picker", "best_for_short": "Which agent pattern to use", "content_types": ["Educational", "Grounded concepts", "Professional knowledge sharing"], "when_to_use": "A reader asks 'should this be a chain, a router, parallel calls, an orchestrator, an evaluator loop, or an agent?'", "dynamic": "Six live mini-schematics with packets; gate diamonds; feedback loops.", "lineage": "Anthropic, Building effective agents (Dec 2024)"},
-    "T22": {"name": "Claude Code Playbook", "best_for_short": "Copy-paste agentic coding", "content_types": ["Working solution", "Professional knowledge sharing", "Easy to understand"], "when_to_use": "Teach the Explore → Plan → Code → Commit loop with the exact prompts and the thinking-budget keywords.", "dynamic": "Phase arrows, growing thinking-budget bars, TDD loop-back arrow.", "lineage": "Anthropic, Claude Code best practices (Apr 2025)"},
+    "T22": {"name": "Claude Code Playbook", "best_for_short": "Copy-paste agentic coding", "content_types": ["Working solution", "Professional knowledge sharing", "Easy to understand"], "when_to_use": "Teach the Explore → Plan → Code → Commit loop + Boris Cherny's 10 internal Claude Code habits (/loop, /desktop, /context, Goal+Effort+Check).", "dynamic": "Phase arrows, growing thinking-budget bars, TDD loop-back arrow.", "lineage": "Charlie Hills (Boris Cherny 10 Claude Code tips & 42 add-ons) • Anthropic Claude Code guide"},
     "T23": {"name": "Context Budget Ledger", "best_for_short": "Token budgets & compaction", "content_types": ["Grounded concepts", "Information", "Working solution"], "when_to_use": "Show exactly where 200K tokens go and what compaction + just-in-time retrieval frees up.", "dynamic": "Stacked ledgers grow; packets migrate from the bloated budget to the lean one.", "lineage": "Anthropic, Effective context engineering (Sep 2025)"},
     "T24": {"name": "Error Analysis Board", "best_for_short": "Evals that start from real traces", "content_types": ["Evaluation results", "Professional knowledge sharing", "Working solution"], "when_to_use": "Walk a team from 100 traces to a failure taxonomy, a Pareto, and a binary judge per failure mode.", "dynamic": "Notes flow into taxonomy buckets; Pareto bars grow.", "lineage": "Hamel Husain & Shreya Shankar, AI Evals method"},
     "T25": {"name": "Judge Calibration Card", "best_for_short": "Trustworthy LLM-as-a-judge", "content_types": ["Evaluation results", "Research topics", "Professional knowledge sharing"], "when_to_use": "Before anyone quotes a judge score: confusion matrix vs humans, known biases, the fix for each, a prompt skeleton.", "dynamic": "Matrix cells reveal in sequence; bias → fix arrows carry packets.", "lineage": "Eugene Yan • Shreya Shankar • MT-Bench (Zheng et al. 2023)"},
     "T26": {"name": "Trajectory Scorecard", "best_for_short": "Scoring agent tool calls", "content_types": ["Evaluation results", "Proof of concept", "Grounded concepts"], "when_to_use": "Explain how to grade an agent's tool-call sequence, not just its final answer.", "dynamic": "Packets step through expected vs actual calls; metric rows compute live.", "lineage": "Google, Agents Companion whitepaper (Feb 2025)"},
-    "T27": {"name": "How-It-Works Walkthrough", "best_for_short": "Protocol explainers (MCP)", "content_types": ["Educational", "Easy to understand", "Information"], "when_to_use": "A ByteByteGo-style numbered walkthrough of a protocol or system, one message per step.", "dynamic": "Numbered messages light up in order with packets between lanes.", "lineage": "Alex Xu / ByteByteGo format • MCP specification"},
+    "T27": {"name": "How-It-Works Walkthrough", "best_for_short": "Protocol explainers (MCP)", "content_types": ["Educational", "Easy to understand", "Information"], "when_to_use": "A numbered sequence & lifeline walkthrough of a protocol or control plane (MCP 9-message JSON-RPC 2.0 flow).", "dynamic": "Numbered message cards light up in order with packets traveling across 3 lifelines.", "lineage": "Brij Kishore Pandey (7-Layer Control Plane & MCP) • ByteByteGo • MCP specification"},
     "T28": {"name": "Sketch Explainer", "best_for_short": "Hand-drawn concept cards", "content_types": ["Educational", "Easy to understand", "Grounded concepts"], "when_to_use": "A warm, sketched comparison of 5 options (here: chunking strategies) with 'start with' defaults.", "dynamic": "Scissor packets travel the cut lines; tilted cards; marker typography.", "lineage": "Avi Chawla & Akshay Pachaar sketch format • Anthropic Contextual Retrieval (Sep 2024)"},
     "T29": {"name": "AI by Hand", "best_for_short": "Worked calculations", "content_types": ["Educational", "Evaluation results", "Grounded concepts"], "when_to_use": "Readers verify the math themselves: here Cohen's kappa for judge vs human agreement on grid paper.", "dynamic": "Steps reveal one by one; a packet traces the computation path.", "lineage": "Tom Yeh, AI by Hand format"},
     "T30": {"name": "Paper of the Day", "best_for_short": "30-second paper digests", "content_types": ["Research topics", "Information", "Educational"], "when_to_use": "One paper, one recreated chart, problem/method/result, caveats, and a read/skim/skip verdict.", "dynamic": "Chart bars grow; verdict gauge fills; method pipeline carries a packet.", "lineage": "Pascal Biese (LLM Watch) & Elvis Saravia (DAIR.AI) digest format"},
@@ -1144,8 +1180,8 @@ META: Dict[str, Dict[str, Any]] = {
     "T34": {"name": "Lethal Trifecta Venn", "best_for_short": "5-second agent security test", "content_types": ["Easy to understand", "Grounded concepts", "Professional knowledge sharing"], "when_to_use": "Any agent that has private data + untrusted content + outbound comms can be made to leak; show which leg to remove.", "dynamic": "Packets from each circle converge on a pulsing danger core.", "lineage": "Simon Willison, The lethal trifecta for AI agents (Jun 2025)"},
     "T35": {"name": "Orchestrator + Subagents", "best_for_short": "Multi-agent research systems", "content_types": ["Grounded concepts", "Research topics", "Working solution"], "when_to_use": "Explain lead/subagent fan-out and when 15x tokens is worth it, with Anthropic's reported numbers.", "dynamic": "Spawn packets fan out and results fan back in to synthesis.", "lineage": "Anthropic, How we built our multi-agent research system (Jun 2025)"},
     "T36": {"name": "Cost Waterfall", "best_for_short": "Where the money goes", "content_types": ["Evaluation results", "Information", "Professional knowledge sharing"], "when_to_use": "Decompose cost per task into tokens, tools, retries, judges — then show the four levers.", "dynamic": "Waterfall bars drop in sequence; a scan packet crosses the chart.", "lineage": "Chip Huyen-style practical AI economics"},
-    "T37": {"name": "Incident Postmortem", "best_for_short": "AgentOps war stories", "content_types": ["Easy to understand", "Professional knowledge sharing", "Working solution"], "when_to_use": "Tell the $84 retry-storm story on a timeline and name the control that would have stopped it at each step.", "dynamic": "Severity packets run down the timeline; green control cards attach per event.", "lineage": "Google SRE postmortem format applied to AgentOps"},
-    "T38": {"name": "Tool Spec Clinic", "best_for_short": "Tool definitions agents use well", "content_types": ["Working solution", "Proof of concept", "Professional knowledge sharing"], "when_to_use": "Bad vs good tool JSON side by side with the five rules from Anthropic's tool-writing guide.", "dynamic": "Transformation arrows jump from each flaw to its fix.", "lineage": "Anthropic, Writing effective tools for agents (Sep 2025)"},
+    "T37": {"name": "Incident Postmortem", "best_for_short": "AgentOps & Kill-Switch", "content_types": ["Easy to understand", "Professional knowledge sharing", "Working solution"], "when_to_use": "Tell the $84 retry-storm story on a timeline and name the control + kill-switch that stops it at each step.", "dynamic": "Severity packets run down the timeline; green control cards attach per event.", "lineage": "Brij Kishore Pandey (How Do We Turn It Off? & 10-Field Agent Record) • Google SRE Postmortem"},
+    "T38": {"name": "Tool Spec Clinic", "best_for_short": "Tool definitions agents use well", "content_types": ["Working solution", "Proof of concept", "Professional knowledge sharing"], "when_to_use": "Bad vs good tool JSON side by side with the five rules from Anthropic's tool-writing guide.", "dynamic": "Transformation arrows jump from each flaw to its fix.", "lineage": "Anthropic (Writing effective tools) • Brij Kishore Pandey (5-Layer Claude Code ADK & SKILL.md)"},
     "T39": {"name": "Memory Design Matrix", "best_for_short": "Agent memory decisions", "content_types": ["Grounded concepts", "Educational", "Information"], "when_to_use": "One request touches four memory types; decide what to store where, with freshness rules.", "dynamic": "A request packet touches each memory store before the agent acts.", "lineage": "CoALA (Sumers et al. 2023) • Lilian Weng (2023) • Aishwarya Naresh Reganti memory infographics"},
     "T40": {"name": "One-Chart Changelog", "best_for_short": "Cause → effect on one metric", "content_types": ["Evaluation results", "Proof of concept", "Ideas"], "when_to_use": "One metric over time, four annotated architecture changes, what each changed — build-in-public style.", "dynamic": "The line draws progressively; flags appear as the line reaches them.", "lineage": "Nate B. Jones 'one chart' • Santiago Valdarrama build-in-public"},
 }
@@ -1216,25 +1252,25 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
         },
         "T22": {
             "title": "The Claude Code Loop That Ships: Explore → Plan → Code → Commit (with the exact words to type)",
-            "subtitle": "From Anthropic's own best-practices guide. The single biggest lever: give the agent a way to verify its work (tests, screenshots) before it commits.",
-            "source": "Anthropic Engineering, 'Claude Code: Best practices for agentic coding' (Apr 2025)",
-            "lineage": "Anthropic, Claude Code best practices (Apr 2025)",
-            "rule": "Never let it code first. Explore (read-only) → Plan (think hard) → Code against the plan → Commit with a PR description. Verification beats cleverness.",
+            "subtitle": "Anthropic's best-practices guide + Charlie Hills's Boris Cherny 10-Change Cheatsheet (Goal + Effort + Check, /context, /loop, and 'Check it works in Chrome').",
+            "source": "Anthropic Engineering, 'Claude Code: Best practices for agentic coding' (Apr 2025) • Charlie Hills, 'How Does Boris Cherny Use Claude Code Now?' & '42 Things to Install'",
+            "lineage": "Charlie Hills (Boris Cherny 10 Claude Code changes & 42 add-ons) • Anthropic Claude Code guide",
+            "rule": "Never let it code first. Goal + Effort (/effort high) + Check ('Check it works in Chrome') → Explore → Plan → Code → Commit & fold repeat fixes into CLAUDE.md or a skill.",
             "phases": [
-                {"badge": "PHASE 1 • EXPLORE", "title": "Read before writing", "color": BLUE, "prompt": "Read src/auth/ and tests/test_auth.py. Do NOT write code yet. Summarize how token refresh works and where it could race.", "why": "Loading the right files first keeps the plan grounded in your code, not in guesses."},
-                {"badge": "PHASE 2 • PLAN", "title": "Make it think, then approve", "color": PURPLE, "prompt": "think hard: propose a plan to fix the refresh race. List files to change, the failing test to add first, and risks. Wait for my OK.", "why": "'think' < 'think hard' < 'think harder' < 'ultrathink' allocate progressively larger thinking budgets."},
-                {"badge": "PHASE 3 • CODE", "title": "Implement against the plan", "color": AMBER, "prompt": "Implement the approved plan. Add the failing test first, make it pass, run the full suite, and show me the diff before committing.", "why": "Tests give the agent a target it can verify itself — the loop closes without you."},
-                {"badge": "PHASE 4 • COMMIT", "title": "Ship with a paper trail", "color": GREEN, "prompt": "Commit with a message explaining the root cause, open a PR, and update CLAUDE.md with the new 'run auth tests' command.", "why": "Documentation written at commit time keeps the next session fast."},
+                {"badge": "PHASE 1 • EXPLORE", "title": "Read & check /context first", "color": BLUE, "prompt": "Read src/auth/ and tests/test_auth.py. Do NOT write code yet. Run /context to keep the window under 60% and summarize where token refresh could race.", "why": "Loading the right files first and pruning stale MCP tools with /context keeps the plan grounded."},
+                {"badge": "PHASE 2 • PLAN", "title": "Make it think, or Shift+Tab auto", "color": PURPLE, "prompt": "think hard (or /effort high): propose a plan to fix the refresh race. List files to change, the failing test to add first, and risks. Wait for my OK.", "why": "'think' < 'think hard' < 'think harder' < 'ultrathink' (and /effort high) allocate progressively larger reasoning budgets."},
+                {"badge": "PHASE 3 • CODE", "title": "Goal + Effort + Check in Chrome", "color": AMBER, "prompt": "Implement the approved plan. Add the failing test first, make it pass, run the full suite, and check it works in Chrome before showing me the diff.", "why": "Tests + real browser verification ('Check it works in Chrome') let the agent close the loop itself."},
+                {"badge": "PHASE 4 • COMMIT", "title": "Ship & promote to CLAUDE.md / skill", "color": GREEN, "prompt": "Commit with root cause, open a PR, and if you fixed a recurring mistake twice, fold the rule into CLAUDE.md or a reusable SKILL.md.", "why": "Boris Cherny's #10 rule: every repeated correction belongs in CLAUDE.md or a skill so the next session starts smarter."},
             ],
             "dial_title": "THINKING BUDGET DIAL (THE KEYWORDS ARE LITERAL)",
             "dial_keywords": ["think", "think hard", "think harder", "ultrathink"],
-            "dial_note": "Each phrase maps to a larger reasoning budget in Claude Code; use the big ones for planning, not for routine edits.",
-            "claude_md_title": "CLAUDE.md CHECKLIST (WHAT THE GUIDE SAYS TO PUT IN IT)",
-            "claude_md_items": ["Common bash commands (build, test, lint)", "Core files and utility functions", "Code style guidelines", "Testing instructions", "Repository etiquette (branch names, merge vs rebase)", "Developer environment setup (pyenv, compilers)", "Unexpected behaviors or warnings", "Keep it short; refine it like a prompt"],
+            "dial_note": "Pair with /effort high for architecture planning; use Shift+Tab auto mode once CLAUDE.md + tests lock the rails.",
+            "claude_md_title": "CLAUDE.md & BORIS CHERNY 10-CHANGE CHECKLIST (CHARLIE HILLS)",
+            "claude_md_items": ["Common bash commands (build, test, lint) + core files", "Prompting formula: Goal + Effort (/effort high) + Check", "Browser check: 'Check it works in Chrome' (Puppeteer/Playwright)", "Context hygiene: run > /context to prune unused MCP servers", "Parallel sessions: > claude agents + > /desktop worktrees", "Recurring loops: > /loop for polling & > /schedule for PR review", "Mobile continuity: > /remote-control from phone/tablet", "Keep CLAUDE.md under ~100 lines; move workflows to SKILL.md"],
             "variants": [
                 {"badge": "VARIANT A • TEST-DRIVEN", "title": "Write tests → commit → code → iterate → commit", "color": GREEN, "steps": ["write failing tests", "confirm they fail", "commit tests", "code until green", "commit"], "loop_back": "iterate", "detail": "Tell it explicitly: 'we are doing TDD, do not write implementation yet'. Then let it loop against the tests — this is where agents shine.", "command": "claude \"Write tests for the refresh race based on these cases; don't implement yet. Confirm they fail.\""},
                 {"badge": "VARIANT B • VISUAL ITERATION", "title": "Screenshot → implement → screenshot → compare", "color": PURPLE, "steps": ["paste mock", "implement", "screenshot", "compare", "repeat"], "loop_back": "until it matches", "detail": "Give it a way to see results (Puppeteer MCP, iOS simulator, or pasted screenshots). Output quality jumps after 2-3 visual iterations.", "command": "claude \"Implement this mock (pasted). Take a screenshot with the Puppeteer tool and iterate until it matches.\""},
-                {"badge": "VARIANT C • HEADLESS & PARALLEL", "title": "Automate with -p; parallelize with git worktrees", "color": SKY, "steps": ["claude -p", "CI hook", "worktree A", "worktree B", "merge"], "loop_back": None, "detail": "Headless mode runs in CI (issue triage, lint). Separate git worktrees let several Claude sessions work on independent tasks without stepping on each other.", "command": "claude -p \"Triage this issue and label it\" --output-format stream-json   |   git worktree add ../feat-a -b feat-a"},
+                {"badge": "VARIANT C • HEADLESS & PARALLEL", "title": "Automate with -p; parallelize with /desktop & worktrees", "color": SKY, "steps": ["claude -p", "/schedule", "worktree A", "worktree B", "merge"], "loop_back": None, "detail": "Headless mode (-p) and /schedule run in CI; /desktop and separate git worktrees let several Claude sessions work on independent tasks in parallel.", "command": "claude -p \"Triage this issue and label it\" --output-format stream-json   |   git worktree add ../feat-a -b feat-a"},
             ],
         },
         "T23": {
@@ -1375,9 +1411,9 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
         },
         "T27": {
             "title": "How MCP Actually Works: 9 Messages From 'User Asks' to 'Tool Result in Context'",
-            "subtitle": "ByteByteGo-style walkthrough of the Model Context Protocol — the open standard (Nov 2024) behind most agent tool connectors. JSON-RPC 2.0 under the hood.",
-            "source": "modelcontextprotocol.io specification: lifecycle, tools, resources, prompts, sampling, transports",
-            "lineage": "Alex Xu / ByteByteGo format • MCP specification",
+            "subtitle": "ByteByteGo & Brij Kishore Pandey control-plane walkthrough of the Model Context Protocol — JSON-RPC 2.0 handshake, schema discovery, consent gate, and tool call.",
+            "source": "modelcontextprotocol.io specification • Brij Kishore Pandey, '7 Control Layers Between Intent and Action' & 'One Agent Action E2E'",
+            "lineage": "Brij Kishore Pandey (7-Layer Control Plane & MCP) • ByteByteGo • MCP specification",
             "lanes": [
                 {"name": "HOST APP", "sub": "Claude Desktop, an IDE, or your own agent (Google ADK / LangGraph)", "color": "#334155", "fill": "#F8FAFC", "chips": ["holds the LLM", "owns consent", "one client per server"]},
                 {"name": "MCP CLIENT", "sub": "lives inside the host; speaks JSON-RPC 2.0 to one server", "color": BLUE, "fill": "#EFF6FF", "chips": ["initialize", "tools/list", "tools/call"]},
@@ -1390,7 +1426,7 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
                 {"from": 1, "to": 2, "text": "tools/list", "sub": "ask what the server can do", "color": BLUE},
                 {"from": 2, "to": 1, "text": "tool schemas (name, description, JSON input schema)", "sub": "e.g. github.search_pull_requests", "color": GREEN},
                 {"from": 1, "to": 0, "text": "host puts the schemas in the model's context", "sub": "model picks a tool + arguments", "color": "#334155"},
-                {"from": 1, "to": 2, "text": "tools/call  {name, arguments}", "sub": "after user consent if the host requires it", "color": BLUE},
+                {"from": 1, "to": 2, "text": "tools/call  {name, arguments}", "sub": "after user consent / runtime policy gate", "color": BLUE},
                 {"from": 2, "to": 1, "text": "result: content blocks (text / image / resource)", "sub": "server ran the real API or query", "color": GREEN},
                 {"from": 1, "to": 0, "text": "result enters context → model answers the user", "sub": "treat it as untrusted data, not instructions", "color": "#334155"},
             ],
@@ -1521,10 +1557,10 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
             ],
             "outside": [
                 {"x": 150, "y": 300, "label": "Multi-step arithmetic without tools"},
-                {"x": 880, "y": 220, "label": "Facts newer than its context"},
-                {"x": 920, "y": 520, "label": "Clicking through ambiguous web UIs"},
+                {"x": 850, "y": 220, "label": "Facts newer than its context"},
+                {"x": 815, "y": 516, "label": "Clicking through ambiguous web UIs"},
                 {"x": 160, "y": 700, "label": "Judging its own code with no tests"},
-                {"x": 760, "y": 840, "label": "Week-long tasks without checkpoints"},
+                {"x": 760, "y": 808, "label": "Week-long tasks without checkpoints"},
             ],
             "map_note": "Task placement is an engineering judgment for coding/support agents in 2026 — redraw it with your own 20-task sample.",
             "stats": [
@@ -1548,8 +1584,8 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
                 {"name": "ABILITY TO COMMUNICATE OUT", "examples": "send email, POST webhook, open URL, write issue"},
             ],
             "setups": [
-                {"id": "1", "name": "Inbox assistant that reads and sends mail", "legs": "ALL THREE", "why": "A crafted email can instruct it to forward your threads.", "x": 510, "y": 470, "color": RED},
-                {"id": "2", "name": "Browser agent using your logged-in sessions", "legs": "ALL THREE", "why": "Any page it visits can steer it; it can act as you.", "x": 540, "y": 520, "color": RED},
+                {"id": "1", "name": "Inbox assistant that reads and sends mail", "legs": "ALL THREE", "why": "A crafted email can instruct it to forward your threads.", "x": 490, "y": 514, "color": RED},
+                {"id": "2", "name": "Browser agent using your logged-in sessions", "legs": "ALL THREE", "why": "Any page it visits can steer it; it can act as you.", "x": 530, "y": 514, "color": RED},
                 {"id": "3", "name": "Coding agent in a sandbox with no network", "legs": "DATA + UNTRUSTED", "why": "Repo + issues are untrusted, but nothing can leave the box.", "x": 510, "y": 380, "color": AMBER},
                 {"id": "4", "name": "Public web researcher, no private data", "legs": "UNTRUSTED + OUT", "why": "Can be hijacked, but has nothing of yours to leak.", "x": 610, "y": 560, "color": AMBER},
                 {"id": "5", "name": "Internal SQL analyst, no web, no sending", "legs": "DATA ONLY", "why": "Reads sensitive data; no untrusted input, no exit.", "x": 330, "y": 400, "color": GREEN},
@@ -1618,26 +1654,26 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
             "rule": "Cost per completed task — not per token — is the only unit that survives a budget review.",
         },
         "T37": {
-            "title": "Postmortem: How One 429 Error Became an $84 Night and a Duplicate Ticket — and Where Each Control Would Have Stopped It",
-            "subtitle": "Composite incident written in Google SRE postmortem style (illustrative, built from the IDEA-01 and IDEA-06 failure patterns). Blameless; controls, not people.",
-            "source": "Google SRE Book, postmortem culture • IDEA-01 loop breaker • IDEA-06 idempotent checkpoints • OpenHands stuck detection",
-            "lineage": "Google SRE postmortem format applied to AgentOps",
+            "title": "Postmortem & Kill-Switch: How One 429 Became an $84 Night — and the 5 Controls That Stop It",
+            "subtitle": "Google SRE postmortem + Brij Kishore Pandey's 'How Do We Turn It Off?' lifecycle (Register → Own → Measure → Review → Retire; 81% of CIOs lack agent oversight).",
+            "source": "Brij Kishore Pandey, 'How Do We Turn It Off?' (Oct 2026; Dataiku/Harris Poll 685 CIOs) • Google SRE Book • IDEA-01 & IDEA-06",
+            "lineage": "Brij Kishore Pandey ('How Do We Turn It Off?' 5-Stage Lifecycle & Kill-Switch) • Google SRE postmortem",
             "events": [
                 {"time": "T+0:00", "head": "Vendor API starts returning 429 (rate limited)", "body": "The agent's create_ticket call fails with a generic error string; nothing in the harness distinguishes 'retry later' from 'try something else'.", "impact": "$0.00", "color": AMBER},
                 {"time": "T+0:04", "head": "Agent retries the identical call", "body": "Same tool, same arguments. The model reads the error, concludes 'try again', and does — the context barely changed.", "impact": "$0.02", "color": AMBER, "control": {"name": "Loop circuit breaker", "how": "sha256(tool+args) seen twice in 5 turns → block the 3rd call, inject a strategy-shift directive (ask for a different approach or escalate).", "saves": "saves $83.9"}},
                 {"time": "T+2:10", "head": "48th identical retry; context full of error strings", "body": "Each turn re-reads the growing history (~20K tokens); cost per turn climbs; no step ceiling exists.", "impact": "$9.40", "color": RED, "control": {"name": "Step ceiling (max_steps=15)", "how": "ADK RunConfig / LangGraph recursion_limit / OpenHands max_iterations end the run with a clean checkpoint at step 15.", "saves": "saves $74"}},
-                {"time": "T+41:00", "head": "Billing alert fires at $84", "body": "The only control that worked was a daily budget alert — 41 minutes late.", "impact": "$84.00", "color": RED, "control": {"name": "Cost ceiling per task ($0.25)", "how": "Cumulative spend checked before every model call; LiteLLM max_budget or Cloud Billing budgets as the outer fence.", "saves": "caps at $0.25"}},
+                {"time": "T+41:00", "head": "Billing alert fires at $84", "body": "The only control that worked was a daily budget alert — 41 minutes late.", "impact": "$84.00", "color": RED, "control": {"name": "Cost ceiling + Runtime Kill-Switch", "how": "Brij Pandey's 10-Field Agent Record requires a registered kill_switch_endpoint & named human owner before deploy; caps spend at $0.25.", "saves": "caps at $0.25"}},
                 {"time": "T+45:00", "head": "On-call kills the job", "body": "No checkpoint exists; the whole task state lived in RAM.", "impact": "task lost", "color": RED, "control": {"name": "Durable step checkpoints", "how": "Firestore / PostgresSaver snapshot after every tool turn; resume at the last good step in ~40 ms instead of restarting.", "saves": "0 rework"}},
                 {"time": "T+52:00", "head": "Duplicate ticket discovered", "body": "The 1st call had actually succeeded upstream before the 429 — the retries created a second ticket under the user's name.", "impact": "customer-visible", "color": RED, "control": {"name": "Idempotency key on every write", "how": "sha256(workflow+step+tool+args) ledger (Firestore / Redis SETNX); a repeated write returns the cached receipt instead of acting twice.", "saves": "0 duplicates"}},
-                {"time": "T+1 day", "head": "Blameless postmortem", "body": "Root cause: the model was the only control. Every fix below is deterministic code outside the model.", "impact": "5 actions", "color": GREEN},
+                {"time": "T+1 day", "head": "Blameless postmortem + 5-Stage Lifecycle", "body": "Enforce Register → Own → Measure → Review → Retire (Dataiku survey: 83% lack lifecycle management; 47% retired >20 shadow agents).", "impact": "5 actions", "color": GREEN},
             ],
-            "actions": ["Loop breaker + step ceiling in the harness • platform team • this sprint", "Idempotency keys on create_ticket, send_email • integrations team • this sprint", "Per-task cost ceiling + checkpoint/resume • SRE • next sprint"],
+            "actions": ["10-Field Agent Record (owner + kill-switch + policy gate) • platform • sprint", "Loop breaker + step ceiling + $0.25 cost cap in harness • platform • sprint", "Idempotency keys on writes + step checkpoints • integrations & SRE • sprint"],
         },
         "T38": {
             "title": "Tool Spec Clinic: The Same Tool, Written So an Agent Fails With It — and Written So It Succeeds",
-            "subtitle": "Anthropic's finding after letting Claude optimize its own tools: descriptions and response shapes matter as much as the API. Five rules from the guide, applied to one search tool.",
-            "source": "Anthropic Engineering, 'Writing effective tools for agents — with agents' (Sep 2025) • MCP tool schema conventions",
-            "lineage": "Anthropic, Writing effective tools for agents (Sep 2025)",
+            "subtitle": "Anthropic's tool-writing guide + Brij Kishore Pandey's 5-Layer Claude Code ADK & SKILL.md standard: descriptions and response shapes matter as much as the API.",
+            "source": "Anthropic Engineering, 'Writing effective tools for agents — with agents' (Sep 2025) • Brij Kishore Pandey, 'How Claude Code Becomes a Full Engineering Team' (5-Layer ADK & SKILL.md)",
+            "lineage": "Anthropic (Writing effective tools) • Brij Kishore Pandey (5-Layer Claude Code ADK & SKILL.md)",
             "bad_head": "BEFORE — what most teams ship (the agent guesses)",
             "bad_lines": [
                 "{",
@@ -1691,9 +1727,9 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
                 {"name": "NAMESPACE", "body": "Prefix by service and resource so similar tools stop colliding: github.search_pull_requests, asana.search_tasks.", "example": "service.resource_action", "color": PURPLE},
                 {"name": "RETURN MEANINGFUL CONTEXT", "body": "Names over UUIDs, summaries over dumps; offer concise vs detailed response formats.", "example": "response_format: concise", "color": BLUE},
                 {"name": "TOKEN EFFICIENCY", "body": "Paginate, filter, truncate with a next_page_token; make errors say what to do instead of a status code.", "example": "page_size <= 50, next_page_token", "color": AMBER},
-                {"name": "PROMPT-ENGINEER THE DESCRIPTION, THEN EVAL", "body": "Write it like onboarding a new hire; test it on real tasks; let the agent propose rewrites from its failures.", "example": "eval: 30 real tasks, before/after", "color": GREEN},
+                {"name": "PROMPT-ENGINEER & EVAL", "body": "Write descriptions like SKILL.md onboarding; test on real tasks; let the agent propose rewrites from failed traces.", "example": "eval: 30 real tasks, before/after", "color": GREEN},
             ],
-            "rule": "Anthropic let Claude rewrite its own tool descriptions from failed transcripts — and accuracy went up. Do the same with your traces.",
+            "rule": "Anthropic let Claude rewrite its own tool descriptions from failed transcripts — and accuracy went up. Pair with SKILL.md progressive disclosure.",
         },
         "T39": {
             "title": "One Request, Four Memories: What an Agent Must Remember to Book 'the Same Hotel as Last Time'",

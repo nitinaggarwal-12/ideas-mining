@@ -151,7 +151,7 @@ def _flow(pts: Sequence[Point], color: str, phase: Optional[float] = None, label
                        f'<circle cx="{px:.1f}" cy="{py:.1f}" r="4.8" fill="#FFFFFF" stroke="{color}" stroke-width="2.6"/>')
     if label:
         lx, ly = _pat(line_pts, label_at)
-        pw = min(190, int(len(label) * 6.3 + 18))
+        pw = min(290, int(len(label) * 6.3 + 18))
         out.append(f'<rect x="{lx - pw / 2:.1f}" y="{ly + label_dy - 11:.1f}" width="{pw}" height="22" rx="11" fill="#FFFFFF" '
                    f'stroke="{color}" stroke-width="1.5"/>')
         out.append(_t(lx, ly + label_dy + 4, label, 9.5, 800, color, "middle"))

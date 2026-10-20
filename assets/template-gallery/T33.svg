@@ -97,20 +97,20 @@
 <text x="514.0" y="678.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#064E3B" text-anchor="start" >Turn meeting notes into</text>
 <text x="514.0" y="690.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#064E3B" text-anchor="start" >action items</text>
 <circle cx="150" cy="300" r="9" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
-<text x="164.0" y="298.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7F1D1D" text-anchor="start" >Multi-step arithmetic</text>
-<text x="164.0" y="310.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7F1D1D" text-anchor="start" >without tools</text>
-<circle cx="880" cy="220" r="9" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
-<text x="894.0" y="218.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7F1D1D" text-anchor="start" >Facts newer than its</text>
-<text x="894.0" y="230.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7F1D1D" text-anchor="start" >context</text>
-<circle cx="920" cy="520" r="9" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
-<text x="934.0" y="518.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7F1D1D" text-anchor="start" >Clicking through ambiguous</text>
-<text x="934.0" y="530.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7F1D1D" text-anchor="start" >web UIs</text>
+<text x="164.0" y="298.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#7F1D1D" text-anchor="start" >Multi-step arithmetic</text>
+<text x="164.0" y="310.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#7F1D1D" text-anchor="start" >without tools</text>
+<circle cx="850" cy="220" r="9" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
+<text x="864.0" y="218.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#7F1D1D" text-anchor="start" >Facts newer than its</text>
+<text x="864.0" y="230.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#7F1D1D" text-anchor="start" >context</text>
+<circle cx="815" cy="516" r="9" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
+<text x="829.0" y="514.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#7F1D1D" text-anchor="start" >Clicking through</text>
+<text x="829.0" y="526.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#7F1D1D" text-anchor="start" >ambiguous web UIs</text>
 <circle cx="160" cy="700" r="9" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
-<text x="174.0" y="698.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7F1D1D" text-anchor="start" >Judging its own code with</text>
-<text x="174.0" y="710.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7F1D1D" text-anchor="start" >no tests</text>
-<circle cx="760" cy="840" r="9" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
-<text x="774.0" y="838.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7F1D1D" text-anchor="start" >Week-long tasks without</text>
-<text x="774.0" y="850.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7F1D1D" text-anchor="start" >checkpoints</text>
+<text x="174.0" y="698.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#7F1D1D" text-anchor="start" >Judging its own code</text>
+<text x="174.0" y="710.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#7F1D1D" text-anchor="start" >with no tests</text>
+<circle cx="760" cy="808" r="9" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
+<text x="774.0" y="806.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#7F1D1D" text-anchor="start" >Week-long tasks</text>
+<text x="774.0" y="818.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#7F1D1D" text-anchor="start" >without checkpoints</text>
 <text x="540.0" y="858.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle" >Task placement is an engineering judgment for coding/support agents in 2026 — redraw it with your own 20-task sample.</text>
 <rect x="1040.0" y="136.0" width="524.0" height="300.0" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.8" /><rect x="1040.0" y="136.0" width="524.0" height="26.0" rx="8" fill="#2563EB" /><text x="1302.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >THE STUDY BEHIND THE IDEA (DELL&#x27;ACQUA ET AL., 2023 — 758 BCG CONSULTANTS)</text>
 <rect x="1056.0" y="178.0" width="492.0" height="50.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.4" />

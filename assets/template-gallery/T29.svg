@@ -182,11 +182,11 @@
 <rect x="752.0" y="332.0" width="144.0" height="92.0" rx="4" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2" />
 <text x="824.0" y="380.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="30" font-weight="800" fill="#7C3AED" text-anchor="middle" >3</text>
 <text x="824.0" y="410.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="8.5" font-weight="700" fill="#475569" text-anchor="middle" >d = both FAIL</text>
-<text x="590.0" y="290.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="middle" transform="rotate(-90 590 290)">judge</text>
+<text x="586.0" y="290.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10" font-weight="800" fill="#475569" text-anchor="middle" transform="rotate(-90 586 290)">judge</text>
 <text x="560.0" y="470.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="15" font-weight="800" fill="#2563EB" text-anchor="start" >③ Observed agreement</text>
 <text x="560.0" y="500.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="15" font-weight="800" fill="#0F172A" text-anchor="start" >po = (a + d) / n = (5 + 3) / 10 = 0.80</text>
 <text x="560.0" y="548.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="15" font-weight="800" fill="#D97706" text-anchor="start" >④ Agreement expected by pure chance</text>
-<text x="560.0" y="578.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >P(human PASS) = 6/10 = 0.6    P(judge PASS) = 6/10 = 0.6</text>
+<text x="560.0" y="578.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >P(human PASS) = 6/10 = 0.6   •   P(judge PASS) = 6/10 = 0.6</text>
 <text x="560.0" y="604.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="15" font-weight="800" fill="#0F172A" text-anchor="start" >pe = 0.6×0.6 + 0.4×0.4 = 0.36 + 0.16 = 0.52</text>
 <text x="560.0" y="652.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="15" font-weight="800" fill="#059669" text-anchor="start" >⑤ Cohen&#x27;s kappa = (po − pe) / (1 − pe)</text>
 <text x="560.0" y="684.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="16" font-weight="800" fill="#0F172A" text-anchor="start" >κ = (0.80 − 0.52) / (1 − 0.52) = 0.28 / 0.48 = 0.583</text>
@@ -215,10 +215,12 @@
 <text x="1150.0" y="601.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11.5" font-weight="700" fill="#1E293B" text-anchor="start" >agreement becomes 0.58 — honest, and still</text>
 <text x="1150.0" y="618.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="11.5" font-weight="700" fill="#1E293B" text-anchor="start" >only &#x27;moderate&#x27;.</text>
 <text x="1150.0" y="660.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >Landis &amp; Koch (1977) bands; recompute every release.</text>
-<path d="M 140.0 560.0 L 460.0 560.0 L 460.0 290.0 L 600.0 290.0 L 600.0 470.0 L 560.0 684.0 L 1120.0 684.0 L 1120.0 230.0 L 1130.0 230.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 6" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1140.0 230.0) rotate(0.0)"/>
-<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="5.00s" begin="-0.00s" repeatCount="indefinite" path="M 140.0 560.0 L 460.0 560.0 L 460.0 290.0 L 600.0 290.0 L 600.0 470.0 L 560.0 684.0 L 1120.0 684.0 L 1120.0 230.0 L 1130.0 230.0"/></g>
-<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="5.00s" begin="-2.50s" repeatCount="indefinite" path="M 140.0 560.0 L 460.0 560.0 L 460.0 290.0 L 600.0 290.0 L 600.0 470.0 L 560.0 684.0 L 1120.0 684.0 L 1120.0 230.0 L 1130.0 230.0"/></g>
+<path d="M 250.0 572.0 L 496.0 572.0 L 496.0 282.0 L 556.0 282.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="6 6" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(566.0 282.0) rotate(0.0)"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="2.80s" begin="-0.00s" repeatCount="indefinite" path="M 250.0 572.0 L 496.0 572.0 L 496.0 282.0 L 556.0 282.0"/></g>
+<path d="M 980.0 678.0 L 1096.0 678.0 L 1096.0 358.0 L 1136.0 358.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="6 6" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1146.0 358.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="2.80s" begin="-0.00s" repeatCount="indefinite" path="M 980.0 678.0 L 1096.0 678.0 L 1096.0 358.0 L 1136.0 358.0"/></g>
 <rect x="56.0" y="760.0" width="1508.0" height="92.0" rx="12" fill="#0F2942" />
 <text x="78.0" y="790.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="800" fill="#93C5FD" text-anchor="start" >DO THIS WITH YOUR OWN JUDGE (20 MINUTES)</text>
 <text x="78.0" y="816.0" font-family="'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', cursive" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="start" >Pull 10-50 traces your team already labeled PASS/FAIL.</text>

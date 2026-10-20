@@ -26,57 +26,58 @@
 <text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Where the $0.68 per Agent Task Went — and the Four Levers That Took It to $0.06</text>
 <text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >A cost waterfall built from OpenTelemetry spans. Reference-harness decomposition of the measured before/after from IDEA-09; your split will differ, the levers will not.</text>
 <rect x="56.0" y="136.0" width="1000.0" height="640.0" rx="10" fill="#FFFFFF" stroke="#0F2942" stroke-width="1.8" /><rect x="56.0" y="136.0" width="1000.0" height="26.0" rx="8" fill="#0F2942" /><text x="556.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >COST PER COMPLETED TASK — BEFORE (LEFT), LEVERS (MIDDLE), AFTER (RIGHT)</text>
-<rect x="80.0" y="565.6" width="88.0" height="134.4" rx="4" fill="#94A3B8" />
-<text x="124.0" y="557.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.21</text>
-<text x="124.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Input tokens</text>
-<text x="124.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >(every turn</text>
-<text x="124.0" y="744.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >re-reads 20K)</text>
-<rect x="188.0" y="476.0" width="88.0" height="89.6" rx="4" fill="#94A3B8" />
-<text x="232.0" y="468.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.14</text>
-<line x1="168" y1="565.6" x2="188" y2="565.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
-<text x="232.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Output tokens</text>
-<rect x="296.0" y="437.6" width="88.0" height="38.4" rx="4" fill="#94A3B8" />
-<text x="340.0" y="429.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.06</text>
-<line x1="276" y1="476.0" x2="296" y2="476.0" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
-<text x="340.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Tool / API</text>
-<text x="340.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >calls</text>
-<rect x="404.0" y="316.0" width="88.0" height="121.6" rx="4" fill="#DC2626" />
-<text x="448.0" y="308.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#DC2626" text-anchor="middle" >+$0.19</text>
-<line x1="384" y1="437.6" x2="404" y2="437.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
-<text x="448.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Retries &amp;</text>
-<text x="448.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >loops</text>
-<rect x="512.0" y="264.8" width="88.0" height="51.2" rx="4" fill="#94A3B8" />
-<text x="556.0" y="256.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.08</text>
-<line x1="492" y1="316.0" x2="512" y2="316.0" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
-<text x="556.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Judge / eval</text>
-<text x="556.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >calls</text>
-<rect x="620.0" y="264.8" width="88.0" height="435.2" rx="4" fill="#0F2942" />
-<text x="664.0" y="256.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="middle" >$0.68</text>
-<text x="664.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >BEFORE</text>
-<rect x="728.0" y="264.8" width="88.0" height="76.8" rx="4" fill="#059669" />
-<text x="772.0" y="256.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="middle" >−$0.12</text>
-<line x1="600" y1="264.80000000000007" x2="728" y2="264.80000000000007" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
-<text x="772.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Prompt /</text>
-<text x="772.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >context</text>
-<text x="772.0" y="744.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >caching</text>
-<rect x="836.0" y="341.6" width="88.0" height="192.0" rx="4" fill="#059669" />
-<text x="880.0" y="333.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="middle" >−$0.30</text>
-<line x1="816" y1="341.6" x2="836" y2="341.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
-<text x="880.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Flash / Gemma</text>
-<text x="880.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >routing</text>
-<rect x="944.0" y="533.6" width="88.0" height="108.8" rx="4" fill="#059669" />
-<text x="988.0" y="525.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="middle" >−$0.17</text>
-<line x1="924" y1="533.6" x2="944" y2="533.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
-<text x="988.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Loop guard (no</text>
-<text x="988.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >retry storms)</text>
-<rect x="1052.0" y="642.4" width="88.0" height="19.2" rx="4" fill="#059669" />
-<text x="1096.0" y="634.4" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="middle" >−$0.03</text>
-<line x1="1032" y1="642.4000000000001" x2="1052" y2="642.4000000000001" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
-<text x="1096.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >Top-3 tool</text>
-<text x="1096.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >schemas</text>
-<rect x="1160.0" y="661.6" width="88.0" height="38.4" rx="4" fill="#059669" />
-<text x="1204.0" y="653.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="middle" >$0.06</text>
-<text x="1204.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >AFTER</text>
+<rect x="76.0" y="565.6" width="72.0" height="134.4" rx="4" fill="#94A3B8" />
+<text x="112.0" y="557.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.21</text>
+<text x="112.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >Input tokens</text>
+<text x="112.0" y="731.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >(every turn</text>
+<text x="112.0" y="743.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >re-reads 20K)</text>
+<rect x="163.0" y="476.0" width="72.0" height="89.6" rx="4" fill="#94A3B8" />
+<text x="199.0" y="468.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.14</text>
+<line x1="148" y1="565.6" x2="163" y2="565.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="199.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >Output tokens</text>
+<rect x="250.0" y="437.6" width="72.0" height="38.4" rx="4" fill="#94A3B8" />
+<text x="286.0" y="429.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.06</text>
+<line x1="235" y1="476.0" x2="250" y2="476.0" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="286.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >Tool / API</text>
+<text x="286.0" y="731.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >calls</text>
+<rect x="337.0" y="316.0" width="72.0" height="121.6" rx="4" fill="#DC2626" />
+<text x="373.0" y="308.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626" text-anchor="middle" >+$0.19</text>
+<line x1="322" y1="437.6" x2="337" y2="437.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="373.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >Retries &amp;</text>
+<text x="373.0" y="731.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >loops</text>
+<rect x="424.0" y="264.8" width="72.0" height="51.2" rx="4" fill="#94A3B8" />
+<text x="460.0" y="256.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#94A3B8" text-anchor="middle" >+$0.08</text>
+<line x1="409" y1="316.0" x2="424" y2="316.0" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="460.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >Judge / eval</text>
+<text x="460.0" y="731.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >calls</text>
+<rect x="511.0" y="264.8" width="72.0" height="435.2" rx="4" fill="#0F2942" />
+<text x="547.0" y="256.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#0F172A" text-anchor="middle" >$0.68</text>
+<text x="547.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >BEFORE</text>
+<rect x="598.0" y="264.8" width="72.0" height="76.8" rx="4" fill="#059669" />
+<text x="634.0" y="256.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >−$0.12</text>
+<line x1="496" y1="264.80000000000007" x2="598" y2="264.80000000000007" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="634.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >Prompt /</text>
+<text x="634.0" y="731.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >context</text>
+<text x="634.0" y="743.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >caching</text>
+<rect x="685.0" y="341.6" width="72.0" height="192.0" rx="4" fill="#059669" />
+<text x="721.0" y="333.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >−$0.30</text>
+<line x1="670" y1="341.6" x2="685" y2="341.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="721.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >Flash / Gemma</text>
+<text x="721.0" y="731.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >routing</text>
+<rect x="772.0" y="533.6" width="72.0" height="108.8" rx="4" fill="#059669" />
+<text x="808.0" y="525.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >−$0.17</text>
+<line x1="757" y1="533.6" x2="772" y2="533.6" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="808.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >Loop guard</text>
+<text x="808.0" y="731.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >(no retry</text>
+<text x="808.0" y="743.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >storms)</text>
+<rect x="859.0" y="642.4" width="72.0" height="19.2" rx="4" fill="#059669" />
+<text x="895.0" y="634.4" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >−$0.03</text>
+<line x1="844" y1="642.4000000000001" x2="859" y2="642.4000000000001" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="895.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >Top-3 tool</text>
+<text x="895.0" y="731.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >schemas</text>
+<rect x="946.0" y="661.6" width="72.0" height="38.4" rx="4" fill="#059669" />
+<text x="982.0" y="653.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#0F172A" text-anchor="middle" >$0.06</text>
+<text x="982.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="#475569" text-anchor="middle" >AFTER</text>
 <line x1="72" y1="700" x2="1040" y2="700" stroke="#334155" stroke-width="1.5"/>
 <path d="M 72.0 180.0 L 1030.0 180.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 6" stroke-dashoffset="0.0"/>
 <polygon points="0,0 -15,-9 -11,0 -15,9" fill="#2563EB" transform="translate(1040.0 180.0) rotate(0.0)"/>

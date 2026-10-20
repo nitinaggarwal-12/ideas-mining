@@ -101,26 +101,26 @@
 <polygon points="0,0 -15,-9 -11,0 -15,9" fill="#64748B" transform="translate(574.0 614.0) rotate(0.0)"/>
 <g><circle r="8" fill="#64748B" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#64748B" stroke-width="2.6"/><animateMotion dur="2.00s" begin="-0.00s" repeatCount="indefinite" path="M 510.0 548.0 L 540.0 548.0 L 540.0 614.0 L 564.0 614.0"/></g>
 <rect x="1034.0" y="136.0" width="530.0" height="300.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" /><rect x="1034.0" y="136.0" width="530.0" height="26.0" rx="8" fill="#D97706" /><text x="1299.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >STEP 3 • PARETO: WHICH FAILURES ARE WORTH FIXING FIRST?</text>
-<text x="1050.0" y="202.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F172A" text-anchor="start" >Wrong tool or</text>
-<rect x="1200.0" y="184.0" width="300.0" height="26.0" rx="4" fill="#F1F5F9" />
-<rect x="1200.0" y="184.0" width="300.0" height="26.0" rx="4" fill="#DC2626" />
-<text x="1508.0" y="202.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="start" >31  (cum 34%)</text>
-<text x="1050.0" y="248.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F172A" text-anchor="start" >Ignored a user</text>
-<rect x="1200.0" y="230.0" width="300.0" height="26.0" rx="4" fill="#F1F5F9" />
-<rect x="1200.0" y="230.0" width="212.9" height="26.0" rx="4" fill="#D97706" />
-<text x="1508.0" y="248.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="start" >22  (cum 58%)</text>
-<text x="1050.0" y="294.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F172A" text-anchor="start" >Fabricated a tool</text>
-<rect x="1200.0" y="276.0" width="300.0" height="26.0" rx="4" fill="#F1F5F9" />
-<rect x="1200.0" y="276.0" width="164.5" height="26.0" rx="4" fill="#7C3AED" />
-<text x="1508.0" y="294.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="start" >17  (cum 77%)</text>
-<text x="1050.0" y="340.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F172A" text-anchor="start" >Over-asking / never</text>
-<rect x="1200.0" y="322.0" width="300.0" height="26.0" rx="4" fill="#F1F5F9" />
-<rect x="1200.0" y="322.0" width="116.1" height="26.0" rx="4" fill="#0284C7" />
-<text x="1508.0" y="340.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="start" >12  (cum 91%)</text>
-<text x="1050.0" y="386.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F172A" text-anchor="start" >Formatting /</text>
-<rect x="1200.0" y="368.0" width="300.0" height="26.0" rx="4" fill="#F1F5F9" />
-<rect x="1200.0" y="368.0" width="77.4" height="26.0" rx="4" fill="#64748B" />
-<text x="1508.0" y="386.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="start" >8  (cum 100%)</text>
+<text x="1048.0" y="202.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.6" font-weight="800" fill="#0F172A" text-anchor="start" >Wrong tool or arguments</text>
+<rect x="1232.0" y="184.0" width="216.0" height="26.0" rx="4" fill="#F1F5F9" />
+<rect x="1232.0" y="184.0" width="216.0" height="26.0" rx="4" fill="#DC2626" />
+<text x="1548.0" y="202.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="end" >31  (cum 34%)</text>
+<text x="1048.0" y="248.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.6" font-weight="800" fill="#0F172A" text-anchor="start" >Ignored a user constraint</text>
+<rect x="1232.0" y="230.0" width="216.0" height="26.0" rx="4" fill="#F1F5F9" />
+<rect x="1232.0" y="230.0" width="153.3" height="26.0" rx="4" fill="#D97706" />
+<text x="1548.0" y="248.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="end" >22  (cum 58%)</text>
+<text x="1048.0" y="294.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.6" font-weight="800" fill="#0F172A" text-anchor="start" >Fabricated a tool result</text>
+<rect x="1232.0" y="276.0" width="216.0" height="26.0" rx="4" fill="#F1F5F9" />
+<rect x="1232.0" y="276.0" width="118.5" height="26.0" rx="4" fill="#7C3AED" />
+<text x="1548.0" y="294.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="end" >17  (cum 77%)</text>
+<text x="1048.0" y="340.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.6" font-weight="800" fill="#0F172A" text-anchor="start" >Over-asking / never acts</text>
+<rect x="1232.0" y="322.0" width="216.0" height="26.0" rx="4" fill="#F1F5F9" />
+<rect x="1232.0" y="322.0" width="83.6" height="26.0" rx="4" fill="#0284C7" />
+<text x="1548.0" y="340.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="end" >12  (cum 91%)</text>
+<text x="1048.0" y="386.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.6" font-weight="800" fill="#0F172A" text-anchor="start" >Formatting / unreadable</text>
+<rect x="1232.0" y="368.0" width="216.0" height="26.0" rx="4" fill="#F1F5F9" />
+<rect x="1232.0" y="368.0" width="55.7" height="26.0" rx="4" fill="#64748B" />
+<text x="1548.0" y="386.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="end" >8  (cum 100%)</text>
 <text x="1050.0" y="420.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#92400E" text-anchor="start" >Two failure modes explain 59% of failures — fix those first; the long tail can wait.</text>
 <rect x="1034.0" y="452.0" width="530.0" height="244.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" /><rect x="1034.0" y="452.0" width="530.0" height="26.0" rx="8" fill="#059669" /><text x="1299.0" y="469.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >STEP 4 • ONE BINARY JUDGE PER TOP FAILURE MODE</text>
 <rect x="1050.0" y="492.0" width="498.0" height="112.0" rx="6" fill="#0F172A" />

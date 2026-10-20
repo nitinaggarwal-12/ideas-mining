@@ -62,33 +62,34 @@
 <rect x="556.0" y="136.0" width="488.0" height="30.0" rx="10" fill="#7C3AED" />
 <text x="570.0" y="156.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >2. ROUTING  •  workflow</text>
 <rect x="566.0" y="174.0" width="468.0" height="146.0" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-<rect x="580.0" y="233.0" width="46.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#475569" stroke-width="1.6" /><text x="603.0" y="252.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >In</text>
-<path d="M 626.0 248.0 L 656.0 248.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(666.0 248.0) rotate(0.0)"/>
-<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 626.0 248.0 L 656.0 248.0"/></g>
-<rect x="668.0" y="231.0" width="92.0" height="34.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="714.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Router (LLM or</text>
-<text x="714.0" y="257.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >classifier)</text>
-<path d="M 760.0 248.0 L 792.0 211.0 L 820.0 211.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(830.0 211.0) rotate(0.0)"/>
-<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 760.0 248.0 L 792.0 211.0 L 820.0 211.0"/></g>
-<rect x="832.0" y="196.0" width="130.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="897.0" y="215.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Cheap model: FAQ</text>
-<path d="M 962.0 211.0 L 994.0 248.0 L 1010.0 248.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1020.0 248.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 962.0 211.0 L 994.0 248.0 L 1010.0 248.0"/></g>
-<path d="M 760.0 248.0 L 792.0 253.0 L 820.0 253.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(830.0 253.0) rotate(0.0)"/>
-<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 760.0 248.0 L 792.0 253.0 L 820.0 253.0"/></g>
-<rect x="832.0" y="238.0" width="130.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="897.0" y="257.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Strong model: hard</text>
-<path d="M 962.0 253.0 L 994.0 248.0 L 1010.0 248.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1020.0 248.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 962.0 253.0 L 994.0 248.0 L 1010.0 248.0"/></g>
-<path d="M 760.0 248.0 L 792.0 295.0 L 820.0 295.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(830.0 295.0) rotate(0.0)"/>
-<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 760.0 248.0 L 792.0 295.0 L 820.0 295.0"/></g>
-<rect x="832.0" y="280.0" width="130.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="897.0" y="299.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Refund specialist</text>
-<path d="M 962.0 295.0 L 994.0 248.0 L 1010.0 248.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1020.0 248.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 962.0 295.0 L 994.0 248.0 L 1010.0 248.0"/></g>
+<rect x="580.0" y="233.0" width="42.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#475569" stroke-width="1.6" /><text x="601.0" y="252.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >In</text>
+<path d="M 622.0 248.0 L 646.0 248.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(656.0 248.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 622.0 248.0 L 646.0 248.0"/></g>
+<rect x="658.0" y="231.0" width="92.0" height="34.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="704.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Router (LLM or</text>
+<text x="704.0" y="257.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >classifier)</text>
+<path d="M 750.0 248.0 L 782.0 206.0 L 804.0 206.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(814.0 206.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 750.0 248.0 L 782.0 206.0 L 804.0 206.0"/></g>
+<rect x="816.0" y="192.0" width="126.0" height="28.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="879.0" y="210.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Cheap model: FAQ</text>
+<path d="M 942.0 206.0 L 968.0 248.0 L 972.0 248.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(982.0 248.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 942.0 206.0 L 968.0 248.0 L 972.0 248.0"/></g>
+<path d="M 750.0 248.0 L 782.0 245.0 L 804.0 245.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(814.0 245.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 750.0 248.0 L 782.0 245.0 L 804.0 245.0"/></g>
+<rect x="816.0" y="231.0" width="126.0" height="28.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="879.0" y="249.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Strong model: hard</text>
+<path d="M 942.0 245.0 L 968.0 248.0 L 972.0 248.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(982.0 248.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 942.0 245.0 L 968.0 248.0 L 972.0 248.0"/></g>
+<path d="M 750.0 248.0 L 782.0 284.0 L 804.0 284.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(814.0 284.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 750.0 248.0 L 782.0 284.0 L 804.0 284.0"/></g>
+<rect x="816.0" y="270.0" width="126.0" height="28.0" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6" /><text x="879.0" y="288.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Refund specialist</text>
+<path d="M 942.0 284.0 L 968.0 248.0 L 972.0 248.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(982.0 248.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 942.0 284.0 L 968.0 248.0 L 972.0 248.0"/></g>
+<rect x="984.0" y="233.0" width="40.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.6" /><text x="1004.0" y="252.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Out</text>
 <text x="570.0" y="340.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >USE WHEN</text>
 <text x="570.0" y="356.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Inputs fall into distinct categories that are handled better by</text>
 <text x="570.0" y="371.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >separate prompts or cheaper/stronger models.</text>
@@ -103,28 +104,28 @@
 <text x="1070.0" y="156.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >3. PARALLELIZATION  •  workflow</text>
 <rect x="1066.0" y="174.0" width="468.0" height="146.0" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
 <rect x="1080.0" y="233.0" width="46.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#475569" stroke-width="1.6" /><text x="1103.0" y="252.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >In</text>
-<path d="M 1126.0 248.0 L 1160.0 211.0 L 1188.0 211.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1198.0 211.0) rotate(0.0)"/>
-<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1126.0 248.0 L 1160.0 211.0 L 1188.0 211.0"/></g>
-<rect x="1200.0" y="196.0" width="130.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1265.0" y="215.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >LLM: section A</text>
-<path d="M 1330.0 211.0 L 1370.0 248.0 L 1386.0 248.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<path d="M 1126.0 248.0 L 1160.0 206.0 L 1188.0 206.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1198.0 206.0) rotate(0.0)"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1126.0 248.0 L 1160.0 206.0 L 1188.0 206.0"/></g>
+<rect x="1200.0" y="192.0" width="130.0" height="28.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1265.0" y="210.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >LLM: section A</text>
+<path d="M 1330.0 206.0 L 1370.0 248.0 L 1386.0 248.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
 <polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1396.0 248.0) rotate(0.0)"/>
-<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1330.0 211.0 L 1370.0 248.0 L 1386.0 248.0"/></g>
-<path d="M 1126.0 248.0 L 1160.0 253.0 L 1188.0 253.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1198.0 253.0) rotate(0.0)"/>
-<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1126.0 248.0 L 1160.0 253.0 L 1188.0 253.0"/></g>
-<rect x="1200.0" y="238.0" width="130.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1265.0" y="257.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >LLM: section B</text>
-<path d="M 1330.0 253.0 L 1370.0 248.0 L 1386.0 248.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1330.0 206.0 L 1370.0 248.0 L 1386.0 248.0"/></g>
+<path d="M 1126.0 248.0 L 1160.0 245.0 L 1188.0 245.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1198.0 245.0) rotate(0.0)"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1126.0 248.0 L 1160.0 245.0 L 1188.0 245.0"/></g>
+<rect x="1200.0" y="231.0" width="130.0" height="28.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1265.0" y="249.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >LLM: section B</text>
+<path d="M 1330.0 245.0 L 1370.0 248.0 L 1386.0 248.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
 <polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1396.0 248.0) rotate(0.0)"/>
-<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1330.0 253.0 L 1370.0 248.0 L 1386.0 248.0"/></g>
-<path d="M 1126.0 248.0 L 1160.0 295.0 L 1188.0 295.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1198.0 295.0) rotate(0.0)"/>
-<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1126.0 248.0 L 1160.0 295.0 L 1188.0 295.0"/></g>
-<rect x="1200.0" y="280.0" width="130.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1265.0" y="293.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >LLM: vote /</text>
-<text x="1265.0" y="304.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >guardrail</text>
-<path d="M 1330.0 295.0 L 1370.0 248.0 L 1386.0 248.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1330.0 245.0 L 1370.0 248.0 L 1386.0 248.0"/></g>
+<path d="M 1126.0 248.0 L 1160.0 284.0 L 1188.0 284.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1198.0 284.0) rotate(0.0)"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1126.0 248.0 L 1160.0 284.0 L 1188.0 284.0"/></g>
+<rect x="1200.0" y="270.0" width="130.0" height="28.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1265.0" y="282.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >LLM: vote /</text>
+<text x="1265.0" y="293.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >guardrail</text>
+<path d="M 1330.0 284.0 L 1370.0 248.0 L 1386.0 248.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
 <polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1396.0 248.0) rotate(0.0)"/>
-<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1330.0 295.0 L 1370.0 248.0 L 1386.0 248.0"/></g>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1330.0 284.0 L 1370.0 248.0 L 1386.0 248.0"/></g>
 <rect x="1398.0" y="233.0" width="92.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.6" /><text x="1444.0" y="252.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Aggregate</text>
 <path d="M 1490.0 248.0 L 1514.0 248.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
 <polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1524.0 248.0) rotate(0.0)"/>
@@ -141,34 +142,34 @@
 <rect x="56.0" y="508.0" width="488.0" height="30.0" rx="10" fill="#D97706" />
 <text x="70.0" y="528.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >4. ORCHESTRATOR-WORKERS  •  workflow</text>
 <rect x="66.0" y="546.0" width="468.0" height="146.0" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-<rect x="80.0" y="603.0" width="112.0" height="34.0" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6" /><text x="136.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Orchestrator LLM</text>
-<text x="136.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >decides subtasks</text>
-<path d="M 192.0 620.0 L 230.0 583.0 L 248.0 583.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="3 4" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(258.0 583.0) rotate(0.0)"/>
-<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 192.0 620.0 L 230.0 583.0 L 248.0 583.0"/></g>
-<rect x="260.0" y="568.0" width="120.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6" /><text x="320.0" y="587.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Worker: file A</text>
-<path d="M 380.0 583.0 L 412.0 620.0 L 422.0 620.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(432.0 620.0) rotate(0.0)"/>
-<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 380.0 583.0 L 412.0 620.0 L 422.0 620.0"/></g>
-<path d="M 192.0 620.0 L 230.0 625.0 L 248.0 625.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="3 4" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(258.0 625.0) rotate(0.0)"/>
-<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 192.0 620.0 L 230.0 625.0 L 248.0 625.0"/></g>
-<rect x="260.0" y="610.0" width="120.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6" /><text x="320.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Worker: file B</text>
-<path d="M 380.0 625.0 L 412.0 620.0 L 422.0 620.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(432.0 620.0) rotate(0.0)"/>
-<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 380.0 625.0 L 412.0 620.0 L 422.0 620.0"/></g>
-<path d="M 192.0 620.0 L 230.0 667.0 L 248.0 667.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="3 4" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(258.0 667.0) rotate(0.0)"/>
-<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 192.0 620.0 L 230.0 667.0 L 248.0 667.0"/></g>
-<rect x="260.0" y="652.0" width="120.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6" /><text x="320.0" y="671.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Worker: tests</text>
-<path d="M 380.0 667.0 L 412.0 620.0 L 422.0 620.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(432.0 620.0) rotate(0.0)"/>
-<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 380.0 667.0 L 412.0 620.0 L 422.0 620.0"/></g>
-<rect x="434.0" y="605.0" width="60.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6" /><text x="464.0" y="624.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Merge</text>
-<path d="M 494.0 620.0 L 514.0 620.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(524.0 620.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 494.0 620.0 L 514.0 620.0"/></g>
-<text x="320.0" y="682.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" fill="#475569" text-anchor="middle" >dashed = subtasks are decided at run time, not hard-coded</text>
+<rect x="80.0" y="598.0" width="112.0" height="34.0" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6" /><text x="136.0" y="613.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Orchestrator LLM</text>
+<text x="136.0" y="624.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >decides subtasks</text>
+<path d="M 192.0 615.0 L 230.0 571.0 L 248.0 571.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="3 4" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(258.0 571.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 192.0 615.0 L 230.0 571.0 L 248.0 571.0"/></g>
+<rect x="260.0" y="558.0" width="120.0" height="26.0" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6" /><text x="320.0" y="575.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Worker: file A</text>
+<path d="M 380.0 571.0 L 412.0 615.0 L 422.0 615.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(432.0 615.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 380.0 571.0 L 412.0 615.0 L 422.0 615.0"/></g>
+<path d="M 192.0 615.0 L 230.0 606.0 L 248.0 606.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="3 4" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(258.0 606.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 192.0 615.0 L 230.0 606.0 L 248.0 606.0"/></g>
+<rect x="260.0" y="593.0" width="120.0" height="26.0" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6" /><text x="320.0" y="610.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Worker: file B</text>
+<path d="M 380.0 606.0 L 412.0 615.0 L 422.0 615.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(432.0 615.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 380.0 606.0 L 412.0 615.0 L 422.0 615.0"/></g>
+<path d="M 192.0 615.0 L 230.0 641.0 L 248.0 641.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="3 4" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(258.0 641.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 192.0 615.0 L 230.0 641.0 L 248.0 641.0"/></g>
+<rect x="260.0" y="628.0" width="120.0" height="26.0" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6" /><text x="320.0" y="645.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Worker: tests</text>
+<path d="M 380.0 641.0 L 412.0 615.0 L 422.0 615.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(432.0 615.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 380.0 641.0 L 412.0 615.0 L 422.0 615.0"/></g>
+<rect x="434.0" y="600.0" width="60.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6" /><text x="464.0" y="619.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Merge</text>
+<path d="M 494.0 615.0 L 514.0 615.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(524.0 615.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 494.0 615.0 L 514.0 615.0"/></g>
+<text x="304.0" y="683.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.8" font-weight="700" fill="#475569" text-anchor="middle" >dashed = subtasks are decided at run time, not hard-coded</text>
 <text x="70.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >USE WHEN</text>
 <text x="70.0" y="728.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >You cannot predict the subtasks up front — a central LLM decides</text>
 <text x="70.0" y="743.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >them and delegates.</text>
@@ -199,7 +200,7 @@
 <g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 940.0 637.0 L 940.0 668.0 L 1014.0 668.0"/></g>
 <rect x="927.5" y="643.0" width="68" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
 <text x="961.5" y="658.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >accepted</text>
-<text x="810.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" fill="#475569" text-anchor="middle" >loop until the evaluator says &#x27;meets the bar&#x27; (or max rounds)</text>
+<text x="810.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.8" font-weight="700" fill="#475569" text-anchor="middle" >loop until the evaluator says &#x27;meets the bar&#x27; (or max rounds)</text>
 <text x="570.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >USE WHEN</text>
 <text x="570.0" y="728.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >You have clear evaluation criteria and iterating on feedback</text>
 <text x="570.0" y="743.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >measurably improves the result.</text>
@@ -212,31 +213,31 @@
 <rect x="1056.0" y="508.0" width="488.0" height="30.0" rx="10" fill="#059669" />
 <text x="1070.0" y="528.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >6. AUTONOMOUS AGENT  •  agent</text>
 <rect x="1066.0" y="546.0" width="468.0" height="146.0" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-<rect x="1080.0" y="605.0" width="56.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#475569" stroke-width="1.6" /><text x="1108.0" y="624.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Human</text>
-<path d="M 1136.0 620.0 L 1162.0 620.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1172.0 620.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1136.0 620.0 L 1162.0 620.0"/></g>
-<rect x="1127.5" y="595.0" width="43" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
-<text x="1149.0" y="610.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >task</text>
-<rect x="1174.0" y="603.0" width="110.0" height="34.0" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.6" /><text x="1229.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >LLM plans next</text>
-<text x="1229.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >step</text>
-<path d="M 1284.0 612.0 L 1370.0 612.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1380.0 612.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1284.0 612.0 L 1370.0 612.0"/></g>
-<rect x="1299.5" y="587.0" width="55" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
-<text x="1327.0" y="602.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >action</text>
-<rect x="1380.0" y="603.0" width="112.0" height="34.0" rx="6" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.6" /><text x="1436.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Environment /</text>
-<text x="1436.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >tools</text>
-<path d="M 1380.0 630.0 L 1294.0 630.0" class="flow-line" fill="none" stroke="#0D9488" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="4 4" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0D9488" transform="translate(1284.0 630.0) rotate(180.0)"/>
-<g><circle r="8" fill="#0D9488" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0D9488" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1380.0 630.0 L 1294.0 630.0"/></g>
-<rect x="1309.5" y="605.0" width="55" height="22" rx="11" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.5"/>
-<text x="1337.0" y="620.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0D9488" text-anchor="middle" >result</text>
-<polygon points="1520,600.0 1542,620.0 1520,640.0 1498,620.0" fill="#FFFFFF" stroke="#059669" stroke-width="2.4"/><text x="1520.0" y="624.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#059669" text-anchor="middle" >done?</text>
-<path d="M 1492.0 620.0 L 1488.0 620.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1498.0 620.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1492.0 620.0 L 1488.0 620.0"/></g>
-<text x="1310.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" fill="#475569" text-anchor="middle" >stop on: task complete, max steps, or a human checkpoint</text>
+<rect x="1080.0" y="605.0" width="50.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#475569" stroke-width="1.6" /><text x="1105.0" y="624.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Human</text>
+<path d="M 1130.0 620.0 L 1154.0 620.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1164.0 620.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1130.0 620.0 L 1154.0 620.0"/></g>
+<rect x="1120.5" y="595.0" width="43" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+<text x="1142.0" y="610.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >task</text>
+<rect x="1166.0" y="603.0" width="102.0" height="34.0" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.6" /><text x="1217.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >LLM plans next</text>
+<text x="1217.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >step</text>
+<path d="M 1268.0 612.0 L 1342.0 612.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1352.0 612.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1268.0 612.0 L 1342.0 612.0"/></g>
+<rect x="1277.5" y="587.0" width="55" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+<text x="1305.0" y="602.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >action</text>
+<rect x="1354.0" y="603.0" width="104.0" height="34.0" rx="6" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.6" /><text x="1406.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >Environment /</text>
+<text x="1406.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A" text-anchor="middle" >tools</text>
+<path d="M 1354.0 630.0 L 1278.0 630.0" class="flow-line" fill="none" stroke="#0D9488" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="4 4" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0D9488" transform="translate(1268.0 630.0) rotate(180.0)"/>
+<g><circle r="8" fill="#0D9488" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0D9488" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1354.0 630.0 L 1278.0 630.0"/></g>
+<rect x="1288.5" y="605.0" width="55" height="22" rx="11" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.5"/>
+<text x="1316.0" y="620.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0D9488" text-anchor="middle" >result</text>
+<path d="M 1458.0 620.0 L 1464.0 620.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1474.0 620.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1458.0 620.0 L 1464.0 620.0"/></g>
+<polygon points="1496,600.0 1518,620.0 1496,640.0 1474,620.0" fill="#FFFFFF" stroke="#059669" stroke-width="2.4"/><text x="1496.0" y="624.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#059669" text-anchor="middle" >done?</text>
+<text x="1300.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.8" font-weight="700" fill="#475569" text-anchor="middle" >stop on: task complete, max steps, or a human checkpoint</text>
 <text x="1070.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >USE WHEN</text>
 <text x="1070.0" y="728.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Open-ended problems where you can&#x27;t script the path, in a trusted</text>
 <text x="1070.0" y="743.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >environment with ground-truth feedback (tests, tool results).</text>

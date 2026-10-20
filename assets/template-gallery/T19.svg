@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="162" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="137.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T19 • MYTH VS. REALITY</text>
+<rect x="228.0" y="32.0" width="201" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="328.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: CONTRARIAN CLARITY</text>
+<rect x="1222.0" y="32.0" width="322" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1383.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >DYNAMIC TEMPLATE • MOVING ARROWS &amp; LIVE PACKETS</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Five Agentic AI Myths That Quietly Break Production — and the Grounded Reality Behind Each</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Every myth assumes the model will self-regulate; every reality adds a deterministic control outside the model — available as a Google Cloud service or an open-source project.</text>
+<text x="358.0" y="150.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#991B1B" text-anchor="middle" >❌ COMMON MYTH (WHAT TEAMS ASSUME)</text>
+<text x="1222.0" y="150.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#065F46" text-anchor="middle" >✅ GROUNDED REALITY (WHAT PRODUCTION PROVES)</text>
+<rect x="56.0" y="166.0" width="604.0" height="116.0" rx="10" fill="#FFF5F5" stroke="#FCA5A5" stroke-width="1.8" />
+<rect x="56.0" y="166.0" width="8.0" height="116.0" rx="4" fill="#DC2626" />
+<text x="78.0" y="192.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="start" >MYTH 1</text>
+<text x="78.0" y="216.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#7F1D1D" text-anchor="start" >A bigger context window fixes forgetting — just paste</text>
+<text x="78.0" y="234.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#7F1D1D" text-anchor="start" >everything in.</text>
+<text x="78.0" y="266.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#991B1B" text-anchor="start" >Cost: 54% rule adherence by turn 15 and 35-second turns.</text>
+<path d="M 664.0 224.0 L 866.0 224.0" fill="none" stroke="#059669" stroke-opacity="0.14" stroke-width="9.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 664.0 224.0 L 866.0 224.0" class="flow-line" fill="none" stroke="#059669" stroke-width="3.6" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(876.0 224.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 664.0 224.0 L 866.0 224.0"/></g>
+<rect x="718.5" y="191.0" width="93" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+<text x="765.0" y="206.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >GROUNDED FIX</text>
+<rect x="880.0" y="166.0" width="684.0" height="116.0" rx="10" fill="#F0FDF4" stroke="#6EE7B7" stroke-width="1.8" />
+<rect x="880.0" y="166.0" width="8.0" height="116.0" rx="4" fill="#059669" />
+<text x="902.0" y="192.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="start" >REALITY 1</text>
+<text x="902.0" y="210.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >Recall degrades as distractors accumulate, well below the token limit. Pin rules in</text>
+<text x="902.0" y="225.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >a prefix cache (Vertex KV / vLLM), isolate noisy reads in subagents, swap &gt;2KB</text>
+<text x="902.0" y="240.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >outputs for pointers.</text>
+<rect x="902.0" y="256.0" width="411" height="20" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="1.4"/><text x="1107.5" y="269.4" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >Chroma &#x27;Context Rot&#x27; study • IDEA-02 (97% adherence at turn 30+)</text>
+<rect x="56.0" y="298.0" width="604.0" height="116.0" rx="10" fill="#FFF5F5" stroke="#FCA5A5" stroke-width="1.8" />
+<rect x="56.0" y="298.0" width="8.0" height="116.0" rx="4" fill="#DC2626" />
+<text x="78.0" y="324.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="start" >MYTH 2</text>
+<text x="78.0" y="348.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#7F1D1D" text-anchor="start" >Better prompt wording can stop prompt injection.</text>
+<text x="78.0" y="398.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#991B1B" text-anchor="start" >Cost: one poisoned PDF exfiltrates data through your own tools.</text>
+<path d="M 664.0 356.0 L 866.0 356.0" fill="none" stroke="#059669" stroke-opacity="0.14" stroke-width="9.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 664.0 356.0 L 866.0 356.0" class="flow-line" fill="none" stroke="#059669" stroke-width="3.6" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(876.0 356.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 664.0 356.0 L 866.0 356.0"/></g>
+<rect x="718.5" y="323.0" width="93" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+<text x="765.0" y="338.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >GROUNDED FIX</text>
+<rect x="880.0" y="298.0" width="684.0" height="116.0" rx="10" fill="#F0FDF4" stroke="#6EE7B7" stroke-width="1.8" />
+<rect x="880.0" y="298.0" width="8.0" height="116.0" rx="4" fill="#059669" />
+<text x="902.0" y="324.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="start" >REALITY 2</text>
+<text x="902.0" y="342.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >Instructions and data share one token stream; architect around it — scan ingress</text>
+<text x="902.0" y="357.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >(Model Armor or Llama Guard), taint the session, physically unmount write tools via</text>
+<text x="902.0" y="372.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >OPA / IAM.</text>
+<rect x="902.0" y="388.0" width="405" height="20" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="1.4"/><text x="1104.5" y="401.4" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >POST-05 • Model Armor / Llama Guard / NeMo Guardrails • IDEA-08</text>
+<rect x="56.0" y="430.0" width="604.0" height="116.0" rx="10" fill="#FFF5F5" stroke="#FCA5A5" stroke-width="1.8" />
+<rect x="56.0" y="430.0" width="8.0" height="116.0" rx="4" fill="#DC2626" />
+<text x="78.0" y="456.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="start" >MYTH 3</text>
+<text x="78.0" y="480.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#7F1D1D" text-anchor="start" >The agent knows when it is done.</text>
+<text x="78.0" y="530.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#991B1B" text-anchor="start" >Cost: 38% of &#x27;completed&#x27; tasks fail on the first run.</text>
+<path d="M 664.0 488.0 L 866.0 488.0" fill="none" stroke="#059669" stroke-opacity="0.14" stroke-width="9.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 664.0 488.0 L 866.0 488.0" class="flow-line" fill="none" stroke="#059669" stroke-width="3.6" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(876.0 488.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 664.0 488.0 L 866.0 488.0"/></g>
+<rect x="718.5" y="455.0" width="93" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+<text x="765.0" y="470.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >GROUNDED FIX</text>
+<rect x="880.0" y="430.0" width="684.0" height="116.0" rx="10" fill="#F0FDF4" stroke="#6EE7B7" stroke-width="1.8" />
+<rect x="880.0" y="430.0" width="8.0" height="116.0" rx="4" fill="#059669" />
+<text x="902.0" y="456.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="start" >REALITY 3</text>
+<text x="902.0" y="474.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >&#x27;Done&#x27; is exit_code == 0 from a sandboxed verification hook (OpenHands, E2B, Cloud</text>
+<text x="902.0" y="489.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >Run gVisor) — never an LLM sentence. Bounce the traceback back until it passes.</text>
+<rect x="902.0" y="520.0" width="398" height="20" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="1.4"/><text x="1101.0" y="533.4" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >OpenHands (MIT) CodeActAgent • IDEA-03 (0% unverified escapes)</text>
+<rect x="56.0" y="562.0" width="604.0" height="116.0" rx="10" fill="#FFF5F5" stroke="#FCA5A5" stroke-width="1.8" />
+<rect x="56.0" y="562.0" width="8.0" height="116.0" rx="4" fill="#DC2626" />
+<text x="78.0" y="588.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="start" >MYTH 4</text>
+<text x="78.0" y="612.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#7F1D1D" text-anchor="start" >More tools make the agent more capable.</text>
+<text x="78.0" y="662.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#991B1B" text-anchor="start" >Cost: 35,000 schema tokens per turn and 31% wrong tool calls.</text>
+<path d="M 664.0 620.0 L 866.0 620.0" fill="none" stroke="#059669" stroke-opacity="0.14" stroke-width="9.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 664.0 620.0 L 866.0 620.0" class="flow-line" fill="none" stroke="#059669" stroke-width="3.6" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(876.0 620.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 664.0 620.0 L 866.0 620.0"/></g>
+<rect x="718.5" y="587.0" width="93" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+<text x="765.0" y="602.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >GROUNDED FIX</text>
+<rect x="880.0" y="562.0" width="684.0" height="116.0" rx="10" fill="#F0FDF4" stroke="#6EE7B7" stroke-width="1.8" />
+<rect x="880.0" y="562.0" width="8.0" height="116.0" rx="4" fill="#059669" />
+<text x="902.0" y="588.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="start" >REALITY 4</text>
+<text x="902.0" y="606.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >Attention dilutes across overlapping schemas. Index every MCP tool (AlloyDB pgvector</text>
+<text x="902.0" y="621.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >or Qdrant), mount only the Top-3 per step, unmount after the call.</text>
+<rect x="902.0" y="652.0" width="362" height="20" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="1.4"/><text x="1083.0" y="665.4" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >IDEA-04 dynamic MCP router (96.4% accuracy, -93% tokens)</text>
+<rect x="56.0" y="694.0" width="604.0" height="116.0" rx="10" fill="#FFF5F5" stroke="#FCA5A5" stroke-width="1.8" />
+<rect x="56.0" y="694.0" width="8.0" height="116.0" rx="4" fill="#DC2626" />
+<text x="78.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="start" >MYTH 5</text>
+<text x="78.0" y="744.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#7F1D1D" text-anchor="start" >Five specialist agents beat one well-harnessed agent.</text>
+<text x="78.0" y="794.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#991B1B" text-anchor="start" >Cost: 42% of requirements lost across three prose handoffs.</text>
+<path d="M 664.0 752.0 L 866.0 752.0" fill="none" stroke="#059669" stroke-opacity="0.14" stroke-width="9.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 664.0 752.0 L 866.0 752.0" class="flow-line" fill="none" stroke="#059669" stroke-width="3.6" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(876.0 752.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 664.0 752.0 L 866.0 752.0"/></g>
+<rect x="718.5" y="719.0" width="93" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+<text x="765.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >GROUNDED FIX</text>
+<rect x="880.0" y="694.0" width="684.0" height="116.0" rx="10" fill="#F0FDF4" stroke="#6EE7B7" stroke-width="1.8" />
+<rect x="880.0" y="694.0" width="8.0" height="116.0" rx="4" fill="#059669" />
+<text x="902.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="start" >REALITY 5</text>
+<text x="902.0" y="738.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >Agents should mutate a shared, schema-validated blackboard (Firestore or PostgreSQL</text>
+<text x="902.0" y="753.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >JSONB + Pydantic) — not paraphrase each other in chat. Typed contracts keep 100% of</text>
+<text x="902.0" y="768.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#064E3B" text-anchor="start" >constraints.</text>
+<rect x="902.0" y="784.0" width="374" height="20" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="1.4"/><text x="1089.0" y="797.4" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >A2A task contracts (Linux Foundation) • Pydantic • IDEA-05</text>
+<rect x="56.0" y="836.0" width="1508.0" height="82.0" rx="12" fill="#0F2942" />
+<text x="78.0" y="864.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#93C5FD" text-anchor="start" >THE PATTERN BEHIND ALL FIVE</text>
+<text x="78.0" y="888.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >Each myth asks the model to police itself; each reality moves the control into deterministic code (hashes, exit codes, schemas, taint flags) that the model cannot talk</text>
+<text x="78.0" y="906.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >its way around — on Google Cloud or self-hosted.</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: Chroma context-rot study • POST-05 • IDEA-03 • IDEA-04 • IDEA-05 • Llama Guard • Pydantic</text>
+</svg>

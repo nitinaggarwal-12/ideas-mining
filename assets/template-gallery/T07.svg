@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="143" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="127.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T07 • DECISION TREE</text>
+<rect x="209.0" y="32.0" width="188" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="303.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: WHEN TO USE WHAT</text>
+<rect x="1222.0" y="32.0" width="322" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1383.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >DYNAMIC TEMPLATE • MOVING ARROWS &amp; LIVE PACKETS</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Routing Policy: Which Model (Gemini or Open Weights), Which Tools, and Which Mode for Every Turn</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Three deterministic gates decide safety mode, reasoning tier, and parallelism before a single token is spent — enforced by ADK or LiteLLM, never by the prompt.</text>
+<rect x="56.0" y="480.0" width="210.0" height="120.0" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="1.8" /><rect x="56.0" y="480.0" width="210.0" height="24.0" rx="8" fill="#334155" /><text x="161.0" y="495.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >ROOT EVENT</text>
+<text x="70.0" y="528.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >New agent turn arrives</text>
+<text x="70.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#475569" text-anchor="start" >Context assembled, MCP tools</text>
+<text x="70.0" y="580.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#475569" text-anchor="start" >catalogued</text>
+<path d="M 266.0 540.0 L 278.0 540.0" fill="none" stroke="#334155" stroke-opacity="0.14" stroke-width="9.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 266.0 540.0 L 278.0 540.0" class="flow-line" fill="none" stroke="#334155" stroke-width="3.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#334155" transform="translate(288.0 540.0) rotate(0.0)"/>
+<g><circle r="8" fill="#334155" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#334155" stroke-width="2.6"/><animateMotion dur="1.00s" begin="-0.00s" repeatCount="indefinite" path="M 266.0 540.0 L 278.0 540.0"/></g>
+<polygon points="400,468 512,540 400,612 288,540" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.4"/><text x="400.0" y="536.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626" text-anchor="middle" >Untrusted external</text>
+<text x="400.0" y="551.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626" text-anchor="middle" >content in context?</text>
+<path d="M 400.0 468.0 L 400.0 230.0 L 546.0 230.0" fill="none" stroke="#DC2626" stroke-opacity="0.14" stroke-width="9.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 400.0 468.0 L 400.0 230.0 L 546.0 230.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="3.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#DC2626" transform="translate(556.0 230.0) rotate(0.0)"/>
+<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="2.00s" begin="-0.00s" repeatCount="indefinite" path="M 400.0 468.0 L 400.0 230.0 L 546.0 230.0"/></g>
+<rect x="382.0" y="300.6" width="36" height="22" rx="11" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.5"/>
+<text x="400.0" y="315.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#DC2626" text-anchor="middle" >YES</text>
+<rect x="560.0" y="170.0" width="240.0" height="120.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" /><rect x="560.0" y="170.0" width="240.0" height="24.0" rx="8" fill="#DC2626" /><text x="680.0" y="185.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >TAINTED MODE</text>
+<text x="574.0" y="218.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Unmount write tools; Model Armor</text>
+<text x="574.0" y="235.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >/ Llama Guard scan</text>
+<text x="574.0" y="256.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#475569" text-anchor="start" >send_email=OFF, db_write=OFF (OPA)</text>
+<path d="M 800.0 230.0 L 846.0 230.0" fill="none" stroke="#DC2626" stroke-opacity="0.14" stroke-width="9.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 800.0 230.0 L 846.0 230.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="3.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#DC2626" transform="translate(856.0 230.0) rotate(0.0)"/>
+<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="1.00s" begin="-0.00s" repeatCount="indefinite" path="M 800.0 230.0 L 846.0 230.0"/></g>
+<rect x="860.0" y="170.0" width="270.0" height="120.0" rx="10" fill="#FFFFFF" stroke="#991B1B" stroke-width="1.8" /><rect x="860.0" y="170.0" width="270.0" height="24.0" rx="8" fill="#991B1B" /><text x="995.0" y="185.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >OUTCOME A</text>
+<text x="874.0" y="218.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Read-only synthesis; any write needs</text>
+<text x="874.0" y="235.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >a signed HITL approval</text>
+<text x="874.0" y="256.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#475569" text-anchor="start" >0% exfiltration blast radius</text>
+<path d="M 400.0 612.0 L 400.0 720.0 L 556.0 720.0" fill="none" stroke="#2563EB" stroke-opacity="0.14" stroke-width="9.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 400.0 612.0 L 400.0 720.0 L 556.0 720.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="3.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#2563EB" transform="translate(566.0 720.0) rotate(0.0)"/>
+<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="2.00s" begin="-0.00s" repeatCount="indefinite" path="M 400.0 612.0 L 400.0 720.0 L 556.0 720.0"/></g>
+<rect x="385.0" y="671.4" width="30" height="22" rx="11" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="400.0" y="686.4" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB" text-anchor="middle" >NO</text>
+<polygon points="680,648 792,720 680,792 568,720" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.4"/><text x="680.0" y="716.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB" text-anchor="middle" >Complexity score &gt;</text>
+<text x="680.0" y="731.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB" text-anchor="middle" >0.75?</text>
+<path d="M 680.0 648.0 L 680.0 615.0 L 846.0 615.0" fill="none" stroke="#7C3AED" stroke-opacity="0.14" stroke-width="9.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 680.0 648.0 L 680.0 615.0 L 846.0 615.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="3.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(856.0 615.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 680.0 648.0 L 680.0 615.0 L 846.0 615.0"/></g>
+<rect x="708.6" y="582.0" width="36" height="22" rx="11" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<text x="726.6" y="597.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED" text-anchor="middle" >YES</text>
+<rect x="860.0" y="560.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8" /><rect x="860.0" y="560.0" width="260.0" height="24.0" rx="8" fill="#7C3AED" /><text x="990.0" y="575.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >DEEP REASONING</text>
+<text x="874.0" y="608.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Gemini 4 Argon (HIGH) or Llama 3.x</text>
+<text x="874.0" y="625.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >70B on vLLM</text>
+<text x="874.0" y="646.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#475569" text-anchor="start" >Multi-hop planning, debugging</text>
+<path d="M 680.0 792.0 L 680.0 815.0 L 846.0 815.0" fill="none" stroke="#0284C7" stroke-opacity="0.14" stroke-width="9.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 680.0 792.0 L 680.0 815.0 L 846.0 815.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="3.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(856.0 815.0) rotate(0.0)"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 680.0 792.0 L 680.0 815.0 L 846.0 815.0"/></g>
+<rect x="717.6" y="782.0" width="30" height="22" rx="11" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.5"/>
+<text x="732.6" y="797.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#0284C7" text-anchor="middle" >NO</text>
+<rect x="860.0" y="760.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.8" /><rect x="860.0" y="760.0" width="260.0" height="24.0" rx="8" fill="#0284C7" /><text x="990.0" y="775.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >FAST PATH</text>
+<text x="874.0" y="808.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Gemini 3.8 Flash (LOW) or Gemma 3 on</text>
+<text x="874.0" y="825.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Ollama</text>
+<text x="874.0" y="846.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#475569" text-anchor="start" >Triage, extraction, routing</text>
+<path d="M 1120.0 615.0 L 1150.0 615.0 L 1150.0 702.0" fill="none" stroke="#7C3AED" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1120.0 615.0 L 1150.0 615.0 L 1150.0 702.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(1150.0 712.0) rotate(90.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1120.0 615.0 L 1150.0 615.0 L 1150.0 702.0"/></g>
+<path d="M 1120.0 815.0 L 1150.0 815.0 L 1150.0 728.0" fill="none" stroke="#0284C7" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1120.0 815.0 L 1150.0 815.0 L 1150.0 728.0" class="flow-line" fill="none" stroke="#0284C7" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0284C7" transform="translate(1150.0 718.0) rotate(-90.0)"/>
+<g><circle r="8" fill="#0284C7" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1120.0 815.0 L 1150.0 815.0 L 1150.0 728.0"/></g>
+<polygon points="1262,645 1374,715 1262,785 1150,715" fill="#FFFFFF" stroke="#D97706" stroke-width="2.4"/><text x="1262.0" y="704.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706" text-anchor="middle" >More than one</text>
+<text x="1262.0" y="719.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706" text-anchor="middle" >independent read</text>
+<text x="1262.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706" text-anchor="middle" >tool?</text>
+<path d="M 1262.0 645.0 L 1262.0 615.0 L 1366.0 615.0" fill="none" stroke="#059669" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1262.0 645.0 L 1262.0 615.0 L 1366.0 615.0" class="flow-line" fill="none" stroke="#059669" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(1376.0 615.0) rotate(0.0)"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1262.0 645.0 L 1262.0 615.0 L 1366.0 615.0"/></g>
+<rect x="1260.9" y="582.0" width="36" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+<text x="1278.9" y="597.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >YES</text>
+<rect x="1380.0" y="560.0" width="184.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" /><rect x="1380.0" y="560.0" width="184.0" height="24.0" rx="8" fill="#059669" /><text x="1472.0" y="575.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >PARALLEL</text>
+<text x="1394.0" y="608.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >ADK ParallelAgent /</text>
+<text x="1394.0" y="625.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >LangGraph Send()</text>
+<text x="1394.0" y="646.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#475569" text-anchor="start" >3.8x faster than serial</text>
+<path d="M 1262.0 785.0 L 1262.0 815.0 L 1366.0 815.0" fill="none" stroke="#475569" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1262.0 785.0 L 1262.0 815.0 L 1366.0 815.0" class="flow-line" fill="none" stroke="#475569" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#475569" transform="translate(1376.0 815.0) rotate(0.0)"/>
+<g><circle r="8" fill="#475569" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#475569" stroke-width="2.6"/><animateMotion dur="1.60s" begin="-0.00s" repeatCount="indefinite" path="M 1262.0 785.0 L 1262.0 815.0 L 1366.0 815.0"/></g>
+<rect x="1263.9" y="782.0" width="30" height="22" rx="11" fill="#FFFFFF" stroke="#475569" stroke-width="1.5"/>
+<text x="1278.9" y="797.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569" text-anchor="middle" >NO</text>
+<rect x="1380.0" y="760.0" width="184.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#475569" stroke-width="1.8" /><rect x="1380.0" y="760.0" width="184.0" height="24.0" rx="8" fill="#475569" /><text x="1472.0" y="775.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >SEQUENTIAL</text>
+<text x="1394.0" y="808.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Single scoped tool call</text>
+<text x="1394.0" y="846.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#475569" text-anchor="start" >Top-3 MCP schemas mounted</text>
+<rect x="1180.0" y="170.0" width="384.0" height="384.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" />
+<rect x="1180.0" y="170.0" width="384.0" height="32.0" rx="10" fill="#0F2942" />
+<text x="1198.0" y="191.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >ROUTING RULES (DETERMINISTIC, NON-LLM)</text>
+<rect x="1198.0" y="214.0" width="348.0" height="72.0" rx="8" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.4" />
+<rect x="1198.0" y="214.0" width="8.0" height="72.0" rx="4" fill="#DC2626" />
+<text x="1218.0" y="233.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626" text-anchor="start" >GATE 1 • SAFETY FIRST</text>
+<text x="1218.0" y="250.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Taint tracking runs before model selection; it can</text>
+<text x="1218.0" y="263.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >only remove capabilities, never add them.</text>
+<rect x="1198.0" y="296.0" width="348.0" height="72.0" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.4" />
+<rect x="1198.0" y="296.0" width="8.0" height="72.0" rx="4" fill="#7C3AED" />
+<text x="1218.0" y="315.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED" text-anchor="start" >GATE 2 • COST-AWARE TIERING</text>
+<text x="1218.0" y="332.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Flash or Gemma 3 handles ~80% of turns; Argon or a</text>
+<text x="1218.0" y="345.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >70B open model is reserved for complexity &gt; 0.75.</text>
+<rect x="1198.0" y="378.0" width="348.0" height="72.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.4" />
+<rect x="1198.0" y="378.0" width="8.0" height="72.0" rx="4" fill="#D97706" />
+<text x="1218.0" y="397.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706" text-anchor="start" >GATE 3 • LATENCY SHAPE</text>
+<text x="1218.0" y="414.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Independent read-only tools always fan out;</text>
+<text x="1218.0" y="427.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >mutating tools never run in parallel.</text>
+<rect x="1198.0" y="460.0" width="348.0" height="72.0" rx="8" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.4" />
+<rect x="1198.0" y="460.0" width="8.0" height="72.0" rx="4" fill="#2563EB" />
+<text x="1218.0" y="479.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB" text-anchor="start" >ALWAYS • ONE ROUTING LAYER</text>
+<text x="1218.0" y="496.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >ADK model router or LiteLLM keeps the tiering</text>
+<text x="1218.0" y="509.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >identical across Vertex AI (locations/global) and</text>
+<text x="1218.0" y="522.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >self-hosted vLLM.</text>
+<rect x="56.0" y="660.0" width="300.0" height="250.0" rx="12" fill="#0F2942" />
+<text x="72.0" y="686.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#93C5FD" text-anchor="start" >WHAT EACH OUTCOME BUYS YOU</text>
+<circle cx="80" cy="708" r="5" fill="#DC2626"/>
+<text x="94.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="start" >A: Zero tool-based exfiltration</text>
+<text x="94.0" y="727.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="start" >while reading external docs</text>
+<circle cx="80" cy="756" r="5" fill="#7C3AED"/>
+<text x="94.0" y="760.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="start" >B: Deep reasoning only when needed</text>
+<text x="94.0" y="775.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="start" >(cost -91%)</text>
+<circle cx="80" cy="804" r="5" fill="#0284C7"/>
+<text x="94.0" y="808.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="start" >C: p95 turn latency 42s -&gt; 1.9s on</text>
+<text x="94.0" y="823.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="start" >the fast path</text>
+<circle cx="80" cy="852" r="5" fill="#059669"/>
+<text x="94.0" y="856.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="start" >D: Parallel reads 3.8x faster than</text>
+<text x="94.0" y="871.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="start" >serial calls</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: Rule 55 Vertex AI routing • LiteLLM router • vLLM / Ollama • IDEA-08 • IDEA-09</text>
+</svg>

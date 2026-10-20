@@ -98,8 +98,10 @@
 <text x="72" y="496" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">Tag external emails, PDFs, and web</text>
 <text x="72" y="514" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">pages as UNTRUSTED_DATA before they</text>
 <text x="72" y="532" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">touch any model context.</text>
-<rect x="70" y="576" width="256" height="32" rx="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.6"/>
-<text x="198" y="597" font-family="ui-monospace, monospace" font-size="10.5" font-weight="800" fill="#2563EB" text-anchor="middle">[Google Cloud Model Armor (Indirect]</text>
+<rect x="70" y="566" width="256" height="46" rx="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.6"/>
+<rect x="70" y="566" width="256" height="23" rx="8" fill="#2563EB" fill-opacity="0.10"/>
+<text x="80" y="582" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#2563EB">GOOGLE: Google Cloud Model Armor (Indirect</text>
+<text x="80" y="603" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#0F172A">OSS: Llama Guard / NeMo Guardrails</text>
 <line x1="344" y1="502" x2="438" y2="502" stroke="#2563EB" stroke-opacity="0.16" stroke-width="10" stroke-linecap="round"/>
 <line x1="344" y1="502" x2="438" y2="502" class="moving-arrow-line" stroke="#2563EB" stroke-width="4" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
 <polygon points="446,502 431,493 435,502 431,511" fill="#2563EB"/>
@@ -121,8 +123,10 @@
 <text x="466" y="514" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">imperative override patterns,</text>
 <text x="466" y="532" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">hidden Unicode, and exfiltration</text>
 <text x="466" y="550" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">URLs.</text>
-<rect x="464" y="576" width="256" height="32" rx="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6"/>
-<text x="592" y="597" font-family="ui-monospace, monospace" font-size="10.5" font-weight="800" fill="#7C3AED" text-anchor="middle">[Google Cloud ADK Dual-Channel Cont]</text>
+<rect x="464" y="566" width="256" height="46" rx="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6"/>
+<rect x="464" y="566" width="256" height="23" rx="8" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="474" y="582" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#7C3AED">GOOGLE: Google Cloud ADK Dual-Channel Cont</text>
+<text x="474" y="603" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#0F172A">OSS: LangGraph / CrewAI / AutoGen</text>
 <line x1="738" y1="502" x2="832" y2="502" stroke="#7C3AED" stroke-opacity="0.16" stroke-width="10" stroke-linecap="round"/>
 <line x1="738" y1="502" x2="832" y2="502" class="moving-arrow-line" stroke="#7C3AED" stroke-width="4" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
 <polygon points="840,502 825,493 829,502 825,511" fill="#7C3AED"/>
@@ -144,8 +148,10 @@
 <text x="860" y="514" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">cryptographic XML/JSON data</text>
 <text x="860" y="532" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">delimiters separated from system</text>
 <text x="860" y="550" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">instructions.</text>
-<rect x="858" y="576" width="256" height="32" rx="8" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6"/>
-<text x="986" y="597" font-family="ui-monospace, monospace" font-size="10.5" font-weight="800" fill="#D97706" text-anchor="middle">[Vertex AI Gemini 3.8 Flash with Sy]</text>
+<rect x="858" y="566" width="256" height="46" rx="8" fill="#FFFFFF" stroke="#D97706" stroke-width="1.6"/>
+<rect x="858" y="566" width="256" height="23" rx="8" fill="#D97706" fill-opacity="0.10"/>
+<text x="868" y="582" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#D97706">GOOGLE: Vertex AI Gemini 3.8 Flash with Sy</text>
+<text x="868" y="603" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#0F172A">OSS: Gemma 3 / Llama 3.x on vLLM</text>
 <line x1="1132" y1="502" x2="1226" y2="502" stroke="#D97706" stroke-opacity="0.16" stroke-width="10" stroke-linecap="round"/>
 <line x1="1132" y1="502" x2="1226" y2="502" class="moving-arrow-line" stroke="#D97706" stroke-width="4" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
 <polygon points="1234,502 1219,493 1223,502 1219,511" fill="#D97706"/>
@@ -166,8 +172,10 @@
 <text x="1254" y="496" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">When summarizing untrusted content,</text>
 <text x="1254" y="514" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">strip write/send/query tools (e.g.,</text>
 <text x="1254" y="532" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">disable send_email &amp; db_write).</text>
-<rect x="1252" y="576" width="256" height="32" rx="8" fill="#FFFFFF" stroke="#059669" stroke-width="1.6"/>
-<text x="1380" y="597" font-family="ui-monospace, monospace" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle">[Cloud Run Least-Privilege Tool Cap]</text>
+<rect x="1252" y="566" width="256" height="46" rx="8" fill="#FFFFFF" stroke="#059669" stroke-width="1.6"/>
+<rect x="1252" y="566" width="256" height="23" rx="8" fill="#059669" fill-opacity="0.10"/>
+<text x="1262" y="582" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#059669">GOOGLE: Cloud Run Least-Privilege Tool Cap</text>
+<text x="1262" y="603" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#0F172A">OSS: Kubernetes / Knative</text>
 <path d="M 1380 626 L 1380 668 L 198 668 L 198 632" fill="none" stroke="#059669" stroke-opacity="0.16" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path id="closed_loop_return_path" d="M 1380 626 L 1380 668 L 198 668 L 198 632" class="moving-return-line" fill="none" stroke="#059669" stroke-width="3.8" stroke-dasharray="14 10" stroke-dashoffset="0.0"/>
 <polygon points="198,626 189,641 198,637 207,641" fill="#059669"/>
@@ -201,7 +209,7 @@
 </g>
 <rect x="578" y="764" width="450" height="196" rx="12" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2.2" filter="url(#cardShadow)"/>
 <rect x="578" y="764" width="450" height="32" rx="10" fill="#065F46"/>
-<text x="598" y="785" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">[✓] AFTER (ENGINEERED GOOGLE CLOUD ADK + OPENHANDS)</text>
+<text x="598" y="785" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">[✓] AFTER (ENGINEERED HARNESS: GOOGLE CLOUD + OPEN SOURCE)</text>
 <rect x="596" y="812" width="414" height="56" rx="8" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1.8"/>
 <text x="614" y="846" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#065F46">✓ indirect_injection_block_rate: 100.0%</text>
 <rect x="596" y="882" width="414" height="56" rx="8" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1.8"/>

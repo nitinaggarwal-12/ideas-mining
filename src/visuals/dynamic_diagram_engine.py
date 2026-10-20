@@ -297,11 +297,16 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
                 f'<text x="{sx + 16}" y="{496 + h_idx * 18}" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1E293B">{_esc(hl)}</text>'
             )
 
-        # Bottom GCP / OpenHands Primitive Pill
+        # Bottom Dual-Stack Pill: Google Cloud primitive + Open-Source equivalent
+        from src.catalog.stack_pairings import oss_step_equivalent
+
+        oss_label = st.get("oss_primitive") or oss_step_equivalent(idea["id"], st["step"], st["gcp_primitive"])
         svg.extend(
             [
-                f'<rect x="{sx + 14}" y="576" width="256" height="32" rx="8" fill="#FFFFFF" stroke="{scol}" stroke-width="1.6"/>',
-                f'<text x="{sx + 142}" y="597" font-family="ui-monospace, monospace" font-size="10.5" font-weight="800" fill="{scol}" text-anchor="middle">[{_esc(st["gcp_primitive"])}]</text>',
+                f'<rect x="{sx + 14}" y="{566}" width="256" height="46" rx="8" fill="#FFFFFF" stroke="{scol}" stroke-width="1.6"/>',
+                f'<rect x="{sx + 14}" y="{566}" width="256" height="23" rx="8" fill="{scol}" fill-opacity="0.10"/>',
+                f'<text x="{sx + 24}" y="{582}" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="{scol}">GOOGLE: {_esc(st["gcp_primitive"][:36])}</text>',
+                f'<text x="{sx + 24}" y="{603}" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#0F172A">OSS: {_esc(oss_label[:38])}</text>',
             ]
         )
 
@@ -394,7 +399,7 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
         [
             '<rect x="578" y="764" width="450" height="196" rx="12" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2.2" filter="url(#cardShadow)"/>',
             '<rect x="578" y="764" width="450" height="32" rx="10" fill="#065F46"/>',
-            '<text x="598" y="785" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">[✓] AFTER (ENGINEERED GOOGLE CLOUD ADK + OPENHANDS)</text>',
+            '<text x="598" y="785" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">[✓] AFTER (ENGINEERED HARNESS: GOOGLE CLOUD + OPEN SOURCE)</text>',
             '<rect x="596" y="812" width="414" height="56" rx="8" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1.8"/>',
             f'<text x="614" y="846" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#065F46">✓ {_esc(ba["after_metric_1"])}</text>',
             '<rect x="596" y="882" width="414" height="56" rx="8" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1.8"/>',

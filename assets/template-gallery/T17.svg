@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="182" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="147.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T17 • KPI DASHBOARD TILES</text>
+<rect x="248.0" y="32.0" width="207" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="351.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: RESULTS AT A GLANCE</text>
+<rect x="1222.0" y="32.0" width="322" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1383.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >DYNAMIC TEMPLATE • MOVING ARROWS &amp; LIVE PACKETS</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Harness Upgrade Scorecard: Six Headline Metrics Before and After Deterministic Controls</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Big numbers are the measured &#x27;after&#x27;; sparklines interpolate from the measured &#x27;before&#x27;. Each control ships in a Google Cloud and an open-source form.</text>
+<rect x="56.0" y="150.0" width="480.0" height="276.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="150.0" width="480.0" height="8.0" rx="4" fill="#2563EB" />
+<text x="76.0" y="190.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#475569" text-anchor="start" >P95 AGENT TURN LATENCY</text>
+<text x="76.0" y="238.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="40" font-weight="800" fill="#0F172A" text-anchor="start" >1.9 s</text>
+<rect x="454.0" y="210.0" width="62" height="24" rx="12.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="485.0" y="225.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >-95.5%</text>
+<text x="76.0" y="266.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >Before: 42.0 s with serial reads and no prefix cache</text>
+<rect x="76.0" y="290.0" width="440.0" height="90.0" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+<path d="M 92.0 304.0 L 150.3 320.4 L 208.6 334.4 L 266.9 345.8 L 325.1 354.6 L 383.4 360.9 L 441.7 364.7 L 500.0 366.0" fill="none" stroke="#2563EB" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="2.80s" begin="-0.00s" repeatCount="indefinite" path="M 92.0 304.0 L 150.3 320.4 L 208.6 334.4 L 266.9 345.8 L 325.1 354.6 L 383.4 360.9 L 441.7 364.7 L 500.0 366.0"/></g>
+<circle cx="92.0" cy="304.0" r="5" fill="#DC2626"/>
+<circle cx="500.0" cy="366.0" r="6" fill="#059669" stroke="#FFFFFF" stroke-width="2"/>
+<text x="86.0" y="306.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#DC2626" text-anchor="start" >BEFORE</text>
+<text x="506.0" y="306.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#059669" text-anchor="end" >AFTER</text>
+<text x="76.0" y="408.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#1D4ED8" text-anchor="start" >IDEA-09 • Vertex KV cache or vLLM prefix cache • Cloud Trace / Langfuse spans</text>
+<rect x="560.0" y="150.0" width="480.0" height="276.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="560.0" y="150.0" width="480.0" height="8.0" rx="4" fill="#7C3AED" />
+<text x="580.0" y="190.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#475569" text-anchor="start" >COST PER COMPLETED TASK</text>
+<text x="580.0" y="238.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="40" font-weight="800" fill="#0F172A" text-anchor="start" >$0.06</text>
+<rect x="958.0" y="210.0" width="62" height="24" rx="12.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="989.0" y="225.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >-91.2%</text>
+<text x="580.0" y="266.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >Before: $0.68 routing every step to the frontier model</text>
+<rect x="580.0" y="290.0" width="440.0" height="90.0" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+<path d="M 596.0 304.0 L 654.3 320.4 L 712.6 334.4 L 770.9 345.8 L 829.1 354.6 L 887.4 360.9 L 945.7 364.7 L 1004.0 366.0" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="2.80s" begin="-0.00s" repeatCount="indefinite" path="M 596.0 304.0 L 654.3 320.4 L 712.6 334.4 L 770.9 345.8 L 829.1 354.6 L 887.4 360.9 L 945.7 364.7 L 1004.0 366.0"/></g>
+<circle cx="596.0" cy="304.0" r="5" fill="#DC2626"/>
+<circle cx="1004.0" cy="366.0" r="6" fill="#059669" stroke="#FFFFFF" stroke-width="2"/>
+<text x="590.0" y="306.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#DC2626" text-anchor="start" >BEFORE</text>
+<text x="1010.0" y="306.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#059669" text-anchor="end" >AFTER</text>
+<text x="580.0" y="408.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#1D4ED8" text-anchor="start" >IDEA-09 Flash/Argon cascade (ADK router or LiteLLM)</text>
+<rect x="1064.0" y="150.0" width="480.0" height="276.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="1064.0" y="150.0" width="480.0" height="8.0" rx="4" fill="#D97706" />
+<text x="1084.0" y="190.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#475569" text-anchor="start" >TOOL SELECTION ACCURACY</text>
+<text x="1084.0" y="238.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="40" font-weight="800" fill="#0F172A" text-anchor="start" >96.4%</text>
+<rect x="1442.0" y="210.0" width="82" height="24" rx="12.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="1483.0" y="225.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >+27.4 pts</text>
+<text x="1084.0" y="266.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >Before: 69.0% with 85 MCP schemas mounted every turn</text>
+<rect x="1084.0" y="290.0" width="440.0" height="90.0" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+<path d="M 1100.0 366.0 L 1158.3 349.6 L 1216.6 335.6 L 1274.9 324.2 L 1333.1 315.4 L 1391.4 309.1 L 1449.7 305.3 L 1508.0 304.0" fill="none" stroke="#D97706" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="2.80s" begin="-0.00s" repeatCount="indefinite" path="M 1100.0 366.0 L 1158.3 349.6 L 1216.6 335.6 L 1274.9 324.2 L 1333.1 315.4 L 1391.4 309.1 L 1449.7 305.3 L 1508.0 304.0"/></g>
+<circle cx="1100.0" cy="366.0" r="5" fill="#DC2626"/>
+<circle cx="1508.0" cy="304.0" r="6" fill="#059669" stroke="#FFFFFF" stroke-width="2"/>
+<text x="1094.0" y="306.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#DC2626" text-anchor="start" >BEFORE</text>
+<text x="1514.0" y="306.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#059669" text-anchor="end" >AFTER</text>
+<text x="1084.0" y="408.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#1D4ED8" text-anchor="start" >IDEA-04 dynamic MCP router (pgvector / Qdrant index)</text>
+<rect x="56.0" y="450.0" width="480.0" height="276.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="450.0" width="480.0" height="8.0" rx="4" fill="#059669" />
+<text x="76.0" y="490.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#475569" text-anchor="start" >STALE MEMORY CLAIMS / CHECKPOINT</text>
+<text x="76.0" y="538.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="40" font-weight="800" fill="#0F172A" text-anchor="start" >9</text>
+<rect x="454.0" y="510.0" width="62" height="24" rx="12.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="485.0" y="525.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >-88.8%</text>
+<text x="76.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >Before: 80 stale claims with text-only memory</text>
+<rect x="76.0" y="590.0" width="440.0" height="90.0" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+<path d="M 92.0 604.0 L 150.3 620.4 L 208.6 634.4 L 266.9 645.8 L 325.1 654.6 L 383.4 660.9 L 441.7 664.7 L 500.0 666.0" fill="none" stroke="#059669" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="2.80s" begin="-0.00s" repeatCount="indefinite" path="M 92.0 604.0 L 150.3 620.4 L 208.6 634.4 L 266.9 645.8 L 325.1 654.6 L 383.4 660.9 L 441.7 664.7 L 500.0 666.0"/></g>
+<circle cx="92.0" cy="604.0" r="5" fill="#DC2626"/>
+<circle cx="500.0" cy="666.0" r="6" fill="#059669" stroke="#FFFFFF" stroke-width="2"/>
+<text x="86.0" y="606.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#DC2626" text-anchor="start" >BEFORE</text>
+<text x="506.0" y="606.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#059669" text-anchor="end" >AFTER</text>
+<text x="76.0" y="708.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#1D4ED8" text-anchor="start" >LangChain OpenWiki benchmark (POST-07, open source)</text>
+<rect x="560.0" y="450.0" width="480.0" height="276.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="560.0" y="450.0" width="480.0" height="8.0" rx="4" fill="#DC2626" />
+<text x="580.0" y="490.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#475569" text-anchor="start" >UNVERIFIED &#x27;DONE&#x27; REPLIES</text>
+<text x="580.0" y="538.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="40" font-weight="800" fill="#0F172A" text-anchor="start" >0%</text>
+<rect x="951.0" y="510.0" width="69" height="24" rx="12.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="985.5" y="525.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >-38 pts</text>
+<text x="580.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >Before: 38% of &#x27;completed&#x27; tasks failed on first run</text>
+<rect x="580.0" y="590.0" width="440.0" height="90.0" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+<path d="M 596.0 604.0 L 654.3 620.4 L 712.6 634.4 L 770.9 645.8 L 829.1 654.6 L 887.4 660.9 L 945.7 664.7 L 1004.0 666.0" fill="none" stroke="#DC2626" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="2.80s" begin="-0.00s" repeatCount="indefinite" path="M 596.0 604.0 L 654.3 620.4 L 712.6 634.4 L 770.9 645.8 L 829.1 654.6 L 887.4 660.9 L 945.7 664.7 L 1004.0 666.0"/></g>
+<circle cx="596.0" cy="604.0" r="5" fill="#DC2626"/>
+<circle cx="1004.0" cy="666.0" r="6" fill="#059669" stroke="#FFFFFF" stroke-width="2"/>
+<text x="590.0" y="606.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#DC2626" text-anchor="start" >BEFORE</text>
+<text x="1010.0" y="606.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#059669" text-anchor="end" >AFTER</text>
+<text x="580.0" y="708.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#1D4ED8" text-anchor="start" >IDEA-03 verify hook • OpenHands (MIT) sandbox</text>
+<rect x="1064.0" y="450.0" width="480.0" height="276.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="1064.0" y="450.0" width="480.0" height="8.0" rx="4" fill="#0D9488" />
+<text x="1084.0" y="490.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#475569" text-anchor="start" >DUPLICATE RETRIES ON ONE ERROR</text>
+<text x="1084.0" y="538.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="40" font-weight="800" fill="#0F172A" text-anchor="start" >2 max</text>
+<rect x="1476.0" y="510.0" width="48" height="24" rx="12.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="1500.0" y="525.8" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle" >-96%</text>
+<text x="1084.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="start" >Before: 48 identical retries observed on a single 400</text>
+<rect x="1084.0" y="590.0" width="440.0" height="90.0" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+<path d="M 1100.0 604.0 L 1158.3 620.4 L 1216.6 634.4 L 1274.9 645.8 L 1333.1 654.6 L 1391.4 660.9 L 1449.7 664.7 L 1508.0 666.0" fill="none" stroke="#0D9488" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<g><circle r="8" fill="#0D9488" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0D9488" stroke-width="2.6"/><animateMotion dur="2.80s" begin="-0.00s" repeatCount="indefinite" path="M 1100.0 604.0 L 1158.3 620.4 L 1216.6 634.4 L 1274.9 645.8 L 1333.1 654.6 L 1391.4 660.9 L 1449.7 664.7 L 1508.0 666.0"/></g>
+<circle cx="1100.0" cy="604.0" r="5" fill="#DC2626"/>
+<circle cx="1508.0" cy="666.0" r="6" fill="#059669" stroke="#FFFFFF" stroke-width="2"/>
+<text x="1094.0" y="606.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#DC2626" text-anchor="start" >BEFORE</text>
+<text x="1514.0" y="606.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#059669" text-anchor="end" >AFTER</text>
+<text x="1084.0" y="708.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#1D4ED8" text-anchor="start" >IDEA-01 loop breaker (Firestore or Redis window)</text>
+<rect x="56.0" y="760.0" width="1508.0" height="158.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" />
+<rect x="56.0" y="760.0" width="1508.0" height="32.0" rx="10" fill="#0F2942" />
+<text x="74.0" y="781.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >HOW THESE NUMBERS WERE MEASURED (AND HOW TO RE-MEASURE THEM ON ANY STACK)</text>
+<rect x="76.0" y="806.0" width="470.0" height="96.0" rx="8" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.4" />
+<text x="90.0" y="830.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB" text-anchor="start" >SAME WORKLOAD, ONE CHANGE</text>
+<text x="90.0" y="850.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Each metric compares identical task sets before and after a</text>
+<text x="90.0" y="865.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >single harness control; models and tools are held constant.</text>
+<rect x="576.0" y="806.0" width="470.0" height="96.0" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.4" />
+<text x="590.0" y="830.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED" text-anchor="start" >TELEMETRY SOURCE</text>
+<text x="590.0" y="850.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Latency, cost, and retry counts come from OpenTelemetry spans</text>
+<text x="590.0" y="865.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >exported to Cloud Trace, Langfuse, or Arize Phoenix;</text>
+<text x="590.0" y="880.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >trajectories in BigQuery or ClickHouse.</text>
+<rect x="1076.0" y="806.0" width="470.0" height="96.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.4" />
+<text x="1090.0" y="830.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706" text-anchor="start" >PUBLISHED VS. REFERENCE</text>
+<text x="1090.0" y="850.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Stale-claim numbers are published OpenWiki results; the other</text>
+<text x="1090.0" y="865.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >five are reference-harness measurements — re-run before</text>
+<text x="1090.0" y="880.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >quoting externally.</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: IDEA-01 • IDEA-03 • IDEA-04 • IDEA-07 • IDEA-09 • OpenTelemetry / Langfuse</text>
+</svg>

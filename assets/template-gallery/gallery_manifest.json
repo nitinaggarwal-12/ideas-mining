@@ -1,0 +1,345 @@
+{
+  "template_count": 20,
+  "templates": [
+    {
+      "id": "T01",
+      "name": "Pain-Point Flow",
+      "best_for_short": "Daily problem -> working fix",
+      "content_types": [
+        "Working solution",
+        "Easy to understand",
+        "Ideas"
+      ],
+      "when_to_use": "A reader feels a daily pain and wants the exact 4-step fix with before/after proof.",
+      "dynamic": "Moving arrows between steps, closed-loop return highway, traveling packets, upgrade arrow.",
+      "files": {
+        "svg": "T01.svg",
+        "gif": "T01.gif",
+        "png": "T01.png"
+      }
+    },
+    {
+      "id": "T02",
+      "name": "Split-Path Divergence",
+      "best_for_short": "Safe vs. failure path",
+      "content_types": [
+        "Easy to understand",
+        "Grounded concepts",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Two paths look identical at the start but diverge (security, reliability, compliance).",
+      "dynamic": "Green vs. red packet streams, purple control-intercept flows, pulsing invariant.",
+      "files": {
+        "svg": "T02.svg",
+        "gif": "T02.gif",
+        "png": "T02.png"
+      }
+    },
+    {
+      "id": "T03",
+      "name": "Hub-and-Spoke Core",
+      "best_for_short": "System decomposition",
+      "content_types": [
+        "Grounded concepts",
+        "Information",
+        "Educational"
+      ],
+      "when_to_use": "One central engine with many orbiting subsystems (harness layers, platform services).",
+      "dynamic": "10 spokes streaming packets into a pulsing core.",
+      "files": {
+        "svg": "T03.svg",
+        "gif": "T03.gif",
+        "png": "T03.png"
+      }
+    },
+    {
+      "id": "T04",
+      "name": "Layered Stack",
+      "best_for_short": "How the layers fit",
+      "content_types": [
+        "Educational",
+        "Grounded concepts",
+        "Information"
+      ],
+      "when_to_use": "Explain a platform from foundation to experience with guarantees per layer.",
+      "dynamic": "Request descends on the left rail, verified response ascends on the right rail.",
+      "files": {
+        "svg": "T04.svg",
+        "gif": "T04.gif",
+        "png": "T04.png"
+      }
+    },
+    {
+      "id": "T05",
+      "name": "Closed-Loop Cycle",
+      "best_for_short": "Iterative loops & flywheels",
+      "content_types": [
+        "Educational",
+        "Easy to understand",
+        "Grounded concepts"
+      ],
+      "when_to_use": "A process repeats until a gate exits (agent loops, CI loops, retraining).",
+      "dynamic": "Packets orbit the loop arcs; entry and exit arrows; pulsing core.",
+      "files": {
+        "svg": "T05.svg",
+        "gif": "T05.gif",
+        "png": "T05.png"
+      }
+    },
+    {
+      "id": "T06",
+      "name": "Sequence Diagram",
+      "best_for_short": "Protocols & proof of concept",
+      "content_types": [
+        "Proof of concept",
+        "Working solution",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Show exactly who calls whom, in what order, including retry loops.",
+      "dynamic": "Numbered messages stream packets between lifelines; loop fragment highlighted.",
+      "files": {
+        "svg": "T06.svg",
+        "gif": "T06.gif",
+        "png": "T06.png"
+      }
+    },
+    {
+      "id": "T07",
+      "name": "Decision Tree",
+      "best_for_short": "When to use what",
+      "content_types": [
+        "Professional knowledge sharing",
+        "Easy to understand",
+        "Information"
+      ],
+      "when_to_use": "A routing policy or architectural decision with 2-3 gates.",
+      "dynamic": "YES/NO branches carry packets to color-coded outcomes.",
+      "files": {
+        "svg": "T07.svg",
+        "gif": "T07.gif",
+        "png": "T07.png"
+      }
+    },
+    {
+      "id": "T08",
+      "name": "Benchmark Bars",
+      "best_for_short": "Evaluation results",
+      "content_types": [
+        "Evaluation results",
+        "Research topics",
+        "Proof of concept"
+      ],
+      "when_to_use": "Before/after measurements with sources and deltas.",
+      "dynamic": "Bars grow on load; delta pills; methodology panel.",
+      "files": {
+        "svg": "T08.svg",
+        "gif": "T08.gif",
+        "png": "T08.png"
+      }
+    },
+    {
+      "id": "T09",
+      "name": "Evolution Timeline",
+      "best_for_short": "Research & trend history",
+      "content_types": [
+        "Research topics",
+        "Educational",
+        "Ideas"
+      ],
+      "when_to_use": "How a field evolved and why each era's failure created the next architecture.",
+      "dynamic": "Packets travel the spine; era cards alternate above/below; pattern chain arrows.",
+      "files": {
+        "svg": "T09.svg",
+        "gif": "T09.gif",
+        "png": "T09.png"
+      }
+    },
+    {
+      "id": "T10",
+      "name": "Refinement Funnel",
+      "best_for_short": "Filtering pipelines",
+      "content_types": [
+        "Grounded concepts",
+        "Research topics",
+        "Working solution"
+      ],
+      "when_to_use": "Large raw input is filtered through gates into a few promoted outputs.",
+      "dynamic": "Packets fall through the funnel; stage filters connect to annotation cards.",
+      "files": {
+        "svg": "T10.svg",
+        "gif": "T10.gif",
+        "png": "T10.png"
+      }
+    },
+    {
+      "id": "T11",
+      "name": "2x2 Quadrant Map",
+      "best_for_short": "Strategy & positioning",
+      "content_types": [
+        "Ideas",
+        "Professional knowledge sharing",
+        "Information"
+      ],
+      "when_to_use": "Position options on two axes and show the migration path to the target quadrant.",
+      "dynamic": "Breathing dots, axis flows, dashed migration arrows with labels.",
+      "files": {
+        "svg": "T11.svg",
+        "gif": "T11.gif",
+        "png": "T11.png"
+      }
+    },
+    {
+      "id": "T12",
+      "name": "Anatomy Callouts",
+      "best_for_short": "Dissect an artifact",
+      "content_types": [
+        "Educational",
+        "Grounded concepts",
+        "Working solution"
+      ],
+      "when_to_use": "Explain each part of a prompt, brief, config, or payload and why it matters.",
+      "dynamic": "Leader packets flow from 6 callouts into the central artifact.",
+      "files": {
+        "svg": "T12.svg",
+        "gif": "T12.gif",
+        "png": "T12.png"
+      }
+    },
+    {
+      "id": "T13",
+      "name": "Bad vs. Good Diff",
+      "best_for_short": "Working code solution",
+      "content_types": [
+        "Working solution",
+        "Proof of concept",
+        "Easy to understand"
+      ],
+      "when_to_use": "Show the naive implementation next to the production one, line by line.",
+      "dynamic": "Transformation arrows jump from the bad lines to the fixed lines.",
+      "files": {
+        "svg": "T13.svg",
+        "gif": "T13.gif",
+        "png": "T13.png"
+      }
+    },
+    {
+      "id": "T14",
+      "name": "Audit Scorecard",
+      "best_for_short": "Readiness checklists",
+      "content_types": [
+        "Professional knowledge sharing",
+        "Evaluation results",
+        "Information"
+      ],
+      "when_to_use": "A pass/partial/fail audit with evidence and the next fixes.",
+      "dynamic": "Scan packet sweeps the rows; FAIL pills blink; gauge arc fills.",
+      "files": {
+        "svg": "T14.svg",
+        "gif": "T14.gif",
+        "png": "T14.png"
+      }
+    },
+    {
+      "id": "T15",
+      "name": "Radial Mind Map",
+      "best_for_short": "Research landscape",
+      "content_types": [
+        "Research topics",
+        "Ideas",
+        "Educational"
+      ],
+      "when_to_use": "Map a field: center topic, 6 branches, 18 grounded leaves.",
+      "dynamic": "Curved branch flows stream packets outward from a pulsing center.",
+      "files": {
+        "svg": "T15.svg",
+        "gif": "T15.gif",
+        "png": "T15.png"
+      }
+    },
+    {
+      "id": "T16",
+      "name": "Maturity Heatmap",
+      "best_for_short": "Capability comparison",
+      "content_types": [
+        "Information",
+        "Professional knowledge sharing",
+        "Evaluation results"
+      ],
+      "when_to_use": "Compare levels or options across capabilities with a highlighted recommendation.",
+      "dynamic": "Recommended column pulses with a vertical scan; color-graded cells.",
+      "files": {
+        "svg": "T16.svg",
+        "gif": "T16.gif",
+        "png": "T16.png"
+      }
+    },
+    {
+      "id": "T17",
+      "name": "KPI Dashboard Tiles",
+      "best_for_short": "Results at a glance",
+      "content_types": [
+        "Evaluation results",
+        "Information",
+        "Proof of concept"
+      ],
+      "when_to_use": "Six headline metrics with trend, delta, and measurement method.",
+      "dynamic": "Packets trace each sparkline from BEFORE to AFTER.",
+      "files": {
+        "svg": "T17.svg",
+        "gif": "T17.gif",
+        "png": "T17.png"
+      }
+    },
+    {
+      "id": "T18",
+      "name": "Repo Tree Map",
+      "best_for_short": "Codebase walkthrough",
+      "content_types": [
+        "Working solution",
+        "Proof of concept",
+        "Grounded concepts"
+      ],
+      "when_to_use": "Walk readers through a repository: file -> responsibility -> architectural tier.",
+      "dynamic": "Leader packets link tree rows to responsibility cards and tier badges.",
+      "files": {
+        "svg": "T18.svg",
+        "gif": "T18.gif",
+        "png": "T18.png"
+      }
+    },
+    {
+      "id": "T19",
+      "name": "Myth vs. Reality",
+      "best_for_short": "Contrarian clarity",
+      "content_types": [
+        "Easy to understand",
+        "Grounded concepts",
+        "Ideas"
+      ],
+      "when_to_use": "Bust 5 common assumptions with evidence-backed realities.",
+      "dynamic": "GROUNDED FIX arrows carry packets from each myth to its reality.",
+      "files": {
+        "svg": "T19.svg",
+        "gif": "T19.gif",
+        "png": "T19.png"
+      }
+    },
+    {
+      "id": "T20",
+      "name": "Radar Evaluation",
+      "best_for_short": "Multi-dimension scoring",
+      "content_types": [
+        "Evaluation results",
+        "Research topics",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Compare two designs across 6 dimensions with a rubric.",
+      "dynamic": "Polygon grows into place while packets orbit its outline.",
+      "files": {
+        "svg": "T20.svg",
+        "gif": "T20.gif",
+        "png": "T20.png"
+      }
+    }
+  ]
+}

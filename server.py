@@ -8,13 +8,16 @@ from pathlib import Path
 from urllib.parse import unquote
 
 from src.catalog.posts_catalog import CREATOR_MINING_PLAYBOOK, POSTS_CATALOG, USER_PROFILE
+from src.catalog.stack_pairings import OSS_GOOGLE_PAIRINGS
 from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 from src.harvester.idea_miner import AgenticIdeaMiner
+from src.visuals.template_gallery import list_templates
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent
 PUBLIC_DIR = WORKSPACE_ROOT / "public"
 REPOS_ROOT = WORKSPACE_ROOT / "generated-repos"
+ASSETS_ROOT = WORKSPACE_ROOT / "assets"
 MINER = AgenticIdeaMiner()
 ALL_CATALOG_ITEMS = list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
 
@@ -127,6 +130,26 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 },
             )
             return
+
+        if path == "/api/template-gallery":
+            manifest_file = WORKSPACE_ROOT / "assets" / "template-gallery" / "gallery_manifest.json"
+            if manifest_file.exists():
+                self._send_json(200, json.loads(manifest_file.read_text(encoding="utf-8")))
+            else:
+                templates = [{**m, "files": {"svg": f"{m['id']}.svg", "gif": f"{m['id']}.gif", "png": f"{m['id']}.png"}} for m in list_templates()]
+                self._send_json(200, {"template_count": len(templates), "templates": templates})
+            return
+
+        if path == "/api/stack-pairings":
+            self._send_json(200, {"pairings": OSS_GOOGLE_PAIRINGS})
+            return
+
+        if path.startswith("/assets/"):
+            rel = path.replace("/assets/", "", 1)
+            target = (ASSETS_ROOT / rel).resolve()
+            if str(target).startswith(str(ASSETS_ROOT.resolve())):
+                self._send_file(target)
+                return
 
         if path.startswith("/repos/"):
             rel = path.replace("/repos/", "", 1)

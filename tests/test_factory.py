@@ -4,6 +4,7 @@ import unittest
 import xml.etree.ElementTree as ET
 
 from src.catalog.posts_catalog import CREATOR_MINING_PLAYBOOK, POSTS_CATALOG, USER_PROFILE
+from src.catalog.stack_pairings import OSS_GOOGLE_PAIRINGS, OSS_STEP_EQUIVALENTS, oss_equivalent_for, oss_step_equivalent, pairing_rows_markdown
 from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 from src.harvester.idea_miner import AgenticIdeaMiner
 from src.slides.slide_deck_compiler import build_12_slide_specs
@@ -13,6 +14,7 @@ from src.visuals.diagram_2d_engine import (
     generate_linkedin_infographic_svg,
 )
 from src.visuals.dynamic_diagram_engine import generate_dynamic_solution_svg
+from src.visuals.template_gallery import TEMPLATE_META, list_templates, render_template
 
 
 class TestIdeasMiningFactory(unittest.TestCase):
@@ -39,6 +41,40 @@ class TestIdeasMiningFactory(unittest.TestCase):
             self.assertIn("animateMotion", dyn_svg)
             self.assertIn("CLOSED-LOOP FEEDBACK", dyn_svg)
             self.assertIn("#F8FAFC", dyn_svg)
+            self.assertEqual(dyn_svg.count("GOOGLE: "), 4)
+            self.assertEqual(dyn_svg.count("OSS: "), 4)
+
+    def test_oss_google_stack_pairings_are_complete_and_grounded(self) -> None:
+        self.assertEqual(len(OSS_GOOGLE_PAIRINGS), 12)
+        for pairing in OSS_GOOGLE_PAIRINGS:
+            for key in ("capability", "google", "oss", "note"):
+                self.assertTrue(pairing[key].strip())
+        for idea in TOMORROW_TOP10_IDEAS:
+            self.assertEqual(len(OSS_STEP_EQUIVALENTS[idea["id"]]), 4)
+            for st in idea["dynamic_steps"]:
+                self.assertTrue(oss_step_equivalent(idea["id"], st["step"], st["gcp_primitive"]).strip())
+        self.assertIn("LangGraph", oss_equivalent_for("Google Cloud ADK (BeforeToolCallback)"))
+        self.assertIn("Llama Guard", oss_equivalent_for("Google Cloud Model Armor"))
+        self.assertIn("OpenTelemetry", oss_equivalent_for("Cloud Trace OpenTelemetry"))
+        self.assertIn("| **Agent orchestration", pairing_rows_markdown())
+
+    def test_template_gallery_renders_20_valid_dynamic_templates_with_oss_and_google(self) -> None:
+        self.assertEqual(len(TEMPLATE_META), 20)
+        self.assertEqual([t["id"] for t in list_templates()], [f"T{i:02d}" for i in range(1, 21)])
+        oss_markers = ("LangGraph", "OpenHands", "vLLM", "PostgreSQL", "OpenTelemetry", "Llama Guard", "Temporal", "Promptfoo", "MCP", "Knative", "pgvector", "Redis", "Qdrant", "LiteLLM")
+        google_markers = ("Google", "Vertex", "Gemini", "Firestore", "Cloud Run", "ADK", "Model Armor", "BigQuery", "AlloyDB", "Cloud Trace")
+        for tid, meta in TEMPLATE_META.items():
+            self.assertGreaterEqual(len(meta["content_types"]), 2)
+            svg_live = render_template(tid)
+            svg_frame = render_template(tid, phase=0.5)
+            ET.fromstring(svg_live)
+            ET.fromstring(svg_frame)
+            self.assertIn("animateMotion", svg_live, tid)
+            self.assertIn("#F8FAFC", svg_live, tid)
+            self.assertIn("Proprietary + Confidential", svg_live, tid)
+            self.assertTrue(any(m in svg_live for m in oss_markers), f"{tid} missing open-source stack mention")
+            self.assertTrue(any(m in svg_live for m in google_markers), f"{tid} missing Google Cloud stack mention")
+            self.assertNotIn("animateMotion", svg_frame, tid)
 
     def test_creator_mining_playbook_and_openhands_comparison(self) -> None:
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["signal_channels"]), 4)

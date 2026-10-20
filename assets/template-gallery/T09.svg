@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
+<rect x="56.0" y="32.0" width="175" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="143.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T09 • EVOLUTION TIMELINE</text>
+<rect x="241.0" y="32.0" width="239" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="360.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: RESEARCH &amp; TREND HISTORY</text>
+<rect x="1222.0" y="32.0" width="322" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1383.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >DYNAMIC TEMPLATE • MOVING ARROWS &amp; LIVE PACKETS</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >From Prompt Chains to Self-Evolving Harnesses: Each Era&#x27;s Failure Became the Next Era&#x27;s Architecture</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >A grounded timeline of the agentic stack across open-source and Google milestones — follow the spine, then read the pattern chain.</text>
+<path d="M 70.0 448.0 L 1530.0 448.0" fill="none" stroke="#0F2942" stroke-opacity="0.14" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 70.0 448.0 L 1530.0 448.0" class="flow-line" fill="none" stroke="#0F2942" stroke-width="5" stroke-linejoin="round" stroke-dasharray="16 10" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#0F2942" transform="translate(1540.0 448.0) rotate(0.0)"/>
+<g><circle r="8" fill="#0F2942" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0F2942" stroke-width="2.6"/><animateMotion dur="5.00s" begin="-0.00s" repeatCount="indefinite" path="M 70.0 448.0 L 1530.0 448.0"/></g>
+<g><circle r="8" fill="#0F2942" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0F2942" stroke-width="2.6"/><animateMotion dur="5.00s" begin="-1.25s" repeatCount="indefinite" path="M 70.0 448.0 L 1530.0 448.0"/></g>
+<g><circle r="8" fill="#0F2942" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0F2942" stroke-width="2.6"/><animateMotion dur="5.00s" begin="-2.50s" repeatCount="indefinite" path="M 70.0 448.0 L 1530.0 448.0"/></g>
+<g><circle r="8" fill="#0F2942" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#0F2942" stroke-width="2.6"/><animateMotion dur="5.00s" begin="-3.75s" repeatCount="indefinite" path="M 70.0 448.0 L 1530.0 448.0"/></g>
+<circle cx="160" cy="448" r="16" fill="#FFFFFF" stroke="#334155" stroke-width="4"/>
+<circle cx="160" cy="448" r="6" fill="#334155"/>
+<line x1="160" y1="432" x2="160" y2="394" stroke="#334155" stroke-width="2.5"/>
+<rect x="25.0" y="150.0" width="270.0" height="244.0" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="1.8" /><rect x="25.0" y="150.0" width="270.0" height="26.0" rx="8" fill="#334155" /><text x="160.0" y="167.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >2022-2023</text>
+<text x="39.0" y="200.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Prompt chaining &amp; ReAct loops</text>
+<text x="39.0" y="242.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >CAPABILITY</text>
+<text x="39.0" y="257.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Interleaved reasoning and acting with a</text>
+<text x="39.0" y="270.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >single model; first open-source agent</text>
+<text x="39.0" y="292.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#DC2626" text-anchor="start" >FAILURE MODE</text>
+<text x="39.0" y="307.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Hallucinated tool results; no durable</text>
+<text x="39.0" y="320.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >memory, budgets, or stop conditions.</text>
+<text x="39.0" y="342.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB" text-anchor="start" >KEY ARTIFACT</text>
+<text x="39.0" y="357.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >ReAct (arXiv:2210.03629) • LangChain</text>
+<text x="39.0" y="370.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >(Oct 2022) • AutoGen (Sep 2023)</text>
+<circle cx="460" cy="448" r="16" fill="#FFFFFF" stroke="#2563EB" stroke-width="4"/>
+<circle cx="460" cy="448" r="6" fill="#2563EB"/>
+<line x1="460" y1="464" x2="460" y2="500" stroke="#2563EB" stroke-width="2.5"/>
+<rect x="325.0" y="500.0" width="270.0" height="244.0" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.8" /><rect x="325.0" y="500.0" width="270.0" height="26.0" rx="8" fill="#2563EB" /><text x="460.0" y="517.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >2024</text>
+<text x="339.0" y="550.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >RAG, function calling, graphs</text>
+<text x="339.0" y="567.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >&amp; MCP</text>
+<text x="339.0" y="592.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >CAPABILITY</text>
+<text x="339.0" y="607.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Grounded retrieval, typed tool schemas,</text>
+<text x="339.0" y="620.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >stateful graphs; MCP standardizes</text>
+<text x="339.0" y="642.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#DC2626" text-anchor="start" >FAILURE MODE</text>
+<text x="339.0" y="657.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Context rot and tool overload as schemas</text>
+<text x="339.0" y="670.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >and documents pile up.</text>
+<text x="339.0" y="692.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB" text-anchor="start" >KEY ARTIFACT</text>
+<text x="339.0" y="707.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >MCP (Nov 2024) • LangGraph (Jan 2024) •</text>
+<text x="339.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >CrewAI • OpenHands (Mar 2024)</text>
+<circle cx="760" cy="448" r="16" fill="#FFFFFF" stroke="#7C3AED" stroke-width="4"/>
+<circle cx="760" cy="448" r="6" fill="#7C3AED"/>
+<line x1="760" y1="432" x2="760" y2="394" stroke="#7C3AED" stroke-width="2.5"/>
+<rect x="625.0" y="150.0" width="270.0" height="244.0" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8" /><rect x="625.0" y="150.0" width="270.0" height="26.0" rx="8" fill="#7C3AED" /><text x="760.0" y="167.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >2025</text>
+<text x="639.0" y="200.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Open protocols, ADK &amp;</text>
+<text x="639.0" y="217.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >sandboxes</text>
+<text x="639.0" y="242.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >CAPABILITY</text>
+<text x="639.0" y="257.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >A2A handoffs, Google ADK open-sourced,</text>
+<text x="639.0" y="270.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >OpenAI Agents SDK, sandboxed coding</text>
+<text x="639.0" y="292.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#DC2626" text-anchor="start" >FAILURE MODE</text>
+<text x="639.0" y="307.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Prose &#x27;telephone game&#x27; handoffs; prompt</text>
+<text x="639.0" y="320.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >injection through tools.</text>
+<text x="639.0" y="342.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB" text-anchor="start" >KEY ARTIFACT</text>
+<text x="639.0" y="357.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >A2A (Apr 2025, now Linux Foundation) •</text>
+<text x="639.0" y="370.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >ADK open-sourced • OpenAI Agents SDK</text>
+<circle cx="1060" cy="448" r="16" fill="#FFFFFF" stroke="#D97706" stroke-width="4"/>
+<circle cx="1060" cy="448" r="6" fill="#D97706"/>
+<line x1="1060" y1="464" x2="1060" y2="500" stroke="#D97706" stroke-width="2.5"/>
+<rect x="925.0" y="500.0" width="270.0" height="244.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" /><rect x="925.0" y="500.0" width="270.0" height="26.0" rx="8" fill="#D97706" /><text x="1060.0" y="517.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >2026</text>
+<text x="939.0" y="550.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Harness engineering &amp; self-</text>
+<text x="939.0" y="567.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >evolution</text>
+<text x="939.0" y="592.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >CAPABILITY</text>
+<text x="939.0" y="607.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Step-level trajectory replay; evidence-</text>
+<text x="939.0" y="620.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >receipt memory; golden replay gates in</text>
+<text x="939.0" y="642.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#DC2626" text-anchor="start" >FAILURE MODE</text>
+<text x="939.0" y="657.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Addressed: regression drift, memory</text>
+<text x="939.0" y="670.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >poisoning, fake completions.</text>
+<text x="939.0" y="692.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB" text-anchor="start" >KEY ARTIFACT</text>
+<text x="939.0" y="707.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >HarnessEvolve (arXiv:2604.14118) •</text>
+<text x="939.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >OpenWiki (LangChain)</text>
+<circle cx="1360" cy="448" r="16" fill="#FFFFFF" stroke="#059669" stroke-width="4"/>
+<circle cx="1360" cy="448" r="6" fill="#059669"/>
+<line x1="1360" y1="432" x2="1360" y2="394" stroke="#059669" stroke-width="2.5"/>
+<rect x="1225.0" y="150.0" width="270.0" height="244.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" /><rect x="1225.0" y="150.0" width="270.0" height="26.0" rx="8" fill="#059669" /><text x="1360.0" y="167.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >NEXT (OUTLOOK)</text>
+<text x="1239.0" y="200.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Verified autonomous agents</text>
+<text x="1239.0" y="242.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="start" >CAPABILITY</text>
+<text x="1239.0" y="257.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Deterministic gates (exit codes, SHA</text>
+<text x="1239.0" y="270.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >receipts, idempotency) as the default</text>
+<text x="1239.0" y="292.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#DC2626" text-anchor="start" >FAILURE MODE</text>
+<text x="1239.0" y="307.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Open: cross-org trust, long-horizon</text>
+<text x="1239.0" y="320.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >evaluation, cost governance.</text>
+<text x="1239.0" y="342.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB" text-anchor="start" >KEY ARTIFACT</text>
+<text x="1239.0" y="357.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Direction, not a shipped artifact —</text>
+<text x="1239.0" y="370.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >treat as a hypothesis</text>
+<rect x="56.0" y="766.0" width="1508.0" height="150.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" />
+<rect x="56.0" y="766.0" width="1508.0" height="32.0" rx="10" fill="#0F2942" />
+<text x="74.0" y="787.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >THE REPEATING PATTERN — WHY THIS TIMELINE PREDICTS WHAT TO BUILD NEXT</text>
+<rect x="76.0" y="814.0" width="258.0" height="84.0" rx="8" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.6" />
+<text x="90.0" y="838.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB" text-anchor="start" >NEW CAPABILITY</text>
+<text x="90.0" y="858.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >A model, protocol, or OSS framework</text>
+<text x="90.0" y="872.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >unlocks a behavior.</text>
+<path d="M 336.0 856.0 L 364.0 856.0" fill="none" stroke="#2563EB" stroke-opacity="0.14" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 336.0 856.0 L 364.0 856.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="3" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#2563EB" transform="translate(374.0 856.0) rotate(0.0)"/>
+<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="1.20s" begin="-0.00s" repeatCount="indefinite" path="M 336.0 856.0 L 364.0 856.0"/></g>
+<rect x="376.0" y="814.0" width="258.0" height="84.0" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.6" />
+<text x="390.0" y="838.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED" text-anchor="start" >DEMO SUCCESS</text>
+<text x="390.0" y="858.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Single-shot demos look magical.</text>
+<path d="M 636.0 856.0 L 664.0 856.0" fill="none" stroke="#7C3AED" stroke-opacity="0.14" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 636.0 856.0 L 664.0 856.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(674.0 856.0) rotate(0.0)"/>
+<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.20s" begin="-0.00s" repeatCount="indefinite" path="M 636.0 856.0 L 664.0 856.0"/></g>
+<rect x="676.0" y="814.0" width="258.0" height="84.0" rx="8" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.6" />
+<text x="690.0" y="838.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626" text-anchor="start" >PRODUCTION FAILURE</text>
+<text x="690.0" y="858.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Repeated runs expose a systemic</text>
+<text x="690.0" y="872.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >failure mode.</text>
+<path d="M 936.0 856.0 L 964.0 856.0" fill="none" stroke="#DC2626" stroke-opacity="0.14" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 936.0 856.0 L 964.0 856.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="3" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#DC2626" transform="translate(974.0 856.0) rotate(0.0)"/>
+<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="1.20s" begin="-0.00s" repeatCount="indefinite" path="M 936.0 856.0 L 964.0 856.0"/></g>
+<rect x="976.0" y="814.0" width="258.0" height="84.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.6" />
+<text x="990.0" y="838.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706" text-anchor="start" >DETERMINISTIC CONTROL</text>
+<text x="990.0" y="858.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >A non-LLM guard is added to the</text>
+<text x="990.0" y="872.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >harness.</text>
+<path d="M 1236.0 856.0 L 1264.0 856.0" fill="none" stroke="#D97706" stroke-opacity="0.14" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1236.0 856.0 L 1264.0 856.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="3" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
+<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(1274.0 856.0) rotate(0.0)"/>
+<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.20s" begin="-0.00s" repeatCount="indefinite" path="M 1236.0 856.0 L 1264.0 856.0"/></g>
+<rect x="1276.0" y="814.0" width="258.0" height="84.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.6" />
+<text x="1290.0" y="838.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="start" >NEW BASELINE</text>
+<text x="1290.0" y="858.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >The guard becomes table stakes in</text>
+<text x="1290.0" y="872.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >every framework.</text>
+<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: ReAct arXiv:2210.03629 • LangChain • MCP (Nov 2024) • A2A &amp; ADK (Apr 2025) • HarnessEvolve arXiv:2604.14118</text>
+</svg>

@@ -358,19 +358,92 @@ async function refreshLiveFeeds() {
     .join("");
 }
 
+async function loadGalleryData() {
+  const [gRes, pRes] = await Promise.all([fetch("/api/template-gallery"), fetch("/api/stack-pairings")]);
+  const gData = await gRes.json();
+  const pData = await pRes.json();
+  STATE.templates = gData.templates || [];
+  STATE.pairings = pData.pairings || [];
+  renderGalleryView();
+}
+
+function renderGalleryView() {
+  const grid = document.getElementById("gallery-cards-grid");
+  if (!grid) return;
+  const q = (document.getElementById("gallery-search-input")?.value || "").trim().toLowerCase();
+  const type = document.getElementById("gallery-filter-type")?.value || "ALL";
+  const items = (STATE.templates || []).filter((t) => {
+    const hay = `${t.id} ${t.name} ${t.best_for_short} ${t.when_to_use} ${t.dynamic} ${(t.content_types || []).join(" ")}`.toLowerCase();
+    const matchesQ = !q || hay.includes(q);
+    const matchesType = type === "ALL" || (t.content_types || []).includes(type);
+    return matchesQ && matchesType;
+  });
+  document.getElementById("gallery-count-badge").textContent = `${items.length} / ${(STATE.templates || []).length} Dynamic Templates`;
+  grid.innerHTML = items
+    .map((t) => {
+      const files = t.files || {};
+      const svg = `/assets/template-gallery/${files.svg || t.id + ".svg"}`;
+      const gif = `/assets/template-gallery/${files.gif || t.id + ".gif"}`;
+      const png = `/assets/template-gallery/${files.png || t.id + ".png"}`;
+      return `
+      <article class="repo-card" data-testid="template-card-${escapeHtml(t.id)}">
+        <div>
+          <div class="repo-card-header">
+            <span class="brand-badge">${escapeHtml(t.id)} • ${escapeHtml(t.name)}</span>
+            <span class="pill-badge pill-emerald">BEST FOR: ${escapeHtml(t.best_for_short)}</span>
+          </div>
+          <div style="margin: 10px 0; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #ffffff;">
+            <a href="${svg}" target="_blank" title="Open animated SVG"><img src="${svg}" alt="${escapeHtml(t.name)} dynamic template" style="width: 100%; height: auto; display: block;" loading="lazy" /></a>
+          </div>
+          <div class="repo-card-hook">${escapeHtml(t.when_to_use)}</div>
+          <div style="margin-top: 8px; font-size: 11.5px; color: #475569; font-weight: 600;">Dynamic elements: <strong style="color: #0f172a;">${escapeHtml(t.dynamic)}</strong></div>
+        </div>
+        <div>
+          <div class="deliverable-chips" style="margin: 10px 0;">
+            ${(t.content_types || []).map((c) => `<span class="deliverable-chip">${escapeHtml(c)}</span>`).join("")}
+            <span class="deliverable-chip" style="background:#eff6ff;border-color:#93c5fd;color:#1d4ed8;">OSS ⇄ Google</span>
+          </div>
+          <div class="repo-card-footer">
+            <a class="btn-secondary" href="${png}" target="_blank">PNG ↗</a>
+            <a class="btn-secondary" href="${gif}" download>Download animated GIF</a>
+            <a class="btn-primary" href="${svg}" target="_blank">Open live SVG ↗</a>
+          </div>
+        </div>
+      </article>`;
+    })
+    .join("");
+
+  const tbody = document.getElementById("pairings-tbody");
+  if (tbody) {
+    tbody.innerHTML = (STATE.pairings || [])
+      .map(
+        (p) => `
+        <tr>
+          <td><div class="cell-card-equal"><strong style="font-size: 12px;">${escapeHtml(p.capability)}</strong></div></td>
+          <td><div class="cell-card-equal"><span style="font-size: 11.5px; color: #174ea6; font-weight: 700;">${escapeHtml(p.google)}</span></div></td>
+          <td><div class="cell-card-equal"><span style="font-size: 11.5px; color: #065f46; font-weight: 700;">${escapeHtml(p.oss)}</span></div></td>
+          <td><div class="cell-card-equal"><span style="font-size: 11px; color: #334155;">${escapeHtml(p.note)}</span></div></td>
+        </tr>`
+      )
+      .join("");
+  }
+}
+
+const ALL_VIEWS = ["view-repos", "view-gallery", "view-playbook", "view-miner", "view-openhands"];
+
+function activateView(target) {
+  document.querySelectorAll(".global-header .nav-tab-btn").forEach((b) => b.classList.toggle("active", b.getAttribute("data-view") === target));
+  ALL_VIEWS.forEach((vid) => {
+    const el = document.getElementById(vid);
+    if (el) el.style.display = vid === target ? "block" : "none";
+  });
+  if (target === "view-miner") refreshLiveFeeds();
+  if (target === "view-gallery" && !(STATE.templates || []).length) loadGalleryData();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".global-header .nav-tab-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".global-header .nav-tab-btn").forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      const target = btn.getAttribute("data-view");
-      ["view-repos", "view-playbook", "view-miner", "view-openhands"].forEach((vid) => {
-        document.getElementById(vid).style.display = vid === target ? "block" : "none";
-      });
-      if (target === "view-miner") {
-        refreshLiveFeeds();
-      }
-    });
+    btn.addEventListener("click", () => activateView(btn.getAttribute("data-view")));
   });
 
   document.querySelectorAll(".drawer-tabs .nav-tab-btn").forEach((btn) => {
@@ -383,6 +456,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  document.getElementById("gallery-search-input")?.addEventListener("input", renderGalleryView);
+  document.getElementById("gallery-filter-type")?.addEventListener("change", renderGalleryView);
 
   document.getElementById("close-drawer-btn").addEventListener("click", () => {
     document.getElementById("repo-inspector-drawer").classList.remove("open");
@@ -425,4 +501,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   loadWorkspaceData();
+  const requestedView = new URLSearchParams(window.location.search).get("view");
+  if (requestedView && ALL_VIEWS.includes(requestedView)) {
+    activateView(requestedView);
+  }
 });

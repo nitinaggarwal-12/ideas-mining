@@ -42,6 +42,31 @@ def verify_all() -> dict:
 
     all_items = list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
 
+    # 1b. Audit the 20-template Dynamic Visual Gallery (animated SVG + GIF + PNG + manifest)
+    gallery_dir = WORKSPACE_ROOT / "assets" / "template-gallery"
+    manifest = gallery_dir / "gallery_manifest.json"
+    if not manifest.exists():
+        failures.append("Template gallery manifest missing: assets/template-gallery/gallery_manifest.json")
+    else:
+        manifest_data = json.loads(manifest.read_text(encoding="utf-8"))
+        if manifest_data.get("template_count") != 20:
+            failures.append(f"Template gallery manifest expected 20 templates, found {manifest_data.get('template_count')}")
+    for n in range(1, 21):
+        tid = f"T{n:02d}"
+        for ext in ("svg", "gif", "png"):
+            fp = gallery_dir / f"{tid}.{ext}"
+            if not fp.exists() or fp.stat().st_size == 0:
+                failures.append(f"[gallery] Missing or empty {tid}.{ext}")
+        svg_fp = gallery_dir / f"{tid}.svg"
+        if svg_fp.exists():
+            svg_text = svg_fp.read_text(encoding="utf-8")
+            try:
+                ET.fromstring(svg_text)
+            except Exception as exc:  # pragma: no cover - defensive
+                failures.append(f"[gallery] Malformed SVG {tid}: {exc}")
+            if "animateMotion" not in svg_text:
+                failures.append(f"[gallery] {tid}.svg has no moving packets (animateMotion)")
+
     for post in all_items:
         slug = post["repo_slug"]
         r_dir = repos_root / slug
@@ -87,6 +112,13 @@ def verify_all() -> dict:
             p = r_dir / req
             if not p.exists() or p.stat().st_size == 0:
                 failures.append(f"[{slug}] Missing or empty required file: {req}")
+
+        readme_text = (r_dir / "README.md").read_text(encoding="utf-8") if (r_dir / "README.md").exists() else ""
+        if "Open-Source + Google Cloud Stack Pairing" not in readme_text or "LangGraph" not in readme_text:
+            failures.append(f"[{slug}] README.md missing the Open-Source + Google Cloud Stack Pairing section")
+        dyn_svg_text = (r_dir / "visuals" / "dynamic-solution-flow.svg").read_text(encoding="utf-8") if (r_dir / "visuals" / "dynamic-solution-flow.svg").exists() else ""
+        if dyn_svg_text.count("OSS: ") != 4 or dyn_svg_text.count("GOOGLE: ") != 4:
+            failures.append(f"[{slug}] dynamic-solution-flow.svg missing the 4 dual Google+OSS step pills")
 
         proc = subprocess.run(
             ["python3", "-m", "unittest", "discover", "-s", "tests", "-p", "test_*.py"],

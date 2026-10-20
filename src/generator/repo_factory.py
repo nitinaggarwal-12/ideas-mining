@@ -8,6 +8,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any, Dict, List
 
+from src.catalog.stack_pairings import oss_equivalent_for, oss_step_equivalent, pairing_rows_markdown, step_pairing_rows_markdown
 from src.openhands_harness.autonomous_agent import OpenHandsAutonomousHarness
 from src.slides.slide_deck_compiler import write_slide_suite_for_post
 from src.terraform_gen.terraform_builder import write_terraform_suite_for_post
@@ -269,6 +270,22 @@ def _build_repo_readme(post: Dict[str, Any]) -> str:
         f"| `{k}` | **{v}** | Verified via OpenHands Sandbox `unittest` Gate |"
         for k, v in post["metrics"].items()
     )
+    pairing_table = pairing_rows_markdown()
+    step_rows = step_pairing_rows_markdown(post)
+    if step_rows:
+        step_pairing_table = (
+            "### 5A. This Repository's 4 Dynamic Steps — Google Cloud Primitive ⇄ Open-Source Equivalent\n\n"
+            + step_rows
+            + "\n\n### 5B. Full Platform Pairing Reference (12 Capabilities)\n"
+        )
+    else:
+        gcp_rows = "\n".join(f"| `{g}` | `{oss_equivalent_for(g)}` |" for g in post["gcp_stack"])
+        step_pairing_table = (
+            "### 5A. This Repository's Google Cloud Stack — Open-Source Equivalent\n\n"
+            "| Google Cloud Service | Open-Source Equivalent |\n| :--- | :--- |\n"
+            + gcp_rows
+            + "\n\n### 5B. Full Platform Pairing Reference (12 Capabilities)\n"
+        )
 
     return f"""# {post['post_title']}
 
@@ -332,7 +349,17 @@ flowchart LR
 
 ---
 
-## 5. Editable 12-Slide Presentation Deck & LinkedIn PDF Carousel
+## 5. Open-Source + Google Cloud Stack Pairing (Every Managed Service Has a Self-Hosted Twin)
+
+> **Google ADK (`google/adk-python`) is Apache-2.0 open source and OpenHands is MIT-licensed** — the harness pattern in this repository runs identically on Google Cloud managed services or on the open-source stack below.
+
+{step_pairing_table}
+
+{pairing_table}
+
+---
+
+## 6. Editable 12-Slide Presentation Deck & LinkedIn PDF Carousel
 
 - **Native Editable PowerPoint (`.pptx`)**: [`./slides/presentation_deck.pptx`](./slides/presentation_deck.pptx) (12 Slides, 3-Act `L1 -> L2 -> L3 -> L4 -> Audit -> Solution` story arc, Google Quad-Color sequence, `"Proprietary + Confidential"` footer, and 3-paragraph spoken customer talk track in speaker notes)
 - **Swipeable LinkedIn PDF Carousel**: [`./slides/linkedin_carousel.pdf`](./slides/linkedin_carousel.pdf)
@@ -340,7 +367,7 @@ flowchart LR
 
 ---
 
-## 6. Quickstart & OpenHands Sandbox Verification
+## 7. Quickstart & OpenHands Sandbox Verification
 
 ```bash
 # 1. Run the deterministic unit test suite inside the sandbox
@@ -352,13 +379,13 @@ python3 app.py
 
 ---
 
-## 7. 1-Click Google Cloud Terraform Deployment
+## 8. 1-Click Google Cloud Deployment (Terraform / OpenTofu-Compatible)
 
 ```bash
 # Deploy via the 1-Click script (runs tests + terraform validate + terraform apply)
 ./scripts/deploy_gcp_one_click.sh nitina-ggarwal-sandbox-647724 us-west1
 
-# Or run Terraform directly:
+# Or run Terraform / OpenTofu directly:
 cd terraform
 terraform init
 terraform apply -var="project_id=nitina-ggarwal-sandbox-647724" -var="region=us-west1"
@@ -373,6 +400,14 @@ def _build_linkedin_post_draft(post: Dict[str, Any]) -> str:
     )
     claims_list = "\n".join(f"• {c}" for c in post["primary_source"]["verified_claims"])
     est_slot = post.get("est_post_time", "Morning EST Slot")
+    oss_lines = ""
+    if post.get("dynamic_steps"):
+        oss_lines = "\n".join(
+            f"• {st['title']}: {st['gcp_primitive']}  ⇄  {st.get('oss_primitive') or oss_step_equivalent(post['id'], st['step'], st['gcp_primitive'])}"
+            for st in post["dynamic_steps"]
+        )
+    else:
+        oss_lines = "\n".join(f"• {g}  ⇄  {oss_equivalent_for(g)}" for g in post["gcp_stack"][:4])
     return f"""# Ready-to-Publish LinkedIn Post Copy for Nitin Aggarwal
 
 **Author Profile**: https://www.linkedin.com/in/nitin-aggarwal-b49786a/
@@ -386,24 +421,28 @@ def _build_linkedin_post_draft(post: Dict[str, Any]) -> str:
 
 Most enterprise teams stop at the concept—or rely on static markdown prompt templates (like BMAD) that never execute a single line of code.
 
-So I built a complete, 1-click deployable **Google Cloud ADK + Vertex AI + OpenHands** reference repository that implements **{post['post_title']}** end-to-end with zero hallucinations.
+So I built a complete, 1-click deployable reference repository that implements **{post['post_title']}** end-to-end with zero hallucinations — on **Google Cloud ADK + Vertex AI + OpenHands**, with an **open-source equivalent named for every single component** (ADK itself is Apache-2.0; OpenHands is MIT).
 
 📌 **What the Primary Source Proves ({post['primary_source']['title']})**:
 {claims_list}
 
-🏗️ **How We Architected It on Google Cloud (6-Stage Production Flow)**:
+🏗️ **How We Architected It (6-Stage Production Flow)**:
 {steps_list}
 
+🔁 **Google Cloud ⇄ Open-Source Pairing (pick managed for the SLA, open source for portability)**:
+{oss_lines}
+
 🚀 **What is inside the Git Repository (`{post['repo_slug']}`)**:
-→ **Runnable Google Cloud ADK + Vertex AI Codebase** (`gemini-4-argon` & `gemini-3.8-flash` on `locations/global` with discrete `thinkingLevel`)
-→ **OpenHands Autonomous Container Harness** (reads workspace, writes code, and runs local tests before proposing any commit)
+→ **Runnable Google Cloud ADK + Vertex AI Codebase** (`gemini-4-argon` & `gemini-3.8-flash` on `locations/global` with discrete `thinkingLevel`; swap in Gemma 3 / Llama 3.x via vLLM + LiteLLM)
+→ **OpenHands (MIT) Autonomous Container Harness** (reads workspace, writes code, and runs local tests before proposing any commit)
+→ **Dynamic Moving-Arrow Diagram** (animated `.svg` + `.gif`) showing the Google primitive AND the open-source twin on every step
 → **Editable 2D Visuals** (Official Google Cloud `#78` Hub-and-Spoke `.drawio` XML + `.svg` + `.png`)
 → **12-Slide Executive & Technical Deck** (`.pptx` + swipeable LinkedIn `.pdf` carousel with spoken talk tracks)
-→ **1-Click GCP Terraform Deployment** (Cloud Run v2 + Artifact Registry + Least-Privilege IAM + Model Armor)
+→ **1-Click Deployment** (Terraform / OpenTofu: Cloud Run v2 + Artifact Registry + Least-Privilege IAM + Model Armor)
 
-Which stage of this architecture is your engineering team tackling right now? 👇
+Which stage of this architecture is your engineering team tackling right now — and are you running it managed or self-hosted? 👇
 
-#AgenticAI #GoogleCloud #VertexAI #AIAgents #OpenHands #EnterpriseAI #Terraform #AIEngineering
+#AgenticAI #GoogleCloud #VertexAI #OpenSource #LangGraph #OpenHands #MCP #AIAgents #EnterpriseAI #AIEngineering
 """
 
 

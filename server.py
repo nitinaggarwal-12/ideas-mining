@@ -5,12 +5,19 @@ import mimetypes
 import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
-from urllib.parse import unquote
+from urllib.parse import parse_qs, unquote, urlparse
 
 from src.catalog.posts_catalog import CREATOR_MINING_PLAYBOOK, POSTS_CATALOG, USER_PROFILE
 from src.catalog.stack_pairings import OSS_GOOGLE_PAIRINGS
 from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 from src.harvester.idea_miner import AgenticIdeaMiner
+from src.unified_feedback_engine import (
+    ADMIN_EMAIL,
+    list_feedback,
+    submit_feedback,
+    update_feedback_status,
+    verify_admin_access,
+)
 from src.visuals.template_gallery import list_templates
 
 
@@ -18,6 +25,7 @@ WORKSPACE_ROOT = Path(__file__).resolve().parent
 PUBLIC_DIR = WORKSPACE_ROOT / "public"
 REPOS_ROOT = WORKSPACE_ROOT / "generated-repos"
 ASSETS_ROOT = WORKSPACE_ROOT / "assets"
+FEEDBACK_STORE_PATH = WORKSPACE_ROOT / ".local_backup" / "app_feedback_messages.json"
 MINER = AgenticIdeaMiner()
 ALL_CATALOG_ITEMS = list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
 
@@ -57,9 +65,47 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_GET(self) -> None:
-        path = unquote(self.path.split("?")[0])
-        if path in ("/", "/index.html"):
+        parsed = urlparse(self.path)
+        path = unquote(parsed.path)
+        qs = parse_qs(parsed.query)
+        if path in ("/", "/index.html", "/admin/feedback"):
             self._send_file(PUBLIC_DIR / "index.html")
+            return
+        if path == "/universal_feedback_widget.js":
+            self._send_file(PUBLIC_DIR / "universal_feedback_widget.js")
+            return
+        if path == "/api/feedback/messages":
+            headers_dict = {k: v for k, v in self.headers.items()}
+            client_ip = self.client_address[0] if self.client_address else ""
+            is_auth, resolved_email, auth_mode = verify_admin_access(
+                headers=headers_dict, remote_addr=client_ip, query_params=qs
+            )
+            if not is_auth:
+                self._send_json(
+                    403,
+                    {
+                        "ok": False,
+                        "authorized": False,
+                        "resolvedEmail": resolved_email,
+                        "authMode": auth_mode,
+                        "error": f"Admin access restricted to {ADMIN_EMAIL}",
+                    },
+                )
+                return
+            res = list_feedback(
+                default_app_id="ideas-mining",
+                local_store_path=FEEDBACK_STORE_PATH,
+                scope=(qs.get("scope") or ["all"])[0],
+                category_filter=(qs.get("category") or [""])[0],
+                priority_filter=(qs.get("priority") or [""])[0],
+                status_filter=(qs.get("status") or [""])[0],
+                search_query=(qs.get("search") or qs.get("q") or [""])[0],
+                force_sheet_refresh=(qs.get("force") or ["0"])[0] in ("1", "true"),
+            )
+            res["authorized"] = True
+            res["resolvedEmail"] = resolved_email
+            res["authMode"] = auth_mode
+            self._send_json(200, res)
             return
         if path == "/styles.css":
             self._send_file(PUBLIC_DIR / "styles.css")
@@ -163,10 +209,53 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         self._send_json(404, {"error": "Endpoint not found"})
 
     def do_POST(self) -> None:
-        if self.path == "/api/ingest-url":
-            length = int(self.headers.get("Content-Length", "0"))
-            raw = self.rfile.read(length).decode("utf-8") if length > 0 else "{}"
-            payload = json.loads(raw)
+        parsed = urlparse(self.path)
+        path = unquote(parsed.path)
+        qs = parse_qs(parsed.query)
+        length = int(self.headers.get("Content-Length", "0"))
+        raw = self.rfile.read(length).decode("utf-8") if length > 0 else "{}"
+        payload = json.loads(raw) if raw else {}
+        if path == "/api/feedback/submit":
+            headers_dict = {k: v for k, v in self.headers.items()}
+            res = submit_feedback(
+                payload=payload,
+                default_app_id=payload.get("appId") or "ideas-mining",
+                default_app_name=payload.get("appName") or "Ideas Mining & Repo Factory",
+                local_store_path=FEEDBACK_STORE_PATH,
+                headers=headers_dict,
+            )
+            self._send_json(200, res)
+            return
+        if path == "/api/feedback/status":
+            headers_dict = {k: v for k, v in self.headers.items()}
+            client_ip = self.client_address[0] if self.client_address else ""
+            is_auth, resolved_email, auth_mode = verify_admin_access(
+                headers=headers_dict, remote_addr=client_ip, query_params=qs
+            )
+            if not is_auth:
+                self._send_json(
+                    403,
+                    {
+                        "ok": False,
+                        "authorized": False,
+                        "resolvedEmail": resolved_email,
+                        "authMode": auth_mode,
+                        "error": f"Admin access restricted to {ADMIN_EMAIL}",
+                    },
+                )
+                return
+            fid = str(payload.get("id") or payload.get("feedbackId") or "").strip()
+            new_status = str(payload.get("status") or "").strip() or None
+            do_delete = bool(payload.get("delete")) or str(payload.get("action") or "").lower() == "delete"
+            res = update_feedback_status(
+                feedback_id=fid,
+                new_status=new_status,
+                delete=do_delete,
+                local_store_path=FEEDBACK_STORE_PATH,
+            )
+            self._send_json(200, res)
+            return
+        if path == "/api/ingest-url":
             res = MINER.ingest_custom_post_or_url(
                 url=payload.get("url", ""),
                 custom_title=payload.get("title", ""),

@@ -1,6 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
 <defs>
-<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<filter id="shadow" x="-3%" y="-3%" width="106%" height="110%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.065"/></filter>
+<linearGradient id="glassCardGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/><stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.90"/></linearGradient>
+<linearGradient id="glassSheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.72"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0"/></linearGradient>
+<radialGradient id="meshBlue" cx="14%" cy="18%" r="48%"><stop offset="0%" stop-color="#4285F4" stop-opacity="0.065"/><stop offset="100%" stop-color="#4285F4" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshEmerald" cx="86%" cy="20%" r="46%"><stop offset="0%" stop-color="#10B981" stop-opacity="0.055"/><stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshViolet" cx="50%" cy="84%" r="52%"><stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.048"/><stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"/></radialGradient>
+<pattern id="archGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.22"/></pattern>
 <style>
 @keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
 .flow-line { animation: flowDash 1.0s linear infinite; }
@@ -15,99 +21,107 @@
 </style>
 </defs>
 <rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshBlue)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshEmerald)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshViolet)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#archGrid)"/>
 <rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
 <rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
 <rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
 <rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
-<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
-<rect x="56.0" y="32.0" width="150" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="131.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T08 • BENCHMARK BARS</text>
-<rect x="216.0" y="32.0" width="201" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="316.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: EVALUATION RESULTS</text>
-<rect x="1222.0" y="32.0" width="322" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1383.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >DYNAMIC TEMPLATE • MOVING ARROWS &amp; LIVE PACKETS</text>
-<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >What Changed When We Added Deterministic Guards: Four Before/After Measurements</text>
-<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Each bar pair is normalized to its own &#x27;before&#x27; value; every control has a Google Cloud and an open-source implementation.</text>
-<rect x="56.0" y="140.0" width="1024.0" height="660.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="37.2" y="19.2" width="1525.6" height="91.6" rx="10.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="38.0" y="19.8" width="1524.0" height="11.3" rx="9.8" fill="url(#glassSheen)" pointer-events="none"/>
+<rect x="56.0" y="32.0" width="150" height="22" rx="11.0" fill="#EFF6FF" fill-opacity="0.98" stroke="#2563EB" stroke-width="1.3"/><text x="131.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T08 • BENCHMARK BARS</text>
+<rect x="216.0" y="32.0" width="201" height="22" rx="11.0" fill="#ECFDF5" fill-opacity="0.98" stroke="#059669" stroke-width="1.3"/><text x="316.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: EVALUATION RESULTS</text>
+<rect x="1222.0" y="32.0" width="322" height="22" rx="11.0" fill="#F0F9FF" fill-opacity="0.98" stroke="#0284C7" stroke-width="1.3"/><text x="1383.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0369A1" text-anchor="middle" >DYNAMIC TEMPLATE • MOVING ARROWS &amp; LIVE PACKETS</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Retrieval Architecture Benchmark: Chunk-Only Vector RAG vs. Contextual Hybrid + GraphRAG + CRAG</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Each bar pair is normalized to its own &#x27;before&#x27; error rate; combining Contextual BM25, GraphRAG communities, and a Corrective RAG gate cuts failure modes across the board.</text>
+<rect x="56.0" y="140.0" width="1024.0" height="660.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="57.2" y="141.2" width="1021.6" height="657.6" rx="10.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="58.0" y="141.8" width="1020.0" height="14.0" rx="9.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="56.0" y="140.0" width="1024.0" height="34.0" rx="10" fill="#0F2942" />
-<text x="74.0" y="162.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >BEFORE (RED) VS. AFTER (GREEN) — LOWER IS BETTER FOR ALL FOUR</text>
-<path d="M 336.0 190.0 L 336.0 782.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="8 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#2563EB" transform="translate(336.0 792.0) rotate(90.0)"/>
-<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="4.20s" begin="-0.00s" repeatCount="indefinite" path="M 336.0 190.0 L 336.0 782.0"/></g>
-<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="4.20s" begin="-2.10s" repeatCount="indefinite" path="M 336.0 190.0 L 336.0 782.0"/></g>
-<text x="74.0" y="218.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Stale memory claims</text>
-<text x="74.0" y="258.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >claims flagged stale per checkpoint</text>
+<text x="74.0" y="162.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >BEFORE: CHUNK-ONLY VECTOR RAG (RED) VS. AFTER: CONTEXTUAL HYBRID + GRAPHRAG + CRAG (GREEN)</text>
+<path d="M 334.0 190.0 L 334.0 778.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="8 8" stroke-dashoffset="0.0"/>
+<polygon points="334.0,788.0 341.2,775.2 334.0,778.4 326.8,775.2" fill="#2563EB"/>
+<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="4.20s" begin="-0.00s" repeatCount="indefinite" path="M 334.0 190.0 L 334.0 778.0"/></g>
+<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="4.20s" begin="-2.10s" repeatCount="indefinite" path="M 334.0 190.0 L 334.0 778.0"/></g>
+<text x="74.0" y="218.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Failed retrieval recall@20</text>
+<text x="74.0" y="256.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >top-20 retrieval miss rate</text>
+<text x="74.0" y="270.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >across domain corpora</text>
 <rect x="350.0" y="196.0" width="660.0" height="32.0" rx="6" fill="#F1F5F9" />
 <rect x="350.0" y="196.0" width="660.0" height="32.0" rx="6" fill="#EF4444"  class="grow-x"/>
-<text x="360.0" y="217.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >BEFORE  80 stale</text>
+<text x="360.0" y="217.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >BEFORE  5.7% miss rate</text>
 <rect x="350.0" y="240.0" width="660.0" height="32.0" rx="6" fill="#F1F5F9" />
-<rect x="350.0" y="240.0" width="74.2" height="32.0" rx="6" fill="#16A34A"  class="grow-x"/>
-<text x="434.2" y="261.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="start" >AFTER  9 stale</text>
-<rect x="970.0" y="220.0" width="60" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="1000.0" y="234.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >-88.8%</text>
-<text x="74.0" y="306.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="start" >LangChain OpenWiki (open source) evidence-receipt memory benchmark</text>
-<line x1="74" y1="322" x2="1062" y2="322" stroke="#E2E8F0" stroke-width="1"/>
-<text x="74.0" y="368.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Hallucinated memory claims</text>
-<text x="74.0" y="408.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >unsupported claims per checkpoint</text>
+<rect x="350.0" y="240.0" width="220.0" height="32.0" rx="6" fill="#16A34A"  class="grow-x"/>
+<text x="580.0" y="261.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="start" >AFTER  1.9% miss rate</text>
+<rect x="970.0" y="220.0" width="60" height="22" rx="11.0" fill="#ECFDF5" fill-opacity="0.98" stroke="#059669" stroke-width="1.3"/><text x="1000.0" y="234.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >-67.0%</text>
+<text x="350.0" y="298.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="start" >Anthropic Contextual Retrieval benchmark: Contextual Embeddings + Contextual BM25 + Reranker</text>
+<line x1="74" y1="320" x2="1062" y2="320" stroke="#E2E8F0" stroke-width="1"/>
+<text x="74.0" y="368.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Multi-hop entity synthesis</text>
+<text x="74.0" y="385.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >errors</text>
+<text x="74.0" y="406.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >cross-document questions missing</text>
+<text x="74.0" y="420.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >global entity links</text>
 <rect x="350.0" y="346.0" width="660.0" height="32.0" rx="6" fill="#F1F5F9" />
 <rect x="350.0" y="346.0" width="660.0" height="32.0" rx="6" fill="#EF4444"  class="grow-x"/>
-<text x="360.0" y="367.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >BEFORE  15 hallucinated</text>
+<text x="360.0" y="367.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >BEFORE  46.0% missed hops</text>
 <rect x="350.0" y="390.0" width="660.0" height="32.0" rx="6" fill="#F1F5F9" />
-<rect x="350.0" y="390.0" width="6.0" height="32.0" rx="6" fill="#16A34A"  class="grow-x"/>
-<text x="366.0" y="411.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="start" >AFTER  0 hallucinated</text>
-<rect x="976.0" y="370.0" width="54" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="1003.0" y="384.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >-100%</text>
-<text x="74.0" y="456.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="start" >LangChain OpenWiki (open source) evidence-receipt memory benchmark</text>
-<line x1="74" y1="472" x2="1062" y2="472" stroke="#E2E8F0" stroke-width="1"/>
-<text x="74.0" y="518.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Tool-schema tokens per turn</text>
-<text x="74.0" y="558.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >tokens spent on tool definitions</text>
+<rect x="350.0" y="390.0" width="165.0" height="32.0" rx="6" fill="#16A34A"  class="grow-x"/>
+<text x="525.0" y="411.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="start" >AFTER  11.5% missed hops</text>
+<rect x="970.0" y="370.0" width="60" height="22" rx="11.0" fill="#ECFDF5" fill-opacity="0.98" stroke="#059669" stroke-width="1.3"/><text x="1000.0" y="384.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >-75.0%</text>
+<text x="350.0" y="448.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="start" >GraphRAG hierarchical Leiden community summaries + AlloyDB / Neo4j knowledge graph</text>
+<line x1="74" y1="470" x2="1062" y2="470" stroke="#E2E8F0" stroke-width="1"/>
+<text x="74.0" y="518.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Irrelevant chunk poison rate</text>
+<text x="74.0" y="556.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >low-relevance chunks injected</text>
+<text x="74.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >into generator prompt</text>
 <rect x="350.0" y="496.0" width="660.0" height="32.0" rx="6" fill="#F1F5F9" />
 <rect x="350.0" y="496.0" width="660.0" height="32.0" rx="6" fill="#EF4444"  class="grow-x"/>
-<text x="360.0" y="517.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >BEFORE  35,000 tokens</text>
+<text x="360.0" y="517.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >BEFORE  34.0% noisy chunks</text>
 <rect x="350.0" y="540.0" width="660.0" height="32.0" rx="6" fill="#F1F5F9" />
-<rect x="350.0" y="540.0" width="45.3" height="32.0" rx="6" fill="#16A34A"  class="grow-x"/>
-<text x="405.3" y="561.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="start" >AFTER  2,400 tokens</text>
-<rect x="970.0" y="520.0" width="60" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="1000.0" y="534.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >-93.1%</text>
-<text x="74.0" y="606.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="start" >IDEA-04 dynamic MCP router (AlloyDB pgvector or Qdrant index; Top-3 mounted)</text>
-<line x1="74" y1="622" x2="1062" y2="622" stroke="#E2E8F0" stroke-width="1"/>
-<text x="74.0" y="668.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >p95 agent turn latency</text>
-<text x="74.0" y="708.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >seconds until the user sees a verified answer</text>
+<rect x="350.0" y="540.0" width="81.5" height="32.0" rx="6" fill="#16A34A"  class="grow-x"/>
+<text x="441.5" y="561.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="start" >AFTER  4.2% noisy chunks</text>
+<rect x="970.0" y="520.0" width="60" height="22" rx="11.0" fill="#ECFDF5" fill-opacity="0.98" stroke="#059669" stroke-width="1.3"/><text x="1000.0" y="534.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >-87.6%</text>
+<text x="350.0" y="598.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="start" >Corrective RAG (CRAG) lightweight retrieval evaluator + query rewrite / web fallback</text>
+<line x1="74" y1="620" x2="1062" y2="620" stroke="#E2E8F0" stroke-width="1"/>
+<text x="74.0" y="668.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A" text-anchor="start" >Ungrounded answer claims</text>
+<text x="74.0" y="706.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >final sentences lacking a</text>
+<text x="74.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="start" >verified span citation</text>
 <rect x="350.0" y="646.0" width="660.0" height="32.0" rx="6" fill="#F1F5F9" />
 <rect x="350.0" y="646.0" width="660.0" height="32.0" rx="6" fill="#EF4444"  class="grow-x"/>
-<text x="360.0" y="667.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >BEFORE  42.0 s</text>
+<text x="360.0" y="667.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="start" >BEFORE  22.4% ungrounded</text>
 <rect x="350.0" y="690.0" width="660.0" height="32.0" rx="6" fill="#F1F5F9" />
-<rect x="350.0" y="690.0" width="29.9" height="32.0" rx="6" fill="#16A34A"  class="grow-x"/>
-<text x="389.9" y="711.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="start" >AFTER  1.9 s</text>
-<rect x="970.0" y="670.0" width="60" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="1000.0" y="684.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >-95.5%</text>
-<text x="74.0" y="756.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="start" >IDEA-09 Vertex KV cache / vLLM prefix cache + Flash/Argon cascade + parallel reads</text>
-<rect x="1104.0" y="140.0" width="460.0" height="660.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" />
+<rect x="350.0" y="690.0" width="53.0" height="32.0" rx="6" fill="#16A34A"  class="grow-x"/>
+<text x="413.0" y="711.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="start" >AFTER  1.8% ungrounded</text>
+<rect x="970.0" y="670.0" width="60" height="22" rx="11.0" fill="#ECFDF5" fill-opacity="0.98" stroke="#059669" stroke-width="1.3"/><text x="1000.0" y="684.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >-92.0%</text>
+<text x="350.0" y="748.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="start" >Deterministic citation check + JEV sentence-level entailment gate before user reply</text>
+<rect x="1104.0" y="140.0" width="460.0" height="660.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1105.2" y="141.2" width="457.6" height="657.6" rx="10.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1106.0" y="141.8" width="456.0" height="14.0" rx="9.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="1104.0" y="140.0" width="460.0" height="34.0" rx="10" fill="#1B5E7B" />
 <text x="1122.0" y="162.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >METHODOLOGY, SOURCES &amp; HOW TO READ</text>
-<rect x="1122.0" y="192.0" width="424.0" height="134.0" rx="8" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.4" />
+<rect x="1122.0" y="192.0" width="424.0" height="134.0" rx="8" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.4" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1123.2" y="193.2" width="421.6" height="131.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1124.0" y="193.8" width="420.0" height="14.0" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="1122.0" y="192.0" width="8.0" height="134.0" rx="4" fill="#2563EB" />
-<text x="1144.0" y="216.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#2563EB" text-anchor="start" >NORMALIZATION</text>
-<text x="1144.0" y="238.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Every pair is scaled to its own before value (100%).</text>
-<text x="1144.0" y="254.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Compare the green bar to the red bar within a row,</text>
-<text x="1144.0" y="270.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >not across rows.</text>
-<rect x="1122.0" y="342.0" width="424.0" height="134.0" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.4" />
+<text x="1144.0" y="216.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#2563EB" text-anchor="start" >WHY VECTOR-ONLY FAILS</text>
+<text x="1144.0" y="238.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Splitting documents into 512-token chunks strips</text>
+<text x="1144.0" y="254.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >document identity (&#x27;this quarter&#x27;s revenue&#x27;) and</text>
+<text x="1144.0" y="270.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >severs multi-hop relationships across files.</text>
+<rect x="1122.0" y="342.0" width="424.0" height="134.0" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.4" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1123.2" y="343.2" width="421.6" height="131.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1124.0" y="343.8" width="420.0" height="14.0" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="1122.0" y="342.0" width="8.0" height="134.0" rx="4" fill="#7C3AED" />
-<text x="1144.0" y="366.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#7C3AED" text-anchor="start" >WHAT COUNTS AS &#x27;AFTER&#x27;</text>
-<text x="1144.0" y="388.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >The same workload re-run after one architectural</text>
-<text x="1144.0" y="404.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >change (memory receipts, tool router, or cascade) —</text>
-<text x="1144.0" y="420.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >models and tools unchanged.</text>
-<rect x="1122.0" y="492.0" width="424.0" height="134.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.4" />
+<text x="1144.0" y="366.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#7C3AED" text-anchor="start" >LAYER 1 • CONTEXTUAL HYBRID</text>
+<text x="1144.0" y="388.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Prepend a 50-token chunk-context header before</text>
+<text x="1144.0" y="404.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >embedding AND index in BM25 so exact SKUs, error</text>
+<text x="1144.0" y="420.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >codes, and names never vanish.</text>
+<rect x="1122.0" y="492.0" width="424.0" height="134.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.4" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1123.2" y="493.2" width="421.6" height="131.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1124.0" y="493.8" width="420.0" height="14.0" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="1122.0" y="492.0" width="8.0" height="134.0" rx="4" fill="#D97706" />
-<text x="1144.0" y="516.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#D97706" text-anchor="start" >SOURCE OF TRUTH</text>
-<text x="1144.0" y="538.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Rows 1-2 are published OpenWiki numbers. Rows 3-4</text>
-<text x="1144.0" y="554.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >are reference-harness measurements from this</text>
-<text x="1144.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >workspace&#x27;s catalog; re-run them in your repo before</text>
-<text x="1144.0" y="586.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >quoting.</text>
-<rect x="1122.0" y="642.0" width="424.0" height="134.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.4" />
+<text x="1144.0" y="516.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#D97706" text-anchor="start" >LAYER 2 • GRAPHRAG COMMUNITIES</text>
+<text x="1144.0" y="538.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Extract (entity, relation, entity) triples and pre-</text>
+<text x="1144.0" y="554.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >summarize Leiden clusters so global &#x27;what are the</text>
+<text x="1144.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >main themes?&#x27; queries resolve in 1 hop.</text>
+<rect x="1122.0" y="642.0" width="424.0" height="134.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.4" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1123.2" y="643.2" width="421.6" height="131.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1124.0" y="643.8" width="420.0" height="14.0" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="1122.0" y="642.0" width="8.0" height="134.0" rx="4" fill="#059669" />
-<text x="1144.0" y="666.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="start" >HOW TO REPRODUCE</text>
-<text x="1144.0" y="688.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >python3 -m unittest discover -s tests inside the</text>
-<text x="1144.0" y="704.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >generated repo; latency and tokens come from</text>
-<text x="1144.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >OpenTelemetry spans in Cloud Trace, Langfuse, or</text>
-<text x="1144.0" y="736.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Arize Phoenix.</text>
+<text x="1144.0" y="666.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="start" >LAYER 3 • CRAG EVALUATOR GATE</text>
+<text x="1144.0" y="688.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Score retrieved chunks with a fast classifier before</text>
+<text x="1144.0" y="704.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >generation: if confidence &lt; 0.7, strip noisy spans</text>
+<text x="1144.0" y="720.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >and trigger query rewrite.</text>
 <rect x="56.0" y="824.0" width="1508.0" height="96.0" rx="12" fill="#0F2942" />
 <text x="78.0" y="854.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#93C5FD" text-anchor="start" >ONE-LINE TAKEAWAY</text>
-<text x="78.0" y="880.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="start" >Every large improvement came from a non-LLM control (SHA receipts, schema routing, prefix caching, parallelism) available in both managed and open-source form — not from</text>
-<text x="78.0" y="899.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="start" >a bigger model or a longer prompt.</text>
-<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
-<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: LangChain OpenWiki study (POST-07) • IDEA-04 • IDEA-09 reference harness • OpenTelemetry</text>
+<text x="78.0" y="880.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="start" >Production RAG is a 3-tier routing problem: Contextual Hybrid BM25+Vector for point lookups, GraphRAG for multi-hop synthesis, and a CRAG evaluator to strip poisoned</text>
+<text x="78.0" y="899.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="start" >chunks.</text>
+<rect x="36" y="946" width="1528" height="25" rx="8" fill="#FFFFFF" fill-opacity="0.86" stroke="#E2E8F0" stroke-width="1"/>
+<text x="56.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: Anthropic Contextual Retrieval (Sep 2024) • Microsoft GraphRAG (Edge et al. 2024) • CRAG (Yan et al. 2024) • Aurimas Griciūnas</text>
 </svg>

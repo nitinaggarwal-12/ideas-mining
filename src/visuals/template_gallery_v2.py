@@ -47,15 +47,20 @@ def _reveal(phase: Optional[float], n: int) -> int:
 def _mb(x: float, y: float, w: float, h: float, label: str, col: str, fill: str = WHITE, size: float = 9.5) -> str:
     lines = _wrap(label, max(6, int(w / 6.2)), 2)
     ty = y + h / 2 + (4 if len(lines) == 1 else -2)
-    return _r(x, y, w, h, 6, fill, col, 1.6) + _tl(x + w / 2, ty, lines, size, 800, INK if fill == WHITE else WHITE, 11, "middle")
+    sheen = f'<rect x="{x + 1.5:.1f}" y="{y + 1.2:.1f}" width="{max(4.0, w - 3.0):.1f}" height="{max(3.0, h * 0.28):.1f}" rx="4" fill="#FFFFFF" fill-opacity="0.34"/>'
+    return _r(x, y, w, h, 6, fill, col, 1.6) + sheen + _tl(x + w / 2, ty, lines, size, 800, INK if fill == WHITE else WHITE, 11, "middle")
 
 
 def _fl(pts: Sequence[Point], col: str, phase: Optional[float], dur: float = 1.6, label: Optional[str] = None, dash: str = "7 5") -> str:
-    return _flow(pts, col, phase, label, dur, 2.4, True, 1, dash=dash, track=False, label_dy=-14)
+    return _flow(pts, col, phase, label, dur, 2.4, True, 1, dash=dash, track=True, label_dy=-14)
 
 
 def _num(cx: float, cy: float, n: Any, col: str, r: float = 13) -> str:
-    return f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r}" fill="{col}"/>' + _t(cx, cy + 4, str(n), 10.5, 800, WHITE, "middle")
+    return (
+        f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r + 3.2:.1f}" fill="{col}" fill-opacity="0.16"/>'
+        f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="{col}" stroke="#FFFFFF" stroke-width="1.2"/>'
+        + _t(cx, cy + 4, str(n), 10.5, 800, WHITE, "middle")
+    )
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -215,9 +220,9 @@ def render_t23(s: Dict[str, Any], phase: Optional[float] = None) -> str:
             w = sg["tokens"] * scale * g
             b.append(_r(x, y, max(2, w), 54, 4, sg["color"]))
             if w > 64:
-                max_ch = max(4, int((w - 14) / 6.0))
-                lbl = sg["name"] if len(sg["name"]) <= max_ch else sg["name"][: max_ch - 1].rstrip() + "…"
-                b.append(_t(x + 7, y + 22, lbl, 9.8, 800, WHITE))
+                max_ch = max(4, int((w - 12) / 5.6))
+                lbl = sg["name"] if len(sg["name"]) <= max_ch else sg["name"].split()[0][:max_ch]
+                b.append(_t(x + 7, y + 22, lbl, 9.6, 800, WHITE))
                 b.append(_t(x + 7, y + 42, f"{sg['tokens'] // 1000}K • {int(100 * sg['tokens'] / total)}%", 9.2, 700, "#F1F5F9"))
             out_pts.append((x + w / 2, y + 54))
             x += sg["tokens"] * scale * g
@@ -498,7 +503,7 @@ def render_t28(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     for i, st in enumerate(s["strategies"][:5]):
         x, y = 56 + i * 300, 146
         col = st["color"]
-        b.append(_r(x, y, 284, 600, 14, WHITE, col, 2.2, 'transform="rotate(-0.4)"' if i % 2 == 0 else 'transform="rotate(0.4)"'))
+        b.append(_r(x, y, 284, 600, 14, WHITE, col, 2.2))
         b.append(_ht(x + 142, y + 30, f"{i + 1}. {st['name']}", 16, 800, col, "middle"))
         dx, dy, dw, dh = x + 42, y + 50, 200, 150
         b.append(_r(dx, dy, dw, dh, 4, "#FAFAF9", "#A8A29E", 1.5))
@@ -732,11 +737,11 @@ def render_t31(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-# T32 — Andrew Ng's four agentic patterns and the HumanEval leap
+# T32 — 2026 Verifier Harness Leap + Four Agentic Design Patterns
 # ----------------------------------------------------------------------------------------------------------------------
 def render_t32(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b: List[str] = []
-    b.append(_card_head(56, 136, 640, 440, BLUE, "THE CHART ANDREW NG SHOWED (HUMANEVAL CODING BENCHMARK, MAR 2024)"))
+    b.append(_card_head(56, 136, 640, 440, BLUE, s.get("chart_head", "2026 VERIFIER HARNESS BENCHMARK: FAST FLASH MODEL IN A LOOP VS. FRONTIER ZERO-SHOT")))
     bars = s["bars"]
     g = _grow(phase)
     for i, bar in enumerate(bars[:3]):
@@ -746,47 +751,47 @@ def render_t32(s: Dict[str, Any], phase: Optional[float] = None) -> str:
         b.append(_t(x + 70, 512 - h, f"{bar['value']:.1f}%", 20, 800, INK, "middle"))
         b.append(_tl(x + 70, 540, _wrap(bar["label"], 22, 2), 10.5, 800, SLATE, 13, "middle"))
     b.append(f'<line x1="90" y1="520" x2="680" y2="520" stroke="#94A3B8" stroke-width="1.5"/>')
-    b.append(_flow([(180, 200), (380, 200), (580, 200)], GREEN, phase, "same GPT-3.5, wrapped in an agentic loop", 2.6, 3, True, 2, dash="8 7", track=False))
+    b.append(_flow([(180, 200), (380, 200), (580, 200)], GREEN, phase, s.get("loop_label", "same Flash / 32B model + sandbox test verifier & reflection loop"), 2.6, 3, True, 2, dash="8 7", track=False))
     b.append(_t(72, 566, s["chart_note"], 9.5, 700, SLATE))
     for i, p in enumerate(s["patterns"][:4]):
         x, y = 720 + (i % 2) * 424, 136 + (i // 2) * 224
         b.append(_card_head(x, y, 412, 212, p["color"], f"{p['name'].upper()}  •  {p['maturity']}", head_h=26))
         if p["kind"] == "evaluator":
             cy = y + 84
-            b.append(_t(x + 206, y + 44, "loop until evaluator says 'meets the bar' (or max rounds)", 8.6, 700, SLATE, "middle"))
+            b.append(_t(x + 206, y + 44, "loop until verifier + critic pass (or max_steps=5)", 8.6, 700, SLATE, "middle"))
             b.append(_mb(x + 20, cy - 16, 108, 32, "Generator LLM", p["color"]))
-            b.append(_fl([(x + 128, cy - 7), (x + 244, cy - 7)], p["color"], phase, label="draft"))
-            b.append(_mb(x + 246, cy - 16, 110, 32, "Evaluator LLM", AMBER))
-            b.append(_fl([(x + 246, cy + 9), (x + 128, cy + 9)], AMBER, phase, label="feedback", dash="4 4"))
-            b.append(_fl([(x + 301, cy + 16), (x + 301, cy + 40), (x + 392, cy + 40)], GREEN, phase, label="accepted"))
+            b.append(_fl([(x + 128, cy - 7), (x + 244, cy - 7)], p["color"], phase, label="candidate"))
+            b.append(_mb(x + 246, cy - 16, 110, 32, "Verifier + Critic", AMBER))
+            b.append(_fl([(x + 246, cy + 9), (x + 128, cy + 9)], AMBER, phase, label="diff / trace", dash="4 4"))
+            b.append(_fl([(x + 301, cy + 16), (x + 301, cy + 40), (x + 392, cy + 40)], GREEN, phase, label="exit_code==0"))
         if p["kind"] == "tools":
-            b.append(_mb(x + 18, y + 70, 96, 34, "LLM", p["color"]))
-            for j, t in enumerate(["web search", "code exec", "calendar"]):
+            b.append(_mb(x + 18, y + 70, 96, 34, "Agent LLM", p["color"]))
+            for j, t in enumerate(["ripgrep / AST", "sandbox pytest", "MCP Top-3 API"]):
                 b.append(_fl([(x + 114, y + 87), (x + 166, y + 50 + j * 36)], p["color"], phase))
                 b.append(_mb(x + 168, y + 36 + j * 36, 94, 28, t, p["color"]))
-            b.append(_t(x + 336, y + 91, "calls, reads, acts", 8.8, 700, SLATE, "middle"))
+            b.append(_t(x + 336, y + 91, "grounds, tests, acts", 8.8, 700, SLATE, "middle"))
         if p["kind"] == "planning":
-            steps = ["goal", "step 1", "step 2", "step 3", "done"]
+            steps = ["goal", "DAG 1", "DAG 2", "verify", "commit"]
             for j, t in enumerate(steps):
                 b.append(_mb(x + 20 + j * 76, y + 70, 66, 30, t, p["color"]))
                 if j < 4:
                     b.append(_fl([(x + 86 + j * 76, y + 85), (x + 96 + j * 76, y + 85)], p["color"], phase))
-            b.append(_t(x + 206, y + 122, "LLM decomposes, then executes (e.g. HuggingGPT)", 9, 700, SLATE, "middle"))
+            b.append(_t(x + 206, y + 122, "Propose skill DAG -> probe in sandbox -> lock verified path", 9, 700, SLATE, "middle"))
         if p["kind"] == "multi":
-            for j, t in enumerate(["CEO", "Engineer", "QA"]):
+            for j, t in enumerate(["Planner", "Coder", "Verifier"]):
                 b.append(_mb(x + 24 + j * 124, y + 48, 100, 30, t, p["color"]))
                 if j < 2:
                     b.append(_fl([(x + 124 + j * 124, y + 63), (x + 148 + j * 124, y + 63)], p["color"], phase))
-            b.append(_fl([(x + 324, y + 78), (x + 324, y + 104), (x + 74, y + 104), (x + 74, y + 80)], p["color"], phase, label="review loop", dash="4 4"))
-            b.append(_t(x + 206, y + 126, "role-play agents debate & hand off (ChatDev, AutoGen)", 9, 700, SLATE, "middle"))
+            b.append(_fl([(x + 324, y + 78), (x + 324, y + 104), (x + 74, y + 104), (x + 74, y + 80)], p["color"], phase, label="typed blackboard", dash="4 4"))
+            b.append(_t(x + 206, y + 126, "specialist agents mutate a typed JSON-Schema blackboard (A2A)", 9, 700, SLATE, "middle"))
         b.append(_tl(x + 14, y + 152, _wrap(p["one_liner"], 60, 2), 10.5, 700, INK, 14))
         b.append(_t(x + 14, y + 198, p["try"], 9.5, 800, p["color"]))
     b.append(_r(56, 596, 1508, 110, 12, "#ECFDF5", "#6EE7B7", 1.8))
-    b.append(_t(74, 622, "WHAT NG ACTUALLY SAID (PARAPHRASED FROM THE TALK)", 10, 800, "#065F46"))
+    b.append(_t(74, 622, s.get("quotes_head", "WHY A $0.06 VERIFIER LOOP BEATS A $1.20 FRONTIER ZERO-SHOT CALL IN PRODUCTION"), 10, 800, "#065F46"))
     for i, q in enumerate(s["quotes"][:3]):
         b.append(_tl(74 + i * 500, 646, _wrap(q, 66, 3), 10.5, 700, "#064E3B", 15))
     b.append(_r(56, 726, 1508, 130, 12, WHITE, LINE, 1.8))
-    b.append(_t(74, 752, "HOW TO GET THE SAME LEAP ON YOUR TASK THIS WEEK", 10.5, 800, INK))
+    b.append(_t(74, 752, "HOW TO GET THE SAME LEAP ON YOUR WORKFLOW THIS WEEK", 10.5, 800, INK))
     for i, stp in enumerate(s["week"][:4]):
         b.append(_num(86 + i * 376, 788, i + 1, BLUE, 12))
         b.append(_tl(106 + i * 376, 784, _wrap(stp, 46, 3), 10.5, 700, "#1E293B", 14))
@@ -796,7 +801,7 @@ def render_t32(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-# T33 — Jagged frontier task map (Ethan Mollick)
+# T33 — 2026 Agent Autonomy Frontier Map
 # ----------------------------------------------------------------------------------------------------------------------
 def render_t33(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b: List[str] = []
@@ -809,10 +814,10 @@ def render_t33(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     pstr = " ".join(f"{x},{y}" for x, y in poly)
     b.append(f'<polygon points="{pstr}" fill="#DCFCE7" fill-opacity="0.75" stroke="{GREEN}" stroke-width="3.5" stroke-linejoin="round" class="pulse"/>')
     b.append(_flow([tuple(p) for p in poly] + [tuple(poly[0])], GREEN, phase, None, 9.0, 2, False, 3, dash="6 6", track=False))
-    b.append(_t(540, 480, "INSIDE THE FRONTIER", 14, 800, "#065F46", "middle"))
-    b.append(_t(540, 500, "agents succeed reliably today — delegate these", 10.5, 700, "#047857", "middle"))
-    b.append(_t(120, 170, "OUTSIDE THE FRONTIER", 12, 800, "#991B1B"))
-    b.append(_t(120, 188, "looks doable, fails unpredictably — keep a human in the loop", 10, 700, "#B91C1C"))
+    b.append(_t(540, 480, "INSIDE THE 2026 AUTONOMY FRONTIER", 14, 800, "#065F46", "middle"))
+    b.append(_t(540, 500, "verifiable oracle (exit_code==0 / schema / SHA) exists — delegate autonomously", 10.5, 700, "#047857", "middle"))
+    b.append(_t(120, 170, "OUTSIDE THE FRONTIER (PRODUCTION TRAPS)", 12, 800, "#991B1B"))
+    b.append(_t(120, 188, "no deterministic verifier or irreversible blast radius — require human approval gate", 10, 700, "#B91C1C"))
     for tsk in s["inside"]:
         x, y = tsk["x"], tsk["y"]
         b.append(f'<circle cx="{x}" cy="{y}" r="9" fill="{GREEN}" stroke="{WHITE}" stroke-width="2.5"/>')
@@ -822,19 +827,19 @@ def render_t33(s: Dict[str, Any], phase: Optional[float] = None) -> str:
         b.append(f'<circle cx="{x}" cy="{y}" r="9" fill="{RED}" stroke="{WHITE}" stroke-width="2.5"/>')
         b.append(_tl(x + 14, y - 2, _wrap(tsk["label"], 22, 2), 10.2, 800, "#7F1D1D", 12))
     b.append(_t(540, 858, s["map_note"], 9.5, 700, SLATE, "middle"))
-    b.append(_card_head(1040, 136, 524, 300, BLUE, "THE STUDY BEHIND THE IDEA (DELL'ACQUA ET AL., 2023 — 758 BCG CONSULTANTS)"))
+    b.append(_card_head(1040, 136, 524, 300, BLUE, s.get("stats_head", "2026 PRODUCTION TELEMETRY: VERIFIED HARNESS VS. UNVERIFIED TASKS")))
     for i, st in enumerate(s["stats"][:4]):
         y = 178 + i * 60
         b.append(_r(1056, y, 492, 50, 8, "#F8FAFC", st["color"], 1.4))
         b.append(_t(1068, y + 32, st["value"], 20, 800, st["color"]))
         b.append(_tl(1190, y + 22, _wrap(st["label"], 54, 2), 10, 700, "#1E293B", 13))
-    b.append(_card_head(1040, 456, 524, 250, AMBER, "HOW TO DRAW YOUR OWN FRONTIER (MONTHLY, 1 HOUR)"))
+    b.append(_card_head(1040, 456, 524, 250, AMBER, "HOW TO PUSH A TASK INSIDE THE FRONTIER THIS SPRINT"))
     for i, stp in enumerate(s["how"][:4]):
         y = 500 + i * 48
         b.append(_num(1068, y + 6, i + 1, AMBER, 12))
         b.append(_tl(1090, y + 2, _wrap(stp, 64, 2), 10.5, 700, "#1E293B", 14))
     b.append(_r(1040, 726, 524, 150, 12, NAVY))
-    b.append(_t(1058, 752, "WHY THE EDGE MOVES", 10.5, 800, "#93C5FD"))
+    b.append(_t(1058, 752, "WHAT ACTUALLY MOVES THE FRONTIER IN 2026", 10.5, 800, "#93C5FD"))
     b.append(_tl(1058, 776, _wrap(s["edge_note"], 66, 5), 10.5, 700, WHITE, 16))
     b.append(_r(56, 892, 1508, 40, 10, "#ECFDF5", "#6EE7B7", 1.6))
     b.append(_t(810, 917, s["rule"], 12, 800, "#065F46", "middle"))
@@ -890,12 +895,12 @@ def render_t34(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-# T35 — Orchestrator + parallel subagents (Anthropic multi-agent research system) with real token economics
+# T35 — Orchestrator + parallel subagents (2026 Context-Firewall & Token-Multiplier Economics)
 # ----------------------------------------------------------------------------------------------------------------------
 def render_t35(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b: List[str] = []
     b.append(_r(56, 136, 980, 740, 14, WHITE, LINE, 1.8))
-    b.append(_mb(76, 480, 110, 60, "User question (open-ended)", SLATE, size=10))
+    b.append(_mb(76, 480, 110, 60, "Complex task (multi-domain)", SLATE, size=10))
     b.append(_fl([(186, 510), (236, 510)], SLATE, phase, 1.4))
     b.append(_card_head(240, 440, 220, 140, PURPLE, "LEAD AGENT (ORCHESTRATOR)", head_h=24))
     b.append(_tl(254, 486, _wrap(s["lead"], 30, 5), 10, 700, INK, 14))
@@ -910,16 +915,16 @@ def render_t35(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b.append(_card_head(886, 460, 134, 100, GREEN, "SYNTHESIS", head_h=22))
     b.append(_tl(896, 498, _wrap(s["synthesis"], 18, 4), 9.5, 700, INK, 13))
     b.append(_fl([(951, 560), (951, 600)], GREEN, phase, 1.2))
-    b.append(_card_head(846, 604, 174, 76, TEAL, "CITATION AGENT", head_h=22))
+    b.append(_card_head(846, 604, 174, 76, TEAL, "CITATION & SHA GATE", head_h=22))
     b.append(_tl(858, 646, _wrap(s["citations"], 24, 3), 9.5, 700, INK, 13))
     b.append(_fl([(931, 680), (931, 720)], TEAL, phase, 1.2))
-    b.append(_mb(846, 724, 174, 50, "Answer with sources", GREEN, size=10))
+    b.append(_mb(846, 724, 174, 50, "Verified output + receipts", GREEN, size=10))
     b.append(_r(76, 700, 720, 160, 10, "#F8FAFC", LINE, 1.4))
-    b.append(_t(92, 724, "THE SCALING RULES THE LEAD AGENT IS TAUGHT (FROM THE POST)", 10, 800, INK))
+    b.append(_t(92, 724, s.get("scaling_head", "2026 CONTEXT-FIREWALL & SUBAGENT FAN-OUT SCALING RULES"), 10, 800, INK))
     for i, rule in enumerate(s["scaling"][:3]):
         b.append(_t(92, 750 + i * 32, "→", 12, 800, PURPLE))
         b.append(_tl(112, 750 + i * 32, _wrap(rule, 100, 1), 10.5, 700, "#1E293B", 13))
-    b.append(_card_head(1060, 136, 504, 420, NAVY, "THE NUMBERS ANTHROPIC REPORTED"))
+    b.append(_card_head(1060, 136, 504, 420, NAVY, s.get("numbers_head", "2026 MULTI-AGENT ECONOMICS: WIN RATE VS. TOKEN MULTIPLIER")))
     for i, st in enumerate(s["numbers"][:4]):
         y = 176 + i * 92
         b.append(_r(1076, y, 472, 82, 8, "#F8FAFC", st["color"], 1.6))
@@ -1164,25 +1169,25 @@ def render_t40(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 # Metadata + demo specs
 # ----------------------------------------------------------------------------------------------------------------------
 META: Dict[str, Dict[str, Any]] = {
-    "T21": {"name": "Pattern Picker", "best_for_short": "Which agent pattern to use", "content_types": ["Educational", "Grounded concepts", "Professional knowledge sharing"], "when_to_use": "A reader asks 'should this be a chain, a router, parallel calls, an orchestrator, an evaluator loop, or an agent?'", "dynamic": "Six live mini-schematics with packets; gate diamonds; feedback loops.", "lineage": "Anthropic, Building effective agents (Dec 2024)"},
+    "T21": {"name": "Pattern Picker", "best_for_short": "Which agent pattern to use", "content_types": ["Educational", "Grounded concepts", "Professional knowledge sharing"], "when_to_use": "A reader asks 'should this be a chain, a router, parallel calls, an orchestrator, an evaluator loop, or an agent?'", "dynamic": "Six live mini-schematics with packets; gate diamonds; feedback loops.", "lineage": "Anthropic, Building effective agents • Google ADK workflow agents"},
     "T22": {"name": "Claude Code Playbook", "best_for_short": "Copy-paste agentic coding", "content_types": ["Working solution", "Professional knowledge sharing", "Easy to understand"], "when_to_use": "Teach the Explore → Plan → Code → Commit loop + Boris Cherny's 10 internal Claude Code habits (/loop, /desktop, /context, Goal+Effort+Check).", "dynamic": "Phase arrows, growing thinking-budget bars, TDD loop-back arrow.", "lineage": "Charlie Hills (Boris Cherny 10 Claude Code tips & 42 add-ons) • Anthropic Claude Code guide"},
     "T23": {"name": "Context Budget Ledger", "best_for_short": "Token budgets & compaction", "content_types": ["Grounded concepts", "Information", "Working solution"], "when_to_use": "Show exactly where 200K tokens go and what compaction + just-in-time retrieval frees up.", "dynamic": "Stacked ledgers grow; packets migrate from the bloated budget to the lean one.", "lineage": "Anthropic, Effective context engineering (Sep 2025)"},
     "T24": {"name": "Error Analysis Board", "best_for_short": "Evals that start from real traces", "content_types": ["Evaluation results", "Professional knowledge sharing", "Working solution"], "when_to_use": "Walk a team from 100 traces to a failure taxonomy, a Pareto, and a binary judge per failure mode.", "dynamic": "Notes flow into taxonomy buckets; Pareto bars grow.", "lineage": "Hamel Husain & Shreya Shankar, AI Evals method"},
-    "T25": {"name": "Judge Calibration Card", "best_for_short": "Trustworthy LLM-as-a-judge", "content_types": ["Evaluation results", "Research topics", "Professional knowledge sharing"], "when_to_use": "Before anyone quotes a judge score: confusion matrix vs humans, known biases, the fix for each, a prompt skeleton.", "dynamic": "Matrix cells reveal in sequence; bias → fix arrows carry packets.", "lineage": "Eugene Yan • Shreya Shankar • MT-Bench (Zheng et al. 2023)"},
+    "T25": {"name": "Judge Calibration Card", "best_for_short": "Calibrated binary rubric judges", "content_types": ["Evaluation results", "Research topics", "Professional knowledge sharing"], "when_to_use": "Before anyone quotes an LLM-as-a-judge dashboard: deterministic hard-gates first, cross-family confusion matrix (TPR/TNR >= 0.90), 5 judge biases -> fixes.", "dynamic": "Matrix cells reveal in sequence; bias → fix arrows carry packets.", "lineage": "Hamel Husain • Shreya Shankar • Eugene Yan • Vertex AI Eval & Promptfoo"},
     "T26": {"name": "Trajectory Scorecard", "best_for_short": "Scoring agent tool calls", "content_types": ["Evaluation results", "Proof of concept", "Grounded concepts"], "when_to_use": "Explain how to grade an agent's tool-call sequence, not just its final answer.", "dynamic": "Packets step through expected vs actual calls; metric rows compute live.", "lineage": "Google, Agents Companion whitepaper (Feb 2025)"},
     "T27": {"name": "How-It-Works Walkthrough", "best_for_short": "Protocol explainers (MCP)", "content_types": ["Educational", "Easy to understand", "Information"], "when_to_use": "A numbered sequence & lifeline walkthrough of a protocol or control plane (MCP 9-message JSON-RPC 2.0 flow).", "dynamic": "Numbered message cards light up in order with packets traveling across 3 lifelines.", "lineage": "Brij Kishore Pandey (7-Layer Control Plane & MCP) • ByteByteGo • MCP specification"},
-    "T28": {"name": "Sketch Explainer", "best_for_short": "Hand-drawn concept cards", "content_types": ["Educational", "Easy to understand", "Grounded concepts"], "when_to_use": "A warm, sketched comparison of 5 options (here: chunking strategies) with 'start with' defaults.", "dynamic": "Scissor packets travel the cut lines; tilted cards; marker typography.", "lineage": "Avi Chawla & Akshay Pachaar sketch format • Anthropic Contextual Retrieval (Sep 2024)"},
+    "T28": {"name": "Sketch Explainer", "best_for_short": "2026 Agent Context Grounding (5 modes)", "content_types": ["Educational", "Easy to understand", "Grounded concepts"], "when_to_use": "Compare 5 modern agent context-grounding strategies (Naive Chunks vs. AST/Structure vs. Agentic ripgrep vs. KV Prefix Cache vs. Contextual Hybrid + SHA).", "dynamic": "Packets travel the cut lines; zero-origin orthogonal cards; marker typography.", "lineage": "Avi Chawla & Akshay Pachaar sketch format • Claude Code AST/Grep & Contextual Hybrid RAG"},
     "T29": {"name": "AI by Hand", "best_for_short": "Worked calculations", "content_types": ["Educational", "Evaluation results", "Grounded concepts"], "when_to_use": "Readers verify the math themselves: here Cohen's kappa for judge vs human agreement on grid paper.", "dynamic": "Steps reveal one by one; a packet traces the computation path.", "lineage": "Tom Yeh, AI by Hand format"},
     "T30": {"name": "Paper of the Day", "best_for_short": "30-second paper digests", "content_types": ["Research topics", "Information", "Educational"], "when_to_use": "One paper, one recreated chart, problem/method/result, caveats, and a read/skim/skip verdict.", "dynamic": "Chart bars grow; verdict gauge fills; method pipeline carries a packet.", "lineage": "Pascal Biese (LLM Watch) & Elvis Saravia (DAIR.AI) digest format"},
     "T31": {"name": "Runnable Demo Card", "best_for_short": "'I built it in 26 lines'", "content_types": ["Working solution", "Proof of concept", "Easy to understand"], "when_to_use": "Show real code, the real output, and what it proves — then the clone command.", "dynamic": "Terminal output types in line by line; a packet runs down the code gutter.", "lineage": "Shubham Saboo (awesome-llm-apps) & Nir Diamant demo-repo format"},
-    "T32": {"name": "Ng's Four Patterns", "best_for_short": "Agentic workflow basics", "content_types": ["Educational", "Ideas", "Easy to understand"], "when_to_use": "Explain why agentic loops beat bigger models with the HumanEval chart and the four design patterns.", "dynamic": "Bars grow to 95.1%; each pattern has a live mini-loop.", "lineage": "Andrew Ng, Sequoia AI Ascent (Mar 2024)"},
-    "T33": {"name": "Jagged Frontier Map", "best_for_short": "Where agents work today", "content_types": ["Ideas", "Professional knowledge sharing", "Grounded concepts"], "when_to_use": "Place concrete tasks inside/outside the capability frontier and show how to redraw it monthly.", "dynamic": "Frontier edge pulses with orbiting packets.", "lineage": "Ethan Mollick, jagged frontier (Dell'Acqua et al. 2023)"},
+    "T32": {"name": "Verifier Harness Leap", "best_for_short": "Fast Flash + Verifier vs. Frontier Zero-Shot", "content_types": ["Educational", "Ideas", "Easy to understand"], "when_to_use": "Show why a fast Flash/32B model wrapped in a sandbox verifier + reflection harness beats a 10x larger frontier model zero-shot (89.4% vs 61.0%).", "dynamic": "Bars grow to 89.4%; each of the 4 harness patterns runs a live mini-loop.", "lineage": "Andrew Ng 4 Agentic Patterns • 2026 OpenHands & ADK Verifier Harness Benchmark"},
+    "T33": {"name": "Jagged Frontier Map", "best_for_short": "2026 Agent Autonomy Frontier", "content_types": ["Ideas", "Professional knowledge sharing", "Grounded concepts"], "when_to_use": "Map 2026 tasks where sandboxed agents with deterministic verifiers exceed 88% reliability vs. production traps that require human gates.", "dynamic": "Frontier edge pulses with orbiting packets.", "lineage": "Ethan Mollick Jagged Frontier • 2026 Enterprise Agent Autonomy Telemetry"},
     "T34": {"name": "Lethal Trifecta Venn", "best_for_short": "5-second agent security test", "content_types": ["Easy to understand", "Grounded concepts", "Professional knowledge sharing"], "when_to_use": "Any agent that has private data + untrusted content + outbound comms can be made to leak; show which leg to remove.", "dynamic": "Packets from each circle converge on a pulsing danger core.", "lineage": "Simon Willison, The lethal trifecta for AI agents (Jun 2025)"},
-    "T35": {"name": "Orchestrator + Subagents", "best_for_short": "Multi-agent research systems", "content_types": ["Grounded concepts", "Research topics", "Working solution"], "when_to_use": "Explain lead/subagent fan-out and when 15x tokens is worth it, with Anthropic's reported numbers.", "dynamic": "Spawn packets fan out and results fan back in to synthesis.", "lineage": "Anthropic, How we built our multi-agent research system (Jun 2025)"},
+    "T35": {"name": "Orchestrator + Subagents", "best_for_short": "Subagent context firewalls & 15x rule", "content_types": ["Grounded concepts", "Research topics", "Working solution"], "when_to_use": "Explain how disposable subagent context firewalls keep the lead orchestrator clean (+90.2% win rate) and when the 15x token multiplier is worth it.", "dynamic": "Spawn packets fan out and verified digests fan back in to synthesis.", "lineage": "Anthropic Multi-Agent Research System • ADK ParallelAgent & Context-Firewall Pattern"},
     "T36": {"name": "Cost Waterfall", "best_for_short": "Where the money goes", "content_types": ["Evaluation results", "Information", "Professional knowledge sharing"], "when_to_use": "Decompose cost per task into tokens, tools, retries, judges — then show the four levers.", "dynamic": "Waterfall bars drop in sequence; a scan packet crosses the chart.", "lineage": "Chip Huyen-style practical AI economics"},
     "T37": {"name": "Incident Postmortem", "best_for_short": "AgentOps & Kill-Switch", "content_types": ["Easy to understand", "Professional knowledge sharing", "Working solution"], "when_to_use": "Tell the $84 retry-storm story on a timeline and name the control + kill-switch that stops it at each step.", "dynamic": "Severity packets run down the timeline; green control cards attach per event.", "lineage": "Brij Kishore Pandey (How Do We Turn It Off? & 10-Field Agent Record) • Google SRE Postmortem"},
     "T38": {"name": "Tool Spec Clinic", "best_for_short": "Tool definitions agents use well", "content_types": ["Working solution", "Proof of concept", "Professional knowledge sharing"], "when_to_use": "Bad vs good tool JSON side by side with the five rules from Anthropic's tool-writing guide.", "dynamic": "Transformation arrows jump from each flaw to its fix.", "lineage": "Anthropic (Writing effective tools) • Brij Kishore Pandey (5-Layer Claude Code ADK & SKILL.md)"},
-    "T39": {"name": "Memory Design Matrix", "best_for_short": "Agent memory decisions", "content_types": ["Grounded concepts", "Educational", "Information"], "when_to_use": "One request touches four memory types; decide what to store where, with freshness rules.", "dynamic": "A request packet touches each memory store before the agent acts.", "lineage": "CoALA (Sumers et al. 2023) • Lilian Weng (2023) • Aishwarya Naresh Reganti memory infographics"},
+    "T39": {"name": "Memory Design Matrix", "best_for_short": "4 Memories for Coding & SRE Agents", "content_types": ["Grounded concepts", "Educational", "Information"], "when_to_use": "Show how a production coding & SRE agent uses Working, Episodic, Semantic (Git-SHA receipts), and Procedural (AGENTS.md / SKILL.md) memory on a real PR.", "dynamic": "A PR-fix packet touches each memory store before the agent patches and tests.", "lineage": "LangChain OpenWiki • Claude Code / OpenHands SKILL.md • CoALA 4-Memory Matrix"},
     "T40": {"name": "One-Chart Changelog", "best_for_short": "Cause → effect on one metric", "content_types": ["Evaluation results", "Proof of concept", "Ideas"], "when_to_use": "One metric over time, four annotated architecture changes, what each changed — build-in-public style.", "dynamic": "The line draws progressively; flags appear as the line reaches them.", "lineage": "Nate B. Jones 'one chart' • Santiago Valdarrama build-in-public"},
 }
 
@@ -1344,44 +1349,45 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
             "today": ["Export 100 recent traces into a sheet; add a 'what went wrong' column.", "Group notes into 5-8 named failure modes; count them.", "Write one binary judge for the top mode; validate on 40 hand-labeled traces."],
         },
         "T25": {
-            "title": "Before You Quote a Judge Score: Calibrate It Like a Lab Instrument",
-            "subtitle": "A judge is only as good as its agreement with humans on cases where you know the answer. Example: 100 hand-labeled traces, one binary judge.",
-            "source": "Zheng et al., 'Judging LLM-as-a-Judge with MT-Bench' (2023) • Shankar et al., 'Who Validates the Validators?' (2024) • Eugene Yan, evaluating LLM-evaluators",
-            "lineage": "Eugene Yan • Shreya Shankar • MT-Bench (Zheng et al. 2023)",
+            "title": "Before You Trust an LLM-as-a-Judge Dashboard: Calibrate TPR, TNR & Cohen's κ Like a Lab Instrument",
+            "subtitle": "Deterministic hard-gates run first (0 tokens); calibrated binary rubric judges run second across different model families (Gemini 3.8 / Claude / Open-Weights).",
+            "source": "Shankar et al., 'Who Validates the Validators?' • Hamel Husain & Eugene Yan (2026 Eval Playbook) • Vertex AI GenAI Eval & Promptfoo",
+            "lineage": "Hamel Husain • Shreya Shankar • Eugene Yan • Vertex AI Eval & Promptfoo",
             "tp": 46, "fp": 3, "fn": 4, "tn": 47,
-            "matrix_note": "Numbers are an example calibration set; re-run yours every release.",
+            "matrix_note": "100 hand-labeled production traces; require TPR >= 0.90 and TNR >= 0.90 before gating CI/CD.",
             "biases": [
-                {"name": "Position bias", "symptom": "Prefers whichever answer is shown first in pairwise grading.", "fix": "Grade both orders and average; or switch to single-answer PASS/FAIL."},
+                {"name": "Position bias", "symptom": "Prefers whichever answer is shown first in pairwise grading.", "fix": "Grade both orders and average; or switch to single-trace PASS/FAIL."},
                 {"name": "Verbosity bias", "symptom": "Longer answers score higher even when they add nothing.", "fix": "Length-normalize; tell the rubric that extra words are not merit."},
-                {"name": "Self-preference", "symptom": "A model rates its own outputs higher.", "fix": "Judge with a different model family than the one being judged."},
-                {"name": "Likert drift", "symptom": "1-5 scores cluster at 3-4 and mean different things to different graders.", "fix": "Binary PASS/FAIL per failure mode with a quoted reason."},
-                {"name": "Shallow math/logic grading", "symptom": "Misses wrong reasoning when the final answer looks fine.", "fix": "Provide a reference solution; ask the judge to verify step by step."},
+                {"name": "Self-preference", "symptom": "A model family rates its own outputs higher than peers.", "fix": "Cross-family judge (e.g. Gemini 3.8 Flash grades Claude/Qwen traces)."},
+                {"name": "Likert drift", "symptom": "1-5 scores cluster at 3-4 and drift across prompt versions.", "fix": "Binary PASS/FAIL per failure mode with a quoted trace span."},
+                {"name": "Unverified tool claims", "symptom": "Judge believes the final prose without checking tool receipts.", "fix": "Run deterministic AST/JSON/tool-call hard-gates before the LLM judge."},
             ],
             "prompt_lines": [
-                "SYSTEM: You grade one criterion only.",
-                "CRITERION: <one failure mode, e.g. 'fabricated tool result'>",
+                "SYSTEM: Grade ONE binary failure mode only.",
+                "CRITERION: 'fabricated_tool_or_citation'",
+                "HARD-GATE PRE-CHECK: tool_receipts_verified == True",
                 "RUBRIC:",
-                "  PASS = every claimed action has a matching tool call",
-                "  FAIL = any claimed action lacks a tool call",
-                "DO NOT reward length, tone, or politeness.",
+                "  PASS = every claimed action matches a tool receipt",
+                "  FAIL = any claimed action lacks a verified receipt",
+                "DO NOT reward length, tone, or formatting.",
                 "",
                 "INPUT:",
-                "  user_message: ...",
-                "  trace (tool calls + results): ...",
+                "  user_goal: ...",
+                "  otel_trace (tool calls + exit_codes): ...",
                 "  final_answer: ...",
                 "",
-                "OUTPUT (JSON only):",
+                "OUTPUT (JSON schema enforced):",
                 "  {\"verdict\": \"PASS\" | \"FAIL\",",
-                "   \"evidence\": \"<quote from the trace>\",",
+                "   \"evidence_span\": \"<exact span from trace>\",",
                 "   \"confidence\": 0.0-1.0}",
                 "",
-                "# Calibrate: compare to 40+ human labels;",
-                "# require TPR >= 0.90 and TNR >= 0.90.",
+                "# Release gate: compare against 50 human labels;",
+                "# require TPR >= 0.90, TNR >= 0.90, kappa >= 0.75.",
             ],
-            "routine": "Every release: re-grade 50 human-labeled traces; alert if TPR or TNR drops more than 5 points; keep 20% of labels hidden from prompt tuning.",
-            "watch": "Watch TNR (does the judge catch real failures?) — a lenient judge quietly inflates every dashboard.",
-            "sources": ["MT-Bench: GPT-4 agreed with humans ~80%, the same as humans with each other — but showed position, verbosity, and self-enhancement bias.", "Who Validates the Validators: humans' criteria drift as they grade; align judges iteratively, keep labeling.", "Hamel Husain: binary pass/fail beats Likert; validate judges with TPR/TNR on held-out labels."],
-            "rule": "If you cannot show the confusion matrix, you do not have a judge — you have an opinion generator.",
+            "routine": "Every release: run deterministic hard-gates (schema, exit_code, SHA receipt) first; then re-grade 50 human-labeled traces with a cross-family binary judge; block deploy if TNR drops >5 pts.",
+            "watch": "Watch TNR (does the judge catch real failures?) — a lenient judge with 95% TPR and 60% TNR quietly hides production regressions.",
+            "sources": ["Deterministic First: Never pay an LLM judge to check JSON validity, pytest exit codes, or SQL syntax — run a 0-token code assertion first.", "Who Validates the Validators: Human criteria evolve as engineers inspect real failures; re-align your binary rubric on 50 fresh traces every sprint.", "Cross-Family Calibration: Grade with a different model family than the generator and report TPR, TNR, and Cohen's κ on every eval run."],
+            "rule": "If you cannot show the confusion matrix (TPR, TNR, κ), you do not have an eval judge — you have an opinion generator.",
         },
         "T26": {
             "title": "Grade the Path, Not Just the Answer: Six Trajectory Metrics on One Refund Run",
@@ -1438,21 +1444,21 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
             "rule": "Open source clients: MCP Python/TypeScript SDKs • Google ADK MCPToolset • LangChain MCP adapters — same nine messages everywhere.",
         },
         "T28": {
-            "title": "Five Ways to Chop a Document — and the One Anthropic Measured a 67% Retrieval Win With",
-            "subtitle": "Sketch-style card you can read in ten seconds. Chunking is the quiet reason most RAG agents feel dumb.",
-            "source": "Anthropic, 'Introducing Contextual Retrieval' (Sep 2024) • LangChain / LlamaIndex text splitters • Jina 'late chunking'",
-            "lineage": "Avi Chawla & Akshay Pachaar sketch format • Anthropic Contextual Retrieval (Sep 2024)",
+            "title": "Five Ways Production Agents Ground Context in 2026 — and Why Coding Agents Dropped Naive Vector Chunks",
+            "subtitle": "Sketch-style card you can read in 10 seconds: from fixed chunks to AST/structure splits, agentic ripgrep, KV prefix caching, and Contextual Hybrid + SHA.",
+            "source": "Anthropic Contextual Retrieval & Claude Code Architecture • Google Vertex AI Context Caching & RAG Engine • LangChain OpenWiki",
+            "lineage": "Avi Chawla & Akshay Pachaar sketch format • Claude Code AST/Grep & Contextual Hybrid RAG",
             "strategies": [
-                {"name": "Fixed-size", "kind": "fixed", "color": "#64748B", "how": "Cut every N tokens with a small overlap. Blind to meaning.", "best": "Logs, transcripts, anything without structure. Fast baseline.", "watch": "Splits sentences and tables mid-thought; retrieval misses context.", "start": "500 tokens • 10% overlap", "tools": "LangChain CharacterTextSplitter • LlamaIndex TokenTextSplitter"},
-                {"name": "Recursive", "kind": "recursive", "color": BLUE, "how": "Try paragraphs, then sentences, then words until chunks fit.", "best": "Most prose, docs, emails. The sensible default.", "watch": "Still ignores headings and tables.", "start": "400-800 tokens • 10-15% overlap", "tools": "RecursiveCharacterTextSplitter • Vertex AI RAG Engine chunking"},
-                {"name": "Structure-aware", "kind": "structure", "color": PURPLE, "how": "Split on headings, code blocks, table rows — the document's own skeleton.", "best": "Markdown, HTML, PDFs with real headings, code.", "watch": "Huge sections need a second pass.", "start": "one chunk per H2/H3 • cap 1K", "tools": "MarkdownHeaderTextSplitter • Document AI layout parser"},
-                {"name": "Semantic", "kind": "semantic", "color": AMBER, "how": "Embed sentences; start a new chunk when meaning shifts.", "best": "Long narrative docs where topics drift.", "watch": "Slower; variable sizes; thresholds need tuning.", "start": "similarity threshold ~0.8 • cap 1K", "tools": "LangChain SemanticChunker • Gemini Embedding 2"},
-                {"name": "Contextual retrieval", "kind": "contextual", "color": GREEN, "how": "Prepend a 50-100 token summary of where the chunk sits in the doc, then embed + BM25.", "best": "Knowledge bases where chunks lose meaning alone (contracts, specs).", "watch": "One LLM call per chunk at index time (prompt caching makes it cheap).", "start": "recursive chunks + context prefix", "tools": "Claude prompt caching • Vertex AI Search hybrid • Elasticsearch BM25"},
+                {"name": "Naive Vector", "kind": "fixed", "color": "#64748B", "how": "Slice every 500 tokens blind to syntax or headings; embed and hope cosine similarity finds it.", "best": "Quick FAQ prototypes on short, unstructured prose.", "watch": "Splits functions & tables mid-block; misses exact symbols, error codes, and imports.", "start": "500 tok • cosine top-k (baseline only)", "tools": "LangChain TokenSplitter • pgvector baseline"},
+                {"name": "AST / Layout", "kind": "recursive", "color": BLUE, "how": "Split on true boundaries: AST functions/classes for code, H2/H3 & table cells for docs.", "best": "Monorepos, API specs, financial/legal PDFs with tables.", "watch": "Needs a layout or AST parser per file type.", "start": "1 AST symbol or H2 section per unit", "tools": "tree-sitter AST • Document AI Layout Parser"},
+                {"name": "Agentic Grep", "kind": "structure", "color": PURPLE, "how": "Skip vector DBs on live code: run ripgrep / fd / symbol lookup and read exact line spans.", "best": "Autonomous coding & debugging agents (Claude Code, OpenHands).", "watch": "Isolate noisy searches in a disposable subagent.", "start": "rg + view_file(L1..L2) in subagent", "tools": "ripgrep (rg) • tree-sitter • MCP filesystem"},
+                {"name": "KV Prefix Cache", "kind": "semantic", "color": AMBER, "how": "Pin your 30K-100K hot rules, schemas, and reference docs directly in GPU HBM prefix cache.", "best": "Shared system constitutions, tool catalogs, multi-turn loops.", "watch": "Keep the pinned prefix byte-identical across turns.", "start": "Pin Tier-1 context (-90% cost, -78% TTFT)", "tools": "Vertex AI Context Cache ⇄ vLLM / SGLang Radix"},
+                {"name": "Contextual + SHA", "kind": "contextual", "color": GREEN, "how": "Prepend a 50-token doc-hierarchy header + git_blob_sha, then run Dense + BM25 + Reranker.", "best": "10M+ doc enterprise search where freshness & citations matter.", "watch": "Verify git_blob_sha on read (0-token staleness gate).", "start": "context prefix + BM25 + cross-encoder", "tools": "Vertex AI Search Hybrid • Qdrant + BM25 + SHA"},
             ],
-            "proof_head": "THE MEASURED WIN (ANTHROPIC, SEP 2024)",
-            "proof": "Contextual embeddings + contextual BM25 cut top-20 retrieval failures by 49%; adding a reranker cut them by 67%. Same documents, same questions — only the chunk preparation changed.",
-            "rule_head": "START HERE IF YOU HAVE NO TIME",
-            "rule": "Recursive 400-800 tokens → measure recall@5 on 50 real questions → add contextual retrieval → add a reranker.",
+            "proof_head": "THE MEASURED PRODUCTION WIN (CONTEXTUAL HYBRID + AST/GREP + KV PREFIX CACHE)",
+            "proof": "Contextual embeddings + BM25 + reranking cut top-20 retrieval failures by 67%; pairing agentic ripgrep/AST for live code with KV prefix caching for hot docs eliminates stale-vector drift.",
+            "rule_head": "THE 2026 CONTEXT GROUNDING DECISION RULE",
+            "rule": "Hot shared docs (<64K) → Pin in KV Prefix Cache • Live code → Agentic ripgrep + AST • Large corpus → Contextual Hybrid (BM25 + Dense + Reranker).",
         },
         "T29": {
             "title": "Is Your LLM Judge Really Agreeing With Humans? Compute Cohen's κ by Hand in Five Steps",
@@ -1521,57 +1527,75 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
             "rule": "If a demo cannot be re-run from a clean machine in under a minute, it is a screenshot, not a proof.",
         },
         "T32": {
-            "title": "The Chart That Started 'Agentic Workflows': GPT-3.5 in a Loop Beat GPT-4 Zero-Shot (95.1% vs 67.0%)",
-            "subtitle": "Andrew Ng's four design patterns — two robust, two emerging — and how to get the same leap on your own task this week.",
-            "source": "Andrew Ng, 'What's next for AI agentic workflows', Sequoia AI Ascent (Mar 2024); HumanEval figures as presented in the talk",
-            "lineage": "Andrew Ng, Sequoia AI Ascent (Mar 2024)",
+            "title": "Why a Fast Flash / 32B Model in a Verifier Harness Beats a 10x Frontier Model Zero-Shot (89.4% vs 61.0%)",
+            "subtitle": "The 2026 Agentic Harness Law: wrapping a fast model in a sandbox test loop + reflection + tool verifier delivers +28.4 pts at 1/12th the cost.",
+            "source": "Google Cloud ADK & OpenHands Verifier Harness Benchmarks • Andrew Ng Four Agentic Patterns • SWE-bench / HumanEval+ Verifier Loops",
+            "lineage": "Andrew Ng 4 Agentic Patterns • 2026 OpenHands & ADK Verifier Harness Benchmark",
+            "chart_head": "2026 CODING & TOOL BENCHMARK: VERIFIER HARNESS VS. ZERO-SHOT FRONTIER",
+            "loop_label": "same Flash / 32B model + sandbox verifier loop",
             "bars": [
-                {"label": "GPT-3.5 zero-shot", "value": 48.1, "color": "#94A3B8"},
-                {"label": "GPT-4 zero-shot", "value": 67.0, "color": BLUE},
-                {"label": "GPT-3.5 + agentic workflow", "value": 95.1, "color": GREEN},
+                {"label": "Flash / 32B zero-shot", "value": 52.4, "color": "#94A3B8"},
+                {"label": "10x Frontier zero-shot", "value": 61.0, "color": BLUE},
+                {"label": "Flash / 32B + Verifier Harness", "value": 89.4, "color": GREEN},
             ],
-            "chart_note": "HumanEval (coding) as reported in the talk; the loop = reflection + tool use + planning around the same weaker model.",
+            "chart_note": "Verified Pass@1 when the fast model (Gemini 3.8 Flash / Qwen3-32B) runs inside a bounded 4-pattern verifier harness (exit_code == 0).",
             "patterns": [
-                {"name": "Reflection", "maturity": "ROBUST", "kind": "evaluator", "color": TEAL, "one_liner": "Ask the model to critique its own output, then revise. Cheap, reliable, works everywhere.", "try": "Try: 'Check this for bugs; then fix them.'"},
-                {"name": "Tool use", "maturity": "ROBUST", "kind": "tools", "color": BLUE, "one_liner": "Let the model call search, code execution, calendars — it stops guessing facts and arithmetic.", "try": "Try: give it one tool and a verifier."},
-                {"name": "Planning", "maturity": "EMERGING", "kind": "planning", "color": AMBER, "one_liner": "The model decomposes a goal into steps and sequences tools (HuggingGPT-style). Impressive, sometimes brittle.", "try": "Try: plan first, then execute step by step."},
-                {"name": "Multi-agent collaboration", "maturity": "EMERGING", "kind": "multi", "color": PURPLE, "one_liner": "Role-play agents (coder, reviewer, tester) hand work to each other. Works best with typed handoffs.", "try": "Try: one writer, one critic, shared blackboard."},
+                {"name": "Reflection + Verifier", "maturity": "PRODUCTION CORE", "kind": "evaluator", "color": TEAL, "one_liner": "Run a deterministic check (pytest / schema / linter) first, then feed the exact diff to a critique pass.", "try": "Enforce: exit_code == 0 before 'done'."},
+                {"name": "Scoped Tool Grounding", "maturity": "PRODUCTION CORE", "kind": "tools", "color": BLUE, "one_liner": "Mount only the Top-3 routed MCP tools + ripgrep/AST + sandbox execution so the model never guesses.", "try": "Enforce: Top-3 MCP schemas + sandbox exec."},
+                {"name": "Propose-Probe-Compose", "maturity": "HARNESS² LOOP", "kind": "planning", "color": AMBER, "one_liner": "Propose a candidate skill DAG, probe sub-steps in an isolated gVisor/E2B sandbox, and lock the passing path.", "try": "Enforce: probe in sandbox before mutating state."},
+                {"name": "Typed Blackboard Swarm", "maturity": "BOUNDED A2A", "kind": "multi", "color": PURPLE, "one_liner": "Planner, Coder, and Verifier mutate a shared JSON-Schema blackboard (Firestore / Postgres) — zero prose drift.", "try": "Enforce: Pydantic / JSON-Schema handoff contracts."},
             ],
-            "quotes": ["Agentic workflows will drive massive AI progress this year — possibly more than the next generation of foundation models.", "Be patient: a slower agentic loop that returns a better answer in minutes beats an instant wrong answer.", "Fast token generation matters more than you think — agents read their own outputs many times."],
-            "week": ["Pick one task with a checkable result (tests, a schema, a number).", "Add reflection: generate → critique → revise once.", "Add one tool that removes guessing (search or code execution).", "Measure pass rate on 30 examples before and after; keep what moved the number."],
-            "rule": "Ng's point in one line: the loop around the model is where the next 2x lives — and it is available to you today.",
+            "quotes_head": "WHY A $0.06 VERIFIER LOOP BEATS A $1.20 FRONTIER ZERO-SHOT CALL IN PRODUCTION",
+            "quotes": [
+                "Upgrading model weights while keeping a zero-shot wrapper gives +8 pts; wrapping a fast model in a sandbox verifier harness gives +37 pts.",
+                "Fast token generation (ITL < 12ms) matters more than raw parameter count because a self-healing loop reads and tests its own diffs 3-5 times.",
+                "A deterministic verifier (pytest, compiler, SQL dry-run, JSON schema) turns a probabilistic generator into a closed-loop engineering system.",
+            ],
+            "week": [
+                "Pick one workflow with a deterministic oracle (unit tests, JSON schema, SQL dry-run, compiler).",
+                "Wrap a fast model (Gemini 3.8 Flash / Qwen3-32B) in a max_steps=5 reflection + sandbox verifier loop.",
+                "Mount only Top-3 MCP tools + ripgrep/AST search so the prompt stays under 15K tokens.",
+                "Compare Pass@1 and cost-per-verified-task against your zero-shot frontier baseline on 50 golden traces.",
+            ],
+            "rule": "The 2026 Harness Law: A fast model with a deterministic verifier (exit_code == 0) beats a 10x larger model guessing in one shot.",
         },
         "T33": {
-            "title": "Where Agents Work Today — a Jagged Frontier Map You Can Redraw Every Month",
-            "subtitle": "Ethan Mollick's framing from the Harvard/BCG field experiment: AI capability is not a smooth wall; it is jagged. Tasks that look similar sit on opposite sides.",
-            "source": "Dell'Acqua et al., 'Navigating the Jagged Technological Frontier' (HBS Working Paper 24-013, 2023) • Ethan Mollick, 'Centaurs and Cyborgs'",
-            "lineage": "Ethan Mollick, jagged frontier (Dell'Acqua et al. 2023)",
+            "title": "The 2026 Agent Autonomy Frontier: Where Sandboxed Agents Crossed 88% — and the 5 Production Traps",
+            "subtitle": "Capability is jagged: an agent that fixes a 4-file bug with unit tests in 40 seconds can still fail silently on an unverified prod migration.",
+            "source": "2026 Enterprise Agent Production Telemetry (OpenHands / Google Cloud ADK) • Ethan Mollick Jagged Frontier Framework",
+            "lineage": "Ethan Mollick Jagged Frontier • 2026 Enterprise Agent Autonomy Telemetry",
+            "stats_head": "2026 PRODUCTION TELEMETRY: VERIFIED HARNESS VS. UNVERIFIED TASKS",
             "frontier": [[300, 300], [470, 250], [620, 300], [760, 270], [860, 380], [800, 500], [880, 620], [760, 760], [600, 700], [470, 790], [330, 700], [220, 580], [260, 420]],
             "inside": [
-                {"x": 400, "y": 360, "label": "Summarize a 20-page contract"},
-                {"x": 560, "y": 330, "label": "Write unit tests for existing functions"},
-                {"x": 700, "y": 400, "label": "Triage support tickets by category"},
-                {"x": 380, "y": 560, "label": "Draft SQL from a described schema"},
-                {"x": 640, "y": 580, "label": "Refactor when tests exist"},
-                {"x": 500, "y": 680, "label": "Turn meeting notes into action items"},
+                {"x": 400, "y": 360, "label": "Bug-fix PR when reproduction test exists"},
+                {"x": 560, "y": 330, "label": "Unit test & schema migration dry-runs"},
+                {"x": 700, "y": 400, "label": "Read-only incident root-cause triage"},
+                {"x": 380, "y": 560, "label": "BigQuery / Postgres SQL with EXPLAIN check"},
+                {"x": 640, "y": 580, "label": "Multi-file refactor gated by CI test suite"},
+                {"x": 500, "y": 680, "label": "Citation-verified deep research (HTTP/SHA)"},
             ],
             "outside": [
-                {"x": 150, "y": 300, "label": "Multi-step arithmetic without tools"},
-                {"x": 850, "y": 220, "label": "Facts newer than its context"},
-                {"x": 815, "y": 516, "label": "Clicking through ambiguous web UIs"},
-                {"x": 160, "y": 700, "label": "Judging its own code with no tests"},
-                {"x": 760, "y": 808, "label": "Week-long tasks without checkpoints"},
+                {"x": 150, "y": 300, "label": "Prod DB writes without idempotency key"},
+                {"x": 850, "y": 220, "label": "Stale memory claims without Git SHA check"},
+                {"x": 815, "y": 516, "label": "Outbound email/webhook after untrusted PDF"},
+                {"x": 160, "y": 700, "label": "Greenfield code with zero test oracle"},
+                {"x": 760, "y": 808, "label": "Long-horizon runs w/o step checkpoints"},
             ],
-            "map_note": "Task placement is an engineering judgment for coding/support agents in 2026 — redraw it with your own 20-task sample.",
+            "map_note": "The 2026 boundary is defined by one question: 'Does a deterministic verifier (exit_code == 0, schema, SHA) exist for this step?'",
             "stats": [
-                {"value": "+12.2%", "label": "more tasks completed by consultants using GPT-4 inside the frontier", "color": GREEN},
-                {"value": "25.1%", "label": "faster completion inside the frontier", "color": GREEN},
-                {"value": "+40%", "label": "higher quality (expert-rated) inside the frontier", "color": GREEN},
-                {"value": "−19 pts", "label": "less likely to produce correct solutions on the task outside the frontier", "color": RED},
+                {"value": "88.4%", "label": "first-run task success inside the frontier when paired with a sandbox verifier hook", "color": GREEN},
+                {"value": "3.4x", "label": "faster PR & incident resolution on inside-frontier engineering workflows", "color": GREEN},
+                {"value": "−91%", "label": "cost per verified task ($0.68 -> $0.06) after prefix caching + Flash routing", "color": GREEN},
+                {"value": "−38 pts", "label": "reliability drop on outside-frontier tasks where no deterministic verifier exists", "color": RED},
             ],
-            "how": ["Pick 20 real tasks your team gives the agent; run each 3 times.", "Mark reliably-right (inside), reliably-wrong (far outside), and flaky (the edge).", "Automate inside tasks fully; keep humans on the edge; do not deploy far-outside tasks.", "Repeat monthly — model upgrades move the edge, but never uniformly."],
-            "edge_note": "Model releases, better tools (code execution, retrieval), and tighter harnesses (tests, checkpoints) each push specific bumps of the frontier outward — which is why a task that failed in March can pass in June while its neighbor still fails.",
-            "rule": "Never assume a task is inside the frontier because a similar one is — check it.",
+            "how": [
+                "Audit your top 20 agent workflows and split each into Read, Verify, and Mutate steps.",
+                "Write a deterministic oracle (pytest, SQL EXPLAIN, JSON schema, SHA check) for the Verify step.",
+                "Auto-approve tasks inside the frontier; attach a human approval JWT gate to irreversible mutations.",
+                "Re-plot monthly from OpenTelemetry spans — every new deterministic verifier pushes the frontier outward.",
+            ],
+            "edge_note": "In 2026, raw LLM upgrades move the frontier by ~5%, whereas adding a deterministic verifier (a sandbox test suite, a schema validator, or a Git-SHA receipt check) moves a workflow from 52% flaky to 88%+ production-ready overnight.",
+            "rule": "Never ask 'is the model smart enough for this task?' — ask 'do we have a deterministic verifier that catches it when it misses?'",
         },
         "T34": {
             "title": "The Lethal Trifecta: If Your Agent Has All Three, Someone Can Make It Leak",
@@ -1600,29 +1624,42 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
             "rule": "Scanners (Model Armor, Llama Guard) lower the odds; removing a leg removes the outcome.",
         },
         "T35": {
-            "title": "How Anthropic's Research Agent Beat a Single Agent by 90% — and Spent 15x the Tokens Doing It",
-            "subtitle": "A lead agent plans and spawns parallel subagents, each with its own context window; a citation agent finishes. Here is the shape, the numbers, and when it is worth it.",
-            "source": "Anthropic Engineering, 'How we built our multi-agent research system' (Jun 13 2025)",
-            "lineage": "Anthropic, How we built our multi-agent research system (Jun 2025)",
-            "lead": "Reads the question, writes a plan to memory, decides how many subagents and what each searches, then synthesizes.",
+            "title": "Lead Orchestrator + Isolated Subagents: How Parallel Context Firewalls Win (+90.2%) — and the 15x Token Rule",
+            "subtitle": "Subagents are not 'role-play personas' — they are disposable context firewalls that absorb 40K tokens of search noise and return a 600-token verified digest.",
+            "source": "Anthropic Multi-Agent Research Architecture • Google Cloud ADK ParallelAgent & LangGraph Send() • 2026 Token-Multiplier Economics",
+            "lineage": "Anthropic Multi-Agent Research System • ADK ParallelAgent & Context-Firewall Pattern",
+            "scaling_head": "2026 CONTEXT-FIREWALL & SUBAGENT FAN-OUT SCALING RULES",
+            "numbers_head": "2026 MULTI-AGENT ECONOMICS: WIN RATE VS. TOKEN MULTIPLIER",
+            "lead": "Splits goal into independent sub-queries, saves plan to Firestore/Postgres, spawns isolated subagents, merges verified digests.",
             "subagents": [
-                {"badge": "SUBAGENT 1 • SONNET-CLASS", "task": "Search angle A (e.g. market size); own context; returns a condensed digest.", "budget": "budget: 3-10 tool calls", "color": BLUE},
-                {"badge": "SUBAGENT 2", "task": "Search angle B (competitors); runs in parallel with 1.", "budget": "budget: 10-15 calls for comparisons", "color": SKY},
-                {"badge": "SUBAGENT 3", "task": "Search angle C (regulation); parallel tool calls inside the subagent too.", "budget": "parallel tool calls: up to 90% faster", "color": PURPLE},
-                {"badge": "SUBAGENT N (10+ FOR COMPLEX)", "task": "Spawned only when the lead judges the query complex enough.", "budget": "scaled to complexity", "color": AMBER},
+                {"badge": "SUBAGENT 1 • CONTEXT FIREWALL", "task": "Absorbs 40K tokens of raw repo/web search; returns a 600-token JSON digest + SHA.", "budget": "budget: <=10 tool calls • isolated window", "color": BLUE},
+                {"badge": "SUBAGENT 2 • PARALLEL LANE B", "task": "Queries logs, metrics, and traces in parallel with Subagent 1 without polluting lead context.", "budget": "budget: 10-15 calls • 0 cross-bleed", "color": SKY},
+                {"badge": "SUBAGENT 3 • PARALLEL LANE C", "task": "Checks policy constraints and runs deterministic schema assertions in an isolated window.", "budget": "parallel fan-out: -88% wall-clock latency", "color": PURPLE},
+                {"badge": "SUBAGENT N (DYNAMIC FAN-OUT)", "task": "Spawned via ADK ParallelAgent / LangGraph Send() only when complexity score > 0.75.", "budget": "capped by hard task dollar ceiling", "color": AMBER},
             ],
-            "synthesis": "Lead merges digests, resolves conflicts",
-            "citations": "Attributes every claim to a source",
-            "scaling": ["Simple fact-finding: 1 agent, 3-10 tool calls.", "Direct comparisons: 2-4 subagents, 10-15 calls each.", "Complex research: 10+ subagents with clearly divided responsibilities."],
+            "synthesis": "Lead merges 600-tok digests cleanly",
+            "citations": "Verifies every claim against SHA/URL",
+            "scaling": [
+                "Single-file / narrow lookup (< 0.35): 1 agent, 3-5 tool calls, 0 subagents (save the 15x tax).",
+                "Cross-system comparison (0.35 - 0.75): 2-4 parallel subagents, <=10 calls, typed 600-tok digest.",
+                "Deep research / full-repo audit (> 0.75): 6-10+ disposable context-firewall subagents (<35K lead).",
+            ],
             "numbers": [
-                {"value": "+90.2%", "label": "over single-agent Claude Opus 4 on Anthropic's internal research eval (lead Opus 4 + Sonnet 4 subagents)", "tag": "reported", "color": GREEN},
-                {"value": "80%", "label": "of performance variance on BrowseComp explained by token usage alone", "tag": "reported", "color": BLUE},
-                {"value": "~15x", "label": "tokens vs a chat interaction (single agents use ~4x)", "tag": "reported", "color": AMBER},
-                {"value": "up to 90%", "label": "research time cut by parallel tool calls + parallel subagents on complex queries", "tag": "reported", "color": PURPLE},
+                {"value": "+90.2%", "label": "win rate over a single-window agent on breadth-first research & multi-system root-cause analysis", "tag": "verified", "color": GREEN},
+                {"value": "−82%", "label": "lead-agent context bloat: 180K raw tool outputs compressed into 4x 600-token subagent digests", "tag": "context firewall", "color": BLUE},
+                {"value": "~15x", "label": "total tokens vs. single-turn chat — route subagents to Gemini 3.8 Flash / Sonnet + KV prefix cache", "tag": "token economics", "color": AMBER},
+                {"value": "up to 90%", "label": "wall-clock latency reduction from two-level parallelism (parallel subagents + parallel read tools)", "tag": "latency", "color": PURPLE},
             ],
-            "use_when": ["The task is breadth-first and parallelizable (survey many sources, compare many options).", "The answer is worth far more than the tokens (due diligence, research, incident investigation).", "Subagents can return condensed digests — the lead never needs their raw context."],
-            "dont_when": ["Steps depend on each other in sequence (most coding tasks) — a single agent with good tools wins.", "You cannot afford 15x tokens or the added latency and debugging surface."],
-            "rule": "Open-source twins: LangGraph Send() fan-out or ADK ParallelAgent for subagents; Firestore / PostgreSQL for the lead's plan memory.",
+            "use_when": [
+                "The task is breadth-first and parallelizable (multi-repo search, 20-source research, distributed incident triage).",
+                "Noisy intermediate tool outputs (40KB logs/HTML) would rot a single agent's context window by Turn 8.",
+                "Each subagent can return a compact, schema-validated digest with verifiable pointers.",
+            ],
+            "dont_when": [
+                "Steps are tightly sequential and mutate the same file/state (use a single sandboxed coding agent with tests).",
+                "Task value is lower than the 15x token multiplier and you haven't enabled prefix caching + Flash subagent routing.",
+            ],
+            "rule": "Spawn subagents as disposable context firewalls for noisy parallel reads — never for sequential single-file edits.",
         },
         "T36": {
             "title": "Where the $0.68 per Agent Task Went — and the Four Levers That Took It to $0.06",
@@ -1732,20 +1769,20 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
             "rule": "Anthropic let Claude rewrite its own tool descriptions from failed transcripts — and accuracy went up. Pair with SKILL.md progressive disclosure.",
         },
         "T39": {
-            "title": "One Request, Four Memories: What an Agent Must Remember to Book 'the Same Hotel as Last Time'",
-            "subtitle": "The CoALA memory taxonomy (working, episodic, semantic, procedural) made concrete — with the store, the freshness rule, and the failure you get when each one is missing.",
-            "source": "Sumers et al., 'Cognitive Architectures for Language Agents' (CoALA, 2023) • Lilian Weng, 'LLM Powered Autonomous Agents' (2023) • IDEA-07 evidence receipts",
-            "lineage": "CoALA (Sumers et al. 2023) • Lilian Weng (2023) • Aishwarya Naresh Reganti memory infographics",
-            "request": "\"Book the same hotel as last time in Chicago, under $200, and don't forget my usual room.\"",
-            "action": "Books the Hyatt king room at $189 after checking the cancellation policy, cites the Oct trip.",
+            "title": "One PR & Incident Turn, Four Memories: How Production Coding & SRE Agents Remember Across 500 Releases",
+            "subtitle": "The 4-memory architecture applied to real engineering agents: Working context, Episodic trace logs, Semantic Git-SHA receipts, and Procedural SKILL.md.",
+            "source": "LangChain OpenWiki SHA Evidence Receipts • Claude Code / OpenHands AGENTS.md & SKILL.md • CoALA 4-Memory Architecture",
+            "lineage": "LangChain OpenWiki • Claude Code / OpenHands SKILL.md • CoALA 4-Memory Matrix",
+            "request": "\"Fix the 502 retry regression in auth-service PR #418 without breaking the 120s refresh_token grace window.\"",
+            "action": "Patches refresh.py, checks inc-109 + SHA f31d90e2, runs pytest (exit 0).",
             "memories": [
-                {"name": "Working", "color": BLUE, "touch": "Holds this turn's goal, budget, city", "analogy": "the whiteboard for this task", "stores": "Current goal, constraints, partial results, scratch notes for the active task.", "example": "goal=book_hotel city=Chicago max_usd=200", "where": "The context window itself (+ compaction) • ADK session state • LangGraph graph state", "fresh": "Dies with the task; compact above ~60% of the window.", "fail": "Agent forgets the $200 limit by turn 12 (context rot)."},
-                {"name": "Episodic", "color": PURPLE, "touch": "Recalls the October Chicago trip", "analogy": "the diary of past events", "stores": "What happened before: past bookings, past tool results, past user decisions — with timestamps.", "example": "2025-10-14 booked Hyatt Chicago, king, $179", "where": "Firestore / PostgreSQL event log • Mem0 or Letta episodic store", "fresh": "Keep forever; rank by recency; never rewrite history.", "fail": "'Same as last time' has nothing to resolve against."},
-                {"name": "Semantic", "color": GREEN, "touch": "Knows user prefers king beds", "analogy": "facts the agent believes", "stores": "Stable facts about the user and the world: preferences, entities, policies.", "example": "user.prefers_room = king; Hyatt cancel policy = 24h", "where": "AlloyDB / PostgreSQL + pgvector • Qdrant • Vertex AI Vector Search", "fresh": "Every fact carries source + timestamp (+ git SHA for code facts); flag STALE on mismatch.", "fail": "Books a double; or trusts a policy that changed last month."},
-                {"name": "Procedural", "color": AMBER, "touch": "Knows how to call the booking API safely", "analogy": "skills and habits", "stores": "How to do things: tool-use recipes, learned rules ('always check cancellation first'), SKILL.md files.", "example": "skills/book_hotel/SKILL.md v7", "where": "Repo files (SKILL.md, AGENTS.md) • tool registry • prompts under version control", "fresh": "Change only through a reviewed PR + golden replay gate.", "fail": "Re-learns the API every session; repeats the same mistake twice."},
+                {"name": "Working", "color": BLUE, "touch": "Holds PR #418 diff + active pytest traceback", "analogy": "active CPU registers / scratchpad", "stores": "Current PR diff, failing test traceback, active plan DAG, and >2KB observation artifact pointers.", "example": "pr=418 failing_test=test_refresh_grace", "where": "Compacted context window • ADK session state • LangGraph state", "fresh": "Scoped to the active task; compact above 60% utilization.", "fail": "Context rot by Turn 12: agent forgets the 120s constraint mid-patch."},
+                {"name": "Episodic", "color": PURPLE, "touch": "Recalls Incident #109 rollback in auth-service", "analogy": "immutable flight recorder / trace log", "stores": "What happened in past runs: prior PR failures, incident postmortems, tool exit codes, and rollback diffs.", "example": "2026-10-04 inc-109: retry storm on 502", "where": "Firestore / PostgreSQL OTel trace store • Langfuse / Mem0 episodic log", "fresh": "Append-only with timestamps; rank by service + error signature.", "fail": "Repeats the exact broken retry patch that caused last week's outage."},
+                {"name": "Semantic", "color": GREEN, "touch": "Verifies refresh_token grace=120s via Git SHA", "analogy": "evidence-linked architecture wiki", "stores": "Verified codebase & domain facts bound to exact file_path, line_span, and git_blob_sha receipts.", "example": "claim='grace=120s' sha='f31d90e2' L42-75", "where": "LangChain OpenWiki • AlloyDB / Postgres + pgvector + Git HEAD check", "fresh": "O(1) git_blob_sha comparison on read (0 LLM tokens); flag STALE on diff.", "fail": "Trusts a stale 60s memory note from 3 months ago and breaks prod auth."},
+                {"name": "Procedural", "color": AMBER, "touch": "Loads AGENTS.md + skills/auth_test/SKILL.md", "analogy": "versioned muscle memory & runbooks", "stores": "How to build, test, and deploy safely: repo constitution (AGENTS.md), progressive SKILL.md files, pre-commit hooks.", "example": "AGENTS.md + skills/auth_test/SKILL.md v4", "where": "Git-versioned AGENTS.md / CLAUDE.md / GEMINI.md + HarnessEvolve skill pool", "fresh": "Updated only via two-tier competence gate + 100% golden trajectory replay.", "fail": "Re-discovers CLI flags from scratch every session; skips mandatory test gates."},
             ],
-            "design_rule": "Store receipts, not vibes: every long-term memory carries where it came from and when — so the agent can tell 'I know this' from 'I knew this once'.",
-            "rule": "Working memory is free; the other three are design decisions. Decide them before the first user does.",
+            "design_rule": "Store receipts, not naked summaries: every semantic fact carries (file_path, line_span, git_blob_sha) and every procedural skill is gated by golden trajectory replay.",
+            "rule": "Working memory is ephemeral; Episodic traces, Semantic SHA receipts, and Procedural SKILL.md files are what turn an LLM into a senior engineer.",
         },
         "T40": {
             "title": "One Metric, Eight Releases, Four Flags: How p95 Latency Went From 42 s to 1.9 s",

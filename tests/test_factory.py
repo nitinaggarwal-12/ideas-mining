@@ -14,7 +14,7 @@ from src.visuals.diagram_2d_engine import (
     generate_linkedin_infographic_svg,
 )
 from src.visuals.dynamic_diagram_engine import generate_dynamic_solution_svg
-from src.visuals.template_gallery import TEMPLATE_META, list_templates, render_template
+from src.visuals.template_gallery import TEMPLATE_META, _flow, audit_zero_origin_svg, list_templates, render_template
 
 
 class TestIdeasMiningFactory(unittest.TestCase):
@@ -41,6 +41,10 @@ class TestIdeasMiningFactory(unittest.TestCase):
             self.assertIn("animateMotion", dyn_svg)
             self.assertIn("CLOSED-LOOP FEEDBACK", dyn_svg)
             self.assertIn("#F8FAFC", dyn_svg)
+            self.assertIn("glassCardGrad", dyn_svg)
+            self.assertIn("archGrid", dyn_svg)
+            self.assertNotIn("...", dyn_svg)
+            self.assertTrue(audit_zero_origin_svg(dyn_svg)["passed"], f"{idea['id']} dynamic SVG failed zero-origin gate")
             self.assertEqual(dyn_svg.count("GOOGLE: "), 4)
             self.assertEqual(dyn_svg.count("OSS: "), 4)
 
@@ -59,8 +63,8 @@ class TestIdeasMiningFactory(unittest.TestCase):
         self.assertIn("| **Agent orchestration", pairing_rows_markdown())
 
     def test_template_gallery_renders_20_valid_dynamic_templates_with_oss_and_google(self) -> None:
-        self.assertEqual(len(TEMPLATE_META), 40)
-        self.assertEqual([t["id"] for t in list_templates()], [f"T{i:02d}" for i in range(1, 41)])
+        self.assertEqual(len(TEMPLATE_META), 68)
+        self.assertEqual([t["id"] for t in list_templates()], [f"T{i:02d}" for i in range(1, 69)])
         oss_markers = ("LangGraph", "OpenHands", "vLLM", "PostgreSQL", "OpenTelemetry", "Llama Guard", "Temporal", "Promptfoo", "MCP", "Knative", "pgvector", "Redis", "Qdrant", "LiteLLM")
         google_markers = ("Google", "Vertex", "Gemini", "Firestore", "Cloud Run", "ADK", "Model Armor", "BigQuery", "AlloyDB", "Cloud Trace")
         for tid, meta in TEMPLATE_META.items():
@@ -71,13 +75,26 @@ class TestIdeasMiningFactory(unittest.TestCase):
             ET.fromstring(svg_frame)
             self.assertIn("animateMotion", svg_live, tid)
             self.assertIn("#F8FAFC", svg_live, tid)
+            self.assertIn("glassCardGrad", svg_live, tid)
+            self.assertIn("glassSheen", svg_live, tid)
+            self.assertIn("archGrid", svg_live, tid)
             self.assertIn("Proprietary + Confidential", svg_live, tid)
             self.assertTrue(any(m in svg_live for m in oss_markers), f"{tid} missing open-source stack mention")
             self.assertTrue(any(m in svg_live for m in google_markers), f"{tid} missing Google Cloud stack mention")
             self.assertNotIn("animateMotion", svg_frame, tid)
+            # Zero-Origin W3C SVG Flattener & Official Google Cloud Brand Gate (b/571807152)
+            audit_live = audit_zero_origin_svg(svg_live)
+            audit_frame = audit_zero_origin_svg(svg_frame)
+            self.assertTrue(audit_live["passed"], f"{tid} failed Zero-Origin SVG gate (live): {audit_live}")
+            self.assertTrue(audit_frame["passed"], f"{tid} failed Zero-Origin SVG gate (frame): {audit_frame}")
             if int(tid[1:]) >= 21:
                 self.assertTrue(meta.get("lineage"), f"{tid} must declare its creator/source lineage")
                 self.assertIn("FORMAT LINEAGE:", svg_live, tid)
+
+        # Verify T-Bus convergence helper in _flow produces zero-origin baked polygon arrowheads
+        tbus_svg = _flow([(100, 120), (320, 260)], "#2563EB", phase=0.5, converge_x=220)
+        self.assertIn("M 100.0 120.0 L 220.0 120.0 L 220.0 260.0 L 310.0 260.0", tbus_svg)
+        self.assertNotIn("transform=", tbus_svg)
 
     def test_t31_demo_code_really_runs_and_matches_the_printed_output(self) -> None:
         import contextlib
@@ -110,18 +127,33 @@ class TestIdeasMiningFactory(unittest.TestCase):
     def test_creator_mining_playbook_and_openhands_comparison(self) -> None:
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["signal_channels"]), 4)
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["diagram_archetypes_2d"]), 4)
-        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["openhands_superiority"]["comparison"]), 3)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["openhands_superiority"]["comparison"]), 5)
         self.assertIn("nitin-aggarwal-b49786a", USER_PROFILE["linkedin_url"])
 
     def test_2d_visual_generators_produce_valid_light_theme_svg_and_drawio(self) -> None:
-        for post in POSTS_CATALOG:
+        for post in list(POSTS_CATALOG) + list(TOMORROW_TOP10_IDEAS):
             poster_svg = generate_linkedin_infographic_svg(post)
             arch_svg = generate_gcp_arch_78_svg(post)
             drawio_xml = generate_gcp_arch_78_drawio(post)
+            dyn_svg = generate_dynamic_solution_svg(post)
 
+            ET.fromstring(poster_svg)
+            ET.fromstring(arch_svg)
+            ET.fromstring(dyn_svg)
             self.assertIn("#f8fafc", poster_svg.lower())
+            self.assertIn("glassCardGrad", poster_svg)
+            self.assertIn("glassCardGrad", arch_svg)
+            self.assertIn("archGrid", poster_svg)
+            self.assertIn("archGrid", arch_svg)
+            self.assertNotIn("...", poster_svg)
+            self.assertNotIn("...", arch_svg)
+            self.assertNotIn("...", dyn_svg)
+            self.assertTrue(audit_zero_origin_svg(poster_svg)["passed"], f"{post['id']} poster SVG failed zero-origin gate")
+            self.assertTrue(audit_zero_origin_svg(arch_svg)["passed"], f"{post['id']} #78 SVG failed zero-origin gate")
+            self.assertTrue(audit_zero_origin_svg(dyn_svg)["passed"], f"{post['id']} dynamic SVG failed zero-origin gate")
             self.assertIn("Proprietary + Confidential", poster_svg)
-            self.assertIn(f'id="bespoke-{post["id"].lower()}"', poster_svg)
+            if post["id"].startswith("POST-"):
+                self.assertIn(f'id="bespoke-{post["id"].lower()}"', poster_svg)
             self.assertIn("TEMPLATE #78 HUB-AND-SPOKE BLUEPRINT", arch_svg)
             self.assertIn("18/18 CARDS • 23 EDGES", arch_svg)
             self.assertIn("ZONE 5 • PRODUCTION TELEMETRY", arch_svg)
@@ -150,6 +182,46 @@ class TestIdeasMiningFactory(unittest.TestCase):
         self.assertEqual(custom["status"], "SYNTHESIZED_GROUNDED_BLUEPRINT")
         self.assertTrue(custom["repo_slug"].startswith("custom-"))
 
+    def test_tomorrow_top10_template_and_distribution_plan(self) -> None:
+        from pathlib import Path
+        from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_DISTRIBUTION_PLAN
+
+        root = Path(__file__).resolve().parents[1]
+        catalog_ids = set(TEMPLATE_META.keys())
+        self.assertEqual(len(TOMORROW_TOP10_IDEAS), 10)
+        self.assertEqual(len(TOMORROW_TOP10_DISTRIBUTION_PLAN), 10)
+
+        for idea in TOMORROW_TOP10_IDEAS:
+            plan = idea.get("template_and_distribution_plan")
+            self.assertIsNotNone(plan, f"{idea['id']} missing template_and_distribution_plan")
+            self.assertIn(plan["primary_template_id"], catalog_ids, f"{idea['id']} invalid primary_template_id")
+            for sec_tid in plan["secondary_template_ids"]:
+                self.assertIn(sec_tid, catalog_ids, f"{idea['id']} invalid secondary_template_id {sec_tid}")
+            for required_key in (
+                "primary_template_name",
+                "lead_post_format",
+                "visual_type",
+                "carousel_spec",
+                "dynamic_nature",
+                "editable_slidedeck_pptx",
+                "pdf_deliverable",
+                "linkedin_groups_primary",
+                "linkedin_groups_niche_network",
+                "comment_magnet_question",
+            ):
+                self.assertTrue(plan.get(required_key), f"{idea['id']} missing {required_key}")
+            self.assertGreaterEqual(len(plan["linkedin_groups_primary"]), 2)
+            self.assertGreaterEqual(len(plan["linkedin_groups_niche_network"]), 2)
+            for file_key in (
+                "editable_slidedeck_pptx",
+                "pdf_deliverable",
+            ):
+                self.assertTrue(
+                    (root / plan[file_key]).exists(),
+                    f"{idea['id']} missing deliverable on disk: {plan[file_key]}",
+                )
+
 
 if __name__ == "__main__":
     unittest.main()
+

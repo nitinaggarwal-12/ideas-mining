@@ -1079,3 +1079,213 @@ TOMORROW_TOP10_IDEAS: List[Dict[str, Any]] = [
         },
     },
 ]
+
+
+TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
+    "IDEA-01": {
+        "primary_template_id": "T67",
+        "primary_template_name": "PromptCanvas #66: Autonomous Self-Healing Torus Loop",
+        "secondary_template_ids": ["T19", "T64"],
+        "lead_post_format": "Animated GIF Loop (T67.gif / dynamic-solution-flow.gif) + 12-Page Native PDF Carousel in Comment #1",
+        "visual_type": "1600x980 Glassmorphic 4-Quadrant Torus Ring + 4-Step Moving-Arrow Problem-to-Fix Flow",
+        "carousel_spec": "12-Slide Native LinkedIn PDF Carousel (Slide 1: $400 Loop Hook + T67 Torus -> Slides 2-4: SHA-256 Dedupe & Strategy Pivot -> Slide 7: Google Cloud #78 Blueprint -> Slide 12: 1-Click Terraform CTA)",
+        "dynamic_nature": "4-layer glowing packets orbit the 4-quadrant torus ring, branching on FAIL to the red RETRY ACTIVE feedback path (capped at MAX_RETRIES=3) and on PASS to green DEPLOY ON.",
+        "editable_slidedeck_pptx": "generated-repos/gcp-adk-loop-circuit-breaker/slides/presentation_deck.pptx",
+        "pdf_deliverable": "generated-repos/gcp-adk-loop-circuit-breaker/slides/linkedin_carousel.pdf",
+        "linkedin_groups_primary": [
+            {"name": "Artificial Intelligence, Machine Learning, Data Science & Robotics", "members": "6.5M+", "goal": "Maximum top-of-funnel viewership & viral repost velocity"},
+            {"name": "Generative AI & LLMs (Large Language Models) — Enterprise Practitioners", "members": "480K+", "goal": "High comment velocity from engineers who have been burned by runaway agent retry loops"},
+        ],
+        "linkedin_groups_niche_network": [
+            {"name": "Google Cloud Architects & Vertex AI Builders Community", "members": "145K+", "goal": "Direct connection requests from Principal Cloud Architects & VP Engineering peers"},
+            {"name": "Autonomous Agents, LangGraph, CrewAI & OpenHands Builders", "members": "92K+", "goal": "Practitioner bookmarks & GitHub repo stars"},
+        ],
+        "comment_magnet_question": "What is the worst runaway retry loop or surprise overnight token bill you have seen an agent rack up — and do you cap retries by step count, tool-hash dedupe, or dollar budget?",
+    },
+    "IDEA-02": {
+        "primary_template_id": "T58",
+        "primary_template_name": "PromptCanvas #57: 3D Context Compression Funnel (1M -> 2k Tokens)",
+        "secondary_template_ids": ["T08", "T28", "T35"],
+        "lead_post_format": "12-Page Native LinkedIn PDF Document Carousel (T58 3D Funnel on Cover Slide 1) + Animated T58.gif",
+        "visual_type": "5-Stage 3D-Frustum Tapering Vector Funnel (500:1 Token Compression) + Subagent Context Firewall",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T58 1M->2k Funnel -> Slide 2: Chroma 'Context Rot' + arXiv:2610.26836v1 Evidence -> Slides 3-6: KV Prefix Cache + Disposable Subagents -> Slide 12: Repo & PPTX)",
+        "dynamic_nature": "3 glowing signal packets stream down the 5-stage 3D frustum axis while horizontal conduits route discarded noise (75% -> 80% -> 80%) to right-hand SQL/RBAC & cross-encoder gates.",
+        "editable_slidedeck_pptx": "generated-repos/gcp-adk-context-rot-compactor/slides/presentation_deck.pptx",
+        "pdf_deliverable": "generated-repos/gcp-adk-context-rot-compactor/slides/linkedin_carousel.pdf",
+        "linkedin_groups_primary": [
+            {"name": "Machine Learning Community (Moderated Research & Engineering)", "members": "1.9M+", "goal": "High dwell time & saves on the 500:1 context compression math"},
+            {"name": "RAG, Vector Databases & Enterprise Knowledge Graphs", "members": "210K+", "goal": "Deep architectural comments comparing naive RAG vs. 5-stage funnel + subagents"},
+        ],
+        "linkedin_groups_niche_network": [
+            {"name": "BigQuery, AlloyDB & Google Cloud Data/AI Leaders", "members": "115K+", "goal": "Connect with Data/AI Directors building enterprise search & agent memory"},
+            {"name": "LLM Ops, Context Engineering & vLLM Production Systems", "members": "78K+", "goal": "Senior Staff/Principal AI Engineer network expansion"},
+        ],
+        "comment_magnet_question": "At what turn count do you notice your coding or RAG agent starting to forget Turn-1 rules — and are you using disposable subagents or progressive context compaction yet?",
+    },
+    "IDEA-03": {
+        "primary_template_id": "T54",
+        "primary_template_name": "PromptCanvas #53: Dual-Agent Process Workflow (Primary Coding Agent + Reviewer Agent)",
+        "secondary_template_ids": ["T53", "T55", "T32"],
+        "lead_post_format": "Single High-Res Glassmorphic Infographic (T54.png) + T53 Anatomy Spine & Editable PPTX in Comment #1",
+        "visual_type": "3-Band Dual-Agent Workflow (Install+Start -> Add Tools YES/NO Diamond -> Adversarial Reviewer Recheck Loop)",
+        "carousel_spec": "Companion 12-Slide PDF/PPTX Deck pairing T54 Dual-Agent Workflow + T53 4-Tier Anatomy Spine (Context + Harness + Loop + Graph) + OpenHands Pre-Completion Stop Hook",
+        "dynamic_nature": "Packets flow across all 3 bands, branch at the 'ALL REQUIRED TOOLS READY?' diamond, and traverse the bottom RECHECK LOOP feeding pytest stderr back until exit_code == 0.",
+        "editable_slidedeck_pptx": "generated-repos/gcp-openhands-precompletion-verify-hook/slides/presentation_deck.pptx",
+        "pdf_deliverable": "generated-repos/gcp-openhands-precompletion-verify-hook/slides/linkedin_carousel.pdf",
+        "linkedin_groups_primary": [
+            {"name": "Software Architecture, DevOps & Autonomous Coding Engineers", "members": "1.2M+", "goal": "Massive resonance with every developer tired of agents falsely claiming 'All fixed and tested!'"},
+            {"name": "AI Coding Assistants: Claude Code, Gemini Code Assist, Cursor & OpenHands", "members": "340K+", "goal": "High likes, reposts, and practitioner war stories"},
+        ],
+        "linkedin_groups_niche_network": [
+            {"name": "VP of Engineering & CTO Software Delivery Leaders", "members": "165K+", "goal": "Executive network building around autonomous PR verification & CI quality gates"},
+            {"name": "Python, Pytest & Production AI Engineering", "members": "420K+", "goal": "Developer bookmarks of the Pre-Completion Stop Hook pattern"},
+        ],
+        "comment_magnet_question": "Do you let your coding agent decide when a task is 'Done', or do you trap its completion signal behind a deterministic sandbox test hook (exit_code == 0)?",
+    },
+    "IDEA-04": {
+        "primary_template_id": "T64",
+        "primary_template_name": "PromptCanvas #63: Conditional Decision Tree Flowchart (Ingest -> Tool/RBAC Check -> Sandbox)",
+        "secondary_template_ids": ["T06", "T43"],
+        "lead_post_format": "12-Page Native PDF Carousel (T64 Decision Tree + T06 Top-3 MCP Tool Router) + Dynamic GIF",
+        "visual_type": "3-Stage Conditional Decision Tree with 4 YES/NO Diamonds + Top-3 Semantic MCP Schema Router",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: Why 85 MCP Tools Break Your Agent -> Slide 2: T64 Conditional Decision Tree -> Slide 3: T06 Top-3 Semantic Router (-93% tokens, 96.4% accuracy) -> Slide 12: Repo & PPTX)",
+        "dynamic_nature": "Packets traverse 4 decision diamonds (INTENT CLEAR? -> REQUIRES EXTERNAL TOOLS? -> 02.A MOUNT TOP-3 MCP TOOLS -> USER & AGENT AUTHORIZED? -> PASSES SCHEMA & UNIT TESTS?).",
+        "editable_slidedeck_pptx": "generated-repos/gcp-adk-dynamic-mcp-tool-router/slides/presentation_deck.pptx",
+        "pdf_deliverable": "generated-repos/gcp-adk-dynamic-mcp-tool-router/slides/linkedin_carousel.pdf",
+        "linkedin_groups_primary": [
+            {"name": "Model Context Protocol (MCP), Agentic Tooling & API Architecture", "members": "195K+", "goal": "Category-defining visibility on the #1 MCP scaling bottleneck in 2026"},
+            {"name": "Artificial Intelligence & Enterprise SaaS Integration", "members": "1.4M+", "goal": "High reach among platform & integration architects"},
+        ],
+        "linkedin_groups_niche_network": [
+            {"name": "Google Cloud ADK, Apigee & Vertex AI Enterprise Architects", "members": "88K+", "goal": "Inbound connections from enterprise platform leads building MCP gateways"},
+            {"name": "API Design, GraphQL, gRPC & Microservices Leaders", "members": "310K+", "goal": "Cross-disciplinary architect engagement"},
+        ],
+        "comment_magnet_question": "How many MCP tools are currently mounted in your agent's prompt — and at what tool count did you see tool-selection accuracy start to drop?",
+    },
+    "IDEA-05": {
+        "primary_template_id": "T62",
+        "primary_template_name": "PromptCanvas #61: Multi-Agent Supervisor Delegation Tree (01 -> 02a/02b/02c -> 03)",
+        "secondary_template_ids": ["T61", "T09", "T44"],
+        "lead_post_format": "2-Image Visual Split (T62.png Supervisor Tree + T61.png 4-Plane Runtime Topology) + Animated T61.gif",
+        "visual_type": "3-Tier Hierarchical Supervisor Delegation Tree + 4-Plane Interconnected Runtime Topology",
+        "carousel_spec": "12-Slide Native PDF/PPTX Deck showing how Supervisor (01) delegates to SQL (02a), Research (02b), and Code (02c) workers over a Shared Typed A2A Blackboard (0% constraint loss vs. 42% prose telephone loss)",
+        "dynamic_nature": "Typed A2A task packets fan out from Supervisor 01 to Workers 02a/02b/02c and down into BigQuery (03.1), AlloyDB pgvector (03.2), and GKE gVisor (03.3) with bidirectional state sync.",
+        "editable_slidedeck_pptx": "generated-repos/gcp-a2a-typed-blackboard-handoffs/slides/presentation_deck.pptx",
+        "pdf_deliverable": "generated-repos/gcp-a2a-typed-blackboard-handoffs/slides/linkedin_carousel.pdf",
+        "linkedin_groups_primary": [
+            {"name": "Multi-Agent Systems, Linux Foundation A2A & Autonomous Workflows", "members": "230K+", "goal": "High-authority debate on prose chat handoffs vs. typed Pydantic/Firestore blackboards"},
+            {"name": "Enterprise Architecture & Distributed Systems Leaders", "members": "890K+", "goal": "Broad architect viewership & saves"},
+        ],
+        "linkedin_groups_niche_network": [
+            {"name": "Chief AI Officers (CAIO), CTOs & Enterprise AI Strategists", "members": "120K+", "goal": "Executive network growth with multi-agent platform decision makers"},
+            {"name": "LangGraph, Google ADK & CrewAI Production Engineers", "members": "105K+", "goal": "Technical comments & code-level discussions"},
+        ],
+        "comment_magnet_question": "When your Planner agent hands off to a Coder or SQL agent, do they pass free-form English paragraphs or mutate a shared JSON-Schema state blackboard?",
+    },
+    "IDEA-06": {
+        "primary_template_id": "T57",
+        "primary_template_name": "PromptCanvas #56: Side-by-Side Runtime Toggles (Stateless API OFF vs. Agent Runtime ON)",
+        "secondary_template_ids": ["T59", "T42"],
+        "lead_post_format": "Single High-Contrast Visual Infographic (T57.png Red OFF vs. Green ON Toggles) + T59 6-Gate Deployment Checklist PDF",
+        "visual_type": "5-Pillar Central-Spine Comparison with Vector OFF vs. ON Toggle Switches + 6-Gate Prod Checklist",
+        "carousel_spec": "12-Slide Native PDF/PPTX Deck pairing T57 (Stateless API OFF vs. Managed Runtime ON), T59 (6-Step Prod Checklist with double ON switches), and T42 (Durable Execution Saga & Idempotency Keys)",
+        "dynamic_nature": "5 parallel upgrade conduits flow from red OFF failure modes (RAM state lost on crash -> duplicate side effects) to green ON managed runtime guarantees (40ms checkpoint resume + SHA-256 idempotency).",
+        "editable_slidedeck_pptx": "generated-repos/gcp-adk-idempotent-checkpoint-recovery/slides/presentation_deck.pptx",
+        "pdf_deliverable": "generated-repos/gcp-adk-idempotent-checkpoint-recovery/slides/linkedin_carousel.pdf",
+        "linkedin_groups_primary": [
+            {"name": "Cloud Native, Kubernetes (GKE), Serverless & Distributed Systems", "members": "1.1M+", "goal": "High shares among distributed systems & backend engineers who understand idempotency"},
+            {"name": "Site Reliability Engineering (SRE), Platform Engineering & DevOps", "members": "640K+", "goal": "Strong engagement on crash recovery & zero duplicate side effects"},
+        ],
+        "linkedin_groups_niche_network": [
+            {"name": "Temporal, Durable Execution & Stateful Microservices Architects", "members": "68K+", "goal": "High-signal comments from Staff/Principal Distributed Systems Engineers"},
+            {"name": "FinTech, Payments & Mission-Critical Cloud Architecture", "members": "190K+", "goal": "Connect with regulated-industry VP/Directors who require exactly-once agent writes"},
+        ],
+        "comment_magnet_question": "If your 6-step agent creates a ticket or charges an API at Step 3 and times out at Step 4, what happens when it restarts — does it resume at Step 4 or duplicate Step 3?",
+    },
+    "IDEA-07": {
+        "primary_template_id": "T68",
+        "primary_template_name": "PromptCanvas Open Knowledge: 4-Tier Format Spine (Formats + Schema + Validation + Graph)",
+        "secondary_template_ids": ["T39", "T02", "T45"],
+        "lead_post_format": "Animated GIF (T68.gif) + 12-Page Native PDF Carousel (T68 Open Knowledge Spine + T39 4-Memory PR Matrix)",
+        "visual_type": "4-Tier Vertical Knowledge Spine (01 Open Formats -> 02 Schema Harness -> 03 Validation Loop -> 04 Knowledge Graph)",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T68 Open Knowledge Format Spine -> Slide 2: T39 4-Memory Matrix -> Slides 3-6: O(1) Git-Blob SHA Staleness Gate (80->9 stale claims, 15->0 hallucinations) -> Slide 12: Repo & PPTX)",
+        "dynamic_nature": "Packets flow down the 4-tier central teal spine and across format (.md+YAML, .jsonl, .parquet), schema (Pydantic, JSONSchema), validator (O(1) SHA Check), and graph hubs with RULE 01-04 bars.",
+        "editable_slidedeck_pptx": "generated-repos/gcp-openwiki-evidence-receipt-memory/slides/presentation_deck.pptx",
+        "pdf_deliverable": "generated-repos/gcp-openwiki-evidence-receipt-memory/slides/linkedin_carousel.pdf",
+        "linkedin_groups_primary": [
+            {"name": "Data Engineering, Lakehouse (BigQuery / Iceberg) & Knowledge Graphs", "members": "1.3M+", "goal": "Viral bookmarking of the Open Knowledge Format Spine (.md+YAML + .jsonl + .parquet + Graph)"},
+            {"name": "AI Agents, Long-Term Memory & Context Engineering", "members": "260K+", "goal": "High comment depth on curing stale memory poisoning via O(1) Git-SHA receipts"},
+        ],
+        "linkedin_groups_niche_network": [
+            {"name": "Chief Data Officers (CDO), Data Governance & Enterprise Knowledge Leaders", "members": "155K+", "goal": "Executive connections with CDOs & Heads of Knowledge Management"},
+            {"name": "LangChain, OpenWiki, GraphRAG & Vector Search Practitioners", "members": "140K+", "goal": "Practitioner likes, saves, and repo forks"},
+        ],
+        "comment_magnet_question": "How do you stop an agent's long-term memory from silently poisoning answers 3 weeks later when your codebase or policy changes — TTL expiry, LLM re-checks, or O(1) Git-SHA receipts?",
+    },
+    "IDEA-08": {
+        "primary_template_id": "T56",
+        "primary_template_name": "PromptCanvas #55: Shadow AI Bubble Conceptual (4 Perceived Tools vs. 24 Shadow AI Pipelines)",
+        "secondary_template_ids": ["T18", "T03", "T46"],
+        "lead_post_format": "Viral Executive Infographic (T56.png 'The AI Nobody Signed Off') + 12-Page Zero-Trust Security PDF Carousel",
+        "visual_type": "Executive Assumption Persona vs. 24 Color-Coded Shadow AI Bubbles Across 4 Clusters + 4-Control Governance Bar",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T56 4 Perceived Tools vs. 24 Shadow AI Bubbles -> Slide 2: T18 Lethal Trifecta & CaMeL Capability Downgrading -> Slide 7: Google Cloud Model Armor #78 Blueprint -> Slide 12: Editable CISO Deck)",
+        "dynamic_nature": "Red BLIND SPOT conduit connects the 4 leadership quotes on the left to 24 shadow AI tools on the right and routes down to the 4 green governance controls (Apigee AI Gateway, Model Armor, OBO IAM).",
+        "editable_slidedeck_pptx": "generated-repos/gcp-model-armor-capability-downgrade/slides/presentation_deck.pptx",
+        "pdf_deliverable": "generated-repos/gcp-model-armor-capability-downgrade/slides/linkedin_carousel.pdf",
+        "linkedin_groups_primary": [
+            {"name": "Information Security, CISO Network, Cybersecurity & Zero-Trust AI", "members": "2.4M+", "goal": "Massive executive share velocity — CISOs and CIOs immediately share T56 with their leadership teams"},
+            {"name": "Cloud Security Alliance (CSA), OWASP LLM Top 10 & AI Governance", "members": "520K+", "goal": "High-authority security comments on Indirect Prompt Injection & Shadow AI"},
+        ],
+        "linkedin_groups_niche_network": [
+            {"name": "CISO, CIO & VP of Cloud Security Executive Forum", "members": "135K+", "goal": "Direct C-suite & VP Security personal network expansion"},
+            {"name": "Google Cloud Security, Model Armor, BeyondCorp & IAM Architects", "members": "74K+", "goal": "Enterprise security architecture discussions"},
+        ],
+        "comment_magnet_question": "When you audit an enterprise, what is the ratio of 'AI tools leadership thinks are running' vs. 'Shadow AI browser extensions, meeting bots, and personal API keys actually running'?",
+    },
+    "IDEA-09": {
+        "primary_template_id": "T41",
+        "primary_template_name": "Systems Deep-Dive: Prefix-Aware KV Cache Routing & Speculative Decoding",
+        "secondary_template_ids": ["T65", "T11", "T55"],
+        "lead_post_format": "Systems Benchmark Animated GIF (T41.gif / dynamic-solution-flow.gif) + T65 5x4 Feature Matrix & 12-Page PDF Carousel",
+        "visual_type": "Prefix-Aware KV Cache Routing + Tiered Gemini 3.8 Flash / 4 Argon Cascade + Parallel Read Fan-Out",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: Breaking the 42s -> 1.9s Latency Wall -> Slide 2: T41 KV Prefix Cache Routing -> Slide 3: T65 5x4 Agent Stack Evaluation Matrix -> Slide 12: Editable Benchmark PPTX)",
+        "dynamic_nature": "Animated prefix-tree KV cache lookup packets (70ms hit) + parallel read-tool fan-out waves (4x 3s serial calls collapsed into one 420ms parallel wave) + growing score bars in T65.",
+        "editable_slidedeck_pptx": "generated-repos/gcp-vertex-cascade-speculative-agent/slides/presentation_deck.pptx",
+        "pdf_deliverable": "generated-repos/gcp-vertex-cascade-speculative-agent/slides/linkedin_carousel.pdf",
+        "linkedin_groups_primary": [
+            {"name": "High-Performance AI Inference, vLLM, SGLang & GPU Systems Engineering", "members": "285K+", "goal": "Deep technical engagement on KV cache hit rates (94.8%) and sub-2s agent p95 latency"},
+            {"name": "Artificial Intelligence, Deep Learning & Cloud Computing Leaders", "members": "3.1M+", "goal": "High impression volume on the 42s -> 1.9s (-91% cost) benchmark hook"},
+        ],
+        "linkedin_groups_niche_network": [
+            {"name": "Vertex AI, Gemini Global Endpoint & Enterprise ML Infrastructure", "members": "110K+", "goal": "Connect with Principal ML Infrastructure Engineers & AI Platform Leads"},
+            {"name": "AI Product Management & Real-Time GenAI UX Leaders", "members": "175K+", "goal": "Cross-functional VP Product + Engineering connections"},
+        ],
+        "comment_magnet_question": "What is your current p95 turn latency for multi-tool agent requests — and how much did KV prefix caching + parallel read-tool fan-out shave off your TTFT?",
+    },
+    "IDEA-10": {
+        "primary_template_id": "T66",
+        "primary_template_name": "PromptCanvas #65: 4-Tier AI Capability Pyramid (Raw Inference -> Tools -> Multi-Agent -> Autonomous Apex)",
+        "secondary_template_ids": ["T60", "T63", "T01"],
+        "lead_post_format": "Executive Board-Ready 12-Page Native PDF Carousel (T66 Pyramid + T63 2x2 Matrix + T60 Q1-Q4 Roadmap) + Editable PPTX Deck",
+        "visual_type": "4-Tier Ascending 3D Capability Pyramid + 2x2 Portfolio Matrix (20 Use Cases) + Q1-Q4 Roadmap + Golden Replay Gate",
+        "carousel_spec": "12-Slide Executive Strategy Carousel (Slide 1: T66 4-Tier Capability Pyramid -> Slide 2: T63 2x2 Impact vs. Complexity Matrix -> Slide 3: T60 Q1-Q4 Rollout Roadmap -> Slide 4: T01 Golden Trajectory Replay Gate -> Slide 12: Full Editable PPTX)",
+        "dynamic_nature": "Upward evolution spine climbs the 4-tier 3D trapezoid pyramid (T66.gif) while side conduits link tier rules to Google Cloud + OSS stacks and Golden Trajectory CI replay gates (0% regression).",
+        "editable_slidedeck_pptx": "generated-repos/gcp-harnessevolve-golden-replay-gate/slides/presentation_deck.pptx",
+        "pdf_deliverable": "generated-repos/gcp-harnessevolve-golden-replay-gate/slides/linkedin_carousel.pdf",
+        "linkedin_groups_primary": [
+            {"name": "Artificial Intelligence Strategy, Digital Transformation & Enterprise Architecture", "members": "2.8M+", "goal": "Maximum executive saves & shares on the 3-in-1 Board Pack (Pyramid + 2x2 Matrix + Q1-Q4 Roadmap)"},
+            {"name": "LLM Evaluation, AI Quality Engineering, Promptfoo & CI/CD Testing", "members": "160K+", "goal": "Practitioner comments on curing Prompt Whack-a-Mole with Golden Trajectory Replay Suites"},
+        ],
+        "linkedin_groups_niche_network": [
+            {"name": "Chief Technology Officers (CTO), CIO & Enterprise AI Board Advisors", "members": "240K+", "goal": "High-value executive network building with CTOs/VPs planning their Q1-Q4 agentic roadmap"},
+            {"name": "Google Cloud Executive Leaders & Partner Architects Network", "members": "95K+", "goal": "Peer & customer executive visibility"},
+        ],
+        "comment_magnet_question": "Where do 80% of your production AI workloads sit today on the 4-Tier Capability Pyramid (Tier 01 Raw Inference, Tier 02 Tool Calling, Tier 03 Multi-Agent, or Tier 04 Autonomous Self-Healing) — and do you gate prompt edits on a Golden Trajectory Replay Suite?",
+    },
+}
+
+for _idea in TOMORROW_TOP10_IDEAS:
+    _plan = TOMORROW_TOP10_DISTRIBUTION_PLAN.get(_idea["id"])
+    if _plan:
+        _idea["template_and_distribution_plan"] = _plan
+

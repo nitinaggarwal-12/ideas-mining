@@ -287,6 +287,39 @@ def _build_repo_readme(post: Dict[str, Any]) -> str:
             + "\n\n### 5B. Full Platform Pairing Reference (12 Capabilities)\n"
         )
 
+    plan = post.get("template_and_distribution_plan") or {}
+    lead_template_section = ""
+    distribution_section = ""
+    if plan.get("primary_template_id"):
+        sec_ids = ", ".join(f"`{t}`" for t in plan.get("secondary_template_ids", []))
+        primary_groups_md = "\n".join(
+            f"| **Primary High-Reach** | **{g['name']}** | `{g['members']}` | {g['goal']} |"
+            for g in plan.get("linkedin_groups_primary", [])
+        )
+        niche_groups_md = "\n".join(
+            f"| **Niche Network & Exec** | **{g['name']}** | `{g['members']}` | {g['goal']} |"
+            for g in plan.get("linkedin_groups_niche_network", [])
+        )
+        lead_template_section = f"""### Figure 0 — Paired Lead Infographic Template (`{plan['primary_template_id']}`: {plan['primary_template_name']})
+![Lead Infographic Template {plan['primary_template_id']}](./visuals/lead-template.png)
+
+- **Primary Template (`{plan['primary_template_id']}`)**: [`./visuals/lead-template.svg`](./visuals/lead-template.svg) • [`./visuals/lead-template.png`](./visuals/lead-template.png) • [`./visuals/lead-template.gif`](./visuals/lead-template.gif)
+- **Secondary Companion Templates**: {sec_ids}
+- **Lead Post Format Mix**: {plan['lead_post_format']}
+- **Dynamic Animation Nature**: {plan['dynamic_nature']}
+
+"""
+        distribution_section = f"""
+### 6B. LinkedIn Group Distribution & Golden-Hour Virality Strategy
+
+| Tier | Target LinkedIn Group | Member Reach | Strategic Objective |
+| :--- | :--- | :--- | :--- |
+{primary_groups_md}
+{niche_groups_md}
+
+- **Golden-Hour Comment-Magnet Question**: *"{plan['comment_magnet_question']}"*
+"""
+
     return f"""# {post['post_title']}
 
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run/?git_repo=https://github.com/nitin-aggarwal/{slug})
@@ -310,7 +343,7 @@ def _build_repo_readme(post: Dict[str, Any]) -> str:
 
 ## 2. `@2d` Dynamic Moving-Arrow & Architecture Diagrams
 
-### Figure 1 — Dynamic Daily Problem $\rightarrow$ 4-Step Solution Flow (With Moving Arrows)
+{lead_template_section}### Figure 1 — Dynamic Daily Problem $\\rightarrow$ 4-Step Solution Flow (With Moving Arrows)
 ![Dynamic Solution Flow With Moving Arrows](./visuals/dynamic-solution-flow.svg)
 
 - **Animated Moving-Arrow SVG (60fps Browser Native)**: [`./visuals/dynamic-solution-flow.svg`](./visuals/dynamic-solution-flow.svg)
@@ -364,7 +397,7 @@ flowchart LR
 - **Native Editable PowerPoint (`.pptx`)**: [`./slides/presentation_deck.pptx`](./slides/presentation_deck.pptx) (12 Slides, 3-Act `L1 -> L2 -> L3 -> L4 -> Audit -> Solution` story arc, Google Quad-Color sequence, `"Proprietary + Confidential"` footer, and 3-paragraph spoken customer talk track in speaker notes)
 - **Swipeable LinkedIn PDF Carousel**: [`./slides/linkedin_carousel.pdf`](./slides/linkedin_carousel.pdf)
 - **Interactive HTML Slide Reader**: [`./slides/linkedin_carousel.html`](./slides/linkedin_carousel.html)
-
+{distribution_section}
 ---
 
 ## 7. Quickstart & OpenHands Sandbox Verification
@@ -408,13 +441,46 @@ def _build_linkedin_post_draft(post: Dict[str, Any]) -> str:
         )
     else:
         oss_lines = "\n".join(f"• {g}  ⇄  {oss_equivalent_for(g)}" for g in post["gcp_stack"][:4])
-    return f"""# Ready-to-Publish LinkedIn Post Copy for Nitin Aggarwal
+
+    plan = post.get("template_and_distribution_plan") or {}
+    closing_question = plan.get(
+        "comment_magnet_question",
+        "Which stage of this architecture is your engineering team tackling right now — and are you running it managed or self-hosted?",
+    )
+    plan_header_block = ""
+    if plan.get("primary_template_id"):
+        sec_str = ", ".join(plan.get("secondary_template_ids", []))
+        prim_groups = "\n".join(
+            f"  - **{g['name']}** (`{g['members']}` members) — *{g['goal']}*"
+            for g in plan.get("linkedin_groups_primary", [])
+        )
+        niche_groups = "\n".join(
+            f"  - **{g['name']}** (`{g['members']}` members) — *{g['goal']}*"
+            for g in plan.get("linkedin_groups_niche_network", [])
+        )
+        plan_header_block = f"""**Paired Primary Template**: `{plan['primary_template_id']}` — {plan['primary_template_name']} (`visuals/lead-template.png` / `.gif` / `.svg`)
+**Secondary Companion Templates**: `{sec_str}`
+**Lead Format Choice**: {plan['lead_post_format']}
+**Visual Specification**: {plan['visual_type']}
+**12-Page Carousel Flow**: {plan['carousel_spec']}
+**Dynamic Animation Nature**: {plan['dynamic_nature']}
+**Editable Slide Deck (`.pptx`)**: `{plan['editable_slidedeck_pptx']}`
+**Native LinkedIn Carousel (`.pdf`)**: `{plan['pdf_deliverable']}`
+
+### Target LinkedIn Groups for Maximum Viewership (Top-of-Funnel Impressions & Reposts)
+{prim_groups}
+
+### Target LinkedIn Groups for Personal Network Building (CTOs, CISOs, CDOs & Principal Architects)
+{niche_groups}
+"""
+
+    return f"""# Ready-to-Publish LinkedIn Post Copy & Group Distribution Plan for Nitin Aggarwal
 
 **Author Profile**: https://www.linkedin.com/in/nitin-aggarwal-b49786a/
 **Scheduled Posting Window**: {est_slot}
-**Recommended Visual Attachment**: `visuals/dynamic-solution-flow.gif` (Moving Arrows) OR `visuals/linkedin-infographic-2d.png` OR `slides/linkedin_carousel.pdf`
+**Recommended Visual Attachment**: `visuals/lead-template.png` / `visuals/lead-template.gif` OR `visuals/dynamic-solution-flow.gif` OR `slides/linkedin_carousel.pdf`
 **Inspired By / Series**: {post['author_name']} ({post['linkedin_url']})
-
+{plan_header_block}
 ---
 
 {post['original_hook']}
@@ -435,14 +501,23 @@ So I built a complete, 1-click deployable reference repository that implements *
 🚀 **What is inside the Git Repository (`{post['repo_slug']}`)**:
 → **Runnable Google Cloud ADK + Vertex AI Codebase** (`gemini-4-argon` & `gemini-3.8-flash` on `locations/global` with discrete `thinkingLevel`; swap in Gemma 3 / Llama 3.x via vLLM + LiteLLM)
 → **OpenHands (MIT) Autonomous Container Harness** (reads workspace, writes code, and runs local tests before proposing any commit)
-→ **Dynamic Moving-Arrow Diagram** (animated `.svg` + `.gif`) showing the Google primitive AND the open-source twin on every step
+→ **Paired PromptCanvas Infographic & Dynamic Moving-Arrow Diagram** (`visuals/lead-template.gif` + `visuals/dynamic-solution-flow.gif`) showing the Google primitive AND the open-source twin on every step
 → **Editable 2D Visuals** (Official Google Cloud `#78` Hub-and-Spoke `.drawio` XML + `.svg` + `.png`)
 → **12-Slide Executive & Technical Deck** (`.pptx` + swipeable LinkedIn `.pdf` carousel with spoken talk tracks)
 → **1-Click Deployment** (Terraform / OpenTofu: Cloud Run v2 + Artifact Registry + Least-Privilege IAM + Model Armor)
 
-Which stage of this architecture is your engineering team tackling right now — and are you running it managed or self-hosted? 👇
+{closing_question} 👇
 
 #AgenticAI #GoogleCloud #VertexAI #OpenSource #LangGraph #OpenHands #MCP #AIAgents #EnterpriseAI #AIEngineering
+
+---
+
+### 📌 Golden-Hour Comment #1 (Post Within 30 Seconds to Avoid Outbound-Link Feed Penalty)
+
+> **Full 3-Asset Engineering Bundle for `{post['repo_slug']}`**:
+> 1️⃣ **Editable 12-Slide 16:9 PowerPoint Deck (`.pptx`) + 12-Page Native PDF Carousel**: `generated-repos/{post['repo_slug']}/slides/presentation_deck.pptx` & `linkedin_carousel.pdf`
+> 2️⃣ **Paired Lead Infographic + Official Google Cloud `#78` Draw.io XML**: `generated-repos/{post['repo_slug']}/visuals/lead-template.svg` & `gcp-architecture-2d.drawio`
+> 3️⃣ **Runnable Google Cloud ADK + OpenHands Reference Repo (`unittest` + 1-Click Terraform)**: https://github.com/nitin-aggarwal/{post['repo_slug']}
 """
 
 
@@ -481,7 +556,10 @@ def generate_and_verify_single_repo(
         "- **Verification Command**: `python3 -m unittest discover -s tests -p 'test_*.py'`\n"
     )
     for g_file in ("AGENTS.md", "GEMINI.md", "CLAUDE.md"):
-        (repo_dir / g_file).write_text(governance_body, encoding="utf-8")
+        g_path = repo_dir / g_file
+        if g_path.is_symlink():
+            g_path.unlink()
+        g_path.write_text(governance_body, encoding="utf-8")
 
     (repo_dir / ".openhands" / "microagents" / "repo.md").write_text(
         f"---\nname: {post['repo_slug']}\ntype: repo\nagent: CodeActAgent\n---\n\n{governance_body}",

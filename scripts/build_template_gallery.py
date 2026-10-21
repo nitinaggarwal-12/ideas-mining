@@ -20,14 +20,21 @@ def build_one(tid: str) -> dict:
     png_path = OUT_DIR / f"{tid}.png"
     svg_path.write_text(render_template(tid), encoding="utf-8")
     ok = render_template_gif(tid, gif_path, png_path, frames=6)
+    canonical_png = WORKSPACE_ROOT / "assets" / "canonical-ref" / f"canonical_{tid}.png"
+    canonical_drawio = WORKSPACE_ROOT / "assets" / "canonical-ref" / "drawio" / f"{tid}.drawio"
+    if canonical_png.exists():
+        png_path.write_bytes(canonical_png.read_bytes())
+    if canonical_drawio.exists():
+        (OUT_DIR / f"{tid}.drawio").write_bytes(canonical_drawio.read_bytes())
     print(f"==> [Template Gallery] {tid} {TEMPLATE_META[tid]['name']}: svg={svg_path.stat().st_size}B gif={'ok' if ok else 'skipped'}")
     return {"id": tid, "svg": svg_path.name, "gif": gif_path.name if ok else None, "png": png_path.name if png_path.exists() else None}
 
 
 def main() -> None:
     force = "--force" in sys.argv
-    ids = list(TEMPLATE_META.keys())
-    if not force:
+    explicit_ids = [a for a in sys.argv[1:] if a.startswith("T") and a in TEMPLATE_META]
+    ids = explicit_ids or list(TEMPLATE_META.keys())
+    if not force and not explicit_ids:
         ids = [t for t in ids if not (OUT_DIR / f"{t}.gif").exists()] or ids
     with ThreadPoolExecutor(max_workers=5) as pool:
         rendered = {r["id"]: r for r in pool.map(build_one, ids)}

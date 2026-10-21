@@ -32,14 +32,17 @@ def _esc(val: Any) -> str:
 
 
 def _wrap(text: str, width: int, max_lines: int = 2) -> List[str]:
-    lines = textwrap.wrap(str(text or "").strip(), width=width)
-    if not lines:
+    clean = str(text or "").strip()
+    if not clean:
         return [""]
-    if len(lines) > max_lines:
+    lines = textwrap.wrap(clean, width=width, break_long_words=False, break_on_hyphens=False)
+    if len(lines) > max_lines and max_lines >= 1:
+        for w_try in (int(width * 1.14), int(width * 1.28), int(width * 1.42)):
+            retry = textwrap.wrap(clean, width=max(width + 2, w_try), break_long_words=False, break_on_hyphens=False)
+            if len(retry) <= max_lines:
+                return retry
         lines = lines[:max_lines]
-        if len(lines[-1]) > 3:
-            lines[-1] = lines[-1][:-3].rstrip() + "..."
-    return lines
+    return lines or [""]
 
 
 # Authentic inline SVG vector icon paths for Google Cloud & Agentic components (Pillar 8: Zero Emojis)
@@ -127,14 +130,17 @@ def _draw_service_card(
     badge_fg: str,
     icon_kind: str,
 ) -> str:
-    """Render an authentic, high-density Google Cloud Architecture Center service card with vector icon."""
-    t_lines = _wrap(title, width=max(16, (w - 54) // 6), max_lines=2)
-    s_lines = _wrap(subtitle, width=max(23, (w - 20) // 5), max_lines=2 if h >= 130 else 1)
-    m_lines = _wrap(tech_meta, width=max(23, (w - 20) // 5), max_lines=1)
+    """Render an authentic, high-density Glassmorphic Google Cloud Architecture Center service card with vector icon."""
+    t_lines = _wrap(title, width=max(15, (w - 56) // 6), max_lines=2)
+    s_lines = _wrap(subtitle, width=max(24, (w - 22) // 5), max_lines=2 if h >= 130 else 1)
+    m_lines = _wrap(tech_meta, width=max(24, (w - 22) // 5), max_lines=1)
+    t_font = "9.5" if w < 175 else "10.2"
 
     out = [
         '<g class="arch-card">',
-        f'  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" fill="#FFFFFF" stroke="{border_color}" stroke-width="1.8" filter="url(#dropShadow)"/>',
+        f'  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" fill="url(#glassCardGrad)" stroke="{border_color}" stroke-width="1.8" filter="url(#dropShadow)"/>',
+        f'  <rect x="{x + 1.2:.1f}" y="{y + 1.2:.1f}" width="{w - 2.4:.1f}" height="{h - 2.4:.1f}" rx="7" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
+        f'  <rect x="{x + 6}" y="{y + 1.5:.1f}" width="{w - 8}" height="12" rx="5" fill="url(#glassSheen)"/>',
         f'  <rect x="{x}" y="{y}" width="6" height="{h}" rx="3" fill="{border_color}"/>',
         f'  {_render_vector_icon(icon_kind, x + 14, y + 12)}',
         f'  <rect x="{x + 48}" y="{y + 11}" width="{min(86, w - 56)}" height="16" rx="4" fill="{badge_bg}" stroke="{border_color}" stroke-width="0.8"/>',
@@ -142,13 +148,13 @@ def _draw_service_card(
     ]
     for idx, tl in enumerate(t_lines):
         out.append(
-            f'  <text x="{x + 48}" y="{y + 39 + idx * 13}" font-family="Inter, -apple-system, sans-serif" font-size="10.5" font-weight="800" fill="#0F172A">{_esc(tl)}</text>'
+            f'  <text x="{x + 48}" y="{y + 39 + idx * 13}" font-family="Inter, -apple-system, sans-serif" font-size="{t_font}" font-weight="800" fill="#0F172A">{_esc(tl)}</text>'
         )
     if h >= 130:
         box_y = y + 62
         box_h = h - 72
         out.append(
-            f'  <rect x="{x + 12}" y="{box_y}" width="{w - 22}" height="{box_h}" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>'
+            f'  <rect x="{x + 12}" y="{box_y}" width="{w - 22}" height="{box_h}" rx="6" fill="#F8FAFC" fill-opacity="0.88" stroke="#E2E8F0" stroke-width="1"/>'
         )
         for s_idx, sl in enumerate(s_lines):
             out.append(
@@ -184,12 +190,26 @@ def _draw_edge_with_pill(
     marker: str = "arrowBlue",
     pill_pos: Tuple[int, int] | None = None,
 ) -> str:
-    """Render an orthogonal or straight point-to-point connector with an opaque high-contrast label pill."""
+    """Render an orthogonal or straight point-to-point glassmorphic connector with an opaque high-contrast label pill and baked zero-origin arrowhead."""
+    import math as _math
+
     d_parts = [f"M {points[0][0]} {points[0][1]}"]
     for px, py in points[1:]:
         d_parts.append(f"L {px} {py}")
     d_str = " ".join(d_parts)
     dash_attr = ' stroke-dasharray="6,4"' if dashed else ""
+
+    baked_arrow = ""
+    if len(points) >= 2:
+        (x1, y1), (x2, y2) = points[-2], points[-1]
+        ang = _math.atan2(y2 - y1, x2 - x1)
+        ca, sa = _math.cos(ang), _math.sin(ang)
+        raw_head = ((0.0, 0.0), (-9.0, -4.5), (-7.0, 0.0), (-9.0, 4.5))
+        pts_str = " ".join(
+            f"{x2 + px * ca - py * sa:.1f},{y2 + px * sa + py * ca:.1f}"
+            for px, py in raw_head
+        )
+        baked_arrow = f'<polygon points="{pts_str}" fill="{color}"/>'
 
     if pill_pos is not None:
         mx, my = pill_pos
@@ -203,31 +223,62 @@ def _draw_edge_with_pill(
     px0 = mx - pill_w // 2
     py0 = my - pill_h // 2
 
-    return "\n".join(
+    out_lines = [
+        f'<path d="{d_str}" fill="none" stroke="{color}" stroke-opacity="0.14" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>',
+        f'<path d="{d_str}" fill="none" stroke="#FFFFFF" stroke-opacity="0.76" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>',
+        f'<path d="{d_str}" fill="none" stroke="{color}" stroke-width="2"{dash_attr} marker-end="url(#{marker})"/>',
+    ]
+    if baked_arrow:
+        out_lines.append(baked_arrow)
+    out_lines.extend(
         [
-            f'<path d="{d_str}" fill="none" stroke="{color}" stroke-width="2"{dash_attr} marker-end="url(#{marker})"/>',
-            f'<rect x="{px0}" y="{py0}" width="{pill_w}" height="{pill_h}" rx="5" fill="#FFFFFF" stroke="{color}" stroke-width="1.2"/>',
+            f'<rect x="{px0}" y="{py0}" width="{pill_w}" height="{pill_h}" rx="5" fill="#FFFFFF" fill-opacity="0.96" stroke="{color}" stroke-width="1.2"/>',
+            f'<rect x="{px0 + 2}" y="{py0 + 1.2:.1f}" width="{pill_w - 4}" height="7" rx="3" fill="#FFFFFF" fill-opacity="0.42"/>',
             f'<rect x="{px0 + 3}" y="{py0 + 3}" width="22" height="14" rx="3" fill="{color}"/>',
             f'<text x="{px0 + 14}" y="{py0 + 13}" font-family="Inter, sans-serif" font-size="8.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">{_esc(step_num)}</text>',
             f'<text x="{px0 + 30}" y="{py0 + 13.5}" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" fill="#0F172A">{_esc(label)}</text>',
         ]
     )
+    return "\n".join(out_lines)
 
 
 def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
-    """Render the 1600x1020 Official Google Cloud Architecture Center #78 18-Card, 23-Edge Blueprint."""
+    """Render the 1600x1020 Official Google Cloud Architecture Center #78 18-Card, 23-Edge Glassmorphic Blueprint."""
     z = post["zones_78"]
     steps = post["core_steps"]
     metrics = list(post["metrics"].items())
-    title_clean = _wrap(post["post_title"], width=86, max_lines=1)[0]
-    primary_clean = _wrap(post["primary_source"]["title"], width=68, max_lines=1)[0]
+    title_clean = _wrap(post["post_title"], width=94, max_lines=1)[0]
+    primary_clean = _wrap(post["primary_source"]["title"], width=78, max_lines=1)[0]
 
     svg: List[str] = [
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1020" width="1600" height="1020">',
         "<defs>",
-        '  <filter id="dropShadow" x="-2%" y="-2%" width="104%" height="106%">',
-        '    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.06"/>',
+        '  <filter id="dropShadow" x="-3%" y="-3%" width="106%" height="110%">',
+        '    <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0F172A" flood-opacity="0.065"/>',
         "  </filter>",
+        '  <linearGradient id="glassCardGrad" x1="0" y1="0" x2="0" y2="1">',
+        '    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/>',
+        '    <stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.91"/>',
+        "  </linearGradient>",
+        '  <linearGradient id="glassSheen" x1="0" y1="0" x2="0" y2="1">',
+        '    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.72"/>',
+        '    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0"/>',
+        "  </linearGradient>",
+        '  <radialGradient id="meshBlue" cx="14%" cy="18%" r="48%">',
+        '    <stop offset="0%" stop-color="#4285F4" stop-opacity="0.065"/>',
+        '    <stop offset="100%" stop-color="#4285F4" stop-opacity="0.0"/>',
+        "  </radialGradient>",
+        '  <radialGradient id="meshEmerald" cx="86%" cy="20%" r="46%">',
+        '    <stop offset="0%" stop-color="#10B981" stop-opacity="0.055"/>',
+        '    <stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/>',
+        "  </radialGradient>",
+        '  <radialGradient id="meshViolet" cx="50%" cy="84%" r="52%">',
+        '    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.048"/>',
+        '    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"/>',
+        "  </radialGradient>",
+        '  <pattern id="archGrid" width="24" height="24" patternUnits="userSpaceOnUse">',
+        '    <circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.22"/>',
+        "  </pattern>",
         '  <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563EB"/></marker>',
         '  <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#7C3AED"/></marker>',
         '  <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#EA580C"/></marker>',
@@ -235,10 +286,15 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
         '  <marker id="arrowTeal" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#0D9488"/></marker>',
         '  <marker id="arrowSlate" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#475569"/></marker>',
         "</defs>",
-        '<!-- Root Canvas: Rule 54 Executive Light (#F8FAFC) -->',
+        '<!-- Root Canvas: Rule 54 Executive Light (#F8FAFC) + Ambient Glassmorphic Mesh -->',
         '<rect x="0" y="0" width="1600" height="1020" fill="#F8FAFC"/>',
+        '<rect x="0" y="0" width="1600" height="1020" fill="url(#meshBlue)"/>',
+        '<rect x="0" y="0" width="1600" height="1020" fill="url(#meshEmerald)"/>',
+        '<rect x="0" y="0" width="1600" height="1020" fill="url(#meshViolet)"/>',
+        '<rect x="0" y="0" width="1600" height="1020" fill="url(#archGrid)"/>',
         '<!-- Top Google Cloud Architecture Center Header Lockup -->',
-        '<rect x="24" y="16" width="1552" height="62" rx="10" fill="#0F2942" stroke="#1A73E8" stroke-width="1.5"/>',
+        '<rect x="24" y="16" width="1552" height="62" rx="10" fill="#0F2942" stroke="#1A73E8" stroke-width="1.5" filter="url(#dropShadow)"/>',
+        '<rect x="26" y="17.5" width="1548" height="14" rx="7" fill="#FFFFFF" fill-opacity="0.10"/>',
         '<!-- Official 4-Color Google Cloud Emblem -->',
         '<circle cx="52" cy="47" r="7" fill="#EA4335"/>',
         '<circle cx="64" cy="40" r="7" fill="#4285F4"/>',
@@ -249,15 +305,17 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
         '<rect x="1320" y="31" width="236" height="32" rx="6" fill="#1E8E3E" stroke="#86EFAC" stroke-width="1"/>',
         '<text x="1438" y="51" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">18/18 CARDS • 23 EDGES • 0 COLLISIONS</text>',
         '<!-- Outer #1A73E8 Google Cloud Organization & VPC-SC Trust Perimeter Frame -->',
-        '<rect x="24" y="92" width="1552" height="836" rx="14" fill="#FFFFFF" stroke="#1A73E8" stroke-width="2.5"/>',
-        '<rect x="44" y="104" width="380" height="24" rx="5" fill="#E8F0FE" stroke="#4285F4" stroke-width="1"/>',
+        '<rect x="24" y="92" width="1552" height="836" rx="14" fill="#FFFFFF" fill-opacity="0.78" stroke="#1A73E8" stroke-width="2.5" filter="url(#dropShadow)"/>',
+        '<rect x="25.5" y="93.5" width="1549" height="833" rx="13" fill="none" stroke="#FFFFFF" stroke-opacity="0.88" stroke-width="1.2"/>',
+        '<rect x="44" y="104" width="380" height="24" rx="5" fill="#E8F0FE" fill-opacity="0.95" stroke="#4285F4" stroke-width="1"/>',
         '<text x="234" y="120" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#174EA6" text-anchor="middle">GOOGLE CLOUD ORGANIZATION • VPC SERVICE CONTROLS PERIMETER</text>',
     ]
 
     # Top Actor / Client & Developer Ingress Strip (x=450..1150, y=100..146)
     svg.extend(
         [
-            '<rect x="460" y="100" width="680" height="44" rx="8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>',
+            '<rect x="460" y="100" width="680" height="44" rx="8" fill="url(#glassCardGrad)" stroke="#94A3B8" stroke-width="1.5" filter="url(#dropShadow)"/>',
+            '<rect x="461.2" y="101.2" width="677.6" height="41.6" rx="7" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             _render_vector_icon("router", 474, 108),
             '<text x="512" y="119" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#0F172A">EXTERNAL ACTOR / PRINCIPAL ENGINEER &amp; ENTERPRISE CLIENT WORKLOADS</text>',
             f'<text x="512" y="134" font-family="ui-monospace, monospace" font-size="9.5" font-weight="600" fill="#475569">Repo: generated-repos/{_esc(post["repo_slug"])}  •  Model Routing: locations/global (gemini-4-argon)</text>',
@@ -270,8 +328,10 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
     # =========================================================================
     svg.extend(
         [
-            '<rect x="44" y="164" width="976" height="226" rx="12" fill="#EFF6FF" stroke="#AECBFA" stroke-width="2.5"/>',
+            '<rect x="44" y="164" width="976" height="226" rx="12" fill="#EFF6FF" fill-opacity="0.88" stroke="#AECBFA" stroke-width="2.5" filter="url(#dropShadow)"/>',
+            '<rect x="45.5" y="165.5" width="973" height="223" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="44" y="164" width="976" height="32" rx="10" fill="#AECBFA"/>',
+            '<rect x="46" y="165.5" width="972" height="11" rx="6" fill="#FFFFFF" fill-opacity="0.32"/>',
             '<text x="64" y="185" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#174EA6">ZONE 1 (BLUE HUB) • TENANT-AWARE ROUTING, ZERO-TRUST INGRESS &amp; CONTEXT ENGINEERING HUB</text>',
             '<text x="1002" y="185" font-family="ui-monospace, monospace" font-size="10" font-weight="800" fill="#174EA6" text-anchor="end">vpc-hub-routing • 10.10.0.0/20</text>',
         ]
@@ -309,8 +369,10 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
     # =========================================================================
     svg.extend(
         [
-            '<rect x="1044" y="164" width="512" height="226" rx="12" fill="#F0FDF4" stroke="#CEEAD6" stroke-width="2.5"/>',
+            '<rect x="1044" y="164" width="512" height="226" rx="12" fill="#F0FDF4" fill-opacity="0.88" stroke="#CEEAD6" stroke-width="2.5" filter="url(#dropShadow)"/>',
+            '<rect x="1045.5" y="165.5" width="509" height="223" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="1044" y="164" width="512" height="32" rx="10" fill="#CEEAD6"/>',
+            '<rect x="1046" y="165.5" width="508" height="11" rx="6" fill="#FFFFFF" fill-opacity="0.32"/>',
             '<text x="1062" y="185" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#0D652D">ZONE 2 (GREEN HUB) • GOVERNANCE, KMS &amp; EVAL GATE</text>',
         ]
     )
@@ -344,8 +406,10 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
     # =========================================================================
     svg.extend(
         [
-            '<rect x="44" y="446" width="736" height="380" rx="12" fill="#FEFCE8" stroke="#FEEFC3" stroke-width="2.5"/>',
+            '<rect x="44" y="446" width="736" height="380" rx="12" fill="#FEFCE8" fill-opacity="0.88" stroke="#FEEFC3" stroke-width="2.5" filter="url(#dropShadow)"/>',
+            '<rect x="45.5" y="447.5" width="733" height="377" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="44" y="446" width="736" height="32" rx="10" fill="#FEEFC3"/>',
+            '<rect x="46" y="447.5" width="732" height="11" rx="6" fill="#FFFFFF" fill-opacity="0.34"/>',
             '<text x="64" y="467" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#B06000">ZONE 3 (LEFT SPOKE) • PRIMARY GOOGLE ADK &amp; VERTEX AI GEMINI SPOKE</text>',
             '<text x="764" y="467" font-family="ui-monospace, monospace" font-size="10" font-weight="800" fill="#B06000" text-anchor="end">spoke-adk-primary • 10.20.0.0/20</text>',
         ]
@@ -439,8 +503,10 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
     # =========================================================================
     svg.extend(
         [
-            '<rect x="820" y="446" width="736" height="380" rx="12" fill="#FEF2F2" stroke="#FAD2CF" stroke-width="2.5"/>',
+            '<rect x="820" y="446" width="736" height="380" rx="12" fill="#FEF2F2" fill-opacity="0.88" stroke="#FAD2CF" stroke-width="2.5" filter="url(#dropShadow)"/>',
+            '<rect x="821.5" y="447.5" width="733" height="377" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="820" y="446" width="736" height="32" rx="10" fill="#FAD2CF"/>',
+            '<rect x="822" y="447.5" width="732" height="11" rx="6" fill="#FFFFFF" fill-opacity="0.34"/>',
             '<text x="840" y="467" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#A50E0E">ZONE 4 (RIGHT SPOKE) • OPENHANDS SANDBOX, MEMORY &amp; LAKEHOUSE SPOKE</text>',
             '<text x="1540" y="467" font-family="ui-monospace, monospace" font-size="10" font-weight="800" fill="#A50E0E" text-anchor="end">spoke-openhands-data • 10.30.0.0/20</text>',
         ]
@@ -534,7 +600,8 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
     # =========================================================================
     svg.extend(
         [
-            '<rect x="44" y="840" width="1512" height="74" rx="10" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>',
+            '<rect x="44" y="840" width="1512" height="74" rx="10" fill="#F1F5F9" fill-opacity="0.90" stroke="#CBD5E1" stroke-width="1.5" filter="url(#dropShadow)"/>',
+            '<rect x="45.2" y="841.2" width="1509.6" height="71.6" rx="9" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="56" y="852" width="220" height="50" rx="6" fill="#0F2942"/>',
             '<text x="166" y="874" font-family="Inter, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle">ZONE 5 • PRODUCTION TELEMETRY</text>',
             f'<text x="166" y="891" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#93C5FD" text-anchor="middle">1-Click Terraform • { _esc(post["id"]) }</text>',
@@ -545,7 +612,7 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
         accent = ["#4285F4", "#EA4335", "#FBBC04", "#34A853"][m_idx % 4]
         svg.extend(
             [
-                f'<rect x="{mx}" y="852" width="296" height="50" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>',
+                f'<rect x="{mx}" y="852" width="296" height="50" rx="6" fill="url(#glassCardGrad)" stroke="#CBD5E1" stroke-width="1.2"/>',
                 f'<rect x="{mx}" y="852" width="6" height="50" rx="3" fill="{accent}"/>',
                 f'<text x="{mx + 18}" y="871" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#475569">{_esc(m_k.replace("_", " ").upper())}</text>',
                 f'<text x="{mx + 18}" y="892" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#0F172A">{_esc(m_v)}</text>',
@@ -559,18 +626,18 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
     svg.extend(
         [
             # ① Actor -> Zone 1 Ingress
-            _draw_edge_with_pill([(580, 144), (580, 208)], "①", "HTTPS :443 Request", "#2563EB", False, "arrowBlue", (580, 154)),
+            _draw_edge_with_pill([(580, 144), (580, 164)], "①", "HTTPS :443 Request", "#2563EB", False, "arrowBlue", (450, 154)),
             # ⑦ Zone 1 -> Actor Response
-            _draw_edge_with_pill([(910, 208), (910, 144)], "⑦", "Verified Response", "#0D9488", False, "arrowTeal", (910, 154)),
+            _draw_edge_with_pill([(910, 164), (910, 144)], "⑦", "Verified Response", "#0D9488", False, "arrowTeal", (1026, 154)),
             # ② Intra-Zone 1 Pipeline (Cards 1->2->3->4->5)
             '<line x1="237" y1="290" x2="249" y2="290" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>',
             '<line x1="428" y1="290" x2="440" y2="290" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>',
             '<line x1="619" y1="290" x2="631" y2="290" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>',
             '<line x1="810" y1="290" x2="822" y2="290" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>',
             # 3a Zone 1 -> Zone 2 Governance Check (across x=1020..1056)
-            _draw_edge_with_pill([(910, 372), (910, 412), (1130, 412), (1130, 372)], "3a", "KMS & Policy Check", "#16A34A", True, "arrowGreen", (1020, 412)),
+            _draw_edge_with_pill([(910, 390), (910, 412), (1130, 412), (1130, 390)], "3a", "KMS & Policy Check", "#16A34A", True, "arrowGreen", (1020, 412)),
             # ③ Zone 1 ALB/Edge -> Zone 3 Model Armor (via y=418 corridor)
-            _draw_edge_with_pill([(720, 372), (720, 418), (212, 418), (212, 492)], "②", "Route & Context", "#2563EB", False, "arrowBlue", (466, 418)),
+            _draw_edge_with_pill([(720, 390), (720, 418), (212, 418), (212, 446)], "②", "Route & Context", "#2563EB", False, "arrowBlue", (466, 418)),
             # ④ Zone 3 Model Armor -> ADK Orchestrator (across 94px channel x=362..456)
             _draw_edge_with_pill([(362, 540), (454, 540)], "④", "Sanitized Prompt", "#7C3AED", False, "arrowPurple", (408, 524)),
             # ⑤ Zone 3 Gemini 4 Argon <-> ADK Orchestrator (staggered elbow in x=362..456 channel)
@@ -585,7 +652,7 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
             # 4c Zone 4 Gemini 3.8 Flash Judge -> BigQuery Eval Warehouse
             _draw_edge_with_pill([(1138, 736), (1184, 736), (1184, 652), (1230, 652)], "4c", "Eval Trace Sink", "#7C3AED", True, "arrowPurple", (1184, 696)),
             # 3b Zone 2 Competence Gate -> Zone 4 OpenHands & Registry
-            _draw_edge_with_pill([(1300, 372), (1300, 418), (988, 418), (988, 492)], "3b", "Competence Gate", "#16A34A", True, "arrowGreen", (1144, 418)),
+            _draw_edge_with_pill([(1300, 390), (1300, 418), (988, 418), (988, 446)], "3b", "Competence Gate", "#16A34A", True, "arrowGreen", (1144, 418)),
             # ⑥ Closed-Loop Verified Return from Zone 4 Judge/Registry -> Zone 3 State across y=651 inter-spoke gap
             _draw_edge_with_pill([(838, 651), (764, 651)], "⑥", "Verified Loop", "#0D9488", True, "arrowTeal", (800, 651)),
         ]
@@ -594,14 +661,17 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
     # Bottom Attribution & Primary Source Footer
     svg.extend(
         [
-            '<rect x="24" y="942" width="1552" height="58" rx="10" fill="#0F2942"/>',
+            '<rect x="24" y="942" width="1552" height="58" rx="10" fill="#0F2942" filter="url(#dropShadow)"/>',
+            '<rect x="26" y="943.5" width="1548" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.10"/>',
             f'<text x="48" y="967" font-family="Inter, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF">PRIMARY SOURCE GROUNDING: {_esc(primary_clean)}  |  CURATED BY: NITIN AGGARWAL (linkedin.com/in/nitin-aggarwal-b49786a)</text>',
-            f'<text x="48" y="987" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#93C5FD">1-Click GCP Deploy: cd generated-repos/{_esc(post["repo_slug"])}/terraform &amp;&amp; terraform init &amp;&amp; terraform apply -var="project_id=nitina-ggarwal-sandbox-647724"</text>',
+            f'<text x="48" y="987" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#93C5FD">1-Click Google Cloud Deploy: cd generated-repos/{_esc(post["repo_slug"])}/terraform &amp;&amp; terraform init &amp;&amp; terraform apply -var="project_id=nitina-ggarwal-sandbox-647724"</text>',
             '<text x="1552" y="977" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#86EFAC" text-anchor="end">Proprietary + Confidential</text>',
             "</svg>",
         ]
     )
-    return "\n".join(svg)
+    from src.visuals.template_gallery import flatten_svg_zero_origin
+
+    return flatten_svg_zero_origin("\n".join(svg))
 
 
 def _render_post_specific_centerpiece(post: Dict[str, Any]) -> str:
@@ -1149,36 +1219,65 @@ def _render_post_specific_centerpiece(post: Dict[str, Any]) -> str:
 
 
 def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
-    """Render a 1600x1200 High-Density Executive Light-Theme 2D LinkedIn Infographic Poster with Bespoke Centerpiece."""
-    title_lines = _wrap(post["post_title"], width=78, max_lines=2)
-    hook_lines = _wrap(post["original_hook"], width=120, max_lines=2)
+    """Render a 1600x1200 High-Density Executive Light-Theme Glassmorphic 2D LinkedIn Infographic Poster with Bespoke Centerpiece."""
+    title_lines = _wrap(post["post_title"], width=82, max_lines=2)
+    hook_lines = _wrap(post["original_hook"], width=136, max_lines=3)
     claims = post["primary_source"]["verified_claims"]
     metrics = list(post["metrics"].items())[:4]
 
     svg: List[str] = [
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">',
         "<defs>",
-        '  <filter id="dropShadow" x="-2%" y="-2%" width="104%" height="106%">',
-        '    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.06"/>',
+        '  <filter id="dropShadow" x="-3%" y="-3%" width="106%" height="110%">',
+        '    <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0F172A" flood-opacity="0.065"/>',
         "  </filter>",
+        '  <linearGradient id="glassCardGrad" x1="0" y1="0" x2="0" y2="1">',
+        '    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/>',
+        '    <stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.91"/>',
+        "  </linearGradient>",
+        '  <linearGradient id="glassSheen" x1="0" y1="0" x2="0" y2="1">',
+        '    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.72"/>',
+        '    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0"/>',
+        "  </linearGradient>",
+        '  <radialGradient id="meshBlue" cx="14%" cy="18%" r="48%">',
+        '    <stop offset="0%" stop-color="#4285F4" stop-opacity="0.065"/>',
+        '    <stop offset="100%" stop-color="#4285F4" stop-opacity="0.0"/>',
+        "  </radialGradient>",
+        '  <radialGradient id="meshEmerald" cx="86%" cy="20%" r="46%">',
+        '    <stop offset="0%" stop-color="#10B981" stop-opacity="0.055"/>',
+        '    <stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/>',
+        "  </radialGradient>",
+        '  <radialGradient id="meshViolet" cx="50%" cy="84%" r="52%">',
+        '    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.048"/>',
+        '    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"/>',
+        "  </radialGradient>",
+        '  <pattern id="archGrid" width="24" height="24" patternUnits="userSpaceOnUse">',
+        '    <circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.22"/>',
+        "  </pattern>",
         '  <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563EB"/></marker>',
         '  <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#7C3AED"/></marker>',
         '  <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#EA580C"/></marker>',
         '  <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16A34A"/></marker>',
         '  <marker id="arrowTeal" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#0D9488"/></marker>',
         "</defs>",
-        '<!-- Root Canvas: Rule 54 Executive Light (#F8FAFC) -->',
+        '<!-- Root Canvas: Rule 54 Executive Light (#F8FAFC) + Ambient Glassmorphic Mesh -->',
         '<rect x="0" y="0" width="1600" height="1200" fill="#F8FAFC"/>',
+        '<rect x="0" y="0" width="1600" height="1200" fill="url(#meshBlue)"/>',
+        '<rect x="0" y="0" width="1600" height="1200" fill="url(#meshEmerald)"/>',
+        '<rect x="0" y="0" width="1600" height="1200" fill="url(#meshViolet)"/>',
+        '<rect x="0" y="0" width="1600" height="1200" fill="url(#archGrid)"/>',
         '<!-- Google Quad-Color Top Ribbon -->',
         '<rect x="0" y="0" width="400" height="8" fill="#4285F4"/>',
         '<rect x="400" y="0" width="400" height="8" fill="#EA4335"/>',
         '<rect x="800" y="0" width="400" height="8" fill="#FBBC04"/>',
         '<rect x="1200" y="0" width="400" height="8" fill="#34A853"/>',
         '<!-- Header Banner -->',
-        '<rect x="36" y="22" width="1528" height="136" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#dropShadow)"/>',
-        '<rect x="56" y="38" width="240" height="26" rx="6" fill="#E8F0FE" stroke="#4285F4" stroke-width="1"/>',
+        '<rect x="36" y="22" width="1528" height="136" rx="12" fill="url(#glassCardGrad)" stroke="#CBD5E1" stroke-width="1.8" filter="url(#dropShadow)"/>',
+        '<rect x="37.5" y="23.5" width="1525" height="133" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
+        '<rect x="38" y="24" width="1524" height="18" rx="10" fill="url(#glassSheen)"/>',
+        '<rect x="56" y="38" width="240" height="26" rx="6" fill="#E8F0FE" fill-opacity="0.95" stroke="#4285F4" stroke-width="1"/>',
         f'<text x="176" y="55" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#174EA6" text-anchor="middle">{_esc(post["id"])} • 2D ARCHITECTURE SHEET</text>',
-        '<rect x="310" y="38" width="450" height="26" rx="6" fill="#E6F4EA" stroke="#34A853" stroke-width="1"/>',
+        '<rect x="310" y="38" width="450" height="26" rx="6" fill="#E6F4EA" fill-opacity="0.95" stroke="#34A853" stroke-width="1"/>',
         f'<text x="535" y="55" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#0D652D" text-anchor="middle">PRIMARY-SOURCE GROUNDED • {_esc(post["activity_urn"])}</text>',
         '<rect x="1240" y="38" width="302" height="26" rx="6" fill="#0F2942"/>',
         '<text x="1391" y="55" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">GOOGLE CLOUD ADK + OPENHANDS</text>',
@@ -1188,23 +1287,27 @@ def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
         svg.append(
             f'<text x="56" y="{94 + idx * 28}" font-family="Inter, sans-serif" font-size="22" font-weight="800" fill="#0F172A">{_esc(tl)}</text>'
         )
-    primary_short = _wrap(post["primary_source"]["title"], width=66, max_lines=1)[0]
+    primary_short = _wrap(post["primary_source"]["title"], width=72, max_lines=1)[0]
     svg.append(
-        f'<text x="56" y="144" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#475569">'
-        f'Architected on GCP by: Nitin Aggarwal (linkedin.com/in/nitin-aggarwal-b49786a)  |  Signal Creator: {_esc(post["author_name"])}  |  Primary Artifact: {_esc(primary_short)}</text>'
+        f'<text x="56" y="144" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#475569">'
+        f'Architected on Google Cloud by: Nitin Aggarwal  |  Signal Creator: {_esc(post["author_name"])}  |  Primary Artifact: {_esc(primary_short)}</text>'
     )
 
     # Contrarian Hook Strip
     svg.extend(
         [
-            '<rect x="36" y="170" width="1528" height="80" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>',
+            '<rect x="36" y="170" width="1528" height="80" rx="10" fill="url(#glassCardGrad)" stroke="#CBD5E1" stroke-width="1.5" filter="url(#dropShadow)"/>',
+            '<rect x="37.2" y="171.2" width="1525.6" height="77.6" rx="9" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="36" y="170" width="8" height="80" rx="4" fill="#4285F4"/>',
-            '<text x="58" y="192" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#174EA6">EXECUTIVE THESIS &amp; PRODUCTION FAILURE REFRAME</text>',
+            '<text x="58" y="191" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#174EA6">EXECUTIVE THESIS &amp; PRODUCTION FAILURE REFRAME</text>',
         ]
     )
+    hook_y0 = 208 if len(hook_lines) >= 3 else 214
+    hook_lh = 15 if len(hook_lines) >= 3 else 20
+    hook_fs = "12" if len(hook_lines) >= 3 else "13"
     for idx, hl in enumerate(hook_lines):
         svg.append(
-            f'<text x="58" y="{214 + idx * 20}" font-family="Inter, sans-serif" font-size="13.5" font-weight="600" fill="#1E293B">{_esc(hl)}</text>'
+            f'<text x="58" y="{hook_y0 + idx * hook_lh}" font-family="Inter, sans-serif" font-size="{hook_fs}" font-weight="600" fill="#1E293B">{_esc(hl)}</text>'
         )
 
     # Bespoke Post-Specific Visual Centerpiece (y=264..784)
@@ -1213,8 +1316,10 @@ def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
     # Bottom Left: Primary-Source Verified Proofs (x=36..1016, y=800..1100)
     svg.extend(
         [
-            '<rect x="36" y="800" width="970" height="304" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>',
+            '<rect x="36" y="800" width="970" height="304" rx="12" fill="url(#glassCardGrad)" stroke="#CBD5E1" stroke-width="1.8" filter="url(#dropShadow)"/>',
+            '<rect x="37.5" y="801.5" width="967" height="301" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="36" y="800" width="970" height="34" rx="10" fill="#0F2942"/>',
+            '<rect x="38" y="801.5" width="966" height="11" rx="6" fill="#FFFFFF" fill-opacity="0.16"/>',
             f'<text x="58" y="822" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">2. VERIFIED PRIMARY-SOURCE PROOFS &amp; GOOGLE CLOUD NATIVE IMPLEMENTATION ({_esc(post["repo_slug"])})</text>',
         ]
     )
@@ -1234,8 +1339,8 @@ def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
             )
 
     stack_joined = "  •  ".join(post["gcp_stack"][:4])
-    stack_lines = _wrap("GCP Stack: " + stack_joined, width=114, max_lines=2)
-    svg.append('<rect x="56" y="1038" width="930" height="48" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>')
+    stack_lines = _wrap("Google Cloud Stack: " + stack_joined, width=128, max_lines=2)
+    svg.append('<rect x="56" y="1038" width="930" height="48" rx="8" fill="#F8FAFC" fill-opacity="0.90" stroke="#CBD5E1" stroke-width="1.2"/>')
     if len(stack_lines) == 1:
         svg.append(
             f'<text x="72" y="1067" font-family="ui-monospace, monospace" font-size="10.5" font-weight="800" fill="#174EA6">{_esc(stack_lines[0])}</text>'
@@ -1251,8 +1356,10 @@ def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
     # Bottom Right: 2x2 Production Telemetry & Verification Matrix (x=1024..1564, y=800..1100)
     svg.extend(
         [
-            '<rect x="1024" y="800" width="540" height="304" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>',
+            '<rect x="1024" y="800" width="540" height="304" rx="12" fill="url(#glassCardGrad)" stroke="#CBD5E1" stroke-width="1.8" filter="url(#dropShadow)"/>',
+            '<rect x="1025.5" y="801.5" width="537" height="301" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="1024" y="800" width="540" height="34" rx="10" fill="#1B5E7B"/>',
+            '<rect x="1026" y="801.5" width="536" height="11" rx="6" fill="#FFFFFF" fill-opacity="0.18"/>',
             '<text x="1044" y="822" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">3. PRODUCTION TELEMETRY &amp; QUALITY GATES</text>',
         ]
     )
@@ -1266,7 +1373,8 @@ def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
         mv_font = "13.5" if len(mv_str) > 18 else ("17" if len(mv_str) > 12 else "21")
         svg.extend(
             [
-                f'<rect x="{mx}" y="{my}" width="244" height="104" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>',
+                f'<rect x="{mx}" y="{my}" width="244" height="104" rx="8" fill="#F8FAFC" fill-opacity="0.92" stroke="#CBD5E1" stroke-width="1.5"/>',
+                f'<rect x="{mx + 1.2:.1f}" y="{my + 1.2:.1f}" width="241.6" height="101.6" rx="7" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
                 f'<rect x="{mx}" y="{my}" width="244" height="6" rx="3" fill="{accent}"/>',
                 f'<text x="{mx + 14}" y="{my + 34}" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#475569">{_esc(mk.replace("_", " ").upper())}</text>',
                 f'<text x="{mx + 14}" y="{my + 72}" font-family="Inter, sans-serif" font-size="{mv_font}" font-weight="800" fill="#0F172A">{_esc(mv_str)}</text>',
@@ -1276,14 +1384,17 @@ def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
     # Footer Bar
     svg.extend(
         [
-            '<rect x="36" y="1118" width="1528" height="62" rx="10" fill="#0F2942"/>',
-            f'<text x="60" y="1144" font-family="Inter, sans-serif" font-size="13.5" font-weight="800" fill="#FFFFFF">1-CLICK GCP TERRAFORM &amp; OPENHANDS REPO: generated-repos/{_esc(post["repo_slug"])}</text>',
+            '<rect x="36" y="1118" width="1528" height="62" rx="10" fill="#0F2942" filter="url(#dropShadow)"/>',
+            '<rect x="38" y="1119.5" width="1524" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.10"/>',
+            f'<text x="60" y="1144" font-family="Inter, sans-serif" font-size="13.5" font-weight="800" fill="#FFFFFF">1-CLICK GOOGLE CLOUD TERRAFORM &amp; OPENHANDS REPO: generated-repos/{_esc(post["repo_slug"])}</text>',
             '<text x="60" y="1166" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#93C5FD">Deliverables: src/engine.py • tests/test_engine.py • visuals/*.svg/*.drawio/*.png • slides/presentation_deck.pptx • terraform/*.tf</text>',
             '<text x="1540" y="1155" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#86EFAC" text-anchor="end">Proprietary + Confidential</text>',
             "</svg>",
         ]
     )
-    return "\n".join(svg)
+    from src.visuals.template_gallery import flatten_svg_zero_origin
+
+    return flatten_svg_zero_origin("\n".join(svg))
 
 
 def generate_gcp_arch_78_drawio(post: Dict[str, Any]) -> str:
@@ -1561,6 +1672,20 @@ def write_visual_suite_for_post(post: Dict[str, Any], visuals_dir: Path) -> Dict
         shutil.copyfile(dyn_gif, visuals_dir / "dynamic-solution-flow.gif")
     if dyn_png.exists():
         shutil.copyfile(dyn_png, visuals_dir / "dynamic-solution-flow.png")
+
+    plan = post.get("template_and_distribution_plan") or {}
+    lead_tid = plan.get("primary_template_id")
+    if lead_tid:
+        canonical_gallery = workspace_root / "assets" / "template-gallery"
+        legacy_gallery = workspace_root / "generated-repos" / "visual-templates-gallery"
+        for ext in ("svg", "png", "gif", "drawio"):
+            cand = canonical_gallery / f"{lead_tid}.{ext}"
+            if not cand.exists():
+                cand = legacy_gallery / f"{lead_tid}.{ext}"
+            if cand.exists():
+                shutil.copyfile(cand, visuals_dir / f"lead-template.{ext}")
+                if legacy_gallery.exists():
+                    shutil.copyfile(cand, legacy_gallery / f"{lead_tid}.{ext}")
 
     return {
         "linkedin_infographic_svg": str(infographic_svg_path),

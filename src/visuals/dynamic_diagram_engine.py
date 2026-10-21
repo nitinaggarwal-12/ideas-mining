@@ -29,13 +29,36 @@ def _esc(val: Any) -> str:
 
 
 def _wrap(text: str, width: int, max_lines: int = 3) -> List[str]:
-    lines = textwrap.wrap(str(text or "").strip(), width=width)
-    if not lines:
+    clean = str(text or "").strip()
+    if not clean:
         return [""]
+    lines = textwrap.wrap(clean, width=width)
     if len(lines) > max_lines:
-        kept = lines[:max_lines]
-        return kept
+        for extra in range(4, 36, 4):
+            retry = textwrap.wrap(clean, width=width + extra)
+            if len(retry) <= max_lines:
+                return retry
+        return lines[:max_lines]
     return lines
+
+
+def _concise_gcp_primitive(raw: str) -> str:
+    """Return a clean, whole-word Google Cloud primitive name <= 32 chars (zero mid-word slicing)."""
+    base = raw.split("(")[0].strip()
+    if "Gemini 4 Argon" in raw:
+        return "Vertex AI Gemini 4 Argon"
+    if "Gemini 3.8 Flash" in raw:
+        return "Vertex AI Gemini 3.8 Flash"
+    if len(base) <= 32:
+        return base
+    words = base.split()
+    out: List[str] = []
+    for w in words:
+        cand = " ".join(out + [w])
+        if len(cand) > 32:
+            break
+        out.append(w)
+    return " ".join(out) or base[:32]
 
 
 def _normalize_idea_spec(post_or_idea: Dict[str, Any]) -> Dict[str, Any]:
@@ -53,7 +76,7 @@ def _normalize_idea_spec(post_or_idea: Dict[str, Any]) -> Dict[str, Any]:
                 "badge": f"STEP {idx + 1} • STAGE 0{idx + 1}",
                 "title": s["title"],
                 "how_it_works": s["desc"],
-                "gcp_primitive": post_or_idea["gcp_stack"][idx % len(post_or_idea["gcp_stack"])][:34],
+                "gcp_primitive": _concise_gcp_primitive(post_or_idea["gcp_stack"][idx % len(post_or_idea["gcp_stack"])]),
                 "arrow_label": f"Step {idx + 1} -> {idx + 2}",
                 "color": colors[idx % 4],
             }
@@ -61,10 +84,13 @@ def _normalize_idea_spec(post_or_idea: Dict[str, Any]) -> Dict[str, Any]:
     metrics_items = list(post_or_idea.get("metrics", {}).items())
     m1 = f"{metrics_items[0][0]}: {metrics_items[0][1]}" if len(metrics_items) > 0 else "100% Verified"
     m2 = f"{metrics_items[1][0]}: {metrics_items[1][1]}" if len(metrics_items) > 1 else "Zero Drift"
+    src_short = post_or_idea["primary_source"]["title"].split("(")[0].strip()
+    if len(src_short) > 68:
+        src_short = src_short.split(":")[0].strip()
 
     return {
         "id": post_or_idea["id"],
-        "est_post_time": post_or_idea.get("est_post_time", "Published Signal • Verified GCP Repo"),
+        "est_post_time": post_or_idea.get("est_post_time", "Published Signal • Verified Google Cloud Repo"),
         "repo_slug": post_or_idea["repo_slug"],
         "post_title": post_or_idea["post_title"],
         "best_approach_title": post_or_idea["primary_source"]["title"],
@@ -76,7 +102,7 @@ def _normalize_idea_spec(post_or_idea: Dict[str, Any]) -> Dict[str, Any]:
             {"label": "3. Production Outage / Risk", "sub": "Unverified output reaches users"},
         ],
         "dynamic_steps": dyn_steps,
-        "feedback_loop_label": f"Closed-Loop Verification: Stage 4 validates against {post_or_idea['primary_source']['title'][:64]}",
+        "feedback_loop_label": f"Closed-Loop Verification: Stage 4 validates against {src_short}",
         "before_after": {
             "before_metric_1": "Fragile Prompt-Only Wrapper",
             "before_metric_2": "Unverified Hallucination Risk",
@@ -97,15 +123,17 @@ def _render_moving_horizontal_arrow(
     frame_phase: Optional[float] = None,
     dur: str = "1.5s",
 ) -> str:
-    """Render an ultra-visible horizontal arrow with moving dashes, chevron, and glowing packet."""
+    """Render an ultra-visible glassmorphic horizontal arrow with moving dashes, chevron, and 4-layer glowing packet."""
     dash_offset = 0.0 if frame_phase is None else -frame_phase * 24.0
     path_d = f"M {x1 + 4} {y} L {x2 - 12} {y}"
 
     parts = [
-        # Soft background guide track
-        f'<line x1="{x1}" y1="{y}" x2="{x2 - 8}" y2="{y}" stroke="{color}" stroke-opacity="0.16" stroke-width="10" stroke-linecap="round"/>',
+        # Outer luminous glass aura track
+        f'<line x1="{x1}" y1="{y}" x2="{x2 - 8}" y2="{y}" stroke="{color}" stroke-opacity="0.16" stroke-width="11" stroke-linecap="round"/>',
+        # Frosted white inner channel
+        f'<line x1="{x1}" y1="{y}" x2="{x2 - 8}" y2="{y}" stroke="#FFFFFF" stroke-opacity="0.76" stroke-width="5.6" stroke-linecap="round"/>',
         # Animated moving dashed stream
-        f'<line x1="{x1}" y1="{y}" x2="{x2 - 8}" y2="{y}" class="moving-arrow-line" stroke="{color}" stroke-width="4" stroke-dasharray="12 8" stroke-dashoffset="{dash_offset:.1f}"/>',
+        f'<line x1="{x1}" y1="{y}" x2="{x2 - 8}" y2="{y}" class="moving-arrow-line" stroke="{color}" stroke-width="3.8" stroke-dasharray="12 8" stroke-dashoffset="{dash_offset:.1f}"/>',
         # Destination arrowhead
         f'<polygon points="{x2},{y} {x2 - 15},{y - 9} {x2 - 11},{y} {x2 - 15},{y + 9}" fill="{color}"/>',
     ]
@@ -113,9 +141,12 @@ def _render_moving_horizontal_arrow(
     if label:
         mid_x = (x1 + x2) // 2
         pill_w = min(x2 - x1 - 8, max(72, len(label) * 6 + 14))
+        px0 = mid_x - pill_w // 2
+        py0 = y - 36
         parts.extend(
             [
-                f'<rect x="{mid_x - pill_w // 2}" y="{y - 36}" width="{pill_w}" height="22" rx="11" fill="#FFFFFF" stroke="{color}" stroke-width="1.6"/>',
+                f'<rect x="{px0}" y="{py0}" width="{pill_w}" height="22" rx="11" fill="#FFFFFF" fill-opacity="0.95" stroke="{color}" stroke-width="1.6"/>',
+                f'<rect x="{px0 + 2}" y="{py0 + 1.5:.1f}" width="{pill_w - 4}" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.45"/>',
                 f'<text x="{mid_x}" y="{y - 21}" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="{color}" text-anchor="middle">{_esc(label)}</text>',
             ]
         )
@@ -125,8 +156,10 @@ def _render_moving_horizontal_arrow(
             [
                 f'<path id="{arrow_id}_path" d="{path_d}" fill="none" stroke="none"/>',
                 "<g>",
-                f'  <circle r="8" fill="{color}" fill-opacity="0.26"/>',
-                f'  <circle r="4.8" fill="#FFFFFF" stroke="{color}" stroke-width="2.8"/>',
+                f'  <circle r="9.5" fill="{color}" fill-opacity="0.16"/>',
+                f'  <circle r="6.4" fill="{color}" fill-opacity="0.30"/>',
+                f'  <circle r="4.8" fill="#FFFFFF" stroke="{color}" stroke-width="2.6"/>',
+                f'  <circle r="1.9" fill="{color}"/>',
                 f'  <animateMotion dur="{dur}" repeatCount="indefinite"><mpath href="#{arrow_id}_path"/></animateMotion>',
                 "</g>",
             ]
@@ -135,8 +168,10 @@ def _render_moving_horizontal_arrow(
         px = (x1 + 6) + frame_phase * (x2 - 16 - (x1 + 6))
         parts.extend(
             [
-                f'<circle cx="{px:.1f}" cy="{y}" r="8.5" fill="{color}" fill-opacity="0.28"/>',
-                f'<circle cx="{px:.1f}" cy="{y}" r="5" fill="#FFFFFF" stroke="{color}" stroke-width="2.8"/>',
+                f'<circle cx="{px:.1f}" cy="{y}" r="9.5" fill="{color}" fill-opacity="0.16"/>',
+                f'<circle cx="{px:.1f}" cy="{y}" r="6.4" fill="{color}" fill-opacity="0.32"/>',
+                f'<circle cx="{px:.1f}" cy="{y}" r="5" fill="#FFFFFF" stroke="{color}" stroke-width="2.6"/>',
+                f'<circle cx="{px:.1f}" cy="{y}" r="2.0" fill="{color}"/>',
             ]
         )
 
@@ -144,7 +179,7 @@ def _render_moving_horizontal_arrow(
 
 
 def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Optional[float] = None) -> str:
-    """Generate a 1600x980 Executive Light-Theme Dynamic Diagram with Moving Arrows."""
+    """Generate a 1600x980 Executive Light-Theme Glassmorphic Dynamic Diagram with Moving Arrows."""
     idea = _normalize_idea_spec(post_or_idea)
     p_nodes = idea["problem_flow_nodes"][:3]
     d_steps = idea["dynamic_steps"][:4]
@@ -157,9 +192,32 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
     svg: List[str] = [
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">',
         "<defs>",
-        '  <filter id="cardShadow" x="-2%" y="-2%" width="104%" height="108%">',
-        '    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/>',
+        '  <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="110%">',
+        '    <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.065"/>',
         "  </filter>",
+        '  <linearGradient id="glassCardGrad" x1="0" y1="0" x2="0" y2="1">',
+        '    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/>',
+        '    <stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.90"/>',
+        "  </linearGradient>",
+        '  <linearGradient id="glassSheen" x1="0" y1="0" x2="0" y2="1">',
+        '    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.72"/>',
+        '    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0"/>',
+        "  </linearGradient>",
+        '  <radialGradient id="meshBlue" cx="14%" cy="18%" r="48%">',
+        '    <stop offset="0%" stop-color="#4285F4" stop-opacity="0.065"/>',
+        '    <stop offset="100%" stop-color="#4285F4" stop-opacity="0.0"/>',
+        "  </radialGradient>",
+        '  <radialGradient id="meshEmerald" cx="86%" cy="20%" r="46%">',
+        '    <stop offset="0%" stop-color="#10B981" stop-opacity="0.055"/>',
+        '    <stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/>',
+        "  </radialGradient>",
+        '  <radialGradient id="meshViolet" cx="50%" cy="84%" r="52%">',
+        '    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.048"/>',
+        '    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"/>',
+        "  </radialGradient>",
+        '  <pattern id="archGrid" width="24" height="24" patternUnits="userSpaceOnUse">',
+        '    <circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.22"/>',
+        "  </pattern>",
         "  <style>",
         "    @keyframes arrowStream {",
         "      from { stroke-dashoffset: 40; }",
@@ -184,22 +242,28 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
         "    }",
         "  </style>",
         "</defs>",
-        '<!-- Root Canvas: Rule 54 Universal Light Theme (#F8FAFC) -->',
+        '<!-- Root Canvas: Rule 54 Universal Light Theme (#F8FAFC) + Ambient Glassmorphic Mesh -->',
         '<rect x="0" y="0" width="1600" height="980" fill="#F8FAFC"/>',
+        '<rect x="0" y="0" width="1600" height="980" fill="url(#meshBlue)"/>',
+        '<rect x="0" y="0" width="1600" height="980" fill="url(#meshEmerald)"/>',
+        '<rect x="0" y="0" width="1600" height="980" fill="url(#meshViolet)"/>',
+        '<rect x="0" y="0" width="1600" height="980" fill="url(#archGrid)"/>',
         '<!-- Google Quad-Color Top Accent Bar -->',
         '<rect x="0" y="0" width="400" height="7" fill="#4285F4"/>',
         '<rect x="400" y="0" width="400" height="7" fill="#EA4335"/>',
         '<rect x="800" y="0" width="400" height="7" fill="#FBBC04"/>',
         '<rect x="1200" y="0" width="400" height="7" fill="#34A853"/>',
         '<!-- Top Title Banner (y=18..126) -->',
-        '<rect x="36" y="18" width="1528" height="108" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#cardShadow)"/>',
-        '<rect x="56" y="32" width="276" height="24" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.2"/>',
-        f'<text x="194" y="48" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#1D4ED8" text-anchor="middle">{_esc(idea["id"])} • {_esc(idea.get("est_post_time", "MORNING EST"))}</text>',
-        '<rect x="344" y="32" width="380" height="24" rx="6" fill="#ECFDF5" stroke="#059669" stroke-width="1.2"/>',
-        '<text x="534" y="48" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#047857" text-anchor="middle">DAILY AGENTIC AI PAIN POINT &amp; PRODUCTION FIX</text>',
+        '<rect x="36" y="18" width="1528" height="108" rx="12" fill="url(#glassCardGrad)" stroke="#CBD5E1" stroke-width="1.8" filter="url(#cardShadow)"/>',
+        '<rect x="37.5" y="19.5" width="1525" height="105" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
+        '<rect x="38" y="20" width="1524" height="18" rx="10" fill="url(#glassSheen)"/>',
+        '<rect x="56" y="32" width="334" height="24" rx="6" fill="#EFF6FF" fill-opacity="0.95" stroke="#2563EB" stroke-width="1.2"/>',
+        f'<text x="223" y="48" font-family="Inter, sans-serif" font-size="10.8" font-weight="800" fill="#1D4ED8" text-anchor="middle">{_esc(idea["id"])} • {_esc(idea.get("est_post_time", "MORNING EST"))}</text>',
+        '<rect x="402" y="32" width="380" height="24" rx="6" fill="#ECFDF5" fill-opacity="0.95" stroke="#059669" stroke-width="1.2"/>',
+        '<text x="592" y="48" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#047857" text-anchor="middle">DAILY AGENTIC AI PAIN POINT &amp; PRODUCTION FIX</text>',
         '<rect x="1216" y="32" width="328" height="24" rx="6" fill="#0F2942"/>',
         '<text x="1380" y="48" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#38BDF8" text-anchor="middle">&gt;&gt;&gt; DYNAMIC FLOW • MOVING ARROWS</text>',
-        f'<text x="56" y="84" font-family="Inter, sans-serif" font-size="24" font-weight="800" fill="#0F172A">{_esc(idea["post_title"])}</text>',
+        f'<text x="56" y="84" font-family="Inter, sans-serif" font-size="{17.5 if len(idea["post_title"]) > 115 else (20 if len(idea["post_title"]) > 92 else 23.5)}" font-weight="800" fill="#0F172A">{_esc(idea["post_title"])}</text>',
         f'<text x="56" y="110" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" fill="#475569">Best Approach: {_esc(idea["best_approach_title"])}  •  Repo: generated-repos/{_esc(idea["repo_slug"])}</text>',
     ]
 
@@ -208,8 +272,10 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
     # =========================================================================
     svg.extend(
         [
-            '<rect x="36" y="140" width="1528" height="174" rx="12" fill="#FFF5F5" stroke="#FCA5A5" stroke-width="2" filter="url(#cardShadow)"/>',
+            '<rect x="36" y="140" width="1528" height="174" rx="12" fill="#FFF5F5" fill-opacity="0.93" stroke="#FCA5A5" stroke-width="2" filter="url(#cardShadow)"/>',
+            '<rect x="37.5" y="141.5" width="1525" height="171" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/>',
             '<rect x="36" y="140" width="1528" height="32" rx="10" fill="#991B1B"/>',
+            '<rect x="38" y="141.5" width="1524" height="11" rx="6" fill="#FFFFFF" fill-opacity="0.18"/>',
             '<text x="58" y="161" font-family="Inter, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF">1. THE DAILY PROBLEM USERS FACE EVERY DAY — WHAT GOES WRONG IN STANDARD AGENTS</text>',
         ]
     )
@@ -223,8 +289,10 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
         sub_lines = _wrap(pnode["sub"], width=34, max_lines=2)
         svg.extend(
             [
-                f'<rect x="{px}" y="188" width="272" height="106" rx="10" fill="{card_fill}" stroke="{border_col}" stroke-width="2.2"/>',
+                f'<rect x="{px}" y="188" width="272" height="106" rx="10" fill="{card_fill}" fill-opacity="0.94" stroke="{border_col}" stroke-width="2.2" filter="url(#cardShadow)"/>',
+                f'<rect x="{px + 1.2:.1f}" y="189.2" width="269.6" height="103.6" rx="9" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/>',
                 f'<rect x="{px}" y="188" width="272" height="24" rx="8" fill="{border_col}"/>',
+                f'<rect x="{px + 2}" y="189.4" width="268" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.22"/>',
                 f'<text x="{px + 136}" y="204" font-family="Inter, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle">{"FAILURE TRIGGER" if idx == 0 else ("FAILURE AMPLIFIER" if idx == 1 else "DAILY USER PAIN")}</text>',
                 f'<text x="{px + 14}" y="236" font-family="Inter, sans-serif" font-size="13.5" font-weight="800" fill="{title_col}">{_esc(pnode["label"])}</text>',
                 f'<text x="{px + 14}" y="260" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#475569">{_esc(sub_lines[0])}</text>',
@@ -249,17 +317,18 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
             )
 
     # Plain-English Root Cause Box on the Right of Band 1
-    why_lines = _wrap(idea["why_it_happens_plain"], width=56, max_lines=3)
+    why_lines = _wrap(idea["why_it_happens_plain"], width=58, max_lines=4)
     svg.extend(
         [
-            '<rect x="1068" y="186" width="474" height="110" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8"/>',
+            '<rect x="1068" y="186" width="474" height="110" rx="10" fill="url(#glassCardGrad)" stroke="#DC2626" stroke-width="1.8" filter="url(#cardShadow)"/>',
+            '<rect x="1069.2" y="187.2" width="471.6" height="107.6" rx="9" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="1068" y="186" width="8" height="110" rx="4" fill="#DC2626"/>',
-            '<text x="1090" y="210" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#991B1B">WHY THIS HAPPENS (PLAIN-ENGLISH ROOT CAUSE)</text>',
+            '<text x="1090" y="208" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#991B1B">WHY THIS HAPPENS (PLAIN-ENGLISH ROOT CAUSE)</text>',
         ]
     )
     for w_idx, wl in enumerate(why_lines):
         svg.append(
-            f'<text x="1090" y="{234 + w_idx * 20}" font-family="Inter, sans-serif" font-size="12.5" font-weight="600" fill="#1E293B">{_esc(wl)}</text>'
+            f'<text x="1090" y="{229 + w_idx * 17.5:.1f}" font-family="Inter, sans-serif" font-size="11.8" font-weight="600" fill="#1E293B">{_esc(wl)}</text>'
         )
 
     # =========================================================================
@@ -267,8 +336,10 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
     # =========================================================================
     svg.extend(
         [
-            '<rect x="36" y="328" width="1528" height="420" rx="12" fill="#FFFFFF" stroke="#93C5FD" stroke-width="2.2" filter="url(#cardShadow)"/>',
+            '<rect x="36" y="328" width="1528" height="420" rx="12" fill="url(#glassCardGrad)" stroke="#93C5FD" stroke-width="2.2" filter="url(#cardShadow)"/>',
+            '<rect x="37.5" y="329.5" width="1525" height="417" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="36" y="328" width="1528" height="34" rx="10" fill="#0F2942"/>',
+            '<rect x="38" y="329.5" width="1524" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.16"/>',
             '<text x="58" y="350" font-family="Inter, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF">2. THE BEST-PRACTICE ARCHITECTURAL SOLUTION — FOLLOW THE 4-STEP DYNAMIC FLOW &amp; CLOSED-LOOP GUARD</text>',
         ]
     )
@@ -284,8 +355,10 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
 
         svg.extend(
             [
-                f'<rect x="{sx}" y="380" width="284" height="244" rx="12" class="{anim_cls}" fill="#F8FAFC" stroke="{scol}" stroke-width="{stroke_w}"/>',
+                f'<rect x="{sx}" y="380" width="284" height="244" rx="12" class="{anim_cls}" fill="url(#glassCardGrad)" stroke="{scol}" stroke-width="{stroke_w}" filter="url(#cardShadow)"/>',
+                f'<rect x="{sx + 1.2:.1f}" y="381.2" width="281.6" height="241.6" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
                 f'<rect x="{sx}" y="380" width="284" height="34" rx="10" fill="{scol}"/>',
+                f'<rect x="{sx + 2}" y="381.5" width="280" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.22"/>',
                 f'<text x="{sx + 142}" y="402" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">{_esc(st["badge"])}</text>',
                 f'<text x="{sx + 16}" y="442" font-family="Inter, sans-serif" font-size="15.5" font-weight="800" fill="#0F172A">{_esc(st["title"])}</text>',
                 f'<line x1="{sx + 16}" y1="456" x2="{sx + 268}" y2="456" stroke="#CBD5E1" stroke-width="1.2"/>',
@@ -303,7 +376,7 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
         oss_label = st.get("oss_primitive") or oss_step_equivalent(idea["id"], st["step"], st["gcp_primitive"])
         svg.extend(
             [
-                f'<rect x="{sx + 14}" y="{566}" width="256" height="46" rx="8" fill="#FFFFFF" stroke="{scol}" stroke-width="1.6"/>',
+                f'<rect x="{sx + 14}" y="{566}" width="256" height="46" rx="8" fill="#FFFFFF" fill-opacity="0.95" stroke="{scol}" stroke-width="1.6"/>',
                 f'<rect x="{sx + 14}" y="{566}" width="256" height="23" rx="8" fill="{scol}" fill-opacity="0.10"/>',
                 f'<text x="{sx + 24}" y="{582}" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="{scol}">GOOGLE: {_esc(st["gcp_primitive"][:36])}</text>',
                 f'<text x="{sx + 24}" y="{603}" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800" fill="#0F172A">OSS: {_esc(oss_label[:38])}</text>',
@@ -330,7 +403,8 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
     return_path_d = "M 1380 626 L 1380 668 L 198 668 L 198 632"
     svg.extend(
         [
-            f'<path d="{return_path_d}" fill="none" stroke="#059669" stroke-opacity="0.16" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>',
+            f'<path d="{return_path_d}" fill="none" stroke="#059669" stroke-opacity="0.16" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>',
+            f'<path d="{return_path_d}" fill="none" stroke="#FFFFFF" stroke-opacity="0.74" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round"/>',
             f'<path id="closed_loop_return_path" d="{return_path_d}" class="moving-return-line" fill="none" stroke="#059669" stroke-width="3.8" stroke-dasharray="14 10" stroke-dashoffset="{ret_dash_offset:.1f}"/>',
             '<polygon points="198,626 189,641 198,637 207,641" fill="#059669"/>',
             # Left-pointing directional chevrons along the return highway at y=668
@@ -338,7 +412,8 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
             '<polygon points="790,668 802,661 800,668 802,675" fill="#059669"/>',
             '<polygon points="1100,668 1112,661 1110,668 1112,675" fill="#059669"/>',
             # Unobstructed Closed-Loop Label Pill below the return highway (y=694..730)
-            '<rect x="230" y="694" width="1140" height="34" rx="17" fill="#ECFDF5" stroke="#059669" stroke-width="1.8"/>',
+            '<rect x="230" y="694" width="1140" height="34" rx="17" fill="#ECFDF5" fill-opacity="0.95" stroke="#059669" stroke-width="1.8"/>',
+            '<rect x="234" y="696" width="1132" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.42"/>',
             f'<text x="800" y="716" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#065F46" text-anchor="middle">CLOSED-LOOP FEEDBACK &lt;&lt;&lt; {_esc(idea["feedback_loop_label"])}</text>',
         ]
     )
@@ -347,8 +422,10 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
         svg.extend(
             [
                 "<g>",
-                '  <circle r="8.5" fill="#059669" fill-opacity="0.26"/>',
-                '  <circle r="5" fill="#FFFFFF" stroke="#059669" stroke-width="2.8"/>',
+                '  <circle r="9.5" fill="#059669" fill-opacity="0.16"/>',
+                '  <circle r="6.4" fill="#059669" fill-opacity="0.30"/>',
+                '  <circle r="5" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/>',
+                '  <circle r="2" fill="#059669"/>',
                 '  <animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#closed_loop_return_path"/></animateMotion>',
                 "</g>",
             ]
@@ -359,8 +436,10 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
         for rx_val in (rx1, rx2):
             svg.extend(
                 [
-                    f'<circle cx="{rx_val:.1f}" cy="668" r="8.5" fill="#059669" fill-opacity="0.28"/>',
-                    f'<circle cx="{rx_val:.1f}" cy="668" r="5" fill="#FFFFFF" stroke="#059669" stroke-width="2.8"/>',
+                    f'<circle cx="{rx_val:.1f}" cy="668" r="9.5" fill="#059669" fill-opacity="0.16"/>',
+                    f'<circle cx="{rx_val:.1f}" cy="668" r="6.4" fill="#059669" fill-opacity="0.32"/>',
+                    f'<circle cx="{rx_val:.1f}" cy="668" r="5" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/>',
+                    f'<circle cx="{rx_val:.1f}" cy="668" r="2" fill="#059669"/>',
                 ]
             )
 
@@ -370,12 +449,14 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
     # Card A: BEFORE (x=36..486, width=450)
     svg.extend(
         [
-            '<rect x="36" y="764" width="450" height="196" rx="12" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="2" filter="url(#cardShadow)"/>',
+            '<rect x="36" y="764" width="450" height="196" rx="12" fill="url(#glassCardGrad)" stroke="#FCA5A5" stroke-width="2" filter="url(#cardShadow)"/>',
+            '<rect x="37.5" y="765.5" width="447" height="193" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="36" y="764" width="450" height="32" rx="10" fill="#991B1B"/>',
+            '<rect x="38" y="765.5" width="446" height="11" rx="6" fill="#FFFFFF" fill-opacity="0.20"/>',
             '<text x="56" y="785" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">[X] BEFORE (STANDARD UNPROTECTED AGENT)</text>',
-            '<rect x="54" y="812" width="414" height="56" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1.5"/>',
+            '<rect x="54" y="812" width="414" height="56" rx="8" fill="#FEF2F2" fill-opacity="0.94" stroke="#FECACA" stroke-width="1.5"/>',
             f'<text x="72" y="846" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#991B1B">✘ {_esc(ba["before_metric_1"])}</text>',
-            '<rect x="54" y="882" width="414" height="56" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1.5"/>',
+            '<rect x="54" y="882" width="414" height="56" rx="8" fill="#FEF2F2" fill-opacity="0.94" stroke="#FECACA" stroke-width="1.5"/>',
             f'<text x="72" y="916" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#991B1B">✘ {_esc(ba["before_metric_2"])}</text>',
         ]
     )
@@ -397,12 +478,14 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
     # Card B: AFTER (x=578..1028, width=450)
     svg.extend(
         [
-            '<rect x="578" y="764" width="450" height="196" rx="12" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2.2" filter="url(#cardShadow)"/>',
+            '<rect x="578" y="764" width="450" height="196" rx="12" fill="url(#glassCardGrad)" stroke="#6EE7B7" stroke-width="2.2" filter="url(#cardShadow)"/>',
+            '<rect x="579.5" y="765.5" width="447" height="193" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             '<rect x="578" y="764" width="450" height="32" rx="10" fill="#065F46"/>',
+            '<rect x="580" y="765.5" width="446" height="11" rx="6" fill="#FFFFFF" fill-opacity="0.20"/>',
             '<text x="598" y="785" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">[✓] AFTER (ENGINEERED HARNESS: GOOGLE CLOUD + OPEN SOURCE)</text>',
-            '<rect x="596" y="812" width="414" height="56" rx="8" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1.8"/>',
+            '<rect x="596" y="812" width="414" height="56" rx="8" fill="#ECFDF5" fill-opacity="0.94" stroke="#A7F3D0" stroke-width="1.8"/>',
             f'<text x="614" y="846" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#065F46">✓ {_esc(ba["after_metric_1"])}</text>',
-            '<rect x="596" y="882" width="414" height="56" rx="8" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1.8"/>',
+            '<rect x="596" y="882" width="414" height="56" rx="8" fill="#ECFDF5" fill-opacity="0.94" stroke="#A7F3D0" stroke-width="1.8"/>',
             f'<text x="614" y="916" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#065F46">✓ {_esc(ba["after_metric_2"])}</text>',
         ]
     )
@@ -413,6 +496,7 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
     svg.extend(
         [
             '<rect x="1052" y="764" width="512" height="196" rx="12" fill="#0F2942" stroke="#1E3A8A" stroke-width="2" filter="url(#cardShadow)"/>',
+            '<rect x="1054" y="765.5" width="508" height="14" rx="8" fill="#FFFFFF" fill-opacity="0.10"/>',
             '<rect x="1072" y="780" width="248" height="24" rx="6" fill="#1D4ED8"/>',
             '<text x="1196" y="796" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">GOLDEN RULE TO APPLY TODAY</text>',
         ]
@@ -431,7 +515,9 @@ def generate_dynamic_solution_svg(post_or_idea: Dict[str, Any], frame_phase: Opt
             "</svg>",
         ]
     )
-    return "\n".join(svg)
+    from src.visuals.template_gallery import flatten_svg_zero_origin
+
+    return flatten_svg_zero_origin("\n".join(svg))
 
 
 def render_animated_gif_for_idea(

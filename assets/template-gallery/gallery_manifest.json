@@ -1,6 +1,5 @@
 {
-  "template_count": 40,
-  "count": 40,
+  "template_count": 68,
   "templates": [
     {
       "id": "T01",
@@ -13,9 +12,11 @@
       ],
       "when_to_use": "A reader feels a daily pain and wants the exact 4-step fix with before/after proof.",
       "dynamic": "Moving arrows between steps, closed-loop return highway, traveling packets, upgrade arrow.",
-      "svg": "assets/template-gallery/T01.svg",
-      "gif": "assets/template-gallery/T01.gif",
-      "png": "assets/template-gallery/T01.png"
+      "files": {
+        "svg": "T01.svg",
+        "gif": "T01.gif",
+        "png": "T01.png"
+      }
     },
     {
       "id": "T02",
@@ -28,9 +29,11 @@
       ],
       "when_to_use": "Two paths look identical at the start but diverge (security, reliability, compliance).",
       "dynamic": "Green vs. red packet streams, purple control-intercept flows, pulsing invariant.",
-      "svg": "assets/template-gallery/T02.svg",
-      "gif": "assets/template-gallery/T02.gif",
-      "png": "assets/template-gallery/T02.png"
+      "files": {
+        "svg": "T02.svg",
+        "gif": "T02.gif",
+        "png": "T02.png"
+      }
     },
     {
       "id": "T03",
@@ -43,9 +46,11 @@
       ],
       "when_to_use": "One central engine with many orbiting subsystems (harness layers, platform services).",
       "dynamic": "10 spokes streaming packets into a pulsing core.",
-      "svg": "assets/template-gallery/T03.svg",
-      "gif": "assets/template-gallery/T03.gif",
-      "png": "assets/template-gallery/T03.png"
+      "files": {
+        "svg": "T03.svg",
+        "gif": "T03.gif",
+        "png": "T03.png"
+      }
     },
     {
       "id": "T04",
@@ -58,9 +63,11 @@
       ],
       "when_to_use": "Explain a platform from foundation to experience with guarantees per layer.",
       "dynamic": "Request descends on the left rail, verified response ascends on the right rail.",
-      "svg": "assets/template-gallery/T04.svg",
-      "gif": "assets/template-gallery/T04.gif",
-      "png": "assets/template-gallery/T04.png"
+      "files": {
+        "svg": "T04.svg",
+        "gif": "T04.gif",
+        "png": "T04.png"
+      }
     },
     {
       "id": "T05",
@@ -73,9 +80,11 @@
       ],
       "when_to_use": "A process repeats until a gate exits (agent loops, CI loops, retraining).",
       "dynamic": "Packets orbit the loop arcs; entry and exit arrows; pulsing core.",
-      "svg": "assets/template-gallery/T05.svg",
-      "gif": "assets/template-gallery/T05.gif",
-      "png": "assets/template-gallery/T05.png"
+      "files": {
+        "svg": "T05.svg",
+        "gif": "T05.gif",
+        "png": "T05.png"
+      }
     },
     {
       "id": "T06",
@@ -88,9 +97,11 @@
       ],
       "when_to_use": "Show exactly who calls whom, in what order, including retry loops.",
       "dynamic": "Numbered messages stream packets between lifelines; loop fragment highlighted.",
-      "svg": "assets/template-gallery/T06.svg",
-      "gif": "assets/template-gallery/T06.gif",
-      "png": "assets/template-gallery/T06.png"
+      "files": {
+        "svg": "T06.svg",
+        "gif": "T06.gif",
+        "png": "T06.png"
+      }
     },
     {
       "id": "T07",
@@ -103,9 +114,11 @@
       ],
       "when_to_use": "A routing policy or architectural decision with 2-3 gates.",
       "dynamic": "YES/NO branches carry packets to color-coded outcomes.",
-      "svg": "assets/template-gallery/T07.svg",
-      "gif": "assets/template-gallery/T07.gif",
-      "png": "assets/template-gallery/T07.png"
+      "files": {
+        "svg": "T07.svg",
+        "gif": "T07.gif",
+        "png": "T07.png"
+      }
     },
     {
       "id": "T08",
@@ -118,9 +131,11 @@
       ],
       "when_to_use": "Before/after measurements with sources and deltas.",
       "dynamic": "Bars grow on load; delta pills; methodology panel.",
-      "svg": "assets/template-gallery/T08.svg",
-      "gif": "assets/template-gallery/T08.gif",
-      "png": "assets/template-gallery/T08.png"
+      "files": {
+        "svg": "T08.svg",
+        "gif": "T08.gif",
+        "png": "T08.png"
+      }
     },
     {
       "id": "T09",
@@ -133,9 +148,11 @@
       ],
       "when_to_use": "How a field evolved and why each era's failure created the next architecture.",
       "dynamic": "Packets travel the spine; era cards alternate above/below; pattern chain arrows.",
-      "svg": "assets/template-gallery/T09.svg",
-      "gif": "assets/template-gallery/T09.gif",
-      "png": "assets/template-gallery/T09.png"
+      "files": {
+        "svg": "T09.svg",
+        "gif": "T09.gif",
+        "png": "T09.png"
+      }
     },
     {
       "id": "T10",
@@ -148,9 +165,11 @@
       ],
       "when_to_use": "Large raw input is filtered through gates into a few promoted outputs.",
       "dynamic": "Packets fall through the funnel; stage filters connect to annotation cards.",
-      "svg": "assets/template-gallery/T10.svg",
-      "gif": "assets/template-gallery/T10.gif",
-      "png": "assets/template-gallery/T10.png"
+      "files": {
+        "svg": "T10.svg",
+        "gif": "T10.gif",
+        "png": "T10.png"
+      }
     },
     {
       "id": "T11",
@@ -163,9 +182,11 @@
       ],
       "when_to_use": "Position options on two axes and show the migration path to the target quadrant.",
       "dynamic": "Breathing dots, axis flows, dashed migration arrows with labels.",
-      "svg": "assets/template-gallery/T11.svg",
-      "gif": "assets/template-gallery/T11.gif",
-      "png": "assets/template-gallery/T11.png"
+      "files": {
+        "svg": "T11.svg",
+        "gif": "T11.gif",
+        "png": "T11.png"
+      }
     },
     {
       "id": "T12",
@@ -178,9 +199,11 @@
       ],
       "when_to_use": "Explain each part of a prompt, brief, config, or payload and why it matters.",
       "dynamic": "Leader packets flow from 6 callouts into the central artifact.",
-      "svg": "assets/template-gallery/T12.svg",
-      "gif": "assets/template-gallery/T12.gif",
-      "png": "assets/template-gallery/T12.png"
+      "files": {
+        "svg": "T12.svg",
+        "gif": "T12.gif",
+        "png": "T12.png"
+      }
     },
     {
       "id": "T13",
@@ -193,9 +216,11 @@
       ],
       "when_to_use": "Show the naive implementation next to the production one, line by line.",
       "dynamic": "Transformation arrows jump from the bad lines to the fixed lines.",
-      "svg": "assets/template-gallery/T13.svg",
-      "gif": "assets/template-gallery/T13.gif",
-      "png": "assets/template-gallery/T13.png"
+      "files": {
+        "svg": "T13.svg",
+        "gif": "T13.gif",
+        "png": "T13.png"
+      }
     },
     {
       "id": "T14",
@@ -208,9 +233,11 @@
       ],
       "when_to_use": "A pass/partial/fail audit with evidence and the next fixes.",
       "dynamic": "Scan packet sweeps the rows; FAIL pills blink; gauge arc fills.",
-      "svg": "assets/template-gallery/T14.svg",
-      "gif": "assets/template-gallery/T14.gif",
-      "png": "assets/template-gallery/T14.png"
+      "files": {
+        "svg": "T14.svg",
+        "gif": "T14.gif",
+        "png": "T14.png"
+      }
     },
     {
       "id": "T15",
@@ -223,9 +250,11 @@
       ],
       "when_to_use": "Map a field: center topic, 6 branches, 18 grounded leaves.",
       "dynamic": "Curved branch flows stream packets outward from a pulsing center.",
-      "svg": "assets/template-gallery/T15.svg",
-      "gif": "assets/template-gallery/T15.gif",
-      "png": "assets/template-gallery/T15.png"
+      "files": {
+        "svg": "T15.svg",
+        "gif": "T15.gif",
+        "png": "T15.png"
+      }
     },
     {
       "id": "T16",
@@ -238,9 +267,11 @@
       ],
       "when_to_use": "Compare levels or options across capabilities with a highlighted recommendation.",
       "dynamic": "Recommended column pulses with a vertical scan; color-graded cells.",
-      "svg": "assets/template-gallery/T16.svg",
-      "gif": "assets/template-gallery/T16.gif",
-      "png": "assets/template-gallery/T16.png"
+      "files": {
+        "svg": "T16.svg",
+        "gif": "T16.gif",
+        "png": "T16.png"
+      }
     },
     {
       "id": "T17",
@@ -253,9 +284,11 @@
       ],
       "when_to_use": "Six headline metrics with trend, delta, and measurement method.",
       "dynamic": "Packets trace each sparkline from BEFORE to AFTER.",
-      "svg": "assets/template-gallery/T17.svg",
-      "gif": "assets/template-gallery/T17.gif",
-      "png": "assets/template-gallery/T17.png"
+      "files": {
+        "svg": "T17.svg",
+        "gif": "T17.gif",
+        "png": "T17.png"
+      }
     },
     {
       "id": "T18",
@@ -268,9 +301,11 @@
       ],
       "when_to_use": "Walk readers through a repository: file -> responsibility -> architectural tier.",
       "dynamic": "Leader packets link tree rows to responsibility cards and tier badges.",
-      "svg": "assets/template-gallery/T18.svg",
-      "gif": "assets/template-gallery/T18.gif",
-      "png": "assets/template-gallery/T18.png"
+      "files": {
+        "svg": "T18.svg",
+        "gif": "T18.gif",
+        "png": "T18.png"
+      }
     },
     {
       "id": "T19",
@@ -283,9 +318,11 @@
       ],
       "when_to_use": "Bust 5 common assumptions with evidence-backed realities.",
       "dynamic": "GROUNDED FIX arrows carry packets from each myth to its reality.",
-      "svg": "assets/template-gallery/T19.svg",
-      "gif": "assets/template-gallery/T19.gif",
-      "png": "assets/template-gallery/T19.png"
+      "files": {
+        "svg": "T19.svg",
+        "gif": "T19.gif",
+        "png": "T19.png"
+      }
     },
     {
       "id": "T20",
@@ -298,9 +335,11 @@
       ],
       "when_to_use": "Compare two designs across 6 dimensions with a rubric.",
       "dynamic": "Polygon grows into place while packets orbit its outline.",
-      "svg": "assets/template-gallery/T20.svg",
-      "gif": "assets/template-gallery/T20.gif",
-      "png": "assets/template-gallery/T20.png"
+      "files": {
+        "svg": "T20.svg",
+        "gif": "T20.gif",
+        "png": "T20.png"
+      }
     },
     {
       "id": "T21",
@@ -313,10 +352,12 @@
       ],
       "when_to_use": "A reader asks 'should this be a chain, a router, parallel calls, an orchestrator, an evaluator loop, or an agent?'",
       "dynamic": "Six live mini-schematics with packets; gate diamonds; feedback loops.",
-      "lineage": "Anthropic, Building effective agents (Dec 2024)",
-      "svg": "assets/template-gallery/T21.svg",
-      "gif": "assets/template-gallery/T21.gif",
-      "png": "assets/template-gallery/T21.png"
+      "lineage": "Anthropic, Building effective agents \u2022 Google ADK workflow agents",
+      "files": {
+        "svg": "T21.svg",
+        "gif": "T21.gif",
+        "png": "T21.png"
+      }
     },
     {
       "id": "T22",
@@ -330,9 +371,11 @@
       "when_to_use": "Teach the Explore \u2192 Plan \u2192 Code \u2192 Commit loop + Boris Cherny's 10 internal Claude Code habits (/loop, /desktop, /context, Goal+Effort+Check).",
       "dynamic": "Phase arrows, growing thinking-budget bars, TDD loop-back arrow.",
       "lineage": "Charlie Hills (Boris Cherny 10 Claude Code tips & 42 add-ons) \u2022 Anthropic Claude Code guide",
-      "svg": "assets/template-gallery/T22.svg",
-      "gif": "assets/template-gallery/T22.gif",
-      "png": "assets/template-gallery/T22.png"
+      "files": {
+        "svg": "T22.svg",
+        "gif": "T22.gif",
+        "png": "T22.png"
+      }
     },
     {
       "id": "T23",
@@ -346,9 +389,11 @@
       "when_to_use": "Show exactly where 200K tokens go and what compaction + just-in-time retrieval frees up.",
       "dynamic": "Stacked ledgers grow; packets migrate from the bloated budget to the lean one.",
       "lineage": "Anthropic, Effective context engineering (Sep 2025)",
-      "svg": "assets/template-gallery/T23.svg",
-      "gif": "assets/template-gallery/T23.gif",
-      "png": "assets/template-gallery/T23.png"
+      "files": {
+        "svg": "T23.svg",
+        "gif": "T23.gif",
+        "png": "T23.png"
+      }
     },
     {
       "id": "T24",
@@ -362,25 +407,29 @@
       "when_to_use": "Walk a team from 100 traces to a failure taxonomy, a Pareto, and a binary judge per failure mode.",
       "dynamic": "Notes flow into taxonomy buckets; Pareto bars grow.",
       "lineage": "Hamel Husain & Shreya Shankar, AI Evals method",
-      "svg": "assets/template-gallery/T24.svg",
-      "gif": "assets/template-gallery/T24.gif",
-      "png": "assets/template-gallery/T24.png"
+      "files": {
+        "svg": "T24.svg",
+        "gif": "T24.gif",
+        "png": "T24.png"
+      }
     },
     {
       "id": "T25",
       "name": "Judge Calibration Card",
-      "best_for_short": "Trustworthy LLM-as-a-judge",
+      "best_for_short": "Calibrated binary rubric judges",
       "content_types": [
         "Evaluation results",
         "Research topics",
         "Professional knowledge sharing"
       ],
-      "when_to_use": "Before anyone quotes a judge score: confusion matrix vs humans, known biases, the fix for each, a prompt skeleton.",
+      "when_to_use": "Before anyone quotes an LLM-as-a-judge dashboard: deterministic hard-gates first, cross-family confusion matrix (TPR/TNR >= 0.90), 5 judge biases -> fixes.",
       "dynamic": "Matrix cells reveal in sequence; bias \u2192 fix arrows carry packets.",
-      "lineage": "Eugene Yan \u2022 Shreya Shankar \u2022 MT-Bench (Zheng et al. 2023)",
-      "svg": "assets/template-gallery/T25.svg",
-      "gif": "assets/template-gallery/T25.gif",
-      "png": "assets/template-gallery/T25.png"
+      "lineage": "Hamel Husain \u2022 Shreya Shankar \u2022 Eugene Yan \u2022 Vertex AI Eval & Promptfoo",
+      "files": {
+        "svg": "T25.svg",
+        "gif": "T25.gif",
+        "png": "T25.png"
+      }
     },
     {
       "id": "T26",
@@ -394,9 +443,11 @@
       "when_to_use": "Explain how to grade an agent's tool-call sequence, not just its final answer.",
       "dynamic": "Packets step through expected vs actual calls; metric rows compute live.",
       "lineage": "Google, Agents Companion whitepaper (Feb 2025)",
-      "svg": "assets/template-gallery/T26.svg",
-      "gif": "assets/template-gallery/T26.gif",
-      "png": "assets/template-gallery/T26.png"
+      "files": {
+        "svg": "T26.svg",
+        "gif": "T26.gif",
+        "png": "T26.png"
+      }
     },
     {
       "id": "T27",
@@ -410,25 +461,29 @@
       "when_to_use": "A numbered sequence & lifeline walkthrough of a protocol or control plane (MCP 9-message JSON-RPC 2.0 flow).",
       "dynamic": "Numbered message cards light up in order with packets traveling across 3 lifelines.",
       "lineage": "Brij Kishore Pandey (7-Layer Control Plane & MCP) \u2022 ByteByteGo \u2022 MCP specification",
-      "svg": "assets/template-gallery/T27.svg",
-      "gif": "assets/template-gallery/T27.gif",
-      "png": "assets/template-gallery/T27.png"
+      "files": {
+        "svg": "T27.svg",
+        "gif": "T27.gif",
+        "png": "T27.png"
+      }
     },
     {
       "id": "T28",
       "name": "Sketch Explainer",
-      "best_for_short": "Hand-drawn concept cards",
+      "best_for_short": "2026 Agent Context Grounding (5 modes)",
       "content_types": [
         "Educational",
         "Easy to understand",
         "Grounded concepts"
       ],
-      "when_to_use": "A warm, sketched comparison of 5 options (here: chunking strategies) with 'start with' defaults.",
-      "dynamic": "Scissor packets travel the cut lines; tilted cards; marker typography.",
-      "lineage": "Avi Chawla & Akshay Pachaar sketch format \u2022 Anthropic Contextual Retrieval (Sep 2024)",
-      "svg": "assets/template-gallery/T28.svg",
-      "gif": "assets/template-gallery/T28.gif",
-      "png": "assets/template-gallery/T28.png"
+      "when_to_use": "Compare 5 modern agent context-grounding strategies (Naive Chunks vs. AST/Structure vs. Agentic ripgrep vs. KV Prefix Cache vs. Contextual Hybrid + SHA).",
+      "dynamic": "Packets travel the cut lines; zero-origin orthogonal cards; marker typography.",
+      "lineage": "Avi Chawla & Akshay Pachaar sketch format \u2022 Claude Code AST/Grep & Contextual Hybrid RAG",
+      "files": {
+        "svg": "T28.svg",
+        "gif": "T28.gif",
+        "png": "T28.png"
+      }
     },
     {
       "id": "T29",
@@ -442,9 +497,11 @@
       "when_to_use": "Readers verify the math themselves: here Cohen's kappa for judge vs human agreement on grid paper.",
       "dynamic": "Steps reveal one by one; a packet traces the computation path.",
       "lineage": "Tom Yeh, AI by Hand format",
-      "svg": "assets/template-gallery/T29.svg",
-      "gif": "assets/template-gallery/T29.gif",
-      "png": "assets/template-gallery/T29.png"
+      "files": {
+        "svg": "T29.svg",
+        "gif": "T29.gif",
+        "png": "T29.png"
+      }
     },
     {
       "id": "T30",
@@ -458,9 +515,11 @@
       "when_to_use": "One paper, one recreated chart, problem/method/result, caveats, and a read/skim/skip verdict.",
       "dynamic": "Chart bars grow; verdict gauge fills; method pipeline carries a packet.",
       "lineage": "Pascal Biese (LLM Watch) & Elvis Saravia (DAIR.AI) digest format",
-      "svg": "assets/template-gallery/T30.svg",
-      "gif": "assets/template-gallery/T30.gif",
-      "png": "assets/template-gallery/T30.png"
+      "files": {
+        "svg": "T30.svg",
+        "gif": "T30.gif",
+        "png": "T30.png"
+      }
     },
     {
       "id": "T31",
@@ -474,41 +533,47 @@
       "when_to_use": "Show real code, the real output, and what it proves \u2014 then the clone command.",
       "dynamic": "Terminal output types in line by line; a packet runs down the code gutter.",
       "lineage": "Shubham Saboo (awesome-llm-apps) & Nir Diamant demo-repo format",
-      "svg": "assets/template-gallery/T31.svg",
-      "gif": "assets/template-gallery/T31.gif",
-      "png": "assets/template-gallery/T31.png"
+      "files": {
+        "svg": "T31.svg",
+        "gif": "T31.gif",
+        "png": "T31.png"
+      }
     },
     {
       "id": "T32",
-      "name": "Ng's Four Patterns",
-      "best_for_short": "Agentic workflow basics",
+      "name": "Verifier Harness Leap",
+      "best_for_short": "Fast Flash + Verifier vs. Frontier Zero-Shot",
       "content_types": [
         "Educational",
         "Ideas",
         "Easy to understand"
       ],
-      "when_to_use": "Explain why agentic loops beat bigger models with the HumanEval chart and the four design patterns.",
-      "dynamic": "Bars grow to 95.1%; each pattern has a live mini-loop.",
-      "lineage": "Andrew Ng, Sequoia AI Ascent (Mar 2024)",
-      "svg": "assets/template-gallery/T32.svg",
-      "gif": "assets/template-gallery/T32.gif",
-      "png": "assets/template-gallery/T32.png"
+      "when_to_use": "Show why a fast Flash/32B model wrapped in a sandbox verifier + reflection harness beats a 10x larger frontier model zero-shot (89.4% vs 61.0%).",
+      "dynamic": "Bars grow to 89.4%; each of the 4 harness patterns runs a live mini-loop.",
+      "lineage": "Andrew Ng 4 Agentic Patterns \u2022 2026 OpenHands & ADK Verifier Harness Benchmark",
+      "files": {
+        "svg": "T32.svg",
+        "gif": "T32.gif",
+        "png": "T32.png"
+      }
     },
     {
       "id": "T33",
       "name": "Jagged Frontier Map",
-      "best_for_short": "Where agents work today",
+      "best_for_short": "2026 Agent Autonomy Frontier",
       "content_types": [
         "Ideas",
         "Professional knowledge sharing",
         "Grounded concepts"
       ],
-      "when_to_use": "Place concrete tasks inside/outside the capability frontier and show how to redraw it monthly.",
+      "when_to_use": "Map 2026 tasks where sandboxed agents with deterministic verifiers exceed 88% reliability vs. production traps that require human gates.",
       "dynamic": "Frontier edge pulses with orbiting packets.",
-      "lineage": "Ethan Mollick, jagged frontier (Dell'Acqua et al. 2023)",
-      "svg": "assets/template-gallery/T33.svg",
-      "gif": "assets/template-gallery/T33.gif",
-      "png": "assets/template-gallery/T33.png"
+      "lineage": "Ethan Mollick Jagged Frontier \u2022 2026 Enterprise Agent Autonomy Telemetry",
+      "files": {
+        "svg": "T33.svg",
+        "gif": "T33.gif",
+        "png": "T33.png"
+      }
     },
     {
       "id": "T34",
@@ -522,25 +587,29 @@
       "when_to_use": "Any agent that has private data + untrusted content + outbound comms can be made to leak; show which leg to remove.",
       "dynamic": "Packets from each circle converge on a pulsing danger core.",
       "lineage": "Simon Willison, The lethal trifecta for AI agents (Jun 2025)",
-      "svg": "assets/template-gallery/T34.svg",
-      "gif": "assets/template-gallery/T34.gif",
-      "png": "assets/template-gallery/T34.png"
+      "files": {
+        "svg": "T34.svg",
+        "gif": "T34.gif",
+        "png": "T34.png"
+      }
     },
     {
       "id": "T35",
       "name": "Orchestrator + Subagents",
-      "best_for_short": "Multi-agent research systems",
+      "best_for_short": "Subagent context firewalls & 15x rule",
       "content_types": [
         "Grounded concepts",
         "Research topics",
         "Working solution"
       ],
-      "when_to_use": "Explain lead/subagent fan-out and when 15x tokens is worth it, with Anthropic's reported numbers.",
-      "dynamic": "Spawn packets fan out and results fan back in to synthesis.",
-      "lineage": "Anthropic, How we built our multi-agent research system (Jun 2025)",
-      "svg": "assets/template-gallery/T35.svg",
-      "gif": "assets/template-gallery/T35.gif",
-      "png": "assets/template-gallery/T35.png"
+      "when_to_use": "Explain how disposable subagent context firewalls keep the lead orchestrator clean (+90.2% win rate) and when the 15x token multiplier is worth it.",
+      "dynamic": "Spawn packets fan out and verified digests fan back in to synthesis.",
+      "lineage": "Anthropic Multi-Agent Research System \u2022 ADK ParallelAgent & Context-Firewall Pattern",
+      "files": {
+        "svg": "T35.svg",
+        "gif": "T35.gif",
+        "png": "T35.png"
+      }
     },
     {
       "id": "T36",
@@ -554,9 +623,11 @@
       "when_to_use": "Decompose cost per task into tokens, tools, retries, judges \u2014 then show the four levers.",
       "dynamic": "Waterfall bars drop in sequence; a scan packet crosses the chart.",
       "lineage": "Chip Huyen-style practical AI economics",
-      "svg": "assets/template-gallery/T36.svg",
-      "gif": "assets/template-gallery/T36.gif",
-      "png": "assets/template-gallery/T36.png"
+      "files": {
+        "svg": "T36.svg",
+        "gif": "T36.gif",
+        "png": "T36.png"
+      }
     },
     {
       "id": "T37",
@@ -570,9 +641,11 @@
       "when_to_use": "Tell the $84 retry-storm story on a timeline and name the control + kill-switch that stops it at each step.",
       "dynamic": "Severity packets run down the timeline; green control cards attach per event.",
       "lineage": "Brij Kishore Pandey (How Do We Turn It Off? & 10-Field Agent Record) \u2022 Google SRE Postmortem",
-      "svg": "assets/template-gallery/T37.svg",
-      "gif": "assets/template-gallery/T37.gif",
-      "png": "assets/template-gallery/T37.png"
+      "files": {
+        "svg": "T37.svg",
+        "gif": "T37.gif",
+        "png": "T37.png"
+      }
     },
     {
       "id": "T38",
@@ -586,25 +659,29 @@
       "when_to_use": "Bad vs good tool JSON side by side with the five rules from Anthropic's tool-writing guide.",
       "dynamic": "Transformation arrows jump from each flaw to its fix.",
       "lineage": "Anthropic (Writing effective tools) \u2022 Brij Kishore Pandey (5-Layer Claude Code ADK & SKILL.md)",
-      "svg": "assets/template-gallery/T38.svg",
-      "gif": "assets/template-gallery/T38.gif",
-      "png": "assets/template-gallery/T38.png"
+      "files": {
+        "svg": "T38.svg",
+        "gif": "T38.gif",
+        "png": "T38.png"
+      }
     },
     {
       "id": "T39",
       "name": "Memory Design Matrix",
-      "best_for_short": "Agent memory decisions",
+      "best_for_short": "4 Memories for Coding & SRE Agents",
       "content_types": [
         "Grounded concepts",
         "Educational",
         "Information"
       ],
-      "when_to_use": "One request touches four memory types; decide what to store where, with freshness rules.",
-      "dynamic": "A request packet touches each memory store before the agent acts.",
-      "lineage": "CoALA (Sumers et al. 2023) \u2022 Lilian Weng (2023) \u2022 Aishwarya Naresh Reganti memory infographics",
-      "svg": "assets/template-gallery/T39.svg",
-      "gif": "assets/template-gallery/T39.gif",
-      "png": "assets/template-gallery/T39.png"
+      "when_to_use": "Show how a production coding & SRE agent uses Working, Episodic, Semantic (Git-SHA receipts), and Procedural (AGENTS.md / SKILL.md) memory on a real PR.",
+      "dynamic": "A PR-fix packet touches each memory store before the agent patches and tests.",
+      "lineage": "LangChain OpenWiki \u2022 Claude Code / OpenHands SKILL.md \u2022 CoALA 4-Memory Matrix",
+      "files": {
+        "svg": "T39.svg",
+        "gif": "T39.gif",
+        "png": "T39.png"
+      }
     },
     {
       "id": "T40",
@@ -618,9 +695,611 @@
       "when_to_use": "One metric over time, four annotated architecture changes, what each changed \u2014 build-in-public style.",
       "dynamic": "The line draws progressively; flags appear as the line reaches them.",
       "lineage": "Nate B. Jones 'one chart' \u2022 Santiago Valdarrama build-in-public",
-      "svg": "assets/template-gallery/T40.svg",
-      "gif": "assets/template-gallery/T40.gif",
-      "png": "assets/template-gallery/T40.png"
+      "files": {
+        "svg": "T40.svg",
+        "gif": "T40.gif",
+        "png": "T40.png"
+      }
+    },
+    {
+      "id": "T41",
+      "name": "Systems Deep-Dive Engraving",
+      "best_for_short": "LLM inference load balancing & KV routing",
+      "content_types": [
+        "Grounded concepts",
+        "Educational",
+        "Working solution"
+      ],
+      "when_to_use": "Explain low-level GPU serving mechanics (prefill vs decode, Radix prefix-cache affinity, least-KV-pressure routing, chunked prefill).",
+      "dynamic": "Requests flow through the Radix Prefix Router to 4 GPU workers; KV HBM bars fill dynamically.",
+      "lineage": "Kavi Priyan (#01, 607 likes) \u2022 Sahn Lam \u2022 SGLang RadixAttention / vLLM",
+      "files": {
+        "svg": "T41.svg",
+        "gif": "T41.gif",
+        "png": "T41.png"
+      }
+    },
+    {
+      "id": "T42",
+      "name": "Recursive Agent Harness",
+      "best_for_short": "Harness\u00b2 dual-loop self-improving agents",
+      "content_types": [
+        "Research topics",
+        "Grounded concepts",
+        "Evaluation results"
+      ],
+      "when_to_use": "Show how agents improve at both task-level (Propose->Probe->Compose skill graphs) and harness-level without retraining model weights.",
+      "dynamic": "Packets traverse Loop 1 (Propose->Probe->Compose), the 5 concentric rings, and Loop 2 benchmark bars.",
+      "lineage": "Gurisa Roy (#02, 201 likes) \u2022 Keith R. Worfolk (#03) \u2022 Google & Northwestern Harness\u00b2",
+      "files": {
+        "svg": "T42.svg",
+        "gif": "T42.gif",
+        "png": "T42.png"
+      }
+    },
+    {
+      "id": "T43",
+      "name": "Self-Correcting Memory",
+      "best_for_short": "LangChain OpenWiki SHA evidence receipts",
+      "content_types": [
+        "Working solution",
+        "Evaluation results",
+        "Grounded concepts"
+      ],
+      "when_to_use": "Show how to stop agent memory rot by binding claims to Git blob SHAs, running O(1) staleness checks, and self-correcting in the flow of work.",
+      "dynamic": "Packets flow across the 4-stage OpenWiki pipeline from SHA receipt storage to in-flow self-correction.",
+      "lineage": "Ravena O & Rakesh Gohel (#05, 88 likes) \u2022 LangChain OpenWiki",
+      "files": {
+        "svg": "T43.svg",
+        "gif": "T43.gif",
+        "png": "T43.png"
+      }
+    },
+    {
+      "id": "T44",
+      "name": "Deep Research Verifier",
+      "best_for_short": "Deterministic citation check + JEV loop",
+      "content_types": [
+        "Working solution",
+        "Evaluation results",
+        "Proof of concept"
+      ],
+      "when_to_use": "Architect a deep research agent that verifies every URL and quote span deterministically before running a bounded JEV judge retry loop.",
+      "dynamic": "Packets traverse stages 01->06 with an animated conditional RESEARCH_AGAIN loop from Stage 05 back to Stage 02.",
+      "lineage": "Sumanth P (#04, 124 likes) \u2022 LangChain Deep Agents + JEV + Tavily + LangSmith",
+      "files": {
+        "svg": "T44.svg",
+        "gif": "T44.gif",
+        "png": "T44.png"
+      }
+    },
+    {
+      "id": "T45",
+      "name": "Executive ROI Crossover Funnel",
+      "best_for_short": "Agentic AI value funnel: First run to P&L",
+      "content_types": [
+        "Professional knowledge sharing",
+        "Ideas",
+        "Evaluation results"
+      ],
+      "when_to_use": "Show executives how falling human touches cross rising business value above the Pilot Ceiling across 6 stages from Work Done to P&L.",
+      "dynamic": "Dual crossover curves draw across the Pilot Ceiling while packets advance through the 6 C-suite value stages.",
+      "lineage": "Jonny Tooze (#11, 141 likes, 144 comments) \u2022 Executive AI Value Realization",
+      "files": {
+        "svg": "T45.svg",
+        "gif": "T45.gif",
+        "png": "T45.png"
+      }
+    },
+    {
+      "id": "T46",
+      "name": "Cloverleaf Governance Venn",
+      "best_for_short": "CEO vs. CTO vs. CIO vs. CISO AI charter",
+      "content_types": [
+        "Professional knowledge sharing",
+        "Grounded concepts",
+        "Easy to understand"
+      ],
+      "when_to_use": "Clarify C-suite AI responsibilities and the 6 pairwise overlap charters across Demo -> Pilot -> Production -> Enterprise scale.",
+      "dynamic": "4-circle cloverleaf Venn diagram with pairwise intersection pills and 6 structured charter cards.",
+      "lineage": "Alok Sharan (#14, 63 likes) & Matthew Coombs (#08, 51 likes)",
+      "files": {
+        "svg": "T46.svg",
+        "gif": "T46.gif",
+        "png": "T46.png"
+      }
+    },
+    {
+      "id": "T47",
+      "name": "Global AI Regulatory Matrix",
+      "best_for_short": "4x5 cheat sheet of 20 global AI laws",
+      "content_types": [
+        "Information",
+        "Professional knowledge sharing",
+        "Educational"
+      ],
+      "when_to_use": "Give engineering and legal leaders a one-page 4x5 reference of 20 global AI laws, standards, and the exact technical gate each requires.",
+      "dynamic": "20 color-coded regulatory cards across Europe, Global Standards, US Federal/State, and APAC.",
+      "lineage": "Prashant Rathi (#09, 203 likes, 68 comments) \u2022 Global AI Policy Matrix",
+      "files": {
+        "svg": "T47.svg",
+        "gif": "T47.gif",
+        "png": "T47.png"
+      }
+    },
+    {
+      "id": "T48",
+      "name": "8-Tier AI Maturity Pyramid",
+      "best_for_short": "8 maturity tiers + 10-step build order",
+      "content_types": [
+        "Educational",
+        "Grounded concepts",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Pair an 8-tier ascending production AI pyramid with the 10-step prerequisite build order and what breaks when teams skip tiers.",
+      "dynamic": "8 ascending pyramid tiers flanked by the 10-step build sequence and 4 skipped-tier failure cards.",
+      "lineage": "Prashant Rathi (#12, 53 likes) & Jonathan Parsons (#10, 71 likes)",
+      "files": {
+        "svg": "T48.svg",
+        "gif": "T48.gif",
+        "png": "T48.png"
+      }
+    },
+    {
+      "id": "T49",
+      "name": "Automation Decision Triptych",
+      "best_for_short": "Rules vs. AI Workflows vs. AI Agents",
+      "content_types": [
+        "Easy to understand",
+        "Educational",
+        "Grounded concepts"
+      ],
+      "when_to_use": "Help teams choose between deterministic automation, code-orchestrated AI workflows, and autonomous AI agents side by side.",
+      "dynamic": "3 parallel decision columns with live 3-node mini-flows, latency/cost profiles, and a bottom rule bar.",
+      "lineage": "Prem Natarajan (#13, 59 likes, 53 comments) & Chip Huyen",
+      "files": {
+        "svg": "T49.svg",
+        "gif": "T49.gif",
+        "png": "T49.png"
+      }
+    },
+    {
+      "id": "T50",
+      "name": "Stacked Dual-Protocol Sequence",
+      "best_for_short": "OAuth 2.0 + PKCE vs. OIDC + Agent OBO",
+      "content_types": [
+        "Educational",
+        "Grounded concepts",
+        "Working solution"
+      ],
+      "when_to_use": "Compare two related security protocols vertically: OAuth 2.0 + PKCE delegated access vs. OIDC + RFC 8693 On-Behalf-Of agent token exchange.",
+      "dynamic": "14 numbered opaque-pill messages travel across 4 actor lifelines in two stacked protocol panels.",
+      "lineage": "Alex Xu / ByteByteGo (#07) & Shalini Goyal (#06) \u2022 RFC 8693 Agent Identity",
+      "files": {
+        "svg": "T50.svg",
+        "gif": "T50.gif",
+        "png": "T50.png"
+      }
+    },
+    {
+      "id": "T51",
+      "name": "GPU Memory & Speculative Tree",
+      "best_for_short": "SRAM vs. HBM + Speculative Decode 2.7x",
+      "content_types": [
+        "Grounded concepts",
+        "Educational",
+        "Research topics"
+      ],
+      "when_to_use": "Show why autoregressive LLM decoding is memory-bandwidth-bound on HBM and how speculative decoding verifies 5 draft tokens in 1 pass.",
+      "dynamic": "3-tier GPU memory pyramid + worked roofline math on the left; live draft-verify token tree on the right.",
+      "lineage": "Sahn Lam & Umar Jamil \u2022 EAGLE-2 / Medusa / FlashAttention-3",
+      "files": {
+        "svg": "T51.svg",
+        "gif": "T51.gif",
+        "png": "T51.png"
+      }
+    },
+    {
+      "id": "T52",
+      "name": "Reasoning Post-Training Pipeline",
+      "best_for_short": "SFT -> GRPO -> RLVR -> Test-Time Compute",
+      "content_types": [
+        "Research topics",
+        "Educational",
+        "Grounded concepts"
+      ],
+      "when_to_use": "Explain how modern reasoning models are trained (Cold-start SFT -> GRPO without a critic model -> RLVR deterministic rewards -> Test-Time scaling).",
+      "dynamic": "4-stage horizontal post-training pipeline + PPO vs. GRPO VRAM comparison + enterprise customization playbook.",
+      "lineage": "Sebastian Raschka & Maxime Labonne \u2022 DeepSeek-R1 GRPO & RLVR",
+      "files": {
+        "svg": "T52.svg",
+        "gif": "T52.gif",
+        "png": "T52.png"
+      }
+    },
+    {
+      "id": "T53",
+      "name": "PromptCanvas #52: Anatomy / Deconstruction Spine",
+      "best_for_short": "Context + Harness + Loop + Graph 4-tier spine",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Grounded concepts",
+        "Educational",
+        "Working solution"
+      ],
+      "when_to_use": "Deconstruct a self-improving AI agent setup across 01 Context, 02 Harness (AGENTS.md & Skills), 03 Loop (Check/Fix/Recheck), and 04 Graph (MAP.md).",
+      "dynamic": "Packets travel down the 4-tier central spine and across left-to-right verification enclaves with RULE 01-04 bars.",
+      "lineage": "PromptCanvas Blueprint #52 (Anatomy / Deconstruction Infographic) \u2022 Keith R. Worfolk & Philipp Schmid",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-part structural breakdown of a self-improving AI agent setup (Context, Harness, Loop, Graph) with RULE bars",
+      "inspired_by": "PromptCanvas Blueprint #52 (Anatomy / Deconstruction Infographic) \u2022 Keith R. Worfolk & Philipp Schmid",
+      "accent": "#2563EB",
+      "hot_topic": "Anatomy of a Production Coding Agent: Context + Harness + Loop + Graph",
+      "files": {
+        "svg": "T53.svg",
+        "gif": "T53.gif",
+        "png": "T53.png"
+      }
+    },
+    {
+      "id": "T54",
+      "name": "PromptCanvas #53: Dual-Agent Process Workflow",
+      "best_for_short": "Primary Coding Agent + Reviewer Agent loop",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Working solution",
+        "Educational",
+        "Proof of concept"
+      ],
+      "when_to_use": "Show a 3-band workflow pairing a Primary Coding Agent with an independent Reviewer Agent across Install, Tool Mounting (YES/NO gate), and Recheck.",
+      "dynamic": "Packets flow across all 3 horizontal bands, the YES/NO tool readiness diamond, and the bottom RECHECK feedback loop.",
+      "lineage": "PromptCanvas Blueprint #53 (Process Workflow Infographic) \u2022 Gemini Code Assist + OpenHands / Codex",
+      "category": "PromptCanvas Infographic",
+      "best_for": "3-band step-by-step workflow pairing a Primary Coding Agent with an independent Reviewer Agent and YES/NO tool gates",
+      "inspired_by": "PromptCanvas Blueprint #53 (Process Workflow Infographic) \u2022 Gemini Code Assist + OpenHands / Codex",
+      "accent": "#7C3AED",
+      "hot_topic": "Dual-Agent Coding Workflow: Primary Builder + Adversarial Reviewer Loop",
+      "files": {
+        "svg": "T54.svg",
+        "gif": "T54.gif",
+        "png": "T54.png"
+      }
+    },
+    {
+      "id": "T55",
+      "name": "PromptCanvas #54: Computer-Use Cheat Sheet Card",
+      "best_for_short": "7 setup steps + 4 copy-ready @Browser jobs",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Easy to understand",
+        "Educational",
+        "Working solution"
+      ],
+      "when_to_use": "Provide a 2-column executive quick-start card with 7 setup steps, a copy-paste prompt formula, and 4 high-ROI browser/computer-use workflows.",
+      "dynamic": "Animated conduit connects the 7-step setup checklist and prompt formula to the 2x2 grid of production @Browser jobs.",
+      "lineage": "PromptCanvas Blueprint #54 (Cheat Sheet Quick-Start Card) \u2022 Vertex Computer Use & OpenHands Browser",
+      "category": "PromptCanvas Infographic",
+      "best_for": "2-column quick-start cheat sheet with 7 setup steps, copy-paste prompt formula, and 4 high-ROI browser/computer-use jobs",
+      "inspired_by": "PromptCanvas Blueprint #54 (Cheat Sheet Quick-Start Card) \u2022 Vertex Computer Use & OpenHands Browser",
+      "accent": "#2563EB",
+      "hot_topic": "Autonomous Computer-Use Cheat Sheet: 7 Setup Steps & 4 Production Prompts",
+      "files": {
+        "svg": "T55.svg",
+        "gif": "T55.gif",
+        "png": "T55.png"
+      }
+    },
+    {
+      "id": "T56",
+      "name": "PromptCanvas #55: Shadow AI Bubble Conceptual",
+      "best_for_short": "4 perceived tools vs. 24 shadow AI pipelines",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Professional knowledge sharing",
+        "Ideas",
+        "Information"
+      ],
+      "when_to_use": "Contrast what leadership thinks is running (4 approved tools) against 24 shadow AI tools across engineering, meetings, sales, and legal.",
+      "dynamic": "Blind-spot conduit links the 4 executive assumption cards to 24 color-coded shadow AI bubbles and the 4-control governance bridge.",
+      "lineage": "PromptCanvas Blueprint #55 (Bubble Conceptual Infographic) \u2022 Enterprise Shadow AI & Model Armor Gateway",
+      "category": "PromptCanvas Infographic",
+      "best_for": "Contrasting executive perception (4 approved tools) against 24 shadow AI tools running across engineering, sales, and ops",
+      "inspired_by": "PromptCanvas Blueprint #55 (Bubble Conceptual Infographic) \u2022 Enterprise Shadow AI & Model Armor Gateway",
+      "accent": "#DC2626",
+      "hot_topic": "The AI Nobody Signed Off: Governing 24 Shadow AI Tools via an AI Gateway",
+      "files": {
+        "svg": "T56.svg",
+        "gif": "T56.gif",
+        "png": "T56.png"
+      }
+    },
+    {
+      "id": "T57",
+      "name": "PromptCanvas #56: Side-by-Side Runtime Toggles",
+      "best_for_short": "Stateless API (OFF) vs. Agent Runtime (ON)",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Grounded concepts",
+        "Evaluation results",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Compare stateless foundation model inference (OFF toggles) against a managed enterprise agent runtime (ON toggles) across 5 architecture pillars.",
+      "dynamic": "5 parallel upgrade conduits flow from red OFF stateless cards through the central dimension spine to green ON managed runtime cards.",
+      "lineage": "PromptCanvas Blueprint #56 (Side-by-Side Comparison Infographic) \u2022 Vertex AI Agent Engine vs. Raw API",
+      "category": "PromptCanvas Infographic",
+      "best_for": "5-row central-spine comparison with OFF vs. ON vector toggle switches comparing stateless APIs against managed runtimes",
+      "inspired_by": "PromptCanvas Blueprint #56 (Side-by-Side Comparison Infographic) \u2022 Vertex AI Agent Engine vs. Raw API",
+      "accent": "#059669",
+      "hot_topic": "Stateless LLM API (OFF) vs. Managed Enterprise Agent Runtime (ON)",
+      "files": {
+        "svg": "T57.svg",
+        "gif": "T57.gif",
+        "png": "T57.png"
+      }
+    },
+    {
+      "id": "T58",
+      "name": "PromptCanvas #57: 3D Context Compression Funnel",
+      "best_for_short": "5-stage token refinement: 1M -> 2k tokens",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Grounded concepts",
+        "Evaluation results",
+        "Research topics"
+      ],
+      "when_to_use": "Visualize progressive token refinement across 5 tapering 3D-frustum funnel stages from 1,000,000 raw tokens down to 2,000 precision context tokens.",
+      "dynamic": "3 glowing signal packets stream down the 5-stage 3D frustum funnel while side conduits link stage architectures to discard gates.",
+      "lineage": "PromptCanvas Blueprint #57 (Funnel Pipeline Chart) \u2022 BigQuery Vector Search & Cross-Encoder Re-Ranking",
+      "category": "PromptCanvas Infographic",
+      "best_for": "5-stage 3D-frustum tapering vector funnel showing progressive token refinement from 1M raw tokens to 2k precision context",
+      "inspired_by": "PromptCanvas Blueprint #57 (Funnel Pipeline Chart) \u2022 BigQuery Vector Search & Cross-Encoder Re-Ranking",
+      "accent": "#2563EB",
+      "hot_topic": "Progressive Context Compression Funnel: 1,000,000 -> 2,000 High-Signal Tokens",
+      "files": {
+        "svg": "T58.svg",
+        "gif": "T58.gif",
+        "png": "T58.png"
+      }
+    },
+    {
+      "id": "T59",
+      "name": "PromptCanvas #58: 6-Gate Deployment Checklist",
+      "best_for_short": "6-step autonomous agent prod checklist (ON)",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Working solution",
+        "Professional knowledge sharing",
+        "Proof of concept"
+      ],
+      "when_to_use": "Present a 6-row numbered production deployment checklist with status badges, monospace config specs, and double green ON toggle switches.",
+      "dynamic": "Vertical deployment spine feeds 6 numbered checklist rows, each equipped with verified config boxes and dual ON switches.",
+      "lineage": "PromptCanvas Blueprint #58 (Process Checklist Infographic) \u2022 Google Cloud GKE gVisor & AlloyDB",
+      "category": "PromptCanvas Infographic",
+      "best_for": "6-step numbered production deployment checklist with status badges, monospace config specs, and double ON toggle switches",
+      "inspired_by": "PromptCanvas Blueprint #58 (Process Checklist Infographic) \u2022 Google Cloud GKE gVisor & AlloyDB",
+      "accent": "#059669",
+      "hot_topic": "6-Step Autonomous Agent Production Deployment Checklist",
+      "files": {
+        "svg": "T59.svg",
+        "gif": "T59.gif",
+        "png": "T59.png"
+      }
+    },
+    {
+      "id": "T60",
+      "name": "PromptCanvas #59: Q1-Q4 Quarterly Roadmap Tracks",
+      "best_for_short": "Phased Q1-Q4 enterprise agent rollout plan",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Professional knowledge sharing",
+        "Ideas",
+        "Information"
+      ],
+      "when_to_use": "Lay out a 4-quarter enterprise rollout roadmap (Q1 Discovery -> Q2 Sandbox -> Q3 State -> Q4 Fleet) with 8 numbered milestones and ACTIVE toggles.",
+      "dynamic": "Horizontal flow conduits advance across Q1-Q4 chevron headers and milestone deliverables01-08.",
+      "lineage": "PromptCanvas Blueprint #59 (Timeline & Roadmap Infographic) \u2022 Enterprise Agentic AI Rollout Plan",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4 horizontal quarterly roadmap tracks (Q1-Q4) with chevron headers, ACTIVE switches, and 8 numbered milestone deliverables",
+      "inspired_by": "PromptCanvas Blueprint #59 (Timeline & Roadmap Infographic) \u2022 Enterprise Agentic AI Rollout Plan",
+      "accent": "#2563EB",
+      "hot_topic": "Phased Q1-Q4 Enterprise Agentic AI Architecture Roadmap",
+      "files": {
+        "svg": "T60.svg",
+        "gif": "T60.gif",
+        "png": "T60.png"
+      }
+    },
+    {
+      "id": "T61",
+      "name": "PromptCanvas #60: 4-Plane Runtime Topology",
+      "best_for_short": "Vertex AI + Cloud Run + GKE gVisor + AlloyDB",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Working solution",
+        "Grounded concepts",
+        "Educational"
+      ],
+      "when_to_use": "Show the 4-node enterprise runtime topology separating reasoning (Vertex AI), orchestration (Cloud Run), sandbox (GKE gVisor), and state (AlloyDB).",
+      "dynamic": "Bidirectional gRPC, MCP, CodeAct, and vector state packets flow between Load Balancing ingress and the 4 runtime planes.",
+      "lineage": "PromptCanvas Blueprint #60 (Architecture & Topology Infographic) \u2022 Google Cloud Agent Reference Topology",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-node interconnected runtime topology linking Cloud Load Balancing, Vertex Reasoning Engine, Cloud Run, GKE gVisor, and AlloyDB",
+      "inspired_by": "PromptCanvas Blueprint #60 (Architecture & Topology Infographic) \u2022 Google Cloud Agent Reference Topology",
+      "accent": "#0D9488",
+      "hot_topic": "Enterprise Agent Runtime Topology: Vertex AI + Cloud Run + GKE gVisor + AlloyDB",
+      "files": {
+        "svg": "T61.svg",
+        "gif": "T61.gif",
+        "png": "T61.png"
+      }
+    },
+    {
+      "id": "T62",
+      "name": "PromptCanvas #61: Multi-Agent Supervisor Tree",
+      "best_for_short": "Supervisor (01) -> Workers (02a-c) -> Data (03)",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Grounded concepts",
+        "Working solution",
+        "Educational"
+      ],
+      "when_to_use": "Illustrate a 3-tier hierarchical delegation tree from Supervisor Agent (01) to 3 Specialized Worker Agents (02a/02b/02c) to Shared Resources (03).",
+      "dynamic": "A2A task packets fan out from the Supervisor to SQL, Research, and Code workers and down into BigQuery, Vector Search, and gVisor.",
+      "lineage": "PromptCanvas Blueprint #61 (Hierarchical Tree Infographic) \u2022 Google ADK & LangGraph Supervisor Pattern",
+      "category": "PromptCanvas Infographic",
+      "best_for": "3-tier delegation tree from Supervisor Agent (01) to Specialized Worker Agents (02a/02b/02c) to Unified Resource Layer (03)",
+      "inspired_by": "PromptCanvas Blueprint #61 (Hierarchical Tree Infographic) \u2022 Google ADK & LangGraph Supervisor Pattern",
+      "accent": "#7C3AED",
+      "hot_topic": "3-Tier Multi-Agent Supervisor Delegation Tree & Shared Resource Plane",
+      "files": {
+        "svg": "T62.svg",
+        "gif": "T62.gif",
+        "png": "T62.png"
+      }
+    },
+    {
+      "id": "T63",
+      "name": "PromptCanvas #62: 2x2 Impact vs. Complexity Matrix",
+      "best_for_short": "20 use cases across Quick Wins, Bets & Traps",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Professional knowledge sharing",
+        "Easy to understand",
+        "Ideas"
+      ],
+      "when_to_use": "Prioritize 20 concrete agent use cases across a 2x2 matrix of Business Impact vs. Technical Complexity (Quick Wins, Strategic Bets, Low Priority, Traps).",
+      "dynamic": "4 color-coded quadrants with 20 numbered use-case cards, ROI metrics, and recommended Google Cloud + OSS stacks.",
+      "lineage": "PromptCanvas Blueprint #62 (2x2 Quadrant Matrix Infographic) \u2022 AI Portfolio Prioritization",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-quadrant executive prioritization matrix mapping 20 concrete agent use-cases across Quick Wins, Strategic Bets, Low Priority, and Traps",
+      "inspired_by": "PromptCanvas Blueprint #62 (2x2 Quadrant Matrix Infographic) \u2022 AI Portfolio Prioritization",
+      "accent": "#059669",
+      "hot_topic": "Agentic AI Portfolio 2x2 Matrix: Quick Wins vs. Strategic Bets vs. Traps",
+      "files": {
+        "svg": "T63.svg",
+        "gif": "T63.gif",
+        "png": "T63.png"
+      }
+    },
+    {
+      "id": "T64",
+      "name": "PromptCanvas #63: Conditional Decision Tree",
+      "best_for_short": "3-stage YES/NO branching & self-correction",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Working solution",
+        "Educational",
+        "Grounded concepts"
+      ],
+      "when_to_use": "Map deterministic YES/NO branching logic across Stage 01 Ingest, Stage 02 Tool & RBAC Check, and Stage 03 Sandboxed Execution & Self-Correction.",
+      "dynamic": "Packets traverse 4 decision diamonds with YES/NO branches and an animated self-correction retry loop in Stage 03.",
+      "lineage": "PromptCanvas Blueprint #63 (Decision Tree Flowchart) \u2022 Deterministic Agent Routing & Self-Correction",
+      "category": "PromptCanvas Infographic",
+      "best_for": "3-stage conditional decision tree across Ingest, Tool/RBAC Check, and Sandboxed Execution with YES/NO diamonds and retry loops",
+      "inspired_by": "PromptCanvas Blueprint #63 (Decision Tree Flowchart) \u2022 Deterministic Agent Routing & Self-Correction",
+      "accent": "#2563EB",
+      "hot_topic": "Deterministic Agent Decision Tree: Intent Gate -> RBAC Check -> Sandbox Loop",
+      "files": {
+        "svg": "T64.svg",
+        "gif": "T64.gif",
+        "png": "T64.png"
+      }
+    },
+    {
+      "id": "T65",
+      "name": "PromptCanvas #64: 5x4 Feature Evaluation Matrix",
+      "best_for_short": "Score 4 agent stacks across 5 prod criteria",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Evaluation results",
+        "Professional knowledge sharing",
+        "Grounded concepts"
+      ],
+      "when_to_use": "Evaluate 4 agent architectures (Google ADK + Vertex, LangGraph + Postgres, OpenHands + Docker, Raw API) across 5 weighted production criteria.",
+      "dynamic": "5x4 matrix of NATIVE / CONFIG / MANUAL capability badges plus animated overall architectural fit score bars (4.9/5 to 1.8/5).",
+      "lineage": "PromptCanvas Blueprint #64 (Feature Matrix Grid) \u2022 Google ADK vs. LangGraph vs. OpenHands vs. Raw API",
+      "category": "PromptCanvas Infographic",
+      "best_for": "5x4 multi-criteria evaluation matrix scoring 4 agent stacks across persistence, isolation, HITL, memory, and scale",
+      "inspired_by": "PromptCanvas Blueprint #64 (Feature Matrix Grid) \u2022 Google ADK vs. LangGraph vs. OpenHands vs. Raw API",
+      "accent": "#0F2942",
+      "hot_topic": "5x4 Agent Stack Evaluation Matrix: Persistence, Isolation, HITL, Memory & Scale",
+      "files": {
+        "svg": "T65.svg",
+        "gif": "T65.gif",
+        "png": "T65.png"
+      }
+    },
+    {
+      "id": "T66",
+      "name": "PromptCanvas #65: 4-Tier Capability Pyramid",
+      "best_for_short": "Raw Inference -> Tools -> Multi-Agent -> Apex",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Educational",
+        "Grounded concepts",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Show the 4-tier evolution of AI systems from Base Foundation Model (01) to Tool Calling (02) to Multi-Agent (03) to Autonomous Self-Healing Apex (04).",
+      "dynamic": "Upward evolution spine climbs the 4-tier 3D trapezoid pyramid while side conduits link tier definitions to Google Cloud + OSS capabilities.",
+      "lineage": "PromptCanvas Blueprint #65 (Capability Pyramid Infographic) \u2022 Google Cloud Agent Evolution Tiers",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier ascending capability pyramid from Base Foundation Model (01) to Tool Calling (02) to Multi-Agent (03) to Autonomous Apex (04)",
+      "inspired_by": "PromptCanvas Blueprint #65 (Capability Pyramid Infographic) \u2022 Google Cloud Agent Evolution Tiers",
+      "accent": "#059669",
+      "hot_topic": "The 4-Tier Agent Capability Pyramid: Raw Inference -> Tools -> Multi-Agent -> Autonomous",
+      "files": {
+        "svg": "T66.svg",
+        "gif": "T66.gif",
+        "png": "T66.png"
+      }
+    },
+    {
+      "id": "T67",
+      "name": "PromptCanvas #66: Self-Healing Torus Loop",
+      "best_for_short": "4-stage circular autonomous repair cycle",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Working solution",
+        "Grounded concepts",
+        "Proof of concept"
+      ],
+      "when_to_use": "Visualize the circular 4-stage autonomous agent loop (01 Generate -> 02 Sandbox Test -> 03 Eval Gate -> 04 Self-Healing Retry or PASS Deploy).",
+      "dynamic": "Packets orbit the 4-quadrant central torus ring, branching on FAIL to the RETRY ACTIVE feedback path or on PASS to DEPLOY ON.",
+      "lineage": "PromptCanvas Blueprint #66 (Loop & Cycle Infographic) \u2022 Autonomous Self-Healing Evaluation Cycle",
+      "category": "PromptCanvas Infographic",
+      "best_for": "Circular 4-quadrant torus loop connecting Model Generation, Sandboxed Test, Evaluation Gate (PASS/FAIL), and Self-Healing Retry",
+      "inspired_by": "PromptCanvas Blueprint #66 (Loop & Cycle Infographic) \u2022 Autonomous Self-Healing Evaluation Cycle",
+      "accent": "#2563EB",
+      "hot_topic": "Autonomous Self-Healing Agent Loop: Generate -> Sandbox Test -> Gate -> Repair",
+      "files": {
+        "svg": "T67.svg",
+        "gif": "T67.gif",
+        "png": "T67.png"
+      }
+    },
+    {
+      "id": "T68",
+      "name": "PromptCanvas Open Knowledge: 4-Tier Format Spine",
+      "best_for_short": "Open Formats + Schema + Validation + Graph",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Grounded concepts",
+        "Research topics",
+        "Working solution"
+      ],
+      "when_to_use": "Explain why agent knowledge should live in Open Formats (01), validated by a Schema Harness (02), healed by a Validation Loop (03), and linked in a Graph (04).",
+      "dynamic": "Packets flow down the 4-tier Open Knowledge vertical spine and across format/schema/validator/graph hubs with RULE 01-04 bars.",
+      "lineage": "PromptCanvas Open Knowledge Spine \u2022 LangChain OpenWiki",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier vertical spine illustrating Open Formats (01), Schema Harness (02), Validation Loop (03), and Knowledge Graph (04)",
+      "inspired_by": "PromptCanvas Open Knowledge Format Infographic \u2022 LangChain OpenWiki & Deterministic Knowledge Graphs",
+      "accent": "#0D9488",
+      "hot_topic": "Open Knowledge Architecture: Formats + Schema Harness + Validation Loop + Graph",
+      "files": {
+        "svg": "T68.svg",
+        "gif": "T68.gif",
+        "png": "T68.png"
+      }
     }
   ]
 }

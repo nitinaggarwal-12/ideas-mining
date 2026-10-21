@@ -72,17 +72,27 @@ function renderReposView() {
 
   grid.innerHTML = filtered
     .map(
-      (r) => `
+      (r) => {
+        const plan = r.template_and_distribution_plan || null;
+        const planBanner = plan
+          ? `<div style="margin: 8px 0 4px 0; padding: 8px 10px; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; font-size: 11px; color: #0c4a6e;">
+               <div style="font-weight: 800; color: #0369a1; margin-bottom: 3px;">🎯 LEAD TEMPLATE: ${escapeHtml(plan.primary_template_id)} — ${escapeHtml(plan.primary_template_name)} (+ ${escapeHtml((plan.secondary_template_ids || []).join(", "))})</div>
+               <div style="font-weight: 600; color: #0f172a; margin-bottom: 3px;">📦 FORMAT: ${escapeHtml(plan.lead_post_format)}</div>
+               <div style="color: #1e3a8a;">🌐 <strong>Max Reach Group:</strong> ${escapeHtml((plan.linkedin_groups_primary?.[0]?.name || ""))} (${escapeHtml(plan.linkedin_groups_primary?.[0]?.members || "")}) • <strong>Network Group:</strong> ${escapeHtml((plan.linkedin_groups_niche_network?.[0]?.name || ""))} (${escapeHtml(plan.linkedin_groups_niche_network?.[0]?.members || "")})</div>
+             </div>`
+          : "";
+        return `
       <article class="repo-card" data-testid="repo-card-${escapeHtml(r.id)}">
         <div>
           <div class="repo-card-header">
             <span class="brand-badge">${escapeHtml(r.id)} • ${escapeHtml(r.est_post_time || r.author_name)}</span>
-            <span class="pill-badge pill-emerald">GIT HEAD: ${escapeHtml(r.git_commit_sha || "verified")}</span>
+            <span class="pill-badge pill-emerald">${plan ? "LEAD: " + escapeHtml(plan.primary_template_id) + " • " : ""}HEAD: ${escapeHtml(r.git_commit_sha || "verified")}</span>
           </div>
           <h3 class="repo-card-title" style="margin: 10px 0 8px 0;">${escapeHtml(r.post_title)}</h3>
           <div class="repo-card-hook">${escapeHtml(r.daily_problem_short || r.original_hook)}</div>
+          ${planBanner}
           <div style="margin: 10px 0; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #ffffff; cursor: pointer;" onclick="openRepoInspector('${escapeHtml(r.repo_slug)}')">
-            <img src="/repos/${encodeURIComponent(r.repo_slug)}/visuals/dynamic-solution-flow.svg" alt="Dynamic Moving-Arrow Solution Diagram" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            <img src="/repos/${encodeURIComponent(r.repo_slug)}/visuals/${plan ? "lead-template.svg" : "dynamic-solution-flow.svg"}?v=20261020v4" alt="Lead Template & Dynamic Moving-Arrow Solution Diagram" style="width: 100%; height: auto; display: block;" loading="lazy" />
           </div>
           <div style="margin-top: 6px; font-size: 11.5px; color: #475569; font-weight: 600;">
             Primary Source: <strong style="color: #0f172a;">${escapeHtml(r.primary_source.title)}</strong>
@@ -90,11 +100,11 @@ function renderReposView() {
         </div>
         <div>
           <div class="deliverable-chips" style="margin-bottom: 10px;">
+            ${plan ? `<span class="deliverable-chip" style="background:#fef3c7;border-color:#fcd34d;color:#92400e;">🏆 Template ${escapeHtml(plan.primary_template_id)} SVG/PNG/GIF</span>` : ""}
             <span class="deliverable-chip" style="background:#eff6ff;border-color:#93c5fd;color:#1d4ed8;">⚡ Moving-Arrow SVG + GIF</span>
-            <span class="deliverable-chip">Nano Banana 3 2D Poster</span>
             <span class="deliverable-chip">GCP #78 .drawio + PNG</span>
             <span class="deliverable-chip">12-Slide .pptx + .pdf</span>
-            <span class="deliverable-chip">1-Click Terraform</span>
+            <span class="deliverable-chip">LinkedIn Group Plan</span>
           </div>
           <div class="repo-card-footer">
             <span class="truncate" style="font-size: 11px; color: #64748b; font-family: monospace;">
@@ -106,7 +116,8 @@ function renderReposView() {
           </div>
         </div>
       </article>
-    `
+    `;
+      }
     )
     .join("");
 
@@ -238,14 +249,25 @@ async function openRepoInspector(slug) {
   document.getElementById("drawer-repo-badge").textContent = `${detail.id} • ${detail.est_post_time || detail.activity_urn} • HEAD ${detail.git_commit_sha}`;
   document.getElementById("drawer-repo-title").textContent = detail.post_title;
 
+  const plan = detail.template_and_distribution_plan || null;
+  const leadTemplateVisualHtml = plan
+    ? `<div class="visual-preview-box" style="border: 2px solid #0284c7; background: #f0f9ff;">
+         <div style="font-size: 12px; font-weight: 800; margin-bottom: 6px; color: #0369a1;">Figure 0 — Paired PromptCanvas / Systems Lead Infographic (${escapeHtml(plan.primary_template_id)}: ${escapeHtml(plan.primary_template_name)})</div>
+         <div style="font-size: 11px; color: #0f172a; margin-bottom: 8px;"><strong>Format Mix:</strong> ${escapeHtml(plan.lead_post_format)} • <strong>Secondary Templates:</strong> ${escapeHtml((plan.secondary_template_ids || []).join(", "))}</div>
+         <img src="/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg" alt="Lead Template Infographic" />
+       </div>`
+    : "";
+
   // Tab 1: Dynamic Moving-Arrow & @2d Visuals
   document.getElementById("dtab-visuals").innerHTML = `
     <div style="margin-bottom: 14px; display: flex; gap: 8px; flex-wrap: wrap;">
+      ${plan ? `<a class="btn-primary" href="/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg" target="_blank">Open Paired Template ${escapeHtml(plan.primary_template_id)} (.svg) ↗</a>` : ""}
+      ${plan ? `<a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/lead-template.gif" download>Download Template ${escapeHtml(plan.primary_template_id)} GIF (.gif)</a>` : ""}
       <a class="btn-primary" href="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg" target="_blank">Open Moving-Arrow Diagram (.svg) ↗</a>
       <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.gif" download>Download Animated LinkedIn GIF (.gif)</a>
-      <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/linkedin-infographic-2d.png" target="_blank">Open Nano Banana 3 Poster (.png) ↗</a>
       <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.drawio" download>Download Editable Draw.io (.drawio)</a>
     </div>
+    ${leadTemplateVisualHtml}
     <div class="visual-preview-box">
       <div style="font-size: 12px; font-weight: 800; margin-bottom: 8px; color: #0f172a;">Figure 1 — Live Dynamic Daily Problem → 4-Step Solution Flow (With Moving Arrows)</div>
       <img src="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg" alt="Dynamic Moving-Arrow Solution Flow" />
@@ -308,10 +330,33 @@ async function openRepoInspector(slug) {
     </div>
   `;
 
-  // Tab 4: LinkedIn Post Copy & Receipt
+  // Tab 4: LinkedIn Post Copy & Group Distribution Strategy
+  const groupPlanHtml = plan
+    ? `<div style="background:#f0f9ff;border:1.5px solid #38bdf8;border-radius:8px;padding:14px;margin-bottom:14px;">
+         <div style="font-size:12.5px;font-weight:800;color:#0369a1;margin-bottom:8px;">🎯 LinkedIn Virality, Format &amp; Group Distribution Plan (${escapeHtml(detail.id)} • ${escapeHtml(detail.est_post_time || "")})</div>
+         <div style="font-size:12px;color:#0f172a;margin-bottom:6px;"><strong>Paired Primary Template:</strong> <code>${escapeHtml(plan.primary_template_id)}</code> — ${escapeHtml(plan.primary_template_name)} (Secondary: ${escapeHtml((plan.secondary_template_ids || []).join(", "))})</div>
+         <div style="font-size:12px;color:#0f172a;margin-bottom:6px;"><strong>Lead Format Mix:</strong> ${escapeHtml(plan.lead_post_format)}</div>
+         <div style="font-size:12px;color:#0f172a;margin-bottom:10px;"><strong>Dynamic Nature:</strong> ${escapeHtml(plan.dynamic_nature)}</div>
+         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+           <div style="background:#ffffff;border:1px solid #bae6fd;border-radius:6px;padding:10px;">
+             <div style="font-size:11px;font-weight:800;color:#1d4ed8;margin-bottom:4px;">🌐 PRIMARY HIGH-REACH GROUPS (MAX VIEWERSHIP)</div>
+             ${(plan.linkedin_groups_primary || []).map((g) => `<div style="font-size:11.5px;margin-bottom:4px;">• <strong>${escapeHtml(g.name)}</strong> (<code>${escapeHtml(g.members)}</code>) — <span style="color:#475569;">${escapeHtml(g.goal)}</span></div>`).join("")}
+           </div>
+           <div style="background:#ffffff;border:1px solid #86efac;border-radius:6px;padding:10px;">
+             <div style="font-size:11px;font-weight:800;color:#065f46;margin-bottom:4px;">🤝 NICHE EXECUTIVE &amp; ARCHITECT GROUPS (PERSONAL NETWORK)</div>
+             ${(plan.linkedin_groups_niche_network || []).map((g) => `<div style="font-size:11.5px;margin-bottom:4px;">• <strong>${escapeHtml(g.name)}</strong> (<code>${escapeHtml(g.members)}</code>) — <span style="color:#475569;">${escapeHtml(g.goal)}</span></div>`).join("")}
+           </div>
+         </div>
+         <div style="background:#fefce8;border:1px solid #fde047;border-radius:6px;padding:8px 10px;font-size:11.5px;color:#713f12;">
+           <strong>💬 Golden-Hour Comment-Magnet Question:</strong> "${escapeHtml(plan.comment_magnet_question)}"
+         </div>
+       </div>`
+    : "";
+
   document.getElementById("dtab-linkedin").innerHTML = `
+    ${groupPlanHtml}
     <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-      <strong style="font-size: 13px;">Ready-to-Post LinkedIn Draft for Nitin Aggarwal (${escapeHtml(detail.est_post_time || "Morning EST")})</strong>
+      <strong style="font-size: 13px;">Ready-to-Post LinkedIn Draft &amp; Comment #1 Pin (${escapeHtml(detail.est_post_time || "Morning EST")})</strong>
       <button class="btn-primary" onclick="navigator.clipboard.writeText(document.getElementById('linkedin-copy-pre').innerText); showToast('Copied LinkedIn Post Draft to clipboard!');">
         Copy LinkedIn Post Copy
       </button>
@@ -382,9 +427,9 @@ function renderGalleryView() {
   grid.innerHTML = items
     .map((t) => {
       const files = t.files || {};
-      const svg = `/assets/template-gallery/${files.svg || t.id + ".svg"}`;
-      const gif = `/assets/template-gallery/${files.gif || t.id + ".gif"}`;
-      const png = `/assets/template-gallery/${files.png || t.id + ".png"}`;
+      const svg = `/assets/template-gallery/${files.svg || t.id + ".svg"}?v=20261020v4`;
+      const gif = `/assets/template-gallery/${files.gif || t.id + ".gif"}?v=20261020v4`;
+      const png = `/assets/template-gallery/${files.png || t.id + ".png"}?v=20261020v4`;
       return `
       <article class="repo-card" data-testid="template-card-${escapeHtml(t.id)}">
         <div>

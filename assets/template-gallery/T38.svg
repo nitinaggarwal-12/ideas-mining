@@ -1,6 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
 <defs>
-<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<filter id="shadow" x="-3%" y="-3%" width="106%" height="110%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.065"/></filter>
+<linearGradient id="glassCardGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/><stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.90"/></linearGradient>
+<linearGradient id="glassSheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.72"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0"/></linearGradient>
+<radialGradient id="meshBlue" cx="14%" cy="18%" r="48%"><stop offset="0%" stop-color="#4285F4" stop-opacity="0.065"/><stop offset="100%" stop-color="#4285F4" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshEmerald" cx="86%" cy="20%" r="46%"><stop offset="0%" stop-color="#10B981" stop-opacity="0.055"/><stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshViolet" cx="50%" cy="84%" r="52%"><stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.048"/><stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"/></radialGradient>
+<pattern id="archGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.22"/></pattern>
 <style>
 @keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
 .flow-line { animation: flowDash 1.0s linear infinite; }
@@ -15,14 +21,18 @@
 </style>
 </defs>
 <rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshBlue)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshEmerald)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshViolet)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#archGrid)"/>
 <rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
 <rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
 <rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
 <rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
-<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
-<rect x="56.0" y="32.0" width="162" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="137.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T38 • TOOL SPEC CLINIC</text>
-<rect x="228.0" y="32.0" width="290" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="373.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: TOOL DEFINITIONS AGENTS USE WELL</text>
-<rect x="818.0" y="32.0" width="726" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1181.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >FORMAT LINEAGE: Anthropic (Writing effective tools) • Brij Kishore Pandey (5-Layer Claude Code ADK &amp; SKILL.md)</text>
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="37.2" y="19.2" width="1525.6" height="91.6" rx="10.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="38.0" y="19.8" width="1524.0" height="11.3" rx="9.8" fill="url(#glassSheen)" pointer-events="none"/>
+<rect x="56.0" y="32.0" width="162" height="22" rx="11.0" fill="#EFF6FF" fill-opacity="0.98" stroke="#2563EB" stroke-width="1.3"/><text x="137.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T38 • TOOL SPEC CLINIC</text>
+<rect x="228.0" y="32.0" width="290" height="22" rx="11.0" fill="#ECFDF5" fill-opacity="0.98" stroke="#059669" stroke-width="1.3"/><text x="373.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: TOOL DEFINITIONS AGENTS USE WELL</text>
+<rect x="818.0" y="32.0" width="726" height="22" rx="11.0" fill="#F0F9FF" fill-opacity="0.98" stroke="#0284C7" stroke-width="1.3"/><text x="1181.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0369A1" text-anchor="middle" >FORMAT LINEAGE: Anthropic (Writing effective tools) • Brij Kishore Pandey (5-Layer Claude Code ADK &amp; SKILL.md)</text>
 <text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Tool Spec Clinic: The Same Tool, Written So an Agent Fails With It — and Written So It Succeeds</text>
 <text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Anthropic&#x27;s tool-writing guide + Brij Kishore Pandey&#x27;s 5-Layer Claude Code ADK &amp; SKILL.md standard: descriptions and response shapes matter as much as the API.</text>
 <rect x="56.0" y="136.0" width="628.0" height="560.0" rx="12" fill="#FFF5F5" stroke="#DC2626" stroke-width="2" />
@@ -87,31 +97,35 @@
 <text x="924.0" y="656.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#059669" text-anchor="start" >✓</text>
 <text x="944.0" y="652.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="700" fill="#1E293B" text-anchor="start" >Errors tell the agent what to do next — the difference between a fix and a retry</text>
 <text x="944.0" y="665.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="700" fill="#1E293B" text-anchor="start" >storm.</text>
-<path d="M 686.0 228.0 L 894.0 228.0" fill="none" stroke="#7C3AED" stroke-opacity="0.14" stroke-width="8.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 686.0 228.0 L 894.0 228.0" fill="none" stroke="#7C3AED" stroke-opacity="0.11" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 686.0 228.0 L 894.0 228.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 686.0 228.0 L 894.0 228.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="7 6" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(904.0 228.0) rotate(0.0)"/>
-<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 686.0 228.0 L 894.0 228.0"/></g>
-<rect x="724.5" y="202.0" width="131" height="22" rx="11" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
-<text x="790.0" y="217.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED" text-anchor="middle" >namespace + intent</text>
-<path d="M 686.0 308.0 L 894.0 308.0" fill="none" stroke="#D97706" stroke-opacity="0.14" stroke-width="8.6" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="904.0,228.0 891.2,220.8 894.4,228.0 891.2,235.2" fill="#7C3AED"/>
+<g><circle r="7.4" fill="#7C3AED" fill-opacity="0.15"/><circle r="5.0" fill="#7C3AED" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.7" fill="#7C3AED"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 686.0 228.0 L 894.0 228.0"/></g>
+<rect x="723.0" y="200.5" width="134" height="25" rx="12.5" fill="#FFFFFF" fill-opacity="0.96"/><rect x="725.0" y="202.0" width="130" height="22" rx="11" fill="#FFFFFF" fill-opacity="1.0" stroke="#7C3AED" stroke-width="1.4"/>
+<text x="790.0" y="216.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.3" font-weight="800" fill="#7C3AED" text-anchor="middle" >namespace + intent</text>
+<path d="M 686.0 308.0 L 894.0 308.0" fill="none" stroke="#D97706" stroke-opacity="0.11" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 686.0 308.0 L 894.0 308.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 686.0 308.0 L 894.0 308.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="7 6" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(904.0 308.0) rotate(0.0)"/>
-<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 686.0 308.0 L 894.0 308.0"/></g>
-<rect x="731.0" y="282.0" width="118" height="22" rx="11" fill="#FFFFFF" stroke="#D97706" stroke-width="1.5"/>
-<text x="790.0" y="297.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#D97706" text-anchor="middle" >enums + defaults</text>
-<path d="M 686.0 388.0 L 894.0 388.0" fill="none" stroke="#2563EB" stroke-opacity="0.14" stroke-width="8.6" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="904.0,308.0 891.2,300.8 894.4,308.0 891.2,315.2" fill="#D97706"/>
+<g><circle r="7.4" fill="#D97706" fill-opacity="0.15"/><circle r="5.0" fill="#D97706" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#D97706" stroke-width="2.0"/><circle r="1.7" fill="#D97706"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 686.0 308.0 L 894.0 308.0"/></g>
+<rect x="729.0" y="280.5" width="122" height="25" rx="12.5" fill="#FFFFFF" fill-opacity="0.96"/><rect x="731.0" y="282.0" width="118" height="22" rx="11" fill="#FFFFFF" fill-opacity="1.0" stroke="#D97706" stroke-width="1.4"/>
+<text x="790.0" y="296.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.3" font-weight="800" fill="#D97706" text-anchor="middle" >enums + defaults</text>
+<path d="M 686.0 388.0 L 894.0 388.0" fill="none" stroke="#2563EB" stroke-opacity="0.11" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 686.0 388.0 L 894.0 388.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 686.0 388.0 L 894.0 388.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="7 6" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#2563EB" transform="translate(904.0 388.0) rotate(0.0)"/>
-<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 686.0 388.0 L 894.0 388.0"/></g>
-<rect x="705.5" y="362.0" width="169" height="22" rx="11" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
-<text x="790.0" y="377.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB" text-anchor="middle" >token-efficient response</text>
-<path d="M 686.0 468.0 L 894.0 468.0" fill="none" stroke="#059669" stroke-opacity="0.14" stroke-width="8.6" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="904.0,388.0 891.2,380.8 894.4,388.0 891.2,395.2" fill="#2563EB"/>
+<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 686.0 388.0 L 894.0 388.0"/></g>
+<rect x="705.5" y="360.5" width="169" height="25" rx="12.5" fill="#FFFFFF" fill-opacity="0.96"/><rect x="707.5" y="362.0" width="165" height="22" rx="11" fill="#FFFFFF" fill-opacity="1.0" stroke="#2563EB" stroke-width="1.4"/>
+<text x="790.0" y="376.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.3" font-weight="800" fill="#2563EB" text-anchor="middle" >token-efficient response</text>
+<path d="M 686.0 468.0 L 894.0 468.0" fill="none" stroke="#059669" stroke-opacity="0.11" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 686.0 468.0 L 894.0 468.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 686.0 468.0 L 894.0 468.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="7 6" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(904.0 468.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 686.0 468.0 L 894.0 468.0"/></g>
-<rect x="727.5" y="442.0" width="125" height="22" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
-<text x="790.0" y="457.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="middle" >actionable errors</text>
-<rect x="56.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="1.8" />
+<polygon points="904.0,468.0 891.2,460.8 894.4,468.0 891.2,475.2" fill="#059669"/>
+<g><circle r="7.4" fill="#059669" fill-opacity="0.15"/><circle r="5.0" fill="#059669" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.7" fill="#059669"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 686.0 468.0 L 894.0 468.0"/></g>
+<rect x="726.0" y="440.5" width="128" height="25" rx="12.5" fill="#FFFFFF" fill-opacity="0.96"/><rect x="728.0" y="442.0" width="124" height="22" rx="11" fill="#FFFFFF" fill-opacity="1.0" stroke="#059669" stroke-width="1.4"/>
+<text x="790.0" y="456.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.3" font-weight="800" fill="#059669" text-anchor="middle" >actionable errors</text>
+<rect x="56.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="57.2" y="717.2" width="287.6" height="147.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="58.0" y="717.8" width="286.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="56.0" y="716.0" width="290.0" height="26.0" rx="8" fill="#334155" />
 <text x="68.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="800" fill="#FFFFFF" text-anchor="start" >RULE 1 • FEWER, BETTER TOOLS</text>
 <text x="68.0" y="762.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Consolidate: one schedule_event beats</text>
@@ -119,7 +133,7 @@
 <text x="68.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Build for the workflow the agent needs,</text>
 <text x="68.0" y="804.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >not a 1:1 API mirror.</text>
 <text x="68.0" y="856.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#334155" text-anchor="start" >schedule_event(attendees, window)</text>
-<rect x="358.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8" />
+<rect x="358.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="359.2" y="717.2" width="287.6" height="147.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="360.0" y="717.8" width="286.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="358.0" y="716.0" width="290.0" height="26.0" rx="8" fill="#7C3AED" />
 <text x="370.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="800" fill="#FFFFFF" text-anchor="start" >RULE 2 • NAMESPACE</text>
 <text x="370.0" y="762.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Prefix by service and resource so</text>
@@ -127,21 +141,21 @@
 <text x="370.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >github.search_pull_requests,</text>
 <text x="370.0" y="804.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >asana.search_tasks.</text>
 <text x="370.0" y="856.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#7C3AED" text-anchor="start" >service.resource_action</text>
-<rect x="660.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.8" />
+<rect x="660.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="661.2" y="717.2" width="287.6" height="147.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="662.0" y="717.8" width="286.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="660.0" y="716.0" width="290.0" height="26.0" rx="8" fill="#2563EB" />
 <text x="672.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="800" fill="#FFFFFF" text-anchor="start" >RULE 3 • RETURN MEANINGFUL CONTEXT</text>
 <text x="672.0" y="762.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Names over UUIDs, summaries over dumps;</text>
 <text x="672.0" y="776.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >offer concise vs detailed response</text>
 <text x="672.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >formats.</text>
 <text x="672.0" y="856.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#2563EB" text-anchor="start" >response_format: concise</text>
-<rect x="962.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" />
+<rect x="962.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="963.2" y="717.2" width="287.6" height="147.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="964.0" y="717.8" width="286.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="962.0" y="716.0" width="290.0" height="26.0" rx="8" fill="#D97706" />
 <text x="974.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="800" fill="#FFFFFF" text-anchor="start" >RULE 4 • TOKEN EFFICIENCY</text>
 <text x="974.0" y="762.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Paginate, filter, truncate with a</text>
 <text x="974.0" y="776.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >next_page_token; make errors say what to</text>
 <text x="974.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >do instead of a status code.</text>
 <text x="974.0" y="856.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#D97706" text-anchor="start" >page_size &lt;= 50, next_page_token</text>
-<rect x="1264.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" />
+<rect x="1264.0" y="716.0" width="290.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1265.2" y="717.2" width="287.6" height="147.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1266.0" y="717.8" width="286.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="1264.0" y="716.0" width="290.0" height="26.0" rx="8" fill="#059669" />
 <text x="1276.0" y="734.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="800" fill="#FFFFFF" text-anchor="start" >RULE 5 • PROMPT-ENGINEER &amp; EVAL</text>
 <text x="1276.0" y="762.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#1E293B" text-anchor="start" >Write descriptions like SKILL.md</text>
@@ -151,6 +165,7 @@
 <text x="1276.0" y="856.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" font-weight="800" fill="#059669" text-anchor="start" >eval: 30 real tasks, before/after</text>
 <rect x="56.0" y="886.0" width="1508.0" height="44.0" rx="10" fill="#0F2942" />
 <text x="810.0" y="913.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >Anthropic let Claude rewrite its own tool descriptions from failed transcripts — and accuracy went up. Pair with SKILL.md progressive disclosure.</text>
-<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
-<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Anthropic Engineering, &#x27;Writing effective tools for agents — with agents&#x27; (Sep 2025) • Brij Kishore Pandey, &#x27;How Claude Code Becomes a Full Engineering Team&#x27; (5-Layer ADK &amp; SKILL.md)</text>
+<rect x="36" y="946" width="1528" height="25" rx="8" fill="#FFFFFF" fill-opacity="0.86" stroke="#E2E8F0" stroke-width="1"/>
+<text x="56.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="700" fill="#1D4ED8" text-anchor="end" >Anthropic Engineering, &#x27;Writing effective tools for agents — with agents&#x27; (Sep 2025) • Brij Kishore Pandey, &#x27;How Claude Code Becomes a Full Engineering Team&#x27; (5-Layer ADK &amp; SKILL.md)</text>
 </svg>

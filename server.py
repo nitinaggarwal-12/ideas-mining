@@ -30,6 +30,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         raw = json.dumps(data, indent=2).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
         self.send_header("Content-Length", str(len(raw)))
         self.end_headers()
         self.wfile.write(raw)
@@ -50,6 +51,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         data = file_path.read_bytes()
         self.send_response(200)
         self.send_header("Content-Type", ctype or "application/octet-stream")
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
         self.send_header("Content-Length", str(len(data)))
         self.end_headers()
         self.wfile.write(data)
@@ -175,7 +177,8 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    host = os.environ.get("HOST", "0.0.0.0")
     port = int(os.environ.get("PORT", "8765"))
-    httpd = HTTPServer(("127.0.0.1", port), StudioRequestHandler)
-    print(f"OpenHands Ideas Mining Studio listening on http://127.0.0.1:{port}")
+    httpd = HTTPServer((host, port), StudioRequestHandler)
+    print(f"OpenHands Ideas Mining Studio listening on http://{host}:{port}", flush=True)
     httpd.serve_forever()

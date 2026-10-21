@@ -45,23 +45,28 @@ Instead of generating static markdown prompt templates (`BMAD`) or relying on un
 
 ---
 
-## 4. 40 Dynamic Visual Templates (`T01`–`T40` in `assets/template-gallery/`)
+## 4. 68 Dynamic Visual Templates (`T01`–`T68` in `assets/template-gallery/`)
 
 - **Pack 1 (`T01`–`T20`, [`src/visuals/template_gallery.py`](./src/visuals/template_gallery.py))**: 20 visual archetypes pairing Google Cloud primitives with open-source equivalents (`Pain-Point Flow`, `Split-Path Divergence`, `Hub-and-Spoke Core`, `Layered Stack`, `Swimlane Sequence`, `State Machine & Gates`, `Trade-off Matrix`, `Benchmark Delta Board`, `Evolution Timeline`, `Refinement Funnel`, `2x2 Risk Quadrant`, `Annotated Artifact`, `Code Diff & Proof`, `Readiness Scorecard`, `Research Mind-Map`, `Maturity Matrix`, `Attack & Defense Chain`, `Repo Anatomy Map`, `Myth vs. Reality`, `6-Axis Radar`).
 - **Pack 2 (`T21`–`T40`, [`src/visuals/template_gallery_v2.py`](./src/visuals/template_gallery_v2.py))**: 20 creator-signature formats modeled on top-followed Agentic AI / GenAI / LLM / Evaluation / Claude publications and primary sources (`Anthropic Building Effective Agents`, `Charlie Hills / Boris Cherny 10-Change Claude Code Playbook & 42 Add-ons`, `200K->60K Context Budget Ledger`, `Hamel Husain & Shreya Shankar Error Analysis`, `Eugene Yan / MT-Bench Judge Calibration`, `Google Agents Companion Trajectory Metrics`, `Brij Kishore Pandey 7-Layer Control Plane & ByteByteGo 9-Message MCP Sequence`, `Contextual Retrieval Sketch`, `Tom Yeh AI-by-Hand Cohen's κ`, `HarnessEvolve arXiv:2609.00829 Paper Digest`, `26-Line Runnable Loop Guard`, `Andrew Ng 4 Agentic Patterns`, `Ethan Mollick Jagged Frontier`, `Simon Willison Lethal Trifecta`, `Anthropic Multi-Agent Research Economics`, `Chip Huyen Cost Waterfall`, `Brij Kishore Pandey 'How Do We Turn It Off?' 5-Stage Lifecycle, 10-Field Agent Record & SRE Postmortem`, `Anthropic & Brij Kishore Pandey 5-Layer Claude Code ADK / SKILL.md Tool-Schema Clinic`, `CoALA & Lilian Weng Agent Memory Map`, `8-Week Build-in-Public Latency Changelog`).
+- **Pack 3 (`T41`–`T52`, [`src/visuals/template_gallery_v3.py`](./src/visuals/template_gallery_v3.py))**: 12 systems-architect & engineering blog formats (`Swyx Latent Space`, `Karpathy LLM OS`, `Harrison Chase LangGraph State Machine`, `Philipp Schmid Production Serving`, `Gergely Orosz Pragmatic Engineer RFC`, `Jerry Liu Multimodal RAG`, `2-Agent Orchestrator/Reviewer Loop`, `5-Layer Enterprise Agentic OS`, `3-Pillar Eval-Driven Development`, `6-Card Bento Grid`, `A2A + MCP Protocol Interop`, `Agentic FinOps & Speculative Cascade`).
+- **Pack 4 (`T53`–`T68`, [`src/visuals/template_gallery_v4.py`](./src/visuals/template_gallery_v4.py))**: 16 canonical PromptCanvas Infographics (`#52`–`#66` + `Open Knowledge Reference Poster`) rendered directly from `PromptCanvas/src/lib/canonical/infographicBlueprints52to66.ts` and `openKnowledgeInfographic.ts` via `viewer-static.min.js` at `2x` Retina resolution (`Rule 57`).
 
 ---
 
-## 5. Quickstart Commands
+## 5. Quickstart, E2E Puppeteer Verification & Cloud Run Deployment
 
 ```bash
-# 1. Build and verify all 18 standalone Git repositories (code + 2D SVG/PNG/Draw.io + 12-slide PPTX/PDF + Terraform)
+# 1. Sync canonical PromptCanvas infographics (T53-T68) and build all 18 standalone Git repositories
+node scripts/sync_canonical_promptcanvas_infographics.mjs
 python3 scripts/build_and_verify_all.py
 
-# 2. Run the fail-closed forensic verification gate & master test suite
+# 2. Run the fail-closed forensic verification gate, unit tests & 23-assertion Puppeteer E2E suite
 python3 scripts/verify_all_repos.py
 python3 -m unittest discover -s tests -p "test_*.py" -v
+node scripts/e2e_puppeteer_functional_suite.mjs
 
-# 3. Launch the interactive Executive Light-Theme Web Studio (http://127.0.0.1:8765)
-python3 server.py
+# 3. Deploy to Cloud Run (ramp-portal-dev us-west1 -> ideas-mining-00001-d4m)
+bash scripts/deploy_ideas_mining_cloudrun.sh
 ```
+

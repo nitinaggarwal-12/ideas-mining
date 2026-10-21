@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
+<defs>
+<filter id="shadow" x="-3%" y="-3%" width="106%" height="110%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.065"/></filter>
+<linearGradient id="glassCardGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/><stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.90"/></linearGradient>
+<linearGradient id="glassSheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.72"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0"/></linearGradient>
+<radialGradient id="meshBlue" cx="14%" cy="18%" r="48%"><stop offset="0%" stop-color="#4285F4" stop-opacity="0.065"/><stop offset="100%" stop-color="#4285F4" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshEmerald" cx="86%" cy="20%" r="46%"><stop offset="0%" stop-color="#10B981" stop-opacity="0.055"/><stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshViolet" cx="50%" cy="84%" r="52%"><stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.048"/><stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"/></radialGradient>
+<pattern id="archGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.22"/></pattern>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes growX { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
+.grow-x { transform-box: fill-box; transform-origin: left center; animation: growX 1.5s ease-out 0.2s both; }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.breathe { transform-box: fill-box; transform-origin: center; animation: breathe 2.6s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshBlue)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshEmerald)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshViolet)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#archGrid)"/>
+<rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
+<rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
+<rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
+<rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="37.2" y="19.2" width="1525.6" height="91.6" rx="10.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="38.0" y="19.8" width="1524.0" height="11.3" rx="9.8" fill="url(#glassSheen)" pointer-events="none"/>
+<rect x="56.0" y="32.0" width="252" height="22" rx="11.0" fill="#EFF6FF" fill-opacity="0.98" stroke="#2563EB" stroke-width="1.3"/><text x="182.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T50 • STACKED DUAL-PROTOCOL SEQUENCE</text>
+<rect x="318.0" y="32.0" width="322" height="22" rx="11.0" fill="#ECFDF5" fill-opacity="0.98" stroke="#059669" stroke-width="1.3"/><text x="479.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: OAUTH 2.0 + PKCE VS. OIDC + AGENT OBO</text>
+<rect x="946.0" y="32.0" width="598" height="22" rx="11.0" fill="#F0F9FF" fill-opacity="0.98" stroke="#0284C7" stroke-width="1.3"/><text x="1245.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0369A1" text-anchor="middle" >FORMAT LINEAGE: Alex Xu / ByteByteGo (#07) &amp; Shalini Goyal (#06) • RFC 8693 Agent Identity</text>
+<text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >OAuth 2.0 + PKCE vs. OpenID Connect (OIDC) + RFC 8693 Agent Delegation: The Protocol Sequence Diff</text>
+<text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >OAuth 2.0 grants delegated API permission; OIDC proves user identity; RFC 8693 &#x27;act&#x27; claims bind an AI agent to the human it acts for.</text>
+<rect x="56.0" y="136.0" width="1508.0" height="358.0" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.6" filter="url(#shadow)" fill-opacity="0.96"/><rect x="57.2" y="137.2" width="1505.6" height="355.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="58.0" y="137.8" width="1504.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/><rect x="57.0" y="137.0" width="1506.0" height="30.0" rx="9" fill="#F8FAFC"/><rect x="57.0" y="137.0" width="1506.0" height="30.0" rx="9" fill="#2563EB" fill-opacity="0.11"/><rect x="57.0" y="137.0" width="1506.0" height="4.0" rx="3" fill="#2563EB"/><line x1="57.5" y1="166.5" x2="1562.5" y2="166.5" stroke="#2563EB" stroke-opacity="0.28" stroke-width="1.2"/><text x="810.0" y="156.4" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#0F2942" text-anchor="middle" >PANEL A • OAUTH 2.0 AUTHORIZATION CODE + PKCE (DELEGATED PERMISSION — NOT IDENTITY)</text>
+<rect x="74.0" y="176.0" width="164.0" height="42.0" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6" />
+<text x="156.0" y="194.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#2563EB" text-anchor="middle" >USER / BROWSER</text>
+<text x="156.0" y="209.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="600" fill="#475569" text-anchor="middle" >Resource Owner</text>
+<line x1="156" y1="218" x2="156" y2="480" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="5 5"/>
+<rect x="344.0" y="176.0" width="164.0" height="42.0" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6" />
+<text x="426.0" y="194.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#2563EB" text-anchor="middle" >CLIENT / AGENT APP</text>
+<text x="426.0" y="209.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="600" fill="#475569" text-anchor="middle" >Generates PKCE verifier</text>
+<line x1="426" y1="218" x2="426" y2="480" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="5 5"/>
+<rect x="624.0" y="176.0" width="164.0" height="42.0" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6" />
+<text x="706.0" y="194.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#2563EB" text-anchor="middle" >AUTH SERVER</text>
+<text x="706.0" y="209.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="600" fill="#475569" text-anchor="middle" >OAuth 2.0 /authorize &amp; /token</text>
+<line x1="706" y1="218" x2="706" y2="480" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="5 5"/>
+<rect x="904.0" y="176.0" width="164.0" height="42.0" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6" />
+<text x="986.0" y="194.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#2563EB" text-anchor="middle" >RESOURCE / MCP API</text>
+<text x="986.0" y="209.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="600" fill="#475569" text-anchor="middle" >Checks scopes (scp)</text>
+<line x1="986" y1="218" x2="986" y2="480" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="5 5"/>
+<path d="M 156.0 238.0 L 416.0 238.0" fill="none" stroke="#334155" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 156.0 238.0 L 416.0 238.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 156.0 238.0 L 416.0 238.0" class="flow-line" fill="none" stroke="#334155" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="426.0,238.0 413.2,230.8 416.4,238.0 413.2,245.2" fill="#334155"/>
+<g><circle r="7.4" fill="#334155" fill-opacity="0.15"/><circle r="5.0" fill="#334155" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#334155" stroke-width="2.0"/><circle r="1.7" fill="#334155"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 156.0 238.0 L 416.0 238.0"/></g>
+<rect x="121.2" y="227.0" width="339.6" height="22.0" rx="11" fill="#FFFFFF" stroke="#334155" stroke-width="1.4" />
+<circle cx="134.2" cy="238.0" r="11.5" fill="#334155" fill-opacity="0.16"/><circle cx="134.2" cy="238.0" r="8.5" fill="#334155" stroke="#FFFFFF" stroke-width="1.2"/><text x="134.2" y="242.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >1</text>
+<text x="147.2" y="241.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >Click &#x27;Connect GitHub&#x27; (app generates code_verifier)</text>
+<path d="M 426.0 272.0 L 696.0 272.0" fill="none" stroke="#2563EB" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 272.0 L 696.0 272.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 272.0 L 696.0 272.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="706.0,272.0 693.2,264.8 696.4,272.0 693.2,279.2" fill="#2563EB"/>
+<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 426.0 272.0 L 696.0 272.0"/></g>
+<rect x="376.0" y="261.0" width="380.0" height="22.0" rx="11" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4" />
+<circle cx="389.0" cy="272.0" r="11.5" fill="#2563EB" fill-opacity="0.16"/><circle cx="389.0" cy="272.0" r="8.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.2"/><text x="389.0" y="276.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >2</text>
+<text x="402.0" y="275.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >GET /authorize?code_challenge=SHA256(verifier)&amp;scope=repo:read</text>
+<path d="M 706.0 306.0 L 166.0 306.0" fill="none" stroke="#7C3AED" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 706.0 306.0 L 166.0 306.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 706.0 306.0 L 166.0 306.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="156.0,306.0 168.8,313.2 165.6,306.0 168.8,298.8" fill="#7C3AED"/>
+<g><circle r="7.4" fill="#7C3AED" fill-opacity="0.15"/><circle r="5.0" fill="#7C3AED" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.7" fill="#7C3AED"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 706.0 306.0 L 166.0 306.0"/></g>
+<rect x="296.0" y="295.0" width="270.0" height="22.0" rx="11" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.4" />
+<circle cx="309.0" cy="306.0" r="11.5" fill="#7C3AED" fill-opacity="0.16"/><circle cx="309.0" cy="306.0" r="8.5" fill="#7C3AED" stroke="#FFFFFF" stroke-width="1.2"/><text x="309.0" y="310.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >3</text>
+<text x="322.0" y="309.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >Prompt user login &amp; scope consent screen</text>
+<path d="M 706.0 340.0 L 436.0 340.0" fill="none" stroke="#7C3AED" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 706.0 340.0 L 436.0 340.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 706.0 340.0 L 436.0 340.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="426.0,340.0 438.8,347.2 435.6,340.0 438.8,332.8" fill="#7C3AED"/>
+<g><circle r="7.4" fill="#7C3AED" fill-opacity="0.15"/><circle r="5.0" fill="#7C3AED" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.7" fill="#7C3AED"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 706.0 340.0 L 436.0 340.0"/></g>
+<rect x="393.3" y="329.0" width="345.4" height="22.0" rx="11" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.4" />
+<circle cx="406.3" cy="340.0" r="11.5" fill="#7C3AED" fill-opacity="0.16"/><circle cx="406.3" cy="340.0" r="8.5" fill="#7C3AED" stroke="#FFFFFF" stroke-width="1.2"/><text x="406.3" y="344.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >4</text>
+<text x="419.3" y="343.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >Redirect callback with short-lived authorization_code</text>
+<path d="M 426.0 374.0 L 696.0 374.0" fill="none" stroke="#2563EB" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 374.0 L 696.0 374.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 374.0 L 696.0 374.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="706.0,374.0 693.2,366.8 696.4,374.0 693.2,381.2" fill="#2563EB"/>
+<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 426.0 374.0 L 696.0 374.0"/></g>
+<rect x="378.8" y="363.0" width="374.4" height="22.0" rx="11" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4" />
+<circle cx="391.8" cy="374.0" r="11.5" fill="#2563EB" fill-opacity="0.16"/><circle cx="391.8" cy="374.0" r="8.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.2"/><text x="391.8" y="378.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >5</text>
+<text x="404.8" y="377.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >POST /token (authorization_code + plaintext code_verifier)</text>
+<path d="M 706.0 408.0 L 436.0 408.0" fill="none" stroke="#059669" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 706.0 408.0 L 436.0 408.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 706.0 408.0 L 436.0 408.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="426.0,408.0 438.8,415.2 435.6,408.0 438.8,400.8" fill="#059669"/>
+<g><circle r="7.4" fill="#059669" fill-opacity="0.15"/><circle r="5.0" fill="#059669" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.7" fill="#059669"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 706.0 408.0 L 436.0 408.0"/></g>
+<rect x="396.2" y="397.0" width="339.6" height="22.0" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.4" />
+<circle cx="409.2" cy="408.0" r="11.5" fill="#059669" fill-opacity="0.16"/><circle cx="409.2" cy="408.0" r="8.5" fill="#059669" stroke="#FFFFFF" stroke-width="1.2"/><text x="409.2" y="412.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >6</text>
+<text x="422.2" y="411.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >Verify SHA256(verifier) -&gt; issue scoped access_token</text>
+<path d="M 426.0 442.0 L 976.0 442.0" fill="none" stroke="#0D9488" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 442.0 L 976.0 442.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 442.0 L 976.0 442.0" class="flow-line" fill="none" stroke="#0D9488" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="986.0,442.0 973.2,434.8 976.4,442.0 973.2,449.2" fill="#0D9488"/>
+<g><circle r="7.4" fill="#0D9488" fill-opacity="0.15"/><circle r="5.0" fill="#0D9488" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#0D9488" stroke-width="2.0"/><circle r="1.7" fill="#0D9488"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 426.0 442.0 L 976.0 442.0"/></g>
+<rect x="524.6" y="431.0" width="362.8" height="22.0" rx="11" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.4" />
+<circle cx="537.6" cy="442.0" r="11.5" fill="#0D9488" fill-opacity="0.16"/><circle cx="537.6" cy="442.0" r="8.5" fill="#0D9488" stroke="#FFFFFF" stroke-width="1.2"/><text x="537.6" y="446.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >7</text>
+<text x="550.6" y="445.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >Call MCP / API with Authorization: Bearer &lt;access_token&gt;</text>
+<rect x="1112.0" y="176.0" width="436.0" height="304.0" rx="10" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.6" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1113.2" y="177.2" width="433.6" height="301.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1114.0" y="177.8" width="432.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
+<text x="1128.0" y="200.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#2563EB" text-anchor="start" >OAUTH 2.0 + PKCE TAKEAWAYS</text>
+<text x="1128.0" y="220.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >• Answers &#x27;What is this app allowed to access?&#x27; — never use</text>
+<text x="1128.0" y="233.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >an opaque access_token as proof of who logged in.</text>
+<text x="1128.0" y="254.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >• PKCE (RFC 7636) binds the authorization code to the exact</text>
+<text x="1128.0" y="267.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >client that started the flow via code_verifier.</text>
+<text x="1128.0" y="288.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >• Scope ceiling: the access_token only carries the consented</text>
+<text x="1128.0" y="301.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >scopes (e.g., repo:read, never admin:org).</text>
+<rect x="1128.0" y="326.0" width="404.0" height="140.0" rx="8" fill="#0F172A" stroke="#2563EB" stroke-width="1.4" />
+<text x="1140.0" y="346.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.2" font-weight="800" fill="#93C5FD" text-anchor="start" >OAuth 2.0 Access Token (API Authorization)</text>
+<text x="1140.0" y="366.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.8" font-weight="600" fill="#E2E8F0" text-anchor="start" >{</text>
+<text x="1140.0" y="385.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.8" font-weight="600" fill="#E2E8F0" text-anchor="start" >  &quot;iss&quot;: &quot;https://auth.example.com&quot;,</text>
+<text x="1140.0" y="404.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.8" font-weight="600" fill="#E2E8F0" text-anchor="start" >  &quot;aud&quot;: &quot;https://mcp.github.internal&quot;,</text>
+<text x="1140.0" y="423.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.8" font-weight="600" fill="#E2E8F0" text-anchor="start" >  &quot;scp&quot;: [&quot;repo:read&quot;, &quot;pull_request:read&quot;],</text>
+<text x="1140.0" y="442.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.8" font-weight="600" fill="#86EFAC" text-anchor="start" >  &quot;code_verifier_checked&quot;: true</text>
+<rect x="56.0" y="508.0" width="1508.0" height="358.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.6" filter="url(#shadow)" fill-opacity="0.96"/><rect x="57.2" y="509.2" width="1505.6" height="355.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="58.0" y="509.8" width="1504.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/><rect x="57.0" y="509.0" width="1506.0" height="30.0" rx="9" fill="#F8FAFC"/><rect x="57.0" y="509.0" width="1506.0" height="30.0" rx="9" fill="#059669" fill-opacity="0.11"/><rect x="57.0" y="509.0" width="1506.0" height="4.0" rx="3" fill="#059669"/><line x1="57.5" y1="538.5" x2="1562.5" y2="538.5" stroke="#059669" stroke-opacity="0.28" stroke-width="1.2"/><text x="810.0" y="528.4" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#0F2942" text-anchor="middle" >PANEL B • OPENID CONNECT (OIDC) + RFC 8693 ON-BEHALF-OF (OBO) AGENT DELEGATION</text>
+<rect x="74.0" y="548.0" width="164.0" height="42.0" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="1.6" />
+<text x="156.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#059669" text-anchor="middle" >HUMAN USER</text>
+<text x="156.0" y="581.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="600" fill="#475569" text-anchor="middle" >Authenticated Principal</text>
+<line x1="156" y1="590" x2="156" y2="852" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="5 5"/>
+<rect x="344.0" y="548.0" width="164.0" height="42.0" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="1.6" />
+<text x="426.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#059669" text-anchor="middle" >ORCHESTRATOR AGENT</text>
+<text x="426.0" y="581.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="600" fill="#475569" text-anchor="middle" >Holds user id_token</text>
+<line x1="426" y1="590" x2="426" y2="852" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="5 5"/>
+<rect x="624.0" y="548.0" width="164.0" height="42.0" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="1.6" />
+<text x="706.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#059669" text-anchor="middle" >OIDC IdP &amp; RFC 8693 STS</text>
+<text x="706.0" y="581.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="600" fill="#475569" text-anchor="middle" >Identity + Token Exchange</text>
+<line x1="706" y1="590" x2="706" y2="852" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="5 5"/>
+<rect x="904.0" y="548.0" width="164.0" height="42.0" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="1.6" />
+<text x="986.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#059669" text-anchor="middle" >DOWNSTREAM MCP TOOL</text>
+<text x="986.0" y="581.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="600" fill="#475569" text-anchor="middle" >Enforces sub + act OPA</text>
+<line x1="986" y1="590" x2="986" y2="852" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="5 5"/>
+<path d="M 156.0 610.0 L 416.0 610.0" fill="none" stroke="#334155" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 156.0 610.0 L 416.0 610.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 156.0 610.0 L 416.0 610.0" class="flow-line" fill="none" stroke="#334155" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="426.0,610.0 413.2,602.8 416.4,610.0 413.2,617.2" fill="#334155"/>
+<g><circle r="7.4" fill="#334155" fill-opacity="0.15"/><circle r="5.0" fill="#334155" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#334155" stroke-width="2.0"/><circle r="1.7" fill="#334155"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 156.0 610.0 L 416.0 610.0"/></g>
+<rect x="138.6" y="599.0" width="304.8" height="22.0" rx="11" fill="#FFFFFF" stroke="#334155" stroke-width="1.4" />
+<circle cx="151.6" cy="610.0" r="11.5" fill="#334155" fill-opacity="0.16"/><circle cx="151.6" cy="610.0" r="8.5" fill="#334155" stroke="#FFFFFF" stroke-width="1.2"/><text x="151.6" y="614.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >1</text>
+<text x="164.6" y="613.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >Sign in with OIDC (scope=openid profile email)</text>
+<path d="M 706.0 644.0 L 436.0 644.0" fill="none" stroke="#2563EB" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 706.0 644.0 L 436.0 644.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 706.0 644.0 L 436.0 644.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="426.0,644.0 438.8,651.2 435.6,644.0 438.8,636.8" fill="#2563EB"/>
+<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 706.0 644.0 L 436.0 644.0"/></g>
+<rect x="376.0" y="633.0" width="380.0" height="22.0" rx="11" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4" />
+<circle cx="389.0" cy="644.0" r="11.5" fill="#2563EB" fill-opacity="0.16"/><circle cx="389.0" cy="644.0" r="8.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.2"/><text x="389.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >2</text>
+<text x="402.0" y="647.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >Issue signed id_token (JWT proving user identity) + access_token</text>
+<path d="M 426.0 678.0 L 426.0 678.0" fill="none" stroke="#7C3AED" stroke-opacity="0.11" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 678.0 L 426.0 678.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 678.0 L 426.0 678.0" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="426.0,678.0 417.5,673.2 419.6,678.0 417.5,682.8" fill="#7C3AED"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 426.0 678.0 L 426.0 678.0"/></g>
+<rect x="236.0" y="667.0" width="380.0" height="22.0" rx="11" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.4" />
+<circle cx="249.0" cy="678.0" r="11.5" fill="#7C3AED" fill-opacity="0.16"/><circle cx="249.0" cy="678.0" r="8.5" fill="#7C3AED" stroke="#FFFFFF" stroke-width="1.2"/><text x="249.0" y="682.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >3</text>
+<text x="262.0" y="681.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >Verify id_token signature, iss, aud, exp (sub = &#x27;alice@corp&#x27;)</text>
+<path d="M 426.0 712.0 L 696.0 712.0" fill="none" stroke="#D97706" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 712.0 L 696.0 712.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 712.0 L 696.0 712.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="706.0,712.0 693.2,704.8 696.4,712.0 693.2,719.2" fill="#D97706"/>
+<g><circle r="7.4" fill="#D97706" fill-opacity="0.15"/><circle r="5.0" fill="#D97706" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#D97706" stroke-width="2.0"/><circle r="1.7" fill="#D97706"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 426.0 712.0 L 696.0 712.0"/></g>
+<rect x="376.0" y="701.0" width="380.0" height="22.0" rx="11" fill="#FFFFFF" stroke="#D97706" stroke-width="1.4" />
+<circle cx="389.0" cy="712.0" r="11.5" fill="#D97706" fill-opacity="0.16"/><circle cx="389.0" cy="712.0" r="8.5" fill="#D97706" stroke="#FFFFFF" stroke-width="1.2"/><text x="389.0" y="716.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >4</text>
+<text x="402.0" y="715.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >POST /token (RFC 8693 exchange: subject=alice, actor=triage_agent)</text>
+<path d="M 706.0 746.0 L 436.0 746.0" fill="none" stroke="#059669" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 706.0 746.0 L 436.0 746.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 706.0 746.0 L 436.0 746.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="426.0,746.0 438.8,753.2 435.6,746.0 438.8,738.8" fill="#059669"/>
+<g><circle r="7.4" fill="#059669" fill-opacity="0.15"/><circle r="5.0" fill="#059669" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.7" fill="#059669"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 706.0 746.0 L 436.0 746.0"/></g>
+<rect x="376.0" y="735.0" width="380.0" height="22.0" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.4" />
+<circle cx="389.0" cy="746.0" r="11.5" fill="#059669" fill-opacity="0.16"/><circle cx="389.0" cy="746.0" r="8.5" fill="#059669" stroke="#FFFFFF" stroke-width="1.2"/><text x="389.0" y="750.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >5</text>
+<text x="402.0" y="749.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >Mint narrowed OBO JWT with both sub=&#x27;alice&#x27; and act={&#x27;sub&#x27;:&#x27;agent&#x27;}</text>
+<path d="M 426.0 780.0 L 976.0 780.0" fill="none" stroke="#0D9488" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 780.0 L 976.0 780.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.0 780.0 L 976.0 780.0" class="flow-line" fill="none" stroke="#0D9488" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="986.0,780.0 973.2,772.8 976.4,780.0 973.2,787.2" fill="#0D9488"/>
+<g><circle r="7.4" fill="#0D9488" fill-opacity="0.15"/><circle r="5.0" fill="#0D9488" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#0D9488" stroke-width="2.0"/><circle r="1.7" fill="#0D9488"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 426.0 780.0 L 976.0 780.0"/></g>
+<rect x="516.0" y="769.0" width="380.0" height="22.0" rx="11" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.4" />
+<circle cx="529.0" cy="780.0" r="11.5" fill="#0D9488" fill-opacity="0.16"/><circle cx="529.0" cy="780.0" r="8.5" fill="#0D9488" stroke="#FFFFFF" stroke-width="1.2"/><text x="529.0" y="784.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >6</text>
+<text x="542.0" y="783.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >tools/call with Bearer &lt;OBO_JWT&gt; (5-min TTL, single-task scope)</text>
+<path d="M 986.0 814.0 L 436.0 814.0" fill="none" stroke="#059669" stroke-opacity="0.11" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 986.0 814.0 L 436.0 814.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 986.0 814.0 L 436.0 814.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="6 4" stroke-dashoffset="0.0"/>
+<polygon points="426.0,814.0 438.8,821.2 435.6,814.0 438.8,806.8" fill="#059669"/>
+<g><circle r="7.4" fill="#059669" fill-opacity="0.15"/><circle r="5.0" fill="#059669" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.7" fill="#059669"/><animateMotion dur="1.10s" begin="-0.00s" repeatCount="indefinite" path="M 986.0 814.0 L 436.0 814.0"/></g>
+<rect x="516.0" y="803.0" width="380.0" height="22.0" rx="11" fill="#FFFFFF" stroke="#059669" stroke-width="1.4" />
+<circle cx="529.0" cy="814.0" r="11.5" fill="#059669" fill-opacity="0.16"/><circle cx="529.0" cy="814.0" r="8.5" fill="#059669" stroke="#FFFFFF" stroke-width="1.2"/><text x="529.0" y="818.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >7</text>
+<text x="542.0" y="817.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.0" font-weight="800" fill="#0F172A" text-anchor="start" >OPA verifies BOTH alice&#x27;s RBAC and agent&#x27;s allowlist -&gt; execute &amp; log</text>
+<rect x="1112.0" y="548.0" width="436.0" height="304.0" rx="10" fill="#F8FAFC" stroke="#059669" stroke-width="1.6" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1113.2" y="549.2" width="433.6" height="301.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1114.0" y="549.8" width="432.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
+<text x="1128.0" y="572.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#059669" text-anchor="start" >OIDC + RFC 8693 AGENT IDENTITY TAKEAWAYS</text>
+<text x="1128.0" y="592.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >• OIDC adds the signed id_token so the app knows *who* the</text>
+<text x="1128.0" y="605.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >human user is (sub, email, groups).</text>
+<text x="1128.0" y="626.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >• Never give an agent a god-mode service account! Exchange</text>
+<text x="1128.0" y="639.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >the user token via RFC 8693 for a narrowed OBO token.</text>
+<text x="1128.0" y="660.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >• Downstream tools authorize the intersection of (Human User</text>
+<text x="1128.0" y="673.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="600" fill="#0F172A" text-anchor="start" >RBAC ∩ Agent Capability Policy) and log both IDs.</text>
+<rect x="1128.0" y="698.0" width="404.0" height="140.0" rx="8" fill="#0F172A" stroke="#059669" stroke-width="1.4" />
+<text x="1140.0" y="718.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.2" font-weight="800" fill="#93C5FD" text-anchor="start" >OIDC + RFC 8693 Agent OBO JWT (Dual Identity)</text>
+<text x="1140.0" y="738.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.8" font-weight="600" fill="#E2E8F0" text-anchor="start" >{</text>
+<text x="1140.0" y="757.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.8" font-weight="600" fill="#E2E8F0" text-anchor="start" >  &quot;sub&quot;: &quot;user:alice@corp.com&quot;,</text>
+<text x="1140.0" y="776.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.8" font-weight="600" fill="#86EFAC" text-anchor="start" >  &quot;act&quot;: { &quot;sub&quot;: &quot;agent:pr-reviewer-v2&quot; },</text>
+<text x="1140.0" y="795.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.8" font-weight="600" fill="#E2E8F0" text-anchor="start" >  &quot;scp&quot;: [&quot;jira:comment:create&quot;],</text>
+<text x="1140.0" y="814.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.8" font-weight="600" fill="#E2E8F0" text-anchor="start" >  &quot;exp&quot;: 1761003000  // 300s ephemeral TTL</text>
+<rect x="56.0" y="884.0" width="1508.0" height="44.0" rx="10" fill="#0F2942" />
+<text x="810.0" y="911.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF" text-anchor="middle" >Rule: OAuth 2.0 authorizes APIs; OIDC authenticates humans; RFC 8693 &#x27;act&#x27; tokens ensure an AI agent never exceeds the human&#x27;s permissions.</text>
+<rect x="36" y="946" width="1528" height="25" rx="8" fill="#FFFFFF" fill-opacity="0.86" stroke="#E2E8F0" stroke-width="1"/>
+<text x="56.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="700" fill="#1D4ED8" text-anchor="end" >Alex Xu / ByteByteGo, &#x27;OAuth 2.0 vs OIDC&#x27; (#07) • Shalini Goyal (#06) • RFC 6749 / RFC 7636 (PKCE) / OIDC Core / RFC 8693 Token Exchange</text>
+</svg>

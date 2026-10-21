@@ -1,0 +1,98 @@
+{
+  "T53": {
+    "pcId": "52",
+    "width": 1600,
+    "height": 1050,
+    "background": "#F8FAFC"
+  },
+  "T54": {
+    "pcId": "53",
+    "width": 1075,
+    "height": 1310,
+    "background": "#FCFDFE"
+  },
+  "T55": {
+    "pcId": "54",
+    "width": 886,
+    "height": 1024,
+    "background": "#FBFCFF"
+  },
+  "T56": {
+    "pcId": "55",
+    "width": 855,
+    "height": 1024,
+    "background": "#FCFDFE"
+  },
+  "T57": {
+    "pcId": "56",
+    "width": 765,
+    "height": 1024,
+    "background": "#FAF8F2"
+  },
+  "T58": {
+    "pcId": "57",
+    "width": 765,
+    "height": 1024,
+    "background": "#FAF8F2"
+  },
+  "T59": {
+    "pcId": "58",
+    "width": 765,
+    "height": 1024,
+    "background": "#FAF8F2"
+  },
+  "T60": {
+    "pcId": "59",
+    "width": 765,
+    "height": 1024,
+    "background": "#FAF8F2"
+  },
+  "T61": {
+    "pcId": "60",
+    "width": 765,
+    "height": 1024,
+    "background": "#FAF8F2"
+  },
+  "T62": {
+    "pcId": "61",
+    "width": 765,
+    "height": 1024,
+    "background": "#FAF8F2"
+  },
+  "T63": {
+    "pcId": "62",
+    "width": 765,
+    "height": 1024,
+    "background": "#FAF8F2"
+  },
+  "T64": {
+    "pcId": "63",
+    "width": 765,
+    "height": 1024,
+    "background": "#F9FBFD"
+  },
+  "T65": {
+    "pcId": "64",
+    "width": 765,
+    "height": 1024,
+    "background": "#F8FAFC"
+  },
+  "T66": {
+    "pcId": "65",
+    "width": 765,
+    "height": 1024,
+    "background": "#FAF8F2"
+  },
+  "T67": {
+    "pcId": "66",
+    "width": 765,
+    "height": 1024,
+    "background": "#FAF8F2"
+  },
+  "T68": {
+    "pcId": "open_knowledge",
+    "width": 1600,
+    "height": 1050,
+    "background": "#F8FAFC"
+  }
+}

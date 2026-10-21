@@ -124,6 +124,16 @@ CREATOR_MINING_PLAYBOOK: Dict[str, Any] = {
                 "bmad_meta_prompts": "Outputs unverified UI snippets without inspecting live computed styles.",
                 "openhands_autonomous": "Reads entire workspace, enforces Rule 54 Executive Light Theme & Rule 26 cell containment, and verifies live HTTP endpoints.",
             },
+            {
+                "dimension": "Canonical Visual & Diagram Fidelity (Rule 57)",
+                "bmad_meta_prompts": "Generates hand-rolled box approximations with overlapping labels and double footers.",
+                "openhands_autonomous": "Extracts canonical PromptCanvas Draw.io XMLs (#52-#66 + Open Knowledge), renders 2x Retina PNGs via viewer-static.min.js, and audits getBoundingClientRect() geometry.",
+            },
+            {
+                "dimension": "Cloud Run & Git Delivery Lifecycle (Rule 56)",
+                "bmad_meta_prompts": "Stops at local markdown output with no container build or deployment receipt.",
+                "openhands_autonomous": "Commits verified artifacts to Git, builds container image in nitina-ggarwal-sandbox-647724, updates Cloud Run in ramp-portal-dev (us-west1), and verifies readiness probes.",
+            },
         ],
     },
 }
@@ -448,7 +458,7 @@ POSTS_CATALOG: List[Dict[str, Any]] = [
         ],
         "core_steps": [
             {"step": "01", "title": "Permanent Constitution", "desc": "Mount synchronized AGENTS.md, GEMINI.md, CLAUDE.md, and local overrides into the KV-cached prefix."},
-            {"step": "02", "title": "Project MCP Wiring", "desc": "Bind .mcp.json connectors to GitHub, Jira, Slack, and GCP databases with scoped settings.json permissions."},
+            {"step": "02", "title": "Project MCP Wiring", "desc": "Bind .mcp.json connectors to GitHub, Jira, Slack, and Google Cloud databases with scoped settings.json permissions."},
             {"step": "03", "title": "Modular Domain Rules", "desc": "Enforce rules/api.md, rules/security.md, and rules/ui-light-theme.md based on file path globs."},
             {"step": "04", "title": "Repeatable Commands & Skills", "desc": "Package reviews, deployments, and migrations in commands/*.md and skills/<name>/SKILL.md."},
             {"step": "05", "title": "Specialized Sub-Agents", "desc": "Dispatch agents/code-reviewer.md and agents/security-auditor.md with isolated toolsets."},

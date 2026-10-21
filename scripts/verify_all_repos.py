@@ -42,16 +42,16 @@ def verify_all() -> dict:
 
     all_items = list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
 
-    # 1b. Audit the 40-template Dynamic Visual Gallery (animated SVG + GIF + PNG + manifest)
+    # 1b. Audit the 68-template Dynamic Visual Gallery (animated SVG + GIF + PNG + manifest)
     gallery_dir = WORKSPACE_ROOT / "assets" / "template-gallery"
     manifest = gallery_dir / "gallery_manifest.json"
     if not manifest.exists():
         failures.append("Template gallery manifest missing: assets/template-gallery/gallery_manifest.json")
     else:
         manifest_data = json.loads(manifest.read_text(encoding="utf-8"))
-        if manifest_data.get("template_count") != 40:
-            failures.append(f"Template gallery manifest expected 40 templates, found {manifest_data.get('template_count')}")
-    for n in range(1, 41):
+        if manifest_data.get("template_count") != 68:
+            failures.append(f"Template gallery manifest expected 68 templates, found {manifest_data.get('template_count')}")
+    for n in range(1, 69):
         tid = f"T{n:02d}"
         for ext in ("svg", "gif", "png"):
             fp = gallery_dir / f"{tid}.{ext}"

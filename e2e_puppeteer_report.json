@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-10-21T04:19:15.740Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "totalAssertions": 23,
+  "passedAssertions": 23,
+  "failedAssertions": 0,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "results": [
+    {
+      "name": "Rule 54 Executive Light Theme Default",
+      "passed": true,
+      "detail": "body bg=rgb(248, 250, 252), darkClass=false"
+    },
+    {
+      "name": "Zero Horizontal Overflow on View 1 (18 Repos)",
+      "passed": true,
+      "detail": "scrollWidth=1600 <= innerWidth=1600"
+    },
+    {
+      "name": "View 1 Renders All 18 Repo Cards & 18 Matrix Rows",
+      "passed": true,
+      "detail": "cards=18, rows=18, badges=18/18 Git Repos Verified | 72/72 Sandbox Tests PASS"
+    },
+    {
+      "name": "All 18 Repo Card Lead SVGs Load with naturalWidth > 0",
+      "passed": true,
+      "detail": "loaded=18/18"
+    },
+    {
+      "name": "Filter Series ARCH-DYN (Tomorrow Morning EST Top 10)",
+      "passed": true,
+      "detail": "cards=10"
+    },
+    {
+      "name": "Filter Series ARCH-2D (8 Creator Signal Posts)",
+      "passed": true,
+      "detail": "cards=8"
+    },
+    {
+      "name": "Filter Creator Rakesh Gohel",
+      "passed": true,
+      "detail": "cards=3"
+    },
+    {
+      "name": "Empty Search Shows Resilient Empty State (#no-matching-cards)",
+      "passed": true,
+      "detail": "empty state visible"
+    },
+    {
+      "name": "Reset Filters Button Restores All 18 Repos",
+      "passed": true,
+      "detail": "cards=18"
+    },
+    {
+      "name": "Inspector Drawer Tab 1 (Dynamic & @2d Visuals) Renders All Figures & Prompt",
+      "passed": true,
+      "detail": "badge=\"IDEA-01 • Tomorrow • 07:30 AM EST • HEAD 0282704\", images=4/4, promptChars=4435"
+    },
+    {
+      "name": "Inspector Drawer Tab 2 (12-Slide Deck & Carousel) Renders 12 Slides",
+      "passed": true,
+      "detail": "slides=12/12"
+    },
+    {
+      "name": "Inspector Drawer Tab 3 (1-Click GCP Terraform & ADK Code) Renders main.tf & Rule 55 engine.py",
+      "passed": true,
+      "detail": "main.tf=true, engine.py=true"
+    },
+    {
+      "name": "Inspector Drawer Tab 4 (LinkedIn Copy & Group Distribution Plan)",
+      "passed": true,
+      "detail": "hasGroups=true, draftChars=6655"
+    },
+    {
+      "name": "Close Drawer Button Collapses Inspector Drawer",
+      "passed": true,
+      "detail": "drawer closed"
+    },
+    {
+      "name": "View 2 Renders All 68 Dynamic Templates & 12 OSS/Google Stack Pairings",
+      "passed": true,
+      "detail": "cards=68, badge=\"68 / 68 Dynamic Templates\", pairings=12, brokenImgs=0"
+    },
+    {
+      "name": "Filter PromptCanvas Canonical Infographics Renders Exactly 16 Templates (T53-T68)",
+      "passed": true,
+      "detail": "badge=\"16 / 68 Dynamic Templates\", range=template-card-T53..template-card-T68"
+    },
+    {
+      "name": "View 3 (Creator Mining Playbook) Renders Signal Channels & 4 @2d Archetypes",
+      "passed": true,
+      "detail": "summaryChars=449, channels=4, archetypes=4"
+    },
+    {
+      "name": "View 4 (Live Idea Miner & URL Ingestor) Feeds + POST /api/ingest-url E2E",
+      "passed": true,
+      "detail": "Verified & Mapped: SYNTHESIZED_GROUNDED_BLUEPRINT -> Repository: custom-autonomous-agentic-verification-6ec8"
+    },
+    {
+      "name": "View 5 (OpenHands Sandbox Console) Renders Comparison Matrix & 18 Repo Trajectories",
+      "passed": true,
+      "detail": "comparisonRows=5, trajectories=18/18"
+    },
+    {
+      "name": "Rule 26 Table Cell Containment (overflow: hidden on all table-fixed tbody td)",
+      "passed": true,
+      "detail": "checkedCells=171, uncontained=0"
+    },
+    {
+      "name": "Rule 57C Canonical T53-T68 Zero Double-Footer (viewBox height === image height + W3C <title>/<desc>)",
+      "passed": true,
+      "detail": "verified=16/16 canonical PromptCanvas templates, doubleFooters=0"
+    },
+    {
+      "name": "Zero Browser Page/Runtime Errors",
+      "passed": true,
+      "detail": "errors=0"
+    },
+    {
+      "name": "Zero HTTP >= 400 Responses",
+      "passed": true,
+      "detail": "failedRequests=0"
+    }
+  ]
+}

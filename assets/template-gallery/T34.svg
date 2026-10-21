@@ -1,6 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
 <defs>
-<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<filter id="shadow" x="-3%" y="-3%" width="106%" height="110%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.065"/></filter>
+<linearGradient id="glassCardGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/><stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.90"/></linearGradient>
+<linearGradient id="glassSheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.72"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0"/></linearGradient>
+<radialGradient id="meshBlue" cx="14%" cy="18%" r="48%"><stop offset="0%" stop-color="#4285F4" stop-opacity="0.065"/><stop offset="100%" stop-color="#4285F4" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshEmerald" cx="86%" cy="20%" r="46%"><stop offset="0%" stop-color="#10B981" stop-opacity="0.055"/><stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshViolet" cx="50%" cy="84%" r="52%"><stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.048"/><stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"/></radialGradient>
+<pattern id="archGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.22"/></pattern>
 <style>
 @keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
 .flow-line { animation: flowDash 1.0s linear infinite; }
@@ -15,17 +21,21 @@
 </style>
 </defs>
 <rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshBlue)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshEmerald)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshViolet)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#archGrid)"/>
 <rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
 <rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
 <rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
 <rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
-<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
-<rect x="56.0" y="32.0" width="188" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="150.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T34 • LETHAL TRIFECTA VENN</text>
-<rect x="254.0" y="32.0" width="265" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="386.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: 5-SECOND AGENT SECURITY TEST</text>
-<rect x="1036.0" y="32.0" width="508" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1290.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >FORMAT LINEAGE: Simon Willison, The lethal trifecta for AI agents (Jun 2025)</text>
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="37.2" y="19.2" width="1525.6" height="91.6" rx="10.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="38.0" y="19.8" width="1524.0" height="11.3" rx="9.8" fill="url(#glassSheen)" pointer-events="none"/>
+<rect x="56.0" y="32.0" width="188" height="22" rx="11.0" fill="#EFF6FF" fill-opacity="0.98" stroke="#2563EB" stroke-width="1.3"/><text x="150.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T34 • LETHAL TRIFECTA VENN</text>
+<rect x="254.0" y="32.0" width="265" height="22" rx="11.0" fill="#ECFDF5" fill-opacity="0.98" stroke="#059669" stroke-width="1.3"/><text x="386.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: 5-SECOND AGENT SECURITY TEST</text>
+<rect x="1036.0" y="32.0" width="508" height="22" rx="11.0" fill="#F0F9FF" fill-opacity="0.98" stroke="#0284C7" stroke-width="1.3"/><text x="1290.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0369A1" text-anchor="middle" >FORMAT LINEAGE: Simon Willison, The lethal trifecta for AI agents (Jun 2025)</text>
 <text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >The Lethal Trifecta: If Your Agent Has All Three, Someone Can Make It Leak</text>
 <text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Simon Willison&#x27;s five-second security test. Private data + untrusted content + a way to send things out = exfiltration waiting for the right PDF.</text>
-<rect x="56.0" y="136.0" width="920.0" height="740.0" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" />
+<rect x="56.0" y="136.0" width="920.0" height="740.0" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="57.2" y="137.2" width="917.6" height="737.6" rx="12.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="58.0" y="137.8" width="916.0" height="14.0" rx="11.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="400" cy="420" r="190" fill="#2563EB" fill-opacity="0.16" stroke="#2563EB" stroke-width="2.5"/>
 <circle cx="620" cy="420" r="190" fill="#D97706" fill-opacity="0.16" stroke="#D97706" stroke-width="2.5"/>
 <circle cx="510" cy="610" r="190" fill="#7C3AED" fill-opacity="0.16" stroke="#7C3AED" stroke-width="2.5"/>
@@ -41,15 +51,15 @@
 <text x="510.0" y="462.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >LETHAL</text>
 <text x="510.0" y="476.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >TRIFECTA</text>
 <text x="510.0" y="490.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#FECACA" text-anchor="middle" >data walks out</text>
-<path d="M 400.0 420.0 L 461.7 454.8" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#2563EB" transform="translate(470.4 459.7) rotate(29.4)"/>
-<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 400.0 420.0 L 461.7 454.8"/></g>
-<path d="M 620.0 420.0 L 558.3 454.8" class="flow-line" fill="none" stroke="#D97706" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(549.6 459.7) rotate(150.6)"/>
-<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 620.0 420.0 L 558.3 454.8"/></g>
-<path d="M 510.0 610.0 L 510.0 538.1" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 5" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(510.0 528.1) rotate(-90.0)"/>
-<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 510.0 610.0 L 510.0 538.1"/></g>
+<path d="M 400.0 420.0 L 461.7 454.8" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="5 5" stroke-dashoffset="0.0"/>
+<polygon points="470.4,459.7 462.8,447.1 462.0,455.0 455.7,459.7" fill="#2563EB"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 400.0 420.0 L 461.7 454.8"/></g>
+<path d="M 620.0 420.0 L 558.3 454.8" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="5 5" stroke-dashoffset="0.0"/>
+<polygon points="549.6,459.7 564.3,459.7 558.0,455.0 557.2,447.1" fill="#D97706"/>
+<g><circle r="5.6" fill="#D97706" fill-opacity="0.15"/><circle r="3.8" fill="#D97706" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#D97706" stroke-width="2.0"/><circle r="1.3" fill="#D97706"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 620.0 420.0 L 558.3 454.8"/></g>
+<path d="M 510.0 610.0 L 510.0 538.1" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="5 5" stroke-dashoffset="0.0"/>
+<polygon points="510.0,528.1 502.8,540.9 510.0,537.7 517.2,540.9" fill="#7C3AED"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.80s" begin="-0.00s" repeatCount="indefinite" path="M 510.0 610.0 L 510.0 538.1"/></g>
 <circle cx="490" cy="514" r="11" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
 <text x="490.0" y="518.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >1</text>
 <circle cx="530" cy="514" r="11" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
@@ -63,44 +73,44 @@
 <circle cx="470" cy="350" r="11" fill="#059669" stroke="#FFFFFF" stroke-width="2.5"/>
 <text x="470.0" y="354.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >6</text>
 <text x="516.0" y="860.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#475569" text-anchor="middle" >Dots are placed by which legs each setup has; the red core is the only region where a prompt injection becomes a data breach.</text>
-<rect x="1000.0" y="136.0" width="564.0" height="470.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" /><rect x="1000.0" y="136.0" width="564.0" height="26.0" rx="8" fill="#DC2626" /><text x="1282.0" y="153.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >SIX REAL SETUPS — WHICH LEGS DO THEY HAVE?</text>
-<rect x="1016.0" y="176.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.4" />
+<rect x="1000.0" y="136.0" width="564.0" height="470.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.6" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1001.2" y="137.2" width="561.6" height="467.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1002.0" y="137.8" width="560.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/><rect x="1001.0" y="137.0" width="562.0" height="26.0" rx="9" fill="#F8FAFC"/><rect x="1001.0" y="137.0" width="562.0" height="26.0" rx="9" fill="#DC2626" fill-opacity="0.11"/><rect x="1001.0" y="137.0" width="562.0" height="4.0" rx="3" fill="#DC2626"/><line x1="1001.5" y1="162.5" x2="1562.5" y2="162.5" stroke="#DC2626" stroke-opacity="0.28" stroke-width="1.2"/><text x="1282.0" y="153.7" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#0F2942" text-anchor="middle" >SIX REAL SETUPS — WHICH LEGS DO THEY HAVE?</text>
+<rect x="1016.0" y="176.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.4" fill-opacity="0.96"/><rect x="1017.2" y="177.2" width="529.6" height="57.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1018.0" y="177.8" width="528.0" height="7.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="1038" cy="198" r="11" fill="#DC2626"/>
 <text x="1038.0" y="202.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >1</text>
 <text x="1058.0" y="196.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A" text-anchor="start" >Inbox assistant that reads and sends mail</text>
 <text x="1536.0" y="196.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#DC2626" text-anchor="end" >ALL THREE</text>
 <text x="1058.0" y="216.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >A crafted email can instruct it to forward your threads.</text>
-<rect x="1016.0" y="246.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.4" />
+<rect x="1016.0" y="246.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.4" fill-opacity="0.96"/><rect x="1017.2" y="247.2" width="529.6" height="57.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1018.0" y="247.8" width="528.0" height="7.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="1038" cy="268" r="11" fill="#DC2626"/>
 <text x="1038.0" y="272.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >2</text>
 <text x="1058.0" y="266.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A" text-anchor="start" >Browser agent using your logged-in sessions</text>
 <text x="1536.0" y="266.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#DC2626" text-anchor="end" >ALL THREE</text>
 <text x="1058.0" y="286.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >Any page it visits can steer it; it can act as you.</text>
-<rect x="1016.0" y="316.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.4" />
+<rect x="1016.0" y="316.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.4" fill-opacity="0.96"/><rect x="1017.2" y="317.2" width="529.6" height="57.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1018.0" y="317.8" width="528.0" height="7.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="1038" cy="338" r="11" fill="#D97706"/>
 <text x="1038.0" y="342.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >3</text>
 <text x="1058.0" y="336.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A" text-anchor="start" >Coding agent in a sandbox with no network</text>
 <text x="1536.0" y="336.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#D97706" text-anchor="end" >DATA + UNTRUSTED</text>
 <text x="1058.0" y="356.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >Repo + issues are untrusted, but nothing can leave the box.</text>
-<rect x="1016.0" y="386.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.4" />
+<rect x="1016.0" y="386.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.4" fill-opacity="0.96"/><rect x="1017.2" y="387.2" width="529.6" height="57.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1018.0" y="387.8" width="528.0" height="7.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="1038" cy="408" r="11" fill="#D97706"/>
 <text x="1038.0" y="412.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >4</text>
 <text x="1058.0" y="406.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A" text-anchor="start" >Public web researcher, no private data</text>
 <text x="1536.0" y="406.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#D97706" text-anchor="end" >UNTRUSTED + OUT</text>
 <text x="1058.0" y="426.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >Can be hijacked, but has nothing of yours to leak.</text>
-<rect x="1016.0" y="456.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.4" />
+<rect x="1016.0" y="456.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.4" fill-opacity="0.96"/><rect x="1017.2" y="457.2" width="529.6" height="57.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1018.0" y="457.8" width="528.0" height="7.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="1038" cy="478" r="11" fill="#059669"/>
 <text x="1038.0" y="482.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >5</text>
 <text x="1058.0" y="476.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A" text-anchor="start" >Internal SQL analyst, no web, no sending</text>
 <text x="1536.0" y="476.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="end" >DATA ONLY</text>
 <text x="1058.0" y="496.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >Reads sensitive data; no untrusted input, no exit.</text>
-<rect x="1016.0" y="526.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.4" />
+<rect x="1016.0" y="526.0" width="532.0" height="60.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.4" fill-opacity="0.96"/><rect x="1017.2" y="527.2" width="529.6" height="57.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1018.0" y="527.8" width="528.0" height="7.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="1038" cy="548" r="11" fill="#059669"/>
 <text x="1038.0" y="552.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" >6</text>
 <text x="1058.0" y="546.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A" text-anchor="start" >Doc summarizer with write tools unmounted</text>
 <text x="1536.0" y="546.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669" text-anchor="end" >DATA + UNTRUSTED</text>
 <text x="1058.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B" text-anchor="start" >Capability downgrade removed the third leg at runtime.</text>
-<rect x="1000.0" y="626.0" width="564.0" height="250.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" /><rect x="1000.0" y="626.0" width="564.0" height="26.0" rx="8" fill="#059669" /><text x="1282.0" y="643.2" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle" >THE FIX IS STRUCTURAL: REMOVE ONE LEG</text>
+<rect x="1000.0" y="626.0" width="564.0" height="250.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.6" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1001.2" y="627.2" width="561.6" height="247.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1002.0" y="627.8" width="560.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/><rect x="1001.0" y="627.0" width="562.0" height="26.0" rx="9" fill="#F8FAFC"/><rect x="1001.0" y="627.0" width="562.0" height="26.0" rx="9" fill="#059669" fill-opacity="0.11"/><rect x="1001.0" y="627.0" width="562.0" height="4.0" rx="3" fill="#059669"/><line x1="1001.5" y1="652.5" x2="1562.5" y2="652.5" stroke="#059669" stroke-opacity="0.28" stroke-width="1.2"/><text x="1282.0" y="643.7" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.8" font-weight="800" fill="#0F2942" text-anchor="middle" >THE FIX IS STRUCTURAL: REMOVE ONE LEG</text>
 <rect x="1016.0" y="664.0" width="532.0" height="58.0" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.2" />
 <text x="1030.0" y="682.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.2" font-weight="800" fill="#065F46" text-anchor="start" >Remove &#x27;communicate out&#x27; while reading untrusted content</text>
 <text x="1030.0" y="698.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="700" fill="#064E3B" text-anchor="start" >Taint the session on ingress; unmount send_email / webhook / URL tools (ADK</text>
@@ -115,6 +125,7 @@
 <text x="1030.0" y="842.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.2" font-weight="700" fill="#064E3B" text-anchor="start" >JWT, Keycloak) — the model cannot forge it.</text>
 <rect x="56.0" y="892.0" width="1508.0" height="40.0" rx="10" fill="#0F2942" />
 <text x="810.0" y="917.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF" text-anchor="middle" >Scanners (Model Armor, Llama Guard) lower the odds; removing a leg removes the outcome.</text>
-<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
-<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Simon Willison, &#x27;The lethal trifecta for AI agents&#x27; (Jun 2025) • Google Cloud Model Armor • OPA tool policies</text>
+<rect x="36" y="946" width="1528" height="25" rx="8" fill="#FFFFFF" fill-opacity="0.86" stroke="#E2E8F0" stroke-width="1"/>
+<text x="56.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Simon Willison, &#x27;The lethal trifecta for AI agents&#x27; (Jun 2025) • Google Cloud Model Armor • OPA tool policies</text>
 </svg>

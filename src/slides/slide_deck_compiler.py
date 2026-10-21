@@ -554,7 +554,14 @@ def compile_linkedin_carousel_html(post: Dict[str, Any], slides: List[Dict[str, 
                 """
             )
         diagram_embed_html = ""
-        if s["slide_num"] == 3:
+        plan = post.get("template_and_distribution_plan") or {}
+        if s["slide_num"] == 1 and plan.get("primary_template_id"):
+            diagram_embed_html = (
+                '<div class="slide-diagram-embed">'
+                f'<img src="../visuals/lead-template.png" alt="Lead Infographic Template {_xml_esc(plan.get("primary_template_id"))}: {_xml_esc(plan.get("primary_template_name"))}" />'
+                "</div>"
+            )
+        elif s["slide_num"] == 3:
             diagram_embed_html = (
                 '<div class="slide-diagram-embed">'
                 '<img src="../visuals/dynamic-solution-flow.svg" alt="Dynamic Moving-Arrow Problem-to-Solution Flow" />'

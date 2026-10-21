@@ -1,6 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
 <defs>
-<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<filter id="shadow" x="-3%" y="-3%" width="106%" height="110%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.065"/></filter>
+<linearGradient id="glassCardGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/><stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.90"/></linearGradient>
+<linearGradient id="glassSheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.72"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0"/></linearGradient>
+<radialGradient id="meshBlue" cx="14%" cy="18%" r="48%"><stop offset="0%" stop-color="#4285F4" stop-opacity="0.065"/><stop offset="100%" stop-color="#4285F4" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshEmerald" cx="86%" cy="20%" r="46%"><stop offset="0%" stop-color="#10B981" stop-opacity="0.055"/><stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshViolet" cx="50%" cy="84%" r="52%"><stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.048"/><stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"/></radialGradient>
+<pattern id="archGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.22"/></pattern>
 <style>
 @keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
 .flow-line { animation: flowDash 1.0s linear infinite; }
@@ -15,121 +21,132 @@
 </style>
 </defs>
 <rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshBlue)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshEmerald)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshViolet)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#archGrid)"/>
 <rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
 <rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
 <rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
 <rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
-<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
-<rect x="56.0" y="32.0" width="162" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="137.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T12 • ANATOMY CALLOUTS</text>
-<rect x="228.0" y="32.0" width="207" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="331.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: DISSECT AN ARTIFACT</text>
-<rect x="1222.0" y="32.0" width="322" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1383.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >DYNAMIC TEMPLATE • MOVING ARROWS &amp; LIVE PACKETS</text>
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="37.2" y="19.2" width="1525.6" height="91.6" rx="10.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="38.0" y="19.8" width="1524.0" height="11.3" rx="9.8" fill="url(#glassSheen)" pointer-events="none"/>
+<rect x="56.0" y="32.0" width="162" height="22" rx="11.0" fill="#EFF6FF" fill-opacity="0.98" stroke="#2563EB" stroke-width="1.3"/><text x="137.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T12 • ANATOMY CALLOUTS</text>
+<rect x="228.0" y="32.0" width="207" height="22" rx="11.0" fill="#ECFDF5" fill-opacity="0.98" stroke="#059669" stroke-width="1.3"/><text x="331.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: DISSECT AN ARTIFACT</text>
+<rect x="1222.0" y="32.0" width="322" height="22" rx="11.0" fill="#F0F9FF" fill-opacity="0.98" stroke="#0284C7" stroke-width="1.3"/><text x="1383.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0369A1" text-anchor="middle" >DYNAMIC TEMPLATE • MOVING ARROWS &amp; LIVE PACKETS</text>
 <text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Anatomy of a High-Signal Engineering Brief: The 6 Parts That Make an Agent Succeed on the First Run</text>
 <text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Vague one-liners (&#x27;fix authentication&#x27;) fail; this structure is what OpenHands, Aider, and ADK/LangGraph agents execute reliably.</text>
-<rect x="560.0" y="150.0" width="480.0" height="730.0" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2.4" filter="url(#shadow)"/>
+<rect x="560.0" y="150.0" width="480.0" height="730.0" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2.4" filter="url(#shadow)" fill-opacity="0.96"/><rect x="561.2" y="151.2" width="477.6" height="727.6" rx="12.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="562.0" y="151.8" width="476.0" height="14.0" rx="11.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="560.0" y="150.0" width="480.0" height="44.0" rx="12" fill="#334155" />
 <text x="580.0" y="178.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF" text-anchor="start" >ENGINEERING BRIEF #4271 — auth token expiry race</text>
 <text x="1020.0" y="178.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#93C5FD" text-anchor="end" >briefs/4271.md</text>
-<rect x="574.0" y="200.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.4" />
+<rect x="574.0" y="200.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#2563EB" stroke-width="1.4" filter="url(#shadow)" fill-opacity="0.96"/><rect x="575.2" y="201.2" width="449.6" height="99.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="576.0" y="201.8" width="448.0" height="12.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="600" cy="226" r="14" fill="#2563EB"/>
 <text x="600.0" y="230.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle" >1</text>
 <text x="624.0" y="230.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0F172A" text-anchor="start" >Goal</text>
 <text x="590.0" y="256.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >Fix the session-token expiry race so refreshes</text>
 <text x="590.0" y="271.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >never return a 401 inside the 60 s grace window.</text>
-<path d="M 470.0 251.0 L 546.0 251.0" fill="none" stroke="#2563EB" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 470.0 251.0 L 546.0 251.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#2563EB" transform="translate(556.0 251.0) rotate(0.0)"/>
-<g><circle r="8" fill="#2563EB" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 470.0 251.0 L 546.0 251.0"/></g>
-<rect x="56.0" y="179.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.8" />
+<path d="M 470.0 251.0 L 546.0 251.0" fill="none" stroke="#2563EB" stroke-opacity="0.11" stroke-width="9.0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 470.0 251.0 L 546.0 251.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 470.0 251.0 L 546.0 251.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="10 6" stroke-dashoffset="0.0"/>
+<polygon points="556.0,251.0 543.2,243.8 546.4,251.0 543.2,258.2" fill="#2563EB"/>
+<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 470.0 251.0 L 546.0 251.0"/></g>
+<rect x="56.0" y="179.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="57.2" y="180.2" width="411.6" height="141.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="58.0" y="180.8" width="410.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="56.0" y="179.0" width="414.0" height="24.0" rx="8" fill="#2563EB" />
 <text x="68.0" y="195.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="start" >CALLOUT 1 • WHY GOAL MATTERS</text>
 <text x="70.0" y="225.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >One sentence, one measurable outcome. The agent plans</text>
 <text x="70.0" y="241.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >against this line and the verifier grades against it.</text>
-<rect x="70.0" y="291.0" width="226" height="22" rx="11.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/><text x="183.0" y="305.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >Checked by: acceptance test name</text>
-<rect x="574.0" y="312.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.4" />
+<rect x="70.0" y="291.0" width="226" height="22" rx="11.0" fill="#FFFFFF" fill-opacity="0.98" stroke="#2563EB" stroke-width="1.3"/><text x="183.0" y="305.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >Checked by: acceptance test name</text>
+<rect x="574.0" y="312.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.4" filter="url(#shadow)" fill-opacity="0.96"/><rect x="575.2" y="313.2" width="449.6" height="99.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="576.0" y="313.8" width="448.0" height="12.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="600" cy="338" r="14" fill="#7C3AED"/>
 <text x="600.0" y="342.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle" >2</text>
 <text x="624.0" y="342.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0F172A" text-anchor="start" >Target files</text>
 <text x="590.0" y="368.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >src/auth/jwt.py  •  src/auth/refresh.py</text>
 <text x="590.0" y="383.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >tests/test_auth.py</text>
-<path d="M 1130.0 363.0 L 1054.0 363.0" fill="none" stroke="#7C3AED" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 1130.0 363.0 L 1054.0 363.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#7C3AED" transform="translate(1044.0 363.0) rotate(180.0)"/>
-<g><circle r="8" fill="#7C3AED" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 1130.0 363.0 L 1054.0 363.0"/></g>
-<rect x="1130.0" y="291.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8" />
+<path d="M 1130.0 363.0 L 1054.0 363.0" fill="none" stroke="#7C3AED" stroke-opacity="0.11" stroke-width="9.0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1130.0 363.0 L 1054.0 363.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1130.0 363.0 L 1054.0 363.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="10 6" stroke-dashoffset="0.0"/>
+<polygon points="1044.0,363.0 1056.8,370.2 1053.6,363.0 1056.8,355.8" fill="#7C3AED"/>
+<g><circle r="7.4" fill="#7C3AED" fill-opacity="0.15"/><circle r="5.0" fill="#7C3AED" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.7" fill="#7C3AED"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 1130.0 363.0 L 1054.0 363.0"/></g>
+<rect x="1130.0" y="291.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1131.2" y="292.2" width="411.6" height="141.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1132.0" y="292.8" width="410.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="1130.0" y="291.0" width="414.0" height="24.0" rx="8" fill="#7C3AED" />
 <text x="1142.0" y="307.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="start" >CALLOUT 2 • WHY TARGET FILES MATTERS</text>
 <text x="1144.0" y="337.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Explicit scope stops the agent from exploring 400</text>
 <text x="1144.0" y="353.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >files and keeps the context window small (no context</text>
 <text x="1144.0" y="369.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >rot).</text>
-<rect x="1144.0" y="403.0" width="188" height="22" rx="11.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.4"/><text x="1238.0" y="417.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED" text-anchor="middle" >Scope: 3 files, ~220 lines</text>
-<rect x="574.0" y="424.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.4" />
+<rect x="1144.0" y="403.0" width="188" height="22" rx="11.0" fill="#FFFFFF" fill-opacity="0.98" stroke="#7C3AED" stroke-width="1.3"/><text x="1238.0" y="417.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED" text-anchor="middle" >Scope: 3 files, ~220 lines</text>
+<rect x="574.0" y="424.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#DC2626" stroke-width="1.4" filter="url(#shadow)" fill-opacity="0.96"/><rect x="575.2" y="425.2" width="449.6" height="99.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="576.0" y="425.8" width="448.0" height="12.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="600" cy="450" r="14" fill="#DC2626"/>
 <text x="600.0" y="454.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle" >3</text>
 <text x="624.0" y="454.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0F172A" text-anchor="start" >Reproduction test</text>
 <text x="590.0" y="480.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >pytest</text>
 <text x="590.0" y="495.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >tests/test_auth.py::test_refresh_within_grace #</text>
 <text x="590.0" y="510.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >currently FAILS with 401</text>
-<path d="M 470.0 475.0 L 546.0 475.0" fill="none" stroke="#DC2626" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 470.0 475.0 L 546.0 475.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#DC2626" transform="translate(556.0 475.0) rotate(0.0)"/>
-<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 470.0 475.0 L 546.0 475.0"/></g>
-<rect x="56.0" y="403.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" />
+<path d="M 470.0 475.0 L 546.0 475.0" fill="none" stroke="#DC2626" stroke-opacity="0.11" stroke-width="9.0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 470.0 475.0 L 546.0 475.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 470.0 475.0 L 546.0 475.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="10 6" stroke-dashoffset="0.0"/>
+<polygon points="556.0,475.0 543.2,467.8 546.4,475.0 543.2,482.2" fill="#DC2626"/>
+<g><circle r="7.4" fill="#DC2626" fill-opacity="0.15"/><circle r="5.0" fill="#DC2626" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.0"/><circle r="1.7" fill="#DC2626"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 470.0 475.0 L 546.0 475.0"/></g>
+<rect x="56.0" y="403.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="57.2" y="404.2" width="411.6" height="141.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="58.0" y="404.8" width="410.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="56.0" y="403.0" width="414.0" height="24.0" rx="8" fill="#DC2626" />
 <text x="68.0" y="419.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="start" >CALLOUT 3 • WHY REPRODUCTION TEST MATTERS</text>
 <text x="70.0" y="449.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >A failing test first turns &#x27;done&#x27; from an opinion into</text>
 <text x="70.0" y="465.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >exit_code == 0. This is the pre-completion gate.</text>
-<rect x="70.0" y="515.0" width="150" height="22" rx="11.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.4"/><text x="145.0" y="529.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="middle" >Gate: exit_code == 0</text>
-<rect x="574.0" y="536.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.4" />
+<rect x="70.0" y="515.0" width="150" height="22" rx="11.0" fill="#FFFFFF" fill-opacity="0.98" stroke="#DC2626" stroke-width="1.3"/><text x="145.0" y="529.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="middle" >Gate: exit_code == 0</text>
+<rect x="574.0" y="536.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#D97706" stroke-width="1.4" filter="url(#shadow)" fill-opacity="0.96"/><rect x="575.2" y="537.2" width="449.6" height="99.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="576.0" y="537.8" width="448.0" height="12.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="600" cy="562" r="14" fill="#D97706"/>
 <text x="600.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle" >4</text>
 <text x="624.0" y="566.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0F172A" text-anchor="start" >Constraints</text>
 <text x="590.0" y="592.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >Preserve refresh_token wire contract; no new deps;</text>
 <text x="590.0" y="607.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >no changes to public API signatures.</text>
-<path d="M 1130.0 587.0 L 1054.0 587.0" fill="none" stroke="#D97706" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 1130.0 587.0 L 1054.0 587.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#D97706" transform="translate(1044.0 587.0) rotate(180.0)"/>
-<g><circle r="8" fill="#D97706" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#D97706" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 1130.0 587.0 L 1054.0 587.0"/></g>
-<rect x="1130.0" y="515.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" />
+<path d="M 1130.0 587.0 L 1054.0 587.0" fill="none" stroke="#D97706" stroke-opacity="0.11" stroke-width="9.0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1130.0 587.0 L 1054.0 587.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1130.0 587.0 L 1054.0 587.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="10 6" stroke-dashoffset="0.0"/>
+<polygon points="1044.0,587.0 1056.8,594.2 1053.6,587.0 1056.8,579.8" fill="#D97706"/>
+<g><circle r="7.4" fill="#D97706" fill-opacity="0.15"/><circle r="5.0" fill="#D97706" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#D97706" stroke-width="2.0"/><circle r="1.7" fill="#D97706"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 1130.0 587.0 L 1054.0 587.0"/></g>
+<rect x="1130.0" y="515.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1131.2" y="516.2" width="411.6" height="141.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1132.0" y="516.8" width="410.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="1130.0" y="515.0" width="414.0" height="24.0" rx="8" fill="#D97706" />
 <text x="1142.0" y="531.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="start" >CALLOUT 4 • WHY CONSTRAINTS MATTERS</text>
 <text x="1144.0" y="561.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >Constraints are the invariants a reviewer agent</text>
 <text x="1144.0" y="577.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >checks; without them the fix &#x27;works&#x27; by breaking</text>
 <text x="1144.0" y="593.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >callers.</text>
-<rect x="1144.0" y="627.0" width="207" height="22" rx="11.0" fill="#FFFFFF" stroke="#D97706" stroke-width="1.4"/><text x="1247.5" y="641.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706" text-anchor="middle" >Reviewer: invariant checklist</text>
-<rect x="574.0" y="648.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.4" />
+<rect x="1144.0" y="627.0" width="207" height="22" rx="11.0" fill="#FFFFFF" fill-opacity="0.98" stroke="#D97706" stroke-width="1.3"/><text x="1247.5" y="641.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706" text-anchor="middle" >Reviewer: invariant checklist</text>
+<rect x="574.0" y="648.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#059669" stroke-width="1.4" filter="url(#shadow)" fill-opacity="0.96"/><rect x="575.2" y="649.2" width="449.6" height="99.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="576.0" y="649.8" width="448.0" height="12.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="600" cy="674" r="14" fill="#059669"/>
 <text x="600.0" y="678.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle" >5</text>
 <text x="624.0" y="678.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0F172A" text-anchor="start" >Proof gate</text>
 <text x="590.0" y="704.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >Run pytest + mypy + ruff in sandbox (OpenHands /</text>
 <text x="590.0" y="719.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >E2B); attach stdout SHA-256 receipt to the PR.</text>
-<path d="M 470.0 699.0 L 546.0 699.0" fill="none" stroke="#059669" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 470.0 699.0 L 546.0 699.0" class="flow-line" fill="none" stroke="#059669" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(556.0 699.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 470.0 699.0 L 546.0 699.0"/></g>
-<rect x="56.0" y="627.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" />
+<path d="M 470.0 699.0 L 546.0 699.0" fill="none" stroke="#059669" stroke-opacity="0.11" stroke-width="9.0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 470.0 699.0 L 546.0 699.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 470.0 699.0 L 546.0 699.0" class="flow-line" fill="none" stroke="#059669" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="10 6" stroke-dashoffset="0.0"/>
+<polygon points="556.0,699.0 543.2,691.8 546.4,699.0 543.2,706.2" fill="#059669"/>
+<g><circle r="7.4" fill="#059669" fill-opacity="0.15"/><circle r="5.0" fill="#059669" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.7" fill="#059669"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 470.0 699.0 L 546.0 699.0"/></g>
+<rect x="56.0" y="627.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="57.2" y="628.2" width="411.6" height="141.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="58.0" y="628.8" width="410.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="56.0" y="627.0" width="414.0" height="24.0" rx="8" fill="#059669" />
 <text x="68.0" y="643.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="start" >CALLOUT 5 • WHY PROOF GATE MATTERS</text>
 <text x="70.0" y="673.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >The receipt is what lets a human trust the PR in 30</text>
 <text x="70.0" y="689.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >seconds instead of re-running everything.</text>
-<rect x="70.0" y="739.0" width="162" height="22" rx="11.0" fill="#FFFFFF" stroke="#059669" stroke-width="1.4"/><text x="151.0" y="753.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >Artifact: receipt.json</text>
-<rect x="574.0" y="760.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#334155" stroke-width="1.4" />
+<rect x="70.0" y="739.0" width="162" height="22" rx="11.0" fill="#FFFFFF" fill-opacity="0.98" stroke="#059669" stroke-width="1.3"/><text x="151.0" y="753.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >Artifact: receipt.json</text>
+<rect x="574.0" y="760.0" width="452.0" height="102.0" rx="8" fill="#F8FAFC" stroke="#334155" stroke-width="1.4" filter="url(#shadow)" fill-opacity="0.96"/><rect x="575.2" y="761.2" width="449.6" height="99.6" rx="6.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="576.0" y="761.8" width="448.0" height="12.2" rx="5.8" fill="url(#glassSheen)" pointer-events="none"/>
 <circle cx="600" cy="786" r="14" fill="#334155"/>
 <text x="600.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle" >6</text>
 <text x="624.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0F172A" text-anchor="start" >Rollback plan</text>
 <text x="590.0" y="816.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >Feature flag AUTH_GRACE_V2 (OpenFeature); revert =</text>
 <text x="590.0" y="831.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#334155" text-anchor="start" >flip flag, no data migration.</text>
-<path d="M 1130.0 811.0 L 1054.0 811.0" fill="none" stroke="#334155" stroke-opacity="0.14" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 1130.0 811.0 L 1054.0 811.0" class="flow-line" fill="none" stroke="#334155" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#334155" transform="translate(1044.0 811.0) rotate(180.0)"/>
-<g><circle r="8" fill="#334155" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#334155" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 1130.0 811.0 L 1054.0 811.0"/></g>
-<rect x="1130.0" y="739.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="1.8" />
+<path d="M 1130.0 811.0 L 1054.0 811.0" fill="none" stroke="#334155" stroke-opacity="0.11" stroke-width="9.0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1130.0 811.0 L 1054.0 811.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1130.0 811.0 L 1054.0 811.0" class="flow-line" fill="none" stroke="#334155" stroke-width="3.2" stroke-linejoin="round" stroke-dasharray="10 6" stroke-dashoffset="0.0"/>
+<polygon points="1044.0,811.0 1056.8,818.2 1053.6,811.0 1056.8,803.8" fill="#334155"/>
+<g><circle r="7.4" fill="#334155" fill-opacity="0.15"/><circle r="5.0" fill="#334155" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#334155" stroke-width="2.0"/><circle r="1.7" fill="#334155"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 1130.0 811.0 L 1054.0 811.0"/></g>
+<rect x="1130.0" y="739.0" width="414.0" height="144.0" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="1131.2" y="740.2" width="411.6" height="141.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="1132.0" y="740.8" width="410.0" height="14.0" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="1130.0" y="739.0" width="414.0" height="24.0" rx="8" fill="#334155" />
 <text x="1142.0" y="755.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="start" >CALLOUT 6 • WHY ROLLBACK PLAN MATTERS</text>
 <text x="1144.0" y="785.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >A rollback line is the difference between an</text>
 <text x="1144.0" y="801.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B" text-anchor="start" >autonomous merge and a 2 a.m. incident.</text>
-<rect x="1144.0" y="851.0" width="182" height="22" rx="11.0" fill="#FFFFFF" stroke="#334155" stroke-width="1.4"/><text x="1235.0" y="865.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#334155" text-anchor="middle" >Blast radius: flag-scoped</text>
+<rect x="1144.0" y="851.0" width="182" height="22" rx="11.0" fill="#FFFFFF" fill-opacity="0.98" stroke="#334155" stroke-width="1.3"/><text x="1235.0" y="865.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#334155" text-anchor="middle" >Blast radius: flag-scoped</text>
 <rect x="56.0" y="892.0" width="1508.0" height="36.0" rx="10" fill="#0F2942" />
 <text x="806.0" y="915.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF" text-anchor="middle" >Rule: if the brief has no reproduction test and no proof gate, the agent is allowed to guess — and it will, on any framework.</text>
-<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
-<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: Matt Village / OpenHands (POST-04) • IDEA-03 • pytest / mypy / ruff</text>
+<rect x="36" y="946" width="1528" height="25" rx="8" fill="#FFFFFF" fill-opacity="0.86" stroke="#E2E8F0" stroke-width="1"/>
+<text x="56.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Sources: Matt Village / OpenHands (POST-04) • IDEA-03 • pytest / mypy / ruff</text>
 </svg>

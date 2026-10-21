@@ -1,0 +1,15 @@
+{
+  "serviceName": "ideas-mining",
+  "beyondCorpUrl": "https://ideas-mining-248990048888.cr.gclb.goog",
+  "directCloudRunUrl": "https://ideas-mining-mi7l4h536a-uw.a.run.app",
+  "buildProject": "nitina-ggarwal-sandbox-647724",
+  "runProject": "ramp-portal-dev",
+  "region": "us-west1",
+  "latestReadyRevisionName": "ideas-mining-00001-d4m",
+  "latestCreatedRevisionName": "ideas-mining-00001-d4m",
+  "readyStatus": "True",
+  "trafficPercent": 100,
+  "image": "us-west1-docker.pkg.dev/ramp-portal-dev/cloud-run-source-deploy/ideas-mining:v20261021-002215",
+  "startupProbeLog": "Default STARTUP TCP probe succeeded after 1 attempt for container 'ideas-mining-1' on port 8080.",
+  "verifiedAt": "2026-10-21T04:23:59Z"
+}

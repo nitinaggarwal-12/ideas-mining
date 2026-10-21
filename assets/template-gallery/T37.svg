@@ -1,6 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980">
 <defs>
-<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+<filter id="shadow" x="-3%" y="-3%" width="106%" height="110%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.065"/></filter>
+<linearGradient id="glassCardGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/><stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.90"/></linearGradient>
+<linearGradient id="glassSheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.72"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0"/></linearGradient>
+<radialGradient id="meshBlue" cx="14%" cy="18%" r="48%"><stop offset="0%" stop-color="#4285F4" stop-opacity="0.065"/><stop offset="100%" stop-color="#4285F4" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshEmerald" cx="86%" cy="20%" r="46%"><stop offset="0%" stop-color="#10B981" stop-opacity="0.055"/><stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/></radialGradient>
+<radialGradient id="meshViolet" cx="50%" cy="84%" r="52%"><stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.048"/><stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"/></radialGradient>
+<pattern id="archGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.22"/></pattern>
 <style>
 @keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
 .flow-line { animation: flowDash 1.0s linear infinite; }
@@ -15,26 +21,31 @@
 </style>
 </defs>
 <rect x="0.0" y="0.0" width="1600.0" height="980.0" rx="0" fill="#F8FAFC" />
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshBlue)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshEmerald)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#meshViolet)"/>
+<rect x="0" y="0" width="1600" height="980" fill="url(#archGrid)"/>
 <rect x="0.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#4285F4" />
 <rect x="400.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#EA4335" />
 <rect x="800.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#FBBC04" />
 <rect x="1200.0" y="0.0" width="400.0" height="7.0" rx="0" fill="#34A853" />
-<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)"/>
-<rect x="56.0" y="32.0" width="182" height="22" rx="11.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/><text x="147.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T37 • INCIDENT POSTMORTEM</text>
-<rect x="248.0" y="32.0" width="226" height="22" rx="11.0" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/><text x="361.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: AGENTOPS &amp; KILL-SWITCH</text>
-<rect x="767.0" y="32.0" width="777" height="22" rx="11.0" fill="#0F2942" stroke="#38BDF8" stroke-width="1.4"/><text x="1155.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#38BDF8" text-anchor="middle" >FORMAT LINEAGE: Brij Kishore Pandey (&#x27;How Do We Turn It Off?&#x27; 5-Stage Lifecycle &amp; Kill-Switch) • Google SRE postmortem</text>
+<rect x="36.0" y="18.0" width="1528.0" height="94.0" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="37.2" y="19.2" width="1525.6" height="91.6" rx="10.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="38.0" y="19.8" width="1524.0" height="11.3" rx="9.8" fill="url(#glassSheen)" pointer-events="none"/>
+<rect x="56.0" y="32.0" width="182" height="22" rx="11.0" fill="#EFF6FF" fill-opacity="0.98" stroke="#2563EB" stroke-width="1.3"/><text x="147.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB" text-anchor="middle" >T37 • INCIDENT POSTMORTEM</text>
+<rect x="248.0" y="32.0" width="226" height="22" rx="11.0" fill="#ECFDF5" fill-opacity="0.98" stroke="#059669" stroke-width="1.3"/><text x="361.0" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >BEST FOR: AGENTOPS &amp; KILL-SWITCH</text>
+<rect x="767.0" y="32.0" width="777" height="22" rx="11.0" fill="#F0F9FF" fill-opacity="0.98" stroke="#0284C7" stroke-width="1.3"/><text x="1155.5" y="46.6" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0369A1" text-anchor="middle" >FORMAT LINEAGE: Brij Kishore Pandey (&#x27;How Do We Turn It Off?&#x27; 5-Stage Lifecycle &amp; Kill-Switch) • Google SRE postmortem</text>
 <text x="56.0" y="80.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F172A" text-anchor="start" >Postmortem &amp; Kill-Switch: How One 429 Became an $84 Night — and the 5 Controls That Stop It</text>
 <text x="56.0" y="103.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#475569" text-anchor="start" >Google SRE postmortem + Brij Kishore Pandey&#x27;s &#x27;How Do We Turn It Off?&#x27; lifecycle (Register → Own → Measure → Review → Retire; 81% of CIOs lack agent oversight).</text>
-<path d="M 130.0 156.0 L 130.0 822.0" fill="none" stroke="#DC2626" stroke-opacity="0.14" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 130.0 156.0 L 130.0 822.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="4" stroke-linejoin="round" stroke-dasharray="12 9" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#DC2626" transform="translate(130.0 832.0) rotate(90.0)"/>
-<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="6.00s" begin="-0.00s" repeatCount="indefinite" path="M 130.0 156.0 L 130.0 822.0"/></g>
-<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="6.00s" begin="-2.00s" repeatCount="indefinite" path="M 130.0 156.0 L 130.0 822.0"/></g>
-<g><circle r="8" fill="#DC2626" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.6"/><animateMotion dur="6.00s" begin="-4.00s" repeatCount="indefinite" path="M 130.0 156.0 L 130.0 822.0"/></g>
+<path d="M 130.0 156.0 L 130.0 822.0" fill="none" stroke="#DC2626" stroke-opacity="0.11" stroke-width="9.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 130.0 156.0 L 130.0 822.0" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="6.0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 130.0 156.0 L 130.0 822.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="4.0" stroke-linejoin="round" stroke-dasharray="12 9" stroke-dashoffset="0.0"/>
+<polygon points="130.0,832.0 137.2,819.2 130.0,822.4 122.8,819.2" fill="#DC2626"/>
+<g><circle r="7.4" fill="#DC2626" fill-opacity="0.15"/><circle r="5.0" fill="#DC2626" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.0"/><circle r="1.7" fill="#DC2626"/><animateMotion dur="6.00s" begin="-0.00s" repeatCount="indefinite" path="M 130.0 156.0 L 130.0 822.0"/></g>
+<g><circle r="7.4" fill="#DC2626" fill-opacity="0.15"/><circle r="5.0" fill="#DC2626" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.0"/><circle r="1.7" fill="#DC2626"/><animateMotion dur="6.00s" begin="-2.00s" repeatCount="indefinite" path="M 130.0 156.0 L 130.0 822.0"/></g>
+<g><circle r="7.4" fill="#DC2626" fill-opacity="0.15"/><circle r="5.0" fill="#DC2626" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.0"/><circle r="1.7" fill="#DC2626"/><animateMotion dur="6.00s" begin="-4.00s" repeatCount="indefinite" path="M 130.0 156.0 L 130.0 822.0"/></g>
 <circle cx="130" cy="200" r="15" fill="#FFFFFF" stroke="#D97706" stroke-width="4"/>
 <text x="130.0" y="204.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706" text-anchor="middle" >1</text>
 <text x="118.0" y="174.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#D97706" text-anchor="end" >T+0:00</text>
-<rect x="168.0" y="176.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" />
+<rect x="168.0" y="176.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="169.2" y="177.2" width="697.6" height="79.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="170.0" y="177.8" width="696.0" height="9.8" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="168.0" y="176.0" width="8.0" height="82.0" rx="4" fill="#D97706" />
 <text x="190.0" y="198.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Vendor API starts returning 429 (rate limited)</text>
 <text x="190.0" y="218.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >The agent&#x27;s create_ticket call fails with a generic error string; nothing in the harness</text>
@@ -43,15 +54,15 @@
 <circle cx="130" cy="298" r="15" fill="#FFFFFF" stroke="#D97706" stroke-width="4"/>
 <text x="130.0" y="302.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706" text-anchor="middle" >2</text>
 <text x="118.0" y="272.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#D97706" text-anchor="end" >T+0:04</text>
-<rect x="168.0" y="274.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" />
+<rect x="168.0" y="274.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="169.2" y="275.2" width="697.6" height="79.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="170.0" y="275.8" width="696.0" height="9.8" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="168.0" y="274.0" width="8.0" height="82.0" rx="4" fill="#D97706" />
 <text x="190.0" y="296.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Agent retries the identical call</text>
 <text x="190.0" y="316.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Same tool, same arguments. The model reads the error, concludes &#x27;try again&#x27;, and does — the</text>
 <text x="190.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >context barely changed.</text>
 <text x="852.0" y="296.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#D97706" text-anchor="end" >$0.02</text>
-<path d="M 868.0 315.0 L 902.0 315.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(912.0 315.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 315.0 L 902.0 315.0"/></g>
+<path d="M 868.0 315.0 L 904.8 315.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="10 6" stroke-dashoffset="0.0"/>
+<polygon points="912.0,315.0 901.2,309.0 904.0,315.0 901.2,321.0" fill="#059669"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 315.0 L 904.8 315.0"/></g>
 <rect x="916.0" y="278.0" width="648.0" height="74.0" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.6" />
 <text x="932.0" y="300.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#065F46" text-anchor="start" >WOULD HAVE STOPPED IT HERE: Loop circuit breaker</text>
 <text x="932.0" y="318.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >sha256(tool+args) seen twice in 5 turns → block the 3rd call, inject a strategy-</text>
@@ -60,15 +71,15 @@
 <circle cx="130" cy="396" r="15" fill="#FFFFFF" stroke="#DC2626" stroke-width="4"/>
 <text x="130.0" y="400.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="middle" >3</text>
 <text x="118.0" y="370.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >T+2:10</text>
-<rect x="168.0" y="372.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" />
+<rect x="168.0" y="372.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="169.2" y="373.2" width="697.6" height="79.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="170.0" y="373.8" width="696.0" height="9.8" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="168.0" y="372.0" width="8.0" height="82.0" rx="4" fill="#DC2626" />
 <text x="190.0" y="394.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >48th identical retry; context full of error strings</text>
 <text x="190.0" y="414.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Each turn re-reads the growing history (~20K tokens); cost per turn climbs; no step ceiling</text>
 <text x="190.0" y="428.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >exists.</text>
 <text x="852.0" y="394.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >$9.40</text>
-<path d="M 868.0 413.0 L 902.0 413.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(912.0 413.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 413.0 L 902.0 413.0"/></g>
+<path d="M 868.0 413.0 L 904.8 413.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="10 6" stroke-dashoffset="0.0"/>
+<polygon points="912.0,413.0 901.2,407.0 904.0,413.0 901.2,419.0" fill="#059669"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 413.0 L 904.8 413.0"/></g>
 <rect x="916.0" y="376.0" width="648.0" height="74.0" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.6" />
 <text x="932.0" y="398.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#065F46" text-anchor="start" >WOULD HAVE STOPPED IT HERE: Step ceiling (max_steps=15)</text>
 <text x="932.0" y="416.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >ADK RunConfig / LangGraph recursion_limit / OpenHands max_iterations end the run</text>
@@ -77,14 +88,14 @@
 <circle cx="130" cy="494" r="15" fill="#FFFFFF" stroke="#DC2626" stroke-width="4"/>
 <text x="130.0" y="498.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="middle" >4</text>
 <text x="118.0" y="468.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >T+41:00</text>
-<rect x="168.0" y="470.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" />
+<rect x="168.0" y="470.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="169.2" y="471.2" width="697.6" height="79.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="170.0" y="471.8" width="696.0" height="9.8" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="168.0" y="470.0" width="8.0" height="82.0" rx="4" fill="#DC2626" />
 <text x="190.0" y="492.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Billing alert fires at $84</text>
 <text x="190.0" y="512.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >The only control that worked was a daily budget alert — 41 minutes late.</text>
 <text x="852.0" y="492.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >$84.00</text>
-<path d="M 868.0 511.0 L 902.0 511.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(912.0 511.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 511.0 L 902.0 511.0"/></g>
+<path d="M 868.0 511.0 L 904.8 511.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="10 6" stroke-dashoffset="0.0"/>
+<polygon points="912.0,511.0 901.2,505.0 904.0,511.0 901.2,517.0" fill="#059669"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 511.0 L 904.8 511.0"/></g>
 <rect x="916.0" y="474.0" width="648.0" height="74.0" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.6" />
 <text x="932.0" y="496.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#065F46" text-anchor="start" >WOULD HAVE STOPPED IT HERE: Cost ceiling + Runtime Kill-Switch</text>
 <text x="932.0" y="514.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >Brij Pandey&#x27;s 10-Field Agent Record requires a registered kill_switch_endpoint &amp;</text>
@@ -93,14 +104,14 @@
 <circle cx="130" cy="592" r="15" fill="#FFFFFF" stroke="#DC2626" stroke-width="4"/>
 <text x="130.0" y="596.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="middle" >5</text>
 <text x="118.0" y="566.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >T+45:00</text>
-<rect x="168.0" y="568.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" />
+<rect x="168.0" y="568.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="169.2" y="569.2" width="697.6" height="79.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="170.0" y="569.8" width="696.0" height="9.8" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="168.0" y="568.0" width="8.0" height="82.0" rx="4" fill="#DC2626" />
 <text x="190.0" y="590.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >On-call kills the job</text>
 <text x="190.0" y="610.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >No checkpoint exists; the whole task state lived in RAM.</text>
 <text x="852.0" y="590.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >task lost</text>
-<path d="M 868.0 609.0 L 902.0 609.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(912.0 609.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 609.0 L 902.0 609.0"/></g>
+<path d="M 868.0 609.0 L 904.8 609.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="10 6" stroke-dashoffset="0.0"/>
+<polygon points="912.0,609.0 901.2,603.0 904.0,609.0 901.2,615.0" fill="#059669"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 609.0 L 904.8 609.0"/></g>
 <rect x="916.0" y="572.0" width="648.0" height="74.0" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.6" />
 <text x="932.0" y="594.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#065F46" text-anchor="start" >WOULD HAVE STOPPED IT HERE: Durable step checkpoints</text>
 <text x="932.0" y="612.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >Firestore / PostgresSaver snapshot after every tool turn; resume at the last good</text>
@@ -109,15 +120,15 @@
 <circle cx="130" cy="690" r="15" fill="#FFFFFF" stroke="#DC2626" stroke-width="4"/>
 <text x="130.0" y="694.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626" text-anchor="middle" >6</text>
 <text x="118.0" y="664.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >T+52:00</text>
-<rect x="168.0" y="666.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" />
+<rect x="168.0" y="666.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="169.2" y="667.2" width="697.6" height="79.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="170.0" y="667.8" width="696.0" height="9.8" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="168.0" y="666.0" width="8.0" height="82.0" rx="4" fill="#DC2626" />
 <text x="190.0" y="688.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Duplicate ticket discovered</text>
 <text x="190.0" y="708.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >The 1st call had actually succeeded upstream before the 429 — the retries created a second</text>
 <text x="190.0" y="722.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >ticket under the user&#x27;s name.</text>
 <text x="852.0" y="688.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#DC2626" text-anchor="end" >customer-visible</text>
-<path d="M 868.0 707.0 L 902.0 707.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="12 8" stroke-dashoffset="0.0"/>
-<polygon points="0,0 -15,-9 -11,0 -15,9" fill="#059669" transform="translate(912.0 707.0) rotate(0.0)"/>
-<g><circle r="8" fill="#059669" fill-opacity="0.26"/><circle r="4.6" fill="#FFFFFF" stroke="#059669" stroke-width="2.6"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 707.0 L 902.0 707.0"/></g>
+<path d="M 868.0 707.0 L 904.8 707.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="10 6" stroke-dashoffset="0.0"/>
+<polygon points="912.0,707.0 901.2,701.0 904.0,707.0 901.2,713.0" fill="#059669"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.40s" begin="-0.00s" repeatCount="indefinite" path="M 868.0 707.0 L 904.8 707.0"/></g>
 <rect x="916.0" y="670.0" width="648.0" height="74.0" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.6" />
 <text x="932.0" y="692.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#065F46" text-anchor="start" >WOULD HAVE STOPPED IT HERE: Idempotency key on every write</text>
 <text x="932.0" y="710.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#064E3B" text-anchor="start" >sha256(workflow+step+tool+args) ledger (Firestore / Redis SETNX); a repeated write</text>
@@ -126,7 +137,7 @@
 <circle cx="130" cy="788" r="15" fill="#FFFFFF" stroke="#059669" stroke-width="4"/>
 <text x="130.0" y="792.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle" >7</text>
 <text x="118.0" y="762.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="800" fill="#059669" text-anchor="end" >T+1 day</text>
-<rect x="168.0" y="764.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" />
+<rect x="168.0" y="764.0" width="700.0" height="82.0" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="1.8" filter="url(#shadow)" fill-opacity="0.96"/><rect x="169.2" y="765.2" width="697.6" height="79.6" rx="8.8" fill="none" stroke="#FFFFFF" stroke-opacity="0.82" stroke-width="1"/><rect x="170.0" y="765.8" width="696.0" height="9.8" rx="7.8" fill="url(#glassSheen)" pointer-events="none"/>
 <rect x="168.0" y="764.0" width="8.0" height="82.0" rx="4" fill="#059669" />
 <text x="190.0" y="786.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A" text-anchor="start" >Blameless postmortem + 5-Stage Lifecycle</text>
 <text x="190.0" y="806.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#1E293B" text-anchor="start" >Enforce Register → Own → Measure → Review → Retire (Dataiku survey: 83% lack lifecycle</text>
@@ -137,6 +148,7 @@
 <text x="78.0" y="914.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.0" font-weight="800" fill="#FFFFFF" text-anchor="start" >10-Field Agent Record (owner + kill-switch + policy gate) • platform • sprint</text>
 <text x="572.0" y="914.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.0" font-weight="800" fill="#FFFFFF" text-anchor="start" >Loop breaker + step ceiling + $0.25 cost cap in harness • platform • sprint</text>
 <text x="1066.0" y="914.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.0" font-weight="800" fill="#FFFFFF" text-anchor="start" >Idempotency keys on writes + step checkpoints • integrations &amp; SRE • sprint</text>
-<text x="56.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
-<text x="1544.0" y="964.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Brij Kishore Pandey, &#x27;How Do We Turn It Off?&#x27; (Oct 2026; Dataiku/Harris Poll 685 CIOs) • Google SRE Book • IDEA-01 &amp; IDEA-06</text>
+<rect x="36" y="946" width="1528" height="25" rx="8" fill="#FFFFFF" fill-opacity="0.86" stroke="#E2E8F0" stroke-width="1"/>
+<text x="56.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#64748B" text-anchor="start" >Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential</text>
+<text x="1544.0" y="963.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#1D4ED8" text-anchor="end" >Brij Kishore Pandey, &#x27;How Do We Turn It Off?&#x27; (Oct 2026; Dataiku/Harris Poll 685 CIOs) • Google SRE Book • IDEA-01 &amp; IDEA-06</text>
 </svg>

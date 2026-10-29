@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-10-21T04:19:15.740Z",
-  "baseUrl": "http://127.0.0.1:8765",
-  "totalAssertions": 23,
-  "passedAssertions": 23,
+  "timestamp": "2026-10-29T14:04:18.107Z",
+  "baseUrl": "http://127.0.0.1:8769",
+  "totalAssertions": 25,
+  "passedAssertions": 25,
   "failedAssertions": 0,
   "consoleErrors": [],
   "failedRequests": [],
@@ -55,7 +55,7 @@
     {
       "name": "Inspector Drawer Tab 1 (Dynamic & @2d Visuals) Renders All Figures & Prompt",
       "passed": true,
-      "detail": "badge=\"IDEA-01 • Tomorrow • 07:30 AM EST • HEAD 0282704\", images=4/4, promptChars=4435"
+      "detail": "badge=\"IDEA-01 • Tomorrow • 07:30 AM EST • HEAD 3b0c972\", images=4/4, promptChars=4801"
     },
     {
       "name": "Inspector Drawer Tab 2 (12-Slide Deck & Carousel) Renders 12 Slides",
@@ -78,22 +78,27 @@
       "detail": "drawer closed"
     },
     {
-      "name": "View 2 Renders All 68 Dynamic Templates & 12 OSS/Google Stack Pairings",
+      "name": "View 2 Renders All 84 Dynamic Templates & 12 OSS/Google Stack Pairings",
       "passed": true,
-      "detail": "cards=68, badge=\"68 / 68 Dynamic Templates\", pairings=12, brokenImgs=0"
+      "detail": "cards=84, badge=\"84 / 84 Dynamic Templates\", pairings=12, brokenImgs=0"
     },
     {
-      "name": "Filter PromptCanvas Canonical Infographics Renders Exactly 16 Templates (T53-T68)",
+      "name": "Filter PromptCanvas Canonical Infographics Renders Exactly 32 Templates (T53-T84) + Live Google Slides Links",
       "passed": true,
-      "detail": "badge=\"16 / 68 Dynamic Templates\", range=template-card-T53..template-card-T68"
+      "detail": "badge=\"32 / 84 Dynamic Templates\", range=template-card-T53..template-card-T84, T79-T84 slidesBtns=6/6"
     },
     {
-      "name": "View 3 (Creator Mining Playbook) Renders Signal Channels & 4 @2d Archetypes",
+      "name": "View 3 Renders 4 Signal Channels, 16 Creator Profiles, 4 @2d Archetypes & Zero Badge Overflow",
       "passed": true,
-      "detail": "summaryChars=449, channels=4, archetypes=4"
+      "detail": "channels=4, creators=16/16, archetypes=4, badgeOverflows=0"
     },
     {
-      "name": "View 4 (Live Idea Miner & URL Ingestor) Feeds + POST /api/ingest-url E2E",
+      "name": "View 4 Daily Post Generator Studio Synthesizes 6 Posts, Loads Custom SVGs & Copies Post + Comment #1",
+      "passed": true,
+      "detail": "cards=6, svgs=6/6, copiedChars=1586, status=\"6 Fresh Posts Generated • Edition 2026-10-29\""
+    },
+    {
+      "name": "View 4 Live Idea Miner & URL Ingestor Feeds + POST /api/ingest-url E2E",
       "passed": true,
       "detail": "Verified & Mapped: SYNTHESIZED_GROUNDED_BLUEPRINT -> Repository: custom-autonomous-agentic-verification-6ec8"
     },
@@ -108,9 +113,14 @@
       "detail": "checkedCells=171, uncontained=0"
     },
     {
-      "name": "Rule 57C Canonical T53-T68 Zero Double-Footer (viewBox height === image height + W3C <title>/<desc>)",
+      "name": "Rule 57C Canonical T01 + T53-T84 Zero Double-Footer (viewBox height === image height + W3C <title>/<desc>)",
       "passed": true,
-      "detail": "verified=16/16 canonical PromptCanvas templates, doubleFooters=0"
+      "detail": "verified=33/33 canonical PromptCanvas templates, doubleFooters=0"
+    },
+    {
+      "name": "Mobile 390x844 Responsive Layout Preserved (docOverflowPx === 0 across Views 1-4)",
+      "passed": true,
+      "detail": "tab-btn-repos:0px, tab-btn-gallery:0px, tab-btn-playbook:0px, tab-btn-miner:0px"
     },
     {
       "name": "Zero Browser Page/Runtime Errors",

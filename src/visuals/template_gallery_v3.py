@@ -1399,7 +1399,7 @@ def demo_specs_v3() -> Dict[str, Dict[str, Any]]:
         "T49": {
             "title": "Traditional Automation vs. AI Workflows vs. Autonomous Agents: The 3-Column Decision Triptych",
             "subtitle": "Don't use an autonomous agent for a deterministic cron job, and don't force an IF/THEN script to parse messy unstructured edge cases.",
-            "source": "Prem Natarajan, 'Automation vs AI Workflows vs AI Agents' (#13, 59 likes, 53 comments) • Anthropic 'Building Effective Agents' • Chip Huyen",
+            "source": "Prem Natarajan, 'Automation vs AI Workflows vs AI Agents' (#13, 59 likes, 53 comments) • Enterprise 'Building Effective Agents' • Chip Huyen",
             "lineage": "Prem Natarajan (#13, 59 likes, 53 comments) & Chip Huyen",
             "columns": [
                 {
@@ -1491,7 +1491,7 @@ def demo_specs_v3() -> Dict[str, Dict[str, Any]]:
                     "token_head": "OAuth 2.0 Access Token (API Authorization)",
                     "token_lines": [
                         "{",
-                        "  \"iss\": \"https://auth.example.com\",",
+                        "  \"iss\": \"https://accounts.google.com\",",
                         "  \"aud\": \"https://mcp.github.internal\",",
                         "  \"scp\": [\"repo:read\", \"pull_request:read\"],",
                         "  \"code_verifier_checked\": true",
@@ -1638,7 +1638,7 @@ def demo_specs_v3() -> Dict[str, Dict[str, Any]]:
             ],
             "ppo_vs_grpo_note": "PPO requires training a Value Critic model as large as the Policy model just to estimate baseline variance. GRPO replaces that entire 70B network with a 5-line z-score across G=8 sampled completions.",
             "playbook": [
-                {"level": "LEVEL 1 • PROMPT + DETERMINISTIC HARNESS (90% OF ENTERPRISE TEAMS)", "cost": "$0 training • Ship in days", "when": "Start here: wrap a frontier or reasoning model (Gemini 3.8 / Claude / DeepSeek-R1) in a loop guard, Contextual RAG, and a sandboxed pre-completion verifier.", "color": BLUE},
+                {"level": "LEVEL 1 • PROMPT + DETERMINISTIC HARNESS (90% OF ENTERPRISE TEAMS)", "cost": "$0 training • Ship in days", "when": "Start here: wrap a frontier or reasoning model (Gemini 4 Argon / Gemini 3.8 / DeepSeek-R1) in a loop guard, Contextual RAG, and a sandboxed pre-completion verifier.", "color": BLUE},
                 {"level": "LEVEL 2 • COLD-START LoRA SFT / DISTILLATION (LATENCY & COST COMPRESSION)", "cost": "$200 – $2K GPU • 5K traces", "when": "Use when your Level 1 harness works, and you want to distill verified trajectories from a large model into a fast 7B-14B model for 10x cheaper serving.", "color": PURPLE},
                 {"level": "LEVEL 3 • GRPO + RLVR ON DOMAIN VERIFIERS (PROPRIETARY REASONING MOAT)", "cost": "$5K – $25K GPU • Verifier required", "when": "Use when you have a deterministic domain verifier (SQL query execution, Terraform validate, formal policy prover, chip layout DRC) and want superhuman domain accuracy.", "color": GREEN},
             ],

@@ -132,7 +132,7 @@ TOMORROW_TOP10_IDEAS: List[Dict[str, Any]] = [
         "diagram_archetype": "ARCH-DYN-02: Dynamic Moving-Arrow Problem -> 4-Step Fix -> Before/After Flow",
         "primary_source": {
             "type": "Empirical LLM Context Benchmark & ADK Architecture",
-            "title": "Chroma 'Context Rot' Technical Study & Anthropic/OpenHands Subagent Context Isolation Pattern",
+            "title": "Chroma 'Context Rot' Technical Study & Google ADK/OpenHands Subagent Context Isolation Pattern",
             "url": "https://research.trychroma.com/context-rot",
             "verified_claims": [
                 "Model recall and instruction adherence degrade significantly as distractors accumulate inside a single flat conversation history, even well below the 200K/1M limit.",
@@ -1134,7 +1134,7 @@ TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
         "pdf_deliverable": "generated-repos/gcp-openhands-precompletion-verify-hook/slides/linkedin_carousel.pdf",
         "linkedin_groups_primary": [
             {"name": "Software Architecture, DevOps & Autonomous Coding Engineers", "members": "1.2M+", "goal": "Massive resonance with every developer tired of agents falsely claiming 'All fixed and tested!'"},
-            {"name": "AI Coding Assistants: Claude Code, Gemini Code Assist, Cursor & OpenHands", "members": "340K+", "goal": "High likes, reposts, and practitioner war stories"},
+            {"name": "AI Coding Assistants: Gemini Code Assist, Cursor, Codex & OpenHands", "members": "340K+", "goal": "High likes, reposts, and practitioner war stories"},
         ],
         "linkedin_groups_niche_network": [
             {"name": "VP of Engineering & CTO Software Delivery Leaders", "members": "165K+", "goal": "Executive network building around autonomous PR verification & CI quality gates"},
@@ -1243,10 +1243,10 @@ TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
         "comment_magnet_question": "When you audit an enterprise, what is the ratio of 'AI tools leadership thinks are running' vs. 'Shadow AI browser extensions, meeting bots, and personal API keys actually running'?",
     },
     "IDEA-09": {
-        "primary_template_id": "T41",
-        "primary_template_name": "Systems Deep-Dive: Prefix-Aware KV Cache Routing & Speculative Decoding",
-        "secondary_template_ids": ["T65", "T11", "T55"],
-        "lead_post_format": "Systems Benchmark Animated GIF (T41.gif / dynamic-solution-flow.gif) + T65 5x4 Feature Matrix & 12-Page PDF Carousel",
+        "primary_template_id": "T65",
+        "primary_template_name": "PromptCanvas #64: 5x4 Agent Stack Evaluation & Latency Matrix",
+        "secondary_template_ids": ["T55", "T58", "T61"],
+        "lead_post_format": "Systems Benchmark Animated GIF (T65.gif / dynamic-solution-flow.gif) + T65 5x4 Feature Matrix & 12-Page PDF Carousel",
         "visual_type": "Prefix-Aware KV Cache Routing + Tiered Gemini 3.8 Flash / 4 Argon Cascade + Parallel Read Fan-Out",
         "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: Breaking the 42s -> 1.9s Latency Wall -> Slide 2: T41 KV Prefix Cache Routing -> Slide 3: T65 5x4 Agent Stack Evaluation Matrix -> Slide 12: Editable Benchmark PPTX)",
         "dynamic_nature": "Animated prefix-tree KV cache lookup packets (70ms hit) + parallel read-tool fan-out waves (4x 3s serial calls collapsed into one 420ms parallel wave) + growing score bars in T65.",

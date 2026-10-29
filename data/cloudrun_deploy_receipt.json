@@ -2,14 +2,85 @@
   "serviceName": "ideas-mining",
   "beyondCorpUrl": "https://ideas-mining-248990048888.cr.gclb.goog",
   "directCloudRunUrl": "https://ideas-mining-mi7l4h536a-uw.a.run.app",
-  "buildProject": "nitina-ggarwal-sandbox-647724",
+  "buildProject": "ramp-portal-dev",
   "runProject": "ramp-portal-dev",
   "region": "us-west1",
-  "latestReadyRevisionName": "ideas-mining-00001-d4m",
-  "latestCreatedRevisionName": "ideas-mining-00001-d4m",
+  "latestReadyRevisionName": "ideas-mining-00004-76c",
+  "latestCreatedRevisionName": "ideas-mining-00004-76c",
   "readyStatus": "True",
   "trafficPercent": 100,
-  "image": "us-west1-docker.pkg.dev/ramp-portal-dev/cloud-run-source-deploy/ideas-mining:v20261021-002215",
-  "startupProbeLog": "Default STARTUP TCP probe succeeded after 1 attempt for container 'ideas-mining-1' on port 8080.",
-  "verifiedAt": "2026-10-21T04:23:59Z"
+  "image": "us-west1-docker.pkg.dev/ramp-portal-dev/cloud-run-source-deploy/ideas-mining:v20261029-135854-rule58",
+  "startupProbeLog": "Default STARTUP TCP/HTTP probe succeeded for ideas-mining-00004-76c",
+  "liveHttpVerification": {
+    "verifiedAt": "2026-10-29T13:59:35Z",
+    "verificationMode": "cloud_run_revision_live_http_dom_probe",
+    "project": "ramp-portal-dev",
+    "region": "us-west1",
+    "service": "ideas-mining",
+    "revision": "ideas-mining-00004-76c",
+    "overallPassed": true,
+    "routes": [
+      {
+        "path": "/",
+        "httpStatus": 200,
+        "responseBytes": 18957,
+        "bodySha256Short": "e75eb0f9eacce2b2",
+        "latencyMs": 65.2,
+        "markersMatched": [
+          "<!doctype html",
+          "Daily Latest-Topic"
+        ],
+        "markersMissing": [],
+        "passed": true,
+        "error": ""
+      },
+      {
+        "path": "/api/health",
+        "httpStatus": 200,
+        "responseBytes": 162,
+        "bodySha256Short": "c0bcb12c381cd8f5",
+        "latencyMs": 11.3,
+        "markersMatched": [
+          "ideas-mining",
+          "\"template_count\": 84"
+        ],
+        "markersMissing": [],
+        "passed": true,
+        "error": ""
+      },
+      {
+        "path": "/api/templates",
+        "httpStatus": 200,
+        "responseBytes": 90426,
+        "bodySha256Short": "5f2f79824f35957a",
+        "latencyMs": 7.1,
+        "markersMatched": [
+          "\"template_count\": 84",
+          "T84"
+        ],
+        "markersMissing": [],
+        "passed": true,
+        "error": ""
+      },
+      {
+        "path": "/api/daily-posts",
+        "httpStatus": 200,
+        "responseBytes": 26416,
+        "bodySha256Short": "6bda1a65953996ad",
+        "latencyMs": 3200.9,
+        "markersMatched": [
+          "STYLE-01",
+          "STYLE-06"
+        ],
+        "markersMissing": [],
+        "passed": true,
+        "error": ""
+      }
+    ]
+  },
+  "verifiedAt": "2026-10-29T13:59:45Z",
+  "templateCount": 84,
+  "googleSlidesDecksCount": 33,
+  "creatorProfilesCount": 16,
+  "dailyCreatorStylesCount": 6
 }

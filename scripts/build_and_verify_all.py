@@ -28,12 +28,13 @@ def render_dynamic_asset(item: dict) -> None:
     gif_path = dyn_dir / f"{pid}.gif"
     png_path = dyn_dir / f"{pid}.png"
     svg_path.write_text(generate_dynamic_solution_svg(item), encoding="utf-8")
-    if not gif_path.exists() or not png_path.exists() or gif_path.stat().st_size == 0:
+    skip_existing = "--skip-existing" in sys.argv
+    if not skip_existing or not gif_path.exists() or not png_path.exists() or gif_path.stat().st_size == 0:
         render_animated_gif_for_idea(item, gif_path, png_path, num_frames=6)
 
 
 def render_png_and_pdf_for_repo(repo_dir: Path) -> None:
-    """Use Headless Chrome to render 12-slide HTML to linkedin_carousel.pdf and ensure PNGs exist."""
+    """Use Headless Chrome to render 12-slide HTML to linkedin_carousel.pdf and always render fresh PNGs from vector SVGs."""
     chrome = Path(CHROME_BIN)
     if not chrome.exists():
         return
@@ -45,32 +46,37 @@ def render_png_and_pdf_for_repo(repo_dir: Path) -> None:
     carousel_html = repo_dir / "slides" / "linkedin_carousel.html"
     carousel_pdf = repo_dir / "slides" / "linkedin_carousel.pdf"
 
-    if not infographic_png.exists():
-        subprocess.run(
-            [
-                str(chrome),
-                "--headless",
-                "--disable-gpu",
-                "--window-size=1600,1200",
-                f"--screenshot={infographic_png}",
-                f"file://{infographic_svg}",
-            ],
-            check=False,
-            capture_output=True,
-        )
-    if not arch_png.exists():
-        subprocess.run(
-            [
-                str(chrome),
-                "--headless",
-                "--disable-gpu",
-                "--window-size=1600,1020",
-                f"--screenshot={arch_png}",
-                f"file://{arch_svg}",
-            ],
-            check=False,
-            capture_output=True,
-        )
+    for stale_jpg in ("nano-banana-3-infographic.jpg", "nano-banana-3-gcp-arch-78.jpg"):
+        sp = repo_dir / "visuals" / stale_jpg
+        if sp.exists():
+            sp.unlink()
+
+    subprocess.run(
+        [
+            str(chrome),
+            "--headless",
+            "--disable-gpu",
+            "--hide-scrollbars",
+            "--window-size=1600,1200",
+            f"--screenshot={infographic_png}",
+            f"file://{infographic_svg}",
+        ],
+        check=False,
+        capture_output=True,
+    )
+    subprocess.run(
+        [
+            str(chrome),
+            "--headless",
+            "--disable-gpu",
+            "--hide-scrollbars",
+            "--window-size=1600,1020",
+            f"--screenshot={arch_png}",
+            f"file://{arch_svg}",
+        ],
+        check=False,
+        capture_output=True,
+    )
     subprocess.run(
         [
             str(chrome),

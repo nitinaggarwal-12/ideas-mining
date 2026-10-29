@@ -13,70 +13,72 @@ USER_PROFILE = {
 
 CREATOR_MINING_PLAYBOOK: Dict[str, Any] = {
     "executive_summary": (
-        "Top Agentic AI creators (Rakesh Gohel, Aakash Gupta, Vaibhav Sisinty, Matt Village, "
-        "Prashant Varshney, Prashant Rathi, Addy Osmani) do not invent abstract theory from scratch. "
-        "They run a 4-Channel Signal Mining Funnel that detects new arXiv papers, breakout GitHub repos, "
-        "engineering blog launches, and production failure modes within 24-48 hours, then translates "
-        "dense technical artifacts into a 5-Part Contrarian Hook + 1-Page 2D Visual Blueprint."
+        "Top Agentic AI & Systems Engineering creators (Aishwarya Naresh Reganti, Vaibhav Sisinty, Nan Li, "
+        "Alena Panshina, Rajesh Kumar, Rakesh Gohel, Harish Kumar, Gautami Nadkarni, Himanshu Jain, "
+        "Matt Village, Sivasankar Natarajan, Rathnakumar Udayakumar, Mayank A., Bally S Kehal, Shivani Virdi, "
+        "and Pallavi Ahuja) do not invent abstract theory from scratch. They run a 4-Channel Signal Mining Funnel "
+        "that detects new arXiv papers, breakout GitHub repos, engineering lab deep-dives, and production failure "
+        "modes within 24-48 hours, translating dense technical artifacts into a 5-Part Contrarian Hook + 1-Page 2D Visual Blueprint."
     ),
     "signal_channels": [
         {
             "id": "CH-01",
             "name": "Daily arXiv & Lab Release Radar (24-48h Paper-to-Post Latency)",
-            "creators_using": ["Rakesh Gohel", "Prashant Rathi"],
+            "creators_using": ["Aishwarya Naresh Reganti", "Alena Panshina", "Himanshu Jain", "Shivani Virdi", "Pallavi Ahuja"],
             "sources": [
-                "arXiv cs.AI, cs.CL, cs.MA, cs.SE daily RSS/API feeds",
-                "HuggingFace Daily Papers (huggingface.co/papers) & AlphaXiv trending",
-                "LangChain Blog (OpenWiki), Anthropic Engineering (Auto Mode / Skills), Google Research",
+                "arXiv cs.AI, cs.CL, cs.MA, cs.SE daily RSS/API feeds (Harness² arXiv:2604.08523, TokenEconomizer, HarnessEvolve)",
+                "HuggingFace Daily Papers (huggingface.co/papers), Hacker News AI front-page, & AlphaXiv trending",
+                "Google Research (Gemini Co-Scientist, Harness²), UC Berkeley & Microsoft Research, Multi-Trial Agent Evals (pass^k)",
             ],
             "mining_pattern": (
-                "Scan for papers or framework releases with measurable production before/after deltas "
-                "(e.g., HarnessEvolve trajectory replay gates; LangChain OpenWiki cutting stale memory "
-                "claims from 80 to 9 and hallucinations from 15 to 0). Extract the 3-4 core architectural "
-                "mechanisms and strip out academic notation."
+                "Scan for papers or engineering evaluations with measurable production before/after deltas "
+                "(e.g., Google Harness² +22pp on NoveltyBench; TokenEconomizer -30.9% cost across 30/30 SWE-Bench "
+                "configs; pass^3 = 0.75^3 = 42.2% multi-run reliability). Extract 3-4 core mechanisms and strip out academic notation."
             ),
         },
         {
             "id": "CH-02",
-            "name": "GitHub Breakout Velocity & Curated Repo Bundling",
-            "creators_using": ["Vaibhav Sisinty", "Matt Village", "Aakash Gupta"],
+            "name": "GitHub Breakout Velocity & Progressive Curriculum Bundling",
+            "creators_using": ["Vaibhav Sisinty", "Mayank A.", "Matt Village", "Rathnakumar Udayakumar"],
             "sources": [
-                "GitHub Trending (github.com/trending) filtered by topics: agentic-ai, mcp, claude-code, adk, openhands",
-                "Star-velocity trackers (OSSInsight, GitHub Search stars:>500 pushed:>7d)",
-                "Official quickstart & plugin repos (All-Hands-AI/OpenHands, claude-quickstarts, agent-skills)",
+                "GitHub Trending (github.com/trending) filtered by topics: agentic-ai, harness-engineering, mcp, google-adk, openhands",
+                "Star-velocity trackers (walkinglabs/learn-harness-engineering 21K+ stars, gstack 75.5K stars, agency-agents, Paperclip)",
+                "Official quickstart & judgment SDK repos (All-Hands-AI/OpenHands, google/adk-samples, vLLM Outlines/xgrammar)",
             ],
             "mining_pattern": (
-                "Bundle 5 complementary open-source repositories that solve a complete practitioner workflow "
-                "(Roles + Skills + Plugins + Quickstarts + Verification) so engineers bookmark the post as a "
-                "zero-to-one starter kit."
+                "Highlight either a single breakout open-source curriculum evolving one real app end-to-end "
+                "(14 lectures, 8 hands-on projects across repo rules, memory, Maker-Checker loops, and graph rollback) "
+                "or bundle 5 complementary repos into a bookmark-worthy zero-to-one starter kit."
             ),
         },
         {
             "id": "CH-03",
-            "name": "Viral Builder Quote Amplification & 10-Step Synthesis Roadmaps",
-            "creators_using": ["Aakash Gupta", "Matt Village"],
+            "name": "First-Principles Systems Reference Sheets & Mental-Model Maps",
+            "creators_using": ["Pallavi Ahuja", "Nan Li", "Harish Kumar", "Gautami Nadkarni", "Matt Village"],
             "sources": [
-                "High-impression X/Twitter threads by principal builders (Addy Osmani, Karpathy, Simon Willison)",
-                "CLI/SDK documentation changelogs turned into 1-page visual workflows",
+                "Systems Roofline & Serving Reference Sheets (Compute-bound Prefill TTFT vs. HBM-bound Decode ITL/TPOT, Goodput SLOs)",
+                "Practitioner mental-model maps (3-Track Data Modeling Map, 5 Agent Building Blocks, 12 Google Cloud AI Concepts)",
+                "CLI/SDK & serving runtime changelogs (vLLM PagedAttention, FlashAttention, GQA, Speculative Decoding)",
             ],
             "mining_pattern": (
-                "Anchor on a validated high-velocity quote (e.g., Addy Osmani's 'A decent model with a great "
-                "harness consistently beats a great model with a bad harness' with 857K views) and expand it "
-                "into a 10-step actionable architecture roadmap with case studies."
+                "Distill sprawling infrastructure domains into crisp first-principles cheat sheets (Prefill vs Decode + "
+                "KV-Cache Formula + Symptom-to-Fix Diagnosis, 3x3 Data Tracks, 5 Agent Anatomy Blocks, 12 GCP Concepts) "
+                "paired with copy-ready diagnostic prompts."
             ),
         },
         {
             "id": "CH-04",
-            "name": "Adversarial Production Pain-Point Taxonomy (Security, Memory, Loop Control)",
-            "creators_using": ["Prashant Varshney", "Rakesh Gohel", "Prashant Rathi"],
+            "name": "Adversarial Production Failure-Mode & Misses Taxonomy",
+            "creators_using": ["Sivasankar Natarajan", "Bally S Kehal", "Rathnakumar Udayakumar", "Rajesh Kumar", "Rakesh Gohel"],
             "sources": [
-                "OWASP Top 10 for LLM Applications (LLM01 Indirect Prompt Injection, Excessive Agency)",
-                "Production postmortems on agent memory poisoning, runaway loops, and unverified commits",
+                "Constrained Decoding FSM/CFG token masks + semantic foreign-key verification vs. '99/100 valid JSON' prose traps",
+                "Replay-Set Code Review Evaluation (seeded defects, dual timers for run vs. triage cost, commit-SHA pinned sign-off)",
+                "9 Bounded System-1 Micro-Decisions in the Agent Loop + 6-Vendor GKE gVisor / AgentCore Sandboxes",
             ],
             "mining_pattern": (
-                "Contrast 'What teams think happens (Safe Flow)' against 'What actually breaks in production "
-                "(Attack / Drift Flow)' and provide deterministic architectural controls (least privilege, "
-                "channel isolation, version-hash receipts) rather than prompt-tweaking."
+                "Contrast 'What looks fine in a happy-path demo (99% valid JSON, high comment volume, full LLM on every check)' "
+                "against 'What silently breaks production (the 100th malformed reply, silent missed race bugs, latency bloat)' "
+                "and add a sharp 'One Thing People Miss' practitioner caveat."
             ),
         },
     ],
@@ -95,15 +97,222 @@ CREATOR_MINING_PLAYBOOK: Dict[str, Any] = {
         },
         {
             "code": "ARCH-2D-03",
-            "name": "Numbered Closed-Loop State Machine (1..6 Cyclic Pipeline)",
-            "used_in_posts": ["7517147417599746048 (Agentic Coding Loop)", "7515025598243639296 (OpenWiki Memory)", "7514309864186081280 (6-Step Agent Loop)"],
-            "visual_flow": "Horizontal 6-Stage Forward Pipeline (Explore -> Plan -> Act -> Observe -> Verify -> Commit) with a bottom deterministic feedback/retry return arrow.",
+            "name": "Numbered Closed-Loop State Machine & 4-Tier Editorial Spine",
+            "used_in_posts": [
+                "7518498821123895296 (Harness² T69)",
+                "7517094569474437122 (5 Agent Repos T70)",
+                "7518467480214831105 (3-Track Data Map T71)",
+                "7518598074869694465 (TokenEconomizer T72)",
+                "7518664587542626304 (11-Zone Agentic AI T73)",
+                "7518650321796198400 (6-Vendor Sandboxes T74)",
+                "7518670062161903618 (5 Agent Blocks T75)",
+                "7518679339727589376 (12 GCP Concepts T76)",
+                "7515625677664997376 (2026 Pharma R&D T77)",
+                "7517147417599746048 (6-Stage Coding T78)",
+                "7521187378191982592 (Constrained Decoding T79)",
+                "7521286831246753793 (9 Agent Micro-Decisions T80)",
+                "7521091939027488768 (8-Phase Harness Eng T81)",
+                "7521164027662721024 (Code Review Replay Eval T82)",
+                "7521186364311318528 (Multi-Trial pass^k Evals T83)",
+                "7521092785039368192 (Inference Eng Goodput T84)",
+            ],
+            "visual_flow": "4-Tier Vertical Spine (01 Context/Ingress -> 02 Harness/Gateway -> 03 YES/NO Decision Loop -> 04 Graph vs. Progress-Bar Scoreboard) with copy-ready PROMPT bars.",
         },
         {
             "code": "ARCH-2D-04",
             "name": "Google Cloud Official #78 4-Zone Hub-and-Spoke Reference Architecture",
             "used_in_posts": ["All 8 Nitin Aggarwal Production Repos"],
             "visual_flow": "Blue Ingress/Routing Hub (#aecbfa) + Green Governance/Model Armor Hub (#ceead6) + Yellow ADK Agent Execution Spoke (#feefc3) + Red Data/Memory/Eval Spoke (#fad2cf).",
+        },
+    ],
+    "creator_profiles": [
+        {
+            "name": "Aishwarya Naresh Reganti",
+            "linkedin_url": "https://www.linkedin.com/in/areganti/",
+            "role": "AI/ML Leader & Enterprise GenAI Systems Author",
+            "followers": 215000,
+            "style_code": "STYLE-05",
+            "archetype_label": "Frontier Research Paper-to-Production Breakdown",
+            "post_urn": "urn:li:activity:7518498821123895296",
+            "template_id": "T69",
+            "signature_style": "Translates frontier research papers (Google Harness², arXiv:2604.08523) into structured architectural breakdowns comparing static vs. dynamic agent harnesses.",
+        },
+        {
+            "name": "Vaibhav Sisinty",
+            "linkedin_url": "https://www.linkedin.com/in/vaibhavsisinty/",
+            "role": "Founder @ GrowthSchool • Applied AI & Open-Source Repo Curator",
+            "followers": 460000,
+            "style_code": "STYLE-03",
+            "archetype_label": "5-Repo Open-Source Engineering Stack Bundle",
+            "post_urn": "urn:li:activity:7517094569474437122",
+            "template_id": "T70",
+            "signature_style": "Curates high-velocity GitHub repository stacks (gstack, Paperclip, agency-agents, rowboat, multica) into actionable multi-agent engineering kits.",
+        },
+        {
+            "name": "Nan Li",
+            "linkedin_url": "https://www.linkedin.com/in/nanli-data/",
+            "role": "Enterprise Data Architecture & AI Grounding Strategist",
+            "followers": 42000,
+            "style_code": "STYLE-06",
+            "archetype_label": "3x3 Semantic Data & Ontology Matrix",
+            "post_urn": "urn:li:activity:7518467480214831105",
+            "template_id": "T71",
+            "signature_style": "Synthesizes Conceptual/Logical/Physical Medallion schemas, Business Ontologies, and Semantic Layers into crisp 3x3 visual maps.",
+        },
+        {
+            "name": "Alena Panshina",
+            "linkedin_url": "https://www.linkedin.com/in/alena-panshina/",
+            "role": "AI Research & Engineering Analyst",
+            "followers": 34000,
+            "style_code": "STYLE-01",
+            "archetype_label": "Quantitative Benchmark & Cost-Control Breakdown",
+            "post_urn": "urn:li:activity:7518598074869694465",
+            "template_id": "T72",
+            "signature_style": "Breaks down quantitative agent systems benchmarks (UC Berkeley & Microsoft TokenEconomizer -30.9% cost across 30/30 SWE-Bench Verified configs).",
+        },
+        {
+            "name": "Rajesh Kumar",
+            "linkedin_url": "https://www.linkedin.com/in/rajesh-kumar-ai/",
+            "role": "Principal Enterprise AI & Cloud Reference Architect",
+            "followers": 58000,
+            "style_code": "STYLE-02",
+            "archetype_label": "11-Zone Enterprise Gateway & HITL Reference Map",
+            "post_urn": "urn:li:activity:7518664587542626304",
+            "template_id": "T73",
+            "signature_style": "Designs multi-zone production reference architectures covering OAuth identity propagation, AgentCore Gateways, risk-tiered HITL approvals, and AgentOps.",
+        },
+        {
+            "name": "Rakesh Gohel",
+            "linkedin_url": "https://www.linkedin.com/in/rakeshgohel01/",
+            "role": "Agentic AI Systems Architect & Creator",
+            "followers": 145000,
+            "style_code": "STYLE-01",
+            "archetype_label": "6-Vendor Production Sandbox & Security Matrix",
+            "post_urn": "urn:li:activity:7518650321796198400",
+            "template_id": "T74",
+            "signature_style": "Contrasts naive agent deployments against hardened 6-vendor production sandboxes (Google GKE gVisor, AWS AgentCore, MSFT MXC, NVIDIA OpenShell, Perplexity SPACE, OpenAI).",
+        },
+        {
+            "name": "Harish Kumar",
+            "linkedin_url": "https://www.linkedin.com/in/harish-kumar-ai/",
+            "role": "AI Engineering Educator & Visual Systems Designer",
+            "followers": 76000,
+            "style_code": "STYLE-02",
+            "archetype_label": "5-Block Agent Anatomy Primer",
+            "post_urn": "urn:li:activity:7518670062161903618",
+            "template_id": "T75",
+            "signature_style": "Explains foundational agent concepts through intuitive anatomical metaphors (1. LLM=Brain, 2. RAG=Library, 3. MCP=Nervous System, 4. Skills=Muscle Memory, 5. Agent=Brain+Hands).",
+        },
+        {
+            "name": "Gautami Nadkarni",
+            "linkedin_url": "https://www.linkedin.com/in/gautami-nadkarni/",
+            "role": "Cloud & AI Engineering Communicator",
+            "followers": 51000,
+            "style_code": "STYLE-06",
+            "archetype_label": "12-Concept Cloud AI Stack Reference Sheet",
+            "post_urn": "urn:li:activity:7518679339727589376",
+            "template_id": "T76",
+            "signature_style": "Maps the 12 core Google Cloud building blocks (Vertex AI, Gemini API, TPUs/GPUs, Cloud Run, GKE, Vector Search, GCS, Pub/Sub, Dataflow, BigQuery, IAM, Monitoring) into one cohesive stack.",
+        },
+        {
+            "name": "Himanshu Jain",
+            "linkedin_url": "https://www.linkedin.com/in/himanshujain-pharma/",
+            "role": "Life Sciences & Biopharma AI Strategy Leader",
+            "followers": 39000,
+            "style_code": "STYLE-04",
+            "archetype_label": "Regulated Domain R&D Evidence Synthesis",
+            "post_urn": "urn:li:activity:7515625677664997376",
+            "template_id": "T77",
+            "signature_style": "Evaluates peer-reviewed AI breakthroughs in Pharma R&D (Gemini Co-Scientist KIRA6 10nM AML hit, Robin RBM24 AMD hit, MAMMAL 2B samples, VirtualCell) against 4 GxP enterprise gaps.",
+        },
+        {
+            "name": "Matt Village",
+            "linkedin_url": "https://www.linkedin.com/in/mattvillage/",
+            "role": "AI-Native Software Engineering & Developer Productivity Leader",
+            "followers": 64000,
+            "style_code": "STYLE-03",
+            "archetype_label": "6-Stage Disciplined Agentic Coding Workflow",
+            "post_urn": "urn:li:activity:7517147417599746048",
+            "template_id": "T78",
+            "signature_style": "Codifies disciplined 6-stage agentic coding workflows (Explore -> Plan -> Implement -> Verify -> Review -> Commit) with modular AGENTS.md/SKILL.md rules, subagents, and hooks.",
+        },
+        {
+            "name": "Sivasankar Natarajan",
+            "linkedin_url": "https://www.linkedin.com/in/sivasankar-natarajan",
+            "role": "Systems & Structured LLM Reliability Engineer (shiva.bytes)",
+            "followers": 28335,
+            "style_code": "STYLE-01",
+            "archetype_label": "Systems A-vs-B Showdown + Semantic Caveat",
+            "post_urn": "urn:li:activity:7521187378191982592",
+            "template_id": "T79",
+            "engagement": {"likes": 73, "comments": 68, "comment_to_like_ratio": "93.2%"},
+            "hook_formula": "Your LLM returned 'valid JSON' 99 times. The 100th broke your pipeline. -> A vs B Architecture -> One Thing People Miss",
+            "signature_style": "Pairs a concrete 99%-pass compound-failure hook with a crisp Side-by-Side Architecture Showdown (Prompt JSON vs. Constrained Decoding FSM/CFG mask) plus a 'One Thing People Miss' semantic verification gate.",
+        },
+        {
+            "name": "Rathnakumar Udayakumar",
+            "linkedin_url": "https://www.linkedin.com/in/rathanuday",
+            "role": "Agentic Systems Architect & TypeSafe Judgment Designer",
+            "followers": 50358,
+            "style_code": "STYLE-02",
+            "archetype_label": "9-Point Agent Loop Micro-Decision Architecture",
+            "post_urn": "urn:li:activity:7521286831246753793",
+            "template_id": "T80",
+            "engagement": {"likes": 57, "comments": 35, "comment_to_like_ratio": "61.4%"},
+            "hook_formula": "Your AI agent doesn't need an LLM for every decision. -> 9 Bounded Micro-Decisions -> System-1 / LLM / App-Code Division of Labor",
+            "signature_style": "Decomposes bloated all-LLM agent loops into 9 bounded micro-decisions (Input Screening, Retrieval Gate, Scoring, Tool Gate, Stop Check, Model Routing, Grounding, Memory Filter, Confidence Handoff) handled by fast calibrated classifiers.",
+        },
+        {
+            "name": "Mayank A.",
+            "linkedin_url": "https://in.linkedin.com/in/curiouslearner",
+            "role": "Open-Source AI Curriculum & Harness Engineering Curator",
+            "followers": 187794,
+            "style_code": "STYLE-03",
+            "archetype_label": "Breakout Open-Source Curriculum & Repo Breakdown",
+            "post_urn": "urn:li:activity:7521091939027488768",
+            "template_id": "T81",
+            "engagement": {"likes": 1137, "comments": 29, "comment_to_like_ratio": "2.6%"},
+            "hook_formula": "Harness Engineering from Scratch -> Breakout Repo Metrics (21K+ stars, 14 Lectures, 8 Projects) -> 8 Progressive Phases Evolved on One Real App",
+            "signature_style": "Spotlights breakout open-source engineering curricula (walkinglabs/learn-harness-engineering, 21K+ stars, 15 languages, MIT) that evolve one real codebase across repo rules, memory, Maker-Checker loops, and graph rollback.",
+        },
+        {
+            "name": "Bally S Kehal",
+            "linkedin_url": "https://www.linkedin.com/in/ballykehal",
+            "role": "Principal Engineering Quality & AI Code Review Strategist",
+            "followers": 23745,
+            "style_code": "STYLE-04",
+            "archetype_label": "Evidence-Based Production Evaluation & Misses Ledger",
+            "post_urn": "urn:li:activity:7521164027662721024",
+            "template_id": "T82",
+            "engagement": {"likes": 278, "comments": 147, "comment_to_like_ratio": "52.9%"},
+            "hook_formula": "An agent code review needs evidence about what it missed. -> Seeded Replay Set -> Dual Timers + Commit-SHA Acceptance Gate",
+            "signature_style": "Challenges vendor demo vanity volume by designing replay-set evaluations with seeded race/permission defects, separate timers for bot run latency vs. maintainer triage cost, and commit-SHA-pinned acceptance receipts.",
+        },
+        {
+            "name": "Shivani Virdi",
+            "linkedin_url": "https://www.linkedin.com/in/shivanivirdi",
+            "role": "Founder @ NeoSage Academy • Multi-Turn Agent Evaluation Educator",
+            "followers": 88112,
+            "style_code": "STYLE-05",
+            "archetype_label": "Multi-Trial pass^k Reliability & Restraint Framework",
+            "post_urn": "urn:li:activity:7521186364311318528",
+            "template_id": "T83",
+            "engagement": {"likes": 89, "comments": 39, "comment_to_like_ratio": "43.8%"},
+            "hook_formula": "An agent that succeeds 75% of the time still fails for 1 in 4 users. -> pass@k vs pass^k Math (0.75^3 = 42.2%) -> 6-Step Isolated Trial Loop",
+            "signature_style": "Exposes single-run demo illusions using multi-trial pass^k math (0.75^3 = 42.2% vs pass@3 = 98.4%), grading Outcome DB state, Trajectory, Efficiency, and Restraint with env.reset() isolation and 'unknown'-calibrated rubric judges.",
+        },
+        {
+            "name": "Pallavi Ahuja",
+            "linkedin_url": "https://in.linkedin.com/in/progressivethinker",
+            "role": "Inference Systems & GPU/TPU Serving Performance Leader",
+            "followers": 111284,
+            "style_code": "STYLE-06",
+            "archetype_label": "First-Principles Systems & Roofline Reference Sheet",
+            "post_urn": "urn:li:activity:7521092785039368192",
+            "template_id": "T84",
+            "engagement": {"likes": 1178, "comments": 39, "comment_to_like_ratio": "3.3%"},
+            "hook_formula": "Inference Engineering is becoming one of the most important skill sets in AI... -> Compute vs HBM Roofline Split -> Symptom-to-Fix Goodput Diagnosis",
+            "signature_style": "Distills GPU/TPU serving physics into bookmarkable 1-page reference sheets covering compute-bound Prefill (TTFT) vs. HBM-bandwidth-bound Decode (ITL/TPOT), KV-cache byte math, PagedAttention/GQA/FP8, and SLO-compliant Goodput.",
         },
     ],
     "openhands_superiority": {
@@ -127,7 +336,7 @@ CREATOR_MINING_PLAYBOOK: Dict[str, Any] = {
             {
                 "dimension": "Canonical Visual & Diagram Fidelity (Rule 57)",
                 "bmad_meta_prompts": "Generates hand-rolled box approximations with overlapping labels and double footers.",
-                "openhands_autonomous": "Extracts canonical PromptCanvas Draw.io XMLs (#52-#66 + Open Knowledge), renders 2x Retina PNGs via viewer-static.min.js, and audits getBoundingClientRect() geometry.",
+                "openhands_autonomous": "Extracts canonical PromptCanvas Draw.io XMLs (#52-#66 + Open Knowledge + T69-T84), renders 2x Retina PNGs via viewer-static.min.js, and audits getBoundingClientRect() geometry.",
             },
             {
                 "dimension": "Cloud Run & Git Delivery Lifecycle (Rule 56)",
@@ -217,7 +426,7 @@ POSTS_CATALOG: List[Dict[str, Any]] = [
             "url": "https://www.linkedin.com/feed/update/urn:li:activity:7517071955964129280/",
             "verified_claims": [
                 "Agent = Model + Harness: deterministic instructions, context engineering, on-demand skills, and episodic memory.",
-                "Permission boundaries define autonomous actions vs. human-approval gates (Anthropic Auto Mode / Google Cloud IAM + CASG).",
+                "Permission boundaries define autonomous actions vs. human-approval gates (Policy-Gated Auto Mode / Google Cloud IAM + CASG).",
                 "Closed-loop execution combines MCP tools, automated evals, observability traces, and self-correction until verification passes.",
             ],
         },
@@ -230,7 +439,7 @@ POSTS_CATALOG: List[Dict[str, Any]] = [
             "Cloud Run MCP Gateway & Cloud Trace OpenTelemetry",
         ],
         "core_steps": [
-            {"step": "01", "title": "Normative Instructions", "desc": "Load KV-cache-stable AGENTS.md / GEMINI.md / CLAUDE.md constitution on every session start."},
+            {"step": "01", "title": "Normative Instructions", "desc": "Load KV-cache-stable AGENTS.md / GEMINI.md constitution on every session start."},
             {"step": "02", "title": "Context Engineering", "desc": "Inject grounded product, user, and schema metadata via Vertex AI Context Caching."},
             {"step": "03", "title": "Progressive Skills", "desc": "Lazy-load domain SKILL.md playbooks only when task intent matches skill triggers."},
             {"step": "04", "title": "Persistent Memory", "desc": "Store verified corrections in Firestore/AlloyDB so the agent never repeats a mistake twice."},
@@ -269,7 +478,7 @@ POSTS_CATALOG: List[Dict[str, Any]] = [
             "never start from zero."
         ),
         "primary_source": {
-            "title": "5 Foundational Open-Source Agent Ecosystems (agency-agents, wshobson/agents, knowledge-work-plugins, claude-quickstarts, agent-skills)",
+            "title": "5 Foundational Open-Source Agent Ecosystems (agency-agents, wshobson/agents, knowledge-work-plugins, google/adk-samples, agent-skills)",
             "type": "Open-Source Ecosystem Synthesis",
             "url": "https://www.linkedin.com/feed/update/urn:li:activity:7517094569474437122/",
             "verified_claims": [
@@ -344,7 +553,7 @@ POSTS_CATALOG: List[Dict[str, Any]] = [
             "Secret Manager & GitHub App Automated PR Proposer",
         ],
         "core_steps": [
-            {"step": "01", "title": "Explore Workspace & AST", "desc": "OpenHands agent indexes repository tree, AGENTS.md/CLAUDE.md rules, and failing issue trace."},
+            {"step": "01", "title": "Explore Workspace & AST", "desc": "OpenHands agent indexes repository tree, AGENTS.md/GEMINI.md rules, and failing issue trace."},
             {"step": "02", "title": "Plan Mode Specification", "desc": "Synthesize concrete root-cause plan with target files, constraints, and verification criteria."},
             {"step": "03", "title": "Implement in Sandbox", "desc": "Write minimal, pattern-preserving backend and Executive Light-Theme UI changes in container."},
             {"step": "04", "title": "Verify via Deterministic Hooks", "desc": "Auto-run pytest, type checks, linter, and headless Chrome UI geometry assertions."},
@@ -439,11 +648,11 @@ POSTS_CATALOG: List[Dict[str, Any]] = [
             "A strong project structure helps the model work like part of the engineering team."
         ),
         "primary_source": {
-            "title": "Prashant Rathi 9-Layer Agentic Repository Architecture (CLAUDE.md / AGENTS.md / GEMINI.md, .mcp.json, rules/, commands/, skills/, agents/, hooks/)",
+            "title": "Prashant Rathi 9-Layer Agentic Repository Architecture (AGENTS.md / GEMINI.md, .mcp.json, rules/, commands/, skills/, agents/, hooks/)",
             "type": "Software Engineering Repository Standard",
             "url": "https://www.linkedin.com/feed/update/urn:li:activity:7515306164788563969/",
             "verified_claims": [
-                "Separating permanent project context (CLAUDE.md / AGENTS.md / GEMINI.md) from task-specific skills prevents context window pollution.",
+                "Separating permanent project context (AGENTS.md / GEMINI.md) from task-specific skills prevents context window pollution.",
                 "Modular rules/*.md, commands/*.md, skills/<name>/SKILL.md, and agents/*.md create repeatable, deterministic engineering paths.",
                 "Event-driven hooks/*.sh enforce formatting, linting, security scans, and tests automatically without relying on LLM memory.",
             ],
@@ -457,7 +666,7 @@ POSTS_CATALOG: List[Dict[str, Any]] = [
             "Artifact Registry Golden Repo Template Service",
         ],
         "core_steps": [
-            {"step": "01", "title": "Permanent Constitution", "desc": "Mount synchronized AGENTS.md, GEMINI.md, CLAUDE.md, and local overrides into the KV-cached prefix."},
+            {"step": "01", "title": "Permanent Constitution", "desc": "Mount synchronized AGENTS.md, GEMINI.md, and local overrides into the KV-cached prefix."},
             {"step": "02", "title": "Project MCP Wiring", "desc": "Bind .mcp.json connectors to GitHub, Jira, Slack, and Google Cloud databases with scoped settings.json permissions."},
             {"step": "03", "title": "Modular Domain Rules", "desc": "Enforce rules/api.md, rules/security.md, and rules/ui-light-theme.md based on file path globs."},
             {"step": "04", "title": "Repeatable Commands & Skills", "desc": "Package reviews, deployments, and migrations in commands/*.md and skills/<name>/SKILL.md."},
@@ -465,7 +674,7 @@ POSTS_CATALOG: List[Dict[str, Any]] = [
             {"step": "06", "title": "Deterministic Event Hooks", "desc": "Trigger hooks/pre_tool.sh and hooks/post_edit.sh to run deterministic tests on every file mutation."},
         ],
         "zones_78": {
-            "blue_routing": ["AGENTS.md / CLAUDE.md Loader", "Glob-Matched rules/*.md Router", "commands/*.md Dispatcher"],
+            "blue_routing": ["AGENTS.md / GEMINI.md Loader", "Glob-Matched rules/*.md Router", "commands/*.md Dispatcher"],
             "green_governance": ["settings.json Permission Engine", "hooks/*.sh Deterministic Gate", "agents/security-auditor.md"],
             "yellow_compute": ["skills/<name>/SKILL.md Runner", "agents/code-reviewer.md", "OpenHands Scaffolder Engine"],
             "red_data": [".mcp.json Server Connectors", "Vertex AI KV Context Cache", "Project Telemetry Ledger"],
@@ -474,7 +683,7 @@ POSTS_CATALOG: List[Dict[str, Any]] = [
             "structural_layers_enforced": "9/9",
             "repo_rediscovery_token_waste": "-74.0%",
             "deterministic_hook_coverage": "100.0%",
-            "cross_agent_compatibility": "Gemini + Claude + OpenHands",
+            "cross_agent_compatibility": "Gemini + OpenHands + LangGraph",
         },
         "python_module_spec": {
             "class_name": "StructuredAgentRepoValidator",
@@ -594,3 +803,458 @@ POSTS_CATALOG: List[Dict[str, Any]] = [
         },
     },
 ]
+
+POSTS_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
+    "POST-01": {
+        "primary_template_id": "T67",
+        "primary_template_name": "PromptCanvas #66: Autonomous Self-Healing Torus Loop",
+        "secondary_template_ids": ["T54", "T64"],
+        "lead_post_format": "High-Res Canonical PromptCanvas Infographic (T67.png / T67.gif) + 12-Page Native PDF Carousel",
+        "visual_type": "4-Quadrant Self-Healing Torus Loop + Reference-Trajectory Step-Level Diff",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T67 Self-Healing Torus -> Slides 2-6: HarnessEvolve Trajectory Diff -> Slide 7: Google Cloud #78 Blueprint -> Slide 12: Editable PPTX)",
+        "dynamic_nature": "Closed-loop packets traverse the 4-quadrant torus ring and Two-Tier Competence Gates (43.4% -> 86.9% CloudCoreNetwork-QA).",
+    },
+    "POST-02": {
+        "primary_template_id": "T53",
+        "primary_template_name": "PromptCanvas #52: 4-Tier AI Setup Spine (Context + Harness + Loop + Graph)",
+        "secondary_template_ids": ["T54", "T68"],
+        "lead_post_format": "High-Res Canonical PromptCanvas Infographic (T53.png / T53.gif) + 12-Page Native PDF Carousel",
+        "visual_type": "4-Tier Editorial Spine (01 Context + 02 Harness + 03 Loop + 04 Graph) + 10-Layer Harness Bus",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T53 Context+Harness+Loop+Graph -> Slides 2-6: 10-Layer Enterprise Harness -> Slide 7: Google Cloud #78 Blueprint -> Slide 12: Editable PPTX)",
+        "dynamic_nature": "Signal packets flow down the 4-tier spine connecting AGENTS.md/GEMINI.md rules, on-demand skills, and verification loops.",
+    },
+    "POST-03": {
+        "primary_template_id": "T61",
+        "primary_template_name": "PromptCanvas #60: 4-Plane Interconnected Agentic Runtime Topology",
+        "secondary_template_ids": ["T62", "T65"],
+        "lead_post_format": "High-Res Canonical PromptCanvas Infographic (T61.png / T61.gif) + 12-Page Native PDF Carousel",
+        "visual_type": "4-Plane Interconnected Runtime Topology + 5 Foundational GitHub Agent Ecosystems",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T61 4-Plane Runtime Topology -> Slides 2-6: 5 GitHub Agent Ecosystems -> Slide 7: Google Cloud #78 Blueprint -> Slide 12: Editable PPTX)",
+        "dynamic_nature": "Bidirectional packets connect specialist role agents, 184 skills, domain plugins, and ADK runtime planes.",
+    },
+    "POST-04": {
+        "primary_template_id": "T55",
+        "primary_template_name": "PromptCanvas #54: 6-Stage Autonomous Coding & Pre-Commit Verification Pipeline",
+        "secondary_template_ids": ["T54", "T53"],
+        "lead_post_format": "High-Res Canonical PromptCanvas Infographic (T55.png / T55.gif) + 12-Page Native PDF Carousel",
+        "visual_type": "6-Stage Autonomous Coding Pipeline + Sandboxed OpenHands Container Loop",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T55 6-Stage Autonomous Coding Pipeline -> Slides 2-6: OpenHands Container Execution -> Slide 7: Google Cloud #78 Blueprint -> Slide 12: Editable PPTX)",
+        "dynamic_nature": "Self-healing loop routes failed sandbox pytest/lint checks back from Stage 4/5 to Stage 3 until 100% pass.",
+    },
+    "POST-05": {
+        "primary_template_id": "T56",
+        "primary_template_name": "PromptCanvas #55: Shadow AI Bubble & Zero-Trust Governance Controls",
+        "secondary_template_ids": ["T64", "T59"],
+        "lead_post_format": "High-Res Canonical PromptCanvas Infographic (T56.png / T56.gif) + 12-Page Native PDF Carousel",
+        "visual_type": "Zero-Trust Model Armor Defense + Dual-Channel Context Isolation Swimlanes",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T56 Zero-Trust Governance -> Slides 2-6: Indirect Prompt Injection Defense -> Slide 7: Google Cloud #78 Blueprint -> Slide 12: Editable PPTX)",
+        "dynamic_nature": "Untrusted external content is isolated and filtered through Google Cloud Model Armor while high-risk tools are stripped.",
+    },
+    "POST-06": {
+        "primary_template_id": "T59",
+        "primary_template_name": "PromptCanvas #58: 6-Gate Production Agent Deployment & Governance Checklist",
+        "secondary_template_ids": ["T53", "T68"],
+        "lead_post_format": "High-Res Canonical PromptCanvas Infographic (T59.png / T59.gif) + 12-Page Native PDF Carousel",
+        "visual_type": "6-Gate Production Checklist + Canonical 9-Layer Agentic Repository Tree",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T59 6-Gate Deployment Checklist -> Slides 2-6: 9-Layer Agentic Repo Structure -> Slide 7: Google Cloud #78 Blueprint -> Slide 12: Editable PPTX)",
+        "dynamic_nature": "Separates Tier 1 KV-cached rules (AGENTS.md) from Tier 2 on-demand skills and Tier 3 deterministic hooks.",
+    },
+    "POST-07": {
+        "primary_template_id": "T68",
+        "primary_template_name": "PromptCanvas Open Knowledge: 4-Tier Format Spine (Formats + Schema + Validation + Graph)",
+        "secondary_template_ids": ["T53", "T57"],
+        "lead_post_format": "High-Res Canonical PromptCanvas Infographic (T68.png / T68.gif) + 12-Page Native PDF Carousel",
+        "visual_type": "4-Tier Open Knowledge Format Spine + O(1) Git-SHA Evidence-Receipt Memory Graph",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T68 Open Knowledge Spine -> Slides 2-6: OpenWiki Evidence Receipts -> Slide 7: Google Cloud #78 Blueprint -> Slide 12: Editable PPTX)",
+        "dynamic_nature": "O(1) deterministic SHA-256 commit checks detect stale memory claims (80 -> 9 stale claims, 0 hallucinations).",
+    },
+    "POST-08": {
+        "primary_template_id": "T60",
+        "primary_template_name": "PromptCanvas #59: 4-Phase Enterprise Agentic Architecture Rollout Roadmap",
+        "secondary_template_ids": ["T63", "T66"],
+        "lead_post_format": "High-Res Canonical PromptCanvas Infographic (T60.png / T60.gif) + 12-Page Native PDF Carousel",
+        "visual_type": "6-Step End-to-End Agent Lifecycle + Iterative Core Loop (Steps 2-5)",
+        "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T60 Enterprise Agent Rollout -> Slides 2-6: 6-Step Agent Lifecycle -> Slide 7: Google Cloud #78 Blueprint -> Slide 12: Editable PPTX)",
+        "dynamic_nature": "Core iterative loop (Reason -> Act -> Observe -> Evaluate -> Repeat) guarded by Firestore checkpoints and IAM.",
+    },
+}
+
+for _post in POSTS_CATALOG:
+    _p_plan = POSTS_DISTRIBUTION_PLAN.get(_post["id"])
+    if _p_plan:
+        _slug = _post["repo_slug"]
+        _p_plan.setdefault("editable_slidedeck_pptx", f"generated-repos/{_slug}/slides/presentation_deck.pptx")
+        _p_plan.setdefault("pdf_deliverable", f"generated-repos/{_slug}/slides/linkedin_carousel.pdf")
+        _p_plan.setdefault(
+            "comment_magnet_question",
+            f"For teams running {_post['post_title'].split(':')[0]} in production: are you enforcing deterministic verification gates in CI/CD or relying on runtime LLM judges?",
+        )
+        _p_plan.setdefault(
+            "linkedin_groups_primary",
+            [
+                {"name": "Artificial Intelligence, Machine Learning, Data Science & Robotics", "members": "3,100,000+", "goal": "Top-of-funnel impressions and repost velocity"},
+                {"name": "Google Cloud Platform (GCP) Architects & Developers", "members": "420,000+", "goal": "Direct reach among Vertex AI, ADK, and GKE enterprise architects"},
+            ],
+        )
+        _p_plan.setdefault(
+            "linkedin_groups_niche_network",
+            [
+                {"name": "Enterprise AI & Agentic Systems Architecture", "members": "95,000+", "goal": "High-signal CTO, Principal Architect, and AI Platform Engineering engagement"},
+            ],
+        )
+        _post["template_and_distribution_plan"] = _p_plan
+
+
+MINED_TEMPLATE_POSTS_CATALOG: List[Dict[str, Any]] = [
+    {
+        "id": "POST-09",
+        "template_id": "T69",
+        "repo_slug": "09-google-harness-squared-recursive-agents",
+        "activity_urn": "urn:li:activity:7518498821123895296",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7518498821123895296/",
+        "author_name": "Aishwarya Naresh Reganti",
+        "author_linkedin": "https://www.linkedin.com/in/areganti/",
+        "post_title": "Harness²: Recursive Agent Harnessing for an Open World (+22pp NoveltyBench)",
+        "primary_source": {
+            "title": "Harness²: Recursive Agent Harnessing for an Open World (arXiv:2604.08523)",
+            "type": "Google Research Paper",
+            "url": "https://arxiv.org/abs/2604.08523",
+            "verified_claims": [
+                "Static hand-built agent harnesses degrade when deployed on out-of-distribution open-world tasks.",
+                "Harness² introduces a meta-harness that dynamically synthesizes task-specific tools, guardrails, and critics.",
+                "Achieves up to +22 percentage points improvement on NoveltyBench and consistent gains on SWE-bench.",
+            ],
+        },
+    },
+    {
+        "id": "POST-10",
+        "template_id": "T70",
+        "repo_slug": "10-five-opensource-agent-repos-stack",
+        "activity_urn": "urn:li:activity:7517094569474437122",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7517094569474437122/",
+        "author_name": "Vaibhav Sisinty",
+        "author_linkedin": "https://www.linkedin.com/in/vaibhavsisinty/",
+        "post_title": "5 Open-Source Repos Every Engineer Should Use When Building Production AI Agents",
+        "primary_source": {
+            "title": "5-Repo Agent Engineering Stack: gstack + Paperclip + agency-agents + rowboat + multica",
+            "type": "Open-Source Ecosystem Synthesis",
+            "url": "https://github.com/garrytan/gstack",
+            "verified_claims": [
+                "gstack (Garry Tan, 75.5K stars) provides 23 specialized engineering role skills for coding agents.",
+                "Paperclip and agency-agents coordinate multi-agent org hierarchies, task handoffs, and cost budgets.",
+                "rowboat maintains a local-first Markdown knowledge graph while multica automates ticket-to-PR CI/CD.",
+            ],
+        },
+    },
+    {
+        "id": "POST-11",
+        "template_id": "T71",
+        "repo_slug": "11-three-track-data-modeling-medallion-map",
+        "activity_urn": "urn:li:activity:7518467480214831105",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7518467480214831105/",
+        "author_name": "Nan Li",
+        "author_linkedin": "https://www.linkedin.com/in/nanli-data/",
+        "post_title": "The Data Modeling Map: Three Questions, Three Tracks (Design, Meaning & Consumption)",
+        "primary_source": {
+            "title": "3-Track Enterprise Data Modeling & AI Semantic Grounding Architecture",
+            "type": "Enterprise Data Architecture Pattern",
+            "url": "https://cloud.google.com/architecture/bigquery-data-warehouse",
+            "verified_claims": [
+                "Track 1 (Design) progresses from Conceptual to Logical to Physical models across Bronze, Silver, and Gold.",
+                "Track 2 (Meaning) binds physical tables to a Business Glossary, Domain Ontology, and Knowledge Graph.",
+                "Track 3 (Consumption) enforces governed KPI access via a Semantic Layer so AI agents never guess raw SQL.",
+            ],
+        },
+    },
+    {
+        "id": "POST-12",
+        "template_id": "T72",
+        "repo_slug": "12-tokeneconomizer-blackbox-agent-cost-control",
+        "activity_urn": "urn:li:activity:7518598074869694465",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7518598074869694465/",
+        "author_name": "Alena Panshina",
+        "author_linkedin": "https://www.linkedin.com/in/alena-panshina/",
+        "post_title": "TokenEconomizer: Experience-Driven Black-Box Cost Control for Coding Agents (-30.9%)",
+        "primary_source": {
+            "title": "TokenEconomizer: Experience-Driven Black-Box Cost Control for Software Engineering Agents",
+            "type": "UC Berkeley & Microsoft Research Benchmark",
+            "url": "https://www.swebench.com/",
+            "verified_claims": [
+                "Black-box closed-loop controller observes execution traces and emits micro-skills, tool pruning (23 -> 3), and loop limits.",
+                "Reduces mean token cost by 18.4% to 30.9% across all 30/30 evaluated SWE-Bench Verified configurations.",
+                "Improves Pass@1 solve rate in 4 of 5 agent setups without modifying underlying model weights.",
+            ],
+        },
+    },
+    {
+        "id": "POST-13",
+        "template_id": "T73",
+        "repo_slug": "13-eleven-zone-production-agentic-ai-architecture",
+        "activity_urn": "urn:li:activity:7518664587542626304",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7518664587542626304/",
+        "author_name": "Rajesh Kumar",
+        "author_linkedin": "https://www.linkedin.com/in/rajesh-kumar-ai/",
+        "post_title": "11-Zone Production-Grade Agentic AI Reference Architecture: How Agents Act and Still Ask Permission",
+        "primary_source": {
+            "title": "11-Zone Enterprise Agentic AI Reference Architecture",
+            "type": "Enterprise Reference Architecture",
+            "url": "https://docs.cloud.google.com/architecture/multi-agent-ai-system",
+            "verified_claims": [
+                "Separates enterprise agents across 11 zones: Perimeter, Channels, Supervisor Runtime, AgentCore Gateway, Approval Gate, Knowledge, Tools, AgentOps, Memory, Model Router, and Governance.",
+                "Propagates end-user OAuth JWT identity through the AgentCore Gateway with OPA/Cedar RBAC policy enforcement.",
+                "Enforces risk-tiered HITL approvals (Low: auto-execute, Medium: 1 approver, High: 2 approvers + rollback).",
+            ],
+        },
+    },
+    {
+        "id": "POST-14",
+        "template_id": "T74",
+        "repo_slug": "14-six-vendor-ai-agent-sandbox-landscape",
+        "activity_urn": "urn:li:activity:7518650321796198400",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7518650321796198400/",
+        "author_name": "Rakesh Gohel",
+        "author_linkedin": "https://www.linkedin.com/in/rakeshgohel01/",
+        "post_title": "The AI Agent Sandbox Landscape Across Google, AWS, Microsoft, NVIDIA, Perplexity & OpenAI",
+        "primary_source": {
+            "title": "6-Vendor AI Agent Sandbox Isolation & Externalized Secret Proxy Matrix",
+            "type": "Cloud Security & Runtime Analysis",
+            "url": "https://cloud.google.com/kubernetes-engine/docs/how-to/sandbox-pods",
+            "verified_claims": [
+                "Standard host-shared containers expose the host Linux kernel and environment secrets to arbitrary agent-generated syscalls.",
+                "Compares Google GKE Agent Sandbox (gVisor), AWS AgentCore + Strands, Microsoft MXC, NVIDIA OpenShell DPU, Perplexity SPACE, and OpenAI.",
+                "Externalizes raw API keys into an outbound credential proxy so secrets never enter the sandbox environment.",
+            ],
+        },
+    },
+    {
+        "id": "POST-15",
+        "template_id": "T75",
+        "repo_slug": "15-anatomy-of-an-ai-agent-five-building-blocks",
+        "activity_urn": "urn:li:activity:7518670062161903618",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7518670062161903618/",
+        "author_name": "Harish Kumar",
+        "author_linkedin": "https://www.linkedin.com/in/harish-kumar-ai/",
+        "post_title": "Anatomy of an AI Agent: 5 Building Blocks (LLM, RAG, MCP, Skills & Agent Hands)",
+        "primary_source": {
+            "title": "5-Block AI Agent Anatomy: Brain + Library + Nervous System + Muscle Memory + Hands",
+            "type": "Agentic Systems Architecture Primer",
+            "url": "https://modelcontextprotocol.io/",
+            "verified_claims": [
+                "1. LLM = The Brain (reasons & plans) paired with 2. RAG = The Library (live enterprise documents).",
+                "3. MCP = The Nervous System (universal tool connector) paired with 4. Skills = Muscle Memory (SKILL.md SOPs).",
+                "5. AI Agent = Brain + Hands, combining all four blocks into a closed plan-act-verify-adapt loop.",
+            ],
+        },
+    },
+    {
+        "id": "POST-16",
+        "template_id": "T76",
+        "repo_slug": "16-twelve-google-cloud-concepts-for-ai-engineers",
+        "activity_urn": "urn:li:activity:7518679339727589376",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7518679339727589376/",
+        "author_name": "Gautami Nadkarni",
+        "author_linkedin": "https://www.linkedin.com/in/gautami-nadkarni/",
+        "post_title": "12 Google Cloud Concepts Every AI Engineer Must Know",
+        "primary_source": {
+            "title": "12 Essential Google Cloud AI, Compute, Vector, Streaming & Security Building Blocks",
+            "type": "Google Cloud AI Architecture Guide",
+            "url": "https://cloud.google.com/vertex-ai/docs",
+            "verified_claims": [
+                "AI & Compute Core (1-5): Vertex AI platform, Gemini API, TPUs/GPUs, Cloud Run serverless containers, and GKE.",
+                "Memory & Data Streams (6-10): Vertex Vector Search, Cloud Storage (GCS), Pub/Sub, Dataflow, and BigQuery.",
+                "Security & Operations (11-12): Cloud IAM + Secret Manager (zero hardcoded keys) and Cloud Monitoring.",
+            ],
+        },
+    },
+    {
+        "id": "POST-17",
+        "template_id": "T77",
+        "repo_slug": "17-pharma-rd-2026-closed-loop-bio-ai-signals",
+        "activity_urn": "urn:li:activity:7515625677664997376",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7515625677664997376/",
+        "author_name": "Himanshu Jain",
+        "author_linkedin": "https://www.linkedin.com/in/himanshujain-pharma/",
+        "post_title": "2026 Signals from AI in Pharma R&D & Life Sciences: Closed-Loop Wet Labs & Virtual Cells",
+        "primary_source": {
+            "title": "Peer-Reviewed 2026 Pharma R&D Bio-AI Systems & 4 GxP Enterprise Governance Gates",
+            "type": "Biopharma R&D Research Synthesis",
+            "url": "https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/",
+            "verified_claims": [
+                "Google Gemini Co-Scientist identified KIRA6 for AML drug repurposing with 10 nM IC50 wet-lab confirmation; Robin identified RBM24 (2.27x phagocytosis boost in dry AMD).",
+                "IBM MAMMAL trained across 2B multimodal biomolecular samples; MolGenBench, Virtual Screening, and Praxis VirtualCell enable in-silico perturbation twins.",
+                "Closes the 4 enterprise pharma gaps (Evidence, Integration with LIMS/ELN, Trust/21 CFR Part 11, and Scale).",
+            ],
+        },
+    },
+    {
+        "id": "POST-18",
+        "template_id": "T78",
+        "repo_slug": "18-ultimate-six-stage-agentic-coding-guide",
+        "activity_urn": "urn:li:activity:7517147417599746048",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7517147417599746048/",
+        "author_name": "Matt Village",
+        "author_linkedin": "https://www.linkedin.com/in/mattvillage/",
+        "post_title": "Ultimate Agentic Coding Guide: 6-Stage Workflow, Modular Rules, Subagents & Hooks",
+        "primary_source": {
+            "title": "Disciplined 6-Stage Agentic Software Engineering Playbook",
+            "type": "Agentic Software Engineering Guide",
+            "url": "https://docs.all-hands.dev/",
+            "verified_claims": [
+                "Enforces a 6-stage workflow: 1. Explore -> 2. Plan -> 3. Implement -> 4. Verify -> 5. Review -> 6. Commit.",
+                "Keeps AGENTS.md/GEMINI.md concise (<200 lines), loads SKILL.md on demand, and delegates broad repo searches to isolated subagents.",
+                "Uses deterministic post-edit hooks to run formatting, typecheck, and unit tests automatically on every file diff.",
+            ],
+        },
+    },
+    {
+        "id": "POST-19",
+        "template_id": "T79",
+        "repo_slug": "19-constrained-decoding-vs-prompt-json-semantic-gate",
+        "activity_urn": "urn:li:activity:7521187378191982592",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7521187378191982592/",
+        "author_name": "Sivasankar Natarajan",
+        "author_linkedin": "https://www.linkedin.com/in/sivasankar-natarajan",
+        "followers": 28335,
+        "likes": 73,
+        "comments": 68,
+        "published_date": "2026-10-28",
+        "post_title": "Prompt-Based JSON vs. Constrained Decoding: Why 99/100 Valid Replies Still Break Pipelines",
+        "original_hook": "Your LLM returned 'valid JSON' 99 times. The 100th broke your pipeline.",
+        "primary_source": {
+            "title": "Vertex AI Controlled Generation & vLLM Outlines / xgrammar FSM Constrained Decoding",
+            "type": "Systems Reliability & Structured Output Architecture",
+            "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/control-generated-output",
+            "verified_claims": [
+                "Prompt-based JSON ('return only valid JSON') achieves ~99% format compliance in demos, which compounds into deterministic pipeline failures across multi-step agent loops.",
+                "Constrained decoding compiles Pydantic/JSON Schema into an FSM/CFG token mask that zeroes invalid tokens before sampling, guaranteeing 100% syntactic validity with zero format retries.",
+                "One Thing People Miss: valid JSON shape does not guarantee valid business meaning (e.g., wrong order_id); production systems must pair grammar masks with foreign-key source verification and calibrated confidence thresholds.",
+            ],
+        },
+    },
+    {
+        "id": "POST-20",
+        "template_id": "T80",
+        "repo_slug": "20-nine-typed-micro-decisions-in-the-agent-loop",
+        "activity_urn": "urn:li:activity:7521286831246753793",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7521286831246753793/",
+        "author_name": "Rathnakumar Udayakumar",
+        "author_linkedin": "https://www.linkedin.com/in/rathanuday",
+        "followers": 50358,
+        "likes": 57,
+        "comments": 35,
+        "published_date": "2026-10-28",
+        "post_title": "9 Typed Micro-Decisions in the Agent Loop: Stop Calling a Frontier LLM for Every Gate",
+        "original_hook": "Your AI agent doesn't need an LLM for every decision.",
+        "primary_source": {
+            "title": "9-Decision Agent Loop Division of Labor: Calibrated System-1 Judgments + Frontier LLM + Deterministic App Code",
+            "type": "Agentic Runtime & Routing Architecture",
+            "url": "https://google.github.io/adk-docs/",
+            "verified_claims": [
+                "Production agent loops execute 9 bounded micro-decisions: (01) Input Screening, (02) Retrieval Gate, (03) Composite Scoring, (04) Tool Call Gate, (05) Stop Check, (06) Model Routing, (07) Grounding Check, (08) Memory Write Filter, and (09) Confidence Handoff.",
+                "Offloading bool/choice/score micro-decisions to calibrated <15ms System-1 classifiers cuts frontier LLM call volume by 60%-75% while eliminating guessed prose confidence.",
+                "Enforces a strict 3-layer split: deterministic permissions/RBAC in application code, bounded judgments on fast classifiers, and open-ended reasoning/synthesis on frontier LLMs.",
+            ],
+        },
+    },
+    {
+        "id": "POST-21",
+        "template_id": "T81",
+        "repo_slug": "21-learn-harness-engineering-eight-phase-curriculum",
+        "activity_urn": "urn:li:activity:7521091939027488768",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7521091939027488768/",
+        "author_name": "Mayank A.",
+        "author_linkedin": "https://in.linkedin.com/in/curiouslearner",
+        "followers": 187794,
+        "likes": 1137,
+        "comments": 29,
+        "published_date": "2026-10-28",
+        "post_title": "Harness Engineering from Scratch: 14 Lectures & 8 Projects Evolving One Real Application",
+        "original_hook": "Harness Engineering from Scratch 🚀",
+        "primary_source": {
+            "title": "walkinglabs/learn-harness-engineering (14 Lectures, 8 Hands-On Projects, 15 Languages, MIT)",
+            "type": "Open-Source Agentic Engineering Curriculum",
+            "url": "https://github.com/walkinglabs/learn-harness-engineering",
+            "verified_claims": [
+                "Breakout MIT-licensed open-source curriculum (21K+ GitHub stars, 15 languages) teaching how to engineer the deterministic harness surrounding coding agents.",
+                "Evolves a single real application across 8 progressive phases rather than isolated toy demos: Repo Structure & Rules -> Context & Persistent Memory -> Multi-Session Continuity -> Task Scope -> Tests & Observability -> Automated Coding Loops -> Maker-Checker Verification -> Graph Orchestration & Rollback.",
+                "Includes reusable project templates and a Harness-Creator skill to bootstrap deterministic verification loops on existing repositories.",
+            ],
+        },
+    },
+    {
+        "id": "POST-22",
+        "template_id": "T82",
+        "repo_slug": "22-agent-code-review-replay-set-and-misses-harness",
+        "activity_urn": "urn:li:activity:7521164027662721024",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7521164027662721024/",
+        "author_name": "Bally S Kehal",
+        "author_linkedin": "https://www.linkedin.com/in/ballykehal",
+        "followers": 23745,
+        "likes": 278,
+        "comments": 147,
+        "published_date": "2026-10-28",
+        "post_title": "Evaluating Agent Code Review: Replay Sets, Missed-Defect Ledgers, Dual Timers & SHA Pinning",
+        "original_hook": "An agent code review needs evidence about what it missed.",
+        "primary_source": {
+            "title": "Evidence-Based AI Code Review Replay-Set & Maintainer Triage Evaluation Protocol",
+            "type": "Software Engineering Quality & Evaluation Protocol",
+            "url": "https://cloud.google.com/gemini/docs/codeassist/overview",
+            "verified_claims": [
+                "Evaluates automated code review on a representative replay set combining PRs with known seeded race/auth defects, unusual but valid code, and clean baseline changes.",
+                "Requires maintainers to classify true findings, false alarms, and silent misses while recording dual timers: Time to Run Review (bot latency) vs. Time to Assess Findings (human triage tax).",
+                "Pins every review sign-off receipt to the exact Git commit SHA checked so stale approvals never carry forward across subsequent commits.",
+            ],
+        },
+    },
+    {
+        "id": "POST-23",
+        "template_id": "T83",
+        "repo_slug": "23-multi-trial-agent-evals-pass-power-k-and-restraint",
+        "activity_urn": "urn:li:activity:7521186364311318528",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7521186364311318528/",
+        "author_name": "Shivani Virdi",
+        "author_linkedin": "https://www.linkedin.com/in/shivanivirdi",
+        "followers": 88112,
+        "likes": 89,
+        "comments": 39,
+        "published_date": "2026-10-28",
+        "post_title": "Demystifying AI Agent Evals: Why 75% Per-Run Success Fails pass^3 (42.2%) & How to Test Restraint",
+        "original_hook": "An agent that succeeds 75% of the time still fails for 1 in 4 users.",
+        "primary_source": {
+            "title": "Multi-Trial AI Agent Evaluation: Outcome, Trajectory, pass^k Consistency & Restraint",
+            "type": "Agent Evaluation & Reliability Framework",
+            "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents",
+            "verified_claims": [
+                "Distinguishes pass@k (at least 1 success in k tries: 98.4% at p=0.75, k=3) from customer-facing pass^k (all k trials succeed: 0.75^3 = 42.2% at k=3).",
+                "Grades 5 orthogonal dimensions across 20-50 real bug/support tasks with env.reset() sandbox isolation per trial: Outcome (final DB state), Trajectory, Reliability (pass^k), Efficiency, and Restraint (refusing/escalating when acting is wrong).",
+                "Combines deterministic code state assertions first with human-calibrated rubric LLM judges that explicitly allow an 'unknown' verdict.",
+            ],
+        },
+    },
+    {
+        "id": "POST-24",
+        "template_id": "T84",
+        "repo_slug": "24-inference-engineering-roofline-kv-cache-and-goodput",
+        "activity_urn": "urn:li:activity:7521092785039368192",
+        "linkedin_url": "https://www.linkedin.com/feed/update/urn:li:activity:7521092785039368192/",
+        "author_name": "Pallavi Ahuja",
+        "author_linkedin": "https://in.linkedin.com/in/progressivethinker",
+        "followers": 111284,
+        "likes": 1178,
+        "comments": 39,
+        "published_date": "2026-10-28",
+        "post_title": "Inference Engineering Reference Sheet: Prefill vs. Decode Roofline, KV-Cache Math & Goodput SLOs",
+        "original_hook": "Inference Engineering is becoming one of the most important skill sets in AI, and I think a lot of engineers are still underestimating it.",
+        "primary_source": {
+            "title": "LLM Inference Engineering: Roofline Regimes, PagedAttention, GQA, Speculative Decoding & Goodput",
+            "type": "GPU/TPU Systems & Inference Performance Guide",
+            "url": "https://docs.vllm.ai/en/latest/",
+            "verified_claims": [
+                "Separates LLM serving into parallel compute-bound Prefill (governing TTFT) and sequential HBM-bandwidth-bound Decode (governing ITL/TPOT).",
+                "Quantifies KV-cache memory pressure (KV bytes = 2 * L * T * H_KV * D_head * b) and maps FlashAttention, PagedAttention, GQA/MQA, FP8/INT4 quantization, chunked prefill, prefix caching, and speculative decoding to specific Roofline bottlenecks.",
+                "Replaces raw aggregate tok/s vanity metrics with SLO-compliant Goodput (requests/sec simultaneously meeting p99 TTFT and ITL/TPOT targets).",
+            ],
+        },
+    },
+]
+

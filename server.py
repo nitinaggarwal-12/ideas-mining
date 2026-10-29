@@ -3,13 +3,19 @@
 import json
 import mimetypes
 import os
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
-from src.catalog.posts_catalog import CREATOR_MINING_PLAYBOOK, POSTS_CATALOG, USER_PROFILE
+from src.catalog.posts_catalog import (
+    CREATOR_MINING_PLAYBOOK,
+    MINED_TEMPLATE_POSTS_CATALOG,
+    POSTS_CATALOG,
+    USER_PROFILE,
+)
 from src.catalog.stack_pairings import OSS_GOOGLE_PAIRINGS
 from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
+from src.harvester.daily_post_generator import DailyLinkedInPostEngine
 from src.harvester.idea_miner import AgenticIdeaMiner
 from src.unified_feedback_engine import (
     ADMIN_EMAIL,
@@ -27,6 +33,7 @@ REPOS_ROOT = WORKSPACE_ROOT / "generated-repos"
 ASSETS_ROOT = WORKSPACE_ROOT / "assets"
 FEEDBACK_STORE_PATH = WORKSPACE_ROOT / ".local_backup" / "app_feedback_messages.json"
 MINER = AgenticIdeaMiner()
+DAILY_ENGINE = DailyLinkedInPostEngine()
 ALL_CATALOG_ITEMS = list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
 
 
@@ -70,6 +77,25 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         qs = parse_qs(parsed.query)
         if path in ("/", "/index.html", "/admin/feedback"):
             self._send_file(PUBLIC_DIR / "index.html")
+            return
+        if path == "/api/health":
+            manifest_file = WORKSPACE_ROOT / "assets" / "template-gallery" / "gallery_manifest.json"
+            t_count = (
+                json.loads(manifest_file.read_text(encoding="utf-8")).get("template_count", 0)
+                if manifest_file.exists()
+                else len(list_templates())
+            )
+            self._send_json(
+                200,
+                {
+                    "status": "ok",
+                    "service": "ideas-mining",
+                    "template_count": t_count,
+                    "repos_count": len(ALL_CATALOG_ITEMS),
+                    "creator_profiles_count": len(CREATOR_MINING_PLAYBOOK.get("creator_profiles", [])),
+                    "mined_template_posts_count": len(MINED_TEMPLATE_POSTS_CATALOG),
+                },
+            )
             return
         if path == "/universal_feedback_widget.js":
             self._send_file(PUBLIC_DIR / "universal_feedback_widget.js")
@@ -134,6 +160,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 {
                     "user_profile": USER_PROFILE,
                     "playbook": CREATOR_MINING_PLAYBOOK,
+                    "mined_template_posts": MINED_TEMPLATE_POSTS_CATALOG,
                     "tomorrow_top10_count": len(TOMORROW_TOP10_IDEAS),
                     "analyzed_posts_count": len(POSTS_CATALOG),
                     "repos": enriched_repos,
@@ -179,7 +206,12 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             )
             return
 
-        if path == "/api/template-gallery":
+        if path == "/api/daily-posts":
+            edition_date = (qs.get("date") or [""])[0]
+            self._send_json(200, DAILY_ENGINE.get_daily_posts_payload(edition_date=edition_date))
+            return
+
+        if path in ("/api/template-gallery", "/api/templates"):
             manifest_file = WORKSPACE_ROOT / "assets" / "template-gallery" / "gallery_manifest.json"
             if manifest_file.exists():
                 self._send_json(200, json.loads(manifest_file.read_text(encoding="utf-8")))
@@ -255,6 +287,30 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             )
             self._send_json(200, res)
             return
+        if path == "/api/daily-posts/generate":
+            topic_query = str(payload.get("topic_query") or payload.get("topic") or "").strip()
+            creator_style = str(payload.get("creator_style") or payload.get("style") or "AUTO").strip()
+            count = int(payload.get("count") or 6)
+            edition_date = str(payload.get("edition_date") or "").strip() or None
+            use_live = payload.get("use_live_network")
+            if use_live is None:
+                use_live = True
+            edition = DAILY_ENGINE.generate_daily_edition(
+                edition_date=edition_date,
+                count=count,
+                topic_query=topic_query,
+                creator_style=creator_style,
+                use_live_network=bool(use_live),
+            )
+            self._send_json(
+                200,
+                {
+                    "status": "GENERATED",
+                    "edition": edition,
+                    "posts": edition["posts"],
+                },
+            )
+            return
         if path == "/api/ingest-url":
             res = MINER.ingest_custom_post_or_url(
                 url=payload.get("url", ""),
@@ -268,6 +324,6 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
 if __name__ == "__main__":
     host = os.environ.get("HOST", "0.0.0.0")
     port = int(os.environ.get("PORT", "8765"))
-    httpd = HTTPServer((host, port), StudioRequestHandler)
+    httpd = ThreadingHTTPServer((host, port), StudioRequestHandler)
     print(f"OpenHands Ideas Mining Studio listening on http://{host}:{port}", flush=True)
     httpd.serve_forever()

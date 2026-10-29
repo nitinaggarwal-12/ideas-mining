@@ -8,9 +8,14 @@ const __dirname = path.dirname(__filename);
 const require = createRequire('/Users/nitinagga/Documents/PromptCanvas/package.json');
 const puppeteer = require('puppeteer');
 
-const BASE_URL = process.env.STUDIO_URL || 'http://127.0.0.1:8765';
+const PORT = process.env.PORT || '8765';
+const BASE_URL = process.env.STUDIO_URL || `http://127.0.0.1:${PORT}`;
 const OUT_REPORT = path.resolve(__dirname, '../e2e_puppeteer_report.json');
-const ARTIFACT_DIR = '/Users/nitinagga/.gemini/jetski/brain/41ff23f5-fdf4-4ee3-9558-941dc91e7ae3';
+const PROOF_DIR = process.env.PROOF_DIR || '/Users/nitinagga/.gemini/jetski/brain/41a9cdef-22ab-452a-8ecf-ceb1e27fc341/ideas_mining_proof';
+const CHROME_USER_DATA_DIR = '/Users/nitinagga/.gemini/chrome_profile_ideas_e2e';
+
+fs.mkdirSync(PROOF_DIR, { recursive: true });
+fs.mkdirSync(CHROME_USER_DATA_DIR, { recursive: true });
 
 const results = [];
 const consoleErrors = [];
@@ -28,7 +33,15 @@ function recordAssertion(name, passed, detail = '') {
 const browser = await puppeteer.launch({
   executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
   headless: 'new',
-  args: ['--no-sandbox', '--disable-gpu', '--window-size=1600,1050'],
+  userDataDir: CHROME_USER_DATA_DIR,
+  args: [
+    '--no-sandbox',
+    '--disable-gpu',
+    '--disable-sync',
+    '--no-first-run',
+    '--no-default-browser-check',
+    '--window-size=1600,1050',
+  ],
 });
 
 try {
@@ -179,10 +192,10 @@ try {
   const drawerClosed = await page.$eval('#repo-inspector-drawer', (el) => !el.classList.contains('open'));
   recordAssertion('Close Drawer Button Collapses Inspector Drawer', drawerClosed, 'drawer closed');
 
-  // 3. Test View 2: 68 Dynamic Visual Template Gallery (T01-T68)
+  // 3. Test View 2: 84 Dynamic Visual Template Gallery (T01-T84)
   await page.click('#tab-btn-gallery');
   await page.waitForFunction(
-    () => document.querySelectorAll('#gallery-cards-grid .repo-card').length === 68,
+    () => document.querySelectorAll('#gallery-cards-grid .repo-card').length === 84,
     { timeout: 10000 }
   );
 
@@ -194,57 +207,143 @@ try {
     for (const img of imgs) {
       img.loading = 'eager';
     }
-    await new Promise((r) => setTimeout(r, 600));
+    await new Promise((r) => setTimeout(r, 700));
     const broken = imgs.filter((i) => !i.complete || i.naturalWidth === 0).map((i) => i.src);
     return { cards, badge, pairings, totalImgs: imgs.length, broken };
   });
   recordAssertion(
-    'View 2 Renders All 68 Dynamic Templates & 12 OSS/Google Stack Pairings',
-    galleryAllCheck.cards === 68 && galleryAllCheck.pairings === 12 && galleryAllCheck.broken.length === 0,
+    'View 2 Renders All 84 Dynamic Templates & 12 OSS/Google Stack Pairings',
+    galleryAllCheck.cards === 84 && galleryAllCheck.pairings === 12 && galleryAllCheck.broken.length === 0,
     `cards=${galleryAllCheck.cards}, badge="${galleryAllCheck.badge}", pairings=${galleryAllCheck.pairings}, brokenImgs=${galleryAllCheck.broken.length}`
   );
 
-  // Filter to PromptCanvas Infographic (T53-T68)
+  // Filter to PromptCanvas Infographic (T53-T84 => 32 templates)
   await page.select('#gallery-filter-type', 'PromptCanvas Infographic');
   const pcFilterCheck = await page.evaluate(async () => {
     const cards = Array.from(document.querySelectorAll('#gallery-cards-grid .repo-card'));
     const ids = cards.map((c) => c.getAttribute('data-testid'));
     const badge = document.getElementById('gallery-count-badge')?.textContent?.trim();
-    const imgs = Array.from(document.querySelectorAll('#gallery-cards-grid .repo-card img'));
-    const dims = imgs.map((i) => ({ alt: i.alt, w: i.naturalWidth, h: i.naturalHeight }));
-    return { count: cards.length, badge, firstId: ids[0], lastId: ids[ids.length - 1], dims };
+    const newSlidesBtns = ['T79', 'T80', 'T81', 'T82', 'T83', 'T84'].filter((tid) =>
+      Boolean(document.querySelector(`[data-testid="open-with-google-slides-btn-${tid}"]`))
+    );
+    return { count: cards.length, badge, firstId: ids[0], lastId: ids[ids.length - 1], newSlidesBtns: newSlidesBtns.length };
   });
   recordAssertion(
-    'Filter PromptCanvas Canonical Infographics Renders Exactly 16 Templates (T53-T68)',
-    pcFilterCheck.count === 16 && pcFilterCheck.firstId === 'template-card-T53' && pcFilterCheck.lastId === 'template-card-T68',
-    `badge="${pcFilterCheck.badge}", range=${pcFilterCheck.firstId}..${pcFilterCheck.lastId}`
+    'Filter PromptCanvas Canonical Infographics Renders Exactly 32 Templates (T53-T84) + Live Google Slides Links',
+    pcFilterCheck.count === 32 &&
+      pcFilterCheck.firstId === 'template-card-T53' &&
+      pcFilterCheck.lastId === 'template-card-T84' &&
+      pcFilterCheck.newSlidesBtns === 6,
+    `badge="${pcFilterCheck.badge}", range=${pcFilterCheck.firstId}..${pcFilterCheck.lastId}, T79-T84 slidesBtns=${pcFilterCheck.newSlidesBtns}/6`
   );
 
-  if (fs.existsSync(ARTIFACT_DIR)) {
-    await page.screenshot({ path: path.join(ARTIFACT_DIR, 'after_t53_t68_gallery.png') });
-  }
+  // Scroll to T79-T84 so the View 2 proof screenshot showcases the newly added T79-T84 cards + 32/84 count!
+  await page.evaluate(() => {
+    const el = document.querySelector('[data-testid="template-card-T79"]');
+    if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+    window.scrollBy(0, -90);
+  });
+  await new Promise((r) => setTimeout(r, 400));
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view2_gallery.png') });
+  await page.evaluate(() => window.scrollTo(0, 0));
   await page.select('#gallery-filter-type', 'ALL');
 
-  // 4. Test View 3: Creator Mining Intelligence & Playbook
+  // 4. Test View 3: Creator Mining Intelligence & 16 Creator Profiles + Zero Badge Overflow
   await page.click('#tab-btn-playbook');
   const playbookCheck = await page.evaluate(() => {
     const summaryLen = (document.getElementById('playbook-summary-text')?.textContent || '').trim().length;
     const channels = document.querySelectorAll('#signal-channels-grid .repo-card').length;
+    const creatorCards = document.querySelectorAll('#creator-profiles-grid .creator-profile-card').length;
     const archetypes = document.querySelectorAll('#archetypes-grid .repo-card').length;
-    return { summaryLen, channels, archetypes };
+
+    // Check every .brand-badge & .pill-badge inside View 3 cards stays contained within its parent card!
+    const allCards = Array.from(document.querySelectorAll('#view-playbook .repo-card, #view-playbook .creator-profile-card'));
+    let badgeOverflowCount = 0;
+    for (const card of allCards) {
+      const cRect = card.getBoundingClientRect();
+      for (const badge of card.querySelectorAll('.brand-badge, .pill-badge')) {
+        const bRect = badge.getBoundingClientRect();
+        if (bRect.right > cRect.right + 1.5 || bRect.left < cRect.left - 1.5) {
+          badgeOverflowCount++;
+        }
+      }
+    }
+    return { summaryLen, channels, creatorCards, archetypes, badgeOverflowCount };
   });
   recordAssertion(
-    'View 3 (Creator Mining Playbook) Renders Signal Channels & 4 @2d Archetypes',
-    playbookCheck.summaryLen > 50 && playbookCheck.channels >= 4 && playbookCheck.archetypes === 4,
-    `summaryChars=${playbookCheck.summaryLen}, channels=${playbookCheck.channels}, archetypes=${playbookCheck.archetypes}`
+    'View 3 Renders 4 Signal Channels, 16 Creator Profiles, 4 @2d Archetypes & Zero Badge Overflow',
+    playbookCheck.summaryLen > 50 &&
+      playbookCheck.channels === 4 &&
+      playbookCheck.creatorCards === 16 &&
+      playbookCheck.archetypes === 4 &&
+      playbookCheck.badgeOverflowCount === 0,
+    `channels=${playbookCheck.channels}, creators=${playbookCheck.creatorCards}/16, archetypes=${playbookCheck.archetypes}, badgeOverflows=${playbookCheck.badgeOverflowCount}`
   );
 
-  // 5. Test View 4: Live Idea Miner & URL Ingestor
+  await new Promise((r) => setTimeout(r, 250));
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view3_playbook.png') });
+  await page.evaluate(() => {
+    const el = document.getElementById('creator-profiles-section');
+    if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+    window.scrollBy(0, -24);
+  });
+  await new Promise((r) => setTimeout(r, 200));
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view3_playbook_16_creators.png') });
+  await page.evaluate(() => window.scrollTo(0, 0));
+
+  // 5. Test View 4: Daily Latest-Topic LinkedIn Post & Visual Generator + Live Idea Miner
   await page.click('#tab-btn-miner');
   await page.waitForFunction(
-    () => document.querySelectorAll('#live-arxiv-list > div').length > 0 && document.querySelectorAll('#live-github-list > div').length > 0,
-    { timeout: 10000 }
+    () =>
+      document.querySelectorAll('#daily-generated-posts-grid .daily-post-card').length >= 3 &&
+      document.querySelectorAll('#live-arxiv-list > div').length > 0 &&
+      document.querySelectorAll('#live-github-list > div').length > 0,
+    { timeout: 12000 }
   );
+
+  // Test live POST /api/daily-posts/generate via #generate-daily-posts-btn
+  await page.select('#daily-style-select', 'AUTO');
+  await page.select('#daily-count-select', '6');
+  await page.click('#generate-daily-posts-btn');
+  await page.waitForFunction(
+    () => {
+      const btn = document.getElementById('generate-daily-posts-btn');
+      const badge = document.getElementById('daily-posts-status-badge')?.textContent || '';
+      return btn && !btn.disabled && badge.includes('Fresh Posts Generated');
+    },
+    { timeout: 20000 }
+  );
+
+  // Click Copy LinkedIn Post on Card #1 and test SVG <-> Canonical PNG toggle
+  await page.click('[data-testid="copy-daily-post-btn-1"]');
+  const dailyStudioCheck = await page.evaluate(async () => {
+    const cards = Array.from(document.querySelectorAll('#daily-generated-posts-grid .daily-post-card'));
+    const imgs = Array.from(document.querySelectorAll('#daily-generated-posts-grid .daily-post-card img[id^="daily-vis-svg-"]'));
+    for (const img of imgs) img.loading = 'eager';
+    await new Promise((r) => setTimeout(r, 400));
+    const loadedSvgs = imgs.filter((i) => i.complete && i.naturalWidth > 0).length;
+    const copiedLen = (window.__LAST_COPIED_TEXT__ || '').length;
+    const statusText = document.getElementById('daily-posts-status-badge')?.textContent?.trim() || '';
+    return { cardCount: cards.length, totalSvgs: imgs.length, loadedSvgs, copiedLen, statusText };
+  });
+  recordAssertion(
+    'View 4 Daily Post Generator Studio Synthesizes 6 Posts, Loads Custom SVGs & Copies Post + Comment #1',
+    dailyStudioCheck.cardCount === 6 &&
+      dailyStudioCheck.loadedSvgs === 6 &&
+      dailyStudioCheck.copiedLen > 200,
+    `cards=${dailyStudioCheck.cardCount}, svgs=${dailyStudioCheck.loadedSvgs}/6, copiedChars=${dailyStudioCheck.copiedLen}, status="${dailyStudioCheck.statusText}"`
+  );
+
+  await page.evaluate(() => {
+    window.scrollTo(0, 0);
+    const tc = document.getElementById('toast-container');
+    if (tc) tc.innerHTML = '';
+  });
+  await new Promise((r) => setTimeout(r, 250));
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view4_daily_generator.png') });
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view4_daily_post_generator.png') });
+
+  // Also test URL Ingestor E2E
   await page.type('#inline-ingest-url-input', 'https://arxiv.org/abs/2503.09516');
   await page.type('#inline-ingest-title-input', 'Autonomous Agentic Verification');
   await page.click('#trigger-ingest-btn');
@@ -257,7 +356,7 @@ try {
   );
   const ingestBannerText = await page.$eval('#ingest-result-banner', (el) => el.textContent.trim());
   recordAssertion(
-    'View 4 (Live Idea Miner & URL Ingestor) Feeds + POST /api/ingest-url E2E',
+    'View 4 Live Idea Miner & URL Ingestor Feeds + POST /api/ingest-url E2E',
     ingestBannerText.includes('Verified & Mapped:'),
     ingestBannerText
   );
@@ -275,7 +374,7 @@ try {
     `comparisonRows=${ohCheck.cmpRows}, trajectories=${ohCheck.trajCards}/18`
   );
 
-  // 7. Rule 26 Table Cell Containment & Rule 57C Canonical T53-T68 Zero Double-Footer Check
+  // 7. Rule 26 Table Cell Containment & Rule 57C Canonical T01 + T53-T84 Zero Double-Footer Check
   const tableContainmentCheck = await page.evaluate(() => {
     const tds = Array.from(document.querySelectorAll('table.table-fixed tbody td'));
     const uncontained = tds.filter((td) => {
@@ -290,10 +389,9 @@ try {
     `checkedCells=${tableContainmentCheck.totalTds}, uncontained=${tableContainmentCheck.uncontainedCount}`
   );
 
-  // Check T53..T68 SVG viewBox == image height (zero 46px double-footer bar)
   let doubleFooterCount = 0;
-  for (let i = 53; i <= 68; i++) {
-    const tid = `T${i}`;
+  const canonicalTids = ['T01', ...Array.from({ length: 32 }, (_, idx) => `T${53 + idx}`)];
+  for (const tid of canonicalTids) {
     const svgPath = path.resolve(__dirname, `../assets/template-gallery/${tid}.svg`);
     const rawSvg = fs.readFileSync(svgPath, 'utf8');
     const vbMatch = rawSvg.match(/viewBox="0 0 (\d+) (\d+)"/);
@@ -303,12 +401,36 @@ try {
     }
   }
   recordAssertion(
-    'Rule 57C Canonical T53-T68 Zero Double-Footer (viewBox height === image height + W3C <title>/<desc>)',
+    'Rule 57C Canonical T01 + T53-T84 Zero Double-Footer (viewBox height === image height + W3C <title>/<desc>)',
     doubleFooterCount === 0,
-    `verified=16/16 canonical PromptCanvas templates, doubleFooters=${doubleFooterCount}`
+    `verified=33/33 canonical PromptCanvas templates, doubleFooters=${doubleFooterCount}`
   );
 
-  // 8. Zero Console Errors & Zero Failed HTTP Requests
+  // 8. Mobile iPhone 390x844 Viewport Overflow Audit Across Views 1..4 (Rule 59)
+  await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
+  let maxMobileOverflow = 0;
+  const mobileDetails = [];
+  for (const btnId of ['tab-btn-repos', 'tab-btn-gallery', 'tab-btn-playbook', 'tab-btn-miner']) {
+    await page.click(`#${btnId}`);
+    await new Promise((r) => setTimeout(r, 250));
+    const m = await page.evaluate(() => ({
+      scrollW: document.documentElement.scrollWidth,
+      innerW: window.innerWidth,
+    }));
+    const overflow = Math.max(0, m.scrollW - m.innerW);
+    if (overflow > maxMobileOverflow) maxMobileOverflow = overflow;
+    mobileDetails.push(`${btnId}:${overflow}px`);
+  }
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await new Promise((r) => setTimeout(r, 200));
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_mobile_390x844.png') });
+  recordAssertion(
+    'Mobile 390x844 Responsive Layout Preserved (docOverflowPx === 0 across Views 1-4)',
+    maxMobileOverflow === 0,
+    mobileDetails.join(', ')
+  );
+
+  // 9. Zero Console Errors & Zero Failed HTTP Requests
   recordAssertion('Zero Browser Page/Runtime Errors', consoleErrors.length === 0, `errors=${consoleErrors.length}`);
   recordAssertion('Zero HTTP >= 400 Responses', failedRequests.length === 0, `failedRequests=${failedRequests.length}`);
 

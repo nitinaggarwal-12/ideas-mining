@@ -772,7 +772,7 @@ def _render_post_specific_centerpiece(post: Dict[str, Any]) -> str:
     if pid == "POST-02":
         # Agent = Model + Harness: Central Foundation Model Core surrounded by 10 Engineered Harness Subsystems
         layers = [
-            ("01. INSTRUCTIONS", "AGENTS.md / CLAUDE.md", "Read every session start", "#4285F4"),
+            ("01. INSTRUCTIONS", "AGENTS.md / GEMINI.md", "Read every session start", "#4285F4"),
             ("02. REAL CONTEXT", "Product, Users & Schemas", "Vertex KV Context Cache", "#EA4335"),
             ("03. ON-DEMAND SKILLS", "skills/<name>/SKILL.md", "10 Laws of Modular Skills", "#FBBC04"),
             ("04. PERSISTENT MEMORY", "AlloyDB & Firestore", "Never correct agent twice", "#34A853"),
@@ -822,9 +822,9 @@ def _render_post_specific_centerpiece(post: Dict[str, Any]) -> str:
         # 5 Free GitHub Repos (Vaibhav Sisinty): 5-Pillar Ecosystem Matrix wired into ADK + A2A Router
         repos_5 = [
             ("REPO 1 • ROLES", "agency-agents", "Specialist Department Agents", "Engineering • Design • Marketing • Sales • Security", "Not 1 generic prompt doing all", "#4285F4"),
-            ("REPO 2 • WORKFLOWS", "wshobson/agents", "202 Agents • 184 Skills", "105 Slash Commands • Modular install", "Claude Code, Codex & Gemini ADK", "#EA4335"),
+            ("REPO 2 • WORKFLOWS", "wshobson/agents", "202 Agents • 184 Skills", "105 Slash Commands • Modular install", "Gemini CLI, Codex & OpenHands", "#EA4335"),
             ("REPO 3 • PLUGINS", "knowledge-work-plugins", "Official Enterprise Plugins", "Sales • Support • Product • Legal • Finance", "Built for real work beyond coding", "#FBBC04"),
-            ("REPO 4 • QUICKSTARTS", "claude-quickstarts", "Runnable Production Apps", "Slack Bots • Sentry Triage • Browser Agents", "End-to-end reference wiring", "#34A853"),
+            ("REPO 4 • QUICKSTARTS", "google/adk-samples", "Runnable Production Apps", "Slack Bots • Sentry Triage • Browser Agents", "End-to-end reference wiring", "#34A853"),
             ("REPO 5 • VERIFICATION", "agent-skills (Addy Osmani)", "25 Checkpointed Eng Skills", "Built-in steps, checkpoints & proof gates", "Proves task passes before done", "#7C3AED"),
         ]
         cols = []
@@ -908,7 +908,7 @@ def _render_post_specific_centerpiece(post: Dict[str, Any]) -> str:
             + '<rect x="556" y="520" width="484" height="240" rx="10" fill="#F8FAFC" stroke="#475569" stroke-width="1.8"/>'
             + '<text x="574" y="546" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">B. HARNESS CONTROLS, SUBAGENTS &amp; HOOKS</text>'
             + '<text x="574" y="574" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#1D4ED8">Slash Commands: /init /compact /context /permissions /hooks /doctor</text>'
-            + '<text x="574" y="600" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">• Constitution: AGENTS.md / GEMINI.md / CLAUDE.md</text>'
+            + '<text x="574" y="600" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">• Constitution: AGENTS.md / GEMINI.md</text>'
             + '<text x="574" y="624" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">• 4 Isolated Subagents: Debugger • Security • Test • Docs</text>'
             + '<text x="574" y="648" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">• Deterministic Hooks: Auto-run pytest, ESLint &amp; formatters</text>'
             + '<text x="574" y="672" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">• MCP Reach: GitHub, Jira, Figma, Databases &amp; Cloud Run</text>'
@@ -1001,8 +1001,8 @@ def _render_post_specific_centerpiece(post: Dict[str, Any]) -> str:
     if pid == "POST-06":
         # Prashant Rathi: 9-File IDE Project Structure Tree mapped to 3 Context & Execution Tiers
         files_9 = [
-            ("CLAUDE.md / AGENTS.md / GEMINI.md", "Project overview, stack, architecture & laws", "TIER 1: Permanent KV Cache", "#4285F4"),
-            ("CLAUDE.local.md", "Personal local sandbox overrides (gitignored)", "TIER 1: Local Developer Context", "#4285F4"),
+            ("AGENTS.md / GEMINI.md", "Project overview, stack, architecture & laws", "TIER 1: Permanent KV Cache", "#4285F4"),
+            ("AGENTS.local.md", "Personal local sandbox overrides (gitignored)", "TIER 1: Local Developer Context", "#4285F4"),
             (".mcp.json", "Project MCP servers: GitHub, Jira, Slack, DBs", "TIER 2: Scoped Tool Connectors", "#EA4335"),
             ("settings.json", "Permissions, env vars, tool allowlists & hooks", "TIER 3: Deterministic RBAC", "#34A853"),
             ("rules/*.md", "Modular coding, API, security & PR conventions", "TIER 1: Glob-Matched Rules", "#4285F4"),
@@ -1113,109 +1113,228 @@ def _render_post_specific_centerpiece(post: Dict[str, Any]) -> str:
         </g>
         """
 
-    # Default / POST-08: End-to-End 6-Step Production Agent Loop with Core Loop Enclave (Steps 2-5) & 5 Guardrail Pods
-    return """
-    <g id="bespoke-post-08">
-      <rect x="36" y="264" width="1528" height="520" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>
-      <rect x="36" y="264" width="1528" height="36" rx="10" fill="#0F2942"/>
-      <text x="58" y="287" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">1. HOW AN AI AGENT WORKS END-TO-END: 6-STEP LIFECYCLE, ITERATIVE CORE LOOP (STEPS 2–5) &amp; PRODUCTION GUARDRAILS</text>
+    if pid == "POST-08":
+        # POST-08: End-to-End 6-Step Production Agent Loop with Core Loop Enclave (Steps 2-5) & 5 Guardrail Pods
+        return """
+        <g id="bespoke-post-08">
+          <rect x="36" y="264" width="1528" height="520" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>
+          <rect x="36" y="264" width="1528" height="36" rx="10" fill="#0F2942"/>
+          <text x="58" y="287" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">1. HOW AN AI AGENT WORKS END-TO-END: 6-STEP LIFECYCLE, ITERATIVE CORE LOOP (STEPS 2–5) &amp; PRODUCTION GUARDRAILS</text>
 
-      <!-- Step 1: Input & Context (Outside Left of Core Loop) -->
-      <rect x="56" y="346" width="230" height="210" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.2"/>
-      <rect x="56" y="346" width="230" height="30" rx="8" fill="#2563EB"/>
-      <text x="171" y="366" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 1 • INPUT &amp; CONTEXT</text>
-      <text x="72" y="402" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• User Goal &amp; Task Brief</text>
-      <text x="72" y="426" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• System Instructions</text>
-      <text x="72" y="450" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Tool &amp; MCP Definitions</text>
-      <text x="72" y="474" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Working &amp; Long Memory</text>
-      <text x="72" y="498" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Grounded RAG Knowledge</text>
-      <line x1="286" y1="450" x2="322" y2="450" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+          <!-- Step 1: Input & Context (Outside Left of Core Loop) -->
+          <rect x="56" y="346" width="230" height="210" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.2"/>
+          <rect x="56" y="346" width="230" height="30" rx="8" fill="#2563EB"/>
+          <text x="171" y="366" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 1 • INPUT &amp; CONTEXT</text>
+          <text x="72" y="402" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• User Goal &amp; Task Brief</text>
+          <text x="72" y="426" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• System Instructions</text>
+          <text x="72" y="450" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Tool &amp; MCP Definitions</text>
+          <text x="72" y="474" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Working &amp; Long Memory</text>
+          <text x="72" y="498" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Grounded RAG Knowledge</text>
+          <line x1="286" y1="450" x2="322" y2="450" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
 
-      <!-- CORE AGENT LOOP ENCLAVE (Steps 2 to 5: Reason -> Act -> Observe -> Evaluate -> Repeat) -->
-      <rect x="326" y="318" width="948" height="276" rx="14" fill="#FEFCE8" stroke="#F59E0B" stroke-width="3" stroke-dasharray="8,4"/>
-      <rect x="346" y="306" width="540" height="24" rx="5" fill="#F59E0B"/>
-      <text x="616" y="322" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">CORE ITERATIVE AGENT LOOP (STEPS 2–5): REASON -&gt; ACT -&gt; OBSERVE -&gt; EVALUATE -&gt; REPEAT</text>
+          <!-- CORE AGENT LOOP ENCLAVE (Steps 2 to 5: Reason -> Act -> Observe -> Evaluate -> Repeat) -->
+          <rect x="326" y="318" width="948" height="276" rx="14" fill="#FEFCE8" stroke="#F59E0B" stroke-width="3" stroke-dasharray="8,4"/>
+          <rect x="346" y="306" width="540" height="24" rx="5" fill="#F59E0B"/>
+          <text x="616" y="322" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">CORE ITERATIVE AGENT LOOP (STEPS 2–5): REASON -&gt; ACT -&gt; OBSERVE -&gt; EVALUATE -&gt; REPEAT</text>
 
-      <!-- Step 2: Reason & Plan -->
-      <rect x="346" y="352" width="206" height="172" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
-      <rect x="346" y="352" width="206" height="28" rx="8" fill="#7C3AED"/>
-      <text x="449" y="370" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 2 • REASON &amp; PLAN</text>
-      <text x="360" y="404" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">Vertex AI Gemini LLM:</text>
-      <text x="360" y="426" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Understands task state</text>
-      <text x="360" y="446" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Decomposes sub-steps</text>
-      <text x="360" y="466" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Decides tool vs. reply</text>
-      <line x1="552" y1="438" x2="576" y2="438" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+          <!-- Step 2: Reason & Plan -->
+          <rect x="346" y="352" width="206" height="172" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+          <rect x="346" y="352" width="206" height="28" rx="8" fill="#7C3AED"/>
+          <text x="449" y="370" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 2 • REASON &amp; PLAN</text>
+          <text x="360" y="404" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">Vertex AI Gemini LLM:</text>
+          <text x="360" y="426" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Understands task state</text>
+          <text x="360" y="446" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Decomposes sub-steps</text>
+          <text x="360" y="466" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Decides tool vs. reply</text>
+          <line x1="552" y1="438" x2="576" y2="438" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
 
-      <!-- Step 3: Act Through Tools -->
-      <rect x="580" y="352" width="206" height="172" rx="10" fill="#FFFFFF" stroke="#EA580C" stroke-width="2"/>
-      <rect x="580" y="352" width="206" height="28" rx="8" fill="#EA580C"/>
-      <text x="683" y="370" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 3 • ACT VIA TOOLS</text>
-      <text x="594" y="404" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">Authorized Execution:</text>
-      <text x="594" y="426" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• External APIs &amp; DBs</text>
-      <text x="594" y="446" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Code Sandbox &amp; MCP</text>
-      <text x="594" y="466" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="#C2410C">• RBAC Permission Check</text>
-      <line x1="786" y1="438" x2="810" y2="438" stroke="#EA580C" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+          <!-- Step 3: Act Through Tools -->
+          <rect x="580" y="352" width="206" height="172" rx="10" fill="#FFFFFF" stroke="#EA580C" stroke-width="2"/>
+          <rect x="580" y="352" width="206" height="28" rx="8" fill="#EA580C"/>
+          <text x="683" y="370" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 3 • ACT VIA TOOLS</text>
+          <text x="594" y="404" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">Authorized Execution:</text>
+          <text x="594" y="426" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• External APIs &amp; DBs</text>
+          <text x="594" y="446" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Code Sandbox &amp; MCP</text>
+          <text x="594" y="466" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="#C2410C">• RBAC Permission Check</text>
+          <line x1="786" y1="438" x2="810" y2="438" stroke="#EA580C" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
 
-      <!-- Step 4: Observe & Remember -->
-      <rect x="814" y="352" width="206" height="172" rx="10" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
-      <rect x="814" y="352" width="206" height="28" rx="8" fill="#0284C7"/>
-      <text x="917" y="370" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 4 • OBSERVE &amp; MEMORY</text>
-      <text x="828" y="404" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">State &amp; Context Update:</text>
-      <text x="828" y="426" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Parse tool results</text>
-      <text x="828" y="446" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Firestore Checkpoint</text>
-      <text x="828" y="466" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Compact long context</text>
-      <line x1="1020" y1="438" x2="1044" y2="438" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+          <!-- Step 4: Observe & Remember -->
+          <rect x="814" y="352" width="206" height="172" rx="10" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
+          <rect x="814" y="352" width="206" height="28" rx="8" fill="#0284C7"/>
+          <text x="917" y="370" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 4 • OBSERVE &amp; MEMORY</text>
+          <text x="828" y="404" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F172A">State &amp; Context Update:</text>
+          <text x="828" y="426" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Parse tool results</text>
+          <text x="828" y="446" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Firestore Checkpoint</text>
+          <text x="828" y="466" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">• Compact long context</text>
+          <line x1="1020" y1="438" x2="1044" y2="438" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
 
-      <!-- Step 5: Loop Control Rhombus Decision Gate -->
-      <polygon points="1150,350 1256,438 1150,526 1044,438" fill="#FFFFFF" stroke="#16A34A" stroke-width="2.5"/>
-      <text x="1150" y="428" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="middle">STEP 5 • LOOP</text>
-      <text x="1150" y="444" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="middle">CONTROL GATE</text>
-      <text x="1150" y="462" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#475569" text-anchor="middle">Goal Met or Limit?</text>
+          <!-- Step 5: Loop Control Rhombus Decision Gate -->
+          <polygon points="1150,350 1256,438 1150,526 1044,438" fill="#FFFFFF" stroke="#16A34A" stroke-width="2.5"/>
+          <text x="1150" y="428" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="middle">STEP 5 • LOOP</text>
+          <text x="1150" y="444" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#065F46" text-anchor="middle">CONTROL GATE</text>
+          <text x="1150" y="462" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#475569" text-anchor="middle">Goal Met or Limit?</text>
 
-      <!-- Loop Return Arrow from Step 5 bottom back to Step 2 bottom -->
-      <path d="M 1150 526 L 1150 568 L 449 568 L 449 526" fill="none" stroke="#D97706" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowOrange)"/>
-      <rect x="650" y="554" width="300" height="24" rx="5" fill="#FFFFFF" stroke="#D97706" stroke-width="1.5"/>
-      <text x="800" y="570" font-family="Inter, sans-serif" font-size="10" font-weight="800" fill="#B45309" text-anchor="middle">[CONTINUE] REPEAT REASON -&gt; ACT -&gt; OBSERVE</text>
+          <!-- Loop Return Arrow from Step 5 bottom back to Step 2 bottom -->
+          <path d="M 1150 526 L 1150 568 L 449 568 L 449 526" fill="none" stroke="#D97706" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowOrange)"/>
+          <rect x="650" y="554" width="300" height="24" rx="5" fill="#FFFFFF" stroke="#D97706" stroke-width="1.5"/>
+          <text x="800" y="570" font-family="Inter, sans-serif" font-size="10" font-weight="800" fill="#B45309" text-anchor="middle">[CONTINUE] REPEAT REASON -&gt; ACT -&gt; OBSERVE</text>
 
-      <!-- Step 6: Respond & Oversee (Outside Right of Core Loop) -->
-      <line x1="1256" y1="438" x2="1310" y2="438" stroke="#16A34A" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
-      <rect x="1314" y="346" width="230" height="210" rx="10" fill="#F0FDF4" stroke="#16A34A" stroke-width="2.2"/>
-      <rect x="1314" y="346" width="230" height="30" rx="8" fill="#16A34A"/>
-      <text x="1429" y="366" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 6 • RESPOND &amp; OVERSEE</text>
-      <text x="1330" y="402" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Output Grounding Check</text>
-      <text x="1330" y="426" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• OpenTelemetry Traces</text>
-      <text x="1330" y="450" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Cost &amp; Token Audit</text>
-      <text x="1330" y="474" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• End-to-End Latency SLA</text>
-      <text x="1330" y="498" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#065F46">• Verified Answer Emitted</text>
+          <!-- Step 6: Respond & Oversee (Outside Right of Core Loop) -->
+          <line x1="1256" y1="438" x2="1310" y2="438" stroke="#16A34A" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+          <rect x="1314" y="346" width="230" height="210" rx="10" fill="#F0FDF4" stroke="#16A34A" stroke-width="2.2"/>
+          <rect x="1314" y="346" width="230" height="30" rx="8" fill="#16A34A"/>
+          <text x="1429" y="366" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">STEP 6 • RESPOND &amp; OVERSEE</text>
+          <text x="1330" y="402" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Output Grounding Check</text>
+          <text x="1330" y="426" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• OpenTelemetry Traces</text>
+          <text x="1330" y="450" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• Cost &amp; Token Audit</text>
+          <text x="1330" y="474" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">• End-to-End Latency SLA</text>
+          <text x="1330" y="498" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#065F46">• Verified Answer Emitted</text>
 
-      <!-- Bottom 5 Production Readiness Controls (From Comment Thread Consensus + Post) -->
-      <text x="58" y="630" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">PRODUCTION-READY AGENTS NEED 5 ARCHITECTURAL CONTROLS BEYOND REASONING:</text>
-      <rect x="58" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#4285F4" stroke-width="1.6"/>
-      <text x="74" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#174EA6">1. State Checkpointing</text>
-      <text x="74" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Resume interrupted workflows from</text>
-      <text x="74" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Firestore without repeating actions.</text>
+          <!-- Bottom 5 Production Readiness Controls (From Comment Thread Consensus + Post) -->
+          <text x="58" y="630" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0F172A">PRODUCTION-READY AGENTS NEED 5 ARCHITECTURAL CONTROLS BEYOND REASONING:</text>
+          <rect x="58" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#4285F4" stroke-width="1.6"/>
+          <text x="74" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#174EA6">1. State Checkpointing</text>
+          <text x="74" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Resume interrupted workflows from</text>
+          <text x="74" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Firestore without repeating actions.</text>
 
-      <rect x="358" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#EA4335" stroke-width="1.6"/>
-      <text x="374" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#A50E0E">2. Context Compaction</text>
-      <text x="374" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Selective retrieval &amp; summarization</text>
-      <text x="374" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">prevent context window overflow.</text>
+          <rect x="358" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#EA4335" stroke-width="1.6"/>
+          <text x="374" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#A50E0E">2. Context Compaction</text>
+          <text x="374" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Selective retrieval &amp; summarization</text>
+          <text x="374" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">prevent context window overflow.</text>
 
-      <rect x="658" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#FBBC04" stroke-width="1.6"/>
-      <text x="674" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#B06000">3. Independent Identity Auth</text>
-      <text x="674" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Validate agent &amp; tool permissions</text>
-      <text x="674" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">independently of model reasoning.</text>
+          <rect x="658" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#FBBC04" stroke-width="1.6"/>
+          <text x="674" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#B06000">3. Independent Identity Auth</text>
+          <text x="674" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Validate agent &amp; tool permissions</text>
+          <text x="674" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">independently of model reasoning.</text>
 
-      <rect x="958" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#34A853" stroke-width="1.6"/>
-      <text x="974" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0D652D">4. Output Grounding Guard</text>
-      <text x="974" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Verify final answers reflect actual</text>
-      <text x="974" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">completed actions &amp; retrieved evidence.</text>
+          <rect x="958" y="644" width="282" height="112" rx="8" fill="#F8FAFC" stroke="#34A853" stroke-width="1.6"/>
+          <text x="974" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0D652D">4. Output Grounding Guard</text>
+          <text x="974" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Verify final answers reflect actual</text>
+          <text x="974" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">completed actions &amp; retrieved evidence.</text>
 
-      <rect x="1258" y="644" width="286" height="112" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.6"/>
-      <text x="1274" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#6D28D9">5. HITL &amp; Stopping Limits</text>
-      <text x="1274" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Enforce human approvals for high-risk</text>
-      <text x="1274" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">mutations and strict step/cost ceilings.</text>
-    </g>
-    """
+          <rect x="1258" y="644" width="286" height="112" rx="8" fill="#F8FAFC" stroke="#7C3AED" stroke-width="1.6"/>
+          <text x="1274" y="670" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#6D28D9">5. HITL &amp; Stopping Limits</text>
+          <text x="1274" y="694" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">Enforce human approvals for high-risk</text>
+          <text x="1274" y="712" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">mutations and strict step/cost ceilings.</text>
+        </g>
+        """
+
+    if pid.startswith("IDEA-"):
+        # Bespoke, domain-native centerpiece for each of IDEA-01..IDEA-10 using its exact problem_flow_nodes,
+        # dynamic_steps (Google Cloud ⇄ Open-Source twin), feedback_loop_label, and before_after telemetry.
+        from src.catalog.stack_pairings import oss_step_equivalent
+
+        approach_hdr = _wrap(f"1. {post.get('best_approach_title', post['post_title']).upper()}", width=106, max_lines=1)[0]
+        p_nodes = post.get("problem_flow_nodes", [])
+        d_steps = post.get("dynamic_steps", [])
+        ba = post.get("before_after", {})
+        c_steps = post.get("core_steps", [])
+        py_spec = post.get("python_module_spec", {})
+        cls_name = py_spec.get("class_name", "AgentHarnessEngine")
+
+        parts: List[str] = [
+            f'<g id="bespoke-{_esc(pid.lower())}">',
+            '  <rect x="36" y="264" width="1528" height="520" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.8"/>',
+            '  <rect x="36" y="264" width="1528" height="36" rx="10" fill="#0F2942"/>',
+            f'  <text x="58" y="287" font-family="Inter, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF">{_esc(approach_hdr)}</text>',
+            '  <!-- Tier A: Daily Production Failure Mode (Crimson Swimlane) -->',
+            '  <rect x="56" y="312" width="1488" height="104" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.8"/>',
+            f'  <text x="74" y="333" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#991B1B">FAILURE MODE WITHOUT HARNESS GUARD • {_esc(_wrap(post.get("daily_problem_short", ""), width=96, max_lines=1)[0])}</text>',
+        ]
+        for idx, pn in enumerate(p_nodes[:3]):
+            px = 74 + idx * 336
+            p_lbl = _wrap(pn.get("label", ""), width=34, max_lines=1)[0]
+            p_sub = _wrap(pn.get("sub", ""), width=38, max_lines=1)[0]
+            parts.extend(
+                [
+                    f'  <rect x="{px}" y="344" width="310" height="58" rx="8" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.6"/>',
+                    f'  <text x="{px + 14}" y="368" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#991B1B">{_esc(p_lbl)}</text>',
+                    f'  <text x="{px + 14}" y="388" font-family="Inter, sans-serif" font-size="10.5" fill="#7F1D1D">{_esc(p_sub)}</text>',
+                ]
+            )
+            if idx < 2:
+                parts.append(
+                    f'  <line x1="{px + 310}" y1="373" x2="{px + 334}" y2="373" stroke="#DC2626" stroke-width="2.2" marker-end="url(#arrowOrange)"/>'
+                )
+
+        # Right side of Tier A: Before vs After Delta Badge
+        parts.extend(
+            [
+                '  <rect x="1084" y="326" width="442" height="76" rx="8" fill="#0F2942" stroke="#16A34A" stroke-width="1.8"/>',
+                f'  <text x="1100" y="348" font-family="Inter, sans-serif" font-size="10" font-weight="800" fill="#FCA5A5">BEFORE: {_esc(_wrap(ba.get("before_metric_1", ""), width=42, max_lines=1)[0])}</text>',
+                f'  <text x="1100" y="368" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#86EFAC">AFTER: {_esc(_wrap(ba.get("after_metric_1", ""), width=42, max_lines=1)[0])}</text>',
+                f'  <text x="1100" y="388" font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#93C5FD">RECOVERY: {_esc(_wrap(ba.get("after_metric_2", ""), width=42, max_lines=1)[0])}</text>',
+            ]
+        )
+
+        # Tier B: 4-Stage Deterministic Fix Pipeline (y=428..636)
+        for idx, st in enumerate(d_steps[:4]):
+            sx = 56 + idx * 376
+            scol = st.get("color", "#2563EB")
+            s_badge = _wrap(st.get("badge", f"STEP 0{idx + 1}"), width=26, max_lines=1)[0]
+            s_title = _wrap(st.get("title", ""), width=28, max_lines=1)[0]
+            s_how = _wrap(st.get("how_it_works", ""), width=40, max_lines=2)
+            s_how_1 = s_how[0]
+            s_how_2 = s_how[1] if len(s_how) > 1 else ""
+            gcp_p = _wrap(st.get("gcp_primitive", ""), width=34, max_lines=1)[0]
+            oss_p = _wrap(
+                st.get("oss_primitive") or oss_step_equivalent(pid, st.get("step", f"0{idx + 1}"), gcp_p),
+                width=34,
+                max_lines=1,
+            )[0]
+            parts.extend(
+                [
+                    f'  <rect x="{sx}" y="430" width="356" height="196" rx="10" fill="#F8FAFC" stroke="{scol}" stroke-width="2.2"/>',
+                    f'  <rect x="{sx}" y="430" width="356" height="28" rx="8" fill="{scol}"/>',
+                    f'  <text x="{sx + 178}" y="449" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">{_esc(s_badge)}</text>',
+                    f'  <text x="{sx + 16}" y="482" font-family="Inter, sans-serif" font-size="13.5" font-weight="800" fill="#0F172A">{_esc(s_title)}</text>',
+                    f'  <text x="{sx + 16}" y="504" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">{_esc(s_how_1)}</text>',
+                    f'  <text x="{sx + 16}" y="520" font-family="Inter, sans-serif" font-size="10.5" fill="#334155">{_esc(s_how_2)}</text>',
+                    f'  <rect x="{sx + 14}" y="534" width="328" height="36" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>',
+                    f'  <text x="{sx + 24}" y="549" font-family="Inter, sans-serif" font-size="9" font-weight="800" fill="#1D4ED8">GOOGLE CLOUD MANAGED PRIMITIVE</text>',
+                    f'  <text x="{sx + 24}" y="563" font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#0F172A">{_esc(gcp_p)}</text>',
+                    f'  <rect x="{sx + 14}" y="578" width="328" height="36" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>',
+                    f'  <text x="{sx + 24}" y="593" font-family="Inter, sans-serif" font-size="9" font-weight="800" fill="#047857">SELF-HOSTED OPEN-SOURCE TWIN</text>',
+                    f'  <text x="{sx + 24}" y="607" font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#065F46">{_esc(oss_p)}</text>',
+                ]
+            )
+            if idx < 3:
+                parts.append(
+                    f'  <line x1="{sx + 356}" y1="528" x2="{sx + 374}" y2="528" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrowBlue)"/>'
+                )
+
+        # Tier C: Bottom 6-Stage Engine Execution Strip & Daily Takeaway (y=642..768)
+        fb_lbl = _wrap(post.get("feedback_loop_label", ""), width=128, max_lines=1)[0]
+        takeaway = _wrap(ba.get("daily_takeaway", ""), width=124, max_lines=1)[0]
+        parts.extend(
+            [
+                '  <rect x="56" y="640" width="1488" height="128" rx="10" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.8"/>',
+                f'  <text x="74" y="663" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#065F46">CLOSED-LOOP VERIFICATION ({_esc(cls_name)}) • {_esc(fb_lbl)}</text>',
+            ]
+        )
+        for idx, cs in enumerate(c_steps[:6]):
+            cx = 74 + idx * 244
+            ct = _wrap(f"{cs['step']}. {cs['title']}", width=26, max_lines=1)[0]
+            cd_lines = _wrap(cs["desc"], width=34, max_lines=2)
+            cd1 = cd_lines[0]
+            cd2 = cd_lines[1] if len(cd_lines) > 1 else ""
+            parts.extend(
+                [
+                    f'  <rect x="{cx}" y="672" width="232" height="58" rx="6" fill="#FFFFFF" stroke="#86EFAC" stroke-width="1.4"/>',
+                    f'  <text x="{cx + 10}" y="690" font-family="Inter, sans-serif" font-size="10.5" font-weight="800" fill="#0F172A">{_esc(ct)}</text>',
+                    f'  <text x="{cx + 10}" y="706" font-family="Inter, sans-serif" font-size="9" fill="#334155">{_esc(cd1)}</text>',
+                    f'  <text x="{cx + 10}" y="720" font-family="Inter, sans-serif" font-size="9" fill="#334155">{_esc(cd2)}</text>',
+                ]
+            )
+        parts.extend(
+            [
+                f'  <text x="74" y="752" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#0F2942">ARCHITECTURAL RULE: {_esc(takeaway)}</text>',
+                "</g>",
+            ]
+        )
+        return "\n".join(parts)
+
+    raise KeyError(f"Unsupported post/idea ID in _render_post_specific_centerpiece: {pid}")
+
 
 
 def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
@@ -1287,10 +1406,10 @@ def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
         svg.append(
             f'<text x="56" y="{94 + idx * 28}" font-family="Inter, sans-serif" font-size="22" font-weight="800" fill="#0F172A">{_esc(tl)}</text>'
         )
-    primary_short = _wrap(post["primary_source"]["title"], width=72, max_lines=1)[0]
+    primary_short = _wrap(post["primary_source"]["title"], width=96, max_lines=1)[0]
     svg.append(
-        f'<text x="56" y="144" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#475569">'
-        f'Architected on Google Cloud by: Nitin Aggarwal  |  Signal Creator: {_esc(post["author_name"])}  |  Primary Artifact: {_esc(primary_short)}</text>'
+        f'<text x="56" y="144" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#475569">'
+        f'Architected on Google Cloud by: Nitin Aggarwal  |  Signal Creator: {_esc(post["author_name"])}  |  Primary Source: {_esc(primary_short)}</text>'
     )
 
     # Contrarian Hook Strip
@@ -1517,7 +1636,7 @@ Title at top: "AGENT = MODEL + HARNESS: THE 10-LAYER ENTERPRISE HARNESS ARCHITEC
 Subtitle: "Why a Decent Model with a Great Harness Beats a Great Model with a Bad Harness (Addy Osmani / Google Cloud ADK)"
 In the center, draw a prominent horizontal core bus: "CENTRAL FOUNDATION MODEL CORE + GOOGLE CLOUD ADK HARNESS BUS (Vertex AI Gemini 4 Argon & 3.8 Flash • locations/global • 94.8% KV Prefix Cache Hit Rate)".
 Surrounding and plugging into the central core bus, render 10 distinct numbered architectural cards (5 on top row, 5 on bottom row) with clean vector icons:
-01. INSTRUCTIONS (AGENTS.md / CLAUDE.md / GEMINI.md)
+01. INSTRUCTIONS (AGENTS.md / GEMINI.md)
 02. REAL CONTEXT (Product, Users & Schemas via Vertex KV Cache)
 03. ON-DEMAND SKILLS (skills/<name>/SKILL.md progressive loading)
 04. PERSISTENT MEMORY (AlloyDB & Firestore — never correct agent twice)
@@ -1535,7 +1654,7 @@ Show 5 vertical architectural pillars (left to right) plugging downward into a u
 - PILLAR 1 (ROLES • Blue): "agency-agents" — Specialist Department Agents (Engineering, Design, Marketing, Sales, Security) instead of 1 generic prompt.
 - PILLAR 2 (WORKFLOWS • Coral): "wshobson/agents" — 202 Agents, 184 Skills, 105 Slash Commands (install only what you need).
 - PILLAR 3 (PLUGINS • Amber): "knowledge-work-plugins" — Official Enterprise Plugins for Sales, Support, Product, Legal & Finance.
-- PILLAR 4 (QUICKSTARTS • Green): "claude-quickstarts" — Runnable Production Reference Apps (Slack Bots, Sentry Triage, Browser Agents).
+- PILLAR 4 (QUICKSTARTS • Green): "google/adk-samples" — Runnable Production Reference Apps (Slack Bots, Sentry Triage, Browser Agents).
 - PILLAR 5 (VERIFICATION • Purple): "agent-skills (Addy Osmani)" — 25 Checkpointed Engineering Skills that prove tasks pass before declaring done.
 Bottom telemetry strip: "68% Context Token Reduction via On-Demand Skill Loading | 25/25 Checkpointed Engineering Skills | 0% Unverified Completion Escape".""",
     "POST-04": """Create a publication-grade 2D software engineering architecture infographic in a crisp executive light theme (#F8FAFC background, white cards, deep navy #0F2942 header).
@@ -1560,8 +1679,8 @@ Bottom callout: "Architectural Law: An agent that cannot send email cannot be tr
 Title at top: "CANONICAL 9-LAYER AGENTIC REPOSITORY STRUCTURE"
 Subtitle: "How to Separate Permanent Project Context from On-Demand Skills, Subagents & Deterministic Hooks (Google Cloud ADK + OpenHands)"
 On the LEFT, illustrate a clean IDE Project Folder Tree ("enterprise-agent-repo/") with 9 color-coded file/folder nodes connected by horizontal arrows to 9 Architectural Responsibility Cards in the CENTER and 3 Context & Enforcement Tier Badges on the RIGHT:
-1. CLAUDE.md / AGENTS.md / GEMINI.md -> Project overview, stack, architecture & core laws -> [TIER 1: Permanent KV Cache]
-2. CLAUDE.local.md -> Personal local sandbox overrides (gitignored) -> [TIER 1: Local Dev Context]
+1. AGENTS.md / GEMINI.md -> Project overview, stack, architecture & core laws -> [TIER 1: Permanent KV Cache]
+2. AGENTS.local.md -> Personal local sandbox overrides (gitignored) -> [TIER 1: Local Dev Context]
 3. .mcp.json -> Connected MCP servers: GitHub, Jira, Slack, Databases -> [TIER 2: Scoped Tool Connectors]
 4. settings.json -> Permissions, env vars, tool allowlists & hook triggers -> [TIER 3: Deterministic RBAC]
 5. rules/*.md -> Modular coding, API, security & PR conventions -> [TIER 1: Glob-Matched Rules]
@@ -1595,21 +1714,47 @@ BOTTOM SECTION ("5 PRODUCTION READINESS GUARDRAILS BEYOND REASONING"): Show 5 eq
 
 
 def format_nano_banana_3_prompt_markdown(post: Dict[str, Any]) -> str:
-    """Format the complete Nano Banana 3 prompt specification file for a repository."""
+    """Format the complete 2D Architecture Specification & Prompt file for a repository (zero silent fallback)."""
+    from src.catalog.stack_pairings import oss_step_equivalent
+
     pid = post["id"]
-    post_prompt = NANO_BANANA_3_PROMPTS.get(pid, NANO_BANANA_3_PROMPTS["POST-08"])
-    return f"""# Nano Banana 3 (`generate_image`) Detailed 2D Infographic Prompts — {pid} (`{post['repo_slug']}`)
+    if pid in NANO_BANANA_3_PROMPTS:
+        post_prompt = NANO_BANANA_3_PROMPTS[pid]
+    elif pid.startswith("IDEA-"):
+        p_nodes = post.get("problem_flow_nodes", [])
+        d_steps = post.get("dynamic_steps", [])
+        ba = post.get("before_after", {})
+        prob_str = " -> ".join(f"{n['label']} ({n['sub']})" for n in p_nodes)
+        steps_str = "\n".join(
+            f"- {s['badge']} ({s['title']}): {s['how_it_works']} [Google Cloud: {s['gcp_primitive']} ⇄ Open-Source: {s.get('oss_primitive') or oss_step_equivalent(pid, s['step'], s['gcp_primitive'])}]"
+            for s in d_steps
+        )
+        metrics_str = " | ".join(f"{k}: {v}" for k, v in post.get("metrics", {}).items())
+        post_prompt = (
+            f'Create a publication-grade 2D technical architecture infographic in a crisp executive light theme (#F8FAFC background, white cards, deep navy #0F2942 header bar).\n'
+            f'Title at top: "{post["post_title"].upper()}"\n'
+            f'Subtitle: "{post.get("best_approach_title", "")}"\n'
+            f'TIER 1 (FAILURE MODE WITHOUT GUARD): {prob_str}\n'
+            f'TIER 2 (4-STAGE DETERMINISTIC ARCHITECTURAL SOLUTION):\n{steps_str}\n'
+            f'CLOSED-LOOP SELF-HEALING: {post.get("feedback_loop_label", "")}\n'
+            f'BEFORE VS AFTER DELTA: Before ({ba.get("before_metric_1", "")}, {ba.get("before_metric_2", "")}) -> After ({ba.get("after_metric_1", "")}, {ba.get("after_metric_2", "")})\n'
+            f'PRODUCTION TELEMETRY: {metrics_str}'
+        )
+    else:
+        raise KeyError(f"Unsupported post/idea ID in format_nano_banana_3_prompt_markdown: {pid}")
+
+    return f"""# Deterministic 2D Architecture & Infographic Specification — {pid} (`{post['repo_slug']}`)
 
 > **Post Title**: {post['post_title']}
 > **Primary Source**: {post['primary_source']['title']} (`{post['activity_urn']}`)
 > **Generated Assets in `./visuals/`**:
-> - `./visuals/linkedin-infographic-2d.png` & `./visuals/nano-banana-3-infographic.jpg` (Generated by Nano Banana 3)
-> - `./visuals/gcp-architecture-2d.png` & `./visuals/nano-banana-3-gcp-arch-78.jpg` (Generated by Nano Banana 3)
-> - `./visuals/gcp-architecture-2d.drawio` & `./visuals/gcp-architecture-2d.svg` (100% Editable Draw.io XML & Vector SVG)
+> - `./visuals/linkedin-infographic-2d.svg` & `./visuals/linkedin-infographic-2d.png` (Deterministic Vector SVG & 2x Chrome PNG)
+> - `./visuals/gcp-architecture-2d.drawio`, `./visuals/gcp-architecture-2d.svg` & `./visuals/gcp-architecture-2d.png` (100% Editable Draw.io XML, Vector SVG & PNG)
+> - `./visuals/dynamic-solution-flow.svg`, `./visuals/dynamic-solution-flow.gif` & `./visuals/dynamic-solution-flow.png` (Moving-Arrow Animated Flow)
 
 ---
 
-## 1. Nano Banana 3 Detailed Prompt — Bespoke LinkedIn 2D Architecture Infographic (`{pid}`)
+## 1. Bespoke LinkedIn 2D Architecture Infographic Specification (`{pid}`)
 
 ```text
 {post_prompt}
@@ -1617,7 +1762,7 @@ def format_nano_banana_3_prompt_markdown(post: Dict[str, Any]) -> str:
 
 ---
 
-## 2. Nano Banana 3 Detailed Prompt — Official Google Cloud `#78` 4-Zone Hub-and-Spoke Blueprint
+## 2. Official Google Cloud `#78` 4-Zone Hub-and-Spoke Blueprint Specification
 
 ```text
 {NANO_BANANA_3_GCP_78_PROMPT}
@@ -1626,7 +1771,7 @@ def format_nano_banana_3_prompt_markdown(post: Dict[str, Any]) -> str:
 
 
 def write_visual_suite_for_post(post: Dict[str, Any], visuals_dir: Path) -> Dict[str, str]:
-    """Write Dynamic Moving-Arrow SVG/GIF + Nano Banana 3 2D visuals + editable Draw.io XML & vector SVGs."""
+    """Write Dynamic Moving-Arrow SVG/GIF + Deterministic 2D vector visuals + editable Draw.io XML."""
     import shutil
     from src.visuals.dynamic_diagram_engine import generate_dynamic_solution_svg
 
@@ -1643,31 +1788,20 @@ def write_visual_suite_for_post(post: Dict[str, Any], visuals_dir: Path) -> Dict
     dynamic_svg_path.write_text(generate_dynamic_solution_svg(post), encoding="utf-8")
     prompt_md_path.write_text(format_nano_banana_3_prompt_markdown(post), encoding="utf-8")
 
-    # Copy Nano Banana 3 high-resolution generated images from master assets/nano-banana-3/
     workspace_root = Path(__file__).resolve().parent.parent.parent
-    nb3_dir = workspace_root / "assets" / "nano-banana-3"
     dyn_dir = workspace_root / "assets" / "dynamic-top10"
     pid = post["id"]
 
-    post_jpg = nb3_dir / f"{pid}.jpg"
-    post_png = nb3_dir / f"{pid}.png"
-    arch_jpg = nb3_dir / "GCP-ARCH-78.jpg"
-    arch_png = nb3_dir / "GCP-ARCH-78.png"
+    # Purge any legacy diffusion JPEGs or orphaned duplicate drawio/template files in the repo visuals directory
+    for stale_name in ("nano-banana-3-infographic.jpg", "nano-banana-3-gcp-arch-78.jpg", "gcp-architecture-78.drawio"):
+        stale_path = visuals_dir / stale_name
+        if stale_path.exists():
+            stale_path.unlink()
+    for stray_tpl in visuals_dir.glob("T[0-9][0-9].*"):
+        stray_tpl.unlink()
+
     dyn_gif = dyn_dir / f"{pid}.gif"
     dyn_png = dyn_dir / f"{pid}.png"
-
-    if post_jpg.exists():
-        shutil.copyfile(post_jpg, visuals_dir / "nano-banana-3-infographic.jpg")
-    if post_png.exists():
-        shutil.copyfile(post_png, visuals_dir / "linkedin-infographic-2d.png")
-    elif dyn_png.exists():
-        shutil.copyfile(dyn_png, visuals_dir / "linkedin-infographic-2d.png")
-
-    if arch_jpg.exists():
-        shutil.copyfile(arch_jpg, visuals_dir / "nano-banana-3-gcp-arch-78.jpg")
-    if arch_png.exists():
-        shutil.copyfile(arch_png, visuals_dir / "gcp-architecture-2d.png")
-
     if dyn_gif.exists():
         shutil.copyfile(dyn_gif, visuals_dir / "dynamic-solution-flow.gif")
     if dyn_png.exists():
@@ -1677,15 +1811,10 @@ def write_visual_suite_for_post(post: Dict[str, Any], visuals_dir: Path) -> Dict
     lead_tid = plan.get("primary_template_id")
     if lead_tid:
         canonical_gallery = workspace_root / "assets" / "template-gallery"
-        legacy_gallery = workspace_root / "generated-repos" / "visual-templates-gallery"
         for ext in ("svg", "png", "gif", "drawio"):
             cand = canonical_gallery / f"{lead_tid}.{ext}"
-            if not cand.exists():
-                cand = legacy_gallery / f"{lead_tid}.{ext}"
             if cand.exists():
                 shutil.copyfile(cand, visuals_dir / f"lead-template.{ext}")
-                if legacy_gallery.exists():
-                    shutil.copyfile(cand, legacy_gallery / f"{lead_tid}.{ext}")
 
     return {
         "linkedin_infographic_svg": str(infographic_svg_path),

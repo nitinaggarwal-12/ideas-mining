@@ -1,5 +1,5 @@
 {
-  "template_count": 68,
+  "template_count": 84,
   "templates": [
     {
       "id": "T01",
@@ -15,8 +15,14 @@
       "files": {
         "svg": "T01.svg",
         "gif": "T01.gif",
-        "png": "T01.png"
-      }
+        "png": "T01.png",
+        "drawio": "T01.drawio",
+        "pptx": "T01.pptx"
+      },
+      "google_slides_id": "19NPxGI00oNtQ-YHFFFZ0mc0dJS30d_RA9YTVUEt0t1w",
+      "google_slides_url": "https://docs.google.com/presentation/d/19NPxGI00oNtQ-YHFFFZ0mc0dJS30d_RA9YTVUEt0t1w/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/19NPxGI00oNtQ-YHFFFZ0mc0dJS30d_RA9YTVUEt0t1w/preview",
+      "editable_slide_count": 5
     },
     {
       "id": "T02",
@@ -352,7 +358,7 @@
       ],
       "when_to_use": "A reader asks 'should this be a chain, a router, parallel calls, an orchestrator, an evaluator loop, or an agent?'",
       "dynamic": "Six live mini-schematics with packets; gate diamonds; feedback loops.",
-      "lineage": "Anthropic, Building effective agents \u2022 Google ADK workflow agents",
+      "lineage": "Building effective agents • Google ADK workflow agents",
       "files": {
         "svg": "T21.svg",
         "gif": "T21.gif",
@@ -361,16 +367,16 @@
     },
     {
       "id": "T22",
-      "name": "Claude Code Playbook",
+      "name": "Agentic Coding Playbook",
       "best_for_short": "Copy-paste agentic coding",
       "content_types": [
         "Working solution",
         "Professional knowledge sharing",
         "Easy to understand"
       ],
-      "when_to_use": "Teach the Explore \u2192 Plan \u2192 Code \u2192 Commit loop + Boris Cherny's 10 internal Claude Code habits (/loop, /desktop, /context, Goal+Effort+Check).",
+      "when_to_use": "Teach the Explore → Plan → Code → Commit loop + Boris Cherny's 10 internal Agentic Coding habits (/loop, /desktop, /context, Goal+Effort+Check).",
       "dynamic": "Phase arrows, growing thinking-budget bars, TDD loop-back arrow.",
-      "lineage": "Charlie Hills (Boris Cherny 10 Claude Code tips & 42 add-ons) \u2022 Anthropic Claude Code guide",
+      "lineage": "Charlie Hills (Boris Cherny 10 Agentic Coding tips & 42 add-ons) • Enterprise Agentic Coding guide",
       "files": {
         "svg": "T22.svg",
         "gif": "T22.gif",
@@ -388,7 +394,7 @@
       ],
       "when_to_use": "Show exactly where 200K tokens go and what compaction + just-in-time retrieval frees up.",
       "dynamic": "Stacked ledgers grow; packets migrate from the bloated budget to the lean one.",
-      "lineage": "Anthropic, Effective context engineering (Sep 2025)",
+      "lineage": "Effective context engineering (Sep 2025)",
       "files": {
         "svg": "T23.svg",
         "gif": "T23.gif",
@@ -423,8 +429,8 @@
         "Professional knowledge sharing"
       ],
       "when_to_use": "Before anyone quotes an LLM-as-a-judge dashboard: deterministic hard-gates first, cross-family confusion matrix (TPR/TNR >= 0.90), 5 judge biases -> fixes.",
-      "dynamic": "Matrix cells reveal in sequence; bias \u2192 fix arrows carry packets.",
-      "lineage": "Hamel Husain \u2022 Shreya Shankar \u2022 Eugene Yan \u2022 Vertex AI Eval & Promptfoo",
+      "dynamic": "Matrix cells reveal in sequence; bias → fix arrows carry packets.",
+      "lineage": "Hamel Husain • Shreya Shankar • Eugene Yan • Vertex AI Eval & Promptfoo",
       "files": {
         "svg": "T25.svg",
         "gif": "T25.gif",
@@ -460,7 +466,7 @@
       ],
       "when_to_use": "A numbered sequence & lifeline walkthrough of a protocol or control plane (MCP 9-message JSON-RPC 2.0 flow).",
       "dynamic": "Numbered message cards light up in order with packets traveling across 3 lifelines.",
-      "lineage": "Brij Kishore Pandey (7-Layer Control Plane & MCP) \u2022 ByteByteGo \u2022 MCP specification",
+      "lineage": "Brij Kishore Pandey (7-Layer Control Plane & MCP) • ByteByteGo • MCP specification",
       "files": {
         "svg": "T27.svg",
         "gif": "T27.gif",
@@ -478,7 +484,7 @@
       ],
       "when_to_use": "Compare 5 modern agent context-grounding strategies (Naive Chunks vs. AST/Structure vs. Agentic ripgrep vs. KV Prefix Cache vs. Contextual Hybrid + SHA).",
       "dynamic": "Packets travel the cut lines; zero-origin orthogonal cards; marker typography.",
-      "lineage": "Avi Chawla & Akshay Pachaar sketch format \u2022 Claude Code AST/Grep & Contextual Hybrid RAG",
+      "lineage": "Avi Chawla & Akshay Pachaar sketch format • Agentic AST/Grep & Contextual Hybrid RAG",
       "files": {
         "svg": "T28.svg",
         "gif": "T28.gif",
@@ -530,7 +536,7 @@
         "Proof of concept",
         "Easy to understand"
       ],
-      "when_to_use": "Show real code, the real output, and what it proves \u2014 then the clone command.",
+      "when_to_use": "Show real code, the real output, and what it proves — then the clone command.",
       "dynamic": "Terminal output types in line by line; a packet runs down the code gutter.",
       "lineage": "Shubham Saboo (awesome-llm-apps) & Nir Diamant demo-repo format",
       "files": {
@@ -550,7 +556,7 @@
       ],
       "when_to_use": "Show why a fast Flash/32B model wrapped in a sandbox verifier + reflection harness beats a 10x larger frontier model zero-shot (89.4% vs 61.0%).",
       "dynamic": "Bars grow to 89.4%; each of the 4 harness patterns runs a live mini-loop.",
-      "lineage": "Andrew Ng 4 Agentic Patterns \u2022 2026 OpenHands & ADK Verifier Harness Benchmark",
+      "lineage": "Andrew Ng 4 Agentic Patterns • 2026 OpenHands & ADK Verifier Harness Benchmark",
       "files": {
         "svg": "T32.svg",
         "gif": "T32.gif",
@@ -568,7 +574,7 @@
       ],
       "when_to_use": "Map 2026 tasks where sandboxed agents with deterministic verifiers exceed 88% reliability vs. production traps that require human gates.",
       "dynamic": "Frontier edge pulses with orbiting packets.",
-      "lineage": "Ethan Mollick Jagged Frontier \u2022 2026 Enterprise Agent Autonomy Telemetry",
+      "lineage": "Ethan Mollick Jagged Frontier • 2026 Enterprise Agent Autonomy Telemetry",
       "files": {
         "svg": "T33.svg",
         "gif": "T33.gif",
@@ -604,7 +610,7 @@
       ],
       "when_to_use": "Explain how disposable subagent context firewalls keep the lead orchestrator clean (+90.2% win rate) and when the 15x token multiplier is worth it.",
       "dynamic": "Spawn packets fan out and verified digests fan back in to synthesis.",
-      "lineage": "Anthropic Multi-Agent Research System \u2022 ADK ParallelAgent & Context-Firewall Pattern",
+      "lineage": "Multi-Agent Research System • ADK ParallelAgent & Context-Firewall Pattern",
       "files": {
         "svg": "T35.svg",
         "gif": "T35.gif",
@@ -620,7 +626,7 @@
         "Information",
         "Professional knowledge sharing"
       ],
-      "when_to_use": "Decompose cost per task into tokens, tools, retries, judges \u2014 then show the four levers.",
+      "when_to_use": "Decompose cost per task into tokens, tools, retries, judges — then show the four levers.",
       "dynamic": "Waterfall bars drop in sequence; a scan packet crosses the chart.",
       "lineage": "Chip Huyen-style practical AI economics",
       "files": {
@@ -640,7 +646,7 @@
       ],
       "when_to_use": "Tell the $84 retry-storm story on a timeline and name the control + kill-switch that stops it at each step.",
       "dynamic": "Severity packets run down the timeline; green control cards attach per event.",
-      "lineage": "Brij Kishore Pandey (How Do We Turn It Off? & 10-Field Agent Record) \u2022 Google SRE Postmortem",
+      "lineage": "Brij Kishore Pandey (How Do We Turn It Off? & 10-Field Agent Record) • Google SRE Postmortem",
       "files": {
         "svg": "T37.svg",
         "gif": "T37.gif",
@@ -656,9 +662,9 @@
         "Proof of concept",
         "Professional knowledge sharing"
       ],
-      "when_to_use": "Bad vs good tool JSON side by side with the five rules from Anthropic's tool-writing guide.",
+      "when_to_use": "Bad vs good tool JSON side by side with the five rules from Agentic tool-writing guide.",
       "dynamic": "Transformation arrows jump from each flaw to its fix.",
-      "lineage": "Anthropic (Writing effective tools) \u2022 Brij Kishore Pandey (5-Layer Claude Code ADK & SKILL.md)",
+      "lineage": "Writing effective tools for agents • Brij Kishore Pandey (5-Layer Enterprise ADK & SKILL.md)",
       "files": {
         "svg": "T38.svg",
         "gif": "T38.gif",
@@ -676,7 +682,7 @@
       ],
       "when_to_use": "Show how a production coding & SRE agent uses Working, Episodic, Semantic (Git-SHA receipts), and Procedural (AGENTS.md / SKILL.md) memory on a real PR.",
       "dynamic": "A PR-fix packet touches each memory store before the agent patches and tests.",
-      "lineage": "LangChain OpenWiki \u2022 Claude Code / OpenHands SKILL.md \u2022 CoALA 4-Memory Matrix",
+      "lineage": "LangChain OpenWiki • Gemini CLI / OpenHands SKILL.md • CoALA 4-Memory Matrix",
       "files": {
         "svg": "T39.svg",
         "gif": "T39.gif",
@@ -686,15 +692,15 @@
     {
       "id": "T40",
       "name": "One-Chart Changelog",
-      "best_for_short": "Cause \u2192 effect on one metric",
+      "best_for_short": "Cause → effect on one metric",
       "content_types": [
         "Evaluation results",
         "Proof of concept",
         "Ideas"
       ],
-      "when_to_use": "One metric over time, four annotated architecture changes, what each changed \u2014 build-in-public style.",
+      "when_to_use": "One metric over time, four annotated architecture changes, what each changed — build-in-public style.",
       "dynamic": "The line draws progressively; flags appear as the line reaches them.",
-      "lineage": "Nate B. Jones 'one chart' \u2022 Santiago Valdarrama build-in-public",
+      "lineage": "Nate B. Jones 'one chart' • Santiago Valdarrama build-in-public",
       "files": {
         "svg": "T40.svg",
         "gif": "T40.gif",
@@ -712,7 +718,7 @@
       ],
       "when_to_use": "Explain low-level GPU serving mechanics (prefill vs decode, Radix prefix-cache affinity, least-KV-pressure routing, chunked prefill).",
       "dynamic": "Requests flow through the Radix Prefix Router to 4 GPU workers; KV HBM bars fill dynamically.",
-      "lineage": "Kavi Priyan (#01, 607 likes) \u2022 Sahn Lam \u2022 SGLang RadixAttention / vLLM",
+      "lineage": "Kavi Priyan (#01, 607 likes) • Sahn Lam • SGLang RadixAttention / vLLM",
       "files": {
         "svg": "T41.svg",
         "gif": "T41.gif",
@@ -722,7 +728,7 @@
     {
       "id": "T42",
       "name": "Recursive Agent Harness",
-      "best_for_short": "Harness\u00b2 dual-loop self-improving agents",
+      "best_for_short": "Harness² dual-loop self-improving agents",
       "content_types": [
         "Research topics",
         "Grounded concepts",
@@ -730,7 +736,7 @@
       ],
       "when_to_use": "Show how agents improve at both task-level (Propose->Probe->Compose skill graphs) and harness-level without retraining model weights.",
       "dynamic": "Packets traverse Loop 1 (Propose->Probe->Compose), the 5 concentric rings, and Loop 2 benchmark bars.",
-      "lineage": "Gurisa Roy (#02, 201 likes) \u2022 Keith R. Worfolk (#03) \u2022 Google & Northwestern Harness\u00b2",
+      "lineage": "Gurisa Roy (#02, 201 likes) • Keith R. Worfolk (#03) • Google & Northwestern Harness²",
       "files": {
         "svg": "T42.svg",
         "gif": "T42.gif",
@@ -748,7 +754,7 @@
       ],
       "when_to_use": "Show how to stop agent memory rot by binding claims to Git blob SHAs, running O(1) staleness checks, and self-correcting in the flow of work.",
       "dynamic": "Packets flow across the 4-stage OpenWiki pipeline from SHA receipt storage to in-flow self-correction.",
-      "lineage": "Ravena O & Rakesh Gohel (#05, 88 likes) \u2022 LangChain OpenWiki",
+      "lineage": "Ravena O & Rakesh Gohel (#05, 88 likes) • LangChain OpenWiki",
       "files": {
         "svg": "T43.svg",
         "gif": "T43.gif",
@@ -766,7 +772,7 @@
       ],
       "when_to_use": "Architect a deep research agent that verifies every URL and quote span deterministically before running a bounded JEV judge retry loop.",
       "dynamic": "Packets traverse stages 01->06 with an animated conditional RESEARCH_AGAIN loop from Stage 05 back to Stage 02.",
-      "lineage": "Sumanth P (#04, 124 likes) \u2022 LangChain Deep Agents + JEV + Tavily + LangSmith",
+      "lineage": "Sumanth P (#04, 124 likes) • LangChain Deep Agents + JEV + Tavily + LangSmith",
       "files": {
         "svg": "T44.svg",
         "gif": "T44.gif",
@@ -784,7 +790,7 @@
       ],
       "when_to_use": "Show executives how falling human touches cross rising business value above the Pilot Ceiling across 6 stages from Work Done to P&L.",
       "dynamic": "Dual crossover curves draw across the Pilot Ceiling while packets advance through the 6 C-suite value stages.",
-      "lineage": "Jonny Tooze (#11, 141 likes, 144 comments) \u2022 Executive AI Value Realization",
+      "lineage": "Jonny Tooze (#11, 141 likes, 144 comments) • Executive AI Value Realization",
       "files": {
         "svg": "T45.svg",
         "gif": "T45.gif",
@@ -820,7 +826,7 @@
       ],
       "when_to_use": "Give engineering and legal leaders a one-page 4x5 reference of 20 global AI laws, standards, and the exact technical gate each requires.",
       "dynamic": "20 color-coded regulatory cards across Europe, Global Standards, US Federal/State, and APAC.",
-      "lineage": "Prashant Rathi (#09, 203 likes, 68 comments) \u2022 Global AI Policy Matrix",
+      "lineage": "Prashant Rathi (#09, 203 likes, 68 comments) • Global AI Policy Matrix",
       "files": {
         "svg": "T47.svg",
         "gif": "T47.gif",
@@ -874,7 +880,7 @@
       ],
       "when_to_use": "Compare two related security protocols vertically: OAuth 2.0 + PKCE delegated access vs. OIDC + RFC 8693 On-Behalf-Of agent token exchange.",
       "dynamic": "14 numbered opaque-pill messages travel across 4 actor lifelines in two stacked protocol panels.",
-      "lineage": "Alex Xu / ByteByteGo (#07) & Shalini Goyal (#06) \u2022 RFC 8693 Agent Identity",
+      "lineage": "Alex Xu / ByteByteGo (#07) & Shalini Goyal (#06) • RFC 8693 Agent Identity",
       "files": {
         "svg": "T50.svg",
         "gif": "T50.gif",
@@ -892,7 +898,7 @@
       ],
       "when_to_use": "Show why autoregressive LLM decoding is memory-bandwidth-bound on HBM and how speculative decoding verifies 5 draft tokens in 1 pass.",
       "dynamic": "3-tier GPU memory pyramid + worked roofline math on the left; live draft-verify token tree on the right.",
-      "lineage": "Sahn Lam & Umar Jamil \u2022 EAGLE-2 / Medusa / FlashAttention-3",
+      "lineage": "Sahn Lam & Umar Jamil • EAGLE-2 / Medusa / FlashAttention-3",
       "files": {
         "svg": "T51.svg",
         "gif": "T51.gif",
@@ -910,7 +916,7 @@
       ],
       "when_to_use": "Explain how modern reasoning models are trained (Cold-start SFT -> GRPO without a critic model -> RLVR deterministic rewards -> Test-Time scaling).",
       "dynamic": "4-stage horizontal post-training pipeline + PPO vs. GRPO VRAM comparison + enterprise customization playbook.",
-      "lineage": "Sebastian Raschka & Maxime Labonne \u2022 DeepSeek-R1 GRPO & RLVR",
+      "lineage": "Sebastian Raschka & Maxime Labonne • DeepSeek-R1 GRPO & RLVR",
       "files": {
         "svg": "T52.svg",
         "gif": "T52.gif",
@@ -929,17 +935,23 @@
       ],
       "when_to_use": "Deconstruct a self-improving AI agent setup across 01 Context, 02 Harness (AGENTS.md & Skills), 03 Loop (Check/Fix/Recheck), and 04 Graph (MAP.md).",
       "dynamic": "Packets travel down the 4-tier central spine and across left-to-right verification enclaves with RULE 01-04 bars.",
-      "lineage": "PromptCanvas Blueprint #52 (Anatomy / Deconstruction Infographic) \u2022 Keith R. Worfolk & Philipp Schmid",
+      "lineage": "PromptCanvas Blueprint #52 (Anatomy / Deconstruction Infographic) • Keith R. Worfolk & Philipp Schmid",
       "category": "PromptCanvas Infographic",
       "best_for": "4-part structural breakdown of a self-improving AI agent setup (Context, Harness, Loop, Graph) with RULE bars",
-      "inspired_by": "PromptCanvas Blueprint #52 (Anatomy / Deconstruction Infographic) \u2022 Keith R. Worfolk & Philipp Schmid",
+      "inspired_by": "PromptCanvas Blueprint #52 (Anatomy / Deconstruction Infographic) • Keith R. Worfolk & Philipp Schmid",
       "accent": "#2563EB",
       "hot_topic": "Anatomy of a Production Coding Agent: Context + Harness + Loop + Graph",
       "files": {
         "svg": "T53.svg",
         "gif": "T53.gif",
-        "png": "T53.png"
-      }
+        "png": "T53.png",
+        "drawio": "T53.drawio",
+        "pptx": "T53.pptx"
+      },
+      "google_slides_id": "1ka7XO814fI8cXvTbk0Jf2I4J6b25MwMxAofUqtflo8I",
+      "google_slides_url": "https://docs.google.com/presentation/d/1ka7XO814fI8cXvTbk0Jf2I4J6b25MwMxAofUqtflo8I/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1ka7XO814fI8cXvTbk0Jf2I4J6b25MwMxAofUqtflo8I/preview",
+      "editable_slide_count": 5
     },
     {
       "id": "T54",
@@ -953,17 +965,23 @@
       ],
       "when_to_use": "Show a 3-band workflow pairing a Primary Coding Agent with an independent Reviewer Agent across Install, Tool Mounting (YES/NO gate), and Recheck.",
       "dynamic": "Packets flow across all 3 horizontal bands, the YES/NO tool readiness diamond, and the bottom RECHECK feedback loop.",
-      "lineage": "PromptCanvas Blueprint #53 (Process Workflow Infographic) \u2022 Gemini Code Assist + OpenHands / Codex",
+      "lineage": "PromptCanvas Blueprint #53 (Process Workflow Infographic) • Gemini Code Assist + OpenHands / Codex",
       "category": "PromptCanvas Infographic",
       "best_for": "3-band step-by-step workflow pairing a Primary Coding Agent with an independent Reviewer Agent and YES/NO tool gates",
-      "inspired_by": "PromptCanvas Blueprint #53 (Process Workflow Infographic) \u2022 Gemini Code Assist + OpenHands / Codex",
+      "inspired_by": "PromptCanvas Blueprint #53 (Process Workflow Infographic) • Gemini Code Assist + OpenHands / Codex",
       "accent": "#7C3AED",
       "hot_topic": "Dual-Agent Coding Workflow: Primary Builder + Adversarial Reviewer Loop",
       "files": {
         "svg": "T54.svg",
         "gif": "T54.gif",
-        "png": "T54.png"
-      }
+        "png": "T54.png",
+        "drawio": "T54.drawio",
+        "pptx": "T54.pptx"
+      },
+      "google_slides_id": "1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc",
+      "google_slides_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/preview",
+      "editable_slide_count": 4
     },
     {
       "id": "T55",
@@ -977,17 +995,23 @@
       ],
       "when_to_use": "Provide a 2-column executive quick-start card with 7 setup steps, a copy-paste prompt formula, and 4 high-ROI browser/computer-use workflows.",
       "dynamic": "Animated conduit connects the 7-step setup checklist and prompt formula to the 2x2 grid of production @Browser jobs.",
-      "lineage": "PromptCanvas Blueprint #54 (Cheat Sheet Quick-Start Card) \u2022 Vertex Computer Use & OpenHands Browser",
+      "lineage": "PromptCanvas Blueprint #54 (Cheat Sheet Quick-Start Card) • Vertex Computer Use & OpenHands Browser",
       "category": "PromptCanvas Infographic",
       "best_for": "2-column quick-start cheat sheet with 7 setup steps, copy-paste prompt formula, and 4 high-ROI browser/computer-use jobs",
-      "inspired_by": "PromptCanvas Blueprint #54 (Cheat Sheet Quick-Start Card) \u2022 Vertex Computer Use & OpenHands Browser",
+      "inspired_by": "PromptCanvas Blueprint #54 (Cheat Sheet Quick-Start Card) • Vertex Computer Use & OpenHands Browser",
       "accent": "#2563EB",
       "hot_topic": "Autonomous Computer-Use Cheat Sheet: 7 Setup Steps & 4 Production Prompts",
       "files": {
         "svg": "T55.svg",
         "gif": "T55.gif",
-        "png": "T55.png"
-      }
+        "png": "T55.png",
+        "drawio": "T55.drawio",
+        "pptx": "T55.pptx"
+      },
+      "google_slides_id": "1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA",
+      "google_slides_url": "https://docs.google.com/presentation/d/1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T56",
@@ -1001,17 +1025,23 @@
       ],
       "when_to_use": "Contrast what leadership thinks is running (4 approved tools) against 24 shadow AI tools across engineering, meetings, sales, and legal.",
       "dynamic": "Blind-spot conduit links the 4 executive assumption cards to 24 color-coded shadow AI bubbles and the 4-control governance bridge.",
-      "lineage": "PromptCanvas Blueprint #55 (Bubble Conceptual Infographic) \u2022 Enterprise Shadow AI & Model Armor Gateway",
+      "lineage": "PromptCanvas Blueprint #55 (Bubble Conceptual Infographic) • Enterprise Shadow AI & Model Armor Gateway",
       "category": "PromptCanvas Infographic",
       "best_for": "Contrasting executive perception (4 approved tools) against 24 shadow AI tools running across engineering, sales, and ops",
-      "inspired_by": "PromptCanvas Blueprint #55 (Bubble Conceptual Infographic) \u2022 Enterprise Shadow AI & Model Armor Gateway",
+      "inspired_by": "PromptCanvas Blueprint #55 (Bubble Conceptual Infographic) • Enterprise Shadow AI & Model Armor Gateway",
       "accent": "#DC2626",
       "hot_topic": "The AI Nobody Signed Off: Governing 24 Shadow AI Tools via an AI Gateway",
       "files": {
         "svg": "T56.svg",
         "gif": "T56.gif",
-        "png": "T56.png"
-      }
+        "png": "T56.png",
+        "drawio": "T56.drawio",
+        "pptx": "T56.pptx"
+      },
+      "google_slides_id": "1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c",
+      "google_slides_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T57",
@@ -1025,17 +1055,23 @@
       ],
       "when_to_use": "Compare stateless foundation model inference (OFF toggles) against a managed enterprise agent runtime (ON toggles) across 5 architecture pillars.",
       "dynamic": "5 parallel upgrade conduits flow from red OFF stateless cards through the central dimension spine to green ON managed runtime cards.",
-      "lineage": "PromptCanvas Blueprint #56 (Side-by-Side Comparison Infographic) \u2022 Vertex AI Agent Engine vs. Raw API",
+      "lineage": "PromptCanvas Blueprint #56 (Side-by-Side Comparison Infographic) • Vertex AI Agent Engine vs. Raw API",
       "category": "PromptCanvas Infographic",
       "best_for": "5-row central-spine comparison with OFF vs. ON vector toggle switches comparing stateless APIs against managed runtimes",
-      "inspired_by": "PromptCanvas Blueprint #56 (Side-by-Side Comparison Infographic) \u2022 Vertex AI Agent Engine vs. Raw API",
+      "inspired_by": "PromptCanvas Blueprint #56 (Side-by-Side Comparison Infographic) • Vertex AI Agent Engine vs. Raw API",
       "accent": "#059669",
       "hot_topic": "Stateless LLM API (OFF) vs. Managed Enterprise Agent Runtime (ON)",
       "files": {
         "svg": "T57.svg",
         "gif": "T57.gif",
-        "png": "T57.png"
-      }
+        "png": "T57.png",
+        "drawio": "T57.drawio",
+        "pptx": "T57.pptx"
+      },
+      "google_slides_id": "1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM",
+      "google_slides_url": "https://docs.google.com/presentation/d/1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T58",
@@ -1049,17 +1085,23 @@
       ],
       "when_to_use": "Visualize progressive token refinement across 5 tapering 3D-frustum funnel stages from 1,000,000 raw tokens down to 2,000 precision context tokens.",
       "dynamic": "3 glowing signal packets stream down the 5-stage 3D frustum funnel while side conduits link stage architectures to discard gates.",
-      "lineage": "PromptCanvas Blueprint #57 (Funnel Pipeline Chart) \u2022 BigQuery Vector Search & Cross-Encoder Re-Ranking",
+      "lineage": "PromptCanvas Blueprint #57 (Funnel Pipeline Chart) • BigQuery Vector Search & Cross-Encoder Re-Ranking",
       "category": "PromptCanvas Infographic",
       "best_for": "5-stage 3D-frustum tapering vector funnel showing progressive token refinement from 1M raw tokens to 2k precision context",
-      "inspired_by": "PromptCanvas Blueprint #57 (Funnel Pipeline Chart) \u2022 BigQuery Vector Search & Cross-Encoder Re-Ranking",
+      "inspired_by": "PromptCanvas Blueprint #57 (Funnel Pipeline Chart) • BigQuery Vector Search & Cross-Encoder Re-Ranking",
       "accent": "#2563EB",
       "hot_topic": "Progressive Context Compression Funnel: 1,000,000 -> 2,000 High-Signal Tokens",
       "files": {
         "svg": "T58.svg",
         "gif": "T58.gif",
-        "png": "T58.png"
-      }
+        "png": "T58.png",
+        "drawio": "T58.drawio",
+        "pptx": "T58.pptx"
+      },
+      "google_slides_id": "100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU",
+      "google_slides_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T59",
@@ -1073,17 +1115,23 @@
       ],
       "when_to_use": "Present a 6-row numbered production deployment checklist with status badges, monospace config specs, and double green ON toggle switches.",
       "dynamic": "Vertical deployment spine feeds 6 numbered checklist rows, each equipped with verified config boxes and dual ON switches.",
-      "lineage": "PromptCanvas Blueprint #58 (Process Checklist Infographic) \u2022 Google Cloud GKE gVisor & AlloyDB",
+      "lineage": "PromptCanvas Blueprint #58 (Process Checklist Infographic) • Google Cloud GKE gVisor & AlloyDB",
       "category": "PromptCanvas Infographic",
       "best_for": "6-step numbered production deployment checklist with status badges, monospace config specs, and double ON toggle switches",
-      "inspired_by": "PromptCanvas Blueprint #58 (Process Checklist Infographic) \u2022 Google Cloud GKE gVisor & AlloyDB",
+      "inspired_by": "PromptCanvas Blueprint #58 (Process Checklist Infographic) • Google Cloud GKE gVisor & AlloyDB",
       "accent": "#059669",
       "hot_topic": "6-Step Autonomous Agent Production Deployment Checklist",
       "files": {
         "svg": "T59.svg",
         "gif": "T59.gif",
-        "png": "T59.png"
-      }
+        "png": "T59.png",
+        "drawio": "T59.drawio",
+        "pptx": "T59.pptx"
+      },
+      "google_slides_id": "1ovGVAtNq3riAB-HWwxIqceM5Z74xQnuZRy2LbhVWX08",
+      "google_slides_url": "https://docs.google.com/presentation/d/1ovGVAtNq3riAB-HWwxIqceM5Z74xQnuZRy2LbhVWX08/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1ovGVAtNq3riAB-HWwxIqceM5Z74xQnuZRy2LbhVWX08/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T60",
@@ -1096,18 +1144,24 @@
         "Information"
       ],
       "when_to_use": "Lay out a 4-quarter enterprise rollout roadmap (Q1 Discovery -> Q2 Sandbox -> Q3 State -> Q4 Fleet) with 8 numbered milestones and ACTIVE toggles.",
-      "dynamic": "Horizontal flow conduits advance across Q1-Q4 chevron headers and milestone deliverables01-08.",
-      "lineage": "PromptCanvas Blueprint #59 (Timeline & Roadmap Infographic) \u2022 Enterprise Agentic AI Rollout Plan",
+      "dynamic": "Horizontal flow conduits advance across Q1-Q4 chevron headers and milestone deliverables 01-08.",
+      "lineage": "PromptCanvas Blueprint #59 (Timeline & Roadmap Infographic) • Enterprise Agentic AI Rollout Plan",
       "category": "PromptCanvas Infographic",
       "best_for": "4 horizontal quarterly roadmap tracks (Q1-Q4) with chevron headers, ACTIVE switches, and 8 numbered milestone deliverables",
-      "inspired_by": "PromptCanvas Blueprint #59 (Timeline & Roadmap Infographic) \u2022 Enterprise Agentic AI Rollout Plan",
+      "inspired_by": "PromptCanvas Blueprint #59 (Timeline & Roadmap Infographic) • Enterprise Agentic AI Rollout Plan",
       "accent": "#2563EB",
       "hot_topic": "Phased Q1-Q4 Enterprise Agentic AI Architecture Roadmap",
       "files": {
         "svg": "T60.svg",
         "gif": "T60.gif",
-        "png": "T60.png"
-      }
+        "png": "T60.png",
+        "drawio": "T60.drawio",
+        "pptx": "T60.pptx"
+      },
+      "google_slides_id": "1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90",
+      "google_slides_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/preview",
+      "editable_slide_count": 5
     },
     {
       "id": "T61",
@@ -1121,17 +1175,23 @@
       ],
       "when_to_use": "Show the 4-node enterprise runtime topology separating reasoning (Vertex AI), orchestration (Cloud Run), sandbox (GKE gVisor), and state (AlloyDB).",
       "dynamic": "Bidirectional gRPC, MCP, CodeAct, and vector state packets flow between Load Balancing ingress and the 4 runtime planes.",
-      "lineage": "PromptCanvas Blueprint #60 (Architecture & Topology Infographic) \u2022 Google Cloud Agent Reference Topology",
+      "lineage": "PromptCanvas Blueprint #60 (Architecture & Topology Infographic) • Google Cloud Agent Reference Topology",
       "category": "PromptCanvas Infographic",
       "best_for": "4-node interconnected runtime topology linking Cloud Load Balancing, Vertex Reasoning Engine, Cloud Run, GKE gVisor, and AlloyDB",
-      "inspired_by": "PromptCanvas Blueprint #60 (Architecture & Topology Infographic) \u2022 Google Cloud Agent Reference Topology",
+      "inspired_by": "PromptCanvas Blueprint #60 (Architecture & Topology Infographic) • Google Cloud Agent Reference Topology",
       "accent": "#0D9488",
       "hot_topic": "Enterprise Agent Runtime Topology: Vertex AI + Cloud Run + GKE gVisor + AlloyDB",
       "files": {
         "svg": "T61.svg",
         "gif": "T61.gif",
-        "png": "T61.png"
-      }
+        "png": "T61.png",
+        "drawio": "T61.drawio",
+        "pptx": "T61.pptx"
+      },
+      "google_slides_id": "1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg",
+      "google_slides_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T62",
@@ -1145,17 +1205,23 @@
       ],
       "when_to_use": "Illustrate a 3-tier hierarchical delegation tree from Supervisor Agent (01) to 3 Specialized Worker Agents (02a/02b/02c) to Shared Resources (03).",
       "dynamic": "A2A task packets fan out from the Supervisor to SQL, Research, and Code workers and down into BigQuery, Vector Search, and gVisor.",
-      "lineage": "PromptCanvas Blueprint #61 (Hierarchical Tree Infographic) \u2022 Google ADK & LangGraph Supervisor Pattern",
+      "lineage": "PromptCanvas Blueprint #61 (Hierarchical Tree Infographic) • Google ADK & LangGraph Supervisor Pattern",
       "category": "PromptCanvas Infographic",
       "best_for": "3-tier delegation tree from Supervisor Agent (01) to Specialized Worker Agents (02a/02b/02c) to Unified Resource Layer (03)",
-      "inspired_by": "PromptCanvas Blueprint #61 (Hierarchical Tree Infographic) \u2022 Google ADK & LangGraph Supervisor Pattern",
+      "inspired_by": "PromptCanvas Blueprint #61 (Hierarchical Tree Infographic) • Google ADK & LangGraph Supervisor Pattern",
       "accent": "#7C3AED",
       "hot_topic": "3-Tier Multi-Agent Supervisor Delegation Tree & Shared Resource Plane",
       "files": {
         "svg": "T62.svg",
         "gif": "T62.gif",
-        "png": "T62.png"
-      }
+        "png": "T62.png",
+        "drawio": "T62.drawio",
+        "pptx": "T62.pptx"
+      },
+      "google_slides_id": "1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA",
+      "google_slides_url": "https://docs.google.com/presentation/d/1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T63",
@@ -1169,17 +1235,23 @@
       ],
       "when_to_use": "Prioritize 20 concrete agent use cases across a 2x2 matrix of Business Impact vs. Technical Complexity (Quick Wins, Strategic Bets, Low Priority, Traps).",
       "dynamic": "4 color-coded quadrants with 20 numbered use-case cards, ROI metrics, and recommended Google Cloud + OSS stacks.",
-      "lineage": "PromptCanvas Blueprint #62 (2x2 Quadrant Matrix Infographic) \u2022 AI Portfolio Prioritization",
+      "lineage": "PromptCanvas Blueprint #62 (2x2 Quadrant Matrix Infographic) • AI Portfolio Prioritization",
       "category": "PromptCanvas Infographic",
       "best_for": "4-quadrant executive prioritization matrix mapping 20 concrete agent use-cases across Quick Wins, Strategic Bets, Low Priority, and Traps",
-      "inspired_by": "PromptCanvas Blueprint #62 (2x2 Quadrant Matrix Infographic) \u2022 AI Portfolio Prioritization",
+      "inspired_by": "PromptCanvas Blueprint #62 (2x2 Quadrant Matrix Infographic) • AI Portfolio Prioritization",
       "accent": "#059669",
       "hot_topic": "Agentic AI Portfolio 2x2 Matrix: Quick Wins vs. Strategic Bets vs. Traps",
       "files": {
         "svg": "T63.svg",
         "gif": "T63.gif",
-        "png": "T63.png"
-      }
+        "png": "T63.png",
+        "drawio": "T63.drawio",
+        "pptx": "T63.pptx"
+      },
+      "google_slides_id": "1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc",
+      "google_slides_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T64",
@@ -1193,17 +1265,23 @@
       ],
       "when_to_use": "Map deterministic YES/NO branching logic across Stage 01 Ingest, Stage 02 Tool & RBAC Check, and Stage 03 Sandboxed Execution & Self-Correction.",
       "dynamic": "Packets traverse 4 decision diamonds with YES/NO branches and an animated self-correction retry loop in Stage 03.",
-      "lineage": "PromptCanvas Blueprint #63 (Decision Tree Flowchart) \u2022 Deterministic Agent Routing & Self-Correction",
+      "lineage": "PromptCanvas Blueprint #63 (Decision Tree Flowchart) • Deterministic Agent Routing & Self-Correction",
       "category": "PromptCanvas Infographic",
       "best_for": "3-stage conditional decision tree across Ingest, Tool/RBAC Check, and Sandboxed Execution with YES/NO diamonds and retry loops",
-      "inspired_by": "PromptCanvas Blueprint #63 (Decision Tree Flowchart) \u2022 Deterministic Agent Routing & Self-Correction",
+      "inspired_by": "PromptCanvas Blueprint #63 (Decision Tree Flowchart) • Deterministic Agent Routing & Self-Correction",
       "accent": "#2563EB",
       "hot_topic": "Deterministic Agent Decision Tree: Intent Gate -> RBAC Check -> Sandbox Loop",
       "files": {
         "svg": "T64.svg",
         "gif": "T64.gif",
-        "png": "T64.png"
-      }
+        "png": "T64.png",
+        "drawio": "T64.drawio",
+        "pptx": "T64.pptx"
+      },
+      "google_slides_id": "1ZSEcVu6FCqNEUKs_88SHQo51sO9-hq88iHLuRx7HIaU",
+      "google_slides_url": "https://docs.google.com/presentation/d/1ZSEcVu6FCqNEUKs_88SHQo51sO9-hq88iHLuRx7HIaU/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZSEcVu6FCqNEUKs_88SHQo51sO9-hq88iHLuRx7HIaU/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T65",
@@ -1217,17 +1295,23 @@
       ],
       "when_to_use": "Evaluate 4 agent architectures (Google ADK + Vertex, LangGraph + Postgres, OpenHands + Docker, Raw API) across 5 weighted production criteria.",
       "dynamic": "5x4 matrix of NATIVE / CONFIG / MANUAL capability badges plus animated overall architectural fit score bars (4.9/5 to 1.8/5).",
-      "lineage": "PromptCanvas Blueprint #64 (Feature Matrix Grid) \u2022 Google ADK vs. LangGraph vs. OpenHands vs. Raw API",
+      "lineage": "PromptCanvas Blueprint #64 (Feature Matrix Grid) • Google ADK vs. LangGraph vs. OpenHands vs. Raw API",
       "category": "PromptCanvas Infographic",
       "best_for": "5x4 multi-criteria evaluation matrix scoring 4 agent stacks across persistence, isolation, HITL, memory, and scale",
-      "inspired_by": "PromptCanvas Blueprint #64 (Feature Matrix Grid) \u2022 Google ADK vs. LangGraph vs. OpenHands vs. Raw API",
+      "inspired_by": "PromptCanvas Blueprint #64 (Feature Matrix Grid) • Google ADK vs. LangGraph vs. OpenHands vs. Raw API",
       "accent": "#0F2942",
       "hot_topic": "5x4 Agent Stack Evaluation Matrix: Persistence, Isolation, HITL, Memory & Scale",
       "files": {
         "svg": "T65.svg",
         "gif": "T65.gif",
-        "png": "T65.png"
-      }
+        "png": "T65.png",
+        "drawio": "T65.drawio",
+        "pptx": "T65.pptx"
+      },
+      "google_slides_id": "19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk",
+      "google_slides_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T66",
@@ -1241,17 +1325,23 @@
       ],
       "when_to_use": "Show the 4-tier evolution of AI systems from Base Foundation Model (01) to Tool Calling (02) to Multi-Agent (03) to Autonomous Self-Healing Apex (04).",
       "dynamic": "Upward evolution spine climbs the 4-tier 3D trapezoid pyramid while side conduits link tier definitions to Google Cloud + OSS capabilities.",
-      "lineage": "PromptCanvas Blueprint #65 (Capability Pyramid Infographic) \u2022 Google Cloud Agent Evolution Tiers",
+      "lineage": "PromptCanvas Blueprint #65 (Capability Pyramid Infographic) • Google Cloud Agent Evolution Tiers",
       "category": "PromptCanvas Infographic",
       "best_for": "4-tier ascending capability pyramid from Base Foundation Model (01) to Tool Calling (02) to Multi-Agent (03) to Autonomous Apex (04)",
-      "inspired_by": "PromptCanvas Blueprint #65 (Capability Pyramid Infographic) \u2022 Google Cloud Agent Evolution Tiers",
+      "inspired_by": "PromptCanvas Blueprint #65 (Capability Pyramid Infographic) • Google Cloud Agent Evolution Tiers",
       "accent": "#059669",
       "hot_topic": "The 4-Tier Agent Capability Pyramid: Raw Inference -> Tools -> Multi-Agent -> Autonomous",
       "files": {
         "svg": "T66.svg",
         "gif": "T66.gif",
-        "png": "T66.png"
-      }
+        "png": "T66.png",
+        "drawio": "T66.drawio",
+        "pptx": "T66.pptx"
+      },
+      "google_slides_id": "1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T67",
@@ -1265,17 +1355,23 @@
       ],
       "when_to_use": "Visualize the circular 4-stage autonomous agent loop (01 Generate -> 02 Sandbox Test -> 03 Eval Gate -> 04 Self-Healing Retry or PASS Deploy).",
       "dynamic": "Packets orbit the 4-quadrant central torus ring, branching on FAIL to the RETRY ACTIVE feedback path or on PASS to DEPLOY ON.",
-      "lineage": "PromptCanvas Blueprint #66 (Loop & Cycle Infographic) \u2022 Autonomous Self-Healing Evaluation Cycle",
+      "lineage": "PromptCanvas Blueprint #66 (Loop & Cycle Infographic) • Autonomous Self-Healing Evaluation Cycle",
       "category": "PromptCanvas Infographic",
       "best_for": "Circular 4-quadrant torus loop connecting Model Generation, Sandboxed Test, Evaluation Gate (PASS/FAIL), and Self-Healing Retry",
-      "inspired_by": "PromptCanvas Blueprint #66 (Loop & Cycle Infographic) \u2022 Autonomous Self-Healing Evaluation Cycle",
+      "inspired_by": "PromptCanvas Blueprint #66 (Loop & Cycle Infographic) • Autonomous Self-Healing Evaluation Cycle",
       "accent": "#2563EB",
       "hot_topic": "Autonomous Self-Healing Agent Loop: Generate -> Sandbox Test -> Gate -> Repair",
       "files": {
         "svg": "T67.svg",
         "gif": "T67.gif",
-        "png": "T67.png"
-      }
+        "png": "T67.png",
+        "drawio": "T67.drawio",
+        "pptx": "T67.pptx"
+      },
+      "google_slides_id": "1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls",
+      "google_slides_url": "https://docs.google.com/presentation/d/1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T68",
@@ -1289,17 +1385,503 @@
       ],
       "when_to_use": "Explain why agent knowledge should live in Open Formats (01), validated by a Schema Harness (02), healed by a Validation Loop (03), and linked in a Graph (04).",
       "dynamic": "Packets flow down the 4-tier Open Knowledge vertical spine and across format/schema/validator/graph hubs with RULE 01-04 bars.",
-      "lineage": "PromptCanvas Open Knowledge Spine \u2022 LangChain OpenWiki",
+      "lineage": "PromptCanvas Open Knowledge Spine • LangChain OpenWiki",
       "category": "PromptCanvas Infographic",
       "best_for": "4-tier vertical spine illustrating Open Formats (01), Schema Harness (02), Validation Loop (03), and Knowledge Graph (04)",
-      "inspired_by": "PromptCanvas Open Knowledge Format Infographic \u2022 LangChain OpenWiki & Deterministic Knowledge Graphs",
+      "inspired_by": "PromptCanvas Open Knowledge Format Infographic • LangChain OpenWiki & Deterministic Knowledge Graphs",
       "accent": "#0D9488",
       "hot_topic": "Open Knowledge Architecture: Formats + Schema Harness + Validation Loop + Graph",
       "files": {
         "svg": "T68.svg",
         "gif": "T68.gif",
-        "png": "T68.png"
-      }
+        "png": "T68.png",
+        "drawio": "T68.drawio",
+        "pptx": "T68.pptx"
+      },
+      "google_slides_id": "12zuYvrOthfRefhY9yTuBjmz__IlD7b1Oc-7NaUxl7h0",
+      "google_slides_url": "https://docs.google.com/presentation/d/12zuYvrOthfRefhY9yTuBjmz__IlD7b1Oc-7NaUxl7h0/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/12zuYvrOthfRefhY9yTuBjmz__IlD7b1Oc-7NaUxl7h0/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T69",
+      "name": "Harness² Recursive Agent Harnessing Spine",
+      "best_for_short": "Static Trap + Dynamic Synthesis + Critic Loop + +22pp Gain",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Research topics",
+        "Grounded concepts",
+        "Evaluation results"
+      ],
+      "when_to_use": "Deconstruct Google's Harness² paper (arXiv:2604.08523): why static hand-built harnesses fail in open worlds and how recursive meta-harness synthesis adds +22pp on NoveltyBench.",
+      "dynamic": "Packets traverse the 4-tier recursive Harness² spine from open-world task distribution shift to dynamic tool synthesis, verification loop, and +22pp benchmark gains.",
+      "lineage": "Google Harness² (arXiv:2604.08523) • Aishwarya Naresh Reganti",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier recursive agent harness breakdown (Static Trap, Dynamic Synthesis, Verification Loop, +22pp Benchmark Gains)",
+      "inspired_by": "Google Harness² Paper (arXiv:2604.08523) • Aishwarya Naresh Reganti • Vertex AI ADK + OpenHands",
+      "accent": "#2563EB",
+      "hot_topic": "Harness²: Recursive Agent Harnessing for an Open World (+22pp NoveltyBench)",
+      "files": {
+        "svg": "T69.svg",
+        "gif": "T69.gif",
+        "png": "T69.png",
+        "drawio": "T69.drawio",
+        "pptx": "T69.pptx"
+      },
+      "google_slides_id": "1m8ftvKAfEs4v3webmvdYYWECau_Zow0sxetPbi5ZFEs",
+      "google_slides_url": "https://docs.google.com/presentation/d/1m8ftvKAfEs4v3webmvdYYWECau_Zow0sxetPbi5ZFEs/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1m8ftvKAfEs4v3webmvdYYWECau_Zow0sxetPbi5ZFEs/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T70",
+      "name": "5 Open-Source Agent Repos Stack Spine",
+      "best_for_short": "gstack + Paperclip + agency-agents + rowboat + multica",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Working solution",
+        "Professional knowledge sharing",
+        "Easy to understand"
+      ],
+      "when_to_use": "Map the 5 open-source agent repositories (gstack, Paperclip, agency-agents, rowboat, multica) across Role Skills, Org Orchestration, Memory Graph, and CI/CD Coding.",
+      "dynamic": "Packets flow across the 5-repo architectural spine from Garry Tan's 23 gstack role skills to Paperclip + agency-agents orchestration, rowboat graph memory, and multica CI/CD.",
+      "lineage": "5 Agent Repos Stack • Vaibhav Sisinty (112K+ Combined GitHub Stars)",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier open-source agent repository stack covering role skills, multi-agent orgs, persistent memory graphs, and CI/CD coding",
+      "inspired_by": "Vaibhav Sisinty • gstack + Paperclip + agency-agents + rowboat + multica • Google Cloud ADK + OpenHands",
+      "accent": "#7C3AED",
+      "hot_topic": "The 5-Repo Agent Engineering Stack: Skills, Orchestration, Memory & CI/CD",
+      "files": {
+        "svg": "T70.svg",
+        "gif": "T70.gif",
+        "png": "T70.png",
+        "drawio": "T70.drawio",
+        "pptx": "T70.pptx"
+      },
+      "google_slides_id": "1XdopOPFjVHEvQj6g0DnXBLXWJjTSFdjz-R65idf75Uk",
+      "google_slides_url": "https://docs.google.com/presentation/d/1XdopOPFjVHEvQj6g0DnXBLXWJjTSFdjz-R65idf75Uk/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1XdopOPFjVHEvQj6g0DnXBLXWJjTSFdjz-R65idf75Uk/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T71",
+      "name": "3-Track Data Modeling & Medallion Map Spine",
+      "best_for_short": "Design Track + Meaning Track + Consumption Track + 3x3 Matrix",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Grounded concepts",
+        "Educational",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Align data architecture across Track 1 Design (Conceptual/Logical/Physical -> Bronze/Silver/Gold), Track 2 Meaning (Glossary/Ontology/Knowledge Graph), and Track 3 Consumption (Semantic Layer).",
+      "dynamic": "Packets flow from Conceptual/Logical/Physical Medallion design into Domain Ontology grounding, Semantic Layer KPI validation, and the 3x3 Data Modeling Matrix.",
+      "lineage": "The Data Modeling Map: 3 Questions, 3 Tracks • Nan Li",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier data modeling and Medallion architecture spine uniting physical schema design, semantic ontology, and governed consumption",
+      "inspired_by": "Nan Li • 3-Track Data Modeling Map • Google Cloud BigQuery + Dataplex + dbt / Looker + pgvector",
+      "accent": "#0D9488",
+      "hot_topic": "The Data Modeling Map: Design, Meaning & Semantic Consumption Tracks",
+      "files": {
+        "svg": "T71.svg",
+        "gif": "T71.gif",
+        "png": "T71.png",
+        "drawio": "T71.drawio",
+        "pptx": "T71.pptx"
+      },
+      "google_slides_id": "1PQo5l37NujJqaywYZwlMixTb0YpFN-UtCdFtsLBTwCo",
+      "google_slides_url": "https://docs.google.com/presentation/d/1PQo5l37NujJqaywYZwlMixTb0YpFN-UtCdFtsLBTwCo/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1PQo5l37NujJqaywYZwlMixTb0YpFN-UtCdFtsLBTwCo/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T72",
+      "name": "TokenEconomizer Black-Box Cost Controller Spine",
+      "best_for_short": "Trace Loop + Micro-Skills + Tool Pruning + SWE-Bench (-30.9%)",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Evaluation results",
+        "Research topics",
+        "Working solution"
+      ],
+      "when_to_use": "Show how UC Berkeley & Microsoft's TokenEconomizer cuts coding agent cost by 18.4%-30.9% across 30/30 SWE-Bench Verified configs via micro-skills, tool pruning (23->3), and loop intervention.",
+      "dynamic": "Packets circulate through the closed-loop trace analyzer, pre-task schema pruner, 3-turn stall breaker, and SWE-Bench Verified cost/solve-rate scoreboard.",
+      "lineage": "UC Berkeley & Microsoft TokenEconomizer • Alena Panshina",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier black-box coding agent cost controller combining trace analysis, 3-line micro-skills, schema pruning, and loop intervention",
+      "inspired_by": "Alena Panshina • UC Berkeley & Microsoft TokenEconomizer • Vertex AI Gemini + OpenHands",
+      "accent": "#059669",
+      "hot_topic": "TokenEconomizer: Experience-Driven Black-Box Coding Agent Cost Control (-30.9%)",
+      "files": {
+        "svg": "T72.svg",
+        "gif": "T72.gif",
+        "png": "T72.png",
+        "drawio": "T72.drawio",
+        "pptx": "T72.pptx"
+      },
+      "google_slides_id": "12z5r7OwTaZaJtGNtloGkeAo2NHjC6EoKcTWq_la3dfE",
+      "google_slides_url": "https://docs.google.com/presentation/d/12z5r7OwTaZaJtGNtloGkeAo2NHjC6EoKcTWq_la3dfE/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/12z5r7OwTaZaJtGNtloGkeAo2NHjC6EoKcTWq_la3dfE/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T73",
+      "name": "11-Zone Production Agentic AI Reference Spine",
+      "best_for_short": "Perimeter + AgentCore Gateway + Approval Gate + AgentOps",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Working solution",
+        "Grounded concepts",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Architect an 11-zone production enterprise agent covering Perimeter & Channels (Zones 1-2), Supervisor Runtime (3, 9, 10), AgentCore Gateway + RAG (4, 6, 7), Approval Gate (5), and AgentOps (8, 11).",
+      "dynamic": "Packets traverse zero-trust ingress, OAuth identity-propagating AgentCore Gateway, risk-tiered HITL approval gates, and OpenTelemetry AgentOps observability.",
+      "lineage": "11-Zone Production Agentic AI Reference Architecture • Rajesh Kumar",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier synthesis of the 11-zone enterprise agent reference architecture with identity propagation, risk-tiered approvals, and AgentOps",
+      "inspired_by": "Rajesh Kumar • 11-Zone Production Agentic AI Architecture • Google Cloud GKE + Apigee + LangGraph",
+      "accent": "#2563EB",
+      "hot_topic": "11-Zone Production Agentic AI Reference Architecture: Gateway, Approvals & AgentOps",
+      "files": {
+        "svg": "T73.svg",
+        "gif": "T73.gif",
+        "png": "T73.png",
+        "drawio": "T73.drawio",
+        "pptx": "T73.pptx"
+      },
+      "google_slides_id": "1UqfaBydn0uSP9COi-1_D_W8dxVbUjaXMNmt35m30Vow",
+      "google_slides_url": "https://docs.google.com/presentation/d/1UqfaBydn0uSP9COi-1_D_W8dxVbUjaXMNmt35m30Vow/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1UqfaBydn0uSP9COi-1_D_W8dxVbUjaXMNmt35m30Vow/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T74",
+      "name": "6-Vendor AI Agent Sandbox Isolation Spine",
+      "best_for_short": "Kernel Isolation + Secret Proxy + Sandbox Loop + 6-Vendor Matrix",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Grounded concepts",
+        "Evaluation results",
+        "Working solution"
+      ],
+      "when_to_use": "Compare how Google (GKE Agent Sandbox gVisor), AWS (Bedrock AgentCore + Strands), Microsoft (Windows Agent Workspace), NVIDIA (OpenShell DPU), Perplexity (SPACE), and OpenAI isolate agent code.",
+      "dynamic": "Packets flow through microVM kernel isolation, externalized secret broker injection, syscall/egress interception loops, and the 6-vendor sandbox comparison matrix.",
+      "lineage": "The AI Agent Sandbox Landscape (6 Vendors) • Rakesh Gohel",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier security architecture comparing kernel isolation, externalized credential proxies, syscall loops, and 6 cloud/AI sandbox stacks",
+      "inspired_by": "Rakesh Gohel • 6-Vendor AI Agent Sandbox Landscape • Google Cloud GKE gVisor + OpenHands",
+      "accent": "#DC2626",
+      "hot_topic": "The AI Agent Sandbox Landscape: How Google, AWS, MSFT & NVIDIA Isolate Agent Code",
+      "files": {
+        "svg": "T74.svg",
+        "gif": "T74.gif",
+        "png": "T74.png",
+        "drawio": "T74.drawio",
+        "pptx": "T74.pptx"
+      },
+      "google_slides_id": "1a1PErom5XVvTF6E0YroCnpZqt7ilnawgRe6XCCWcMes",
+      "google_slides_url": "https://docs.google.com/presentation/d/1a1PErom5XVvTF6E0YroCnpZqt7ilnawgRe6XCCWcMes/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1a1PErom5XVvTF6E0YroCnpZqt7ilnawgRe6XCCWcMes/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T75",
+      "name": "Anatomy of an AI Agent: 5 Building Blocks Spine",
+      "best_for_short": "Brain (LLM) + Library (RAG) + Nerves (MCP) + Memory (Skills) + Hands",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Easy to understand",
+        "Educational",
+        "Grounded concepts"
+      ],
+      "when_to_use": "Explain the 5 building blocks of a modern AI agent using crisp human-body analogies: 1. LLM = Brain, 2. RAG = Library, 3. MCP = Nervous System, 4. Skills = Muscle Memory, 5. Agent = Brain + Hands.",
+      "dynamic": "Packets connect the reasoning LLM Brain and RAG Library through the MCP Nervous System and SKILL.md Muscle Memory into self-verifying Agent Hands.",
+      "lineage": "Anatomy of an AI Agent: 5 Building Blocks • Harish Kumar",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier intuitive breakdown of LLM, RAG, MCP, Skills, and AI Agents with concrete production prompts",
+      "inspired_by": "Harish Kumar • Anatomy of an AI Agent (5 Building Blocks) • Vertex AI Gemini + MCP + OpenHands",
+      "accent": "#7C3AED",
+      "hot_topic": "Anatomy of an AI Agent: Brain (LLM), Library (RAG), Nerves (MCP), Memory (Skills) & Hands",
+      "files": {
+        "svg": "T75.svg",
+        "gif": "T75.gif",
+        "png": "T75.png",
+        "drawio": "T75.drawio",
+        "pptx": "T75.pptx"
+      },
+      "google_slides_id": "12901SpuX5d4-rdtMyechy6VUPLRgVf94tQySV92klRQ",
+      "google_slides_url": "https://docs.google.com/presentation/d/12901SpuX5d4-rdtMyechy6VUPLRgVf94tQySV92klRQ/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/12901SpuX5d4-rdtMyechy6VUPLRgVf94tQySV92klRQ/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T76",
+      "name": "12 Google Cloud Concepts for AI Engineers Spine",
+      "best_for_short": "AI Core (1-3) + Compute/Vector (4-7) + Streams (8-10) + IAM/Monitoring (11-12)",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Educational",
+        "Easy to understand",
+        "Working solution"
+      ],
+      "when_to_use": "Teach how the 12 core Google Cloud services (Vertex AI, Gemini API, TPUs/GPUs, Cloud Run, GKE, Vector Search, GCS, Pub/Sub, Dataflow, BigQuery, IAM/Secrets, Monitoring) fit together.",
+      "dynamic": "Packets flow from Vertex AI + Gemini + TPUs through Cloud Run/GKE + Vector Search + GCS, across Pub/Sub + Dataflow -> BigQuery, under IAM & Cloud Monitoring.",
+      "lineage": "12 Google Cloud Concepts Every AI Engineer Must Know • Gautami Nadkarni",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier end-to-end map of the 12 essential Google Cloud AI, compute, vector memory, streaming, and security services",
+      "inspired_by": "Gautami Nadkarni • 12 Google Cloud AI Concepts • Vertex AI + Cloud Run + GKE + BigQuery + OpenTelemetry",
+      "accent": "#2563EB",
+      "hot_topic": "12 Google Cloud Concepts Every AI Engineer Must Know: From Vertex AI to BigQuery",
+      "files": {
+        "svg": "T76.svg",
+        "gif": "T76.gif",
+        "png": "T76.png",
+        "drawio": "T76.drawio",
+        "pptx": "T76.pptx"
+      },
+      "google_slides_id": "1YDuwoGe3d0eu7l1VzHumYKINxyYVGI7tBLKrOVyIMIA",
+      "google_slides_url": "https://docs.google.com/presentation/d/1YDuwoGe3d0eu7l1VzHumYKINxyYVGI7tBLKrOVyIMIA/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1YDuwoGe3d0eu7l1VzHumYKINxyYVGI7tBLKrOVyIMIA/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T77",
+      "name": "2026 Pharma R&D & Life Sciences Bio-AI Spine",
+      "best_for_short": "Hypothesis Copilots + Virtual Cells + 4 R&D Gates + 2026 Scorecard",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Research topics",
+        "Evaluation results",
+        "Domain application"
+      ],
+      "when_to_use": "Synthesize the 6 landmark 2026 Pharma R&D AI systems (Gemini Co-Scientist KIRA6 10nM AML hit, Robin RBM24 2.27x AMD hit, MAMMAL 2B samples, MolGenBench, Virtual Screening, VirtualCell) and 4 GxP gates.",
+      "dynamic": "Packets link literature/omics hypothesis copilots to robotic wet-lab assays, MAMMAL + VirtualCell perturbation twins, 21 CFR Part 11 GxP gates, and preclinical readouts.",
+      "lineage": "2026 Signals from AI in Pharma R&D & Life Sciences • Himanshu Jain",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier life-sciences AI architecture connecting wet-lab closed loops, multimodal foundation models, virtual cells, and GxP release gates",
+      "inspired_by": "Himanshu Jain • 2026 Signals from AI in Pharma R&D • Google Co-Scientist + Vertex AI + MAMMAL + OpenHands",
+      "accent": "#059669",
+      "hot_topic": "2026 Signals from AI in Pharma R&D: Closed-Loop Wet Labs, MAMMAL & Virtual Cells",
+      "files": {
+        "svg": "T77.svg",
+        "gif": "T77.gif",
+        "png": "T77.png",
+        "drawio": "T77.drawio",
+        "pptx": "T77.pptx"
+      },
+      "google_slides_id": "1NS0Dr5s1U_ya-orRLefXigNopMCpIdjr7rpce-beo5U",
+      "google_slides_url": "https://docs.google.com/presentation/d/1NS0Dr5s1U_ya-orRLefXigNopMCpIdjr7rpce-beo5U/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1NS0Dr5s1U_ya-orRLefXigNopMCpIdjr7rpce-beo5U/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T78",
+      "name": "Ultimate 6-Stage Agentic Coding Workflow Spine",
+      "best_for_short": "6-Stage Flow + Rules/Skills/Subagents + Deterministic Hooks + Power Patterns",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Working solution",
+        "Easy to understand",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "codify the 6-stage agentic coding workflow (Explore -> Plan -> Implement -> Verify -> Review -> Commit), modular AGENTS.md + SKILL.md rules, isolated subagents, and deterministic post-edit hooks.",
+      "dynamic": "Packets progress through Explore & Plan, delegate to isolated Explorer/QA/Security subagents via MCP, validate diffs in the post-edit hook loop, and score PR quality.",
+      "lineage": "Ultimate Agentic Coding Guide (6-Stage Workflow) • Matt Village",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier agentic coding engineering guide covering the 6-stage workflow, modular rules/skills, isolated subagents, and post-edit hooks",
+      "inspired_by": "Matt Village • Ultimate Agentic Coding Guide • Google Antigravity / Gemini CLI + OpenHands + MCP",
+      "accent": "#0F2942",
+      "hot_topic": "Ultimate 6-Stage Agentic Coding Guide: Explore, Plan, Subagents & Deterministic Hooks",
+      "files": {
+        "svg": "T78.svg",
+        "gif": "T78.gif",
+        "png": "T78.png",
+        "drawio": "T78.drawio",
+        "pptx": "T78.pptx"
+      },
+      "google_slides_id": "1GujPHlWxTPMmyQzGKYVzVy3AQjRgzKac1O-FgRnMoT4",
+      "google_slides_url": "https://docs.google.com/presentation/d/1GujPHlWxTPMmyQzGKYVzVy3AQjRgzKac1O-FgRnMoT4/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1GujPHlWxTPMmyQzGKYVzVy3AQjRgzKac1O-FgRnMoT4/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T79",
+      "name": "Constrained Decoding & Semantic Gate Spine",
+      "best_for_short": "Prompt JSON + Grammar Mask + Semantic Gate + Zero Retry",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Working solution",
+        "Grounded concepts",
+        "Evaluation results"
+      ],
+      "when_to_use": "Contrast prompt-based JSON ('return only JSON', 99/100 trap) against FSM/CFG Constrained Decoding (100% valid shape) plus a deterministic Semantic Gate verifying foreign-key meaning.",
+      "dynamic": "Packets flow through FSM/CFG token masking, Pydantic schema compilation, CRM foreign-key semantic checks, and zero-retry production scorecards.",
+      "lineage": "Prompt-Based JSON vs. Constrained Decoding (CDM) • Sivasankar Natarajan",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier structured-output engineering breakdown contrasting prose JSON prompts against FSM grammar masks and semantic verification",
+      "inspired_by": "Sivasankar Natarajan • Constrained Decoding & Semantic Verification • Google Cloud Vertex AI Controlled Generation + vLLM Outlines",
+      "accent": "#2563EB",
+      "hot_topic": "Prompt-Based JSON vs. Constrained Decoding: Why 99/100 Valid Replies Still Break Pipelines",
+      "files": {
+        "svg": "T79.svg",
+        "gif": "T79.gif",
+        "png": "T79.png",
+        "drawio": "T79.drawio",
+        "pptx": "T79.pptx"
+      },
+      "google_slides_id": "1w2wGc9dYagoCB38cqgmd9lmLkXftQsWr75WcKjHvCLY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1w2wGc9dYagoCB38cqgmd9lmLkXftQsWr75WcKjHvCLY/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1w2wGc9dYagoCB38cqgmd9lmLkXftQsWr75WcKjHvCLY/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T80",
+      "name": "9 Typed Micro-Decisions in the Agent Loop Spine",
+      "best_for_short": "Before Call (01-03) + Inside Loop (04-06) + After Answer (07-09)",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Grounded concepts",
+        "Working solution",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Map the 9 bounded micro-decisions (input screening, retrieval gate, risk score, tool gate, stop check, model router, grounding audit, memory filter, handoff) to calibrated System-1 classifiers.",
+      "dynamic": "Packets route through <15ms single-pass bool/choice/score gates before, inside, and after the main LLM call, cutting full LLM invocations by 60%-75%.",
+      "lineage": "Where TypeSafe Jev Fits in the Agent Loop (9 Micro-Decisions) • Rathnakumar Udayakumar",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier System-1 vs. System-2 agent loop map offloading 9 bounded bool/choice/score decisions from full frontier LLM calls",
+      "inspired_by": "Rathnakumar Udayakumar • 9 Typed Micro-Decisions in the Agent Loop • Google Cloud Model Armor + Vertex AI + vLLM / LiteLLM",
+      "accent": "#7C3AED",
+      "hot_topic": "9 Micro-Decisions Inside Your Agent Loop That Should Not Be Full LLM Calls",
+      "files": {
+        "svg": "T80.svg",
+        "gif": "T80.gif",
+        "png": "T80.png",
+        "drawio": "T80.drawio",
+        "pptx": "T80.pptx"
+      },
+      "google_slides_id": "13DumpG21XZaSSnaKprfLMUD64pT9jk-O7qk8SoRqk80",
+      "google_slides_url": "https://docs.google.com/presentation/d/13DumpG21XZaSSnaKprfLMUD64pT9jk-O7qk8SoRqk80/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/13DumpG21XZaSSnaKprfLMUD64pT9jk-O7qk8SoRqk80/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T81",
+      "name": "8-Phase Harness Engineering Curriculum Spine",
+      "best_for_short": "Repo Rules + Continuity + Maker-Checker + Graph Rollback",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Educational",
+        "Working solution",
+        "Easy to understand"
+      ],
+      "when_to_use": "Present a step-by-step 8-phase harness engineering curriculum (repo rules, context/memory, session continuity, verification/traces, Maker-Checker loops, parallel DAG rollback).",
+      "dynamic": "Packets progress across 14 lectures and 8 real-app projects from AGENTS.md repo structure to trace-verified loops, Maker-Checker gates, and checkpointed graph rollback.",
+      "lineage": "Harness Engineering from Scratch (walkinglabs, 21K+ Stars) • Mayank A.",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier open-source engineering curriculum map evolving one real application across 8 progressive agent-harness phases",
+      "inspired_by": "Mayank A. • walkinglabs/learn-harness-engineering • Google Cloud ADK + OpenHands + OpenTelemetry",
+      "accent": "#059669",
+      "hot_topic": "Harness Engineering from Scratch: 8 Phases Beyond Prompt-Only Agent Demos",
+      "files": {
+        "svg": "T81.svg",
+        "gif": "T81.gif",
+        "png": "T81.png",
+        "drawio": "T81.drawio",
+        "pptx": "T81.pptx"
+      },
+      "google_slides_id": "1JUspmb5kwz56tmyCT6_6f-J_yscjq3ogevV5NHAO4yE",
+      "google_slides_url": "https://docs.google.com/presentation/d/1JUspmb5kwz56tmyCT6_6f-J_yscjq3ogevV5NHAO4yE/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1JUspmb5kwz56tmyCT6_6f-J_yscjq3ogevV5NHAO4yE/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T82",
+      "name": "Agent Code Review Replay-Set & Misses Spine",
+      "best_for_short": "Replay Set + Causal Triage + Dual Timers + SHA Revision Gate",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Evaluation results",
+        "Working solution",
+        "Professional knowledge sharing"
+      ],
+      "when_to_use": "Design an independent evaluation harness for AI code reviewers using seeded defects, unusual valid PRs, clean baselines, dual timers (run vs. assess), and commit-SHA pinning.",
+      "dynamic": "Packets test seeded auth/race bugs and clean PRs, separate bot latency from human triage cost, and bind review sign-off to the exact Git commit SHA.",
+      "lineage": "Agent Code Review: Measure What It Missed • Bally S Kehal",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier engineering evaluation harness measuring missed defects, false-alarm triage tax, and commit-SHA revision pinning",
+      "inspired_by": "Bally S Kehal • Agent Code Review Evaluation Design • Google Cloud Gemini Code Assist + ADK + OpenHands",
+      "accent": "#0D9488",
+      "hot_topic": "Agent Code Review: Why Teams Must Measure Missed Defects & Human Triage Time",
+      "files": {
+        "svg": "T82.svg",
+        "gif": "T82.gif",
+        "png": "T82.png",
+        "drawio": "T82.drawio",
+        "pptx": "T82.pptx"
+      },
+      "google_slides_id": "15vK7Z8X_ASnH1NmpZS6OhPsZlB0a04LI05WKbrziSM4",
+      "google_slides_url": "https://docs.google.com/presentation/d/15vK7Z8X_ASnH1NmpZS6OhPsZlB0a04LI05WKbrziSM4/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/15vK7Z8X_ASnH1NmpZS6OhPsZlB0a04LI05WKbrziSM4/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T83",
+      "name": "Multi-Trial Agent Evals & pass^k Reliability Spine",
+      "best_for_short": "Real Tasks + Isolated Trials + Code/Judge + pass^k (42.2%) Gate",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Evaluation results",
+        "Grounded concepts",
+        "Educational"
+      ],
+      "when_to_use": "Explain why a 75% per-run agent passes 3 consecutive runs (pass^3) only 42.2% of the time, and how to grade Outcome, Trajectory, Restraint, and calibrated 'unknown' rubrics.",
+      "dynamic": "Packets run k=5 isolated env.reset() trials across failure + restraint tasks, run deterministic DB assertions before calibrated judges, and gate shipping on pass^k.",
+      "lineage": "Evaluating AI Agents Properly: Outcome, Trajectory & pass^k • Shivani Virdi",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier agent evaluation guide contrasting optimistic pass@k against customer-facing pass^k reliability and restraint checks",
+      "inspired_by": "Shivani Virdi • Multi-Turn Agent Evaluation & pass^k Reliability • Google Cloud Vertex AI Eval + Promptfoo + OpenHands",
+      "accent": "#DC2626",
+      "hot_topic": "Why a 75% Agent Fails 57.8% of 3-Run Workflows: Evaluating Outcome, Trajectory & pass^k",
+      "files": {
+        "svg": "T83.svg",
+        "gif": "T83.gif",
+        "png": "T83.png",
+        "drawio": "T83.drawio",
+        "pptx": "T83.pptx"
+      },
+      "google_slides_id": "18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs",
+      "google_slides_url": "https://docs.google.com/presentation/d/18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs/preview",
+      "editable_slide_count": 5
+    },
+    {
+      "id": "T84",
+      "name": "Inference Engineering Roofline & Goodput Spine",
+      "best_for_short": "Prefill vs Decode + KV-Cache Math + Batching + SLO Goodput",
+      "content_types": [
+        "PromptCanvas Infographic",
+        "Grounded concepts",
+        "Evaluation results",
+        "Research topics"
+      ],
+      "when_to_use": "Deconstruct LLM serving from first principles: compute-bound Prefill (TTFT) vs. HBM-bandwidth-bound Decode (ITL/TPOT), KV-cache byte math, PagedAttention/FP8, and SLO Goodput.",
+      "dynamic": "Packets split across compute-bound prefill and HBM-bound decode pools, apply PagedAttention + chunked prefill + speculative decoding, and optimize p99 SLO Goodput.",
+      "lineage": "Inference Engineering Reference Sheet: Roofline, KV-Cache & Goodput • Pallavi Ahuja",
+      "category": "PromptCanvas Infographic",
+      "best_for": "4-tier systems reference sheet linking Roofline hardware regimes, KV-cache byte math, continuous batching, and SLO Goodput diagnosis",
+      "inspired_by": "Pallavi Ahuja • Inference Engineering Reference Sheet • Google Cloud GKE TPU/GPU + Vertex AI + vLLM",
+      "accent": "#2563EB",
+      "hot_topic": "Inference Engineering Reference Sheet: Prefill vs. Decode, KV-Cache Math & SLO Goodput",
+      "files": {
+        "svg": "T84.svg",
+        "gif": "T84.gif",
+        "png": "T84.png",
+        "drawio": "T84.drawio",
+        "pptx": "T84.pptx"
+      },
+      "google_slides_id": "1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI",
+      "google_slides_url": "https://docs.google.com/presentation/d/1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI/preview",
+      "editable_slide_count": 5
     }
   ]
 }

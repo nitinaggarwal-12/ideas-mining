@@ -18,9 +18,15 @@ trap 'rm -rf "$TMP_DIR"' EXIT
 
 cp -R public "$TMP_DIR/public"
 cp -R src "$TMP_DIR/src"
+cp -R data "$TMP_DIR/data"
+mkdir -p "$TMP_DIR/scripts"
+cp scripts/generate_daily_posts.py "$TMP_DIR/scripts/generate_daily_posts.py"
 mkdir -p "$TMP_DIR/assets"
 cp -R assets/dynamic-top10 "$TMP_DIR/assets/dynamic-top10"
 cp -R assets/template-gallery "$TMP_DIR/assets/template-gallery"
+if [[ -d assets/daily-posts ]]; then
+  cp -R assets/daily-posts "$TMP_DIR/assets/daily-posts"
+fi
 cp -R generated-repos "$TMP_DIR/generated-repos"
 rm -rf "$TMP_DIR"/generated-repos/*/.git
 cp server.py "$TMP_DIR/server.py"

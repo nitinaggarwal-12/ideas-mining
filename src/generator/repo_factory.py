@@ -356,10 +356,11 @@ def _build_repo_readme(post: Dict[str, Any]) -> str:
 - **Editable Draw.io Source (18 Cards + 23 Edges)**: [`./visuals/gcp-architecture-2d.drawio`](./visuals/gcp-architecture-2d.drawio)
 - **Editable Vector SVG**: [`./visuals/gcp-architecture-2d.svg`](./visuals/gcp-architecture-2d.svg)
 
-### Figure 3 — LinkedIn 2D Infographic Poster (`Nano Banana 3` + Vector SVG)
+### Figure 3 — Bespoke LinkedIn 2D Architecture Infographic Poster (Vector SVG + 2x Chrome PNG)
 ![LinkedIn 2D Infographic](./visuals/linkedin-infographic-2d.png)
 
-- **Nano Banana 3 Detailed Prompts**: [`./visuals/nano_banana_3_prompt.md`](./visuals/nano_banana_3_prompt.md)
+- **Deterministic 2D Architecture Specification**: [`./visuals/nano_banana_3_prompt.md`](./visuals/nano_banana_3_prompt.md)
+
 
 ---
 

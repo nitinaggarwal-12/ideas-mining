@@ -45,28 +45,39 @@ Instead of generating static markdown prompt templates (`BMAD`) or relying on un
 
 ---
 
-## 4. 68 Dynamic Visual Templates (`T01`–`T68` in `assets/template-gallery/`)
+## 4. 84 Dynamic Visual Templates (`T01`–`T84` in `assets/template-gallery/`) & 33 Live Google Slides Decks
 
-- **Pack 1 (`T01`–`T20`, [`src/visuals/template_gallery.py`](./src/visuals/template_gallery.py))**: 20 visual archetypes pairing Google Cloud primitives with open-source equivalents (`Pain-Point Flow`, `Split-Path Divergence`, `Hub-and-Spoke Core`, `Layered Stack`, `Swimlane Sequence`, `State Machine & Gates`, `Trade-off Matrix`, `Benchmark Delta Board`, `Evolution Timeline`, `Refinement Funnel`, `2x2 Risk Quadrant`, `Annotated Artifact`, `Code Diff & Proof`, `Readiness Scorecard`, `Research Mind-Map`, `Maturity Matrix`, `Attack & Defense Chain`, `Repo Anatomy Map`, `Myth vs. Reality`, `6-Axis Radar`).
-- **Pack 2 (`T21`–`T40`, [`src/visuals/template_gallery_v2.py`](./src/visuals/template_gallery_v2.py))**: 20 creator-signature formats modeled on top-followed Agentic AI / GenAI / LLM / Evaluation / Claude publications and primary sources (`Anthropic Building Effective Agents`, `Charlie Hills / Boris Cherny 10-Change Claude Code Playbook & 42 Add-ons`, `200K->60K Context Budget Ledger`, `Hamel Husain & Shreya Shankar Error Analysis`, `Eugene Yan / MT-Bench Judge Calibration`, `Google Agents Companion Trajectory Metrics`, `Brij Kishore Pandey 7-Layer Control Plane & ByteByteGo 9-Message MCP Sequence`, `Contextual Retrieval Sketch`, `Tom Yeh AI-by-Hand Cohen's κ`, `HarnessEvolve arXiv:2609.00829 Paper Digest`, `26-Line Runnable Loop Guard`, `Andrew Ng 4 Agentic Patterns`, `Ethan Mollick Jagged Frontier`, `Simon Willison Lethal Trifecta`, `Anthropic Multi-Agent Research Economics`, `Chip Huyen Cost Waterfall`, `Brij Kishore Pandey 'How Do We Turn It Off?' 5-Stage Lifecycle, 10-Field Agent Record & SRE Postmortem`, `Anthropic & Brij Kishore Pandey 5-Layer Claude Code ADK / SKILL.md Tool-Schema Clinic`, `CoALA & Lilian Weng Agent Memory Map`, `8-Week Build-in-Public Latency Changelog`).
+- **Pack 1 (`T01`–`T20`, [`src/visuals/template_gallery.py`](./src/visuals/template_gallery.py))**: 20 visual archetypes pairing Google Cloud primitives with open-source equivalents (`Pain-Point Flow` [`T01` recreated as a canonical 4-tier spine matching `T53`], `Split-Path Divergence`, `Hub-and-Spoke Core`, `Layered Stack`, `Swimlane Sequence`, `State Machine & Gates`, `Trade-off Matrix`, `Benchmark Delta Board`, `Evolution Timeline`, `Refinement Funnel`, `2x2 Risk Quadrant`, `Annotated Artifact`, `Code Diff & Proof`, `Readiness Scorecard`, `Research Mind-Map`, `Maturity Matrix`, `Attack & Defense Chain`, `Repo Anatomy Map`, `Myth vs. Reality`, `6-Axis Radar`).
+- **Pack 2 (`T21`–`T40`, [`src/visuals/template_gallery_v2.py`](./src/visuals/template_gallery_v2.py))**: 20 creator-signature formats modeled on top-followed Agentic AI / GenAI / LLM / Evaluation publications and primary sources (`Building Effective Agents`, `Charlie Hills / Boris Cherny 10-Change Agentic Coding Playbook & 42 Add-ons`, `200K->60K Context Budget Ledger`, `Hamel Husain & Shreya Shankar Error Analysis`, `Eugene Yan / MT-Bench Judge Calibration`, `Google Agents Companion Trajectory Metrics`, `Brij Kishore Pandey 7-Layer Control Plane & ByteByteGo 9-Message MCP Sequence`, `Contextual Retrieval Sketch`, `Tom Yeh AI-by-Hand Cohen's κ`, `HarnessEvolve arXiv:2609.00829 Paper Digest`, `26-Line Runnable Loop Guard`, `Andrew Ng 4 Agentic Patterns`, `Ethan Mollick Jagged Frontier`, `Simon Willison Lethal Trifecta`, `Multi-Agent Research Economics`, `Chip Huyen Cost Waterfall`, `Brij Kishore Pandey 'How Do We Turn It Off?' 5-Stage Lifecycle, 10-Field Agent Record & SRE Postmortem`, `Brij Kishore Pandey 5-Layer ADK / SKILL.md Tool-Schema Clinic`, `CoALA & Lilian Weng Agent Memory Map`, `8-Week Build-in-Public Latency Changelog`).
 - **Pack 3 (`T41`–`T52`, [`src/visuals/template_gallery_v3.py`](./src/visuals/template_gallery_v3.py))**: 12 systems-architect & engineering blog formats (`Swyx Latent Space`, `Karpathy LLM OS`, `Harrison Chase LangGraph State Machine`, `Philipp Schmid Production Serving`, `Gergely Orosz Pragmatic Engineer RFC`, `Jerry Liu Multimodal RAG`, `2-Agent Orchestrator/Reviewer Loop`, `5-Layer Enterprise Agentic OS`, `3-Pillar Eval-Driven Development`, `6-Card Bento Grid`, `A2A + MCP Protocol Interop`, `Agentic FinOps & Speculative Cascade`).
-- **Pack 4 (`T53`–`T68`, [`src/visuals/template_gallery_v4.py`](./src/visuals/template_gallery_v4.py))**: 16 canonical PromptCanvas Infographics (`#52`–`#66` + `Open Knowledge Reference Poster`) rendered directly from `PromptCanvas/src/lib/canonical/infographicBlueprints52to66.ts` and `openKnowledgeInfographic.ts` via `viewer-static.min.js` at `2x` Retina resolution (`Rule 57`).
+- **Pack 4 (`T53`–`T84`, [`src/visuals/template_gallery_v4.py`](./src/visuals/template_gallery_v4.py))**: 32 canonical PromptCanvas Infographics (`#52`–`#66` + `Open Knowledge Reference Poster` `T53`–`T68` + 16 LinkedIn Creator Signal Spine Infographics `T69`–`T84` spanning Aishwarya Naresh Reganti [`T69`], Vaibhav Sisinty [`T70`], Nan Li [`T71`], Alena Panshina [`T72`], Rajesh Kumar [`T73`], Rakesh Gohel [`T74`], Harish Kumar [`T75`], Gautami Nadkarni [`T76`], Himanshu Jain [`T77`], Matt Village [`T78`], Sivasankar Natarajan [`T79` Constrained Decoding & Semantic Verification], Rathnakumar Udayakumar [`T80` 9 Agent Micro-Decisions], Mayank A. [`T81` 8-Phase Harness Engineering], Bally S Kehal [`T82` Replay-Set Code Review Eval], Shivani Virdi [`T83` Multi-Trial `pass^k` & Restraint], and Pallavi Ahuja [`T84` Inference Roofline & Goodput]) rendered via `viewer-static.min.js` at `2x` Retina resolution (`Rule 57`), with `0.0px` connector alignment and **33 5-slide native editable `.pptx` + live Google Slides decks (`T01` + `T53`–`T84`)**.
 
 ---
 
-## 5. Quickstart, E2E Puppeteer Verification & Cloud Run Deployment
+## 5. End-to-End Daily Latest-Topic LinkedIn Post & Visual Generator (`STYLE-01..06` ⇄ `T79`–`T84`)
+
+`src/harvester/daily_post_generator.py` and `scripts/generate_daily_posts.py` harvest fresh daily AI/systems signals across **arXiv**, **Hacker News (Algolia)**, **GitHub Breakouts**, and **HuggingFace Daily Papers**, score every candidate across 4 dimensions (`novelty`, `quantitative_density`, `practitioner_utility`, `visualizability`), route across the 6 mined creator styles (`STYLE-01..06`), synthesize ready-to-publish LinkedIn post copy + Comment #1 primary-source link, and generate a custom zero-origin moving-arrow 2D SVG (`assets/daily-posts/<YYYY-MM-DD>/<POST-ID>.svg`).
+
+- **CLI / Cron**: `python3 scripts/generate_daily_posts.py --count 6 [--topic "..."] [--style AUTO|STYLE-01..06]`
+- **HTTP Endpoints**: `GET /api/daily-posts`, `POST /api/daily-posts/generate`, `GET /api/templates`, `GET /api/health`
+
+---
+
+## 6. Quickstart, E2E Puppeteer Verification & Cloud Run Deployment
 
 ```bash
-# 1. Sync canonical PromptCanvas infographics (T53-T68) and build all 18 standalone Git repositories
+# 1. Sync canonical PromptCanvas infographics (T01, T53-T84), compile slides, and generate today's LinkedIn edition
 node scripts/sync_canonical_promptcanvas_infographics.mjs
-python3 scripts/build_and_verify_all.py
+python3 scripts/generate_daily_posts.py --count 6
 
-# 2. Run the fail-closed forensic verification gate, unit tests & 23-assertion Puppeteer E2E suite
+# 2. Run unit tests, repo audit, inked-pixel arrow-label centering gate & Puppeteer E2E suite
 python3 scripts/verify_all_repos.py
 python3 -m unittest discover -s tests -p "test_*.py" -v
+node scripts/verify_arrow_label_inked_pixel_centering.mjs
 node scripts/e2e_puppeteer_functional_suite.mjs
 
-# 3. Deploy to Cloud Run (ramp-portal-dev us-west1 -> ideas-mining-00001-d4m)
-bash scripts/deploy_ideas_mining_cloudrun.sh
+# 3. Deploy to Cloud Run (ramp-portal-dev us-west1 -> https://ideas-mining-248990048888.cr.gclb.goog/)
+python3 /Users/nitinagga/Documents/notes/scripts/oci_deploy_remaining_services.py ideas-mining
 ```
+
 

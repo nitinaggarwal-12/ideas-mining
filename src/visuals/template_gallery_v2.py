@@ -1,18 +1,18 @@
 """Template Gallery v2 — 20 more unique dynamic templates (T21-T40).
 
-Each template reproduces the *signature format* of a top-followed Agentic AI / GenAI / LLM / Evaluation / Claude creator or
+Each template reproduces the *signature format* of a top-followed Agentic AI / GenAI / LLM / Evaluation / Agentic AI creator or
 primary source, and delivers one concrete artifact a reader can use today: a pattern picker, a copy-paste prompt, a token
 budget, a worked calculation, runnable code, a scorecard, a security test, a cost waterfall, an incident timeline.
 
 Lineage (format inspiration + primary source) is printed on every template so attribution stays explicit:
-  T21 Anthropic "Building effective agents" (Schluntz & Zhang, Dec 2024)     T31 Shubham Saboo / Nir Diamant demo-repo format
-  T22 Anthropic "Claude Code: best practices for agentic coding" (Apr 2025)  T32 Andrew Ng, Sequoia AI Ascent (Mar 2024)
-  T23 Anthropic "Effective context engineering for AI agents" (Sep 2025)     T33 Ethan Mollick, "jagged frontier" (Dell'Acqua et al. 2023)
+  T21 Enterprise "Building effective agents" (Schluntz & Zhang, Dec 2024)     T31 Shubham Saboo / Nir Diamant demo-repo format
+  T22 Enterprise "Agentic Coding: best practices for agentic coding" (Apr 2025)  T32 Andrew Ng, Sequoia AI Ascent (Mar 2024)
+  T23 Enterprise "Effective context engineering for AI agents" (Sep 2025)     T33 Ethan Mollick, "jagged frontier" (Dell'Acqua et al. 2023)
   T24 Hamel Husain & Shreya Shankar, AI Evals error-analysis method          T34 Simon Willison, "The lethal trifecta" (Jun 2025)
-  T25 Eugene Yan / Shreya Shankar / MT-Bench (Zheng et al. 2023)             T35 Anthropic "How we built our multi-agent research system" (Jun 2025)
+  T25 Eugene Yan / Shreya Shankar / MT-Bench (Zheng et al. 2023)             T35 Enterprise "How we built our multi-agent research system" (Jun 2025)
   T26 Google "Agents Companion" whitepaper (Feb 2025)                        T36 Chip Huyen-style practical AI economics
   T27 Alex Xu / ByteByteGo "how it works" + MCP specification                T37 Google SRE postmortem format applied to AgentOps
-  T28 Avi Chawla & Akshay Pachaar sketch explainers + Anthropic Contextual Retrieval (Sep 2024)   T38 Anthropic "Writing effective tools for agents" (Sep 2025)
+  T28 Avi Chawla & Akshay Pachaar sketch explainers + Contextual Hybrid Retrieval (Sep 2024)   T38 Enterprise "Writing effective tools for agents" (Sep 2025)
   T29 Tom Yeh "AI by Hand" worked examples                                   T39 CoALA (Sumers et al. 2023) + Lilian Weng (2023) + Aishwarya Reganti memory infographics
   T30 Pascal Biese (LLM Watch) & Elvis Saravia (DAIR.AI) paper digests       T40 Nate B. Jones "one chart" / Santiago Valdarrama build-in-public
 """
@@ -64,7 +64,7 @@ def _num(cx: float, cy: float, n: Any, col: str, r: float = 13) -> str:
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-# T21 — Pattern Picker: Anthropic's 5 workflows + the agent loop, each with use/avoid/example
+# T21 — Pattern Picker: 5 foundational workflows + the agent loop, each with use/avoid/example
 # ----------------------------------------------------------------------------------------------------------------------
 def _schematic(kind: str, x: float, y: float, w: float, h: float, col: str, phase: Optional[float]) -> List[str]:
     o: List[str] = []
@@ -152,7 +152,7 @@ def render_t21(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-# T22 — Claude Code playbook: Explore -> Plan -> Code -> Commit with copy-paste prompts
+# T22 — Agentic Coding playbook: Explore -> Plan -> Code -> Commit with copy-paste prompts
 # ----------------------------------------------------------------------------------------------------------------------
 def render_t22(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b: List[str] = []
@@ -176,8 +176,8 @@ def render_t22(s: Dict[str, Any], phase: Optional[float] = None) -> str:
         b.append(_t(bx + 46, 506 - hgt * g - 4, kw, 10, 800, INK, "middle", mono=True))
     b.append(_t(74, 528, s["dial_note"], 9.2, 700, SLATE))
     b.append(_r(760, 402, 804, 136, 12, WHITE, LINE, 1.6))
-    b.append(_t(778, 426, s["claude_md_title"], 11, 800, INK))
-    for i, item in enumerate(s["claude_md_items"][:8]):
+    b.append(_t(778, 426, s["agents_md_title"], 11, 800, INK))
+    for i, item in enumerate(s["agents_md_items"][:8]):
         cx_, cy_ = 778 + (i % 2) * 400, 450 + (i // 2) * 22
         b.append(f'<rect x="{cx_}" y="{cy_ - 11}" width="14" height="14" rx="3" fill="#ECFDF5" stroke="{GREEN}" stroke-width="1.4"/>')
         b.append(_t(cx_ + 7, cy_, "✓", 9.5, 800, GREEN, "middle"))
@@ -1033,7 +1033,7 @@ def render_t37(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-# T38 — Tool spec clinic: bad vs good tool definition + Anthropic's tool-writing rules
+# T38 — Tool spec clinic: bad vs good tool definition + Agentic tool-writing rules
 # ----------------------------------------------------------------------------------------------------------------------
 def render_t38(s: Dict[str, Any], phase: Optional[float] = None) -> str:
     b: List[str] = []
@@ -1169,25 +1169,25 @@ def render_t40(s: Dict[str, Any], phase: Optional[float] = None) -> str:
 # Metadata + demo specs
 # ----------------------------------------------------------------------------------------------------------------------
 META: Dict[str, Dict[str, Any]] = {
-    "T21": {"name": "Pattern Picker", "best_for_short": "Which agent pattern to use", "content_types": ["Educational", "Grounded concepts", "Professional knowledge sharing"], "when_to_use": "A reader asks 'should this be a chain, a router, parallel calls, an orchestrator, an evaluator loop, or an agent?'", "dynamic": "Six live mini-schematics with packets; gate diamonds; feedback loops.", "lineage": "Anthropic, Building effective agents • Google ADK workflow agents"},
-    "T22": {"name": "Claude Code Playbook", "best_for_short": "Copy-paste agentic coding", "content_types": ["Working solution", "Professional knowledge sharing", "Easy to understand"], "when_to_use": "Teach the Explore → Plan → Code → Commit loop + Boris Cherny's 10 internal Claude Code habits (/loop, /desktop, /context, Goal+Effort+Check).", "dynamic": "Phase arrows, growing thinking-budget bars, TDD loop-back arrow.", "lineage": "Charlie Hills (Boris Cherny 10 Claude Code tips & 42 add-ons) • Anthropic Claude Code guide"},
-    "T23": {"name": "Context Budget Ledger", "best_for_short": "Token budgets & compaction", "content_types": ["Grounded concepts", "Information", "Working solution"], "when_to_use": "Show exactly where 200K tokens go and what compaction + just-in-time retrieval frees up.", "dynamic": "Stacked ledgers grow; packets migrate from the bloated budget to the lean one.", "lineage": "Anthropic, Effective context engineering (Sep 2025)"},
+    "T21": {"name": "Pattern Picker", "best_for_short": "Which agent pattern to use", "content_types": ["Educational", "Grounded concepts", "Professional knowledge sharing"], "when_to_use": "A reader asks 'should this be a chain, a router, parallel calls, an orchestrator, an evaluator loop, or an agent?'", "dynamic": "Six live mini-schematics with packets; gate diamonds; feedback loops.", "lineage": "Building effective agents • Google ADK workflow agents"},
+    "T22": {"name": "Agentic Coding Playbook", "best_for_short": "Copy-paste agentic coding", "content_types": ["Working solution", "Professional knowledge sharing", "Easy to understand"], "when_to_use": "Teach the Explore → Plan → Code → Commit loop + Boris Cherny's 10 internal Agentic Coding habits (/loop, /desktop, /context, Goal+Effort+Check).", "dynamic": "Phase arrows, growing thinking-budget bars, TDD loop-back arrow.", "lineage": "Charlie Hills (Boris Cherny 10 Agentic Coding tips & 42 add-ons) • Enterprise Agentic Coding guide"},
+    "T23": {"name": "Context Budget Ledger", "best_for_short": "Token budgets & compaction", "content_types": ["Grounded concepts", "Information", "Working solution"], "when_to_use": "Show exactly where 200K tokens go and what compaction + just-in-time retrieval frees up.", "dynamic": "Stacked ledgers grow; packets migrate from the bloated budget to the lean one.", "lineage": "Effective context engineering (Sep 2025)"},
     "T24": {"name": "Error Analysis Board", "best_for_short": "Evals that start from real traces", "content_types": ["Evaluation results", "Professional knowledge sharing", "Working solution"], "when_to_use": "Walk a team from 100 traces to a failure taxonomy, a Pareto, and a binary judge per failure mode.", "dynamic": "Notes flow into taxonomy buckets; Pareto bars grow.", "lineage": "Hamel Husain & Shreya Shankar, AI Evals method"},
     "T25": {"name": "Judge Calibration Card", "best_for_short": "Calibrated binary rubric judges", "content_types": ["Evaluation results", "Research topics", "Professional knowledge sharing"], "when_to_use": "Before anyone quotes an LLM-as-a-judge dashboard: deterministic hard-gates first, cross-family confusion matrix (TPR/TNR >= 0.90), 5 judge biases -> fixes.", "dynamic": "Matrix cells reveal in sequence; bias → fix arrows carry packets.", "lineage": "Hamel Husain • Shreya Shankar • Eugene Yan • Vertex AI Eval & Promptfoo"},
     "T26": {"name": "Trajectory Scorecard", "best_for_short": "Scoring agent tool calls", "content_types": ["Evaluation results", "Proof of concept", "Grounded concepts"], "when_to_use": "Explain how to grade an agent's tool-call sequence, not just its final answer.", "dynamic": "Packets step through expected vs actual calls; metric rows compute live.", "lineage": "Google, Agents Companion whitepaper (Feb 2025)"},
     "T27": {"name": "How-It-Works Walkthrough", "best_for_short": "Protocol explainers (MCP)", "content_types": ["Educational", "Easy to understand", "Information"], "when_to_use": "A numbered sequence & lifeline walkthrough of a protocol or control plane (MCP 9-message JSON-RPC 2.0 flow).", "dynamic": "Numbered message cards light up in order with packets traveling across 3 lifelines.", "lineage": "Brij Kishore Pandey (7-Layer Control Plane & MCP) • ByteByteGo • MCP specification"},
-    "T28": {"name": "Sketch Explainer", "best_for_short": "2026 Agent Context Grounding (5 modes)", "content_types": ["Educational", "Easy to understand", "Grounded concepts"], "when_to_use": "Compare 5 modern agent context-grounding strategies (Naive Chunks vs. AST/Structure vs. Agentic ripgrep vs. KV Prefix Cache vs. Contextual Hybrid + SHA).", "dynamic": "Packets travel the cut lines; zero-origin orthogonal cards; marker typography.", "lineage": "Avi Chawla & Akshay Pachaar sketch format • Claude Code AST/Grep & Contextual Hybrid RAG"},
+    "T28": {"name": "Sketch Explainer", "best_for_short": "2026 Agent Context Grounding (5 modes)", "content_types": ["Educational", "Easy to understand", "Grounded concepts"], "when_to_use": "Compare 5 modern agent context-grounding strategies (Naive Chunks vs. AST/Structure vs. Agentic ripgrep vs. KV Prefix Cache vs. Contextual Hybrid + SHA).", "dynamic": "Packets travel the cut lines; zero-origin orthogonal cards; marker typography.", "lineage": "Avi Chawla & Akshay Pachaar sketch format • Agentic AST/Grep & Contextual Hybrid RAG"},
     "T29": {"name": "AI by Hand", "best_for_short": "Worked calculations", "content_types": ["Educational", "Evaluation results", "Grounded concepts"], "when_to_use": "Readers verify the math themselves: here Cohen's kappa for judge vs human agreement on grid paper.", "dynamic": "Steps reveal one by one; a packet traces the computation path.", "lineage": "Tom Yeh, AI by Hand format"},
     "T30": {"name": "Paper of the Day", "best_for_short": "30-second paper digests", "content_types": ["Research topics", "Information", "Educational"], "when_to_use": "One paper, one recreated chart, problem/method/result, caveats, and a read/skim/skip verdict.", "dynamic": "Chart bars grow; verdict gauge fills; method pipeline carries a packet.", "lineage": "Pascal Biese (LLM Watch) & Elvis Saravia (DAIR.AI) digest format"},
     "T31": {"name": "Runnable Demo Card", "best_for_short": "'I built it in 26 lines'", "content_types": ["Working solution", "Proof of concept", "Easy to understand"], "when_to_use": "Show real code, the real output, and what it proves — then the clone command.", "dynamic": "Terminal output types in line by line; a packet runs down the code gutter.", "lineage": "Shubham Saboo (awesome-llm-apps) & Nir Diamant demo-repo format"},
     "T32": {"name": "Verifier Harness Leap", "best_for_short": "Fast Flash + Verifier vs. Frontier Zero-Shot", "content_types": ["Educational", "Ideas", "Easy to understand"], "when_to_use": "Show why a fast Flash/32B model wrapped in a sandbox verifier + reflection harness beats a 10x larger frontier model zero-shot (89.4% vs 61.0%).", "dynamic": "Bars grow to 89.4%; each of the 4 harness patterns runs a live mini-loop.", "lineage": "Andrew Ng 4 Agentic Patterns • 2026 OpenHands & ADK Verifier Harness Benchmark"},
     "T33": {"name": "Jagged Frontier Map", "best_for_short": "2026 Agent Autonomy Frontier", "content_types": ["Ideas", "Professional knowledge sharing", "Grounded concepts"], "when_to_use": "Map 2026 tasks where sandboxed agents with deterministic verifiers exceed 88% reliability vs. production traps that require human gates.", "dynamic": "Frontier edge pulses with orbiting packets.", "lineage": "Ethan Mollick Jagged Frontier • 2026 Enterprise Agent Autonomy Telemetry"},
     "T34": {"name": "Lethal Trifecta Venn", "best_for_short": "5-second agent security test", "content_types": ["Easy to understand", "Grounded concepts", "Professional knowledge sharing"], "when_to_use": "Any agent that has private data + untrusted content + outbound comms can be made to leak; show which leg to remove.", "dynamic": "Packets from each circle converge on a pulsing danger core.", "lineage": "Simon Willison, The lethal trifecta for AI agents (Jun 2025)"},
-    "T35": {"name": "Orchestrator + Subagents", "best_for_short": "Subagent context firewalls & 15x rule", "content_types": ["Grounded concepts", "Research topics", "Working solution"], "when_to_use": "Explain how disposable subagent context firewalls keep the lead orchestrator clean (+90.2% win rate) and when the 15x token multiplier is worth it.", "dynamic": "Spawn packets fan out and verified digests fan back in to synthesis.", "lineage": "Anthropic Multi-Agent Research System • ADK ParallelAgent & Context-Firewall Pattern"},
+    "T35": {"name": "Orchestrator + Subagents", "best_for_short": "Subagent context firewalls & 15x rule", "content_types": ["Grounded concepts", "Research topics", "Working solution"], "when_to_use": "Explain how disposable subagent context firewalls keep the lead orchestrator clean (+90.2% win rate) and when the 15x token multiplier is worth it.", "dynamic": "Spawn packets fan out and verified digests fan back in to synthesis.", "lineage": "Multi-Agent Research System • ADK ParallelAgent & Context-Firewall Pattern"},
     "T36": {"name": "Cost Waterfall", "best_for_short": "Where the money goes", "content_types": ["Evaluation results", "Information", "Professional knowledge sharing"], "when_to_use": "Decompose cost per task into tokens, tools, retries, judges — then show the four levers.", "dynamic": "Waterfall bars drop in sequence; a scan packet crosses the chart.", "lineage": "Chip Huyen-style practical AI economics"},
     "T37": {"name": "Incident Postmortem", "best_for_short": "AgentOps & Kill-Switch", "content_types": ["Easy to understand", "Professional knowledge sharing", "Working solution"], "when_to_use": "Tell the $84 retry-storm story on a timeline and name the control + kill-switch that stops it at each step.", "dynamic": "Severity packets run down the timeline; green control cards attach per event.", "lineage": "Brij Kishore Pandey (How Do We Turn It Off? & 10-Field Agent Record) • Google SRE Postmortem"},
-    "T38": {"name": "Tool Spec Clinic", "best_for_short": "Tool definitions agents use well", "content_types": ["Working solution", "Proof of concept", "Professional knowledge sharing"], "when_to_use": "Bad vs good tool JSON side by side with the five rules from Anthropic's tool-writing guide.", "dynamic": "Transformation arrows jump from each flaw to its fix.", "lineage": "Anthropic (Writing effective tools) • Brij Kishore Pandey (5-Layer Claude Code ADK & SKILL.md)"},
-    "T39": {"name": "Memory Design Matrix", "best_for_short": "4 Memories for Coding & SRE Agents", "content_types": ["Grounded concepts", "Educational", "Information"], "when_to_use": "Show how a production coding & SRE agent uses Working, Episodic, Semantic (Git-SHA receipts), and Procedural (AGENTS.md / SKILL.md) memory on a real PR.", "dynamic": "A PR-fix packet touches each memory store before the agent patches and tests.", "lineage": "LangChain OpenWiki • Claude Code / OpenHands SKILL.md • CoALA 4-Memory Matrix"},
+    "T38": {"name": "Tool Spec Clinic", "best_for_short": "Tool definitions agents use well", "content_types": ["Working solution", "Proof of concept", "Professional knowledge sharing"], "when_to_use": "Bad vs good tool JSON side by side with the five rules from Agentic tool-writing guide.", "dynamic": "Transformation arrows jump from each flaw to its fix.", "lineage": "Writing effective tools for agents • Brij Kishore Pandey (5-Layer Enterprise ADK & SKILL.md)"},
+    "T39": {"name": "Memory Design Matrix", "best_for_short": "4 Memories for Coding & SRE Agents", "content_types": ["Grounded concepts", "Educational", "Information"], "when_to_use": "Show how a production coding & SRE agent uses Working, Episodic, Semantic (Git-SHA receipts), and Procedural (AGENTS.md / SKILL.md) memory on a real PR.", "dynamic": "A PR-fix packet touches each memory store before the agent patches and tests.", "lineage": "LangChain OpenWiki • Gemini CLI / OpenHands SKILL.md • CoALA 4-Memory Matrix"},
     "T40": {"name": "One-Chart Changelog", "best_for_short": "Cause → effect on one metric", "content_types": ["Evaluation results", "Proof of concept", "Ideas"], "when_to_use": "One metric over time, four annotated architecture changes, what each changed — build-in-public style.", "dynamic": "The line draws progressively; flags appear as the line reaches them.", "lineage": "Nate B. Jones 'one chart' • Santiago Valdarrama build-in-public"},
 }
 
@@ -1242,9 +1242,9 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
     return {
         "T21": {
             "title": "Six Ways to Wire an LLM — and the One Question That Picks the Right One",
-            "subtitle": "Anthropic's advice after a year with dozens of teams: the best systems used simple, composable patterns, not frameworks. Pick the simplest one that fits.",
-            "source": "Anthropic Engineering, 'Building effective agents' (Erik Schluntz & Barry Zhang, Dec 19 2024)",
-            "lineage": "Anthropic, Building effective agents (Dec 2024)",
+            "subtitle": "Production advice after a year with dozens of teams: the best systems used simple, composable patterns, not frameworks. Pick the simplest one that fits.",
+            "source": "Enterprise Agent Engineering, 'Building effective agents' (Erik Schluntz & Barry Zhang, Dec 19 2024)",
+            "lineage": "Building effective agents (Dec 2024)",
             "rule": "Ask first: can I predict the steps? Yes → a workflow (1-5). No, and I can verify results → an agent (6). Start simple; add complexity only when it measurably helps.",
             "patterns": [
                 {"name": "Prompt chaining", "tag": "workflow", "kind": "chain", "color": BLUE, "use": "The task splits into fixed, ordered steps and you trade a little latency for higher accuracy on each step.", "avoid": "Steps are not predictable, or one call already does the job well.", "example": "Write marketing copy → programmatic check it fits the brief → translate it. The gate stops bad drafts early."},
@@ -1256,40 +1256,40 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
             ],
         },
         "T22": {
-            "title": "The Claude Code Loop That Ships: Explore → Plan → Code → Commit (with the exact words to type)",
-            "subtitle": "Anthropic's best-practices guide + Charlie Hills's Boris Cherny 10-Change Cheatsheet (Goal + Effort + Check, /context, /loop, and 'Check it works in Chrome').",
-            "source": "Anthropic Engineering, 'Claude Code: Best practices for agentic coding' (Apr 2025) • Charlie Hills, 'How Does Boris Cherny Use Claude Code Now?' & '42 Things to Install'",
-            "lineage": "Charlie Hills (Boris Cherny 10 Claude Code changes & 42 add-ons) • Anthropic Claude Code guide",
-            "rule": "Never let it code first. Goal + Effort (/effort high) + Check ('Check it works in Chrome') → Explore → Plan → Code → Commit & fold repeat fixes into CLAUDE.md or a skill.",
+            "title": "The Agentic Coding Loop That Ships: Explore → Plan → Code → Commit (with the exact words to type)",
+            "subtitle": "Agentic coding best-practices guide + Charlie Hills's Boris Cherny 10-Change Cheatsheet (Goal + Effort + Check, /context, /loop, and 'Check it works in Chrome').",
+            "source": "Enterprise Agent Engineering, 'Agentic Coding: Best practices for agentic coding' (Apr 2025) • Charlie Hills, 'How Does Boris Cherny Use Coding Agents Now?' & '42 Things to Install'",
+            "lineage": "Charlie Hills (Boris Cherny 10 Agentic Coding changes & 42 add-ons) • Enterprise Agentic Coding guide",
+            "rule": "Never let it code first. Goal + Effort (/effort high) + Check ('Check it works in Chrome') → Explore → Plan → Code → Commit & fold repeat fixes into AGENTS.md or a skill.",
             "phases": [
                 {"badge": "PHASE 1 • EXPLORE", "title": "Read & check /context first", "color": BLUE, "prompt": "Read src/auth/ and tests/test_auth.py. Do NOT write code yet. Run /context to keep the window under 60% and summarize where token refresh could race.", "why": "Loading the right files first and pruning stale MCP tools with /context keeps the plan grounded."},
                 {"badge": "PHASE 2 • PLAN", "title": "Make it think, or Shift+Tab auto", "color": PURPLE, "prompt": "think hard (or /effort high): propose a plan to fix the refresh race. List files to change, the failing test to add first, and risks. Wait for my OK.", "why": "'think' < 'think hard' < 'think harder' < 'ultrathink' (and /effort high) allocate progressively larger reasoning budgets."},
                 {"badge": "PHASE 3 • CODE", "title": "Goal + Effort + Check in Chrome", "color": AMBER, "prompt": "Implement the approved plan. Add the failing test first, make it pass, run the full suite, and check it works in Chrome before showing me the diff.", "why": "Tests + real browser verification ('Check it works in Chrome') let the agent close the loop itself."},
-                {"badge": "PHASE 4 • COMMIT", "title": "Ship & promote to CLAUDE.md / skill", "color": GREEN, "prompt": "Commit with root cause, open a PR, and if you fixed a recurring mistake twice, fold the rule into CLAUDE.md or a reusable SKILL.md.", "why": "Boris Cherny's #10 rule: every repeated correction belongs in CLAUDE.md or a skill so the next session starts smarter."},
+                {"badge": "PHASE 4 • COMMIT", "title": "Ship & promote to AGENTS.md / skill", "color": GREEN, "prompt": "Commit with root cause, open a PR, and if you fixed a recurring mistake twice, fold the rule into AGENTS.md or a reusable SKILL.md.", "why": "Boris Cherny's #10 rule: every repeated correction belongs in AGENTS.md or a skill so the next session starts smarter."},
             ],
             "dial_title": "THINKING BUDGET DIAL (THE KEYWORDS ARE LITERAL)",
             "dial_keywords": ["think", "think hard", "think harder", "ultrathink"],
-            "dial_note": "Pair with /effort high for architecture planning; use Shift+Tab auto mode once CLAUDE.md + tests lock the rails.",
-            "claude_md_title": "CLAUDE.md & BORIS CHERNY 10-CHANGE CHECKLIST (CHARLIE HILLS)",
-            "claude_md_items": ["Common bash commands (build, test, lint) + core files", "Prompting formula: Goal + Effort (/effort high) + Check", "Browser check: 'Check it works in Chrome' (Puppeteer/Playwright)", "Context hygiene: run > /context to prune unused MCP servers", "Parallel sessions: > claude agents + > /desktop worktrees", "Recurring loops: > /loop for polling & > /schedule for PR review", "Mobile continuity: > /remote-control from phone/tablet", "Keep CLAUDE.md under ~100 lines; move workflows to SKILL.md"],
+            "dial_note": "Pair with /effort high for architecture planning; use Shift+Tab auto mode once AGENTS.md + tests lock the rails.",
+            "agents_md_title": "AGENTS.md & BORIS CHERNY 10-CHANGE CHECKLIST (CHARLIE HILLS)",
+            "agents_md_items": ["Common bash commands (build, test, lint) + core files", "Prompting formula: Goal + Effort (/effort high) + Check", "Browser check: 'Check it works in Chrome' (Puppeteer/Playwright)", "Context hygiene: run > /context to prune unused MCP servers", "Parallel sessions: > adk agents + > /desktop worktrees", "Recurring loops: > /loop for polling & > /schedule for PR review", "Mobile continuity: > /remote-control from phone/tablet", "Keep AGENTS.md under ~100 lines; move workflows to SKILL.md"],
             "variants": [
-                {"badge": "VARIANT A • TEST-DRIVEN", "title": "Write tests → commit → code → iterate → commit", "color": GREEN, "steps": ["write failing tests", "confirm they fail", "commit tests", "code until green", "commit"], "loop_back": "iterate", "detail": "Tell it explicitly: 'we are doing TDD, do not write implementation yet'. Then let it loop against the tests — this is where agents shine.", "command": "claude \"Write tests for the refresh race based on these cases; don't implement yet. Confirm they fail.\""},
-                {"badge": "VARIANT B • VISUAL ITERATION", "title": "Screenshot → implement → screenshot → compare", "color": PURPLE, "steps": ["paste mock", "implement", "screenshot", "compare", "repeat"], "loop_back": "until it matches", "detail": "Give it a way to see results (Puppeteer MCP, iOS simulator, or pasted screenshots). Output quality jumps after 2-3 visual iterations.", "command": "claude \"Implement this mock (pasted). Take a screenshot with the Puppeteer tool and iterate until it matches.\""},
-                {"badge": "VARIANT C • HEADLESS & PARALLEL", "title": "Automate with -p; parallelize with /desktop & worktrees", "color": SKY, "steps": ["claude -p", "/schedule", "worktree A", "worktree B", "merge"], "loop_back": None, "detail": "Headless mode (-p) and /schedule run in CI; /desktop and separate git worktrees let several Claude sessions work on independent tasks in parallel.", "command": "claude -p \"Triage this issue and label it\" --output-format stream-json   |   git worktree add ../feat-a -b feat-a"},
+                {"badge": "VARIANT A • TEST-DRIVEN", "title": "Write tests → commit → code → iterate → commit", "color": GREEN, "steps": ["write failing tests", "confirm they fail", "commit tests", "code until green", "commit"], "loop_back": "iterate", "detail": "Tell it explicitly: 'we are doing TDD, do not write implementation yet'. Then let it loop against the tests — this is where agents shine.", "command": "agent \"Write tests for the refresh race based on these cases; don't implement yet. Confirm they fail.\""},
+                {"badge": "VARIANT B • VISUAL ITERATION", "title": "Screenshot → implement → screenshot → compare", "color": PURPLE, "steps": ["paste mock", "implement", "screenshot", "compare", "repeat"], "loop_back": "until it matches", "detail": "Give it a way to see results (Puppeteer MCP, iOS simulator, or pasted screenshots). Output quality jumps after 2-3 visual iterations.", "command": "agent \"Implement this mock (pasted). Take a screenshot with the Puppeteer tool and iterate until it matches.\""},
+                {"badge": "VARIANT C • HEADLESS & PARALLEL", "title": "Automate with -p; parallelize with /desktop & worktrees", "color": SKY, "steps": ["gemini -p", "/schedule", "worktree A", "worktree B", "merge"], "loop_back": None, "detail": "Headless mode (-p) and /schedule run in CI; /desktop and separate git worktrees let several agent sessions work on independent tasks in parallel.", "command": "gemini -p \"Triage this issue and label it\" --output-format stream-json   |   git worktree add ../feat-a -b feat-a"},
             ],
         },
         "T23": {
             "title": "Where Your 200K Tokens Actually Go — and the 60K Version That Works Better",
-            "subtitle": "Example budget for a coding agent at turn 12. Anthropic's rule: find the smallest set of high-signal tokens that maximizes the chance of the outcome you want.",
-            "source": "Anthropic Engineering, 'Effective context engineering for AI agents' (Sep 29 2025) • Chroma 'Context Rot' study",
-            "lineage": "Anthropic, Effective context engineering (Sep 2025)",
+            "subtitle": "Example budget for a coding agent at turn 12. Context engineering rule: find the smallest set of high-signal tokens that maximizes the chance of the outcome you want.",
+            "source": "Enterprise Agent Engineering, 'Effective context engineering for AI agents' (Sep 29 2025) • Chroma 'Context Rot' study",
+            "lineage": "Effective context engineering (Sep 2025)",
             "window_tokens": 200000,
             "before_label": "BEFORE — everything dumped into one window (example budget)",
             "before_note": "• attention is spread across 128K tokens of mostly stale material",
             "before": [
                 {"name": "System prompt", "tokens": 3000, "color": "#334155"},
                 {"name": "All 85 tool schemas", "tokens": 35000, "color": RED},
-                {"name": "Rules / CLAUDE.md", "tokens": 4000, "color": BLUE},
+                {"name": "Rules / AGENTS.md", "tokens": 4000, "color": BLUE},
                 {"name": "Raw retrieved files & logs", "tokens": 60000, "color": AMBER},
                 {"name": "Full chat history", "tokens": 70000, "color": PURPLE},
                 {"name": "Notes", "tokens": 3000, "color": TEAL},
@@ -1309,13 +1309,13 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
             "freed_label": "freed: 140K tokens of attention",
             "principles": [
                 {"name": "Smallest high-signal set", "color": BLUE, "how": "Every token competes for attention. Cut anything the model does not need for the next step — especially stale tool outputs.", "stack": "Rule for any model"},
-                {"name": "Just-in-time retrieval", "color": AMBER, "how": "Keep lightweight identifiers (paths, URLs, queries) in context and load the content only when the step needs it — the way Claude Code uses grep and head.", "stack": "GCS / MinIO pointers"},
+                {"name": "Just-in-time retrieval", "color": AMBER, "how": "Keep lightweight identifiers (paths, URLs, queries) in context and load the content only when the step needs it — the way an agentic CLI uses grep and head.", "stack": "GCS / MinIO pointers"},
                 {"name": "Compaction at a threshold", "color": PURPLE, "how": "When the window nears its limit, summarize decisions, unresolved bugs, and next steps; drop raw tool results; re-initiate with the summary.", "stack": "ADK compactor • LangMem"},
                 {"name": "Structured note-taking", "color": TEAL, "how": "Persist progress notes outside the window (NOTES.md, a memory tool) and pull them back after compaction — memory that survives the reset.", "stack": "Firestore • PostgreSQL"},
                 {"name": "Sub-agent isolation", "color": GREEN, "how": "Give exploration to a subagent with a clean window; it returns a 1-2K token condensed summary instead of flooding the lead agent.", "stack": "ADK subagents • LangGraph subgraph"},
             ],
             "rot_title": "WHY BIGGER WINDOWS DID NOT SAVE YOU (CONTEXT ROT)",
-            "rot_body": "As token count grows, the model's ability to recall and follow instructions degrades — well before the hard limit. Anthropic calls the usable capacity an 'attention budget'; Chroma measured the decline across 18 models. The fix is curation, not capacity.",
+            "rot_body": "As token count grows, the model's ability to recall and follow instructions degrades — well before the hard limit. Context engineering calls the usable capacity an 'attention budget'; Chroma measured the decline across 18 models. The fix is curation, not capacity.",
             "signals_title": "COMPACT WHEN YOU SEE ANY OF THESE",
             "signals": ["Window above ~60% used", "A single tool result larger than ~2KB", "More than ~15 turns on one task", "The model re-asks something it already knew", "You are about to spawn a subagent anyway"],
             "rule": "Treat context like a budget you spend, not a bucket you fill.",
@@ -1350,7 +1350,7 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
         },
         "T25": {
             "title": "Before You Trust an LLM-as-a-Judge Dashboard: Calibrate TPR, TNR & Cohen's κ Like a Lab Instrument",
-            "subtitle": "Deterministic hard-gates run first (0 tokens); calibrated binary rubric judges run second across different model families (Gemini 3.8 / Claude / Open-Weights).",
+            "subtitle": "Deterministic hard-gates run first (0 tokens); calibrated binary rubric judges run second across different model families (Gemini 4 Argon / Gemini 3.8 / Open-Weights).",
             "source": "Shankar et al., 'Who Validates the Validators?' • Hamel Husain & Eugene Yan (2026 Eval Playbook) • Vertex AI GenAI Eval & Promptfoo",
             "lineage": "Hamel Husain • Shreya Shankar • Eugene Yan • Vertex AI Eval & Promptfoo",
             "tp": 46, "fp": 3, "fn": 4, "tn": 47,
@@ -1358,7 +1358,7 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
             "biases": [
                 {"name": "Position bias", "symptom": "Prefers whichever answer is shown first in pairwise grading.", "fix": "Grade both orders and average; or switch to single-trace PASS/FAIL."},
                 {"name": "Verbosity bias", "symptom": "Longer answers score higher even when they add nothing.", "fix": "Length-normalize; tell the rubric that extra words are not merit."},
-                {"name": "Self-preference", "symptom": "A model family rates its own outputs higher than peers.", "fix": "Cross-family judge (e.g. Gemini 3.8 Flash grades Claude/Qwen traces)."},
+                {"name": "Self-preference", "symptom": "A model family rates its own outputs higher than peers.", "fix": "Cross-family judge (e.g. Gemini 3.8 Flash grades Qwen/Llama traces)."},
                 {"name": "Likert drift", "symptom": "1-5 scores cluster at 3-4 and drift across prompt versions.", "fix": "Binary PASS/FAIL per failure mode with a quoted trace span."},
                 {"name": "Unverified tool claims", "symptom": "Judge believes the final prose without checking tool receipts.", "fix": "Run deterministic AST/JSON/tool-call hard-gates before the LLM judge."},
             ],
@@ -1421,7 +1421,7 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
             "source": "modelcontextprotocol.io specification • Brij Kishore Pandey, '7 Control Layers Between Intent and Action' & 'One Agent Action E2E'",
             "lineage": "Brij Kishore Pandey (7-Layer Control Plane & MCP) • ByteByteGo • MCP specification",
             "lanes": [
-                {"name": "HOST APP", "sub": "Claude Desktop, an IDE, or your own agent (Google ADK / LangGraph)", "color": "#334155", "fill": "#F8FAFC", "chips": ["holds the LLM", "owns consent", "one client per server"]},
+                {"name": "HOST APP", "sub": "IDE / Agent Host, an IDE, or your own agent (Google ADK / LangGraph)", "color": "#334155", "fill": "#F8FAFC", "chips": ["holds the LLM", "owns consent", "one client per server"]},
                 {"name": "MCP CLIENT", "sub": "lives inside the host; speaks JSON-RPC 2.0 to one server", "color": BLUE, "fill": "#EFF6FF", "chips": ["initialize", "tools/list", "tools/call"]},
                 {"name": "MCP SERVER", "sub": "GitHub, PostgreSQL, filesystem, your internal API", "color": GREEN, "fill": "#ECFDF5", "chips": ["tools", "resources", "prompts"]},
             ],
@@ -1446,12 +1446,12 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
         "T28": {
             "title": "Five Ways Production Agents Ground Context in 2026 — and Why Coding Agents Dropped Naive Vector Chunks",
             "subtitle": "Sketch-style card you can read in 10 seconds: from fixed chunks to AST/structure splits, agentic ripgrep, KV prefix caching, and Contextual Hybrid + SHA.",
-            "source": "Anthropic Contextual Retrieval & Claude Code Architecture • Google Vertex AI Context Caching & RAG Engine • LangChain OpenWiki",
-            "lineage": "Avi Chawla & Akshay Pachaar sketch format • Claude Code AST/Grep & Contextual Hybrid RAG",
+            "source": "Contextual Hybrid Retrieval & Agentic Harness Architecture • Google Vertex AI Context Caching & RAG Engine • LangChain OpenWiki",
+            "lineage": "Avi Chawla & Akshay Pachaar sketch format • Agentic AST/Grep & Contextual Hybrid RAG",
             "strategies": [
                 {"name": "Naive Vector", "kind": "fixed", "color": "#64748B", "how": "Slice every 500 tokens blind to syntax or headings; embed and hope cosine similarity finds it.", "best": "Quick FAQ prototypes on short, unstructured prose.", "watch": "Splits functions & tables mid-block; misses exact symbols, error codes, and imports.", "start": "500 tok • cosine top-k (baseline only)", "tools": "LangChain TokenSplitter • pgvector baseline"},
                 {"name": "AST / Layout", "kind": "recursive", "color": BLUE, "how": "Split on true boundaries: AST functions/classes for code, H2/H3 & table cells for docs.", "best": "Monorepos, API specs, financial/legal PDFs with tables.", "watch": "Needs a layout or AST parser per file type.", "start": "1 AST symbol or H2 section per unit", "tools": "tree-sitter AST • Document AI Layout Parser"},
-                {"name": "Agentic Grep", "kind": "structure", "color": PURPLE, "how": "Skip vector DBs on live code: run ripgrep / fd / symbol lookup and read exact line spans.", "best": "Autonomous coding & debugging agents (Claude Code, OpenHands).", "watch": "Isolate noisy searches in a disposable subagent.", "start": "rg + view_file(L1..L2) in subagent", "tools": "ripgrep (rg) • tree-sitter • MCP filesystem"},
+                {"name": "Agentic Grep", "kind": "structure", "color": PURPLE, "how": "Skip vector DBs on live code: run ripgrep / fd / symbol lookup and read exact line spans.", "best": "Autonomous coding & debugging agents (Gemini CLI, OpenHands).", "watch": "Isolate noisy searches in a disposable subagent.", "start": "rg + view_file(L1..L2) in subagent", "tools": "ripgrep (rg) • tree-sitter • MCP filesystem"},
                 {"name": "KV Prefix Cache", "kind": "semantic", "color": AMBER, "how": "Pin your 30K-100K hot rules, schemas, and reference docs directly in GPU HBM prefix cache.", "best": "Shared system constitutions, tool catalogs, multi-turn loops.", "watch": "Keep the pinned prefix byte-identical across turns.", "start": "Pin Tier-1 context (-90% cost, -78% TTFT)", "tools": "Vertex AI Context Cache ⇄ vLLM / SGLang Radix"},
                 {"name": "Contextual + SHA", "kind": "contextual", "color": GREEN, "how": "Prepend a 50-token doc-hierarchy header + git_blob_sha, then run Dense + BM25 + Reranker.", "best": "10M+ doc enterprise search where freshness & citations matter.", "watch": "Verify git_blob_sha on read (0-token staleness gate).", "start": "context prefix + BM25 + cross-encoder", "tools": "Vertex AI Search Hybrid • Qdrant + BM25 + SHA"},
             ],
@@ -1626,8 +1626,8 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
         "T35": {
             "title": "Lead Orchestrator + Isolated Subagents: How Parallel Context Firewalls Win (+90.2%) — and the 15x Token Rule",
             "subtitle": "Subagents are not 'role-play personas' — they are disposable context firewalls that absorb 40K tokens of search noise and return a 600-token verified digest.",
-            "source": "Anthropic Multi-Agent Research Architecture • Google Cloud ADK ParallelAgent & LangGraph Send() • 2026 Token-Multiplier Economics",
-            "lineage": "Anthropic Multi-Agent Research System • ADK ParallelAgent & Context-Firewall Pattern",
+            "source": "Multi-Agent Research Architecture • Google Cloud ADK ParallelAgent & LangGraph Send() • 2026 Token-Multiplier Economics",
+            "lineage": "Multi-Agent Research System • ADK ParallelAgent & Context-Firewall Pattern",
             "scaling_head": "2026 CONTEXT-FIREWALL & SUBAGENT FAN-OUT SCALING RULES",
             "numbers_head": "2026 MULTI-AGENT ECONOMICS: WIN RATE VS. TOKEN MULTIPLIER",
             "lead": "Splits goal into independent sub-queries, saves plan to Firestore/Postgres, spawns isolated subagents, merges verified digests.",
@@ -1664,7 +1664,7 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
         "T36": {
             "title": "Where the $0.68 per Agent Task Went — and the Four Levers That Took It to $0.06",
             "subtitle": "A cost waterfall built from OpenTelemetry spans. Reference-harness decomposition of the measured before/after from IDEA-09; your split will differ, the levers will not.",
-            "source": "IDEA-09 reference harness • vendor pricing: Anthropic prompt caching (cache reads ≈10% of input price), Vertex AI context caching discounts",
+            "source": "IDEA-09 reference harness • vendor pricing: Prefix context caching (cache reads ≈10% of input price), Vertex AI context caching discounts",
             "lineage": "Chip Huyen-style practical AI economics",
             "chart_title": "COST PER COMPLETED TASK — BEFORE (LEFT), LEVERS (MIDDLE), AFTER (RIGHT)",
             "chart_note": "Bars are USD per task; levers are applied in order, so each saving is measured after the previous one.",
@@ -1708,9 +1708,9 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
         },
         "T38": {
             "title": "Tool Spec Clinic: The Same Tool, Written So an Agent Fails With It — and Written So It Succeeds",
-            "subtitle": "Anthropic's tool-writing guide + Brij Kishore Pandey's 5-Layer Claude Code ADK & SKILL.md standard: descriptions and response shapes matter as much as the API.",
-            "source": "Anthropic Engineering, 'Writing effective tools for agents — with agents' (Sep 2025) • Brij Kishore Pandey, 'How Claude Code Becomes a Full Engineering Team' (5-Layer ADK & SKILL.md)",
-            "lineage": "Anthropic (Writing effective tools) • Brij Kishore Pandey (5-Layer Claude Code ADK & SKILL.md)",
+            "subtitle": "Agentic tool-writing guide + Brij Kishore Pandey's 5-Layer Enterprise ADK & SKILL.md standard: descriptions and response shapes matter as much as the API.",
+            "source": "Enterprise Agent Engineering, 'Writing effective tools for agents — with agents' (Sep 2025) • Brij Kishore Pandey, 'How Agentic Coding Becomes a Full Engineering Team' (5-Layer ADK & SKILL.md)",
+            "lineage": "Writing effective tools for agents • Brij Kishore Pandey (5-Layer Enterprise ADK & SKILL.md)",
             "bad_head": "BEFORE — what most teams ship (the agent guesses)",
             "bad_lines": [
                 "{",
@@ -1766,20 +1766,20 @@ def demo_specs_v2() -> Dict[str, Dict[str, Any]]:
                 {"name": "TOKEN EFFICIENCY", "body": "Paginate, filter, truncate with a next_page_token; make errors say what to do instead of a status code.", "example": "page_size <= 50, next_page_token", "color": AMBER},
                 {"name": "PROMPT-ENGINEER & EVAL", "body": "Write descriptions like SKILL.md onboarding; test on real tasks; let the agent propose rewrites from failed traces.", "example": "eval: 30 real tasks, before/after", "color": GREEN},
             ],
-            "rule": "Anthropic let Claude rewrite its own tool descriptions from failed transcripts — and accuracy went up. Pair with SKILL.md progressive disclosure.",
+            "rule": "Teams let the agent rewrite its own tool descriptions from failed transcripts — and accuracy went up. Pair with SKILL.md progressive disclosure.",
         },
         "T39": {
             "title": "One PR & Incident Turn, Four Memories: How Production Coding & SRE Agents Remember Across 500 Releases",
             "subtitle": "The 4-memory architecture applied to real engineering agents: Working context, Episodic trace logs, Semantic Git-SHA receipts, and Procedural SKILL.md.",
-            "source": "LangChain OpenWiki SHA Evidence Receipts • Claude Code / OpenHands AGENTS.md & SKILL.md • CoALA 4-Memory Architecture",
-            "lineage": "LangChain OpenWiki • Claude Code / OpenHands SKILL.md • CoALA 4-Memory Matrix",
+            "source": "LangChain OpenWiki SHA Evidence Receipts • Gemini CLI / OpenHands AGENTS.md & SKILL.md • CoALA 4-Memory Architecture",
+            "lineage": "LangChain OpenWiki • Gemini CLI / OpenHands SKILL.md • CoALA 4-Memory Matrix",
             "request": "\"Fix the 502 retry regression in auth-service PR #418 without breaking the 120s refresh_token grace window.\"",
             "action": "Patches refresh.py, checks inc-109 + SHA f31d90e2, runs pytest (exit 0).",
             "memories": [
                 {"name": "Working", "color": BLUE, "touch": "Holds PR #418 diff + active pytest traceback", "analogy": "active CPU registers / scratchpad", "stores": "Current PR diff, failing test traceback, active plan DAG, and >2KB observation artifact pointers.", "example": "pr=418 failing_test=test_refresh_grace", "where": "Compacted context window • ADK session state • LangGraph state", "fresh": "Scoped to the active task; compact above 60% utilization.", "fail": "Context rot by Turn 12: agent forgets the 120s constraint mid-patch."},
                 {"name": "Episodic", "color": PURPLE, "touch": "Recalls Incident #109 rollback in auth-service", "analogy": "immutable flight recorder / trace log", "stores": "What happened in past runs: prior PR failures, incident postmortems, tool exit codes, and rollback diffs.", "example": "2026-10-04 inc-109: retry storm on 502", "where": "Firestore / PostgreSQL OTel trace store • Langfuse / Mem0 episodic log", "fresh": "Append-only with timestamps; rank by service + error signature.", "fail": "Repeats the exact broken retry patch that caused last week's outage."},
                 {"name": "Semantic", "color": GREEN, "touch": "Verifies refresh_token grace=120s via Git SHA", "analogy": "evidence-linked architecture wiki", "stores": "Verified codebase & domain facts bound to exact file_path, line_span, and git_blob_sha receipts.", "example": "claim='grace=120s' sha='f31d90e2' L42-75", "where": "LangChain OpenWiki • AlloyDB / Postgres + pgvector + Git HEAD check", "fresh": "O(1) git_blob_sha comparison on read (0 LLM tokens); flag STALE on diff.", "fail": "Trusts a stale 60s memory note from 3 months ago and breaks prod auth."},
-                {"name": "Procedural", "color": AMBER, "touch": "Loads AGENTS.md + skills/auth_test/SKILL.md", "analogy": "versioned muscle memory & runbooks", "stores": "How to build, test, and deploy safely: repo constitution (AGENTS.md), progressive SKILL.md files, pre-commit hooks.", "example": "AGENTS.md + skills/auth_test/SKILL.md v4", "where": "Git-versioned AGENTS.md / CLAUDE.md / GEMINI.md + HarnessEvolve skill pool", "fresh": "Updated only via two-tier competence gate + 100% golden trajectory replay.", "fail": "Re-discovers CLI flags from scratch every session; skips mandatory test gates."},
+                {"name": "Procedural", "color": AMBER, "touch": "Loads AGENTS.md + skills/auth_test/SKILL.md", "analogy": "versioned muscle memory & runbooks", "stores": "How to build, test, and deploy safely: repo constitution (AGENTS.md), progressive SKILL.md files, pre-commit hooks.", "example": "AGENTS.md + skills/auth_test/SKILL.md v4", "where": "Git-versioned AGENTS.md / GEMINI.md + HarnessEvolve skill pool", "fresh": "Updated only via two-tier competence gate + 100% golden trajectory replay.", "fail": "Re-discovers CLI flags from scratch every session; skips mandatory test gates."},
             ],
             "design_rule": "Store receipts, not naked summaries: every semantic fact carries (file_path, line_span, git_blob_sha) and every procedural skill is gated by golden trajectory replay.",
             "rule": "Working memory is ephemeral; Episodic traces, Semantic SHA receipts, and Procedural SKILL.md files are what turn an LLM into a senior engineer.",

@@ -1,8 +1,74 @@
 {
+  "T01": {
+    "pcId": "t01_loop_guard",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T69": {
+    "pcId": "harness_squared",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T70": {
+    "pcId": "five_agent_repos",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T71": {
+    "pcId": "data_modeling_3x3",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T72": {
+    "pcId": "token_economizer",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T73": {
+    "pcId": "agentcore_11zone",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T74": {
+    "pcId": "agent_sandbox_6vendor",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T75": {
+    "pcId": "agent_5_blocks",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T76": {
+    "pcId": "gcp_12_ai_concepts",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T77": {
+    "pcId": "pharma_rd_2026",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T78": {
+    "pcId": "agentic_coding_6stage",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
   "T53": {
     "pcId": "52",
-    "width": 1600,
-    "height": 1050,
+    "width": 1020,
+    "height": 1040,
     "background": "#F8FAFC"
   },
   "T54": {
@@ -91,8 +157,44 @@
   },
   "T68": {
     "pcId": "open_knowledge",
-    "width": 1600,
-    "height": 1050,
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T79": {
+    "pcId": "cdm_schema_gate",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T80": {
+    "pcId": "jev_9_decisions",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T81": {
+    "pcId": "learn_harness_8phase",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T82": {
+    "pcId": "code_review_replay_eval",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T83": {
+    "pcId": "agent_evals_pass_k",
+    "width": 1020,
+    "height": 1040,
+    "background": "#F8FAFC"
+  },
+  "T84": {
+    "pcId": "inference_eng_goodput",
+    "width": 1020,
+    "height": 1040,
     "background": "#F8FAFC"
   }
 }

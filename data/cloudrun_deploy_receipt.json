@@ -5,27 +5,27 @@
   "buildProject": "ramp-portal-dev",
   "runProject": "ramp-portal-dev",
   "region": "us-west1",
-  "latestReadyRevisionName": "ideas-mining-00004-76c",
-  "latestCreatedRevisionName": "ideas-mining-00004-76c",
+  "latestReadyRevisionName": "ideas-mining-00006-j4p",
+  "latestCreatedRevisionName": "ideas-mining-00006-j4p",
   "readyStatus": "True",
   "trafficPercent": 100,
-  "image": "us-west1-docker.pkg.dev/ramp-portal-dev/cloud-run-source-deploy/ideas-mining:v20261029-135854-rule58",
-  "startupProbeLog": "Default STARTUP TCP/HTTP probe succeeded for ideas-mining-00004-76c",
+  "image": "us-west1-docker.pkg.dev/ramp-portal-dev/cloud-run-source-deploy/ideas-mining:v20261030-042517-rule58",
+  "startupProbeLog": "Default STARTUP TCP probe succeeded after 1 attempt for container \"ideas-mining-1\" on port 8080.",
   "liveHttpVerification": {
-    "verifiedAt": "2026-10-29T13:59:35Z",
+    "verifiedAt": "2026-10-30T04:26:05Z",
     "verificationMode": "cloud_run_revision_live_http_dom_probe",
     "project": "ramp-portal-dev",
     "region": "us-west1",
     "service": "ideas-mining",
-    "revision": "ideas-mining-00004-76c",
+    "revision": "ideas-mining-00006-j4p",
     "overallPassed": true,
     "routes": [
       {
         "path": "/",
         "httpStatus": 200,
         "responseBytes": 18957,
-        "bodySha256Short": "e75eb0f9eacce2b2",
-        "latencyMs": 65.2,
+        "bodySha256Short": "68e420a5f7d8e863",
+        "latencyMs": 7199.3,
         "markersMatched": [
           "<!doctype html",
           "Daily Latest-Topic"
@@ -39,7 +39,7 @@
         "httpStatus": 200,
         "responseBytes": 162,
         "bodySha256Short": "c0bcb12c381cd8f5",
-        "latencyMs": 11.3,
+        "latencyMs": 999.5,
         "markersMatched": [
           "ideas-mining",
           "\"template_count\": 84"
@@ -53,7 +53,7 @@
         "httpStatus": 200,
         "responseBytes": 90426,
         "bodySha256Short": "5f2f79824f35957a",
-        "latencyMs": 7.1,
+        "latencyMs": 1499.2,
         "markersMatched": [
           "\"template_count\": 84",
           "T84"
@@ -66,8 +66,8 @@
         "path": "/api/daily-posts",
         "httpStatus": 200,
         "responseBytes": 26416,
-        "bodySha256Short": "6bda1a65953996ad",
-        "latencyMs": 3200.9,
+        "bodySha256Short": "7c5716654e87ed78",
+        "latencyMs": 1399.8,
         "markersMatched": [
           "STYLE-01",
           "STYLE-06"
@@ -78,7 +78,7 @@
       }
     ]
   },
-  "verifiedAt": "2026-10-29T13:59:45Z",
+  "verifiedAt": "2026-10-30T04:26:12Z",
   "templateCount": 84,
   "googleSlidesDecksCount": 33,
   "creatorProfilesCount": 16,

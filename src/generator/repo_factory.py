@@ -56,8 +56,8 @@ class VertexGeminiGlobalConfig:
 
     project_id: str = "nitina-ggarwal-sandbox-647724"
     location: str = "global"
-    frontier_model: str = "gemini-4-argon"
-    flash_model: str = "gemini-3.8-flash"
+    frontier_model: str = "gemini-2.5-pro"
+    flash_model: str = "gemini-2.5-flash"
     thinking_level: str = "HIGH"
     max_output_tokens: int = 32768
 
@@ -500,7 +500,7 @@ So I built a complete, 1-click deployable reference repository that implements *
 {oss_lines}
 
 🚀 **What is inside the Git Repository (`{post['repo_slug']}`)**:
-→ **Runnable Google Cloud ADK + Vertex AI Codebase** (`gemini-4-argon` & `gemini-3.8-flash` on `locations/global` with discrete `thinkingLevel`; swap in Gemma 3 / Llama 3.x via vLLM + LiteLLM)
+→ **Runnable Google Cloud ADK + Vertex AI Codebase** (`gemini-2.5-pro` & `gemini-2.5-flash` on `locations/global` with discrete `thinkingLevel`; swap in Gemma 3 / Llama 3.x via vLLM + LiteLLM)
 → **OpenHands (MIT) Autonomous Container Harness** (reads workspace, writes code, and runs local tests before proposing any commit)
 → **Paired PromptCanvas Infographic & Dynamic Moving-Arrow Diagram** (`visuals/lead-template.gif` + `visuals/dynamic-solution-flow.gif`) showing the Google primitive AND the open-source twin on every step
 → **Editable 2D Visuals** (Official Google Cloud `#78` Hub-and-Spoke `.drawio` XML + `.svg` + `.png`)
@@ -553,7 +553,7 @@ def generate_and_verify_single_repo(
         f"# {post['repo_slug']} — Agent Constitution (AGENTS.md / GEMINI.md / CLAUDE.md)\n\n"
         f"- **Post ID**: `{post['id']}` (`{post['activity_urn']}`)\n"
         f"- **Primary Source**: {post['primary_source']['title']}\n"
-        "- **Model Routing (Rule 55)**: Vertex AI `locations/global`, `gemini-4-argon` / `gemini-3.8-flash`, `thinkingLevel='HIGH'`\n"
+        "- **Model Routing (Rule 55)**: Vertex AI `locations/global`, `gemini-2.5-pro` / `gemini-2.5-flash`, `thinkingLevel='HIGH'`\n"
         "- **Verification Command**: `python3 -m unittest discover -s tests -p 'test_*.py'`\n"
     )
     for g_file in ("AGENTS.md", "GEMINI.md", "CLAUDE.md"):
@@ -567,7 +567,7 @@ def generate_and_verify_single_repo(
         encoding="utf-8",
     )
     (repo_dir / "openhands-config.toml").write_text(
-        '[core]\nrun_as_openhands = true\n[llm]\nmodel = "vertex_ai/gemini-4-argon"\nlocation = "global"\n[agent]\nname = "CodeActAgent"\n',
+        '[core]\nrun_as_openhands = true\n[llm]\nmodel = "vertex_ai/gemini-2.5-pro"\nlocation = "global"\n[agent]\nname = "CodeActAgent"\n',
         encoding="utf-8",
     )
     (repo_dir / ".mcp.json").write_text(

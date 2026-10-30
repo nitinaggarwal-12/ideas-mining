@@ -33,7 +33,7 @@ class OpenHandsTrajectory:
     session_id: str
     target_repo_slug: str
     agent_name: str = "OpenHands-CodeActAgent-v2.0"
-    llm_model: str = "vertex_ai/gemini-4-argon (locations/global, thinkingLevel=HIGH)"
+    llm_model: str = "vertex_ai/gemini-2.5-pro (locations/global, thinkingLevel=HIGH)"
     sandbox_mode: str = "isolated-local-workspace-verification"
     started_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     completed_at: str = ""

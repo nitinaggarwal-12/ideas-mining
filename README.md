@@ -23,7 +23,7 @@ Our forensic audit of the 8 LinkedIn URLs you shared (**Rakesh Gohel**, **Aakash
 
 Instead of generating static markdown prompt templates (`BMAD`) or relying on unverified "vibe coding", this platform uses the **OpenHands Autonomous Software Engineering Loop** (`src/openhands_harness/autonomous_agent.py`):
 1. **Explore Workspace & Primary Source**: Inspects the source paper/repo and existing AST.
-2. **Plan Full-Stack Architecture**: Maps every concept to Google Cloud `#78` 4-Zone Hub-and-Spoke topology and Vertex AI `locations/global` (`gemini-4-argon` & `gemini-3.8-flash`).
+2. **Plan Full-Stack Architecture**: Maps every concept to Google Cloud `#78` 4-Zone Hub-and-Spoke topology and Vertex AI `locations/global` (`gemini-2.5-pro` & `gemini-2.5-flash`).
 3. **Implement Functional Code & UI**: Generates the Python ADK codebase, Executive Light-Theme UI (`#f8fafc` / `#ffffff`), `@2d` visuals, 12-slide `.pptx`/`.pdf`, and Terraform HCL.
 4. **Verify in Sandbox**: Runs `unittest` / `pytest`, XML/SVG bounding-box checks, and OpenXML `.pptx` audits before committing.
 5. **Propose Verified Git Commit**: Commits to each standalone repository under `generated-repos/<slug>` only when 100% of gates pass.

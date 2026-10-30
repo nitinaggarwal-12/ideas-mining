@@ -9,7 +9,7 @@ a custom animated moving-arrow 2D SVG diagram for every generated post.
 
 Complies with:
 - Rule 54: Universal Executive Light Theme (#F8FAFC / #FFFFFF)
-- Rule 55: Frontier Gemini 3.8 Flash via locations/global with discrete thinkingLevel ("LOW"),
+- Rule 55: Frontier Gemini 2.5 Flash via locations/global with discrete thinkingLevel ("LOW"),
   maxOutputTokens <= 32768, zero numeric thinkingBudget
 - Rule 57: Zero "..." lazy truncations, canonical T79..T84 pairing + custom zero-origin SVG audit
 """
@@ -64,7 +64,7 @@ CREATOR_STYLE_ARCHETYPES: Dict[str, Dict[str, Any]] = {
         "hook_pattern": "Stop using a frontier LLM for every gate -> Bounded micro-decisions -> 3-layer Classifier / LLM / App-Code split",
         "gcp_primitives": [
             "Google Cloud Model Armor",
-            "Vertex AI Gemini 3.8 Flash",
+            "Vertex AI Gemini 2.5 Flash",
             "Google Cloud ADK Tool Gate",
             "Cloud Run Deterministic RBAC",
         ],
@@ -114,7 +114,7 @@ CREATOR_STYLE_ARCHETYPES: Dict[str, Dict[str, Any]] = {
             "Vertex AI GenAI Evaluation",
             "GKE Sandbox Trial Isolation",
             "Firestore End-State Grader",
-            "Gemini 4 Argon Calibrated Judge",
+            "Gemini 2.5 Pro Calibrated Judge",
         ],
     },
     "STYLE-06": {
@@ -488,15 +488,15 @@ class DailyLinkedInPostEngine:
         return CREATOR_STYLE_ARCHETYPES[best_code]
 
     # ------------------------------------------------------------------
-    # 3. LINKEDIN POST COMPOSER (GEMINI 3.8 FLASH RULE 55 + DETERMINISTIC)
+    # 3. LINKEDIN POST COMPOSER (Gemini 2.5 Flash RULE 55 + DETERMINISTIC)
     # ------------------------------------------------------------------
     def _try_gemini_38_flash_copy(self, topic: Dict[str, Any], style: Dict[str, Any]) -> Optional[str]:
-        """Optional Rule 55 compliant Gemini 3.8 Flash synthesis via locations/global or API key."""
+        """Optional Rule 55 compliant Gemini 2.5 Flash synthesis via locations/global or API key."""
         api_key = os.environ.get("GEMINI_API_KEY", "").strip()
         if not api_key or os.environ.get("DISABLE_LIVE_LLM_SYNTHESIS") == "1":
             return None
         try:
-            url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key={api_key}"
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
             prompt = (
                 f"Write a technical LinkedIn post (170-230 words, plain text, zero markdown asterisks, zero external URLs in body) "
                 f"in the structural archetype of {style['creator_name']} ({style['archetype_name']}: {style['hook_pattern']}).\n"

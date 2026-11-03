@@ -1,12 +1,20 @@
-"""HTTP Server for the Agentic AI Ideas Mining & OpenHands Autonomous Repo Factory Studio."""
+"""HTTP Server for the Agentic AI Ideas-Minting & Ideas-Mining Studio (`ideas-minting` / `ideas-mining`)."""
 
 import json
 import mimetypes
 import os
+import re
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
+from src.catalog.career_minting_catalog import (
+    CAREER_MINTING_TOPICS,
+    FLAGSHIP_MINT01_24SLIDE_DECK_ID,
+    FLAGSHIP_MINT01_24SLIDE_SHEET_ID,
+    FLAGSHIP_MINT01_24SLIDE_URL,
+    get_minted_repo_specs,
+)
 from src.catalog.posts_catalog import (
     CREATOR_MINING_PLAYBOOK,
     MINED_TEMPLATE_POSTS_CATALOG,
@@ -24,7 +32,8 @@ from src.unified_feedback_engine import (
     update_feedback_status,
     verify_admin_access,
 )
-from src.visuals.template_gallery import list_templates
+from src.visuals.canonical_blueprint_minter import compute_canonical_siso
+from src.visuals.canonical_template_registry import get_gallery_summary, list_templates
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent
@@ -34,7 +43,54 @@ ASSETS_ROOT = WORKSPACE_ROOT / "assets"
 FEEDBACK_STORE_PATH = WORKSPACE_ROOT / ".local_backup" / "app_feedback_messages.json"
 MINER = AgenticIdeaMiner()
 DAILY_ENGINE = DailyLinkedInPostEngine()
-ALL_CATALOG_ITEMS = list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
+MINTED_REPO_SPECS = list(get_minted_repo_specs())
+ALL_CATALOG_ITEMS = MINTED_REPO_SPECS + list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
+
+
+def _build_minting_studio_payload() -> dict:
+    video_manifest_path = ASSETS_ROOT / "videos" / "MINT-01_video_manifest.json"
+    video_manifest = (
+        json.loads(video_manifest_path.read_text(encoding="utf-8"))
+        if video_manifest_path.exists()
+        else {}
+    )
+    slides_manifest_path = WORKSPACE_ROOT / "data" / "template_google_slides_manifest.json"
+    slides_map = (
+        json.loads(slides_manifest_path.read_text(encoding="utf-8")).get("slides", {})
+        if slides_manifest_path.exists()
+        else {}
+    )
+    enriched_topics = []
+    for t in CAREER_MINTING_TOPICS:
+        tid = t["canonical_template_id"]
+        slide_entry = slides_map.get(tid) or {}
+        siso = compute_canonical_siso(t)
+        enriched_topics.append(
+            {
+                **t,
+                "siso_audit": siso,
+                "template_google_slides_url": t.get("template_slides_url")
+                or slide_entry.get("googleSlidesEditUrl", ""),
+                "template_svg_url": f"/assets/template-gallery/{tid}.svg",
+                "template_png_url": f"/assets/template-gallery/{tid}.png",
+                "template_pptx_url": f"/assets/template-gallery/{tid}.pptx",
+                "template_drawio_url": f"/assets/template-gallery/{tid}.drawio",
+            }
+        )
+    return {
+        "status": "ok",
+        "project": "ideas-minting",
+        "project_alias": "ideas-mining",
+        "workspace_dir": str(WORKSPACE_ROOT),
+        "flagship_24slide_deck_id": FLAGSHIP_MINT01_24SLIDE_DECK_ID,
+        "flagship_24slide_sheet_id": FLAGSHIP_MINT01_24SLIDE_SHEET_ID,
+        "flagship_24slide_url": FLAGSHIP_MINT01_24SLIDE_URL,
+        "mint01_video_manifest": video_manifest,
+        "gallery_summary": get_gallery_summary(),
+        "live_slides_count": len(slides_map),
+        "topics_count": len(enriched_topics),
+        "topics": enriched_topics,
+    }
 
 
 class StudioRequestHandler(BaseHTTPRequestHandler):
@@ -50,26 +106,89 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(raw)
 
-    def _send_file(self, file_path: Path) -> None:
+    def _send_file(self, file_path: Path, head_only: bool = False) -> None:
         if not file_path.exists() or not file_path.is_file():
             self._send_json(404, {"error": f"File not found: {file_path.name}"})
             return
         ctype, _ = mimetypes.guess_type(str(file_path))
-        if file_path.suffix == ".svg":
+        suffix = file_path.suffix.lower()
+        if suffix == ".svg":
             ctype = "image/svg+xml"
-        elif file_path.suffix == ".gif":
+        elif suffix == ".gif":
             ctype = "image/gif"
-        elif file_path.suffix == ".drawio":
+        elif suffix == ".drawio":
             ctype = "application/xml"
-        elif file_path.suffix == ".pptx":
+        elif suffix == ".pptx":
             ctype = "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        data = file_path.read_bytes()
+        elif suffix == ".mp4":
+            ctype = "video/mp4"
+        elif suffix == ".mp3":
+            ctype = "audio/mpeg"
+
+        total_size = file_path.stat().st_size
+        range_header = self.headers.get("Range")
+        if range_header:
+            m = re.match(r"bytes=(\d*)-(\d*)", range_header.strip())
+            if m:
+                start_str, end_str = m.group(1), m.group(2)
+                start = int(start_str) if start_str else 0
+                end = int(end_str) if end_str else total_size - 1
+                if start >= total_size:
+                    self.send_response(416)
+                    self.send_header("Content-Range", f"bytes */{total_size}")
+                    self.end_headers()
+                    return
+                end = min(end, total_size - 1)
+                chunk_len = (end - start) + 1
+                self.send_response(206)
+                self.send_header("Content-Type", ctype or "application/octet-stream")
+                self.send_header("Accept-Ranges", "bytes")
+                self.send_header("Content-Range", f"bytes {start}-{end}/{total_size}")
+                self.send_header("Content-Length", str(chunk_len))
+                self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+                self.end_headers()
+                if not head_only:
+                    with file_path.open("rb") as fh:
+                        fh.seek(start)
+                        self.wfile.write(fh.read(chunk_len))
+                return
+
         self.send_response(200)
         self.send_header("Content-Type", ctype or "application/octet-stream")
+        self.send_header("Accept-Ranges", "bytes")
         self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
-        self.send_header("Content-Length", str(len(data)))
+        self.send_header("Content-Length", str(total_size))
         self.end_headers()
-        self.wfile.write(data)
+        if not head_only:
+            with file_path.open("rb") as fh:
+                self.wfile.write(fh.read())
+
+    def do_HEAD(self) -> None:
+        parsed = urlparse(self.path)
+        path = unquote(parsed.path)
+        if path in ("/", "/index.html", "/admin/feedback"):
+            self._send_file(PUBLIC_DIR / "index.html", head_only=True)
+            return
+        if path == "/styles.css":
+            self._send_file(PUBLIC_DIR / "styles.css", head_only=True)
+            return
+        if path == "/app.js":
+            self._send_file(PUBLIC_DIR / "app.js", head_only=True)
+            return
+        if path.startswith("/assets/"):
+            rel = path.replace("/assets/", "", 1)
+            target = (ASSETS_ROOT / rel).resolve()
+            if str(target).startswith(str(ASSETS_ROOT.resolve())):
+                self._send_file(target, head_only=True)
+                return
+        if path.startswith("/repos/"):
+            rel = path.replace("/repos/", "", 1)
+            target = (REPOS_ROOT / rel).resolve()
+            if str(target).startswith(str(REPOS_ROOT.resolve())):
+                self._send_file(target, head_only=True)
+                return
+        self.send_response(404)
+        self.end_headers()
 
     def do_GET(self) -> None:
         parsed = urlparse(self.path)
@@ -79,23 +198,27 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             self._send_file(PUBLIC_DIR / "index.html")
             return
         if path == "/api/health":
-            manifest_file = WORKSPACE_ROOT / "assets" / "template-gallery" / "gallery_manifest.json"
-            t_count = (
-                json.loads(manifest_file.read_text(encoding="utf-8")).get("template_count", 0)
-                if manifest_file.exists()
-                else len(list_templates())
-            )
+            summary = get_gallery_summary()
             self._send_json(
                 200,
                 {
                     "status": "ok",
-                    "service": "ideas-mining",
-                    "template_count": t_count,
+                    "service": "ideas-minting",
+                    "service_alias": "ideas-mining",
+                    "template_count": summary["template_count"],
+                    "best_count": summary["best_count"],
+                    "high_count": summary["high_count"],
+                    "t79_topic_posts_count": summary["t79_topic_posts_count"],
                     "repos_count": len(ALL_CATALOG_ITEMS),
+                    "minting_topics_count": len(CAREER_MINTING_TOPICS),
+                    "flagship_24slide_deck_id": FLAGSHIP_MINT01_24SLIDE_DECK_ID,
                     "creator_profiles_count": len(CREATOR_MINING_PLAYBOOK.get("creator_profiles", [])),
                     "mined_template_posts_count": len(MINED_TEMPLATE_POSTS_CATALOG),
                 },
             )
+            return
+        if path == "/api/minting-studio":
+            self._send_json(200, _build_minting_studio_payload())
             return
         if path == "/universal_feedback_widget.js":
             self._send_file(PUBLIC_DIR / "universal_feedback_widget.js")
@@ -149,7 +272,12 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 if receipt_file.exists():
                     receipt = json.loads(receipt_file.read_text(encoding="utf-8"))
                 item = dict(p)
-                item["category"] = "TOMORROW_TOP10" if p["id"].startswith("IDEA-") else "ANALYZED_POSTS"
+                if p["id"].startswith("MINT-"):
+                    item["category"] = "CAREER_MINTING"
+                elif p["id"].startswith("IDEA-"):
+                    item["category"] = "TOMORROW_TOP10"
+                else:
+                    item["category"] = "ANALYZED_POSTS"
                 item["git_commit_sha"] = receipt.get("openhands_trajectory", {}).get("git_commit_sha", "verified")
                 item["verification"] = receipt.get("verification", {})
                 item["openhands_trajectory"] = receipt.get("openhands_trajectory", {})
@@ -161,8 +289,11 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                     "user_profile": USER_PROFILE,
                     "playbook": CREATOR_MINING_PLAYBOOK,
                     "mined_template_posts": MINED_TEMPLATE_POSTS_CATALOG,
+                    "minted_repos_count": len(MINTED_REPO_SPECS),
                     "tomorrow_top10_count": len(TOMORROW_TOP10_IDEAS),
                     "analyzed_posts_count": len(POSTS_CATALOG),
+                    "flagship_24slide_url": FLAGSHIP_MINT01_24SLIDE_URL,
+                    "minting_topics": CAREER_MINTING_TOPICS,
                     "repos": enriched_repos,
                 },
             )
@@ -216,7 +347,10 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             if manifest_file.exists():
                 self._send_json(200, json.loads(manifest_file.read_text(encoding="utf-8")))
             else:
-                templates = [{**m, "files": {"svg": f"{m['id']}.svg", "gif": f"{m['id']}.gif", "png": f"{m['id']}.png"}} for m in list_templates()]
+                templates = [
+                    {**m, "files": {"svg": f"{m['id']}.svg", "gif": f"{m['id']}.gif", "png": f"{m['id']}.png"}}
+                    for m in list_templates()
+                ]
                 self._send_json(200, {"template_count": len(templates), "templates": templates})
             return
 
@@ -252,7 +386,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             res = submit_feedback(
                 payload=payload,
                 default_app_id=payload.get("appId") or "ideas-mining",
-                default_app_name=payload.get("appName") or "Ideas Mining & Repo Factory",
+                default_app_name=payload.get("appName") or "Ideas Minting & Repo Factory",
                 local_store_path=FEEDBACK_STORE_PATH,
                 headers=headers_dict,
             )
@@ -325,5 +459,5 @@ if __name__ == "__main__":
     host = os.environ.get("HOST", "0.0.0.0")
     port = int(os.environ.get("PORT", "8765"))
     httpd = ThreadingHTTPServer((host, port), StudioRequestHandler)
-    print(f"OpenHands Ideas Mining Studio listening on http://{host}:{port}", flush=True)
+    print(f"Ideas-Minting & Ideas-Mining Studio listening on http://{host}:{port}", flush=True)
     httpd.serve_forever()

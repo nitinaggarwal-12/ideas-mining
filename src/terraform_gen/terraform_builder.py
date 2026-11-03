@@ -30,7 +30,7 @@ def write_terraform_suite_for_post(post: Dict[str, Any], repo_dir: Path) -> Dict
     variables_tf = f"""variable "project_id" {{
   description = "Target Google Cloud Project ID for 1-Click Agentic Deployment"
   type        = string
-  default     = "nitina-ggarwal-sandbox-647724"
+  default     = "ramp-portal-dev"
 }}
 
 variable "region" {{
@@ -40,7 +40,7 @@ variable "region" {{
 }}
 
 variable "vertex_location" {{
-  description = "Vertex AI endpoint location (Rule 55 mandates 'global' for Gemini 2.5 Pro & 3.8 Flash)"
+  description = "Vertex AI endpoint location (Rule 55 mandates 'global' for Gemini 4 Argon & 3.8 Flash)"
   type        = string
   default     = "global"
 }}
@@ -149,11 +149,11 @@ resource "google_cloud_run_v2_service" "agent_service" {{
       }}
       env {{
         name  = "FRONTIER_MODEL"
-        value = "gemini-2.5-pro"
+        value = "gemini-4-argon"
       }}
       env {{
         name  = "FLASH_MODEL"
-        value = "gemini-2.5-flash"
+        value = "gemini-3.8-flash"
       }}
       env {{
         name  = "THINKING_LEVEL"
@@ -193,7 +193,7 @@ output "artifact_registry_repo" {
 }
 """
 
-    tfvars_example = f"""project_id      = "nitina-ggarwal-sandbox-647724"
+    tfvars_example = f"""project_id      = "ramp-portal-dev"
 region          = "us-west1"
 vertex_location = "global"
 service_name    = "{service_name}"
@@ -237,7 +237,7 @@ CMD ["python3", "app.py"]
       - '--image=us-west1-docker.pkg.dev/$PROJECT_ID/{service_name}-repo/{service_name}:latest'
       - '--region=us-west1'
       - '--platform=managed'
-      - '--set-env-vars=VERTEX_AI_LOCATION=global,FRONTIER_MODEL=gemini-2.5-pro,FLASH_MODEL=gemini-2.5-flash,THINKING_LEVEL=HIGH'
+      - '--set-env-vars=VERTEX_AI_LOCATION=global,FRONTIER_MODEL=gemini-4-argon,FLASH_MODEL=gemini-3.8-flash,THINKING_LEVEL=HIGH'
 options:
   logging: CLOUD_LOGGING_ONLY
 """
@@ -246,7 +246,7 @@ options:
     deploy_sh = f"""#!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_ID="${{1:-nitina-ggarwal-sandbox-647724}}"
+PROJECT_ID="${{1:-ramp-portal-dev}}"
 REGION="${{2:-us-west1}}"
 
 echo "==> [1/3] Running OpenHands Sandbox Unit Tests for {slug}..."
@@ -271,8 +271,8 @@ terraform apply -auto-approve \\
         "name": service_name,
         "env": {
             "VERTEX_AI_LOCATION": {"description": "Vertex AI Global Endpoint", "value": "global"},
-            "FRONTIER_MODEL": {"description": "Primary Frontier Reasoning Model", "value": "gemini-2.5-pro"},
-            "FLASH_MODEL": {"description": "High-Throughput Agent Loop Model", "value": "gemini-2.5-flash"},
+            "FRONTIER_MODEL": {"description": "Primary Frontier Reasoning Model", "value": "gemini-4-argon"},
+            "FLASH_MODEL": {"description": "High-Throughput Agent Loop Model", "value": "gemini-3.8-flash"},
             "THINKING_LEVEL": {"description": "Discrete Thinking Level (HIGH|MEDIUM|LOW)", "value": "HIGH"},
         },
         "options": {"allow-unauthenticated": False, "memory": "1Gi", "cpu": "1"},

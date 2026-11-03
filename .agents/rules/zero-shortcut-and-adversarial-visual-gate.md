@@ -1,0 +1,6 @@
+# Rule 57 & Rule 60 — Zero-Shortcut Execution, Inked-Pixel Arrow Centering (`ctx.getImageData`) & Canonical Blueprint Minting (`S_iso`)
+
+1. **Prototype-First (`Rule 57A`)**: Build and verify 1 complete exemplar (`MINT-01`: `T85` `@2x` Spine + 24-Slide Google Slides `1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY` + runnable Git repo `gcp-mcp-zero-bloat-gateway` + `1080p30` `0.8s xfade` video `MINT-01_walkthrough.mp4`) before batching.
+2. **Ban Hand-Rolled Box Approximations (`Rule 57B`)**: All `53` legacy `Gen-1` Python SVG templates (`T02`–`T52`) and `19` boxy templates are permanently purged; `116` certified templates (`72 Best` + `44 High`) are served from `src/visuals/canonical_template_registry.py`.
+3. **Inked-Pixel Arrow-Label Mid/Center Gate (`Rule 57C`)**: Verify `0` bounding-box collisions via `getBoundingClientRect()` AND inked-pixel `ctx.getImageData()` `x`-height mid/center alignment (`|glyph_y_mid - shaft_y_mid| <= 0.5px`, `|L_left - L_right| <= 1.0px`) across `T69`–`T89` via `node scripts/verify_arrow_label_inked_pixel_centering.mjs`.
+4. **Independent Visual Critic (`Rule 57D`) & Compromise Disclosure (`Rule 57E`)**: Run an independent subagent visual review and end every build/fix response with `"Shortcuts, Compromises & Remaining Flaws"`.

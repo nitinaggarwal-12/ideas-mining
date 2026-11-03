@@ -2,18 +2,20 @@
 # Replaces static meta-prompt templates (BMAD) with sandboxed real-world execution
 
 [core]
-workspace_base = "/Users/nitinagga/Documents/ideas-mining"
+workspace_base = "/usr/local/google/home/nitinagga/Documents/ideas-mining"
 cache_dir = "/tmp/openhands-cache"
 run_as_openhands = true
 enable_auto_lint = true
 max_iterations = 50
 
 [llm]
-model = "vertex_ai/gemini-2.5-pro"
+model = "vertex_ai/gemini-4-argon"
+flash_model = "vertex_ai/gemini-3.8-flash"
 api_version = "v1"
 location = "global"
+project_id = "ramp-portal-dev"
 max_output_tokens = 32768
-reasoning_effort = "HIGH"
+thinking_level = "HIGH"
 
 [agent]
 name = "CodeActAgent"

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T13:43:58.883Z",
+  "updatedAt": "2026-11-03T19:40:09.514792+00:00",
   "accountEmail": "nitinagga@google.com",
   "slides": {
     "T01": {
@@ -242,7 +242,7 @@
     },
     "T69": {
       "tid": "T69",
-      "title": "Harness² Recursive Agent Harnessing Spine",
+      "title": "Harness\u00b2 Recursive Agent Harnessing Spine",
       "pptxFile": "T69.pptx",
       "slideCount": 5,
       "sizeBytes": 247383,
@@ -463,6 +463,76 @@
       "googleSlidesEmbedUrl": "https://docs.google.com/presentation/d/1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI/embed?start=false&loop=false&delayms=5000",
       "googleSlidesPdfUrl": "https://docs.google.com/presentation/d/1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI/export/pdf",
       "syncedAt": "2026-10-29T13:43:58.883Z"
+    },
+    "T85": {
+      "tid": "T85",
+      "title": "T85 Editable Architecture Blueprint",
+      "pptxFile": "T85.pptx",
+      "slideCount": 5,
+      "sizeBytes": 25975,
+      "sha256": "41d44a4be997855c3ad304a47205b0db3f0006655b72e5fa888cbfa323b56fa2",
+      "googleSlidesId": "1RANJQIr1w21W52hem5Sa8n3zDh82aQii",
+      "googleSlidesEditUrl": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/edit?authuser=nitinagga%40google.com",
+      "googleSlidesPreviewUrl": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/preview",
+      "googleSlidesEmbedUrl": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/embed?start=false&loop=false&delayms=5000",
+      "googleSlidesPdfUrl": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/export/pdf",
+      "syncedAt": "2026-11-03T19:40:00.705245+00:00"
+    },
+    "T86": {
+      "tid": "T86",
+      "title": "T86 Editable Architecture Blueprint",
+      "pptxFile": "T86.pptx",
+      "slideCount": 5,
+      "sizeBytes": 25856,
+      "sha256": "a33ed07013f995f3d72a88bf703ea04560c0debd519548b55313e8a9820f6ecf",
+      "googleSlidesId": "1ra1h5iUivi6XR-52tnpKopcZFXPwLzvM",
+      "googleSlidesEditUrl": "https://docs.google.com/presentation/d/1ra1h5iUivi6XR-52tnpKopcZFXPwLzvM/edit?authuser=nitinagga%40google.com",
+      "googleSlidesPreviewUrl": "https://docs.google.com/presentation/d/1ra1h5iUivi6XR-52tnpKopcZFXPwLzvM/preview",
+      "googleSlidesEmbedUrl": "https://docs.google.com/presentation/d/1ra1h5iUivi6XR-52tnpKopcZFXPwLzvM/embed?start=false&loop=false&delayms=5000",
+      "googleSlidesPdfUrl": "https://docs.google.com/presentation/d/1ra1h5iUivi6XR-52tnpKopcZFXPwLzvM/export/pdf",
+      "syncedAt": "2026-11-03T19:40:02.779456+00:00"
+    },
+    "T87": {
+      "tid": "T87",
+      "title": "T87 Editable Architecture Blueprint",
+      "pptxFile": "T87.pptx",
+      "slideCount": 5,
+      "sizeBytes": 26074,
+      "sha256": "6c89ed65d86c9dc29c4c6065ae788b54988e6d92249e60ee96b5484ab091441f",
+      "googleSlidesId": "1e37oJIX_DvAh50RXj_6k2NXtGDb7hcic",
+      "googleSlidesEditUrl": "https://docs.google.com/presentation/d/1e37oJIX_DvAh50RXj_6k2NXtGDb7hcic/edit?authuser=nitinagga%40google.com",
+      "googleSlidesPreviewUrl": "https://docs.google.com/presentation/d/1e37oJIX_DvAh50RXj_6k2NXtGDb7hcic/preview",
+      "googleSlidesEmbedUrl": "https://docs.google.com/presentation/d/1e37oJIX_DvAh50RXj_6k2NXtGDb7hcic/embed?start=false&loop=false&delayms=5000",
+      "googleSlidesPdfUrl": "https://docs.google.com/presentation/d/1e37oJIX_DvAh50RXj_6k2NXtGDb7hcic/export/pdf",
+      "syncedAt": "2026-11-03T19:40:04.858572+00:00"
+    },
+    "T88": {
+      "tid": "T88",
+      "title": "T88 Editable Architecture Blueprint",
+      "pptxFile": "T88.pptx",
+      "slideCount": 5,
+      "sizeBytes": 25870,
+      "sha256": "b053cb95208f93055e78c5561f99cf135798b230cc34fd17065d1be62683ef7f",
+      "googleSlidesId": "1SR0i3EkVwpke-2nu4_tOCEMJhB-0l8D9",
+      "googleSlidesEditUrl": "https://docs.google.com/presentation/d/1SR0i3EkVwpke-2nu4_tOCEMJhB-0l8D9/edit?authuser=nitinagga%40google.com",
+      "googleSlidesPreviewUrl": "https://docs.google.com/presentation/d/1SR0i3EkVwpke-2nu4_tOCEMJhB-0l8D9/preview",
+      "googleSlidesEmbedUrl": "https://docs.google.com/presentation/d/1SR0i3EkVwpke-2nu4_tOCEMJhB-0l8D9/embed?start=false&loop=false&delayms=5000",
+      "googleSlidesPdfUrl": "https://docs.google.com/presentation/d/1SR0i3EkVwpke-2nu4_tOCEMJhB-0l8D9/export/pdf",
+      "syncedAt": "2026-11-03T19:40:07.200175+00:00"
+    },
+    "T89": {
+      "tid": "T89",
+      "title": "T89 Editable Architecture Blueprint",
+      "pptxFile": "T89.pptx",
+      "slideCount": 5,
+      "sizeBytes": 25962,
+      "sha256": "a6d1ca74dad0f275c002c523cf89da8620eebd3a71fa99faddcca35ca3ca688d",
+      "googleSlidesId": "1yX4ONqp1CGASLN8zKlNGqh_2OtkynU0T",
+      "googleSlidesEditUrl": "https://docs.google.com/presentation/d/1yX4ONqp1CGASLN8zKlNGqh_2OtkynU0T/edit?authuser=nitinagga%40google.com",
+      "googleSlidesPreviewUrl": "https://docs.google.com/presentation/d/1yX4ONqp1CGASLN8zKlNGqh_2OtkynU0T/preview",
+      "googleSlidesEmbedUrl": "https://docs.google.com/presentation/d/1yX4ONqp1CGASLN8zKlNGqh_2OtkynU0T/embed?start=false&loop=false&delayms=5000",
+      "googleSlidesPdfUrl": "https://docs.google.com/presentation/d/1yX4ONqp1CGASLN8zKlNGqh_2OtkynU0T/export/pdf",
+      "syncedAt": "2026-11-03T19:40:09.514721+00:00"
     }
   }
 }

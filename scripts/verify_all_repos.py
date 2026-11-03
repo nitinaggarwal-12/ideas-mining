@@ -1,12 +1,4 @@
-"""Fail-Closed Forensic Verification Gate for Ideas Mining & All 18 Standalone Git Repositories (10 Tomorrow Morning EST Ideas + 8 Analyzed LinkedIn Posts).
-
-Audits:
-1. All 18 standalone Git repositories exist, have clean git commits, and pass their sandbox unit test suites.
-2. Every repo contains Dynamic Moving-Arrow visuals (dynamic-solution-flow.svg/.gif/.png) + @2d visuals (linkedin-infographic-2d.svg/.png, gcp-architecture-2d.svg/.png/.drawio, nano_banana_3_prompt.md).
-3. Every repo contains a 12-slide OpenXML presentation_deck.pptx (with 12 slides, 12 spoken notesSlides, 'Proprietary + Confidential', zero pricing figures) and linkedin_carousel.pdf.
-4. Every repo contains 1-click GCP Terraform files (versions.tf, variables.tf, main.tf, outputs.tf, terraform.tfvars.example) + deploy script.
-5. Studio UI enforces Rule 54 Universal Light Theme (#f8fafc/#ffffff, 0 dark mode classes), Rule 25 fluid layout & non-blocking right drawer, and Rule 26 table cell containment.
-"""
+"""Fail-Closed Forensic Verification Gate for Ideas-Minting & All 19 Standalone Git Repositories (MINT-01 Flagship + 10 Tomorrow Morning EST Ideas + 8 Analyzed LinkedIn Posts)."""
 
 import json
 import subprocess
@@ -18,6 +10,7 @@ from pathlib import Path
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(WORKSPACE_ROOT))
 
+from src.catalog.career_minting_catalog import CAREER_MINTING_TOPICS, get_minted_repo_specs
 from src.catalog.posts_catalog import POSTS_CATALOG
 from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 
@@ -39,33 +32,51 @@ def verify_all() -> dict:
         failures.append("Rule 26C violation: Missing rigid table cell containment in public/styles.css")
     if "repo-inspector-drawer" not in html_text:
         failures.append("Rule 25F violation: Missing non-blocking right-side inspector drawer")
+    if "view-minting-studio" not in html_text:
+        failures.append("Missing View 6 (#view-minting-studio) in public/index.html")
 
-    all_items = list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
+    minted_specs = list(get_minted_repo_specs())
+    all_items = minted_specs + list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
 
-    # 1b. Audit the 84-template Dynamic Visual Gallery (animated SVG + GIF + PNG + manifest)
+    # 1b. Audit the 116-template Certified Visual Gallery (72 Best + 44 High, 0 Medium/Low/Worst, 23 T79 Topic Posts)
     gallery_dir = WORKSPACE_ROOT / "assets" / "template-gallery"
     manifest = gallery_dir / "gallery_manifest.json"
     if not manifest.exists():
         failures.append("Template gallery manifest missing: assets/template-gallery/gallery_manifest.json")
     else:
         manifest_data = json.loads(manifest.read_text(encoding="utf-8"))
-        if manifest_data.get("template_count") != 84:
-            failures.append(f"Template gallery manifest expected 84 templates, found {manifest_data.get('template_count')}")
-    for n in range(1, 85):
-        tid = f"T{n:02d}"
-        for ext in ("svg", "gif", "png"):
-            fp = gallery_dir / f"{tid}.{ext}"
-            if not fp.exists() or fp.stat().st_size == 0:
-                failures.append(f"[gallery] Missing or empty {tid}.{ext}")
-        svg_fp = gallery_dir / f"{tid}.svg"
-        if svg_fp.exists():
-            svg_text = svg_fp.read_text(encoding="utf-8")
-            try:
-                ET.fromstring(svg_text)
-            except Exception as exc:  # pragma: no cover - defensive
-                failures.append(f"[gallery] Malformed SVG {tid}: {exc}")
-            if "animateMotion" not in svg_text:
-                failures.append(f"[gallery] {tid}.svg has no moving packets (animateMotion)")
+        if manifest_data.get("template_count") != 116:
+            failures.append(f"Template gallery manifest expected 116 templates, found {manifest_data.get('template_count')}")
+        if manifest_data.get("best_count") != 72 or manifest_data.get("high_count") != 44:
+            failures.append(
+                f"Template gallery tier counts mismatch: best={manifest_data.get('best_count')}, high={manifest_data.get('high_count')}"
+            )
+        if manifest_data.get("medium_low_worst_count", 0) != 0:
+            failures.append(f"Found non-zero Medium/Low/Worst templates: {manifest_data.get('medium_low_worst_count')}")
+        for tpl in manifest_data.get("templates", []):
+            tid = tpl["id"]
+            for ext in ("svg", "gif", "png"):
+                fp = gallery_dir / f"{tid}.{ext}"
+                if not fp.exists() or fp.stat().st_size == 0:
+                    failures.append(f"[gallery] Missing or empty {tid}.{ext}")
+            svg_fp = gallery_dir / f"{tid}.svg"
+            if svg_fp.exists():
+                svg_text = svg_fp.read_text(encoding="utf-8")
+                try:
+                    ET.fromstring(svg_text)
+                except Exception as exc:  # pragma: no cover
+                    failures.append(f"[gallery] Malformed SVG {tid}: {exc}")
+                if "animateMotion" not in svg_text:
+                    failures.append(f"[gallery] {tid}.svg has no moving packets (animateMotion)")
+
+    # 1c. Verify MINT-01 multi-scene 1080p30 video deliverables
+    video_manifest_path = WORKSPACE_ROOT / "assets" / "videos" / "MINT-01_video_manifest.json"
+    if not video_manifest_path.exists():
+        failures.append("Missing assets/videos/MINT-01_video_manifest.json")
+    else:
+        vman = json.loads(video_manifest_path.read_text(encoding="utf-8"))
+        if not vman.get("quality_gates", {}).get("all_video_gates_passed"):
+            failures.append(f"MINT-01 video quality gates failed: {vman.get('quality_gates')}")
 
     for post in all_items:
         slug = post["repo_slug"]
@@ -145,8 +156,8 @@ def verify_all() -> dict:
             arch_xml = arch_path.read_text(encoding="utf-8")
             if "moving-arrow-line" not in dyn_xml or "animateMotion" not in dyn_xml:
                 failures.append(f"[{slug}] dynamic-solution-flow.svg missing moving-arrow-line or animateMotion")
-            if 'viewBox="0 0 1600 1200"' not in inf_xml:
-                failures.append(f"[{slug}] linkedin-infographic-2d.svg missing 1600x1200 viewBox")
+            if 'viewBox="0 0 1600 1200"' not in inf_xml and 'viewBox="0 0 1020 1040"' not in inf_xml:
+                failures.append(f"[{slug}] linkedin-infographic-2d.svg missing 1600x1200 or 1020x1040 viewBox")
             if 'viewBox="0 0 1600 1020"' not in arch_xml or "ZONE 5" not in arch_xml:
                 failures.append(f"[{slug}] gcp-architecture-2d.svg missing 1600x1020 #78 topology or ZONE 5 baseline")
 
@@ -193,6 +204,8 @@ def verify_all() -> dict:
     result = {
         "gate_passed": len(failures) == 0,
         "repos_audited": len(repo_audits),
+        "minted_repos_audited": len(minted_specs),
+        "minting_topics_count": len(CAREER_MINTING_TOPICS),
         "tomorrow_top10_audited": len(TOMORROW_TOP10_IDEAS),
         "original_posts_audited": len(POSTS_CATALOG),
         "failures": failures,

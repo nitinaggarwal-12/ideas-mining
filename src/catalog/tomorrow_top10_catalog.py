@@ -1085,7 +1085,7 @@ TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
     "IDEA-01": {
         "primary_template_id": "T67",
         "primary_template_name": "PromptCanvas #66: Autonomous Self-Healing Torus Loop",
-        "secondary_template_ids": ["T19", "T64"],
+        "secondary_template_ids": ["T150", "T64"],
         "lead_post_format": "Animated GIF Loop (T67.gif / dynamic-solution-flow.gif) + 12-Page Native PDF Carousel in Comment #1",
         "visual_type": "1600x980 Glassmorphic 4-Quadrant Torus Ring + 4-Step Moving-Arrow Problem-to-Fix Flow",
         "carousel_spec": "12-Slide Native LinkedIn PDF Carousel (Slide 1: $400 Loop Hook + T67 Torus -> Slides 2-4: SHA-256 Dedupe & Strategy Pivot -> Slide 7: Google Cloud #78 Blueprint -> Slide 12: 1-Click Terraform CTA)",
@@ -1105,7 +1105,7 @@ TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
     "IDEA-02": {
         "primary_template_id": "T58",
         "primary_template_name": "PromptCanvas #57: 3D Context Compression Funnel (1M -> 2k Tokens)",
-        "secondary_template_ids": ["T08", "T28", "T35"],
+        "secondary_template_ids": ["T90", "T152", "T195"],
         "lead_post_format": "12-Page Native LinkedIn PDF Document Carousel (T58 3D Funnel on Cover Slide 1) + Animated T58.gif",
         "visual_type": "5-Stage 3D-Frustum Tapering Vector Funnel (500:1 Token Compression) + Subagent Context Firewall",
         "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T58 1M->2k Funnel -> Slide 2: Chroma 'Context Rot' + arXiv:2610.26836v1 Evidence -> Slides 3-6: KV Prefix Cache + Disposable Subagents -> Slide 12: Repo & PPTX)",
@@ -1125,7 +1125,7 @@ TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
     "IDEA-03": {
         "primary_template_id": "T54",
         "primary_template_name": "PromptCanvas #53: Dual-Agent Process Workflow (Primary Coding Agent + Reviewer Agent)",
-        "secondary_template_ids": ["T53", "T55", "T32"],
+        "secondary_template_ids": ["T79", "T55", "T67"],
         "lead_post_format": "Single High-Res Glassmorphic Infographic (T54.png) + T53 Anatomy Spine & Editable PPTX in Comment #1",
         "visual_type": "3-Band Dual-Agent Workflow (Install+Start -> Add Tools YES/NO Diamond -> Adversarial Reviewer Recheck Loop)",
         "carousel_spec": "Companion 12-Slide PDF/PPTX Deck pairing T54 Dual-Agent Workflow + T53 4-Tier Anatomy Spine (Context + Harness + Loop + Graph) + OpenHands Pre-Completion Stop Hook",
@@ -1145,7 +1145,7 @@ TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
     "IDEA-04": {
         "primary_template_id": "T64",
         "primary_template_name": "PromptCanvas #63: Conditional Decision Tree Flowchart (Ingest -> Tool/RBAC Check -> Sandbox)",
-        "secondary_template_ids": ["T06", "T43"],
+        "secondary_template_ids": ["T79", "T159"],
         "lead_post_format": "12-Page Native PDF Carousel (T64 Decision Tree + T06 Top-3 MCP Tool Router) + Dynamic GIF",
         "visual_type": "3-Stage Conditional Decision Tree with 4 YES/NO Diamonds + Top-3 Semantic MCP Schema Router",
         "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: Why 85 MCP Tools Break Your Agent -> Slide 2: T64 Conditional Decision Tree -> Slide 3: T06 Top-3 Semantic Router (-93% tokens, 96.4% accuracy) -> Slide 12: Repo & PPTX)",
@@ -1165,7 +1165,7 @@ TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
     "IDEA-05": {
         "primary_template_id": "T62",
         "primary_template_name": "PromptCanvas #61: Multi-Agent Supervisor Delegation Tree (01 -> 02a/02b/02c -> 03)",
-        "secondary_template_ids": ["T61", "T09", "T44"],
+        "secondary_template_ids": ["T61", "T153", "T199"],
         "lead_post_format": "2-Image Visual Split (T62.png Supervisor Tree + T61.png 4-Plane Runtime Topology) + Animated T61.gif",
         "visual_type": "3-Tier Hierarchical Supervisor Delegation Tree + 4-Plane Interconnected Runtime Topology",
         "carousel_spec": "12-Slide Native PDF/PPTX Deck showing how Supervisor (01) delegates to SQL (02a), Research (02b), and Code (02c) workers over a Shared Typed A2A Blackboard (0% constraint loss vs. 42% prose telephone loss)",
@@ -1185,7 +1185,7 @@ TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
     "IDEA-06": {
         "primary_template_id": "T57",
         "primary_template_name": "PromptCanvas #56: Side-by-Side Runtime Toggles (Stateless API OFF vs. Agent Runtime ON)",
-        "secondary_template_ids": ["T59", "T42"],
+        "secondary_template_ids": ["T59", "T158"],
         "lead_post_format": "Single High-Contrast Visual Infographic (T57.png Red OFF vs. Green ON Toggles) + T59 6-Gate Deployment Checklist PDF",
         "visual_type": "5-Pillar Central-Spine Comparison with Vector OFF vs. ON Toggle Switches + 6-Gate Prod Checklist",
         "carousel_spec": "12-Slide Native PDF/PPTX Deck pairing T57 (Stateless API OFF vs. Managed Runtime ON), T59 (6-Step Prod Checklist with double ON switches), and T42 (Durable Execution Saga & Idempotency Keys)",
@@ -1203,9 +1203,9 @@ TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
         "comment_magnet_question": "If your 6-step agent creates a ticket or charges an API at Step 3 and times out at Step 4, what happens when it restarts — does it resume at Step 4 or duplicate Step 3?",
     },
     "IDEA-07": {
-        "primary_template_id": "T68",
-        "primary_template_name": "PromptCanvas Open Knowledge: 4-Tier Format Spine (Formats + Schema + Validation + Graph)",
-        "secondary_template_ids": ["T39", "T02", "T45"],
+        "primary_template_id": "T79",
+        "primary_template_name": "PromptCanvas Editorial Spine: 4-Tier Format & Contract Spine (T68 Topic Variant)",
+        "secondary_template_ids": ["T58", "T178", "T186"],
         "lead_post_format": "Animated GIF (T68.gif) + 12-Page Native PDF Carousel (T68 Open Knowledge Spine + T39 4-Memory PR Matrix)",
         "visual_type": "4-Tier Vertical Knowledge Spine (01 Open Formats -> 02 Schema Harness -> 03 Validation Loop -> 04 Knowledge Graph)",
         "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T68 Open Knowledge Format Spine -> Slide 2: T39 4-Memory Matrix -> Slides 3-6: O(1) Git-Blob SHA Staleness Gate (80->9 stale claims, 15->0 hallucinations) -> Slide 12: Repo & PPTX)",
@@ -1225,7 +1225,7 @@ TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
     "IDEA-08": {
         "primary_template_id": "T56",
         "primary_template_name": "PromptCanvas #55: Shadow AI Bubble Conceptual (4 Perceived Tools vs. 24 Shadow AI Pipelines)",
-        "secondary_template_ids": ["T18", "T03", "T46"],
+        "secondary_template_ids": ["T64", "T155", "T194"],
         "lead_post_format": "Viral Executive Infographic (T56.png 'The AI Nobody Signed Off') + 12-Page Zero-Trust Security PDF Carousel",
         "visual_type": "Executive Assumption Persona vs. 24 Color-Coded Shadow AI Bubbles Across 4 Clusters + 4-Control Governance Bar",
         "carousel_spec": "12-Slide Native PDF Carousel (Slide 1: T56 4 Perceived Tools vs. 24 Shadow AI Bubbles -> Slide 2: T18 Lethal Trifecta & CaMeL Capability Downgrading -> Slide 7: Google Cloud Model Armor #78 Blueprint -> Slide 12: Editable CISO Deck)",
@@ -1265,7 +1265,7 @@ TOMORROW_TOP10_DISTRIBUTION_PLAN: Dict[str, Dict[str, Any]] = {
     "IDEA-10": {
         "primary_template_id": "T66",
         "primary_template_name": "PromptCanvas #65: 4-Tier AI Capability Pyramid (Raw Inference -> Tools -> Multi-Agent -> Autonomous Apex)",
-        "secondary_template_ids": ["T60", "T63", "T01"],
+        "secondary_template_ids": ["T60", "T63", "T79"],
         "lead_post_format": "Executive Board-Ready 12-Page Native PDF Carousel (T66 Pyramid + T63 2x2 Matrix + T60 Q1-Q4 Roadmap) + Editable PPTX Deck",
         "visual_type": "4-Tier Ascending 3D Capability Pyramid + 2x2 Portfolio Matrix (20 Use Cases) + Q1-Q4 Roadmap + Golden Replay Gate",
         "carousel_spec": "12-Slide Executive Strategy Carousel (Slide 1: T66 4-Tier Capability Pyramid -> Slide 2: T63 2x2 Impact vs. Complexity Matrix -> Slide 3: T60 Q1-Q4 Rollout Roadmap -> Slide 4: T01 Golden Trajectory Replay Gate -> Slide 12: Full Editable PPTX)",

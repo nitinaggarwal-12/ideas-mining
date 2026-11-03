@@ -1,83 +1,54 @@
-# Agentic AI Ideas Mining & OpenHands Autonomous GCP Repo Factory
+# Agentic AI Ideas-Minting & OpenHands Autonomous GCP Repo Factory (`ideas-minting` / `ideas-mining`)
 
 > **Architected for**: [Nitin Aggarwal](https://www.linkedin.com/in/nitin-aggarwal-b49786a/)
-> **Autonomous Engineering Engine**: **OpenHands (`CodeActAgent`)** + **Google Cloud ADK** + **Vertex AI Gemini (`locations/global`)**
-> **Zero-Hallucination Guarantee**: 100% Primary-Source Grounded • 8 Standalone Git Repositories • `@2d` SVG/PNG/Draw.io Visuals • 12-Slide Editable `.pptx` & `.pdf` Decks • 1-Click GCP Terraform
+> **Autonomous Engineering Engine**: **OpenHands (`CodeActAgent`)** + **Google Cloud ADK** + **Vertex AI Gemini 4 Argon & 3.8 Flash (`locations/global`)**
+> **Zero-Hallucination & Zero-Shortcut Guarantee (`Law 18`)**: `116` Certified Unique Visual Templates (`72 Best` + `44 High`, `0 Medium/Low/Worst`) • `38` Live Editable Google Slides Decks (`T01`, `T53`–`T89`) • Flagship 24-Slide Cloudstyle 2.0 Google Slides Deck (`1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY`) • `19` Verified Standalone Git Repositories • `1080p30` `0.8s xfade` Multi-Scene Walkthrough Video (`MINT-01_walkthrough.mp4`)
 
 ---
 
-## 1. How Top Agentic AI Creators Mine In-Demand Ideas & Structure Viral Flows
+## 1. 2026 Career-Minting Studio (`MINT-01` .. `MINT-12`), `S_iso` Blueprint Router & Dual-Coded Learning Layer
 
-Our forensic audit of the 8 LinkedIn URLs you shared (**Rakesh Gohel**, **Aakash Gupta**, **Vaibhav Sisinty**, **Matt Village**, **Prashant Varshney**, and **Prashant Rathi**) reveals a repeatable **4-Channel Signal Mining Funnel**:
+`src/catalog/career_minting_catalog.py` and `src/visuals/canonical_blueprint_minter.py` score every candidate topic via the 5-signal Canonical Blueprint Isomorphism formula over the **Non-Legacy Canonical Pool** (`T01`, `T53`–`T89` + `PromptCanvas` `#78/#79/#81/#84`, rejecting legacy `Gen-1` `T02`–`T52` with a fail-closed `ValueError`):
 
-| Channel ID | Signal Channel | Primary Upstream Sources | Creators Using Pattern |
-| :--- | :--- | :--- | :--- |
-| **`CH-01`** | **Daily arXiv & Lab Release Radar (24–48h Latency)** | `arXiv cs.AI / cs.CL / cs.MA`, HuggingFace Daily Papers, AlphaXiv, LangChain Blog (`OpenWiki`), Anthropic Engineering | **Rakesh Gohel** (`HarnessEvolve` `7517563942492196864`, `OpenWiki` `7515025598243639296`) |
-| **`CH-02`** | **GitHub Breakout Velocity & Curated Repo Bundling** | `github.com/trending`, OSSInsight star-velocity spikes, official quickstarts (`All-Hands-AI/OpenHands`, `agent-skills`) | **Vaibhav Sisinty** (`5 Free GitHub Repos` `7517094569474437122`) |
-| **`CH-03`** | **Viral Builder Quote Amplification & 10-Step Roadmaps** | High-impression X/Twitter builder posts (Addy Osmani 857K views), CLI changelogs | **Aakash Gupta** (`7517071955964129280`), **Matt Village** (`7517147417599746048`) |
-| **`CH-04`** | **Adversarial Production Pain-Point Taxonomy** | OWASP Top 10 for LLM Apps (`LLM01` Indirect Prompt Injection), production postmortems | **Prashant Varshney** (`7516354672530653184`), **Prashant Rathi** (`7515306164788563969`, `7514309864186081280`) |
+$$S_{\text{iso}}(I, T) = 0.30 \cdot \text{Topology} + 0.25 \cdot \text{ControlFlow} + 0.20 \cdot \text{Cardinality} + 0.15 \cdot \text{FinOpsSlot} + 0.10 \cdot \text{CognitiveFit}$$
 
----
-
-## 2. Why OpenHands Autonomous Execution Replaces Static Meta-Prompts (BMAD)
-
-Instead of generating static markdown prompt templates (`BMAD`) or relying on unverified "vibe coding", this platform uses the **OpenHands Autonomous Software Engineering Loop** (`src/openhands_harness/autonomous_agent.py`):
-1. **Explore Workspace & Primary Source**: Inspects the source paper/repo and existing AST.
-2. **Plan Full-Stack Architecture**: Maps every concept to Google Cloud `#78` 4-Zone Hub-and-Spoke topology and Vertex AI `locations/global` (`gemini-2.5-pro` & `gemini-2.5-flash`).
-3. **Implement Functional Code & UI**: Generates the Python ADK codebase, Executive Light-Theme UI (`#f8fafc` / `#ffffff`), `@2d` visuals, 12-slide `.pptx`/`.pdf`, and Terraform HCL.
-4. **Verify in Sandbox**: Runs `unittest` / `pytest`, XML/SVG bounding-box checks, and OpenXML `.pptx` audits before committing.
-5. **Propose Verified Git Commit**: Commits to each standalone repository under `generated-repos/<slug>` only when 100% of gates pass.
+- **Flagship Exemplar (`MINT-01`)**: *Zero-Bloat MCP Gateway: Dynamic Tool Search + OAuth 2.1 OBO* (`S.C.O.P.E.`)
+  - **Minted Canonical Blueprint**: `T85` (`assets/template-gallery/T85.{drawio,png,svg,gif,pptx}`, `S_iso = 62.0 < 65 -> MINT_NEW`)
+  - **24-Slide Cloudstyle 2.0 Native Editable Google Slides Deck**: [`1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY`](https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit?usp=drivesdk) (`1,294` native vector elements, `0` raster diagrams, companion Sheets `19yXCdE-KJGG7nMinU_XgmaDYqf11K2AD--u6o5GAWRQ`)
+  - **Runnable Git Repository**: [`generated-repos/gcp-mcp-zero-bloat-gateway`](./generated-repos/gcp-mcp-zero-bloat-gateway) (`python3 demo_runner.py --compare`, `5/5` unit tests)
+  - **1080p30 Multi-Scene Walkthrough Video**: [`assets/videos/MINT-01_walkthrough.mp4`](./assets/videos/MINT-01_walkthrough.mp4) (`44.0s`, `1920x1080@30fps`, `0.8s xfade`, `0.0px²` blueprint occlusion, `en-IN-Chirp3-HD-Charon` `-16 LUFS`)
 
 ---
 
-## 3. All 8 Generated Standalone Git Repositories (`generated-repos/*`)
+## 2. Consolidated 116-Template Gallery (`72 Best` + `44 High`, `0 Medium/Low/Worst`)
 
-| Post ID | Standalone Git Repo Path | Source Activity URN & Creator | Primary Technical Source |
-| :--- | :--- | :--- | :--- |
-| **`POST-01`** | [`generated-repos/01-harnessevolve-self-improving-evals`](./generated-repos/01-harnessevolve-self-improving-evals) | `7517563942492196864` • Rakesh Gohel | *HarnessEvolve: Learning from Reference Trajectories for Reliable Agent Self-Evolution (`arXiv:2609.00829`)* |
-| **`POST-02`** | [`generated-repos/02-enterprise-agent-harness-os`](./generated-repos/02-enterprise-agent-harness-os) | `7517071955964129280` • Aakash Gupta / Addy Osmani | *Agent = Model + Harness: 10-Layer Enterprise Harness Roadmap* |
-| **`POST-03`** | [`generated-repos/03-multi-agent-skills-plugin-hub`](./generated-repos/03-multi-agent-skills-plugin-hub) | `7517094569474437122` • Vaibhav Sisinty | *5 Foundational Agent Ecosystems (`agency-agents`, `wshobson/agents`, `agent-skills`)* |
-| **`POST-04`** | [`generated-repos/04-openhands-autonomous-coding-harness`](./generated-repos/04-openhands-autonomous-coding-harness) | `7517147417599746048` • Matt Village + OpenHands | *OpenHands (`All-Hands-AI/OpenHands`) + 6-Stage Agentic Coding Lifecycle* |
-| **`POST-05`** | [`generated-repos/05-zero-trust-prompt-injection-guard`](./generated-repos/05-zero-trust-prompt-injection-guard) | `7516354672530653184` • Prashant Varshney | *OWASP LLM01 Indirect Prompt Injection & Dual-Channel Isolation* |
-| **`POST-06`** | [`generated-repos/06-structured-agent-repo-blueprint`](./generated-repos/06-structured-agent-repo-blueprint) | `7515306164788563969` • Prashant Rathi | *9-Component Modular Agentic Project Structure (`AGENTS.md`, `skills/`, `hooks/`)* |
-| **`POST-07`** | [`generated-repos/07-openwiki-evidence-memory-guard`](./generated-repos/07-openwiki-evidence-memory-guard) | `7515025598243639296` • Rakesh Gohel | *LangChain OpenWiki Evidence-Receipt Memory & O(1) Deterministic Staleness* |
-| **`POST-08`** | [`generated-repos/08-end-to-end-6step-production-agent`](./generated-repos/08-end-to-end-6step-production-agent) | `7514309864186081280` • Prashant Rathi & Rakesh Gohel | *6-Step End-to-End Production Agent Loop (`Reason -> Act -> Observe -> Evaluate`)* |
+All `53` legacy `Gen-1` raw Python SVG templates (`T02`–`T52`) and `19` boxy templates have been permanently purged (`Law 18` / `Rule 57B`), and `33` `Medium/Low/Worst` session blueprints were refactored into `Gen-5` Open-Drafting-Grid Sculptural Posters (`Best` tier).
+
+- **`15` PromptCanvas Canonical `Best` Templates (`T54`–`T67` + `T79` 4-Tier Spine Archetype)**:
+  - `T79` hosts all `23` Canonical 4-Tier Spine Topic Variants on disk and in `T79.topic_posts` (`T01, T53, T68–T78, T80–T89`, including newly minted `T85`–`T89`), with `38` live Google Slides decks in `data/template_google_slides_manifest.json`.
+- **`24` Kept `Gen-4` Sculptural `Best` Templates** (`T90`..`T195`).
+- **`33` Refactored `Gen-5` Open-Drafting-Grid `Best` Templates** (`T95`..`T207`).
+- **`44` Certified `High` Templates** (`T92`..`T209`).
 
 ---
 
-## 4. 84 Dynamic Visual Templates (`T01`–`T84` in `assets/template-gallery/`) & 33 Live Google Slides Decks
+## 3. All 19 Verified Standalone Git Repositories (`generated-repos/*`)
 
-- **Pack 1 (`T01`–`T20`, [`src/visuals/template_gallery.py`](./src/visuals/template_gallery.py))**: 20 visual archetypes pairing Google Cloud primitives with open-source equivalents (`Pain-Point Flow` [`T01` recreated as a canonical 4-tier spine matching `T53`], `Split-Path Divergence`, `Hub-and-Spoke Core`, `Layered Stack`, `Swimlane Sequence`, `State Machine & Gates`, `Trade-off Matrix`, `Benchmark Delta Board`, `Evolution Timeline`, `Refinement Funnel`, `2x2 Risk Quadrant`, `Annotated Artifact`, `Code Diff & Proof`, `Readiness Scorecard`, `Research Mind-Map`, `Maturity Matrix`, `Attack & Defense Chain`, `Repo Anatomy Map`, `Myth vs. Reality`, `6-Axis Radar`).
-- **Pack 2 (`T21`–`T40`, [`src/visuals/template_gallery_v2.py`](./src/visuals/template_gallery_v2.py))**: 20 creator-signature formats modeled on top-followed Agentic AI / GenAI / LLM / Evaluation publications and primary sources (`Building Effective Agents`, `Charlie Hills / Boris Cherny 10-Change Agentic Coding Playbook & 42 Add-ons`, `200K->60K Context Budget Ledger`, `Hamel Husain & Shreya Shankar Error Analysis`, `Eugene Yan / MT-Bench Judge Calibration`, `Google Agents Companion Trajectory Metrics`, `Brij Kishore Pandey 7-Layer Control Plane & ByteByteGo 9-Message MCP Sequence`, `Contextual Retrieval Sketch`, `Tom Yeh AI-by-Hand Cohen's κ`, `HarnessEvolve arXiv:2609.00829 Paper Digest`, `26-Line Runnable Loop Guard`, `Andrew Ng 4 Agentic Patterns`, `Ethan Mollick Jagged Frontier`, `Simon Willison Lethal Trifecta`, `Multi-Agent Research Economics`, `Chip Huyen Cost Waterfall`, `Brij Kishore Pandey 'How Do We Turn It Off?' 5-Stage Lifecycle, 10-Field Agent Record & SRE Postmortem`, `Brij Kishore Pandey 5-Layer ADK / SKILL.md Tool-Schema Clinic`, `CoALA & Lilian Weng Agent Memory Map`, `8-Week Build-in-Public Latency Changelog`).
-- **Pack 3 (`T41`–`T52`, [`src/visuals/template_gallery_v3.py`](./src/visuals/template_gallery_v3.py))**: 12 systems-architect & engineering blog formats (`Swyx Latent Space`, `Karpathy LLM OS`, `Harrison Chase LangGraph State Machine`, `Philipp Schmid Production Serving`, `Gergely Orosz Pragmatic Engineer RFC`, `Jerry Liu Multimodal RAG`, `2-Agent Orchestrator/Reviewer Loop`, `5-Layer Enterprise Agentic OS`, `3-Pillar Eval-Driven Development`, `6-Card Bento Grid`, `A2A + MCP Protocol Interop`, `Agentic FinOps & Speculative Cascade`).
-- **Pack 4 (`T53`–`T84`, [`src/visuals/template_gallery_v4.py`](./src/visuals/template_gallery_v4.py))**: 32 canonical PromptCanvas Infographics (`#52`–`#66` + `Open Knowledge Reference Poster` `T53`–`T68` + 16 LinkedIn Creator Signal Spine Infographics `T69`–`T84` spanning Aishwarya Naresh Reganti [`T69`], Vaibhav Sisinty [`T70`], Nan Li [`T71`], Alena Panshina [`T72`], Rajesh Kumar [`T73`], Rakesh Gohel [`T74`], Harish Kumar [`T75`], Gautami Nadkarni [`T76`], Himanshu Jain [`T77`], Matt Village [`T78`], Sivasankar Natarajan [`T79` Constrained Decoding & Semantic Verification], Rathnakumar Udayakumar [`T80` 9 Agent Micro-Decisions], Mayank A. [`T81` 8-Phase Harness Engineering], Bally S Kehal [`T82` Replay-Set Code Review Eval], Shivani Virdi [`T83` Multi-Trial `pass^k` & Restraint], and Pallavi Ahuja [`T84` Inference Roofline & Goodput]) rendered via `viewer-static.min.js` at `2x` Retina resolution (`Rule 57`), with `0.0px` connector alignment and **33 5-slide native editable `.pptx` + live Google Slides decks (`T01` + `T53`–`T84`)**.
-
----
-
-## 5. End-to-End Daily Latest-Topic LinkedIn Post & Visual Generator (`STYLE-01..06` ⇄ `T79`–`T84`)
-
-`src/harvester/daily_post_generator.py` and `scripts/generate_daily_posts.py` harvest fresh daily AI/systems signals across **arXiv**, **Hacker News (Algolia)**, **GitHub Breakouts**, and **HuggingFace Daily Papers**, score every candidate across 4 dimensions (`novelty`, `quantitative_density`, `practitioner_utility`, `visualizability`), route across the 6 mined creator styles (`STYLE-01..06`), synthesize ready-to-publish LinkedIn post copy + Comment #1 primary-source link, and generate a custom zero-origin moving-arrow 2D SVG (`assets/daily-posts/<YYYY-MM-DD>/<POST-ID>.svg`).
-
-- **CLI / Cron**: `python3 scripts/generate_daily_posts.py --count 6 [--topic "..."] [--style AUTO|STYLE-01..06]`
-- **HTTP Endpoints**: `GET /api/daily-posts`, `POST /api/daily-posts/generate`, `GET /api/templates`, `GET /api/health`
+1. **`MINT-01`**: [`generated-repos/gcp-mcp-zero-bloat-gateway`](./generated-repos/gcp-mcp-zero-bloat-gateway) — *Zero-Bloat MCP Gateway: Dynamic Tool Search + OAuth 2.1 OBO (`S.C.O.P.E.`)*
+2. **`IDEA-01` .. `IDEA-10`**: 10 Tomorrow Morning EST Daily Pain-Point Repositories (`09-loop-breaker-circuit-governor` .. `18-finops-cascade-semantic-cache`)
+3. **`POST-01` .. `POST-08`**: 8 Analyzed LinkedIn Creator Signal Repositories (`01-harnessevolve-self-improving-evals` .. `08-end-to-end-6step-production-agent`)
 
 ---
 
-## 6. Quickstart, E2E Puppeteer Verification & Cloud Run Deployment
+## 4. Quickstart, Automated Verification Gates & Cloud Run Deployment
 
 ```bash
-# 1. Sync canonical PromptCanvas infographics (T01, T53-T84), compile slides, and generate today's LinkedIn edition
-node scripts/sync_canonical_promptcanvas_infographics.mjs
-python3 scripts/generate_daily_posts.py --count 6
-
-# 2. Run unit tests, repo audit, inked-pixel arrow-label centering gate & Puppeteer E2E suite
+# 1. Rebuild & verify all 19 standalone Git repositories
+python3 scripts/build_and_verify_all.py --skip-existing
 python3 scripts/verify_all_repos.py
+
+# 2. Run unit tests, inked-pixel arrow-label centering gate (T69-T89) & Puppeteer E2E suite
 python3 -m unittest discover -s tests -p "test_*.py" -v
 node scripts/verify_arrow_label_inked_pixel_centering.mjs
 node scripts/e2e_puppeteer_functional_suite.mjs
-
-# 3. Deploy to Cloud Run (ramp-portal-dev us-west1 -> https://ideas-mining-248990048888.cr.gclb.goog/)
-python3 /Users/nitinagga/Documents/notes/scripts/oci_deploy_remaining_services.py ideas-mining
 ```
-
-

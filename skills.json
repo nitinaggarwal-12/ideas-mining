@@ -1,0 +1,549 @@
+{
+  "bundleChecksum": "ee03459ad315a9f8319a3e787d4ea8154c187bcd031e2e445bf8a908b189e536",
+  "skills": {
+    "accidental-data-loss-prevention": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "82769e3c99fbbae081420ea62d6e3318eaf80b9c97da12a62c1cf97049826878",
+      "canonicalPath": "skills/accidental-data-loss-prevention/SKILL.md"
+    },
+    "bigquery-data-transfer-service": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "8b34bf814948ecbc1bc4fa4cd3aa1da829339efbf95347cbe75985665e78bb27",
+      "canonicalPath": "skills/bigquery-data-transfer-service/SKILL.md"
+    },
+    "bigquery-sql": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "7bdd109924142ac3207e5b883cb0bb9fea1c349141b9870b5f2b20ee74a87b6f",
+      "canonicalPath": "skills/bigquery-sql/SKILL.md"
+    },
+    "building-data-apps": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "a9153d270f9d50b3d265be48b778255f9b955fa0f1609c269220038d5880732f",
+      "canonicalPath": "skills/building-data-apps/SKILL.md"
+    },
+    "data-autocleaning": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "2d4339a699687f70e8ee87420fcb8a892b510aef1f5def97fa3f75dc8a33219e",
+      "canonicalPath": "skills/data-autocleaning/SKILL.md"
+    },
+    "dataform-bigquery": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "e8caf84796538388421ac87cdcd36aa8c70b8d1416ddc0fe8fd95dc597cada36",
+      "canonicalPath": "skills/dataform-bigquery/SKILL.md"
+    },
+    "dbt-bigquery": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "6ae77aef9fa238663a88b001da95c1642a45c1db5d48cd1774f53606d83724e3",
+      "canonicalPath": "skills/dbt-bigquery/SKILL.md"
+    },
+    "discovering-gcp-data-assets": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "558a0e0738a9d9448463193371400a3a82c6e17d24b6915cd35477f5329d3bd4",
+      "canonicalPath": "skills/discovering-gcp-data-assets/SKILL.md"
+    },
+    "enforcing-resource-attribution": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "775c8ed9c2b00d543bf5d24ac441f0e46ca84637923a4d3bd1cac841d3fc254e",
+      "canonicalPath": "skills/enforcing-resource-attribution/SKILL.md"
+    },
+    "gcp-data-pipelines": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "89c5d1b906395c513896b34cb176c6189cf7eb2fddd14266e629659c5f9132af",
+      "canonicalPath": "skills/gcp-data-pipelines/SKILL.md"
+    },
+    "gcp-dataflow": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "6e1a4e5541603ffbac0b8652a1b0b37b6b65c4d31acdec385e49b78676eff070",
+      "canonicalPath": "skills/gcp-dataflow/SKILL.md"
+    },
+    "gcp-pipeline-orchestration": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "91589ccadc49e96e3d6efd754c6f8fed66ea0ece5632f40024d5713ea79bcf71",
+      "canonicalPath": "skills/gcp-pipeline-orchestration/SKILL.md"
+    },
+    "gcp-pipeline-resource-provisioning": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "375d3a13d9fa91ee42b55ea5af7e57569c9ea702d46158573eec8f0055955ac9",
+      "canonicalPath": "skills/gcp-pipeline-resource-provisioning/SKILL.md"
+    },
+    "gcp-spark": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "40242992f27596a0e34ee34195a261c8c7e5b656fed7f2d93126413ca9ff3d62",
+      "canonicalPath": "skills/gcp-spark/SKILL.md"
+    },
+    "gcp-spark-troubleshooting": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "04922deb2fb8d9ef378833b865a10e12c3fe3b99951f00b196b3e8c6b36205d4",
+      "canonicalPath": "skills/gcp-spark-troubleshooting/SKILL.md"
+    },
+    "google-cloud-auth-verification": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "0d1e316d095d53a9ab443921e9b23d96bf1ba3ec3da866f927c40be939e3f5e6",
+      "canonicalPath": "skills/google-cloud-auth-verification/SKILL.md"
+    },
+    "managing-python-dependencies": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "c87d58b802aeec6aa2d25c11a6d03dd9587b22be57c46b125ae54dde4d16fb92",
+      "canonicalPath": "skills/managing-python-dependencies/SKILL.md"
+    },
+    "ml-best-practices": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "ae010fd52e6b29f9c18302c4bdb36ce444bfc5581a52a0e036ae1f0b6ab44473",
+      "canonicalPath": "skills/ml-best-practices/SKILL.md"
+    },
+    "notebook-guidance": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "58c40fdc7a764e999bb033e943714ea0560dd27b06a00bf0def424f5ba9cf0ff",
+      "canonicalPath": "skills/notebook-guidance/SKILL.md"
+    },
+    "schema-mapping": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "8ece5fa91050ef54af7e2ceab130a60d3f8990760969f8e37f1dea824b1d0811",
+      "canonicalPath": "skills/schema-mapping/SKILL.md"
+    },
+    "skill-repair": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "7ed4b7eb5d82d14686967967159aa472869313bd9804ced44b16eab4884b7f00",
+      "canonicalPath": "skills/skill-repair/SKILL.md"
+    },
+    "agentic_ai_engineering": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "f7e0dbfe4da09274a5143054dec5a33fd8a0eb2c9d69e84d1d288723ab2b44ac",
+      "canonicalPath": "skills/agentic_ai_engineering/SKILL.md"
+    },
+    "ai-prompt-evals": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "9ff5499af8d53d723e465972d10aa2ccb460382cfd80bdf0ad1da674c328d960",
+      "canonicalPath": "skills/ai-prompt-evals/SKILL.md"
+    },
+    "askaioce-level50-gate": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "fae07c915d6a5dd61113e781a89f6f3e0cd782cad5ede043008eea7778aba5fb",
+      "canonicalPath": "skills/askaioce-level50-gate/SKILL.md"
+    },
+    "ast-sanitizer-benchmark": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "dfe59b0e60902c6402b6457bde95e5cb7e8220947cab546258263380e6628c52",
+      "canonicalPath": "skills/ast-sanitizer-benchmark/SKILL.md"
+    },
+    "automated-visual-regression-and-viewport-gate": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "62f0ce98fcc81491a26a69c9b9731017ca3a24b57fa8dccd82d078ef444ff8db",
+      "canonicalPath": "skills/automated-visual-regression-and-viewport-gate/SKILL.md"
+    },
+    "bento-interactive-studio-designer": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "fe029297db772b8d90be790e087e235987522ffb4f65915798867a0c515b3015",
+      "canonicalPath": "skills/bento-interactive-studio-designer/SKILL.md"
+    },
+    "book-chapter-logical-flow": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "a9edf050a27828fec570cab9f84dc65124c38baf922b8b882a3b1006064b6337",
+      "canonicalPath": "skills/book-chapter-logical-flow/SKILL.md"
+    },
+    "cloudrun-two-project-deploy": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "9d70d6d5f9d48b85b83606db4128eaca3ce316929a6252f8e63a1b40c5529a06",
+      "canonicalPath": "skills/cloudrun-two-project-deploy/SKILL.md"
+    },
+    "content-studio-ux": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "3a4c8aad82adbd50752ff1308f5c91b65d996746173a9a6c84642f1715e65628",
+      "canonicalPath": "skills/content-studio-ux/SKILL.md"
+    },
+    "cross-viewport-auditor": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "e3b736ffa29db0e712cc1aa5ab137b358f18e0d79e1a4bb654e05a7d507187cf",
+      "canonicalPath": "skills/cross-viewport-auditor/SKILL.md"
+    },
+    "customer-lineage-forensic-guard": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "4ede807b9e061c5d3dbf84b63614e73c186b75c1c5f665073e921c09a3ad5723",
+      "canonicalPath": "skills/customer-lineage-forensic-guard/SKILL.md"
+    },
+    "database-schema-guard": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "498f8fd6069bae43190d79ca87d616c0006b5b9f56ded422cd42a227b15af3c1",
+      "canonicalPath": "skills/database-schema-guard/SKILL.md"
+    },
+    "deepmind-emotional-audio-engine": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "5b353fc217c06534b571f167992fc83995178c5761a5ecdcaaf45baf144e9114",
+      "canonicalPath": "skills/deepmind-emotional-audio-engine/SKILL.md"
+    },
+    "demoes-ge-omni-twin-audit": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "ef5a603ed2c8d5f319b8fd30aed0b52b9d66d55299ac8d68abd006477005758e",
+      "canonicalPath": "skills/demoes-ge-omni-twin-audit/SKILL.md",
+      "sha256": "ef5a603ed2c8d5f319b8fd30aed0b52b9d66d55299ac8d68abd006477005758e",
+      "bytes": 2347
+    },
+    "diagram-decompilation-and-geometry": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "7b54d2ee701a088a89597e96539f72cdc8a85518c7b27207af28ae3ea26c8134",
+      "canonicalPath": "skills/diagram-decompilation-and-geometry/SKILL.md"
+    },
+    "diagram-generation-engine": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "a7d1ffe992602389840e2d92a0da6dcaff37375deabd0408d2cf934d0d964590",
+      "canonicalPath": "skills/diagram-generation-engine/SKILL.md"
+    },
+    "dual-theme-chrome-e2e": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "58660b56bbb319e580f63854192af19c54326abe14555bcf3997f3fd83e64bde",
+      "canonicalPath": "skills/dual-theme-chrome-e2e/SKILL.md"
+    },
+    "executable-code-labs-and-math-verifier": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "744de7278932bb727b26ccf18526e6e4375bdeed36d63a17864160f671017853",
+      "canonicalPath": "skills/executable-code-labs-and-math-verifier/SKILL.md"
+    },
+    "executive-ui-design-and-frontend-craft": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "fead5e48ef7db3374ed0d18e96d947be29e2e60a2360229a81effa1c7b3751de",
+      "canonicalPath": "skills/executive-ui-design-and-frontend-craft/SKILL.md"
+    },
+    "gantrypulse-6hop-sync": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "cfca527029b88be4c77d5841985293ed3fa5f246fc03d66d38f7dc2f5df18919",
+      "canonicalPath": "skills/gantrypulse-6hop-sync/SKILL.md"
+    },
+    "gantrypulse-email-composer": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "4af401180a62c3bbd1f690e1bbb8666db174b879d54cdc378f9832cc7877616c",
+      "canonicalPath": "skills/gantrypulse-email-composer/SKILL.md"
+    },
+    "gantrypulse-forensic-audit": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "4b579af4f3c4959535ef9679d1cd6433bab7376765e339ecae2135dfd8bed11e",
+      "canonicalPath": "skills/gantrypulse-forensic-audit/SKILL.md"
+    },
+    "gantrypulse-ui-containment": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "948794186856034895a4ef1bea5309089ea8175e5117c6ee05f5de569c34b0fa",
+      "canonicalPath": "skills/gantrypulse-ui-containment/SKILL.md"
+    },
+    "gcp-enterprise-diagram-engine": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "185457189183e70fde6a02ef342c83c19fc470ac45afa32c7be6154fcdc77e9b",
+      "canonicalPath": "skills/gcp-enterprise-diagram-engine/SKILL.md"
+    },
+    "gemini-lyria-music-generation": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "a85f7688be6cf357e385e265482f09359f4b45c1db11282b71883a12c884b34e",
+      "canonicalPath": "skills/gemini-lyria-music-generation/SKILL.md"
+    },
+    "gxp-21cfr11-token-verifier": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "6912b9ce0c0da7006a76274bc78ab535aaa205229421b8bf35ad32fcba9ec6b8",
+      "canonicalPath": "skills/gxp-21cfr11-token-verifier/SKILL.md"
+    },
+    "load-and-stress-testing": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "24d1aa59e8fe090d0d9cb1d6a1ff66f9414c9bc2e85d988aa8abfe489e4014d1",
+      "canonicalPath": "skills/load-and-stress-testing/SKILL.md"
+    },
+    "meeting-decision-and-action-extractor": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "7a57bdc894f775e06fed4c77ec0d4a5be5beecd71f378eae491e1ca6e492672b",
+      "canonicalPath": "skills/meeting-decision-and-action-extractor/SKILL.md"
+    },
+    "meeting-followup-and-tracker-sync": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "d251c4605b09e1b47ff6c54009147b429d420ff7c68e7ff4f9ab85c34efca787",
+      "canonicalPath": "skills/meeting-followup-and-tracker-sync/SKILL.md"
+    },
+    "meeting-prep-context-gatherer": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "4c211f0990beadec0fc8b29ef38885a22d70eaa8edc0e04e5fd91cbeb50a1eed",
+      "canonicalPath": "skills/meeting-prep-context-gatherer/SKILL.md"
+    },
+    "mermaid-elk-diagram-architect": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "461564a3d6ad1f6d0db7a65011a71fbba437c4c6c4e3322ca4ca14c1214c7145",
+      "canonicalPath": "skills/mermaid-elk-diagram-architect/SKILL.md"
+    },
+    "oce-agentic-bi-ground-truth": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "21e508b7585e5d22b258dd43e441646204b7d9e7d123080ac2eb55c6a247405c",
+      "canonicalPath": "skills/oce-agentic-bi-ground-truth/SKILL.md"
+    },
+    "oreilly_book_publishing": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "8b175943a10721d28fbf00deb0ff07fdc3e458dfc55500f4264a0944d16f997f",
+      "canonicalPath": "skills/oreilly_book_publishing/SKILL.md"
+    },
+    "performance-and-telemetry": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "69209990ed5efc6ed4eb08be075ee0f223f5530142341ba0aa872093b8cccfb7",
+      "canonicalPath": "skills/performance-and-telemetry/SKILL.md"
+    },
+    "promptcanvas-blueprint-cert": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "43893e296e2e1b1c92eb24436e7b2119857ec9899e16e139989e44c68359dc7f",
+      "canonicalPath": "skills/promptcanvas-blueprint-cert/SKILL.md"
+    },
+    "puppeteer-pair-programming": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "bfc6ee5e7c3d9df90cbb4c27f7a964ec201ba11d28e6633546fa7f63d1536f78",
+      "canonicalPath": "skills/puppeteer-pair-programming/SKILL.md"
+    },
+    "review-workspace": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "ab7e8b09a2cfc315090861d9399ff622517d03c3d2607a240587714cf9a6342d",
+      "canonicalPath": "skills/review-workspace/SKILL.md"
+    },
+    "scientific-figure-and-chart-generator": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "01f1aa8d0652232f845c59b1781eed545cb2c492890a96fd057e9e659ce2d498",
+      "canonicalPath": "skills/scientific-figure-and-chart-generator/SKILL.md"
+    },
+    "scorex-cfo-value-realization-calculator": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "45c555edd36eeed9babe530737e7be975756f47b5206a0c754428448ae6cfd19",
+      "canonicalPath": "skills/scorex-cfo-value-realization-calculator/SKILL.md"
+    },
+    "scorex-diagram-topology-decompiler": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "37e2d7cfc0c96b95259608cac63179a0b02b1de680b118c6364fe0eff97fe4e4",
+      "canonicalPath": "skills/scorex-diagram-topology-decompiler/SKILL.md"
+    },
+    "scorex-forensic-gate": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "72362fec0f3fe7df91866105eb60bbc933362cc58c17216bd76cda53093c3034",
+      "canonicalPath": "skills/scorex-forensic-gate/SKILL.md"
+    },
+    "scorex-grounded-rubric-scorer": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "84dfbb7fde3e3a245fef1676aa7c5feee5d1ac79489885621823687e1c61b1b4",
+      "canonicalPath": "skills/scorex-grounded-rubric-scorer/SKILL.md"
+    },
+    "scorex-multisource-evidence-ingestor": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "a994fc8f0c27bb50d92776fe26e5b6559056abef611a7b3dbfb6f0440795e58c",
+      "canonicalPath": "skills/scorex-multisource-evidence-ingestor/SKILL.md"
+    },
+    "scorex-omni-forensic-critic": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "689145cc9e18fa7a274897cd6a6acbf111f7e02421e0e54789b60dbc3c735284",
+      "canonicalPath": "skills/scorex-omni-forensic-critic/SKILL.md"
+    },
+    "security-code-scanner": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "f0b214049e365a329411175ac8156b910b5b4b606b9ee1d079c38706e517585b",
+      "canonicalPath": "skills/security-code-scanner/SKILL.md"
+    },
+    "slide-design": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "a5ae6399b36b3ff602e697cea2261fda838a184417762654cb126b7e39902b78",
+      "canonicalPath": "skills/slide-design/SKILL.md"
+    },
+    "table-cell-containment-and-truncate-safety-guard": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "751dd9115966f8e5e2abeed09f39daf05cc44b45c6013b56c4e450225048a1c2",
+      "canonicalPath": "skills/table-cell-containment-and-truncate-safety-guard/SKILL.md"
+    },
+    "ui-first-design-system": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "a94a0fec12cb5385b28e24dc30677d1a760b11baaee41d885b6cf5e248dd525f",
+      "canonicalPath": "skills/ui-first-design-system/SKILL.md"
+    },
+    "universal-document-cloud-hub": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "7e5339f776a7d68d6c99b1e38d01f2fb7099a1ecc218efd9544d3b9e2a04f5a4",
+      "canonicalPath": "skills/universal-document-cloud-hub/SKILL.md"
+    },
+    "visual-regression-testing": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "887c042a990f27661c67b4d23045e71de5416e7914b7cc74e611826e5a8f1140",
+      "canonicalPath": "skills/visual-regression-testing/SKILL.md"
+    },
+    "web-designer-and-developer": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "3223734a155c7168e658d225bf5ff3961ccfd0b299b3be096602b68a2806a84d",
+      "canonicalPath": "skills/web-designer-and-developer/SKILL.md"
+    },
+    "autonomous-software-delivery-ecosystem": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "de197462d540ef752756088005e5e95edf0d94da1aa41ad56c5c272cc1818820",
+      "canonicalPath": "skills/autonomous-software-delivery-ecosystem/SKILL.md"
+    },
+    "openhands-autonomous-workspace": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "5c69afb0c652854e79a93350b0a8bef64153a873bf11cef20a540d98b267ce4f",
+      "canonicalPath": "skills/openhands-autonomous-workspace/SKILL.md"
+    },
+    "merck-raw-notes-sync": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "907133fa8fba3d1a11416177b68a307490df8111ea1589c1dc8647edbde9c98f",
+      "canonicalPath": "skills/merck-raw-notes-sync/SKILL.md"
+    },
+    "default-demo-slide-template": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "340265e8c99641bce78b583f0d4fae2e5f29b34089b13535d5f5476dde13f81f",
+      "canonicalPath": "skills/default-demo-slide-template/SKILL.md"
+    }
+  },
+  "version": "3.7.0",
+  "entries": [
+    {
+      "path": "~/.gemini/config/skills"
+    },
+    {
+      "path": "/Users/nitinagga/Documents/Demoes-GE/enterprise-skills"
+    }
+  ],
+  "updatedAt": "2026-11-01T21:58:51Z"
+}

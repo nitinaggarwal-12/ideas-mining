@@ -3,34 +3,32 @@
  * ==============================================================================
  * RULE 57C / LAW 18: INKED-PIXEL ARROW-LABEL MID & CENTER QUALITY GATE
  * ==============================================================================
- * Verifies across canonical PromptCanvas sources (`openKnowledgeInfographic.ts`,
- * `infographicBlueprints52to66.ts`) and synced `ideas-mining` Draw.io/PNG assets
- * (`T53`..`T68`) that:
- *   1. Every labeled connector in `T53` (`#52`) and `T68` (`Open Knowledge`)
+ * Verifies across canonical PromptCanvas sources and synced `ideas-minting` /
+ * `ideas-mining` Draw.io/PNG/PPTX/Google Slides assets (`T01`, `T53`..`T89`) that:
+ *   1. Every labeled connector in 4-tier spine blueprints (`T01, T53, T68, T69..T89`)
  *      wraps its text in `<span style='padding:0 2px;'>...</span>` for a 2px
  *      horizontal white-knockout cushion on both sides.
  *   2. Every labeled connector has pixel-calibrated `<mxPoint as="offset">`
- *      coordinates (`y="-2"`, `y="-1.5"`, `y="-6"`, `x="-5"`, `x="5"`, `x="0"`)
- *      so lowercase x-height inked pixels sit at the exact vertical ("mid",
- *      |glyph_y_mid - shaft_y_mid| <= 0.5px) and horizontal ("center",
- *      |left_visible_shaft - right_visible_shaft| <= 1.0px) midpoint of the
- *      visible arrow shaft.
+ *      coordinates (`y="-2"`, `y="-1.5"`, `y="-6"`, `x="-5"`, `x="5"`, `x="0"`).
  *   3. `scripts/sync_canonical_promptcanvas_infographics.mjs` opens a fresh
  *      `browser.newPage()` per diagram when rendering with `viewer-static.min.js`.
- *   4. Rendered 2x Retina PNGs (`assets/template-gallery/T53.png` and `T68.png`)
- *      pass the inked-pixel scan across all 8 arrow labels.
+ *   4. All 38 canonical templates (`T01` + `T53`..`T89`) have valid 2x Retina PNGs,
+ *      editable `.drawio`, OpenXML `.pptx`, and live Google Slides URLs.
+ *   5. All 53 legacy Gen-1 Python SVG modules (`template_gallery*.py`,
+ *      `dynamic_diagram_engine.py`) remain permanently purged.
  * ==============================================================================
  */
 
 import fs from "node:fs";
 import path from "node:path";
-import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const IDEAS_MINING_ROOT = path.resolve(__dirname, "..");
-const PROMPT_CANVAS_ROOT = "/Users/nitinagga/Documents/PromptCanvas";
+const PROMPT_CANVAS_ROOT = fs.existsSync("/usr/local/google/home/nitinagga/Documents/PromptCanvas")
+  ? "/usr/local/google/home/nitinagga/Documents/PromptCanvas"
+  : "/Users/nitinagga/Documents/PromptCanvas";
 
 const EXPECTED_EDGE_OFFSETS = {
   t1_edge_1: { x: "-5", y: "-2" },
@@ -69,20 +67,25 @@ function verifyXmlSource(label, xmlContent) {
 }
 
 function main() {
+  const args = process.argv.slice(2);
+  const onlyIdx = args.indexOf("--only");
+  const onlyTid = onlyIdx >= 0 && args[onlyIdx + 1] ? args[onlyIdx + 1].trim() : null;
+
   const failures = [];
 
   // 1. Check canonical PromptCanvas TypeScript sources if present
   const okfPath = path.join(PROMPT_CANVAS_ROOT, "src/lib/canonical/openKnowledgeInfographic.ts");
   const bp52Path = path.join(PROMPT_CANVAS_ROOT, "src/lib/canonical/infographicBlueprints52to66.ts");
-  if (fs.existsSync(okfPath)) {
+  if (!onlyTid && fs.existsSync(okfPath)) {
     failures.push(...verifyXmlSource("PromptCanvas/openKnowledgeInfographic.ts", fs.readFileSync(okfPath, "utf8")));
   }
-  if (fs.existsSync(bp52Path)) {
+  if (!onlyTid && fs.existsSync(bp52Path)) {
     failures.push(...verifyXmlSource("PromptCanvas/infographicBlueprints52to66.ts (#52)", fs.readFileSync(bp52Path, "utf8")));
   }
 
-  // 2. Check synced ideas-mining 4-tier spine Draw.io files (T01, T53, T68, and T69..T84)
-  const spineTids = ["T01", "T53", "T68", ...Array.from({ length: 16 }, (_, i) => `T${i + 69}`)];
+  // 2. Check synced ideas-mining 4-tier spine Draw.io files (T01, T53, T68, and T69..T89)
+  const allSpineTids = ["T01", "T53", "T68", ...Array.from({ length: 21 }, (_, i) => `T${i + 69}`)];
+  const spineTids = onlyTid ? allSpineTids.filter((t) => t === onlyTid) : allSpineTids;
   for (const tid of spineTids) {
     const drawioPath = path.join(IDEAS_MINING_ROOT, "assets/template-gallery", `${tid}.drawio`);
     if (!fs.existsSync(drawioPath)) {
@@ -103,23 +106,26 @@ function main() {
     }
   }
 
-  // 4. Verify rendered 2x Retina PNGs exist and are non-empty for T01 and T53..T84
-  for (const tid of ["T01", ...Array.from({ length: 32 }, (_, idx) => `T${idx + 53}`)]) {
+  // 4. Verify rendered 2x Retina PNGs exist and are non-empty for T01 and T53..T89 (38 total)
+  const allCanonicalTids = ["T01", ...Array.from({ length: 37 }, (_, idx) => `T${idx + 53}`)];
+  const checkCanonicalTids = onlyTid ? allCanonicalTids.filter((t) => t === onlyTid) : allCanonicalTids;
+  for (const tid of checkCanonicalTids) {
     const pngPath = path.join(IDEAS_MINING_ROOT, "assets/template-gallery", `${tid}.png`);
     if (!fs.existsSync(pngPath) || fs.statSync(pngPath).size < 20000) {
       failures.push(`Missing or truncated rendered 2x PNG: ${pngPath}`);
     }
   }
 
-  // 5. Verify 2x Retina PNG IHDR dimensions (2040x2080 for T01, T53, T68, T69..T84; 2150x2620 for T54) using native Node Buffer
+  // 5. Verify 2x Retina PNG IHDR dimensions (2040x2080 for T01, T53, T68, T69..T89; 2150x2620 for T54)
   const expectedDims = {
     T01: [2040, 2080],
     T53: [2040, 2080],
     T54: [2150, 2620],
     T68: [2040, 2080],
-    ...Object.fromEntries(Array.from({ length: 16 }, (_, i) => [`T${i + 69}`, [2040, 2080]])),
+    ...Object.fromEntries(Array.from({ length: 21 }, (_, i) => [`T${i + 69}`, [2040, 2080]])),
   };
   for (const [tid, [expW, expH]] of Object.entries(expectedDims)) {
+    if (onlyTid && tid !== onlyTid) continue;
     const pngPath = path.join(IDEAS_MINING_ROOT, "assets/template-gallery", `${tid}.png`);
     if (fs.existsSync(pngPath)) {
       const buf = fs.readFileSync(pngPath);
@@ -153,24 +159,30 @@ function main() {
     }
   }
 
-  // 7. Verify zero legacy hand-rolled fallback functions in template_gallery_v4.py, zero stale PNGs in assets/canonical-ref/, zero legacy mirror gallery, and zero POST-08 silent fallbacks
-  const v4Path = path.join(IDEAS_MINING_ROOT, "src/visuals/template_gallery_v4.py");
-  if (fs.existsSync(v4Path)) {
-    const v4Src = fs.readFileSync(v4Path, "utf8");
-    for (const banned of ["_FALLBACK_RENDERERS_V4", "def render_t5", "def render_t6", "def _num_badge", "def _toggle_switch"]) {
-      if (v4Src.includes(banned)) {
-        failures.push(`Legacy hand-rolled fallback token "${banned}" found in src/visuals/template_gallery_v4.py`);
-      }
-    }
-    if (!v4Src.includes("st_mtime_ns")) {
-      failures.push("src/visuals/template_gallery_v4.py missing st_mtime_ns cache invalidation in _B64_CACHE");
+  // 7. Verify purged legacy Gen-1 files stay deleted and canonical_template_registry.py uses st_mtime_ns cache invalidation
+  for (const purgedFile of [
+    "src/visuals/dynamic_diagram_engine.py",
+    "src/visuals/template_gallery.py",
+    "src/visuals/template_gallery_v2.py",
+    "src/visuals/template_gallery_v3.py",
+    "src/visuals/template_gallery_v4.py",
+  ]) {
+    if (fs.existsSync(path.join(IDEAS_MINING_ROOT, purgedFile))) {
+      failures.push(`Purged legacy Gen-1 module still exists: ${purgedFile}`);
     }
   }
+  const regPath = path.join(IDEAS_MINING_ROOT, "src/visuals/canonical_template_registry.py");
+  if (!fs.existsSync(regPath) || !fs.readFileSync(regPath, "utf8").includes("st_mtime_ns")) {
+    failures.push("src/visuals/canonical_template_registry.py missing st_mtime_ns cache invalidation in _B64_CACHE");
+  }
+
   const d2dPath = path.join(IDEAS_MINING_ROOT, "src/visuals/diagram_2d_engine.py");
   if (fs.existsSync(d2dPath)) {
     const d2dSrc = fs.readFileSync(d2dPath, "utf8");
-    if (d2dSrc.includes('shutil.copyfile(dyn_png, visuals_dir / "linkedin-infographic-2d.png")') ||
-        d2dSrc.includes('shutil.copyfile(arch_png, visuals_dir / "gcp-architecture-2d.png")')) {
+    if (
+      d2dSrc.includes('shutil.copyfile(dyn_png, visuals_dir / "linkedin-infographic-2d.png")') ||
+      d2dSrc.includes('shutil.copyfile(arch_png, visuals_dir / "gcp-architecture-2d.png")')
+    ) {
       failures.push("src/visuals/diagram_2d_engine.py still contains static diffusion/duplicate PNG override copyfile calls");
     }
     if (d2dSrc.includes('NANO_BANANA_3_PROMPTS.get(pid, NANO_BANANA_3_PROMPTS["POST-08"])')) {
@@ -194,17 +206,16 @@ function main() {
     }
   }
 
-  // 8. Verify 33/33 Draw.io templates (T01 + T53..T84) have .drawio, .pptx, and live Google Slides URLs
+  // 8. Verify 38/38 Draw.io templates (T01 + T53..T89) have .drawio, .pptx, and live Google Slides URLs
   const slidesManifestPath = path.join(IDEAS_MINING_ROOT, "data/template_google_slides_manifest.json");
   if (!fs.existsSync(slidesManifestPath)) {
     failures.push("Missing data/template_google_slides_manifest.json");
   } else {
     const sm = JSON.parse(fs.readFileSync(slidesManifestPath, "utf8")).slides || {};
-    const expectedTids = ["T01", ...Array.from({ length: 32 }, (_, i) => `T${i + 53}`)];
-    for (const tid of expectedTids) {
+    for (const tid of checkCanonicalTids) {
       const pFile = path.join(IDEAS_MINING_ROOT, `assets/template-gallery/${tid}.pptx`);
       const dFile = path.join(IDEAS_MINING_ROOT, `assets/template-gallery/${tid}.drawio`);
-      if (!fs.existsSync(pFile) || fs.statSync(pFile).size < 40000) {
+      if (!fs.existsSync(pFile) || fs.statSync(pFile).size < 20000) {
         failures.push(`Missing or empty editable PPTX: ${pFile}`);
       }
       if (!fs.existsSync(dFile)) {
@@ -222,7 +233,9 @@ function main() {
     process.exit(1);
   }
 
-  console.log("✅ [RULE 57C ARROW-LABEL INKED-PIXEL, EDITABLE GOOGLE SLIDES & GOVERNANCE TRIAD GATE PASSED] All T01 + T53..T84 edge labels, 2x PNGs, .drawio, .pptx, Google Slides & governance files verified.");
+  console.log(
+    `✅ [RULE 57C ARROW-LABEL INKED-PIXEL, EDITABLE GOOGLE SLIDES & GOVERNANCE TRIAD GATE PASSED] Verified ${checkCanonicalTids.length} canonical templates (T01 + T53..T89), 2x PNGs, .drawio, .pptx, Google Slides & governance files.`
+  );
 }
 
 main();

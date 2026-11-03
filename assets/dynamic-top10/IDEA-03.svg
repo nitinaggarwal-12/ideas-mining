@@ -27,41 +27,23 @@
     <circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.22"/>
   </pattern>
   <style>
-    @keyframes arrowStream {
-      from { stroke-dashoffset: 40; }
-      to   { stroke-dashoffset: 0; }
-    }
-    @keyframes returnStream {
-      from { stroke-dashoffset: 0; }
-      to   { stroke-dashoffset: 48; }
-    }
-    @keyframes pulseGlow {
-      0%, 100% { stroke-width: 2.2px; }
-      50%      { stroke-width: 3.8px; }
-    }
-    .moving-arrow-line {
-      animation: arrowStream 1.0s linear infinite;
-    }
-    .moving-return-line {
-      animation: returnStream 1.2s linear infinite;
-    }
-    .step-card-animated {
-      animation: pulseGlow 2.4s ease-in-out infinite;
-    }
+    @keyframes arrowStream { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+    @keyframes returnStream { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 48; } }
+    @keyframes pulseGlow { 0%, 100% { stroke-width: 2.2px; } 50% { stroke-width: 3.8px; } }
+    .moving-arrow-line { animation: arrowStream 1.0s linear infinite; }
+    .moving-return-line { animation: returnStream 1.2s linear infinite; }
+    .step-card-animated { animation: pulseGlow 2.4s ease-in-out infinite; }
   </style>
 </defs>
-<!-- Root Canvas: Rule 54 Universal Light Theme (#F8FAFC) + Ambient Glassmorphic Mesh -->
 <rect x="0" y="0" width="1600" height="980" fill="#F8FAFC"/>
 <rect x="0" y="0" width="1600" height="980" fill="url(#meshBlue)"/>
 <rect x="0" y="0" width="1600" height="980" fill="url(#meshEmerald)"/>
 <rect x="0" y="0" width="1600" height="980" fill="url(#meshViolet)"/>
 <rect x="0" y="0" width="1600" height="980" fill="url(#archGrid)"/>
-<!-- Google Quad-Color Top Accent Bar -->
 <rect x="0" y="0" width="400" height="6" fill="#4285F4"/>
 <rect x="400" y="0" width="400" height="6" fill="#EA4335"/>
 <rect x="800" y="0" width="400" height="6" fill="#FBBC04"/>
 <rect x="1200" y="0" width="400" height="6" fill="#34A853"/>
-<!-- Left Numbered Spine (T53 / T68 Editorial Hierarchy) -->
 <line x1="28" y1="142" x2="28" y2="918" stroke="#CBD5E1" stroke-width="2.2"/>
 <rect x="10" y="132" width="36" height="26" rx="8" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.8"/>
 <text x="28" y="149" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#B91C1C" text-anchor="middle">01</text>
@@ -70,7 +52,6 @@
 <rect x="10" y="762" width="36" height="26" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="1.8"/>
 <text x="28" y="779" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#047857" text-anchor="middle">03</text>
 <circle cx="28" cy="920" r="4" fill="#94A3B8"/>
-<!-- Top Editorial Banner (y=14..114) -->
 <rect x="56" y="14" width="1508" height="100" rx="14" fill="url(#glassCardGrad)" stroke="#CBD5E1" stroke-width="1.8" filter="url(#cardShadow)"/>
 <rect x="58" y="16" width="1504" height="16" rx="10" fill="url(#glassSheen)"/>
 <rect x="74" y="24" width="334" height="22" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.2"/>
@@ -173,7 +154,7 @@
 <text x="92" y="546" font-family="Inter, sans-serif" font-size="8.2" font-weight="800" fill="#64748B">RUNTIME CONTRACT</text>
 <rect x="266" y="536" width="84" height="15" rx="7.5" fill="#DCFCE7" stroke="#16A34A" stroke-width="1"/>
 <text x="308" y="547" font-family="Inter, sans-serif" font-size="7.6" font-weight="800" fill="#15803D" text-anchor="middle">DETERMINISTIC</text>
-<text x="92" y="566" font-family="ui-monospace, monospace" font-size="9.6" font-weight="800" fill="#0F172A"> fingerprint(adk_precompletio)</text>
+<text x="92" y="566" font-family="ui-monospace, monospace" font-size="9.6" font-weight="800" fill="#0F172A">fingerprint(adk_precompletio)</text>
 <rect x="84" y="582" width="274" height="46" rx="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
 <rect x="84" y="582" width="274" height="23" rx="7" fill="#2563EB" fill-opacity="0.10"/>
 <text x="94" y="598" font-family="ui-monospace, monospace" font-size="9.4" font-weight="800" fill="#2563EB">GOOGLE: ADK PreCompletionHook</text>
@@ -354,5 +335,5 @@
 <text x="1056" y="884.0" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#93C5FD">Source: OpenHands CodeActAgent Sandbox Verification Loop &amp; Addy</text>
 <text x="1056" y="899.0" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#93C5FD">Osmani Checkpointed Agent-Skills</text>
 <rect x="210" y="942" width="1180" height="28" rx="14" fill="#0F172A"/>
-<text x="800" y="960" font-family="Inter, sans-serif" font-size="10.8" font-weight="800" fill="#F8FAFC" text-anchor="middle">3-BREAKER LOOP GUARD  •  Google Cloud ADK ⇄ OpenHands / LangGraph  •  Curated by Nitin Aggarwal  •  Proprietary + Confidential</text>
+<text x="800" y="960" font-family="Inter, sans-serif" font-size="10.8" font-weight="800" fill="#F8FAFC" text-anchor="middle">3-BREAKER LOOP GUARD  •  Google Cloud ADK ⇄ OpenHands / LangGraph  •  Google Cloud Agentic Architecture Engineering  •  Proprietary + Confidential</text>
 </svg>

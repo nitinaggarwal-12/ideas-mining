@@ -1,9 +1,12 @@
-// Interactive Client Logic for Agentic AI Ideas Mining & OpenHands Autonomous Repo Factory
+// Interactive Client Logic for Agentic AI Ideas-Minting & OpenHands Autonomous Repo Factory (ideas-minting)
 
 let STATE = {
   repos: [],
   playbook: null,
   activeRepoSlug: null,
+  templates: [],
+  pairings: [],
+  mintingStudio: null,
 };
 
 function showToast(msg) {
@@ -42,6 +45,10 @@ function getFilteredRepos() {
   const author = document.getElementById("filter-author")?.value || "ALL";
 
   return STATE.repos.filter((r) => {
+    const mnemonicText =
+      typeof r.mnemonic === "object" && r.mnemonic !== null
+        ? `${r.mnemonic.acronym || ""} ${(r.mnemonic.expansion || []).join(" ")}`
+        : String(r.mnemonic || "");
     const matchesQuery =
       !q ||
       r.post_title.toLowerCase().includes(q) ||
@@ -49,8 +56,20 @@ function getFilteredRepos() {
       r.author_name.toLowerCase().includes(q) ||
       r.primary_source.title.toLowerCase().includes(q) ||
       (r.daily_problem_short || "").toLowerCase().includes(q) ||
+      mnemonicText.toLowerCase().includes(q) ||
       r.gcp_stack.join(" ").toLowerCase().includes(q);
-    const matchesArch = arch === "ALL" || r.diagram_archetype.startsWith(arch);
+    let matchesArch = arch === "ALL";
+    if (!matchesArch) {
+      if (arch === "MINT") {
+        matchesArch = r.id.startsWith("MINT-");
+      } else if (arch === "ARCH-DYN") {
+        matchesArch = r.id.startsWith("IDEA-") || (r.diagram_archetype || "").startsWith("ARCH-DYN");
+      } else if (arch === "ARCH-2D") {
+        matchesArch = r.id.startsWith("POST-") || (r.diagram_archetype || "").startsWith("ARCH-2D");
+      } else {
+        matchesArch = (r.diagram_archetype || "").startsWith(arch);
+      }
+    }
     const matchesAuthor = author === "ALL" || r.author_name.toLowerCase().includes(author.toLowerCase());
     return matchesQuery && matchesArch && matchesAuthor;
   });
@@ -71,17 +90,19 @@ function renderReposView() {
   emptyState.style.display = "none";
 
   grid.innerHTML = filtered
-    .map(
-      (r) => {
-        const plan = r.template_and_distribution_plan || null;
-        const planBanner = plan
-          ? `<div style="margin: 8px 0 4px 0; padding: 8px 10px; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; font-size: 11px; color: #0c4a6e;">
-               <div style="font-weight: 800; color: #0369a1; margin-bottom: 3px;">🎯 LEAD TEMPLATE: ${escapeHtml(plan.primary_template_id)} — ${escapeHtml(plan.primary_template_name)} (+ ${escapeHtml((plan.secondary_template_ids || []).join(", "))})</div>
-               <div style="font-weight: 600; color: #0f172a; margin-bottom: 3px;">📦 FORMAT: ${escapeHtml(plan.lead_post_format)}</div>
-               <div style="color: #1e3a8a;">🌐 <strong>Max Reach Group:</strong> ${escapeHtml((plan.linkedin_groups_primary?.[0]?.name || ""))} (${escapeHtml(plan.linkedin_groups_primary?.[0]?.members || "")}) • <strong>Network Group:</strong> ${escapeHtml((plan.linkedin_groups_niche_network?.[0]?.name || ""))} (${escapeHtml(plan.linkedin_groups_niche_network?.[0]?.members || "")})</div>
-             </div>`
-          : "";
-        return `
+    .map((r) => {
+      const plan = r.template_and_distribution_plan || null;
+      const flagshipDeckBtn = r.flagship_24slide_url
+        ? `<a class="btn-secondary" style="background:#fef3c7;border-color:#f59e0b;color:#92400e;" href="${escapeHtml(r.flagship_24slide_url)}" target="_blank" rel="noopener">📊 24-Slide Google Slides ↗</a>`
+        : "";
+      const planBanner = plan
+        ? `<div style="margin: 8px 0 4px 0; padding: 8px 10px; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; font-size: 11px; color: #0c4a6e;">
+             <div style="font-weight: 800; color: #0369a1; margin-bottom: 3px;">🎯 LEAD TEMPLATE: ${escapeHtml(plan.primary_template_id)} — ${escapeHtml(plan.primary_template_name)} (+ ${escapeHtml((plan.secondary_template_ids || []).join(", "))})</div>
+             <div style="font-weight: 600; color: #0f172a; margin-bottom: 3px;">📦 FORMAT: ${escapeHtml(plan.lead_post_format)}</div>
+             <div style="color: #1e3a8a;">🌐 <strong>Max Reach Group:</strong> ${escapeHtml(plan.linkedin_groups_primary?.[0]?.name || "")} (${escapeHtml(plan.linkedin_groups_primary?.[0]?.members || "")}) • <strong>Network Group:</strong> ${escapeHtml(plan.linkedin_groups_niche_network?.[0]?.name || "")} (${escapeHtml(plan.linkedin_groups_niche_network?.[0]?.members || "")})</div>
+           </div>`
+        : "";
+      return `
       <article class="repo-card" data-testid="repo-card-${escapeHtml(r.id)}">
         <div>
           <div class="repo-card-header">
@@ -92,7 +113,7 @@ function renderReposView() {
           <div class="repo-card-hook">${escapeHtml(r.daily_problem_short || r.original_hook)}</div>
           ${planBanner}
           <div style="margin: 10px 0; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #ffffff; cursor: pointer;" onclick="openRepoInspector('${escapeHtml(r.repo_slug)}')">
-            <img src="/repos/${encodeURIComponent(r.repo_slug)}/visuals/${plan ? "lead-template.svg" : "dynamic-solution-flow.svg"}?v=20261021v5" alt="Lead Template & Dynamic Moving-Arrow Solution Diagram" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            <img src="/repos/${encodeURIComponent(r.repo_slug)}/visuals/${plan ? "lead-template.svg" : "dynamic-solution-flow.svg"}?v=20261103" alt="Lead Template & Dynamic Moving-Arrow Solution Diagram" style="width: 100%; height: auto; display: block;" loading="lazy" />
           </div>
           <div style="margin-top: 6px; font-size: 11.5px; color: #475569; font-weight: 600;">
             Primary Source: <strong style="color: #0f172a;">${escapeHtml(r.primary_source.title)}</strong>
@@ -101,6 +122,7 @@ function renderReposView() {
         <div>
           <div class="deliverable-chips" style="margin-bottom: 10px;">
             ${plan ? `<span class="deliverable-chip" style="background:#fef3c7;border-color:#fcd34d;color:#92400e;">🏆 Template ${escapeHtml(plan.primary_template_id)} SVG/PNG/GIF</span>` : ""}
+            ${r.flagship_24slide_url ? `<span class="deliverable-chip" style="background:#ecfdf5;border-color:#6ee7b7;color:#065f46;">📊 24-Slide Google Slides + 1080p30 Video</span>` : ""}
             <span class="deliverable-chip" style="background:#eff6ff;border-color:#93c5fd;color:#1d4ed8;">⚡ Moving-Arrow SVG + GIF</span>
             <span class="deliverable-chip">GCP #78 .drawio + PNG</span>
             <span class="deliverable-chip">12-Slide .pptx + .pdf</span>
@@ -110,15 +132,17 @@ function renderReposView() {
             <span class="truncate" style="font-size: 11px; color: #64748b; font-family: monospace;">
               generated-repos/${escapeHtml(r.repo_slug)}
             </span>
-            <button class="btn-primary" onclick="openRepoInspector('${escapeHtml(r.repo_slug)}')">
-              Inspect Moving-Arrow &amp; Bundle →
-            </button>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              ${flagshipDeckBtn}
+              <button class="btn-primary" data-testid="inspect-repo-btn-${escapeHtml(r.id)}" onclick="openRepoInspector('${escapeHtml(r.repo_slug)}')">
+                Inspect Moving-Arrow &amp; Bundle →
+              </button>
+            </div>
           </div>
         </div>
       </article>
     `;
-      }
-    )
+    })
     .join("");
 
   tbody.innerHTML = filtered
@@ -149,7 +173,7 @@ function renderReposView() {
         </td>
         <td>
           <div class="cell-card-equal">
-            <span style="font-size: 11.5px; color: #065f46; font-weight: 700;">Code • README • Dynamic GIF/SVG • 12-Slide PPTX/PDF • Terraform</span>
+            <span style="font-size: 11.5px; color: #065f46; font-weight: 700;">Code • README • Dynamic GIF/SVG • ${r.flagship_24slide_url ? "24-Slide Google Slides + 1080p30 Video • " : ""}12-Slide PPTX/PDF • Terraform</span>
           </div>
         </td>
         <td>
@@ -250,7 +274,9 @@ async function jumpToTemplateInGallery(templateId) {
   }
   const searchEl = document.getElementById("gallery-search-input");
   const filterEl = document.getElementById("gallery-filter-type");
+  const tierEl = document.getElementById("gallery-filter-tier");
   if (filterEl) filterEl.value = "ALL";
+  if (tierEl) tierEl.value = "ALL";
   if (searchEl) searchEl.value = templateId;
   renderGalleryView();
 }
@@ -316,31 +342,32 @@ async function openRepoInspector(slug) {
     ? `<div class="visual-preview-box" style="border: 2px solid #0284c7; background: #f0f9ff;">
          <div style="font-size: 12px; font-weight: 800; margin-bottom: 6px; color: #0369a1;">Figure 0 — Paired PromptCanvas / Systems Lead Infographic (${escapeHtml(plan.primary_template_id)}: ${escapeHtml(plan.primary_template_name)})</div>
          <div style="font-size: 11px; color: #0f172a; margin-bottom: 8px;"><strong>Format Mix:</strong> ${escapeHtml(plan.lead_post_format)} • <strong>Secondary Templates:</strong> ${escapeHtml((plan.secondary_template_ids || []).join(", "))}</div>
-         <img src="/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261021v5" alt="Lead Template Infographic" />
+         <img src="/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261103" alt="Lead Template Infographic" />
        </div>`
     : "";
 
   // Tab 1: Dynamic Moving-Arrow & @2d Visuals
   document.getElementById("dtab-visuals").innerHTML = `
     <div style="margin-bottom: 14px; display: flex; gap: 8px; flex-wrap: wrap;">
-      ${plan ? `<a class="btn-primary" href="/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261021v5" target="_blank">Open Paired Template ${escapeHtml(plan.primary_template_id)} (.svg) ↗</a>` : ""}
-      ${plan ? `<a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/lead-template.gif?v=20261021v5" download>Download Template ${escapeHtml(plan.primary_template_id)} GIF (.gif)</a>` : ""}
-      <a class="btn-primary" href="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261021v5" target="_blank">Open Moving-Arrow Diagram (.svg) ↗</a>
-      <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.gif?v=20261021v5" download>Download Animated LinkedIn GIF (.gif)</a>
-      <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.drawio?v=20261021v5" download>Download Editable Draw.io (.drawio)</a>
+      ${detail.flagship_24slide_url ? `<a class="btn-primary" style="background:#0f172a;border-color:#0f172a;" href="${escapeHtml(detail.flagship_24slide_url)}" target="_blank" rel="noopener">📊 Open 24-Slide Google Slides Deck ↗</a>` : ""}
+      ${plan ? `<a class="btn-primary" href="/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261103" target="_blank">Open Paired Template ${escapeHtml(plan.primary_template_id)} (.svg) ↗</a>` : ""}
+      ${plan ? `<a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/lead-template.gif?v=20261103" download>Download Template ${escapeHtml(plan.primary_template_id)} GIF (.gif)</a>` : ""}
+      <a class="btn-primary" href="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261103" target="_blank">Open Moving-Arrow Diagram (.svg) ↗</a>
+      <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.gif?v=20261103" download>Download Animated LinkedIn GIF (.gif)</a>
+      <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.drawio?v=20261103" download>Download Editable Draw.io (.drawio)</a>
     </div>
     ${leadTemplateVisualHtml}
     <div class="visual-preview-box">
       <div style="font-size: 12px; font-weight: 800; margin-bottom: 8px; color: #0f172a;">Figure 1 — Live Dynamic Daily Problem → 4-Step Solution Flow (With Moving Arrows)</div>
-      <img src="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261021v5" alt="Dynamic Moving-Arrow Solution Flow" />
+      <img src="/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261103" alt="Dynamic Moving-Arrow Solution Flow" />
     </div>
     <div class="visual-preview-box">
       <div style="font-size: 12px; font-weight: 800; margin-bottom: 8px; color: #0f172a;">Figure 2 — Official Google Cloud #78 4-Zone Hub-and-Spoke 2D Architecture (Vector SVG + Draw.io)</div>
-      <img src="/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.svg?v=20261021v5" alt="GCP 2D Architecture" />
+      <img src="/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.svg?v=20261103" alt="GCP 2D Architecture" />
     </div>
     <div class="visual-preview-box">
       <div style="font-size: 12px; font-weight: 800; margin-bottom: 8px; color: #0f172a;">Figure 3 — High-Res 2D LinkedIn Infographic Poster (Vector SVG + 2x Retina PNG)</div>
-      <img src="/repos/${encodeURIComponent(slug)}/visuals/linkedin-infographic-2d.svg?v=20261021v5" alt="LinkedIn 2D Infographic" />
+      <img src="/repos/${encodeURIComponent(slug)}/visuals/linkedin-infographic-2d.svg?v=20261103" alt="LinkedIn 2D Infographic" />
     </div>
     <div class="visual-preview-box">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
@@ -351,7 +378,7 @@ async function openRepoInspector(slug) {
     </div>
   `;
 
-  // Tab 2: 12-Slide Deck & Carousel
+  // Tab 2: Slide Deck & Carousel
   const slidesHtml = (detail.slides || [])
     .map(
       (s) => `
@@ -369,6 +396,7 @@ async function openRepoInspector(slug) {
 
   document.getElementById("dtab-slides").innerHTML = `
     <div style="margin-bottom: 14px; display: flex; gap: 8px; flex-wrap: wrap;">
+      ${detail.flagship_24slide_url ? `<a class="btn-primary" style="background:#0f172a;border-color:#0f172a;" data-testid="drawer-open-24slide-deck-btn" href="${escapeHtml(detail.flagship_24slide_url)}" target="_blank" rel="noopener">📊 Open Live 24-Slide Native Google Slides Deck ↗</a>` : ""}
       <a class="btn-primary" href="/repos/${encodeURIComponent(slug)}/slides/presentation_deck.pptx" download>Download Editable 12-Slide PowerPoint (.pptx)</a>
       <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/slides/linkedin_carousel.pdf" target="_blank">Open LinkedIn Carousel (.pdf) ↗</a>
       <a class="btn-secondary" href="/repos/${encodeURIComponent(slug)}/slides/linkedin_carousel.html" target="_blank">Open Interactive HTML Deck ↗</a>
@@ -380,7 +408,7 @@ async function openRepoInspector(slug) {
   document.getElementById("dtab-terraform").innerHTML = `
     <div style="margin-bottom: 12px;">
       <div style="font-size: 12px; font-weight: 800; margin-bottom: 6px;">1-Click Google Cloud Deployment Command:</div>
-      <pre class="code-block-light">cd generated-repos/${escapeHtml(slug)} && ./scripts/deploy_gcp_one_click.sh nitina-ggarwal-sandbox-647724 us-west1</pre>
+      <pre class="code-block-light">cd generated-repos/${escapeHtml(slug)} && ./scripts/deploy_gcp_one_click.sh ramp-portal-dev us-west1</pre>
     </div>
     <div style="margin-bottom: 12px;">
       <div style="font-size: 12px; font-weight: 800; margin-bottom: 6px;">terraform/main.tf (Cloud Run v2 + Vertex AI Global + IAM):</div>
@@ -548,8 +576,8 @@ function renderDailyGeneratedPosts() {
                 🎨 Canonical ${escapeHtml(p.canonical_template_id)} Poster (.png)
               </button>
             </div>
-            <img id="daily-vis-svg-${escapeHtml(p.id)}" src="${escapeHtml(p.custom_dynamic_svg_url)}?v=20261029" alt="Custom Moving-Arrow SVG for ${escapeHtml(p.topic_title)}" style="width:100%;height:auto;display:block;border-radius:6px;background:#ffffff;" loading="lazy" />
-            <img id="daily-vis-png-${escapeHtml(p.id)}" src="${escapeHtml(p.canonical_png_url)}?v=20261029" alt="Canonical ${escapeHtml(p.canonical_template_id)} Infographic" style="width:100%;height:auto;display:none;border-radius:6px;background:#ffffff;" loading="lazy" />
+            <img id="daily-vis-svg-${escapeHtml(p.id)}" src="${escapeHtml(p.custom_dynamic_svg_url)}?v=20261103" alt="Custom Moving-Arrow SVG for ${escapeHtml(p.topic_title)}" style="width:100%;height:auto;display:block;border-radius:6px;background:#ffffff;" loading="lazy" />
+            <img id="daily-vis-png-${escapeHtml(p.id)}" src="${escapeHtml(p.canonical_png_url)}?v=20261103" alt="Canonical ${escapeHtml(p.canonical_template_id)} Infographic" style="width:100%;height:auto;display:none;border-radius:6px;background:#ffffff;" loading="lazy" />
           </div>
 
           <div style="font-size:11.5px;font-weight:800;color:#0f172a;margin-bottom:5px;">Publication-Ready LinkedIn Copy:</div>
@@ -626,36 +654,66 @@ function renderGalleryView() {
   const grid = document.getElementById("gallery-cards-grid");
   if (!grid) return;
   const q = (document.getElementById("gallery-search-input")?.value || "").trim().toLowerCase();
+  const tier = document.getElementById("gallery-filter-tier")?.value || "ALL";
   const type = document.getElementById("gallery-filter-type")?.value || "ALL";
   const items = (STATE.templates || []).filter((t) => {
-    const hay = `${t.id} ${t.name} ${t.best_for_short} ${t.when_to_use} ${t.dynamic} ${t.lineage || ""} ${(t.content_types || []).join(" ")}`.toLowerCase();
+    const topicIds = (t.topic_posts || []).map((tp) => `${tp.id} ${tp.name} ${tp.hot_topic || ""}`).join(" ");
+    const hay = `${t.id} ${t.name} ${t.best_for_short} ${t.when_to_use} ${t.dynamic} ${t.lineage || ""} ${t.rendering_tech || ""} ${(t.content_types || []).join(" ")} ${topicIds}`.toLowerCase();
     const matchesQ = !q || hay.includes(q);
+    const matchesTier = tier === "ALL" || (t.quality_tier || "Best") === tier;
     const matchesType = type === "ALL" || (t.content_types || []).includes(type);
-    return matchesQ && matchesType;
+    return matchesQ && matchesTier && matchesType;
   });
-  document.getElementById("gallery-count-badge").textContent = `${items.length} / ${(STATE.templates || []).length} Dynamic Templates`;
+  const bestCount = items.filter((t) => (t.quality_tier || "Best") === "Best").length;
+  const highCount = items.filter((t) => t.quality_tier === "High").length;
+  document.getElementById("gallery-count-badge").textContent = `${items.length} / ${(STATE.templates || []).length} Certified Templates (${bestCount} Best + ${highCount} High)`;
   grid.innerHTML = items
     .map((t) => {
       const files = t.files || {};
-      const svg = `/assets/template-gallery/${files.svg || t.id + ".svg"}?v=20261029`;
-      const gif = `/assets/template-gallery/${files.gif || t.id + ".gif"}?v=20261029`;
-      const png = `/assets/template-gallery/${files.png || t.id + ".png"}?v=20261029`;
-      const drawio = files.drawio ? `/assets/template-gallery/${files.drawio}?v=20261029` : "";
-      const pptx = files.pptx ? `/assets/template-gallery/${files.pptx}?v=20261029` : "";
+      const svg = `/assets/template-gallery/${files.svg || t.id + ".svg"}?v=20261103`;
+      const gif = `/assets/template-gallery/${files.gif || t.id + ".gif"}?v=20261103`;
+      const png = `/assets/template-gallery/${files.png || t.id + ".png"}?v=20261103`;
+      const drawio = files.drawio ? `/assets/template-gallery/${files.drawio}?v=20261103` : "";
+      const pptx = files.pptx ? `/assets/template-gallery/${files.pptx}?v=20261103` : "";
       const gslidesUrl = t.google_slides_url || "";
+      const qTier = t.quality_tier || "Best";
+      const tierBadge =
+        qTier === "Best"
+          ? `<span class="pill-badge pill-emerald" style="white-space: nowrap; flex-shrink: 0;">🏆 BEST TIER</span>`
+          : `<span class="pill-badge pill-sky" style="white-space: nowrap; flex-shrink: 0;">✨ HIGH TIER</span>`;
+      const cleanWhenToUse = String(t.when_to_use || "").replace(/`/g, "").replace(/\s*->\s*/g, " → ");
+      const cleanDynamic = String(t.dynamic || "").replace(/`/g, "").replace(/\s*->\s*/g, " → ").replace(/<=\s*/g, "≤ ");
+      const topicPostsHtml =
+        (t.topic_posts || []).length > 0
+          ? `<div class="t79-variants-box" data-testid="t79-topic-posts-showcase" style="margin-top:8px;padding:10px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;">
+               <div style="font-size:11.5px;font-weight:800;color:#0369a1;margin-bottom:6px;">
+                 📚 ${t.topic_posts.length} Canonical 4-Tier Spine Topic Variants (T01, T53, T68–T78, T80–T89 • Including Minted T85–T89)
+               </div>
+               <div class="deliverable-chips">
+                 ${t.topic_posts
+                   .map(
+                     (tp) =>
+                       `<a class="deliverable-chip" style="text-decoration:none;background:#ffffff;border-color:#7dd3fc;color:#075985;" href="/assets/template-gallery/${escapeHtml(tp.id)}.svg" target="_blank" title="${escapeHtml(tp.name)}">${escapeHtml(tp.id)}</a>`
+                   )
+                   .join("")}
+               </div>
+             </div>`
+          : "";
       return `
       <article class="repo-card" data-testid="template-card-${escapeHtml(t.id)}">
         <div>
-          <div class="repo-card-header">
-            <span class="brand-badge">${escapeHtml(t.id)} • ${escapeHtml(t.name)}</span>
-            <span class="pill-badge pill-emerald">BEST FOR: ${escapeHtml(t.best_for_short)}</span>
+          <div class="repo-card-header" style="align-items: flex-start; gap: 8px; flex-wrap: nowrap;">
+            <span class="brand-badge" style="min-width: 0;">${escapeHtml(t.id)} • ${escapeHtml(t.name)}</span>
+            ${tierBadge}
           </div>
           <div style="margin: 10px 0; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #ffffff;">
             <a href="${svg}" target="_blank" title="Open animated SVG"><img src="${svg}" alt="${escapeHtml(t.name)} dynamic template" style="width: 100%; height: auto; display: block;" loading="lazy" /></a>
           </div>
-          <div class="repo-card-hook">${escapeHtml(t.when_to_use)}</div>
-          <div style="margin-top: 8px; font-size: 11.5px; color: #475569; font-weight: 600;">Dynamic elements: <strong style="color: #0f172a;">${escapeHtml(t.dynamic)}</strong></div>
-          ${t.lineage ? `<div style="margin-top: 6px; font-size: 11px; color: #1d4ed8; font-weight: 700;">Format lineage: ${escapeHtml(t.lineage)}</div>` : ""}
+          <div class="repo-card-hook">${escapeHtml(cleanWhenToUse)}</div>
+          <div style="margin-top: 8px; font-size: 11.5px; color: #475569; font-weight: 600;">Dynamic elements: <strong style="color: #0f172a;">${escapeHtml(cleanDynamic)}</strong></div>
+          ${t.rendering_tech ? `<div style="margin-top: 4px; font-size: 11px; color: #065f46; font-weight: 700;">Rendering Tech: ${escapeHtml(t.rendering_tech)}</div>` : ""}
+          ${t.lineage ? `<div style="margin-top: 4px; font-size: 11px; color: #1d4ed8; font-weight: 700;">Format lineage: ${escapeHtml(t.lineage)}</div>` : ""}
+          ${topicPostsHtml}
         </div>
         <div>
           <div class="deliverable-chips" style="margin: 10px 0;">
@@ -692,10 +750,134 @@ function renderGalleryView() {
   }
 }
 
-const ALL_VIEWS = ["view-repos", "view-gallery", "view-playbook", "view-miner", "view-openhands"];
+function seekMint01Video(seconds) {
+  const vid = document.getElementById("mint01-walkthrough-video");
+  if (!vid) return;
+  try {
+    vid.currentTime = Number(seconds) || 0;
+  } catch (_) {
+    // Ignore if metadata not yet loaded
+  }
+}
+
+function toggleMint01WalkthroughPlay() {
+  const vid = document.getElementById("mint01-walkthrough-video");
+  if (!vid) return;
+  if (vid.paused) {
+    vid.play().catch(() => {});
+  } else {
+    vid.pause();
+  }
+}
+
+function toggleMint01WalkthroughMute() {
+  const vid = document.getElementById("mint01-walkthrough-video");
+  if (!vid) return;
+  vid.muted = !vid.muted;
+}
+
+function toggleMint01TwinPlay() {
+  const vid = document.getElementById("mint01-twin-video");
+  if (!vid) return;
+  if (vid.paused) {
+    vid.play().catch(() => {});
+  } else {
+    vid.pause();
+  }
+}
+
+async function loadMintingStudioData() {
+  const res = await fetch("/api/minting-studio");
+  const data = await res.json();
+  STATE.mintingStudio = data;
+  renderMintingStudioView();
+}
+
+function renderMintingStudioView() {
+  const grid = document.getElementById("minting-topics-grid");
+  if (!grid) return;
+  const studio = STATE.mintingStudio || {};
+  const topics = studio.topics || [];
+  const badge = document.getElementById("minting-topics-count-badge");
+  if (badge && topics.length) {
+    const mintedCount = topics.filter((t) => t.siso_decision === "MINT_NEW").length;
+    badge.textContent = `${topics.length} Career-Minting Topics • ${mintedCount} Newly Minted (T85–T89)`;
+  }
+
+  grid.innerHTML = topics
+    .map((t) => {
+      const sisoScore = t.siso_audit?.siso_score ?? t.nearest_prior_siso ?? 62.0;
+      const decision = t.siso_audit?.decision || t.siso_decision || "MINT_NEW";
+      const decisionClass =
+        decision === "MINT_NEW"
+          ? "pill-amber"
+          : decision === "COMPOSE_2VIEW_ZOOM"
+            ? "pill-sky"
+            : "pill-emerald";
+      const tid = t.canonical_template_id || "T85";
+      const gslidesUrl = t.template_google_slides_url || "";
+      const flagshipUrl = t.flagship_24slide_url || "";
+      return `
+      <article class="repo-card" data-testid="mint-topic-card-${escapeHtml(t.id)}">
+        <div>
+          <div class="repo-card-header">
+            <span class="brand-badge">${escapeHtml(t.id)} • Mnemonic: ${escapeHtml(t.mnemonic)}</span>
+            <span class="pill-badge ${decisionClass}">S_iso ${escapeHtml(String(sisoScore))} (${escapeHtml(decision)} → ${escapeHtml(tid)})</span>
+          </div>
+          <h3 class="repo-card-title" style="margin: 10px 0 6px 0;">${escapeHtml(t.title)}</h3>
+          <div style="font-size: 11.5px; font-weight: 800; color: #174ea6; margin-bottom: 6px;">
+            🧠 ${escapeHtml(t.mnemonic)}: ${escapeHtml(t.mnemonic_expansion)}
+          </div>
+          <div class="repo-card-hook" style="margin-bottom: 8px;">
+            <strong>Mental Model Analogy:</strong> ${escapeHtml(t.analogy)}
+          </div>
+          <div style="margin: 10px 0; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #ffffff;">
+            <a href="/assets/template-gallery/${escapeHtml(tid)}.svg" target="_blank">
+              <img src="/assets/template-gallery/${escapeHtml(tid)}.svg?v=20261103" alt="${escapeHtml(t.title)} Canonical Blueprint ${escapeHtml(tid)}" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </a>
+          </div>
+          <div style="font-size: 12px; color: #0f172a; line-height: 1.45; margin-bottom: 6px;">
+            <strong>🎯 30s Staff+ Interview Signal:</strong> ${escapeHtml(t.interview_signal)}
+          </div>
+          <div style="font-size: 11.5px; color: #065f46; font-weight: 700; margin-bottom: 6px;">
+            📈 <strong>L5→L7 Promo Impact:</strong> ${escapeHtml(t.promo_impact)}
+          </div>
+          <div style="font-size: 11.5px; color: #334155; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 6px 8px;">
+            <strong>Golden Rule:</strong> ${escapeHtml(t.golden_rule)}
+          </div>
+        </div>
+        <div>
+          <div class="deliverable-chips" style="margin: 10px 0;">
+            <span class="deliverable-chip" style="background:#fef3c7;border-color:#fcd34d;color:#92400e;">Blueprint ${escapeHtml(tid)} + ${escapeHtml((t.cloud_zoom_blueprints || []).join("/"))}</span>
+            ${(t.gcp_stack || []).slice(0, 2).map((s) => `<span class="deliverable-chip">${escapeHtml(s)}</span>`).join("")}
+            ${(t.oss_stack || []).slice(0, 2).map((s) => `<span class="deliverable-chip" style="background:#eff6ff;border-color:#93c5fd;color:#1d4ed8;">OSS: ${escapeHtml(s)}</span>`).join("")}
+          </div>
+          <div class="repo-card-footer" style="display:flex;flex-wrap:wrap;gap:6px;">
+            ${flagshipUrl ? `<a class="btn-primary" style="background:#0f172a;border-color:#0f172a;" href="${escapeHtml(flagshipUrl)}" target="_blank" rel="noopener">📊 24-Slide Google Slides ↗</a>` : ""}
+            ${gslidesUrl ? `<a class="btn-secondary" href="${escapeHtml(gslidesUrl)}" target="_blank" rel="noopener">${escapeHtml(tid)} Slides ↗</a>` : ""}
+            <a class="btn-secondary" href="/assets/template-gallery/${escapeHtml(tid)}.pptx" download="${escapeHtml(tid)}.pptx">.pptx</a>
+            <a class="btn-secondary" href="/assets/template-gallery/${escapeHtml(tid)}.drawio" download="${escapeHtml(tid)}.drawio">.drawio</a>
+            <button type="button" class="btn-primary" onclick="openRepoInspector('${escapeHtml(t.repo_slug)}')">Inspect Repo →</button>
+          </div>
+        </div>
+      </article>`;
+    })
+    .join("");
+}
+
+const ALL_VIEWS = [
+  "view-repos",
+  "view-gallery",
+  "view-playbook",
+  "view-miner",
+  "view-openhands",
+  "view-minting-studio",
+];
 
 function activateView(target) {
-  document.querySelectorAll(".global-header .nav-tab-btn").forEach((b) => b.classList.toggle("active", b.getAttribute("data-view") === target));
+  document
+    .querySelectorAll(".global-header .nav-tab-btn")
+    .forEach((b) => b.classList.toggle("active", b.getAttribute("data-view") === target));
   ALL_VIEWS.forEach((vid) => {
     const el = document.getElementById(vid);
     if (el) el.style.display = vid === target ? "block" : "none";
@@ -705,6 +887,7 @@ function activateView(target) {
     refreshLiveFeeds();
   }
   if (target === "view-gallery" && !(STATE.templates || []).length) loadGalleryData();
+  if (target === "view-minting-studio" && !STATE.mintingStudio) loadMintingStudioData();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -724,6 +907,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("gallery-search-input")?.addEventListener("input", renderGalleryView);
+  document.getElementById("gallery-filter-tier")?.addEventListener("change", renderGalleryView);
   document.getElementById("gallery-filter-type")?.addEventListener("change", renderGalleryView);
 
   document.getElementById("close-drawer-btn").addEventListener("click", () => {
@@ -771,6 +955,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   loadWorkspaceData();
+  loadMintingStudioData();
   const requestedView = new URLSearchParams(window.location.search).get("view");
   if (requestedView && ALL_VIEWS.includes(requestedView)) {
     activateView(requestedView);

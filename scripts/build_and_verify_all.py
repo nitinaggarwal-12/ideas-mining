@@ -1,4 +1,4 @@
-"""Master OpenHands Autonomous Builder: Generates all 18 standalone Git repos (8 Original Posts + 10 Tomorrow Morning EST Ideas), Dynamic Moving-Arrow GIFs/SVGs, Nano Banana 3 Visuals, and 12-Slide Decks."""
+"""Master OpenHands Autonomous Builder: Generates all standalone Git repos (MINT-01 Flagship + 10 Tomorrow Morning EST Ideas + 8 Analyzed Posts = 19 Verified Repos), Canonical Moving-Arrow GIFs/SVGs, 2D Architecture Visuals, and Native Slide Decks."""
 
 from concurrent.futures import ThreadPoolExecutor
 import json
@@ -13,14 +13,24 @@ from src.catalog.posts_catalog import POSTS_CATALOG
 from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 from src.generator.repo_factory import generate_and_verify_single_repo
 from src.openhands_harness.autonomous_agent import OpenHandsAutonomousHarness
-from src.visuals.dynamic_diagram_engine import generate_dynamic_solution_svg, render_animated_gif_for_idea
+from src.visuals.canonical_flow_svg import (
+    generate_dynamic_solution_svg,
+    render_animated_gif_for_idea,
+    resolve_chrome_bin,
+)
 
 
-CHROME_BIN = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+def _get_minted_repo_specs() -> list[dict]:
+    try:
+        from src.catalog.career_minting_catalog import get_minted_repo_specs
+
+        return get_minted_repo_specs()
+    except Exception:
+        return []
 
 
 def render_dynamic_asset(item: dict) -> None:
-    """Render Dynamic Moving-Arrow SVG, 6-frame looping Animated GIF, and PNG for an idea/post."""
+    """Render Canonical Moving-Arrow SVG, 6-frame looping Animated GIF, and PNG for an idea/post."""
     dyn_dir = WORKSPACE_ROOT / "assets" / "dynamic-top10"
     dyn_dir.mkdir(parents=True, exist_ok=True)
     pid = item["id"]
@@ -34,9 +44,9 @@ def render_dynamic_asset(item: dict) -> None:
 
 
 def render_png_and_pdf_for_repo(repo_dir: Path) -> None:
-    """Use Headless Chrome to render 12-slide HTML to linkedin_carousel.pdf and always render fresh PNGs from vector SVGs."""
-    chrome = Path(CHROME_BIN)
-    if not chrome.exists():
+    """Use Headless Chrome (cross-platform) to render 12-slide HTML to linkedin_carousel.pdf and fresh PNGs from vector SVGs."""
+    chrome_bin = resolve_chrome_bin()
+    if not chrome_bin:
         return
 
     infographic_svg = repo_dir / "visuals" / "linkedin-infographic-2d.svg"
@@ -51,44 +61,44 @@ def render_png_and_pdf_for_repo(repo_dir: Path) -> None:
         if sp.exists():
             sp.unlink()
 
-    subprocess.run(
-        [
-            str(chrome),
-            "--headless",
-            "--disable-gpu",
-            "--hide-scrollbars",
-            "--window-size=1600,1200",
-            f"--screenshot={infographic_png}",
-            f"file://{infographic_svg}",
-        ],
-        check=False,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
-            str(chrome),
-            "--headless",
-            "--disable-gpu",
-            "--hide-scrollbars",
-            "--window-size=1600,1020",
-            f"--screenshot={arch_png}",
-            f"file://{arch_svg}",
-        ],
-        check=False,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
-            str(chrome),
-            "--headless",
-            "--disable-gpu",
-            f"--print-to-pdf={carousel_pdf}",
-            "--no-pdf-header-footer",
-            f"file://{carousel_html}",
-        ],
-        check=False,
-        capture_output=True,
-    )
+    common_flags = ["--headless", "--no-sandbox", "--disable-gpu", "--hide-scrollbars"]
+    lead_png = repo_dir / "visuals" / "lead-template.png"
+    if infographic_svg.exists() and not (lead_png.exists() and infographic_png.exists() and infographic_png.stat().st_size == lead_png.stat().st_size):
+        subprocess.run(
+            [
+                chrome_bin,
+                *common_flags,
+                "--window-size=1600,1200",
+                f"--screenshot={infographic_png}",
+                f"file://{infographic_svg}",
+            ],
+            check=False,
+            capture_output=True,
+        )
+    if arch_svg.exists():
+        subprocess.run(
+            [
+                chrome_bin,
+                *common_flags,
+                "--window-size=1600,1020",
+                f"--screenshot={arch_png}",
+                f"file://{arch_svg}",
+            ],
+            check=False,
+            capture_output=True,
+        )
+    if carousel_html.exists():
+        subprocess.run(
+            [
+                chrome_bin,
+                *common_flags,
+                f"--print-to-pdf={carousel_pdf}",
+                "--no-pdf-header-footer",
+                f"file://{carousel_html}",
+            ],
+            check=False,
+            capture_output=True,
+        )
 
     subprocess.run(["git", "add", "-A"], cwd=str(repo_dir), check=True, capture_output=True)
     subprocess.run(
@@ -100,9 +110,10 @@ def render_png_and_pdf_for_repo(repo_dir: Path) -> None:
 
 
 def main() -> None:
-    all_items = list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
+    minted_specs = _get_minted_repo_specs()
+    all_items = list(minted_specs) + list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
 
-    print("==> [Dynamic Diagram Engine] Compiling 18 Moving-Arrow Animated GIFs & SVGs in parallel...")
+    print(f"==> [Canonical Flow Engine] Compiling {len(all_items)} Moving-Arrow Animated GIFs & SVGs in parallel...")
     with ThreadPoolExecutor(max_workers=6) as pool:
         list(pool.map(render_dynamic_asset, all_items))
 
@@ -118,12 +129,13 @@ def main() -> None:
         results.append(res)
         repo_dirs.append(Path(res["repo_path"]))
 
-    print("==> [Headless Chrome] Rendering 18 12-slide PDF carousels in parallel...")
+    print(f"==> [Headless Chrome] Rendering {len(repo_dirs)} 12-slide PDF carousels in parallel...")
     with ThreadPoolExecutor(max_workers=6) as pool:
         list(pool.map(render_png_and_pdf_for_repo, repo_dirs))
 
     summary = {
         "total_repos_generated": len(results),
+        "minted_flagship_count": len(minted_specs),
         "tomorrow_top10_count": len(TOMORROW_TOP10_IDEAS),
         "analyzed_posts_count": len(POSTS_CATALOG),
         "all_repos_verified": all(r["verification"]["all_passed"] for r in results),

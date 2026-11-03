@@ -1,4 +1,5 @@
 import fs from 'fs';
+import os from 'os';
 import path from 'path';
 import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
@@ -6,11 +7,26 @@ import { createRequire } from 'module';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const require = createRequire('/Users/nitinagga/Documents/PromptCanvas/package.json');
+const HOME_DIR = os.homedir();
+const PC_ROOT = path.join(HOME_DIR, 'Documents/PromptCanvas');
+const require = createRequire(path.join(PC_ROOT, 'package.json'));
 const puppeteer = require('puppeteer');
 
+function resolveChromeExecutable() {
+  const candidates = [
+    process.env.CHROME_PATH,
+    '/usr/bin/google-chrome',
+    '/usr/bin/google-chrome-stable',
+    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  ].filter(Boolean);
+  for (const c of candidates) {
+    if (fs.existsSync(c)) return c;
+  }
+  return undefined;
+}
+
 const IDEAS_ROOT = path.resolve(__dirname, '..');
-const PC_PUBLIC = '/Users/nitinagga/Documents/PromptCanvas/public';
+const PC_PUBLIC = path.join(PC_ROOT, 'public');
 const DRAWIO_DIR = path.join(IDEAS_ROOT, 'assets/canonical-ref/drawio');
 const REF_DIR = path.join(IDEAS_ROOT, 'assets/canonical-ref');
 const GALLERY_DIR = path.join(IDEAS_ROOT, 'assets/template-gallery');
@@ -21,10 +37,10 @@ fs.mkdirSync(GALLERY_DIR, { recursive: true });
 
 const PC_TIDS = new Set(['T53','T54','T55','T56','T57','T58','T59','T60','T61','T62','T63','T64','T65','T66','T67','T68']);
 const filterTids = process.argv.slice(2).filter((a) => a.startsWith('T'));
-if (filterTids.length === 0 || filterTids.some((t) => PC_TIDS.has(t))) {
+if (!process.argv.includes('--skip-export') && (filterTids.length === 0 || filterTids.some((t) => PC_TIDS.has(t)))) {
   // Step 1: Export healed Draw.io XMLs from PromptCanvas canonical TypeScript
   execSync(`npx tsx ${path.join(__dirname, 'export_pc_xmls.ts')}`, {
-    cwd: '/Users/nitinagga/Documents/PromptCanvas',
+    cwd: PC_ROOT,
     stdio: 'inherit',
   });
 }
@@ -63,15 +79,20 @@ const MAPPING = [
   { tid: 'T82', pcId: 'code_review_replay_eval' },
   { tid: 'T83', pcId: 'agent_evals_pass_k' },
   { tid: 'T84', pcId: 'inference_eng_goodput' },
+  { tid: 'T85', pcId: 'mint01_mcp_zero_bloat_obo' },
+  { tid: 'T86', pcId: 'mint04_durable_saga_wal' },
+  { tid: 'T87', pcId: 'mint06_lethal_trifecta_armor' },
+  { tid: 'T88', pcId: 'mint09_hybrid_graphrag_verifier' },
+  { tid: 'T89', pcId: 'mint11_sub300ms_voice_bargein' },
 ];
 
 const viewerJs = fs.readFileSync(path.join(PC_PUBLIC, 'viewer-static.min.js'), 'utf8');
 
 const browser = await puppeteer.launch({
-  executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  executablePath: resolveChromeExecutable(),
   headless: 'new',
-  userDataDir: '/Users/nitinagga/.gemini/chrome_profile_ideas_e2e_sync',
-  args: ['--no-sandbox', '--disable-gpu', '--disable-extensions', '--no-first-run', '--font-render-hinting=none'],
+  userDataDir: path.join(HOME_DIR, '.gemini/chrome_profile_ideas_e2e_sync'),
+  args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu', '--disable-extensions', '--no-first-run', '--font-render-hinting=none'],
 });
 
 const dimJsonPath = path.join(REF_DIR, 'canonical_dimensions.json');
@@ -81,6 +102,16 @@ const activeMapping = filterTids.length > 0 ? MAPPING.filter((m) => filterTids.i
 try {
   for (const { tid, pcId } of activeMapping) {
     const page = await browser.newPage();
+    await page.setRequestInterception(true);
+    page.on('request', (req) => {
+      const url = req.url();
+      if (url.startsWith('http://') || url.startsWith('https://')) {
+        req.abort();
+      } else {
+        req.continue();
+      }
+    });
+
     const xml = fs.readFileSync(path.join(DRAWIO_DIR, `${tid}.drawio`), 'utf8');
     const wMatch = xml.match(/pageWidth="(\d+)"/);
     const hMatch = xml.match(/pageHeight="(\d+)"/);

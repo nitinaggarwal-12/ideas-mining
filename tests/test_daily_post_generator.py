@@ -1,4 +1,4 @@
-"""Unit & Live HTTP Integration Tests for the Daily Latest-Topic LinkedIn Post & Visual Generator."""
+"""Unit & Live HTTP Integration Tests for the Daily Latest-Topic LinkedIn Post & Ideas-Minting Studio."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ from pathlib import Path
 from server import StudioRequestHandler
 from src.harvester.daily_post_generator import CREATOR_STYLE_ARCHETYPES, DailyLinkedInPostEngine
 from src.harvester.idea_miner import summarize_clean_boundary
-from src.visuals.template_gallery import audit_zero_origin_svg
+from src.visuals.canonical_flow_svg import audit_zero_origin_svg
 
 
 class TestDailyPostGenerator(unittest.TestCase):
@@ -27,7 +27,6 @@ class TestDailyPostGenerator(unittest.TestCase):
         short = summarize_clean_boundary(raw, max_chars=125)
         self.assertLessEqual(len(short), 125)
         self.assertFalse(short.endswith("..."))
-        # Every word in `short` (stripped of punctuation) must appear intact in `raw`
         raw_words = {w.strip(".,;:()") for w in raw.split()}
         for word in short.rstrip(".").split():
             self.assertIn(word.strip(".,;:()"), raw_words, f"Mid-word cut detected: {word}")
@@ -81,10 +80,9 @@ class TestDailyPostGenerator(unittest.TestCase):
             day1_urls = {p["primary_url"] for p in day1["posts"]}
             day2 = engine.generate_daily_edition(edition_date="2026-10-29", count=3, use_live_network=False)
             day2_urls = {p["primary_url"] for p in day2["posts"]}
-            # Since CURATED_LATEST_TOPICS has 6 distinct URLs, Day 2's top 3 must be 100% disjoint from Day 1's top 3
             self.assertEqual(len(day1_urls & day2_urls), 0)
 
-    def test_http_endpoints_health_templates_and_daily_posts(self) -> None:
+    def test_http_endpoints_health_templates_minting_studio_and_range_video(self) -> None:
         from unittest.mock import patch
 
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -102,13 +100,39 @@ class TestDailyPostGenerator(unittest.TestCase):
                     with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/health", timeout=5) as resp:
                         health = json.loads(resp.read().decode("utf-8"))
                     self.assertEqual(health["status"], "ok")
-                    self.assertEqual(health["template_count"], 84)
+                    self.assertEqual(health["template_count"], 116)
+                    self.assertEqual(health["best_count"], 72)
+                    self.assertEqual(health["high_count"], 44)
+                    self.assertEqual(health["repos_count"], 19)
+                    self.assertEqual(health["minting_topics_count"], 12)
                     self.assertEqual(health["creator_profiles_count"], 16)
                     self.assertEqual(health["mined_template_posts_count"], 16)
 
                     with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/templates", timeout=5) as resp:
                         tpl = json.loads(resp.read().decode("utf-8"))
-                    self.assertEqual(tpl["template_count"], 84)
+                    self.assertEqual(tpl["template_count"], 116)
+
+                    with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/minting-studio", timeout=5) as resp:
+                        studio = json.loads(resp.read().decode("utf-8"))
+                    self.assertEqual(studio["status"], "ok")
+                    self.assertEqual(studio["topics_count"], 12)
+                    self.assertEqual(
+                        studio["flagship_24slide_deck_id"],
+                        "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+                    )
+
+                    # Verify HTTP 206 Partial Content Range streaming for MINT-01_walkthrough.mp4
+                    range_req = urllib.request.Request(
+                        f"http://127.0.0.1:{port}/assets/videos/MINT-01_walkthrough.mp4",
+                        headers={"Range": "bytes=0-4095"},
+                        method="GET",
+                    )
+                    with urllib.request.urlopen(range_req, timeout=5) as rresp:
+                        self.assertEqual(rresp.status, 206)
+                        self.assertEqual(rresp.headers.get("Accept-Ranges"), "bytes")
+                        self.assertTrue((rresp.headers.get("Content-Range") or "").startswith("bytes 0-4095/"))
+                        chunk = rresp.read()
+                        self.assertEqual(len(chunk), 4096)
 
                     with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/daily-posts", timeout=5) as resp:
                         daily = json.loads(resp.read().decode("utf-8"))

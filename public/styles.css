@@ -620,10 +620,27 @@ table.table-fixed thead th {
   gap: 16px;
 }
 
+/* View 6: Idea-Minting & Video Studio Grid */
+.minting-studio-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.minting-video-stage,
+.minting-side-panel {
+  min-width: 0;
+  max-width: 100%;
+}
+
 /* ============================================================================
    iOS Safari & Android Chrome Mobile / Tablet Responsive Design (Rule 59)
    ============================================================================ */
 @media (max-width: 1180px) {
+  .minting-studio-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
   .global-header {
     flex-wrap: wrap;
     gap: 10px;

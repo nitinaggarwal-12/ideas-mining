@@ -223,7 +223,7 @@ def build_12_slide_specs(post: Dict[str, Any]) -> List[Dict[str, Any]]:
             "archetype": "live-screenshot-callout",
             "header_breadcrumb": "ACT III • OPENHANDS SANDBOX & CLOUD RUN TELEMETRY PROOF",
             "headline": "Forensic Execution Audit: Unit Tests, 2D Geometry & Terraform Validation",
-            "subtitle": "Verified across cym-build-sandbox (#887605034827) and ramp-portal-dev (#248990048888)",
+            "subtitle": "Verified across ramp-portal-dev (#248990048888) and bbar-138hf0 (#48439189383)",
             "cards": [
                 {"badge": "AUDIT 01 • PYTEST", "title": "100% Unit Test Pass Rate", "body": "All domain methods in src/engine.py and FastAPI endpoints in app.py pass deterministic unit tests.", "color": "4285F4"},
                 {"badge": "AUDIT 02 • 2D SVG", "title": "Zero Bounding-Box Collisions", "body": "Both linkedin-infographic-2d.svg and gcp-architecture-2d.drawio pass XML & geometry audits.", "color": "EA4335"},
@@ -262,7 +262,7 @@ def build_12_slide_specs(post: Dict[str, Any]) -> List[Dict[str, Any]]:
             "subtitle": "Runnable Repository Bundle: Codebase + README + 2D Visuals + 12-Slide Deck + Terraform",
             "cards": [
                 {"badge": "MILESTONE 1", "title": "Clone & Run Local Sandbox", "body": f"cd generated-repos/{slug} && python3 -m unittest discover -s tests", "color": "4285F4"},
-                {"badge": "MILESTONE 2", "title": "1-Click Terraform Provision", "body": "cd terraform && terraform init && terraform apply -var='project_id=nitina-ggarwal-sandbox-647724'", "color": "EA4335"},
+                {"badge": "MILESTONE 2", "title": "1-Click Terraform Provision", "body": "cd terraform && terraform init && terraform apply -var='project_id=ramp-portal-dev'", "color": "EA4335"},
                 {"badge": "MILESTONE 3", "title": "Launch Cloud Run Service", "body": "./scripts/deploy_gcp_one_click.sh deploys the container and binds Vertex AI Gemini endpoints.", "color": "FBBC04"},
                 {"badge": "MILESTONE 4", "title": "Publish LinkedIn & GitHub", "body": "Attach visuals/linkedin-infographic-2d.png or slides/linkedin_carousel.pdf and share the repo.", "color": "34A853"},
             ],
@@ -597,7 +597,7 @@ def compile_linkedin_carousel_html(post: Dict[str, Any], slides: List[Dict[str, 
               </div>
               <footer class="slide-footer">
                 <span>Proprietary + Confidential</span>
-                <span>Author: Nitin Aggarwal • Google Cloud ADK &amp; OpenHands Factory • {post["id"]}</span>
+                <span>Google Cloud Principal AI Architecture • ADK &amp; OpenHands Factory • {post["id"]}</span>
                 <span>Slide {s["slide_num"]} / 12</span>
               </footer>
               <aside class="speaker-notes-box">

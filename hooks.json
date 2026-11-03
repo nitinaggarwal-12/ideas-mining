@@ -1,0 +1,590 @@
+{
+  "schema_version": "2.0.0",
+  "default_policy": "FAIL_CLOSED",
+  "unknown_mutation_tool": "REJECT",
+  "project": {
+    "name": "promptcanvas",
+    "rules": {
+      "require_compile_time_account_boundary_firewall_in_build_merck_ui_hub": true,
+      "ban_circular_python_generator_self_approval_in_gate7": true,
+      "ban_contaminated_fallback_files_b559146821_b519168184_byomcp_ca_cert": true,
+      "require_100_check_unified_npm_test_pipeline": true,
+      "require_level50_anti_hallucination_and_ia_quality_gate": true,
+      "require_rule24_moma_fqdn_resourcekey_and_verified_poc_gate": true,
+      "require_level30_digital_twin_and_voice_governance_audit": true,
+      "ban_drive_multipart_html_to_docs_upload": true,
+      "require_google_docs_native_cloning_and_batch_update": true,
+      "require_review_mode_default_canvas_y_max_120": true,
+      "require_collapsible_editor_tools_wrapper": true,
+      "require_smart_selection_presets_and_section_select": true,
+      "require_floating_sticky_dispatch_dock": true,
+      "require_customer_localized_modals_and_bookmarks": true,
+      "require_partitioned_causal_overlay_storage": true,
+      "require_rule30r_gantrypulse_18route_e2e_forensic_gate": true,
+      "require_rule30t_unclamped_customer_questions_realtime_freshness": true,
+      "require_default_demo_slide_template_24slide_native_editable_master": true
+    }
+  },
+  "lifecycle_hooks": {
+    "PostToolUse": {
+      "command": "npm run quality-gate"
+    },
+    "Stop": {
+      "command": "npm run quality-gate"
+    }
+  },
+  "hooks": {
+    "UserPromptSubmit": {
+      "enabled": true,
+      "enforce_conversational_non_mutation_guard": true,
+      "enforce_speculative_premise_scientific_reframing": true,
+      "enforce_live_external_standards_grounding": true,
+      "enforce_radical_truthfulness_and_exhaustive_detail": {
+        "enabled": true,
+        "override_concise_default": true,
+        "ban_optimistic_claims_or_unverified_assumptions": true,
+        "require_honest_root_cause_and_gap_disclosure": true,
+        "require_full_file_inventory_in_summaries": [
+          "src/**",
+          "scripts/**",
+          "scratch/**",
+          "gsheet_sync_server.py",
+          "hooks.json",
+          "hooks.md",
+          "SKILL.md",
+          "skills.md",
+          "README.md",
+          "AGENTS.md",
+          ".agents/rules/*.md"
+        ]
+      },
+      "redact_patterns": [
+        "AKIA[0-9A-Z]{16}",
+        "sk-[a-zA-Z0-9]{20,}"
+      ]
+    },
+    "PreToolUse": {
+      "enabled": true,
+      "require_active_skill_allowlist": true,
+      "enforce_closed_loop_harness_semantic_shape_taxonomy": [
+        "shape=rhombus",
+        "shape=hexagon",
+        "shape=cylinder3",
+        "parallel_1_to_3_swimlanes",
+        "air_gap_boundary_band"
+      ],
+      "enforce_closed_loop_telemetry_return_highway": true,
+      "enforce_distinct_generator_vs_judge_models": {
+        "generator": "gemini-3.8-flash",
+        "grounding": "deep-research-max-preview-04-2026",
+        "judge": "gemini-3.1-pro-preview",
+        "judge_argon": "gemini-4-argon",
+        "geometry_gate": "google-omni-1.1"
+      },
+      "protected_path_substrings": [
+        ".env",
+        ".git",
+        "package-lock.json",
+        "poetry.lock"
+      ],
+      "approved_tools": [
+        "get_service_metrics",
+        "get_recent_deployments",
+        "get_cost_anomalies",
+        "scale_service_replicas",
+        "read_config_file"
+      ]
+    },
+    "PostToolUse": {
+      "enabled": true,
+      "auto_update_plan_md": true,
+      "verify_non_empty_observation": true,
+      "enforce_auto_draft_micro_version_persistence": {
+        "enabled": true,
+        "version_scheme": "v<major>.<minor>.<micro>",
+        "target_library_tab": "drafts",
+        "storage_keys": [
+          "promptcanvas_draft_blueprints",
+          "promptcanvas_saved_blueprints",
+          "/api/diagrams"
+        ]
+      },
+      "enforce_zero_collision_orthogonal_corridors": true,
+      "enforce_server_side_google_slides_refresh_token_bridge_and_inline_previewer": {
+        "enabled": true,
+        "rule": "Rule 47 & Rule 49",
+        "server_bridge": "src/lib/server/googleWorkspaceBridge.ts",
+        "manifest": "src/data/cloud_viewer_manifest.json",
+        "inline_component": "src/components/DiagramInlineSlidesPreviewer.tsx",
+        "ban_browser_gis_popup_as_primary_open_with_slides_path": true,
+        "enforce_15_distinct_google_slides_and_rule49_docs_batch_update_sync": true
+      },
+      "enforce_omni_digital_twin_and_voice_governance_gate": {
+        "enabled": true,
+        "rule": "Rule 48",
+        "audit_script": "scripts/tdd/run_level30_digital_twin_and_voice_governance_audit.mjs",
+        "master_quality_gate": "npm run quality-gate",
+        "invariants_count": 21,
+        "enforce_zero_black_screen_video_presence": true,
+        "enforce_deck_agnostic_full_deck_prebake": true,
+        "enforce_strict_voice_and_accent_isolation": true,
+        "enforce_quota_project_header_across_tts_retries": true,
+        "enforce_persona_language_auto_sync": true,
+        "enforce_dynamic_omni_catalog_discovery": true,
+        "enforce_a2a_enterprise_gateway_18_slide_coverage": true,
+        "enforce_merck_aws_mcp_consent_18_slide_coverage": true,
+        "enforce_merck_agentgateway_policy_18_slide_coverage": true,
+        "enforce_jira_10_slide_coverage": true,
+        "enforce_custom_twin_60fps_lipsync_canvas_overlay": true,
+        "enforce_calibrated_landmark_preservation": true,
+        "enforce_a2a_gateway_google_com_screenshot_purity": true,
+        "enforce_all_6_omni_decks_900_mp4_900_mp3_100_native_bundles_transparent_studio_canvas_and_webaudio_guard": true,
+        "enforce_merck_aws_mcp_consent_15_gates_agentgateway_runtime_policy_and_judge": true,
+        "enforce_merck_agentgateway_policy_standalone_portal_demo": true,
+        "ban_ramp_portal_dev_source_deploy_and_fire_and_forget_nohup": true,
+        "require_synchronous_two_project_cloudrun_deploy_and_readiness_receipt": true
+      },
+      "enforce_askaioce_compile_time_anti_hallucination_firewall": {
+        "enabled": true,
+        "compiler_script": "scratch/build_merck_ui_hub.py",
+        "firewall_function": "verify_merck_account_boundary_firewall",
+        "invariants_count": 20,
+        "level50_assertions_count": 70,
+        "enforce_authentic_11_char_google_chat_space_and_thread_ids": true,
+        "enforce_cross_customer_isolation_and_dynamic_por": true,
+        "ban_performative_noop_ui_and_fake_client_sha256": true
+      },
+      "enforce_askaioce_review_mode_and_dispatch_continuity": {
+        "enabled": true,
+        "rule": "Rule 51",
+        "canvas_y_max_px": 120,
+        "production_canvas_y_px": 94,
+        "collapsible_wrapper_id": "gdocs-editor-tools-wrapper",
+        "toggle_btn_id": "toggle-editor-tools-btn",
+        "presets_select_id": "subtoolbar-selection-preset-select",
+        "sticky_dock_id": "oce-sticky-dispatch-dock",
+        "customer_scoped_causal_key_prefix": "oce_bi_causal_overlay_v5_",
+        "oct19_native_google_doc_id": "1D6CFnZH1WihW5CSXRCzVHQHmVYS2ClOqBrmMZfzBWm4",
+        "enforce_compare_default_latest_vs_previous": true,
+        "enforce_unique_deep_linkable_studio_urls": true
+      },
+      "enforce_law13_atomic_governance_triad_gate": {
+        "enabled": true,
+        "rule": "Law 13 / Rule 52",
+        "guard_script": "/Users/nitinagga/.gemini/config/guards/enforce_atomic_governance_triad.mjs",
+        "global_hooks_path": "/Users/nitinagga/.git_global_hooks/pre-commit",
+        "template_hooks_path": "/Users/nitinagga/.git_template/hooks/pre-commit",
+        "enforce_git_pre_commit_fail_closed": true
+      },
+      "enforce_google_docs_native_geometry_and_html_ban": {
+        "enabled": true,
+        "rule": "Rule 49",
+        "ban_drive_multipart_html_upload": true,
+        "require_native_files_copy": true,
+        "require_docs_api_batch_update": true,
+        "require_max_header_height_pt": 32,
+        "ban_page_break_table_duplication": true
+      },
+      "enforce_gantry_pulse_rule20_anti_hallucination_and_workflow_integrity_gate": {
+        "enabled": true,
+        "pre_tool_guard": "scripts/pre_tool_lineage_guard.mjs",
+        "stop_forensic_gate": "scripts/stop_forensic_gate.mjs",
+        "blocked_defects": [
+          "route_hijacking_in_resolveValidTabId",
+          "unreachable_system_pillars_3A_3E",
+          "orphaned_custom_events",
+          "false_optimistic_gsheet_sync_attestations",
+          "synthetic_poc_directory_keys_zfucik_dsciences",
+          "example_com_placeholder_urls",
+          "hardcoded_legacy_seats_5000_or_non_canonical_l4_taxonomy",
+          "rule21_buganizer_urls_in_gantryIntakeUrls",
+          "rule21_duplicate_link1_sot_arrays",
+          "rule21_unanchored_spreadsheet_urls_missing_range_A",
+          "rule21_cross_eap_doc_misattribution_and_LIN_0083_typo",
+          "rule21_bare_chat_google_com_root_urls",
+          "rule22_synthetic_google_chat_room_slugs_AAAAgantryCbWarRoom",
+          "rule22_invalid_chat_dm_email_urls",
+          "rule22_dropped_upstream_eap_rich_links_chat_hyperlinks",
+          "rule23_fake_refresh_clock_setLiveRefreshDate",
+          "rule23_compile_time_clobber_of_runtime_sot_fields",
+          "rule23_truncated_gsheet_status_range_A_to_R_instead_of_A_to_AG",
+          "rule23_missing_90s_auto_gmail_eap_scanner_or_gmailThreadLabels_union_merge",
+          "rule23_unsynchronized_customer_html_email_clipboard_or_internal_jargon_leak",
+          "rule24_broken_moma_directory_hostname_or_mb_sf_url",
+          "rule24_stripped_google_workspace_resourcekey_or_app_chat_url",
+          "rule24_hallucinated_customer_poc_names_or_synthetic_support_cases_75889102",
+          "rule25_duplicate_horizontal_page_navigation_band",
+          "rule25_jump_to_page_dropdown_when_sidebar_active",
+          "rule25_static_marketing_boilerplate_in_operational_header",
+          "rule25_mechanical_dropdown_wrapping_without_pruning",
+          "rule25_rigid_container_max_width_gutters",
+          "rule25_synthetic_consulting_brands_mckinsey",
+          "rule25_thread_blocking_window_prompt",
+          "rule25_out_of_order_questions_C01_to_C03",
+          "rule26_naked_inline_span_truncate_overflow",
+          "rule26_unconstrained_table_cell_bleed_through",
+          "rule26_missing_flexbox_min_w_0_floor_reset",
+          "rule27_client_fake_clock_setLiveRefreshDate_or_estTimestamp_default_new_Date",
+          "rule27_scratch_sync_script_dependency_in_server_or_dockerfile",
+          "rule27_missing_portal_sync_watermarks_or_sqlite_sync_watermarks_table",
+          "rule28_diagnose_and_ask_permission_stalling_or_truncated_direct_sot_slices",
+          "rule28_unwired_5sheet_reconciliation_or_18page_reactive_polling",
+          "rule28d_unmapped_18char_sfdc_record_id_or_static_row_refresh",
+          "rule29_umbrella_eap_env_bleed_through_or_assumed_available_on_unbuilt_fr_bug_ask",
+          "rule30_stale_2026_10_09_date_ceiling_or_missing_5source_oct16_updates"
+        ]
+      },
+      "enforce_scorex_rule50_value_realization_and_fluid_layout_gate": {
+        "enabled": true,
+        "rule": "Rule 50",
+        "ban_third_party_consulting_brands": [
+          "McKinsey & Google",
+          "McKinsey",
+          "BCG",
+          "Bain",
+          "Stratagem",
+          "Deloitte",
+          "Quantiphi",
+          "Accenture",
+          "PwC",
+          "Slalom",
+          "KPMG"
+        ],
+        "ban_thread_blocking_dialogs": [
+          "window.prompt",
+          "window.alert",
+          "window.confirm"
+        ],
+        "require_100_percent_fluid_layout": true,
+        "ban_rigid_container_max_widths": [
+          "max-width: 1200px",
+          "max-width: 1400px",
+          "max-width: 1440px",
+          "max-width: 1560px",
+          "maxWidth: '1440px'",
+          "maxWidth: '1560px'"
+        ],
+        "require_sequential_card_ordering": true,
+        "require_10_module_horizontal_tabs_and_3col_question_grid": true,
+        "require_forensic_5_subsystem_completeness": true,
+        "require_transitive_dead_code_purge_and_dynamic_exhibit_1b_math": true,
+        "require_single_source_ge_framework_esm_to_cjs_bridge": true,
+        "require_durable_gcs_write_through_persistence_and_postgres_schema_parity": true,
+        "require_ci_true_zero_warning_react_production_build": true,
+        "ui_integrity_gates_count": 20,
+        "enforce_customer_crm_grounding": [
+          "biopharma_global",
+          "pfizer",
+          "elevance",
+          "mars",
+          "heb"
+        ]
+      },
+      "enforce_promptcanvas_rule53_official_arch_center_template_78_gate": {
+        "enabled": true,
+        "rule": "Rule 53",
+        "required_template_id": "78",
+        "required_across_all_presets_and_tabs": [
+          "primaryTemplateId",
+          "ingestionTemplateId",
+          "searchTemplateId"
+        ],
+        "ban_legacy_blog_template_ids": [
+          "51",
+          "27",
+          "67",
+          "68",
+          "24",
+          "25",
+          "40",
+          "72",
+          "76"
+        ],
+        "ban_legacy_renderWorkstreamSpecificSvg_and_subtitle_icon_hijack": true,
+        "ban_synthetic_pantheon_screenshot_generator": true,
+        "ban_cross_project_merck_screenshots_in_blogs": true,
+        "ban_duplicate_figure2_and_redundant_reader_toolbars": true,
+        "ban_slot_mismatch_parentheticals_in_component_tables": true,
+        "ban_rainbow_tags_and_enforce_single_row_tile_footers": true,
+        "ban_diagnose_and_ask_permission_stalling_and_agents_md_truncation": true,
+        "require_inline_and_new_tab_drawio_editor": true,
+        "require_e2e_pattern_workbench_4_suites_12_resources_24_files": true,
+        "require_21_pure_multi_tenant_cloud_console_and_ge_screenshots_zero_merck": true,
+        "require_full_width_use_case_top_bar_and_horizontal_blueprint_pills": true,
+        "require_9_canonical_google_cloud_doc_guides_tile_catalog_and_pdf_reader": true,
+        "require_full_width_theme_aware_hub_diag_e2e_flow_card": true,
+        "require_llm_judge_blogs_pass2_100_score_gate": true,
+        "require_zero_consulting_brands_and_content_deduplication_on_blogs": true,
+        "require_zero_duplicate_diagram_quartet_and_4tab_series_reader_on_blogs_portal": true,
+        "require_official_arch_center_5part_blog_anatomy_and_150_light_theme_slides": true,
+        "require_calibrated_arch_center_78_editable_slides_uniform_scale_and_zero_overlap": true,
+        "require_cohesive_6slide_space_allocation_and_zero_auto_collapsing_tables": true,
+        "require_52px_intra_spoke_connector_channel_and_staggered_elbows": true,
+        "require_zero_ellipsis_6slide_blog_content_and_disk_manifest_priority": true,
+        "require_zero_native_tooltip_on_open_gcp_verify_drawer_btn": true,
+        "require_executive_light_theme_on_blogs": true,
+        "require_1_to_1_devsite_white_article_6slide_export_and_role_label_only_contributors": true,
+        "require_true_blank_canvas_oracle_exadata_and_fail_closed_audit": true,
+        "require_full_height_pptx_table_geometry_zero_tr_h0_and_zero_middle_blank_gap": true,
+        "require_pure_first_person_spoken_customer_talk_tracks_zero_why_what_headings": true,
+        "require_customer_first_12_slide_ws_and_25_slide_master_deck_order": true,
+        "require_rule53f_per_ws_unique_slide_4_6_7_copy_zero_ungrounded_facts_zero_hex_leaks": true,
+        "require_30_flow_10_saas_cloudrun_aws_crosscloud_live_verify": true,
+        "verification_script": "npx tsx scripts/verify_blank_canvas_nasa_default_and_slides.ts && npx tsx scripts/verify_export_slides_quality_gate.ts && npx tsx scripts/verify_blogs_and_gcp_workstreams.ts && npx tsx scripts/evaluate_blogs_llm_judge.ts --pass=2 && python3 -B /Users/nitinagga/Documents/blogs/scripts/run_deep_forensic_audit.py"
+      },
+      "enforce_rule57_zero_shortcut_inked_pixel_arrow_centering_and_adversarial_critic_gate": {
+        "enabled": true,
+        "rule": "Rule 57 / Law 18",
+        "require_1_first_prototype_gate_before_batching": true,
+        "ban_hand_rolled_approximations_of_canonical_cross_repo_assets": true,
+        "require_headless_chrome_dom_and_inked_pixel_getimagedata_audit": true,
+        "require_arrow_label_lowercase_xheight_vertical_mid_delta_max_px": 0.5,
+        "require_arrow_label_visible_shaft_horizontal_center_delta_max_px": 1.0,
+        "require_arrow_label_horizontal_white_cushion_span": "padding:0 2px;",
+        "require_calibrated_mxpoint_offsets_on_t53_and_t68": {
+          "t1_edge_1": { "x": -5, "y": -2 },
+          "t2_edge_calls": { "x": -5, "y": -2 },
+          "t2_edge_returns": { "x": 0, "y": -2 },
+          "t3_e_yes1": { "x": -5, "y": -1.5 },
+          "t3_e_no1": { "x": 0, "y": -6 },
+          "t3_e_yes2": { "x": -5, "y": -1.5 },
+          "t3_e_no2": { "x": 5, "y": -1.5 },
+          "t4_edge_maps": { "x": -5, "y": -2 }
+        },
+        "require_fresh_puppeteer_newpage_per_viewer_static_diagram": true,
+        "require_independent_adversarial_subagent_visual_critic": true,
+        "require_shortcuts_compromises_and_remaining_flaws_disclosure": true,
+        "verification_script": "node /Users/nitinagga/Documents/ideas-mining/scripts/verify_arrow_label_inked_pixel_centering.mjs && python3 -m unittest discover -s /Users/nitinagga/Documents/ideas-mining/tests -v"
+      }
+    },
+    "PreDeploy": {
+      "enabled": true,
+      "require_askaioce_quality_gate": {
+        "enabled": true,
+        "command": "npm run quality-gate",
+        "suites": [
+          "scratch/sor_upstream_connector.py --verify",
+          "scratch/build_merck_ui_hub.py",
+          "scratch/run_level30_deep_forensic_audit.js",
+          "scratch/run_level40_deep_forensic_audit.js",
+          "scratch/run_level50_anti_hallucination_and_ia_quality_gate.js"
+        ]
+      },
+      "require_gantry_pulse_rule20_gate": {
+        "enabled": true,
+        "commands": [
+          "node scripts/pre_tool_lineage_guard.mjs --self-test",
+          "node scripts/stop_forensic_gate.mjs",
+          "node scripts/guards/enforce_universal_single_source_trinity.mjs",
+          "npm run quality-gate"
+        ]
+      },
+      "require_scorex_ui_integrity_gate": {
+        "enabled": true,
+        "command": "npm test && node scripts/stop_quality_gate.mjs",
+        "suites": [
+          "tests/security/uiIntegrityGate.test.js",
+          "scripts/stop_quality_gate.mjs"
+        ]
+      }
+    },
+    "Stop": {
+      "enabled": true,
+      "require_all_plan_steps_completed": true,
+      "require_okf_v0_1_schema": true,
+      "require_cove_citation_grounding": true,
+      "require_4_stage_provenance_ledger": true,
+      "require_draft_saved_in_library": true,
+      "require_exhaustive_truthful_response_with_full_governance_inventory": true,
+      "require_askaioce_level50_anti_hallucination_and_ia_gate": true,
+      "require_gantry_pulse_rule20_anti_hallucination_and_workflow_integrity_gate": true,
+      "require_gantry_pulse_rule21_link_provenance_and_row_anchor_gate": true,
+      "require_gantry_pulse_rule22_canonical_google_chat_space_id_and_upstream_parity_gate": true,
+      "require_gantry_pulse_rule23_6col_domain_isolation_and_real_60s_sot_polling_gate": true,
+      "require_gantry_pulse_rule24_moma_fqdn_resourcekey_and_verified_poc_gate": true,
+      "require_gantry_pulse_rule25_executive_ia_zero_redundancy_gate": true,
+      "require_gantry_pulse_rule26_table_cell_containment_and_truncate_safety_gate": true,
+      "require_gantry_pulse_rule27_unified_portal_synchronizer_and_zero_fake_clock_gate": true,
+      "require_gantry_pulse_rule28_6hop_end_to_end_sync_and_zero_permission_stalling_gate": true,
+      "require_gantry_pulse_rule29_zero_umbrella_eap_env_bleed_through_and_honest_fr_readiness_gate": true,
+      "require_google_docs_native_geometry_and_html_ban": true,
+      "require_scorex_rule50_ui_and_data_integrity_gate": true,
+      "require_scorex_rule50f_horizontal_module_tabs_and_new_assessment_isolation_gate": true,
+      "require_scorex_rule50h_to_50j_forensic_completeness_and_zero_dead_code_gate": true,
+      "require_askaioce_review_mode_and_dispatch_dock_gate": true,
+      "require_atomic_governance_co_update_on_every_fix": true,
+      "require_executive_ui_and_visual_regression_quality_gate": true,
+      "require_promptcanvas_rule53_workstream_topologies_and_gcp_verification_gate": true,
+      "require_promptcanvas_21_pure_multi_tenant_cloud_console_and_ge_screenshots_zero_merck_gate": true,
+      "require_promptcanvas_official_gcp_arch_center_template_78_across_all_tabs_gate": true,
+      "require_promptcanvas_e2e_pattern_workbench_and_inline_drawio_gate": true,
+      "require_promptcanvas_9_canonical_doc_guides_and_llm_judge_pass2_gate": true,
+      "require_demoes_ge_rule48_digital_twin_health_inspector_and_self_healing_gate": true,
+      "require_demoes_ge_l30_19_native_omni_1_1_cohesive_bundle_purity_gate": true,
+      "require_demoes_ge_l30_20_zero_legacy_code_paths_gate": true,
+      "require_demoes_ge_l30_21_google_slides_design_v2_visual_archetypes_gate": true,
+      "require_demoes_ge_merck_aws_mcp_consent_cloudrun_e2e_and_llm_judge_gate": true,
+      "require_mandatory_light_theme_default_gate": true,
+      "require_rule57_zero_shortcut_inked_pixel_arrow_centering_and_adversarial_critic_gate": true,
+      "require_zyvoriq_google_stitch_clean_studio_and_7dept_bible_gate": true
+    },
+    "narrator_persona_and_ssml_prosody_gate": {
+      "enabled": true,
+      "require_clause_aware_ssml_prosody": true,
+      "require_9_digital_twin_personas": true
+    }
+  },
+  "version": "3.14.0",
+  "projects": {
+    "zyvoriq": {
+      "priority": 1,
+      "path_matchers": ["zyvoriq"],
+      "rules": {
+        "require_google_stitch_daylight_studio_and_zero_hardcoded_landing_clutter": true,
+        "require_empty_brief_input_on_initial_create_load": true,
+        "ban_hardcoded_demo_chips_and_duplicate_saved_reels_vault_in_create_tab": true,
+        "ban_hardcoded_title_substring_audio_routing_in_page_tsx": true,
+        "require_7dept_deep_research_production_bible_and_unclipped_5d_scorecard": true,
+        "require_unclipped_left_rail_footer_and_responsive_top_bar_title": true,
+        "require_veo31_foundation_model_wiring_and_dynamic_entity_provenance": true,
+        "require_option_a_lean_omni_first_veo_safety_net_and_zero_dead_studio1_worker": true
+      }
+    },
+    "ideas-mining": {
+      "rules": {
+        "require_canonical_t53_to_t68_promptcanvas_drawio_sync": true,
+        "require_t01_and_t69_to_t78_canonical_4tier_spine_and_27_google_slides_sync": true,
+        "require_inked_pixel_arrow_label_mid_and_center_calibration": true,
+        "require_2px_horizontal_white_knockout_cushion_on_edge_labels": true,
+        "require_fresh_puppeteer_newpage_per_viewer_static_diagram": true,
+        "require_independent_adversarial_visual_critic_gate": true
+      }
+    },
+    "demoes-ge": {
+      "rules": {
+        "require_l0_to_l4_hierarchy_rollups": true,
+        "require_4_pillar_custom_usecase_decision_engine": true,
+        "require_60_globally_unique_connector_screenshots": true,
+        "require_canonical_5_tier_model_stack": true,
+        "require_8_pillar_harness_engineering_selftest": true,
+        "require_5_channel_live_product_issue_intelligence_sync": true,
+        "require_universal_single_source_governance_lockstep": true,
+        "require_clause_aware_ssml_prosody_and_9_digital_twin_personas": true,
+        "ban_raw_text_tts_bypass_on_chirp3_hd_and_casual": true,
+        "require_punctuation_weighted_karaoke_word_timings": true,
+        "require_cloudtop_ssh_auth_token_fallback": true,
+        "require_slide_screenshot_objects_studio_and_eraser_patch": true,
+        "require_ai_face_presenter_famous_persona_continuity": true,
+        "require_photorealistic_8k_human_digital_twin_omni_av_sync": true,
+        "require_cohesive_omni_1_1_mp4_video_per_slide": true,
+        "require_multi_deck_omni_1_1_manifest_and_zero_single_deck_hardcoding": true,
+        "ban_hardcoded_deck_slugs_in_omni_video_and_export_pipelines": true,
+        "require_google_slides_design_v2_6_visual_archetypes_and_8_grounded_screenshots": true,
+        "require_all_13_demo_slide_decks_210_slides_8_of_8_gates_and_15_dedicated_codelab_steps": true,
+        "require_jira_confluence_4pillar_workbench_and_4_mcp_tools": true
+      }
+    }
+  },
+  "omnichannelSpokeSync": {
+    "script": "scripts/sync_merck_omnichannel_spoke.py",
+    "scopeFilter": "STRICT_NITIN_AGGARWAL_INVOLVEMENT_ONLY",
+    "testDocId": "1Jk3G_gsdo_gOUXGaaOzr5RLK_EV3GmnsYtrbYWy17EA",
+    "productionDocId": "1Djo0dKVprT_X7M1QTrPJniMbm8sDMDKX3W8Exon4NCw",
+    "overviewTabId": "t.trgr53jsi0l2",
+    "rawNotesTabId": "t.bui7oulgwhkw",
+    "nitinDedicatedSheets": [
+      "1X9321KNfRdjuQb9rfmlp9oExXc0RkWo7S2db_CnoFMU",
+      "1y7kt8gB7XNwtmLG3hIxgNGVki5e1tt3Aifk29LmixJY",
+      "1O9mmw3hcGk4U6BcQhKrH5EQUBM0VXz8gNlffsEx_IrA",
+      "1xLQdm3U4jpHcVpGN8nRSytO9GsVLOvqQ3u-gjjvuX28",
+      "1L-uRJySb8m4iOfdyQ64uPY3-f6hj4MTnnjIjasHHhEU",
+      "17SBQiySZ9FrHOtVr6eS3CnbCUrC9jn3SW8HgXdY9PTw",
+      "1w2CFGNFfSDfozwOrbi3a4y_njSM7XdtQ4XmT4m0pME4"
+    ],
+    "cronSchedule": "0 18 * * 1-5",
+    "timezone": "America/New_York",
+    "receiptPath": "reports/merck_omnichannel_spoke_sync_receipt.json"
+  },
+  "zyvoriq_guard": {
+    "enabled": true,
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "node ~/.gemini/config/plugins/zyvoriq_guard/scripts/pre_invocation_memory.mjs",
+        "timeout": 10
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "run_command|write_to_file|replace_file_content|multi_replace_file_content|notebook_edit|call_mcp_tool",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/.gemini/config/plugins/zyvoriq_guard/scripts/pre_tool_guard.mjs",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "run_command|write_to_file|replace_file_content|multi_replace_file_content|notebook_edit|call_mcp_tool",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/.gemini/config/plugins/zyvoriq_guard/scripts/post_tool_verifier.mjs",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "node ~/.gemini/config/plugins/zyvoriq_guard/scripts/stop_quality_gate.mjs",
+        "timeout": 180
+      }
+    ]
+  },
+  "demoes-ge-native-lifecycle-guard": {
+    "enabled": true,
+    "PreToolUse": [
+      {
+        "matcher": "run_command|write_to_file|replace_file_content|multi_replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/.gemini/config/guards/jetski_native_lifecycle_hook.mjs --mode=pre-tool",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content|multi_replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/.gemini/config/guards/jetski_native_lifecycle_hook.mjs --mode=post-tool",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostInvocation": [
+      {
+        "type": "command",
+        "command": "node ~/.gemini/config/guards/jetski_native_lifecycle_hook.mjs --mode=post-invocation",
+        "timeout": 10
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "node ~/.gemini/config/guards/jetski_native_lifecycle_hook.mjs --mode=stop",
+        "timeout": 25
+      }
+    ]
+  }
+}

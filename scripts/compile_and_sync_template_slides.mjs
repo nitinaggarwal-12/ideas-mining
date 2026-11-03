@@ -17,19 +17,36 @@
  */
 
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const IDEAS_ROOT = path.resolve(__dirname, '..');
-const requirePC = createRequire('/Users/nitinagga/Documents/PromptCanvas/package.json');
+const HOME_DIR = os.homedir();
+const PC_PKG = fs.existsSync(path.join(HOME_DIR, 'Documents/PromptCanvas/package.json'))
+  ? path.join(HOME_DIR, 'Documents/PromptCanvas/package.json')
+  : path.join(IDEAS_ROOT, 'package.json');
+const requirePC = createRequire(PC_PKG);
 
-const PptxGenJS = requirePC('pptxgenjs');
-const JSZip = requirePC('jszip');
-const { XMLParser } = requirePC('fast-xml-parser');
+let PptxGenJS, JSZip, XMLParser;
+try {
+  PptxGenJS = requirePC('pptxgenjs');
+  JSZip = requirePC('jszip');
+  ({ XMLParser } = requirePC('fast-xml-parser'));
+} catch {
+  // Zero-dependency OpenXML compiler fallback on Linux Cloudtop environments without PromptCanvas/node_modules
+  execFileSync(
+    'python3',
+    [path.join(__dirname, 'compile_drawio_to_openxml_pptx.py'), ...process.argv.slice(2)],
+    { stdio: 'inherit' }
+  );
+  process.exit(0);
+}
 
 const DRAWIO_DIR = path.join(IDEAS_ROOT, 'assets/canonical-ref/drawio');
 const GALLERY_DIR = path.join(IDEAS_ROOT, 'assets/template-gallery');
@@ -38,9 +55,9 @@ const QUOTA_PROJECT = 'ramp-portal-dev';
 
 const TOKEN_PATHS = [
   path.join(IDEAS_ROOT, '.gsheet_oauth_token.json'),
-  '/Users/nitinagga/Documents/gantry-pulse/.gsheet_oauth_token.json',
-  '/Users/nitinagga/Documents/PromptCanvas/.gsheet_oauth_token.json',
-  '/Users/nitinagga/Documents/blogs/.gsheet_oauth_token.json',
+  path.join(HOME_DIR, 'Documents/gantry-pulse/.gsheet_oauth_token.json'),
+  path.join(HOME_DIR, 'Documents/PromptCanvas/.gsheet_oauth_token.json'),
+  path.join(HOME_DIR, 'Documents/blogs/.gsheet_oauth_token.json'),
 ];
 
 function decodeHtmlEntities(str = '') {
@@ -1973,11 +1990,22 @@ async function exportLiveSlideThumbnails(slideId, tid, outDir, token) {
 
 async function main() {
   const args = process.argv.slice(2);
+  const localPptxOnly = args.includes('--local-pptx-only');
+  const allDrawioOnDisk = args.includes('--all-drawio');
   const thumbIdx = args.indexOf('--export-thumbnails');
   const exportThumbDir = thumbIdx !== -1 && args[thumbIdx + 1] ? args[thumbIdx + 1] : null;
-  const filterTids = args.filter((a) => /^T\d+$/.test(a));
-  const allTids = ['T01', ...Array.from({ length: 32 }, (_, i) => `T${i + 53}`)];
-  const targetTids = filterTids.length > 0 ? filterTids : allTids;
+  const onlyIdx = args.indexOf('--only');
+  const onlyTid = onlyIdx !== -1 && args[onlyIdx + 1] ? [args[onlyIdx + 1]] : [];
+  const filterTids = [...onlyTid, ...args.filter((a, i) => /^T\d+$/.test(a) && i !== onlyIdx + 1)];
+  const allCanonicalTids = ['T01', ...Array.from({ length: 37 }, (_, i) => `T${i + 53}`)];
+  const diskDrawioTids = allDrawioOnDisk
+    ? fs
+        .readdirSync(DRAWIO_DIR)
+        .filter((f) => /^T\d+\.drawio$/.test(f))
+        .map((f) => f.replace(/\.drawio$/, ''))
+        .sort((a, b) => Number(a.slice(1)) - Number(b.slice(1)))
+    : allCanonicalTids;
+  const targetTids = filterTids.length > 0 ? Array.from(new Set(filterTids)) : diskDrawioTids;
 
   fs.mkdirSync(path.dirname(MANIFEST_PATH), { recursive: true });
   let manifest = { updatedAt: new Date().toISOString(), accountEmail: 'nitinagga@google.com', slides: {} };
@@ -1993,12 +2021,21 @@ async function main() {
     galleryManifest = JSON.parse(fs.readFileSync(galleryManifestPath, 'utf8'));
   }
   const titleByTid = Object.fromEntries((galleryManifest.templates || []).map((t) => [t.id, t.name]));
+  for (const t of galleryManifest.templates || []) {
+    for (const tp of t.topic_posts || []) {
+      if (tp.id && (tp.title || tp.name)) titleByTid[tp.id] = tp.title || tp.name;
+    }
+  }
 
-  const token = await getDriveAccessToken();
+  const token = localPptxOnly ? null : await getDriveAccessToken();
 
   for (const tid of targetTids) {
     const title = titleByTid[tid] || `${tid} Editable Architecture Blueprint`;
     const { pptxPath, pptxBuf, slideCount } = await compileDrawioTemplateToEditablePptx(tid, title);
+    if (localPptxOnly) {
+      console.log(`[local_pptx] ${tid} (${slideCount} editable slides, ${pptxBuf.length}B) -> ${pptxPath}`);
+      continue;
+    }
     const sha256 = crypto.createHash('sha256').update(pptxBuf).digest('hex');
     const existing = manifest.slides?.[tid];
 
@@ -2030,21 +2067,35 @@ async function main() {
     console.log(`[slides_sync] ${tid} (${slideCount} editable slides, ${pptxBuf.length}B) -> ${entry.googleSlidesEditUrl}`);
   }
 
-  manifest.updatedAt = new Date().toISOString();
-  fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2), 'utf8');
+  if (!localPptxOnly) {
+    manifest.updatedAt = new Date().toISOString();
+    fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2), 'utf8');
+  }
 
-  // Enrich gallery_manifest.json with .drawio, .pptx, and google_slides_url
+  // Enrich gallery_manifest.json with .drawio, .pptx, and google_slides_url (including T79.topic_posts)
   if (fs.existsSync(galleryManifestPath)) {
     for (const t of galleryManifest.templates || []) {
+      t.files = t.files || {};
+      if (fs.existsSync(path.join(GALLERY_DIR, `${t.id}.drawio`))) t.files.drawio = `${t.id}.drawio`;
+      if (fs.existsSync(path.join(GALLERY_DIR, `${t.id}.pptx`))) t.files.pptx = `${t.id}.pptx`;
       const m = manifest.slides[t.id];
       if (m) {
-        t.files = t.files || {};
-        t.files.drawio = `${t.id}.drawio`;
-        t.files.pptx = `${t.id}.pptx`;
         t.google_slides_id = m.googleSlidesId;
         t.google_slides_url = m.googleSlidesEditUrl;
         t.google_slides_preview_url = m.googleSlidesPreviewUrl;
         t.editable_slide_count = m.slideCount;
+      }
+      for (const tp of t.topic_posts || []) {
+        tp.files = tp.files || {};
+        if (fs.existsSync(path.join(GALLERY_DIR, `${tp.id}.drawio`))) tp.files.drawio = `${tp.id}.drawio`;
+        if (fs.existsSync(path.join(GALLERY_DIR, `${tp.id}.pptx`))) tp.files.pptx = `${tp.id}.pptx`;
+        const tm = manifest.slides[tp.id];
+        if (tm) {
+          tp.google_slides_id = tm.googleSlidesId;
+          tp.google_slides_url = tm.googleSlidesEditUrl;
+          tp.google_slides_preview_url = tm.googleSlidesPreviewUrl;
+          tp.editable_slide_count = tm.slideCount;
+        }
       }
     }
     fs.writeFileSync(galleryManifestPath, JSON.stringify(galleryManifest, null, 2), 'utf8');

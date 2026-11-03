@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-10-29T14:04:18.107Z",
-  "baseUrl": "http://127.0.0.1:8769",
-  "totalAssertions": 25,
-  "passedAssertions": 25,
+  "timestamp": "2026-11-03T21:14:33.273Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "totalAssertions": 28,
+  "passedAssertions": 28,
   "failedAssertions": 0,
   "consoleErrors": [],
   "failedRequests": [],
@@ -13,19 +13,24 @@
       "detail": "body bg=rgb(248, 250, 252), darkClass=false"
     },
     {
-      "name": "Zero Horizontal Overflow on View 1 (18 Repos)",
+      "name": "Zero Horizontal Overflow on View 1 (19 Repos)",
       "passed": true,
       "detail": "scrollWidth=1600 <= innerWidth=1600"
     },
     {
-      "name": "View 1 Renders All 18 Repo Cards & 18 Matrix Rows",
+      "name": "View 1 Renders All 19 Repo Cards & 19 Matrix Rows",
       "passed": true,
-      "detail": "cards=18, rows=18, badges=18/18 Git Repos Verified | 72/72 Sandbox Tests PASS"
+      "detail": "cards=19, rows=19, badges=19/19 Git Repos Verified | 95/95 Sandbox Tests PASS"
     },
     {
-      "name": "All 18 Repo Card Lead SVGs Load with naturalWidth > 0",
+      "name": "All 19 Repo Card Lead SVGs Load with naturalWidth > 0",
       "passed": true,
-      "detail": "loaded=18/18"
+      "detail": "loaded=19/19"
+    },
+    {
+      "name": "Filter Series MINT (Flagship Career-Minting Exemplar MINT-01)",
+      "passed": true,
+      "detail": "cards=1"
     },
     {
       "name": "Filter Series ARCH-DYN (Tomorrow Morning EST Top 10)",
@@ -48,19 +53,19 @@
       "detail": "empty state visible"
     },
     {
-      "name": "Reset Filters Button Restores All 18 Repos",
+      "name": "Reset Filters Button Restores All 19 Repos",
       "passed": true,
-      "detail": "cards=18"
+      "detail": "cards=19"
     },
     {
-      "name": "Inspector Drawer Tab 1 (Dynamic & @2d Visuals) Renders All Figures & Prompt",
+      "name": "Inspector Drawer Tab 1 (MINT-01 Dynamic & @2d Visuals) Renders All Figures & Prompt",
       "passed": true,
-      "detail": "badge=\"IDEA-01 • Tomorrow • 07:30 AM EST • HEAD 3b0c972\", images=4/4, promptChars=4801"
+      "detail": "badge=\"MINT-01 • 7:30 AM EST (Flagship Idea-Minting Studio Release) • HEAD 7456654\", images=4/4, promptChars=4910"
     },
     {
-      "name": "Inspector Drawer Tab 2 (12-Slide Deck & Carousel) Renders 12 Slides",
+      "name": "Inspector Drawer Tab 2 Renders 24-Slide Google Slides Link + 12-Slide Deck",
       "passed": true,
-      "detail": "slides=12/12"
+      "detail": "slides=12/12, 24SlideBtn=true"
     },
     {
       "name": "Inspector Drawer Tab 3 (1-Click GCP Terraform & ADK Code) Renders main.tf & Rule 55 engine.py",
@@ -70,7 +75,7 @@
     {
       "name": "Inspector Drawer Tab 4 (LinkedIn Copy & Group Distribution Plan)",
       "passed": true,
-      "detail": "hasGroups=true, draftChars=6655"
+      "detail": "hasGroups=true, draftChars=4512"
     },
     {
       "name": "Close Drawer Button Collapses Inspector Drawer",
@@ -78,14 +83,24 @@
       "detail": "drawer closed"
     },
     {
-      "name": "View 2 Renders All 84 Dynamic Templates & 12 OSS/Google Stack Pairings",
+      "name": "View 2 Renders All 116 Certified Templates (72 Best + 44 High), 23 T79 Topic Variants & 12 Stack Pairings",
       "passed": true,
-      "detail": "cards=84, badge=\"84 / 84 Dynamic Templates\", pairings=12, brokenImgs=0"
+      "detail": "cards=116, badge=\"116 / 116 Certified Templates (72 Best + 44 High)\", t79Variants=23, pairings=12"
     },
     {
-      "name": "Filter PromptCanvas Canonical Infographics Renders Exactly 32 Templates (T53-T84) + Live Google Slides Links",
+      "name": "Filter Quality Tier Best Renders 72 Certified Best Templates",
       "passed": true,
-      "detail": "badge=\"32 / 84 Dynamic Templates\", range=template-card-T53..template-card-T84, T79-T84 slidesBtns=6/6"
+      "detail": "cards=72"
+    },
+    {
+      "name": "Filter Quality Tier High Renders 44 Certified High Templates",
+      "passed": true,
+      "detail": "cards=44"
+    },
+    {
+      "name": "Filter PromptCanvas Canonical Infographics Renders 15 Archetypes (T54-T67 + T79 with 23 Topic Variants)",
+      "passed": true,
+      "detail": "badge=\"15 / 116 Certified Templates (15 Best + 0 High)\", range=template-card-T54..template-card-T79, brokenImgs=0"
     },
     {
       "name": "View 3 Renders 4 Signal Channels, 16 Creator Profiles, 4 @2d Archetypes & Zero Badge Overflow",
@@ -95,32 +110,32 @@
     {
       "name": "View 4 Daily Post Generator Studio Synthesizes 6 Posts, Loads Custom SVGs & Copies Post + Comment #1",
       "passed": true,
-      "detail": "cards=6, svgs=6/6, copiedChars=1586, status=\"6 Fresh Posts Generated • Edition 2026-10-29\""
+      "detail": "cards=6, svgs=6/6, copiedChars=1526"
     },
     {
-      "name": "View 4 Live Idea Miner & URL Ingestor Feeds + POST /api/ingest-url E2E",
+      "name": "View 5 (OpenHands Sandbox Console) Renders Comparison Matrix & 19 Repo Trajectories",
       "passed": true,
-      "detail": "Verified & Mapped: SYNTHESIZED_GROUNDED_BLUEPRINT -> Repository: custom-autonomous-agentic-verification-6ec8"
+      "detail": "comparisonRows=5, trajectories=19/19"
     },
     {
-      "name": "View 5 (OpenHands Sandbox Console) Renders Comparison Matrix & 18 Repo Trajectories",
+      "name": "View 6 (Idea-Minting & Video Studio) Renders 12 MINT Topics, 1080p30 Video & 24-Slide Google Slides Link",
       "passed": true,
-      "detail": "comparisonRows=5, trajectories=18/18"
+      "detail": "topics=12/12, video=1920x1080 (44s, readyState=4), brokenImgs=0"
     },
     {
       "name": "Rule 26 Table Cell Containment (overflow: hidden on all table-fixed tbody td)",
       "passed": true,
-      "detail": "checkedCells=171, uncontained=0"
+      "detail": "checkedCells=177, uncontained=0"
     },
     {
-      "name": "Rule 57C Canonical T01 + T53-T84 Zero Double-Footer (viewBox height === image height + W3C <title>/<desc>)",
+      "name": "Rule 57C Canonical T01 + T53-T89 Zero Double-Footer (viewBox height === image height + W3C <title>/<desc>)",
       "passed": true,
-      "detail": "verified=33/33 canonical PromptCanvas templates, doubleFooters=0"
+      "detail": "verified=38/38 canonical PromptCanvas/Spine templates, doubleFooters=0"
     },
     {
-      "name": "Mobile 390x844 Responsive Layout Preserved (docOverflowPx === 0 across Views 1-4)",
+      "name": "Mobile 390x844 Responsive Layout Preserved (docOverflowPx === 0 across Views 1-6)",
       "passed": true,
-      "detail": "tab-btn-repos:0px, tab-btn-gallery:0px, tab-btn-playbook:0px, tab-btn-miner:0px"
+      "detail": "tab-btn-repos:0px, tab-btn-gallery:0px, tab-btn-playbook:0px, tab-btn-miner:0px, tab-btn-openhands:0px, tab-btn-minting-studio:0px"
     },
     {
       "name": "Zero Browser Page/Runtime Errors",

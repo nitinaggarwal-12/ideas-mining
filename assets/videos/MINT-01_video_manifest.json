@@ -1,0 +1,39 @@
+{
+  "topic_id": "MINT-01",
+  "title": "Zero-Bloat MCP Gateway: Dynamic Tool Search + OAuth 2.1 OBO",
+  "mnemonic": "S.C.O.P.E.",
+  "repo_slug": "gcp-mcp-zero-bloat-gateway",
+  "flagship_24slide_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit?usp=drivesdk",
+  "walkthrough_mp4": "/assets/videos/MINT-01_walkthrough.mp4",
+  "digital_twin_mp4": "/assets/videos/MINT-01_digital_twin_nitin.mp4",
+  "chirp3_hd_mp3": "/assets/videos/MINT-01_chirp3_hd.mp3",
+  "poster_png": "/assets/videos/MINT-01_poster.png",
+  "file_sizes_bytes": {
+    "walkthrough_mp4": 5004910,
+    "digital_twin_mp4": 5607265,
+    "chirp3_hd_mp3": 569421,
+    "poster_png": 742558
+  },
+  "ffprobe": {
+    "duration_sec": 44.0,
+    "video_codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "30/1",
+    "audio_codec": "aac",
+    "sample_rate": 48000,
+    "channels": 2,
+    "xfade_seconds": 0.8,
+    "scene_count": 6,
+    "chirp3_hd_voice": "en-IN-Chirp3-HD-Charon"
+  },
+  "quality_gates": {
+    "blueprint_occlusion_px2": 0.0,
+    "benchmark_occlusion_px2": 0.0,
+    "twin_motion_frame_diff_rgb": 7.082,
+    "scene_transition_frame_diff_rgb": 18.927,
+    "faststart_moov_atom": true,
+    "loudnorm_lufs_target": -16.0,
+    "all_video_gates_passed": true
+  }
+}

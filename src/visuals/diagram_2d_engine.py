@@ -301,7 +301,7 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
         '<circle cx="76" cy="47" r="7" fill="#34A853"/>',
         '<rect x="52" y="47" width="24" height="7" rx="3" fill="#FBBC04"/>',
         f'<text x="96" y="42" font-family="Inter, sans-serif" font-size="15.5" font-weight="800" fill="#FFFFFF">GOOGLE CLOUD ARCHITECTURE CENTER • TEMPLATE #78 HUB-AND-SPOKE BLUEPRINT ({_esc(post["id"])})</text>',
-        f'<text x="96" y="62" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#93C5FD">{_esc(title_clean)}  |  Lineage: {_esc(post["author_name"])} ({_esc(post["activity_urn"])})</text>',
+        f'<text x="96" y="62" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#93C5FD">{_esc(title_clean)}  |  Lineage: Enterprise Agentic Architecture ({_esc(post["activity_urn"])})</text>',
         '<rect x="1320" y="31" width="236" height="32" rx="6" fill="#1E8E3E" stroke="#86EFAC" stroke-width="1"/>',
         '<text x="1438" y="51" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">18/18 CARDS • 23 EDGES • 0 COLLISIONS</text>',
         '<!-- Outer #1A73E8 Google Cloud Organization & VPC-SC Trust Perimeter Frame -->',
@@ -318,7 +318,7 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
             '<rect x="461.2" y="101.2" width="677.6" height="41.6" rx="7" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1"/>',
             _render_vector_icon("router", 474, 108),
             '<text x="512" y="119" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#0F172A">EXTERNAL ACTOR / PRINCIPAL ENGINEER &amp; ENTERPRISE CLIENT WORKLOADS</text>',
-            f'<text x="512" y="134" font-family="ui-monospace, monospace" font-size="9.5" font-weight="600" fill="#475569">Repo: generated-repos/{_esc(post["repo_slug"])}  •  Model Routing: locations/global (gemini-2.5-pro)</text>',
+            f'<text x="512" y="134" font-family="ui-monospace, monospace" font-size="9.5" font-weight="600" fill="#475569">Repo: generated-repos/{_esc(post["repo_slug"])}  •  Model Routing: locations/global (gemini-4-argon)</text>',
         ]
     )
 
@@ -438,7 +438,7 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
             w=300,
             h=142,
             code_badge="GEMINI-10",
-            title="Vertex AI Gemini 2.5 Pro (Global)",
+            title="Vertex AI Gemini 4 Argon (Global)",
             subtitle=f"Stage 2: {steps[1]['title']}",
             tech_meta="locations/global • thinkingLevel=HIGH",
             border_color="#7C3AED",
@@ -535,7 +535,7 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
             w=300,
             h=142,
             code_badge="JUDGE-15",
-            title="Vertex AI Gemini 2.5 Flash Judge",
+            title="Vertex AI Gemini 3.8 Flash Judge",
             subtitle=f"Stage 6: {steps[5]['title']}",
             tech_meta="locations/global • thinkingLevel=MEDIUM",
             border_color="#7C3AED",
@@ -640,7 +640,7 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
             _draw_edge_with_pill([(720, 390), (720, 418), (212, 418), (212, 446)], "②", "Route & Context", "#2563EB", False, "arrowBlue", (466, 418)),
             # ④ Zone 3 Model Armor -> ADK Orchestrator (across 94px channel x=362..456)
             _draw_edge_with_pill([(362, 540), (454, 540)], "④", "Sanitized Prompt", "#7C3AED", False, "arrowPurple", (408, 524)),
-            # ⑤ Zone 3 Gemini 2.5 Pro <-> ADK Orchestrator (staggered elbow in x=362..456 channel)
+            # ⑤ Zone 3 Gemini 4 Argon <-> ADK Orchestrator (staggered elbow in x=362..456 channel)
             _draw_edge_with_pill([(456, 568), (408, 568), (408, 736), (362, 736)], "⑤", "thinkingLevel=HIGH", "#7C3AED", True, "arrowPurple", (408, 690)),
             # ⑥ ADK -> Tool Sandbox -> Primary State Store
             '<line x1="609" y1="592" x2="609" y2="602" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue)"/>',
@@ -649,7 +649,7 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
             _draw_edge_with_pill([(762, 540), (836, 540)], "4a", "A2A Sandbox Task", "#EA580C", True, "arrowOrange", (800, 514)),
             # 4b Zone 4 OpenHands Sandbox -> Data/Receipt Graph (across 94px channel x=1138..1232)
             _draw_edge_with_pill([(1138, 540), (1230, 540)], "4b", "SHA-256 Receipt", "#16A34A", False, "arrowGreen", (1184, 524)),
-            # 4c Zone 4 Gemini 2.5 Flash Judge -> BigQuery Eval Warehouse
+            # 4c Zone 4 Gemini 3.8 Flash Judge -> BigQuery Eval Warehouse
             _draw_edge_with_pill([(1138, 736), (1184, 736), (1184, 652), (1230, 652)], "4c", "Eval Trace Sink", "#7C3AED", True, "arrowPurple", (1184, 696)),
             # 3b Zone 2 Competence Gate -> Zone 4 OpenHands & Registry
             _draw_edge_with_pill([(1300, 390), (1300, 418), (988, 418), (988, 446)], "3b", "Competence Gate", "#16A34A", True, "arrowGreen", (1144, 418)),
@@ -663,13 +663,13 @@ def generate_gcp_arch_78_svg(post: Dict[str, Any]) -> str:
         [
             '<rect x="24" y="942" width="1552" height="58" rx="10" fill="#0F2942" filter="url(#dropShadow)"/>',
             '<rect x="26" y="943.5" width="1548" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.10"/>',
-            f'<text x="48" y="967" font-family="Inter, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF">PRIMARY SOURCE GROUNDING: {_esc(primary_clean)}  |  CURATED BY: NITIN AGGARWAL (linkedin.com/in/nitin-aggarwal-b49786a)</text>',
-            f'<text x="48" y="987" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#93C5FD">1-Click Google Cloud Deploy: cd generated-repos/{_esc(post["repo_slug"])}/terraform &amp;&amp; terraform init &amp;&amp; terraform apply -var="project_id=nitina-ggarwal-sandbox-647724"</text>',
+            f'<text x="48" y="967" font-family="Inter, sans-serif" font-size="12.5" font-weight="800" fill="#FFFFFF">PRIMARY SOURCE GROUNDING: {_esc(primary_clean)}  |  GOOGLE CLOUD PRINCIPAL AI ARCHITECTURE TEAM</text>',
+            f'<text x="48" y="987" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#93C5FD">1-Click Google Cloud Deploy: cd generated-repos/{_esc(post["repo_slug"])}/terraform &amp;&amp; terraform init &amp;&amp; terraform apply -var="project_id=ramp-portal-dev"</text>',
             '<text x="1552" y="977" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#86EFAC" text-anchor="end">Proprietary + Confidential</text>',
             "</svg>",
         ]
     )
-    from src.visuals.template_gallery import flatten_svg_zero_origin
+    from src.visuals.canonical_flow_svg import flatten_svg_zero_origin
 
     return flatten_svg_zero_origin("\n".join(svg))
 
@@ -814,7 +814,7 @@ def _render_post_specific_centerpiece(post: Dict[str, Any]) -> str:
             + _render_vector_icon("gemini", 210, 524)
             + '<text x="256" y="525" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">CENTRAL FOUNDATION MODEL CORE + GOOGLE CLOUD ADK HARNESS BUS</text>'
             + '<text x="256" y="550" font-family="Inter, sans-serif" font-size="12.5" font-weight="600" fill="#93C5FD">"A decent model with a great harness consistently beats a great model with a bad harness." — Addy Osmani (857K Views)</text>'
-            + '<text x="256" y="574" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#86EFAC">Vertex AI locations/global • gemini-2.5-pro (HIGH) + gemini-2.5-flash (MEDIUM) • KV Prefix Hit Rate: 94.8%</text>'
+            + '<text x="256" y="574" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#86EFAC">Vertex AI locations/global • gemini-4-argon (HIGH) + gemini-3.8-flash (MEDIUM) • KV Prefix Hit Rate: 94.8%</text>'
             + "</g>"
         )
 
@@ -1218,8 +1218,8 @@ def _render_post_specific_centerpiece(post: Dict[str, Any]) -> str:
         </g>
         """
 
-    if pid.startswith("IDEA-"):
-        # Bespoke, domain-native centerpiece for each of IDEA-01..IDEA-10 using its exact problem_flow_nodes,
+    if pid.startswith(("IDEA-", "MINT-")):
+        # Bespoke, domain-native centerpiece for each of IDEA-01..IDEA-10 and MINT-01..MINT-12 using its exact problem_flow_nodes,
         # dynamic_steps (Google Cloud ⇄ Open-Source twin), feedback_loop_label, and before_after telemetry.
         from src.catalog.stack_pairings import oss_step_equivalent
 
@@ -1409,7 +1409,7 @@ def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
     primary_short = _wrap(post["primary_source"]["title"], width=96, max_lines=1)[0]
     svg.append(
         f'<text x="56" y="144" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#475569">'
-        f'Architected on Google Cloud by: Nitin Aggarwal  |  Signal Creator: {_esc(post["author_name"])}  |  Primary Source: {_esc(primary_short)}</text>'
+        f'Google Cloud Principal AI Architecture  |  Reference Lineage: {_esc(post["activity_urn"])}  |  Primary Source: {_esc(primary_short)}</text>'
     )
 
     # Contrarian Hook Strip
@@ -1507,11 +1507,11 @@ def generate_linkedin_infographic_svg(post: Dict[str, Any]) -> str:
             '<rect x="38" y="1119.5" width="1524" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.10"/>',
             f'<text x="60" y="1144" font-family="Inter, sans-serif" font-size="13.5" font-weight="800" fill="#FFFFFF">1-CLICK GOOGLE CLOUD TERRAFORM &amp; OPENHANDS REPO: generated-repos/{_esc(post["repo_slug"])}</text>',
             '<text x="60" y="1166" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#93C5FD">Deliverables: src/engine.py • tests/test_engine.py • visuals/*.svg/*.drawio/*.png • slides/presentation_deck.pptx • terraform/*.tf</text>',
-            '<text x="1540" y="1155" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="#86EFAC" text-anchor="end">Proprietary + Confidential</text>',
+            "<text x=\"1540\" y=\"1155\" font-family=\"Inter, sans-serif\" font-size=\"11.5\" font-weight=\"800\" fill=\"#86EFAC\" text-anchor=\"end\">Proprietary + Confidential</text>",
             "</svg>",
         ]
     )
-    from src.visuals.template_gallery import flatten_svg_zero_origin
+    from src.visuals.canonical_flow_svg import flatten_svg_zero_origin
 
     return flatten_svg_zero_origin("\n".join(svg))
 
@@ -1550,13 +1550,13 @@ def generate_gcp_arch_78_drawio(post: Dict[str, Any]) -> str:
         ("c8_audit", f"[GOV-08] {z['green_governance'][2]}\nCloud Logging & OTel Ledger", 1388, 206, 154, 150, "#34A853"),
         # Zone 3 (5 cards)
         ("c9_marmor", f"[ARMOR-09] Google Cloud Model Armor\nStage 1: {steps[0]['title']}", 62, 488, 296, 144, "#F59E0B"),
-        ("c10_gemini4", f"[GEMINI-10] Vertex AI Gemini 2.5 Pro\nStage 2: {steps[1]['title']} (locations/global)", 62, 660, 296, 144, "#7C3AED"),
+        ("c10_gemini4", f"[GEMINI-10] Vertex AI Gemini 4 Argon\nStage 2: {steps[1]['title']} (locations/global)", 62, 660, 296, 144, "#7C3AED"),
         ("c11_adk", f"[ADK-11] {z['yellow_compute'][0]}\nStage 3: {steps[2]['title']}", 456, 488, 304, 98, "#F59E0B"),
         ("c12_tools", f"[TOOL-12] {z['yellow_compute'][1]}\nStage 4: {steps[3]['title']} (CASG JWT)", 456, 600, 304, 98, "#0284C7"),
         ("c13_state", f"[STATE-13] {z['yellow_compute'][2]}\nAlloyDB FORCE RLS & Vector Search 2.0", 456, 712, 304, 98, "#059669"),
         # Zone 4 (5 cards)
         ("c14_openhands", f"[OH-14] OpenHands CodeActAgent Sandbox\nStage 5: {steps[4]['title']}", 838, 488, 296, 144, "#EA4335"),
-        ("c15_judge", f"[JUDGE-15] Vertex AI Gemini 2.5 Flash\nStage 6: {steps[5]['title']} (locations/global)", 838, 660, 296, 144, "#7C3AED"),
+        ("c15_judge", f"[JUDGE-15] Vertex AI Gemini 3.8 Flash\nStage 6: {steps[5]['title']} (locations/global)", 838, 660, 296, 144, "#7C3AED"),
         ("c16_firestore", f"[DATA-16] {z['red_data'][0]}\nFirestore Claim-to-SHA Receipt Graph", 1232, 488, 304, 98, "#EA4335"),
         ("c17_bq", f"[DATA-17] {z['red_data'][1]}\nBigQuery Trajectory & Eval Warehouse", 1232, 600, 304, 98, "#EA4335"),
         ("c18_registry", f"[REG-18] {z['red_data'][2]}\nArtifact Registry & Git Commit Ledger", 1232, 712, 304, 98, "#0D9488"),
@@ -1618,8 +1618,8 @@ Title at top: "GOOGLE CLOUD ARCHITECTURE CENTER #78 • ENTERPRISE AGENTIC AI & 
 Show 4 color-coded semantic zones with 18 distinct service cards and labeled directional dataflow arrows:
 - ZONE 1 (TOP-LEFT BLUE HUB): Tenant-Aware Ingress & Routing — (1) Google Cloud Armor WAF, (2) Identity Platform & WIF OIDC, (3) BeyondCorp IAP mTLS, (4) Regional External ALB, (5) Cloud Run KV-Cache Ingress Proxy.
 - ZONE 2 (TOP-RIGHT GREEN HUB): Governance, Security & Eval Gate — (6) Cloud KMS HSM & VPC-SC, (7) Competence & Regression Gate, (8) Cloud Logging & OpenTelemetry Audit Ledger.
-- ZONE 3 (BOTTOM-LEFT YELLOW SPOKE): Primary Google Cloud ADK & Vertex AI Orchestrator — (9) Google Cloud Model Armor Ingress/Egress Sanitizer, (10) Vertex AI Gemini 2.5 Pro (locations/global, thinkingLevel=HIGH), (11) Google Cloud ADK Orchestrator, (12) Scoped MCP Tool Router (CASG JWT), (13) AlloyDB Postgres (FORCE RLS) & Vector Search 2.0.
-- ZONE 4 (BOTTOM-RIGHT RED SPOKE): OpenHands Sandbox Verifier, Evidence Memory & Lakehouse — (14) OpenHands CodeActAgent Isolated Container Sandbox, (15) Vertex AI Gemini 2.5 Flash Evaluator Judge (locations/global), (16) Firestore Claim-to-SHA Receipt Graph, (17) BigQuery Trajectory & Eval Warehouse, (18) Artifact Registry & Git Commit Ledger.
+- ZONE 3 (BOTTOM-LEFT YELLOW SPOKE): Primary Google Cloud ADK & Vertex AI Orchestrator — (9) Google Cloud Model Armor Ingress/Egress Sanitizer, (10) Vertex AI Gemini 4 Argon (locations/global, thinkingLevel=HIGH), (11) Google Cloud ADK Orchestrator, (12) Scoped MCP Tool Router (CASG JWT), (13) AlloyDB Postgres (FORCE RLS) & Vector Search 2.0.
+- ZONE 4 (BOTTOM-RIGHT RED SPOKE): OpenHands Sandbox Verifier, Evidence Memory & Lakehouse — (14) OpenHands CodeActAgent Isolated Container Sandbox, (15) Vertex AI Gemini 3.8 Flash Evaluator Judge (locations/global), (16) Firestore Claim-to-SHA Receipt Graph, (17) BigQuery Trajectory & Eval Warehouse, (18) Artifact Registry & Git Commit Ledger.
 Include a bottom Zone 5 Baseline telemetry strip showing: "Zero-Trust VPC-SC • Rule 55 Global Endpoint • 1-Click Terraform Validated". Crisp vector icons and clean orthogonal routing."""
 
 NANO_BANANA_3_PROMPTS: Dict[str, str] = {
@@ -1634,7 +1634,7 @@ Bottom KPI strip: "43.4% -> 86.9% CloudCoreNetwork-QA | 44.3% -> 76.4% Spreadshe
     "POST-02": """Create a publication-grade 2D enterprise architecture infographic poster in a crisp light theme (white cards, #F8FAFC background, deep navy #0F2942 header bar, Google Cloud quad-color accents).
 Title at top: "AGENT = MODEL + HARNESS: THE 10-LAYER ENTERPRISE HARNESS ARCHITECTURE"
 Subtitle: "Why a Decent Model with a Great Harness Beats a Great Model with a Bad Harness (Addy Osmani / Google Cloud ADK)"
-In the center, draw a prominent horizontal core bus: "CENTRAL FOUNDATION MODEL CORE + GOOGLE CLOUD ADK HARNESS BUS (Vertex AI Gemini 2.5 Pro & 3.8 Flash • locations/global • 94.8% KV Prefix Cache Hit Rate)".
+In the center, draw a prominent horizontal core bus: "CENTRAL FOUNDATION MODEL CORE + GOOGLE CLOUD ADK HARNESS BUS (Vertex AI Gemini 4 Argon & 3.8 Flash • locations/global • 94.8% KV Prefix Cache Hit Rate)".
 Surrounding and plugging into the central core bus, render 10 distinct numbered architectural cards (5 on top row, 5 on bottom row) with clean vector icons:
 01. INSTRUCTIONS (AGENTS.md / GEMINI.md)
 02. REAL CONTEXT (Product, Users & Schemas via Vertex KV Cache)
@@ -1720,7 +1720,7 @@ def format_nano_banana_3_prompt_markdown(post: Dict[str, Any]) -> str:
     pid = post["id"]
     if pid in NANO_BANANA_3_PROMPTS:
         post_prompt = NANO_BANANA_3_PROMPTS[pid]
-    elif pid.startswith("IDEA-"):
+    elif pid.startswith(("IDEA-", "MINT-")):
         p_nodes = post.get("problem_flow_nodes", [])
         d_steps = post.get("dynamic_steps", [])
         ba = post.get("before_after", {})
@@ -1773,7 +1773,7 @@ def format_nano_banana_3_prompt_markdown(post: Dict[str, Any]) -> str:
 def write_visual_suite_for_post(post: Dict[str, Any], visuals_dir: Path) -> Dict[str, str]:
     """Write Dynamic Moving-Arrow SVG/GIF + Deterministic 2D vector visuals + editable Draw.io XML."""
     import shutil
-    from src.visuals.dynamic_diagram_engine import generate_dynamic_solution_svg
+    from src.visuals.canonical_flow_svg import generate_dynamic_solution_svg
 
     visuals_dir.mkdir(parents=True, exist_ok=True)
     infographic_svg_path = visuals_dir / "linkedin-infographic-2d.svg"
@@ -1782,13 +1782,32 @@ def write_visual_suite_for_post(post: Dict[str, Any], visuals_dir: Path) -> Dict
     dynamic_svg_path = visuals_dir / "dynamic-solution-flow.svg"
     prompt_md_path = visuals_dir / "nano_banana_3_prompt.md"
 
-    infographic_svg_path.write_text(generate_linkedin_infographic_svg(post), encoding="utf-8")
+    workspace_root = Path(__file__).resolve().parent.parent.parent
+    canonical_gallery = workspace_root / "assets" / "template-gallery"
+    plan = post.get("template_and_distribution_plan") or {}
+    lead_tid = plan.get("primary_template_id")
+
+    def _find_canonical_asset(tid: str, ext: str) -> Path | None:
+        exact = canonical_gallery / f"{tid}.{ext}"
+        if exact.exists():
+            return exact
+        matches = sorted(canonical_gallery.glob(f"{tid}_*.{ext}"))
+        return matches[0] if matches else None
+
+    canonical_lead_svg = _find_canonical_asset(lead_tid, "svg") if lead_tid else None
+    canonical_lead_png = _find_canonical_asset(lead_tid, "png") if lead_tid else None
+    if str(post["id"]).startswith("MINT-") and canonical_lead_svg is not None:
+        shutil.copyfile(canonical_lead_svg, infographic_svg_path)
+        if canonical_lead_png is not None:
+            shutil.copyfile(canonical_lead_png, visuals_dir / "linkedin-infographic-2d.png")
+    else:
+        infographic_svg_path.write_text(generate_linkedin_infographic_svg(post), encoding="utf-8")
+
     arch_svg_path.write_text(generate_gcp_arch_78_svg(post), encoding="utf-8")
     drawio_path.write_text(generate_gcp_arch_78_drawio(post), encoding="utf-8")
     dynamic_svg_path.write_text(generate_dynamic_solution_svg(post), encoding="utf-8")
     prompt_md_path.write_text(format_nano_banana_3_prompt_markdown(post), encoding="utf-8")
 
-    workspace_root = Path(__file__).resolve().parent.parent.parent
     dyn_dir = workspace_root / "assets" / "dynamic-top10"
     pid = post["id"]
 
@@ -1807,13 +1826,10 @@ def write_visual_suite_for_post(post: Dict[str, Any], visuals_dir: Path) -> Dict
     if dyn_png.exists():
         shutil.copyfile(dyn_png, visuals_dir / "dynamic-solution-flow.png")
 
-    plan = post.get("template_and_distribution_plan") or {}
-    lead_tid = plan.get("primary_template_id")
     if lead_tid:
-        canonical_gallery = workspace_root / "assets" / "template-gallery"
-        for ext in ("svg", "png", "gif", "drawio"):
-            cand = canonical_gallery / f"{lead_tid}.{ext}"
-            if cand.exists():
+        for ext in ("svg", "png", "gif", "drawio", "pptx"):
+            cand = _find_canonical_asset(lead_tid, ext)
+            if cand is not None:
                 shutil.copyfile(cand, visuals_dir / f"lead-template.{ext}")
 
     return {

@@ -344,14 +344,104 @@ try {
     `channels=${playbookCheck.channels}, creators=${playbookCheck.creatorCards}/16, archetypes=${playbookCheck.archetypes}, badgeOverflows=${playbookCheck.badgeOverflowCount}`
   );
 
-  // 5. Test View 4: Daily Latest-Topic LinkedIn Post & Visual Generator + Live Idea Miner
+  // 5. Test View 4: Daily Top-5 Editorial & Multi-Platform Auto-Publisher + Daily LinkedIn Generator
   await page.click('#tab-btn-miner');
   await page.waitForFunction(
     () =>
+      document.querySelectorAll('#top5-ideas-column .top5-idea-card').length === 5 &&
+      document.querySelectorAll('[data-testid="top5-template-pills"] button').length === 5 &&
+      document.querySelectorAll('[data-testid="top5-mode-pills"] button').length === 8 &&
+      document.querySelectorAll('[data-testid="top5-platform-preview-tabs"] button').length === 13 &&
       document.querySelectorAll('#daily-generated-posts-grid .daily-post-card').length >= 3 &&
       document.querySelectorAll('#live-arxiv-list > div').length > 0 &&
       document.querySelectorAll('#live-github-list > div').length > 0,
-    { timeout: 12000 }
+    { timeout: 15000 }
+  );
+
+  // Verify Top-5 Editorial Desk interactive switching (Idea -> Template -> Mode -> Platform -> Stage -> Approve)
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await new Promise((r) => setTimeout(r, 300));
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view4_top5_editorial_desk.png') });
+
+  // Switch Mode to Carousel and inspect Instagram (4:5 JPEGs, zero raw URLs) & TikTok (9:16 JPEGs)
+  await page.click('[data-testid="top5-mode-pill-Carousel"]');
+  await new Promise((r) => setTimeout(r, 350));
+  await page.click('[data-testid="top5-plat-tab-instagram"]');
+  await new Promise((r) => setTimeout(r, 250));
+  const igCompliance = await page.evaluate(async () => {
+    const stageText = document.getElementById('top5-platform-preview-stage')?.innerText || '';
+    const copyText = document.querySelector('[data-testid="top5-platform-copy-box"]')?.textContent || '';
+    const imgs = Array.from(document.querySelectorAll('#top5-platform-preview-stage img'));
+    for (const img of imgs) img.loading = 'eager';
+    await new Promise((r) => setTimeout(r, 300));
+    const loadedImgs = imgs.filter((i) => i.complete && i.naturalWidth > 0).length;
+    return {
+      hasJpeg4x5: stageText.includes('Container: JPEG') && stageText.includes('4:5'),
+      hasRawUrlInIgCaption: /https?:\/\/\S+/.test(copyText),
+      thumbCount: imgs.length,
+      loadedImgs,
+    };
+  });
+  recordAssertion(
+    'View 4 Daily Top-5 Editorial Desk: 5 Unique Ideas × 5 Templates × 8 Modes × 13 Platforms (IG 4:5 JPEG Compliance)',
+    igCompliance.hasJpeg4x5 &&
+      !igCompliance.hasRawUrlInIgCaption &&
+      igCompliance.thumbCount >= 9 &&
+      igCompliance.loadedImgs === igCompliance.thumbCount,
+    `JPEG_4x5=${igCompliance.hasJpeg4x5}, rawUrlsInCaption=${igCompliance.hasRawUrlInIgCaption}, carouselImgs=${igCompliance.loadedImgs}/${igCompliance.thumbCount}`
+  );
+
+  // Switch Mode to Short_Video (9:16 Vertical Short MP4) and verify 3-part Length Budget + Video Element
+  await page.click('[data-testid="top5-mode-pill-Short_Video"]');
+  await new Promise((r) => setTimeout(r, 350));
+  await page.click('[data-testid="top5-plat-tab-youtube_shorts"]');
+  await new Promise((r) => setTimeout(r, 250));
+  const shortVideoCheck = await page.evaluate(() => {
+    const budgetCards = document.querySelectorAll('[data-testid="top5-length-budget-strip"] .top5-budget-card').length;
+    const budgetText = document.querySelector('[data-testid="top5-length-budget-strip"]')?.innerText || '';
+    const vid = document.querySelector('#top5-platform-preview-stage video');
+    return {
+      budgetCards,
+      has916Budget: budgetText.includes('40–55 sec MP4') || budgetText.includes('5 vertical tier-zoom'),
+      hasVideoSrc: Boolean(vid && vid.getAttribute('src')?.includes('vertical_short_9x16.mp4')),
+    };
+  });
+  recordAssertion(
+    'View 4 Mode Selector Updates 3-Part Content-Length Contract & Mounts 9:16 Safe-Zone Short MP4',
+    shortVideoCheck.budgetCards === 3 && shortVideoCheck.has916Budget && shortVideoCheck.hasVideoSrc,
+    `budgetCards=${shortVideoCheck.budgetCards}, 9x16Budget=${shortVideoCheck.has916Budget}, videoSrc=${shortVideoCheck.hasVideoSrc}`
+  );
+
+  // Switch to Idea #2 & Template #2, Stage Selected Channels, and Approve Pending Outbox
+  await page.click('[data-testid="top5-idea-card-2"]');
+  await new Promise((r) => setTimeout(r, 350));
+  await page.click('[data-testid="top5-tpl-pill-2"]');
+  await new Promise((r) => setTimeout(r, 350));
+  await page.click('#stage-selected-platforms-btn');
+  await new Promise((r) => setTimeout(r, 450));
+  await page.click('#approve-all-outbox-btn');
+  await new Promise((r) => setTimeout(r, 500));
+
+  const outboxAndRssCheck = await page.evaluate(async () => {
+    const rows = document.querySelectorAll('#publishing-outbox-tbody tr').length;
+    const tbodyText = document.getElementById('publishing-outbox-tbody')?.innerText || '';
+    const rssRes = await fetch('/api/rss/daily-briefing.xml');
+    const rssText = await rssRes.text();
+    const nosniff = rssRes.headers.get('x-content-type-options');
+    return {
+      rows,
+      hasValidatedStatus: tbodyText.includes('DRY_RUN_VALIDATED') || tbodyText.includes('SHARE_PACKET_READY'),
+      rssOk: rssRes.status === 200 && rssText.includes('<rss version="2.0">'),
+      nosniff,
+    };
+  });
+  recordAssertion(
+    'View 4 HITL Outbox Stages, Approves & Validates Multi-Platform Queue + Serves Valid RSS 2.0 & Security Headers',
+    outboxAndRssCheck.rows >= 5 &&
+      outboxAndRssCheck.hasValidatedStatus &&
+      outboxAndRssCheck.rssOk &&
+      outboxAndRssCheck.nosniff === 'nosniff',
+    `outboxRows=${outboxAndRssCheck.rows}, validated=${outboxAndRssCheck.hasValidatedStatus}, rss200=${outboxAndRssCheck.rssOk}, nosniff=${outboxAndRssCheck.nosniff}`
   );
 
   await page.select('#daily-style-select', 'AUTO');
@@ -518,6 +608,11 @@ try {
       scrollW: document.documentElement.scrollWidth,
       innerW: window.innerWidth,
     }));
+    if (btnId === 'tab-btn-miner') {
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await new Promise((r) => setTimeout(r, 150));
+      await page.screenshot({ path: path.join(PROOF_DIR, 'after_view4_mobile_390x844.png') });
+    }
     const overflow = Math.max(0, m.scrollW - m.innerW);
     if (overflow > maxMobileOverflow) maxMobileOverflow = overflow;
     mobileDetails.push(`${btnId}:${overflow}px`);

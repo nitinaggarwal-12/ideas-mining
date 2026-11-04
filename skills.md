@@ -624,6 +624,8 @@ Triggered whenever creating, modifying, syncing, or auditing Draw.io / SVG infog
    - Enforces `22/22` certified canonical blueprints (`14` Core Reference/Architecture/Flow `#78`–`#84`, `#00`, `#38`, `#42`, `#44`, `#67`–`#69` + `15` Infographics `#52`–`#66`) in `CANONICAL_TEMPLATES` & `CANONICAL_CONTRACTS`, and consolidates `/docgen` & `/docgen/[id]` into the Lean 8 Pharma Regulatory Rigor surviving archetypes (`brd`, `prd`, `sdd`, `tdd`, `ai_system_card`, `threat_model`, `security_package`, `sre_resilience`) while purging all 9 redundant archetypes (`fdd`, `exec_brief`, `api_spec`, `workshop`, `interview_defense`, `cloud_migration`, `vendor_rfp`, `cloud_finops`, `golive_runbook`).
 6. **`ge-blogs` 10-SaaS × 3-Pattern (`30/30`) Cloud Run $\leftrightarrow$ AWS AgentCore MCP + S3 + GCP BigQuery/KMS Live Verification (`Rule 53` & `Rule 56`)**:
    - Enforces live execution of all `30` cross-cloud flows (`SAAS-01`..`SAAS-10` across `Pattern A`, `Pattern B`, and `Pattern C`; `60/60` positive + negative security assertions) directly from Google Cloud Run `ge-blogs` (`ramp-portal-dev` `#248990048888`, `GET /api/saas-5-live-verify` in `gate5_self_verify_entrypoint.py` emitting `CLOUDRUN_10SAAS_30FLOW_RECEIPT`) to AWS Cognito (`us-east-1_blP4L37sS`) $\rightarrow$ AWS Bedrock AgentCore MCP Gateway `cymbal-a2a-mcp-gateway-suyxm3caof` (`HXGGFMZBKE`..`C7EYM614F2`) $\rightarrow$ AWS Lambda `cymbal-a2a-mcp-remote-peer` $\rightarrow$ `s3://cymbal-aws-federation-393036065405-us-east-1` (`30` distinct S3 `ETag`s) plus GCP BigQuery RLS/CMEK/PSC and Cloud KMS ECDSA-P256 21 CFR Part 11 signing (`cymbal-multi-tenant-kr/cryptoKeys/adk-agent-signing-key` in `bbar-138hf0`).
+7. **`ideas-minting` / `ideas-mining` Automated Daily Top-5 Unique Ideas, 5 Orthogonal Templates, 8 Presentation Modes, `4:5`/`9:16` Safe-Zone Transcoders & 13-Channel Compliant HITL Outbox (`Law 18` & `Rule 25/26/54/57`)**:
+   - Enforces 30-day rolling cross-day topic deduplication (`data/daily_idea_history_ledger.json`) across 5 engineering sub-domain clusters (`src/harvester/daily_top5_editorial_engine.py`), 5 orthogonal certified templates per idea (`116 Best + High` pool, `0` legacy `T02`–`T52`), 8 presentation modes (`Carousel`, `Image`, `Short_Video`, `Video`, `Slidedeck`, `Slide`, `Doc`, `Text`) with 3-part `(Mode × Platform)` content-length contracts, native `4:5` (`1080×1350`) / `9:16` (`1080×1920`, Safe-Zone `y = 236..1480px`) transcoders (`src/video/multi_platform_transcoder.py`), unified 13-channel staging chip bar (`Rule 25`), and `8 × 13 = 104` pre-flight compliant multi-platform packages + RSS 2.0 feed (`src/publisher/multi_platform_publisher.py`, `tests/test_editorial_and_publisher.py`).
 
 
 ---
@@ -640,3 +642,21 @@ Triggered automatically whenever the user asks to create a new demo slide deck, 
    - **Read-Only Reference Exemplar (Merck AskHR 2.0)**: `11BezxbRYY9gZ5hk6c18q-xF9WzOznh02stxlMktJYB0` (`?resourcekey=0-5n2KLt5hFxc2AenX6zdijQ`) + `1MVa6ugnjqIRRiy4AXNNL5xgNccozkkjkvpGUWLlkpf8`.
 2. **100% Native Editable 6-View L100→L400 PromptCanvas Blueprint Arc (`0` Raster Diagram PNGs)**:
    - Compiles `Slides 10 (L100 Conceptual), 12 (L200 Logical), 13 (L250 #78 Hub-and-Spoke), 14 (L300 #90 C4 Hexagonal ADK Pod), 15 (L350 #81 16-Step Lifeline Sequence), 20 (L400 #79 Deployment & Dual-NIC VPC-SC)` from `.drawio` XML into native Google Slides shapes, canonical `scaleX=+1, scaleY=+1` lines, textboxes, and deduplicated transparent service icons via `scripts/compile_drawio_to_native_slides.mjs`, verified by `scripts/audit_native_slide_deck.mjs`.
+
+---
+
+## 21. 🧪 `e2e-puppeteer-visual-grounded-testcases` (`7-Column Grounded E2E & Edge-Case Background Puppeteer Testing` — `v1.0.0`)
+
+### Purpose & Trigger Conditions
+Triggered whenever defining, auditing, or executing E2E and visual test cases (including happy-path workflows and adversarial edge cases) in **background Puppeteer mode** (`--headless=new --remote-debugging-pipe`) for `e2e-tester` (`~/.gemini/config/skills/e2e-puppeteer-visual-grounded-testcases/SKILL.md`).
+
+### Core Protocols & 7-Column Canonical Schema
+Every test case across all 13 Domains (`D01`–`D13`, `70` canonical test cases) must populate and verify all **7 Grounded Columns**:
+1. **`Test Cases definition`** (`testCaseDefinition`): ID, Title, Domain (`D01`–`D13`), Category (`Common Workflow` | `Edge Case` | `Negative / Error` | `Security / Resilience`), Priority (`P0`/`P1`/`P2`), Normative Standard (`WCAG 2.1 AA`, `IETF RFC 9110`, `OWASP ASVS v4`, `ISO/IEC 15948 PNG`, `Rule 25/26/54/57`), Assigned Skill, and Preconditions.
+2. **`Inputs`** (`inputs`): Target route/URL, viewport (`1600×950 @ 2x`, `834×1194 @ 2x`, `390×844 @ 2x`), DOM selector/action, and concrete payload (including adversarial edge-case inputs such as `?data=worst` `255-char` compound names, `86-char` emails, CJK/RTL/Emoji, whitespace-only forms, regex metacharacters `[a-z+(.*`, XSS/CSV formula injection, corrupt `localStorage`, and `HTTP 429/500` faults).
+3. **`Expected Output`** (`expectedOutput`): Deterministic DOM + visual geometry + HTTP pass contract (`scrollWidth <= innerWidth`, `0` bounding-box overlaps, `>= 4.5:1` WCAG AA contrast, valid PNG signature `89 50 4E 47` + SHA-256 hash).
+4. **`iterations`** (`iterations` + `iterationHistory`): Closed-loop background Puppeteer iteration counter (`>= 1`) logging `Iteration #1 (Baseline / Edge-Case Fault Detection)` through `Iteration #N (Root-Cause Fix & Re-Verification PASS)`.
+5. **`Status`** (`status`): `Pass` | `Fail` | `Blocked` | `Skipped` | `Untested`.
+6. **`Issue`** (`issue`): Exact visual, layout, DOM, or edge-case defect caught in Iteration #1 or guarded against by the test case.
+7. **`Solution`** (`solution`): Concrete code, CSS (`min-w-0`, `overflow-wrap: anywhere`, `table-layout: fixed`), or DOM sanitization fix applied to achieve and lock in `Pass`.
+

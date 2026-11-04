@@ -3,7 +3,10 @@
   "best_count": 72,
   "high_count": 44,
   "medium_low_worst_count": 0,
-  "t79_topic_posts_count": 23,
+  "topic_posts_collapsed_under_T79": 23,
+  "purged_legacy_gen1_count": 53,
+  "purged_boxy_session_count": 19,
+  "refactored_to_best_count": 33,
   "templates": [
     {
       "id": "T54",
@@ -33,7 +36,10 @@
         "drawio": "T54.drawio",
         "pptx": "T54.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc",
+      "google_slides_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/preview",
+      "editable_slide_count": 4
     },
     {
       "id": "T55",
@@ -63,7 +69,10 @@
         "drawio": "T55.drawio",
         "pptx": "T55.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA",
+      "google_slides_url": "https://docs.google.com/presentation/d/1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T56",
@@ -93,7 +102,10 @@
         "drawio": "T56.drawio",
         "pptx": "T56.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c",
+      "google_slides_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T57",
@@ -123,7 +135,10 @@
         "drawio": "T57.drawio",
         "pptx": "T57.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM",
+      "google_slides_url": "https://docs.google.com/presentation/d/1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T58",
@@ -153,7 +168,10 @@
         "drawio": "T58.drawio",
         "pptx": "T58.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU",
+      "google_slides_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T59",
@@ -183,7 +201,10 @@
         "drawio": "T59.drawio",
         "pptx": "T59.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1ovGVAtNq3riAB-HWwxIqceM5Z74xQnuZRy2LbhVWX08/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1ovGVAtNq3riAB-HWwxIqceM5Z74xQnuZRy2LbhVWX08",
+      "google_slides_url": "https://docs.google.com/presentation/d/1ovGVAtNq3riAB-HWwxIqceM5Z74xQnuZRy2LbhVWX08/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1ovGVAtNq3riAB-HWwxIqceM5Z74xQnuZRy2LbhVWX08/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T60",
@@ -195,7 +216,7 @@
         "Professional knowledge sharing",
         "Roadmap"
       ],
-      "when_to_use": "Lay out a 4-quarter enterprise rollout roadmap (Q1 Discovery \u2192 Q2 Sandbox \u2192 Q3 State \u2192 Q4 Fleet) with 8 numbered milestones and ACTIVE toggles.",
+      "when_to_use": "Lay out a 4-quarter enterprise rollout roadmap (Q1 Discovery -> Q2 Sandbox -> Q3 State -> Q4 Fleet) with 8 numbered milestones and ACTIVE toggles.",
       "dynamic": "Horizontal flow conduits advance across Q1-Q4 chevron headers and milestone deliverables 01-08.",
       "lineage": "PromptCanvas Blueprint #59 (Timeline & Roadmap Infographic) \u2022 Enterprise Agentic AI Rollout Plan",
       "category": "PromptCanvas Infographic",
@@ -213,7 +234,10 @@
         "drawio": "T60.drawio",
         "pptx": "T60.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90",
+      "google_slides_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/preview",
+      "editable_slide_count": 5
     },
     {
       "id": "T61",
@@ -243,7 +267,10 @@
         "drawio": "T61.drawio",
         "pptx": "T61.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg",
+      "google_slides_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T62",
@@ -273,7 +300,10 @@
         "drawio": "T62.drawio",
         "pptx": "T62.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA",
+      "google_slides_url": "https://docs.google.com/presentation/d/1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T63",
@@ -303,7 +333,10 @@
         "drawio": "T63.drawio",
         "pptx": "T63.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc",
+      "google_slides_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T64",
@@ -333,7 +366,10 @@
         "drawio": "T64.drawio",
         "pptx": "T64.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1ZSEcVu6FCqNEUKs_88SHQo51sO9-hq88iHLuRx7HIaU/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1ZSEcVu6FCqNEUKs_88SHQo51sO9-hq88iHLuRx7HIaU",
+      "google_slides_url": "https://docs.google.com/presentation/d/1ZSEcVu6FCqNEUKs_88SHQo51sO9-hq88iHLuRx7HIaU/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZSEcVu6FCqNEUKs_88SHQo51sO9-hq88iHLuRx7HIaU/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T65",
@@ -363,7 +399,10 @@
         "drawio": "T65.drawio",
         "pptx": "T65.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk",
+      "google_slides_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T66",
@@ -393,7 +432,10 @@
         "drawio": "T66.drawio",
         "pptx": "T66.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T67",
@@ -423,7 +465,10 @@
         "drawio": "T67.drawio",
         "pptx": "T67.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls",
+      "google_slides_url": "https://docs.google.com/presentation/d/1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls/preview",
+      "editable_slide_count": 2
     },
     {
       "id": "T79",
@@ -449,95 +494,348 @@
       "topic_posts": [
         {
           "id": "T01",
-          "name": "3-Breaker Loop Guard Spine (Agent Stuck Loops)"
+          "name": "3-Breaker Loop Guard Spine (Agent Stuck Loops)",
+          "files": {
+            "svg": "T01.svg",
+            "gif": "T01.gif",
+            "png": "T01.png",
+            "drawio": "T01.drawio",
+            "pptx": "T01.pptx"
+          },
+          "google_slides_id": "19NPxGI00oNtQ-YHFFFZ0mc0dJS30d_RA9YTVUEt0t1w",
+          "google_slides_url": "https://docs.google.com/presentation/d/19NPxGI00oNtQ-YHFFFZ0mc0dJS30d_RA9YTVUEt0t1w/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/19NPxGI00oNtQ-YHFFFZ0mc0dJS30d_RA9YTVUEt0t1w/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T53",
-          "name": "Anatomy of a Production Coding Agent: Context + Harness + Loop + Graph"
+          "name": "Anatomy of a Production Coding Agent: Context + Harness + Loop + Graph",
+          "files": {
+            "svg": "T53.svg",
+            "gif": "T53.gif",
+            "png": "T53.png",
+            "drawio": "T53.drawio",
+            "pptx": "T53.pptx"
+          },
+          "google_slides_id": "1ka7XO814fI8cXvTbk0Jf2I4J6b25MwMxAofUqtflo8I",
+          "google_slides_url": "https://docs.google.com/presentation/d/1ka7XO814fI8cXvTbk0Jf2I4J6b25MwMxAofUqtflo8I/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1ka7XO814fI8cXvTbk0Jf2I4J6b25MwMxAofUqtflo8I/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T68",
-          "name": "Open Knowledge Format Architecture: Formats + Schema + Validation + Graph"
+          "name": "Open Knowledge Format Architecture: Formats + Schema + Validation + Graph",
+          "files": {
+            "svg": "T68.svg",
+            "gif": "T68.gif",
+            "png": "T68.png",
+            "drawio": "T68.drawio",
+            "pptx": "T68.pptx"
+          },
+          "google_slides_id": "12zuYvrOthfRefhY9yTuBjmz__IlD7b1Oc-7NaUxl7h0",
+          "google_slides_url": "https://docs.google.com/presentation/d/12zuYvrOthfRefhY9yTuBjmz__IlD7b1Oc-7NaUxl7h0/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/12zuYvrOthfRefhY9yTuBjmz__IlD7b1Oc-7NaUxl7h0/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T69",
-          "name": "Harness\u00b2 Recursive Agent Harnessing Spine (+22pp NoveltyBench)"
+          "name": "Harness\u00b2 Recursive Agent Harnessing Spine (+22pp NoveltyBench)",
+          "files": {
+            "svg": "T69.svg",
+            "gif": "T69.gif",
+            "png": "T69.png",
+            "drawio": "T69.drawio",
+            "pptx": "T69.pptx"
+          },
+          "google_slides_id": "1m8ftvKAfEs4v3webmvdYYWECau_Zow0sxetPbi5ZFEs",
+          "google_slides_url": "https://docs.google.com/presentation/d/1m8ftvKAfEs4v3webmvdYYWECau_Zow0sxetPbi5ZFEs/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1m8ftvKAfEs4v3webmvdYYWECau_Zow0sxetPbi5ZFEs/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T70",
-          "name": "5 Open-Source Agent Repos Stack Spine (gstack + Paperclip + rowboat)"
+          "name": "5 Open-Source Agent Repos Stack Spine (gstack + Paperclip + rowboat)",
+          "files": {
+            "svg": "T70.svg",
+            "gif": "T70.gif",
+            "png": "T70.png",
+            "drawio": "T70.drawio",
+            "pptx": "T70.pptx"
+          },
+          "google_slides_id": "1XdopOPFjVHEvQj6g0DnXBLXWJjTSFdjz-R65idf75Uk",
+          "google_slides_url": "https://docs.google.com/presentation/d/1XdopOPFjVHEvQj6g0DnXBLXWJjTSFdjz-R65idf75Uk/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1XdopOPFjVHEvQj6g0DnXBLXWJjTSFdjz-R65idf75Uk/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T71",
-          "name": "3-Track Data Modeling & Medallion Map Spine"
+          "name": "3-Track Data Modeling & Medallion Map Spine",
+          "files": {
+            "svg": "T71.svg",
+            "gif": "T71.gif",
+            "png": "T71.png",
+            "drawio": "T71.drawio",
+            "pptx": "T71.pptx"
+          },
+          "google_slides_id": "1PQo5l37NujJqaywYZwlMixTb0YpFN-UtCdFtsLBTwCo",
+          "google_slides_url": "https://docs.google.com/presentation/d/1PQo5l37NujJqaywYZwlMixTb0YpFN-UtCdFtsLBTwCo/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1PQo5l37NujJqaywYZwlMixTb0YpFN-UtCdFtsLBTwCo/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T72",
-          "name": "TokenEconomizer Black-Box Cost Controller Spine (-30.9% SWE-Bench)"
+          "name": "TokenEconomizer Black-Box Cost Controller Spine (-30.9% SWE-Bench)",
+          "files": {
+            "svg": "T72.svg",
+            "gif": "T72.gif",
+            "png": "T72.png",
+            "drawio": "T72.drawio",
+            "pptx": "T72.pptx"
+          },
+          "google_slides_id": "12z5r7OwTaZaJtGNtloGkeAo2NHjC6EoKcTWq_la3dfE",
+          "google_slides_url": "https://docs.google.com/presentation/d/12z5r7OwTaZaJtGNtloGkeAo2NHjC6EoKcTWq_la3dfE/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/12z5r7OwTaZaJtGNtloGkeAo2NHjC6EoKcTWq_la3dfE/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T73",
-          "name": "11-Zone Production Agentic AI Reference Spine"
+          "name": "11-Zone Production Agentic AI Reference Spine",
+          "files": {
+            "svg": "T73.svg",
+            "gif": "T73.gif",
+            "png": "T73.png",
+            "drawio": "T73.drawio",
+            "pptx": "T73.pptx"
+          },
+          "google_slides_id": "1UqfaBydn0uSP9COi-1_D_W8dxVbUjaXMNmt35m30Vow",
+          "google_slides_url": "https://docs.google.com/presentation/d/1UqfaBydn0uSP9COi-1_D_W8dxVbUjaXMNmt35m30Vow/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1UqfaBydn0uSP9COi-1_D_W8dxVbUjaXMNmt35m30Vow/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T74",
-          "name": "6-Vendor AI Agent Sandbox Isolation Spine (gVisor / microVM)"
+          "name": "6-Vendor AI Agent Sandbox Isolation Spine (gVisor / microVM)",
+          "files": {
+            "svg": "T74.svg",
+            "gif": "T74.gif",
+            "png": "T74.png",
+            "drawio": "T74.drawio",
+            "pptx": "T74.pptx"
+          },
+          "google_slides_id": "1a1PErom5XVvTF6E0YroCnpZqt7ilnawgRe6XCCWcMes",
+          "google_slides_url": "https://docs.google.com/presentation/d/1a1PErom5XVvTF6E0YroCnpZqt7ilnawgRe6XCCWcMes/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1a1PErom5XVvTF6E0YroCnpZqt7ilnawgRe6XCCWcMes/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T75",
-          "name": "Anatomy of an AI Agent: 5 Building Blocks Spine"
+          "name": "Anatomy of an AI Agent: 5 Building Blocks Spine",
+          "files": {
+            "svg": "T75.svg",
+            "gif": "T75.gif",
+            "png": "T75.png",
+            "drawio": "T75.drawio",
+            "pptx": "T75.pptx"
+          },
+          "google_slides_id": "12901SpuX5d4-rdtMyechy6VUPLRgVf94tQySV92klRQ",
+          "google_slides_url": "https://docs.google.com/presentation/d/12901SpuX5d4-rdtMyechy6VUPLRgVf94tQySV92klRQ/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/12901SpuX5d4-rdtMyechy6VUPLRgVf94tQySV92klRQ/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T76",
-          "name": "12 Google Cloud Concepts for AI Engineers Spine"
+          "name": "12 Google Cloud Concepts for AI Engineers Spine",
+          "files": {
+            "svg": "T76.svg",
+            "gif": "T76.gif",
+            "png": "T76.png",
+            "drawio": "T76.drawio",
+            "pptx": "T76.pptx"
+          },
+          "google_slides_id": "1YDuwoGe3d0eu7l1VzHumYKINxyYVGI7tBLKrOVyIMIA",
+          "google_slides_url": "https://docs.google.com/presentation/d/1YDuwoGe3d0eu7l1VzHumYKINxyYVGI7tBLKrOVyIMIA/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1YDuwoGe3d0eu7l1VzHumYKINxyYVGI7tBLKrOVyIMIA/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T77",
-          "name": "2026 Pharma R&D & Life Sciences Bio-AI Spine"
+          "name": "2026 Pharma R&D & Life Sciences Bio-AI Spine",
+          "files": {
+            "svg": "T77.svg",
+            "gif": "T77.gif",
+            "png": "T77.png",
+            "drawio": "T77.drawio",
+            "pptx": "T77.pptx"
+          },
+          "google_slides_id": "1NS0Dr5s1U_ya-orRLefXigNopMCpIdjr7rpce-beo5U",
+          "google_slides_url": "https://docs.google.com/presentation/d/1NS0Dr5s1U_ya-orRLefXigNopMCpIdjr7rpce-beo5U/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1NS0Dr5s1U_ya-orRLefXigNopMCpIdjr7rpce-beo5U/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T78",
-          "name": "Ultimate 6-Stage Agentic Coding Workflow Spine"
+          "name": "Ultimate 6-Stage Agentic Coding Workflow Spine",
+          "files": {
+            "svg": "T78.svg",
+            "gif": "T78.gif",
+            "png": "T78.png",
+            "drawio": "T78.drawio",
+            "pptx": "T78.pptx"
+          },
+          "google_slides_id": "1GujPHlWxTPMmyQzGKYVzVy3AQjRgzKac1O-FgRnMoT4",
+          "google_slides_url": "https://docs.google.com/presentation/d/1GujPHlWxTPMmyQzGKYVzVy3AQjRgzKac1O-FgRnMoT4/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1GujPHlWxTPMmyQzGKYVzVy3AQjRgzKac1O-FgRnMoT4/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T80",
-          "name": "9 Typed Micro-Decisions in the Agent Loop Spine"
+          "name": "9 Typed Micro-Decisions in the Agent Loop Spine",
+          "files": {
+            "svg": "T80.svg",
+            "gif": "T80.gif",
+            "png": "T80.png",
+            "drawio": "T80.drawio",
+            "pptx": "T80.pptx"
+          },
+          "google_slides_id": "13DumpG21XZaSSnaKprfLMUD64pT9jk-O7qk8SoRqk80",
+          "google_slides_url": "https://docs.google.com/presentation/d/13DumpG21XZaSSnaKprfLMUD64pT9jk-O7qk8SoRqk80/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/13DumpG21XZaSSnaKprfLMUD64pT9jk-O7qk8SoRqk80/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T81",
-          "name": "8-Phase Harness Engineering Curriculum Spine"
+          "name": "8-Phase Harness Engineering Curriculum Spine",
+          "files": {
+            "svg": "T81.svg",
+            "gif": "T81.gif",
+            "png": "T81.png",
+            "drawio": "T81.drawio",
+            "pptx": "T81.pptx"
+          },
+          "google_slides_id": "1JUspmb5kwz56tmyCT6_6f-J_yscjq3ogevV5NHAO4yE",
+          "google_slides_url": "https://docs.google.com/presentation/d/1JUspmb5kwz56tmyCT6_6f-J_yscjq3ogevV5NHAO4yE/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1JUspmb5kwz56tmyCT6_6f-J_yscjq3ogevV5NHAO4yE/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T82",
-          "name": "Agent Code Review Replay-Set & Missed-Defects Spine"
+          "name": "Agent Code Review Replay-Set & Missed-Defects Spine",
+          "files": {
+            "svg": "T82.svg",
+            "gif": "T82.gif",
+            "png": "T82.png",
+            "drawio": "T82.drawio",
+            "pptx": "T82.pptx"
+          },
+          "google_slides_id": "15vK7Z8X_ASnH1NmpZS6OhPsZlB0a04LI05WKbrziSM4",
+          "google_slides_url": "https://docs.google.com/presentation/d/15vK7Z8X_ASnH1NmpZS6OhPsZlB0a04LI05WKbrziSM4/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/15vK7Z8X_ASnH1NmpZS6OhPsZlB0a04LI05WKbrziSM4/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T83",
-          "name": "Multi-Trial Agent Evals & pass^k Reliability Spine"
+          "name": "Multi-Trial Agent Evals & pass^k Reliability Spine",
+          "files": {
+            "svg": "T83.svg",
+            "gif": "T83.gif",
+            "png": "T83.png",
+            "drawio": "T83.drawio",
+            "pptx": "T83.pptx"
+          },
+          "google_slides_id": "18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs",
+          "google_slides_url": "https://docs.google.com/presentation/d/18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T84",
-          "name": "Inference Engineering Roofline & SLO Goodput Spine"
+          "name": "Inference Engineering Roofline & SLO Goodput Spine",
+          "files": {
+            "svg": "T84.svg",
+            "gif": "T84.gif",
+            "png": "T84.png",
+            "drawio": "T84.drawio",
+            "pptx": "T84.pptx"
+          },
+          "google_slides_id": "1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI",
+          "google_slides_url": "https://docs.google.com/presentation/d/1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T85",
-          "name": "Zero-Bloat MCP Gateway & OAuth 2.1 OBO Spine (MINT-01)"
+          "name": "Zero-Bloat MCP Gateway & OAuth 2.1 OBO Spine (MINT-01)",
+          "files": {
+            "svg": "T85.svg",
+            "gif": "T85.gif",
+            "png": "T85.png",
+            "drawio": "T85.drawio",
+            "pptx": "T85.pptx"
+          },
+          "google_slides_id": "1RANJQIr1w21W52hem5Sa8n3zDh82aQii",
+          "google_slides_url": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T86",
-          "name": "Durable Saga Checkpointing & Idempotent Compensation Spine (MINT-04)"
+          "name": "Durable Saga Checkpointing & Idempotent Compensation Spine (MINT-04)",
+          "files": {
+            "svg": "T86.svg",
+            "gif": "T86.gif",
+            "png": "T86.png",
+            "drawio": "T86.drawio",
+            "pptx": "T86.pptx"
+          },
+          "google_slides_id": "1ra1h5iUivi6XR-52tnpKopcZFXPwLzvM",
+          "google_slides_url": "https://docs.google.com/presentation/d/1ra1h5iUivi6XR-52tnpKopcZFXPwLzvM/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1ra1h5iUivi6XR-52tnpKopcZFXPwLzvM/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T87",
-          "name": "Indirect Prompt Injection & Lethal Trifecta Armor Spine (MINT-06)"
+          "name": "Indirect Prompt Injection & Lethal Trifecta Armor Spine (MINT-06)",
+          "files": {
+            "svg": "T87.svg",
+            "gif": "T87.gif",
+            "png": "T87.png",
+            "drawio": "T87.drawio",
+            "pptx": "T87.pptx"
+          },
+          "google_slides_id": "1e37oJIX_DvAh50RXj_6k2NXtGDb7hcic",
+          "google_slides_url": "https://docs.google.com/presentation/d/1e37oJIX_DvAh50RXj_6k2NXtGDb7hcic/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1e37oJIX_DvAh50RXj_6k2NXtGDb7hcic/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T88",
-          "name": "Agentic Hybrid GraphRAG & Query-Plan Verifier Spine (MINT-09)"
+          "name": "Agentic Hybrid GraphRAG & Query-Plan Verifier Spine (MINT-09)",
+          "files": {
+            "svg": "T88.svg",
+            "gif": "T88.gif",
+            "png": "T88.png",
+            "drawio": "T88.drawio",
+            "pptx": "T88.pptx"
+          },
+          "google_slides_id": "1SR0i3EkVwpke-2nu4_tOCEMJhB-0l8D9",
+          "google_slides_url": "https://docs.google.com/presentation/d/1SR0i3EkVwpke-2nu4_tOCEMJhB-0l8D9/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1SR0i3EkVwpke-2nu4_tOCEMJhB-0l8D9/preview",
+          "editable_slide_count": 5
         },
         {
           "id": "T89",
-          "name": "Sub-300ms Multimodal Voice & Barge-In State Machine Spine (MINT-11)"
+          "name": "Sub-300ms Multimodal Voice & Barge-In State Machine Spine (MINT-11)",
+          "files": {
+            "svg": "T89.svg",
+            "gif": "T89.gif",
+            "png": "T89.png",
+            "drawio": "T89.drawio",
+            "pptx": "T89.pptx"
+          },
+          "google_slides_id": "1yX4ONqp1CGASLN8zKlNGqh_2OtkynU0T",
+          "google_slides_url": "https://docs.google.com/presentation/d/1yX4ONqp1CGASLN8zKlNGqh_2OtkynU0T/edit?authuser=nitinagga%40google.com",
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1yX4ONqp1CGASLN8zKlNGqh_2OtkynU0T/preview",
+          "editable_slide_count": 5
         }
       ],
       "files": {
@@ -547,7 +845,10 @@
         "drawio": "T79.drawio",
         "pptx": "T79.pptx"
       },
-      "google_slides_url": "https://docs.google.com/presentation/d/1w2wGc9dYagoCB38cqgmd9lmLkXftQsWr75WcKjHvCLY/edit?authuser=nitinagga%40google.com"
+      "google_slides_id": "1w2wGc9dYagoCB38cqgmd9lmLkXftQsWr75WcKjHvCLY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1w2wGc9dYagoCB38cqgmd9lmLkXftQsWr75WcKjHvCLY/edit?authuser=nitinagga%40google.com",
+      "google_slides_preview_url": "https://docs.google.com/presentation/d/1w2wGc9dYagoCB38cqgmd9lmLkXftQsWr75WcKjHvCLY/preview",
+      "editable_slide_count": 5
     },
     {
       "id": "T90",

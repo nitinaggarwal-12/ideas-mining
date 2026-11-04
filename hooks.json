@@ -457,7 +457,8 @@
         "require_inked_pixel_arrow_label_mid_and_center_calibration": true,
         "require_2px_horizontal_white_knockout_cushion_on_edge_labels": true,
         "require_fresh_puppeteer_newpage_per_viewer_static_diagram": true,
-        "require_independent_adversarial_visual_critic_gate": true
+        "require_independent_adversarial_visual_critic_gate": true,
+        "require_daily_top5_orthogonal_templates_8modes_and_13channel_compliant_outbox_gate": true
       }
     },
     "demoes-ge": {

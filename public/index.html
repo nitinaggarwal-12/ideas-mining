@@ -28,7 +28,7 @@
       <button class="nav-tab-btn active" data-view="view-repos" id="tab-btn-repos">1. 19 Verified Git Repos (MINT-01 + Top 10 + 8 Signals)</button>
       <button class="nav-tab-btn" data-view="view-gallery" id="tab-btn-gallery">2. 116 Certified Templates (72 Best + 44 High)</button>
       <button class="nav-tab-btn" data-view="view-playbook" id="tab-btn-playbook">3. Creator Mining Intelligence (16 Creators)</button>
-      <button class="nav-tab-btn" data-view="view-miner" id="tab-btn-miner">4. Daily Post Generator &amp; Idea Miner</button>
+      <button class="nav-tab-btn" data-view="view-miner" id="tab-btn-miner">4. Daily Top-5 Editorial &amp; Auto-Publisher</button>
       <button class="nav-tab-btn" data-view="view-openhands" id="tab-btn-openhands">5. OpenHands Autonomous Sandbox</button>
       <button class="nav-tab-btn" data-view="view-minting-studio" id="tab-btn-minting-studio">6. Idea-Minting &amp; Video Studio (MINT-01..12)</button>
     </nav>
@@ -189,8 +189,90 @@
       </div>
     </section>
 
-    <!-- VIEW 4: DAILY LATEST-TOPIC LINKEDIN POST GENERATOR & LIVE IDEA MINER -->
+    <!-- VIEW 4: DAILY TOP-5 EDITORIAL DESK, MULTI-PLATFORM AUTO-PUBLISHER & LIVE IDEA MINER -->
     <section id="view-miner" style="display: none;">
+      <div class="section-card" id="daily-top5-editorial-desk" data-testid="daily-top5-editorial-desk">
+        <div class="daily-studio-header">
+          <div class="min-w-0">
+            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;">
+              <span class="brand-badge">DAILY TOP-5 UNIQUE IDEAS • 5 ORTHOGONAL TEMPLATES • 8 MODES • 13 CHANNELS</span>
+              <span class="pill-badge pill-emerald" id="top5-edition-badge">5 Unique Ideas • 5 Clusters</span>
+              <span class="pill-badge pill-sky" id="top5-ledger-badge">30-Day Dedupe Ledger Active</span>
+              <a
+                href="/api/rss/daily-briefing.xml"
+                target="_blank"
+                rel="noopener"
+                class="pill-badge pill-amber"
+                id="top5-rss-link"
+                data-testid="top5-rss-feed-link"
+                style="text-decoration: none;"
+              >📡 RSS 2.0 Feed ↗</a>
+            </div>
+            <h2 style="font-size: 18px; font-weight: 800; color: #0f172a; margin-bottom: 4px;">
+              Automated Daily Top-5 In-Demand Ideas, Certified Template Router &amp; Multi-Platform Compliance Workbench
+            </h2>
+            <p style="font-size: 13px; color: #475569; line-height: 1.48;">
+              Deduplicates 30 days of prior topics across 5 engineering sub-domains, pairs each idea with 5 orthogonal certified blueprints (<code>116 Best + High</code> pool, <code>0</code> legacy <code>T02–T52</code>), computes 3-part <code>(Mode × Platform)</code> content-length budgets, transcodes native <code>4:5</code> JPEGs/PDF + <code>9:16</code> Safe-Zone Shorts MP4, and stages compliant packages across 13 publishing channels.
+            </p>
+          </div>
+        </div>
+
+        <div class="daily-controls-bar">
+          <input
+            type="text"
+            id="top5-query-input"
+            class="input-light"
+            style="flex: 2; min-width: 240px;"
+            placeholder="Optional daily editorial focus (e.g., MCP OAuth 2.1 OBO, pass^k agent evals, KV cache disaggregation)..."
+            aria-label="Daily Top-5 editorial focus query"
+          />
+          <button type="button" class="btn-primary" id="generate-top5-briefing-btn" data-testid="generate-top5-briefing-btn">
+            ⚡ Refresh Daily Top-5 Briefing
+          </button>
+          <button type="button" class="btn-secondary" id="transcode-active-idea-btn" data-testid="transcode-active-idea-btn">
+            🎬 Transcode 4:5 Carousel + 9:16 Short MP4
+          </button>
+        </div>
+
+        <div class="top5-desk-split-grid">
+          <div class="top5-ideas-column" id="top5-ideas-column" data-testid="top5-ideas-column"></div>
+          <div class="top5-active-workbench" id="top5-active-workbench" data-testid="top5-active-workbench"></div>
+        </div>
+      </div>
+
+      <div class="section-card" id="publishing-outbox-card" data-testid="publishing-outbox-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+          <div class="min-w-0">
+            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px;">
+              <span class="brand-badge">HUMAN-IN-THE-LOOP PUBLISHING OUTBOX • ZERO UNOFFICIAL SCRAPERS</span>
+              <span class="pill-badge pill-emerald" id="outbox-summary-badge">Outbox Ready</span>
+            </div>
+            <h2 style="font-size: 16.5px; font-weight: 800; color: #0f172a;">
+              Multi-Platform Compliance Outbox Queue (Tier 1 Instant API • Tier 2 Audited Container • Tier 3 Share Packet / RSS)
+            </h2>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button type="button" class="btn-primary" id="approve-all-outbox-btn" data-testid="approve-all-outbox-btn">
+              ✅ Approve &amp; Dispatch Pending Outbox
+            </button>
+          </div>
+        </div>
+
+        <table class="table-fixed gp-blue-grid-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">Outbox ID &amp; Channel</th>
+              <th style="width: 23%;">Idea &amp; Paired Blueprint</th>
+              <th style="width: 16%;">Mode &amp; Media Container</th>
+              <th style="width: 18%;">Length &amp; Compliance Gate</th>
+              <th style="width: 15%;">Dispatch / Auth Status</th>
+              <th style="width: 13%;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="publishing-outbox-tbody" data-testid="publishing-outbox-tbody"></tbody>
+        </table>
+      </div>
+
       <div class="section-card" id="daily-post-generator-card">
         <div class="daily-studio-header">
           <div class="min-w-0">

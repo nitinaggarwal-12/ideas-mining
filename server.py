@@ -4,6 +4,9 @@ import json
 import mimetypes
 import os
 import re
+import threading
+import time
+from collections import deque
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
@@ -24,13 +27,27 @@ from src.catalog.posts_catalog import (
 from src.catalog.stack_pairings import OSS_GOOGLE_PAIRINGS
 from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 from src.harvester.daily_post_generator import DailyLinkedInPostEngine
+from src.harvester.daily_top5_editorial_engine import (
+    PRESENTATION_MODE_CONTRACTS,
+    DailyTop5EditorialEngine,
+)
 from src.harvester.idea_miner import AgenticIdeaMiner
+from src.publisher.multi_platform_publisher import (
+    PLATFORM_SPECS,
+    MultiPlatformOutboxManager,
+    compile_platform_package,
+    generate_daily_briefing_rss_xml,
+)
 from src.unified_feedback_engine import (
     ADMIN_EMAIL,
     list_feedback,
     submit_feedback,
     update_feedback_status,
     verify_admin_access,
+)
+from src.video.multi_platform_transcoder import (
+    compile_carousel_jpegs,
+    compile_vertical_9x16_short_video,
 )
 from src.visuals.canonical_blueprint_minter import compute_canonical_siso
 from src.visuals.canonical_template_registry import get_gallery_summary, list_templates
@@ -43,8 +60,52 @@ ASSETS_ROOT = WORKSPACE_ROOT / "assets"
 FEEDBACK_STORE_PATH = WORKSPACE_ROOT / ".local_backup" / "app_feedback_messages.json"
 MINER = AgenticIdeaMiner()
 DAILY_ENGINE = DailyLinkedInPostEngine()
+TOP5_ENGINE = DailyTop5EditorialEngine()
+OUTBOX_MANAGER = MultiPlatformOutboxManager()
 MINTED_REPO_SPECS = list(get_minted_repo_specs())
 ALL_CATALOG_ITEMS = MINTED_REPO_SPECS + list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
+
+# Per-IP sliding-window API rate limiter (360 req / 60s window) to mitigate abuse while allowing parallel E2E runs.
+# TODO(security): Enforce Cloud Run Identity-Aware Proxy (IAP) / OAuth 2.0 session validation + CSRF double-submit
+# cookies when deploying mutating studio routes outside authenticated corp/IAP perimeters, and migrate legacy
+# Views 1-6 inline event attributes to per-request CSP script nonces.
+_RATE_LOCK = threading.Lock()
+_RATE_BUCKETS: dict[str, deque[float]] = {}
+_RATE_LIMIT_MAX_REQ = int(os.environ.get("STUDIO_API_RATE_LIMIT_PER_MIN", "360"))
+
+
+def _allow_api_request(client_ip: str) -> bool:
+    now = time.monotonic()
+    key = client_ip or "unknown"
+    with _RATE_LOCK:
+        dq = _RATE_BUCKETS.setdefault(key, deque())
+        while dq and (now - dq[0]) > 60.0:
+            dq.popleft()
+        if len(dq) >= _RATE_LIMIT_MAX_REQ:
+            return False
+        dq.append(now)
+        return True
+
+
+def _resolve_idea_and_template(idea_id: str, template_id: str) -> tuple[dict, dict]:
+    briefing = TOP5_ENGINE.get_or_create_briefing()
+    ideas = briefing.get("ideas", [])
+    idea = next((i for i in ideas if i.get("id") == idea_id), None)
+    if not idea and ideas:
+        idea = ideas[0]
+    if not idea:
+        raise ValueError("No daily ideas available")
+    tpls = idea.get("matching_templates", [])
+    tpl = next((t for t in tpls if t.get("template_id") == template_id), None)
+    if not tpl:
+        cat_entry = TOP5_ENGINE.template_catalog.get(template_id)
+        if cat_entry:
+            tpl = {"template_id": template_id, **cat_entry}
+        elif tpls:
+            tpl = tpls[0]
+        else:
+            tpl = {"template_id": "T85", "name": "Zero-Bloat MCP Gateway Spine"}
+    return idea, tpl
 
 
 def _build_minting_studio_payload() -> dict:
@@ -97,9 +158,17 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
     def log_message(self, format: str, *args) -> None:
         pass
 
+    def _send_security_headers(self) -> None:
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("X-Frame-Options", "SAMEORIGIN")
+        self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
+        self.send_header("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
+        self.send_header("Content-Security-Policy", "frame-ancestors 'self'; object-src 'none'; base-uri 'self'")
+
     def _send_json(self, status: int, data: dict) -> None:
         raw = json.dumps(data, indent=2).encode("utf-8")
         self.send_response(status)
+        self._send_security_headers()
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
         self.send_header("Content-Length", str(len(raw)))
@@ -154,6 +223,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 return
 
         self.send_response(200)
+        self._send_security_headers()
         self.send_header("Content-Type", ctype or "application/octet-stream")
         self.send_header("Accept-Ranges", "bytes")
         self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
@@ -178,13 +248,13 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         if path.startswith("/assets/"):
             rel = path.replace("/assets/", "", 1)
             target = (ASSETS_ROOT / rel).resolve()
-            if str(target).startswith(str(ASSETS_ROOT.resolve())):
+            if target.is_relative_to(ASSETS_ROOT.resolve()):
                 self._send_file(target, head_only=True)
                 return
         if path.startswith("/repos/"):
             rel = path.replace("/repos/", "", 1)
             target = (REPOS_ROOT / rel).resolve()
-            if str(target).startswith(str(REPOS_ROOT.resolve())):
+            if target.is_relative_to(REPOS_ROOT.resolve()):
                 self._send_file(target, head_only=True)
                 return
         self.send_response(404)
@@ -342,6 +412,36 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             self._send_json(200, DAILY_ENGINE.get_daily_posts_payload(edition_date=edition_date))
             return
 
+        if path == "/api/daily-top5-briefing":
+            edition_date = (qs.get("date") or [""])[0]
+            briefing = TOP5_ENGINE.get_or_create_briefing(edition_date=edition_date)
+            self._send_json(
+                200,
+                {
+                    "briefing": briefing,
+                    "mode_contracts": PRESENTATION_MODE_CONTRACTS,
+                    "platform_specs": PLATFORM_SPECS,
+                    "outbox": OUTBOX_MANAGER.list_outbox(),
+                },
+            )
+            return
+
+        if path == "/api/publisher/outbox":
+            self._send_json(200, OUTBOX_MANAGER.list_outbox())
+            return
+
+        if path == "/api/rss/daily-briefing.xml":
+            briefing = TOP5_ENGINE.get_or_create_briefing()
+            rss_bytes = generate_daily_briefing_rss_xml(briefing).encode("utf-8")
+            self.send_response(200)
+            self._send_security_headers()
+            self.send_header("Content-Type", "application/rss+xml; charset=utf-8")
+            self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+            self.send_header("Content-Length", str(len(rss_bytes)))
+            self.end_headers()
+            self.wfile.write(rss_bytes)
+            return
+
         if path in ("/api/template-gallery", "/api/templates"):
             manifest_file = WORKSPACE_ROOT / "assets" / "template-gallery" / "gallery_manifest.json"
             if manifest_file.exists():
@@ -361,26 +461,37 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         if path.startswith("/assets/"):
             rel = path.replace("/assets/", "", 1)
             target = (ASSETS_ROOT / rel).resolve()
-            if str(target).startswith(str(ASSETS_ROOT.resolve())):
+            if target.is_relative_to(ASSETS_ROOT.resolve()):
                 self._send_file(target)
                 return
 
         if path.startswith("/repos/"):
             rel = path.replace("/repos/", "", 1)
             target = (REPOS_ROOT / rel).resolve()
-            if str(target).startswith(str(REPOS_ROOT.resolve())):
+            if target.is_relative_to(REPOS_ROOT.resolve()):
                 self._send_file(target)
                 return
 
         self._send_json(404, {"error": "Endpoint not found"})
 
     def do_POST(self) -> None:
+        client_ip = self.client_address[0] if self.client_address else ""
+        if not _allow_api_request(client_ip):
+            self._send_json(429, {"error": "Rate limit exceeded; retry shortly"})
+            return
         parsed = urlparse(self.path)
         path = unquote(parsed.path)
         qs = parse_qs(parsed.query)
         length = int(self.headers.get("Content-Length", "0"))
+        if length < 0 or length > 2_097_152:
+            self._send_json(400, {"error": "Invalid payload size"})
+            return
         raw = self.rfile.read(length).decode("utf-8") if length > 0 else "{}"
-        payload = json.loads(raw) if raw else {}
+        try:
+            payload = json.loads(raw) if raw else {}
+        except ValueError:
+            self._send_json(400, {"error": "Invalid JSON body"})
+            return
         if path == "/api/feedback/submit":
             headers_dict = {k: v for k, v in self.headers.items()}
             res = submit_feedback(
@@ -445,6 +556,104 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 },
             )
             return
+        if path == "/api/daily-top5-briefing/generate":
+            topic_query = str(payload.get("topic_query") or "").strip()[:180]
+            edition_date = str(payload.get("edition_date") or "").strip()[:16] or None
+            use_live = payload.get("use_live_network")
+            if use_live is None:
+                use_live = True
+            briefing = TOP5_ENGINE.generate_daily_top5_briefing(
+                edition_date=edition_date,
+                topic_query=topic_query,
+                use_live_network=bool(use_live),
+            )
+            self._send_json(
+                200,
+                {
+                    "status": "GENERATED",
+                    "briefing": briefing,
+                    "mode_contracts": PRESENTATION_MODE_CONTRACTS,
+                    "platform_specs": PLATFORM_SPECS,
+                    "outbox": OUTBOX_MANAGER.list_outbox(),
+                },
+            )
+            return
+        if path == "/api/publisher/preview":
+            idea_id = str(payload.get("idea_id") or "").strip()
+            template_id = str(payload.get("template_id") or "").strip()
+            mode = str(payload.get("mode") or "Carousel").strip()
+            platform_id = str(payload.get("platform_id") or "ALL").strip()
+            try:
+                idea, tpl = _resolve_idea_and_template(idea_id, template_id)
+                if platform_id == "ALL":
+                    packages = {
+                        pid: compile_platform_package(idea, tpl, mode, pid)
+                        for pid in PLATFORM_SPECS
+                    }
+                    self._send_json(200, {"status": "ok", "mode": mode, "packages": packages})
+                else:
+                    pkg = compile_platform_package(idea, tpl, mode, platform_id)
+                    self._send_json(200, {"status": "ok", "package": pkg})
+            except ValueError as exc:
+                self._send_json(400, {"error": str(exc)})
+            return
+        if path == "/api/publisher/transcode":
+            idea_id = str(payload.get("idea_id") or "").strip()
+            template_id = str(payload.get("template_id") or "").strip()
+            force = bool(payload.get("force"))
+            try:
+                idea, tpl = _resolve_idea_and_template(idea_id, template_id)
+                spec = {
+                    "id": idea["id"],
+                    "title": idea["title"],
+                    "summary": idea["summary"],
+                    "template_id": tpl.get("template_id") or tpl.get("id") or "T85",
+                    "cluster_label": idea.get("cluster_label", ""),
+                    "metrics_hint": idea.get("metrics_hint", ""),
+                    "source_channel": idea.get("source_channel", ""),
+                }
+                c_man = compile_carousel_jpegs(spec, force=force)
+                v_man = compile_vertical_9x16_short_video(spec, force=force)
+                self._send_json(
+                    200,
+                    {
+                        "status": "TRANSCODED",
+                        "carousel_manifest": c_man,
+                        "short_video_manifest": v_man,
+                    },
+                )
+            except Exception:
+                self._send_json(400, {"error": "Unable to transcode requested asset specification"})
+            return
+        if path == "/api/publisher/stage":
+            idea_id = str(payload.get("idea_id") or "").strip()
+            template_id = str(payload.get("template_id") or "").strip()
+            mode = str(payload.get("mode") or "Carousel").strip()
+            scheduled_for = str(payload.get("scheduled_for") or "").strip()[:40]
+            platforms_raw = payload.get("platforms") or ["linkedin", "telegram"]
+            platforms = [str(p).strip() for p in platforms_raw if str(p).strip() in PLATFORM_SPECS]
+            if not platforms:
+                self._send_json(400, {"error": "Select at least one valid target platform"})
+                return
+            try:
+                idea, tpl = _resolve_idea_and_template(idea_id, template_id)
+                res = OUTBOX_MANAGER.stage_packages(
+                    idea=idea,
+                    template=tpl,
+                    mode=mode,
+                    platforms=platforms,
+                    scheduled_for=scheduled_for,
+                )
+                self._send_json(200, {"status": "STAGED", **res})
+            except ValueError as exc:
+                self._send_json(400, {"error": str(exc)})
+            return
+        if path == "/api/publisher/approve":
+            outbox_ids = payload.get("outbox_ids")
+            clean_ids = [str(x).strip() for x in outbox_ids] if isinstance(outbox_ids, list) else None
+            res = OUTBOX_MANAGER.approve_and_publish(outbox_ids=clean_ids)
+            self._send_json(200, {"status": "PROCESSED", **res})
+            return
         if path == "/api/ingest-url":
             res = MINER.ingest_custom_post_or_url(
                 url=payload.get("url", ""),
@@ -456,7 +665,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    host = os.environ.get("HOST", "0.0.0.0")
+    host = os.environ.get("HOST", "127.0.0.1")
     port = int(os.environ.get("PORT", "8765"))
     httpd = ThreadingHTTPServer((host, port), StudioRequestHandler)
     print(f"Ideas-Minting & Ideas-Mining Studio listening on http://{host}:{port}", flush=True)

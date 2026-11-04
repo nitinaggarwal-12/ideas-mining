@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-11-03T21:14:33.273Z",
+  "timestamp": "2026-11-04T06:29:13.160Z",
   "baseUrl": "http://127.0.0.1:8765",
-  "totalAssertions": 28,
-  "passedAssertions": 28,
+  "totalAssertions": 31,
+  "passedAssertions": 31,
   "failedAssertions": 0,
   "consoleErrors": [],
   "failedRequests": [],
@@ -108,9 +108,24 @@
       "detail": "channels=4, creators=16/16, archetypes=4, badgeOverflows=0"
     },
     {
+      "name": "View 4 Daily Top-5 Editorial Desk: 5 Unique Ideas × 5 Templates × 8 Modes × 13 Platforms (IG 4:5 JPEG Compliance)",
+      "passed": true,
+      "detail": "JPEG_4x5=true, rawUrlsInCaption=false, carouselImgs=9/9"
+    },
+    {
+      "name": "View 4 Mode Selector Updates 3-Part Content-Length Contract & Mounts 9:16 Safe-Zone Short MP4",
+      "passed": true,
+      "detail": "budgetCards=3, 9x16Budget=true, videoSrc=true"
+    },
+    {
+      "name": "View 4 HITL Outbox Stages, Approves & Validates Multi-Platform Queue + Serves Valid RSS 2.0 & Security Headers",
+      "passed": true,
+      "detail": "outboxRows=12, validated=true, rss200=true, nosniff=nosniff"
+    },
+    {
       "name": "View 4 Daily Post Generator Studio Synthesizes 6 Posts, Loads Custom SVGs & Copies Post + Comment #1",
       "passed": true,
-      "detail": "cards=6, svgs=6/6, copiedChars=1526"
+      "detail": "cards=6, svgs=6/6, copiedChars=1392"
     },
     {
       "name": "View 5 (OpenHands Sandbox Console) Renders Comparison Matrix & 19 Repo Trajectories",
@@ -125,7 +140,7 @@
     {
       "name": "Rule 26 Table Cell Containment (overflow: hidden on all table-fixed tbody td)",
       "passed": true,
-      "detail": "checkedCells=177, uncontained=0"
+      "detail": "checkedCells=249, uncontained=0"
     },
     {
       "name": "Rule 57C Canonical T01 + T53-T89 Zero Double-Footer (viewBox height === image height + W3C <title>/<desc>)",

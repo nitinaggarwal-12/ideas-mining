@@ -20,6 +20,15 @@ $$S_{\text{iso}}(I, T) = 0.30 \cdot \text{Topology} + 0.25 \cdot \text{ControlFl
 
 ---
 
+## 1.5. Automated Daily Top-5 Unique In-Demand Ideas, 5 Orthogonal Templates, 8 Modes & 13-Channel Auto-Publisher
+
+- **Daily Top-5 Unique Ideas Engine (`src/harvester/daily_top5_editorial_engine.py`)**: Harvests live signals (`arXiv`, `Hacker News`, `GitHub`, `HuggingFace`, `Google Cloud ADK` floor), deduplicates against a 30-day rolling fingerprint ledger (`data/daily_idea_history_ledger.json`), and diversifies across 5 engineering sub-domain clusters (`data/daily_top5_editorial_briefing.json`).
+- **Top 5 Orthogonal Certified Templates & 8 Presentation Modes**: Pairs each idea with 5 orthogonal storytelling blueprints from the `116` certified `Best` + `High` pool (`0` legacy `T02`–`T52`) and computes 3-part `(Mode × Platform)` content-length contracts across `Carousel`, `Image`, `Short_Video` (`9:16`), `Video` (`16:9`), `Slidedeck`, `Slide`, `Doc`, and `Text`.
+- **Native Multi-Platform Transcoder (`src/video/multi_platform_transcoder.py`)**: Compiles 8-slide `4:5` (`1080x1350`) + `9:16` (`1080x1920`) JPEG carousels, `4:5` PDF (`carousel_4x5.pdf`), and `9:16` (`1080x1920@30fps`, `42.6s`, Safe-Zone `y = 236..1480px`) vertical Shorts MP4s (`assets/multi-platform/*`).
+- **13-Channel Compliant HITL Outbox (`src/publisher/multi_platform_publisher.py` + `scripts/run_daily_editorial_workflow.py`)**: Validates `8 × 13 = 104` `(mode, platform)` compliance contracts across Tier 1 Instant APIs (`LinkedIn`, `Telegram`, `Dev.to`, `Hashnode`, `Bluesky`), Tier 2 Audited Container APIs (`YouTube`, `YouTube Shorts`, `Instagram`, `Facebook Page`, `TikTok` `SEND_TO_USER_INBOX`), and Tier 3 Share Packets / RSS 2.0 (`WhatsApp`, `X`, `Substack` via `/api/rss/daily-briefing.xml`), persisted in `data/publishing_outbox_ledger.json`.
+
+---
+
 ## 2. Consolidated 116-Template Gallery (`72 Best` + `44 High`, `0 Medium/Low/Worst`)
 
 All `53` legacy `Gen-1` raw Python SVG templates (`T02`–`T52`) and `19` boxy templates have been permanently purged (`Law 18` / `Rule 57B`), and `33` `Medium/Low/Worst` session blueprints were refactored into `Gen-5` Open-Drafting-Grid Sculptural Posters (`Best` tier).
@@ -47,7 +56,10 @@ All `53` legacy `Gen-1` raw Python SVG templates (`T02`–`T52`) and `19` boxy t
 python3 scripts/build_and_verify_all.py --skip-existing
 python3 scripts/verify_all_repos.py
 
-# 2. Run unit tests, inked-pixel arrow-label centering gate (T69-T89) & Puppeteer E2E suite
+# 2. Run Daily Top-5 Editorial + 13-Channel Compliant Outbox Workflow
+python3 scripts/run_daily_editorial_workflow.py
+
+# 3. Run unit tests (23/23), inked-pixel arrow-label centering gate (T69-T89) & Puppeteer E2E suite (31/31)
 python3 -m unittest discover -s tests -p "test_*.py" -v
 node scripts/verify_arrow_label_inked_pixel_centering.mjs
 node scripts/e2e_puppeteer_functional_suite.mjs

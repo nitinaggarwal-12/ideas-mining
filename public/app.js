@@ -7,6 +7,16 @@ let STATE = {
   templates: [],
   pairings: [],
   mintingStudio: null,
+  top5Briefing: null,
+  modeContracts: {},
+  platformSpecs: {},
+  outboxLedger: { items: [] },
+  selectedIdeaId: "",
+  selectedTemplateId: "",
+  selectedMode: "Carousel",
+  selectedPreviewPlatform: "linkedin",
+  selectedStagePlatforms: new Set(["linkedin", "telegram", "youtube_shorts", "instagram", "tiktok"]),
+  previewPackagesByPlatform: {},
 };
 
 function showToast(msg) {
@@ -874,6 +884,848 @@ const ALL_VIEWS = [
   "view-minting-studio",
 ];
 
+function mkEl(tag, className, text) {
+  const el = document.createElement(tag);
+  if (className) el.className = className;
+  if (text !== undefined && text !== null) el.textContent = String(text);
+  return el;
+}
+
+function safeUrl(rawUrl) {
+  const s = String(rawUrl || "").trim();
+  if (
+    s.startsWith("/assets/") ||
+    s.startsWith("/repos/") ||
+    s.startsWith("/api/") ||
+    s.startsWith("https://") ||
+    s.startsWith("http://")
+  ) {
+    return s;
+  }
+  return "#";
+}
+
+function getActiveTop5Idea() {
+  const ideas = STATE.top5Briefing?.ideas || [];
+  return ideas.find((i) => i.id === STATE.selectedIdeaId) || ideas[0] || null;
+}
+
+function getActiveTop5Template(idea) {
+  if (!idea) return null;
+  const list = idea.matching_templates || [];
+  return list.find((t) => t.template_id === STATE.selectedTemplateId) || list[0] || null;
+}
+
+async function loadDailyTop5Briefing() {
+  const res = await fetch("/api/daily-top5-briefing");
+  const data = await res.json();
+  applyTop5BriefingPayload(data);
+  await refreshPlatformPreviewPackages();
+}
+
+function applyTop5BriefingPayload(data) {
+  STATE.top5Briefing = data.briefing || null;
+  STATE.modeContracts = data.mode_contracts || data.briefing?.mode_contracts || {};
+  STATE.platformSpecs = data.platform_specs || {};
+  if (data.outbox) {
+    STATE.outboxLedger = data.outbox;
+  }
+  const ideas = STATE.top5Briefing?.ideas || [];
+  if (ideas.length) {
+    const existing = ideas.find((i) => i.id === STATE.selectedIdeaId);
+    const chosen = existing || ideas[0];
+    STATE.selectedIdeaId = chosen.id;
+    const matchedTpl = (chosen.matching_templates || []).find(
+      (t) => t.template_id === STATE.selectedTemplateId
+    );
+    STATE.selectedTemplateId = matchedTpl ? matchedTpl.template_id : chosen.default_template_id;
+    STATE.selectedMode = STATE.selectedMode || chosen.default_recommended_mode || "Carousel";
+    if (!existing) {
+      STATE.selectedMode = chosen.default_recommended_mode || "Carousel";
+    }
+  }
+  const edBadge = document.getElementById("top5-edition-badge");
+  if (edBadge && STATE.top5Briefing) {
+    edBadge.textContent = `${STATE.top5Briefing.ideas_count || 5} Unique Ideas • Edition ${STATE.top5Briefing.edition_date || ""}`;
+  }
+  const ledgerBadge = document.getElementById("top5-ledger-badge");
+  if (ledgerBadge && STATE.top5Briefing) {
+    ledgerBadge.textContent = `30-Day Dedupe Ledger (${STATE.top5Briefing.dedupe_ledger_entries || 5} Tracked • ${STATE.top5Briefing.certified_pool_size || 116} Certified Pool)`;
+  }
+  renderTop5EditorialDesk();
+  renderPublishingOutbox();
+}
+
+async function triggerGenerateTop5Briefing() {
+  const btn = document.getElementById("generate-top5-briefing-btn");
+  const qInput = document.getElementById("top5-query-input");
+  const topic_query = (qInput?.value || "").trim();
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "⏳ Scoring Top-5 Ideas...";
+  }
+  try {
+    const res = await fetch("/api/daily-top5-briefing/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ topic_query, use_live_network: true }),
+    });
+    const data = await res.json();
+    STATE.selectedIdeaId = "";
+    applyTop5BriefingPayload(data);
+    await refreshPlatformPreviewPackages();
+    showToast("Refreshed Daily Top-5 Unique In-Demand Ideas & 5×5 Certified Blueprints!");
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "⚡ Refresh Daily Top-5 Briefing";
+    }
+  }
+}
+
+async function refreshPlatformPreviewPackages() {
+  const idea = getActiveTop5Idea();
+  const tpl = getActiveTop5Template(idea);
+  if (!idea || !tpl) return;
+  const res = await fetch("/api/publisher/preview", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      idea_id: idea.id,
+      template_id: tpl.template_id,
+      mode: STATE.selectedMode,
+      platform_id: "ALL",
+    }),
+  });
+  const data = await res.json();
+  if (data.packages) {
+    STATE.previewPackagesByPlatform = data.packages;
+    renderTop5PlatformPreviewStage();
+  }
+}
+
+async function triggerTranscodeActiveIdea() {
+  const idea = getActiveTop5Idea();
+  const tpl = getActiveTop5Template(idea);
+  if (!idea || !tpl) return;
+  const btn = document.getElementById("transcode-active-idea-btn");
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "⏳ Rendering 4:5 JPEGs/PDF + 9:16 Short MP4...";
+  }
+  try {
+    const res = await fetch("/api/publisher/transcode", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        idea_id: idea.id,
+        template_id: tpl.template_id,
+        force: false,
+      }),
+    });
+    const out = await res.json();
+    if (out.status === "TRANSCODED") {
+      await refreshPlatformPreviewPackages();
+      showToast(`Rendered 4:5 Carousel (8 JPEGs + PDF) & 9:16 Safe-Zone Short MP4 for ${idea.id}!`);
+    } else {
+      showToast(out.error || "Transcode request did not complete");
+    }
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "🎬 Transcode 4:5 Carousel + 9:16 Short MP4";
+    }
+  }
+}
+
+async function stageSelectedPlatformsToOutbox() {
+  const idea = getActiveTop5Idea();
+  const tpl = getActiveTop5Template(idea);
+  if (!idea || !tpl) return;
+  const platforms = Array.from(STATE.selectedStagePlatforms);
+  if (!platforms.length) {
+    showToast("Select at least one target channel to stage");
+    return;
+  }
+  const res = await fetch("/api/publisher/stage", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      idea_id: idea.id,
+      template_id: tpl.template_id,
+      mode: STATE.selectedMode,
+      platforms,
+    }),
+  });
+  const data = await res.json();
+  if (data.ledger) {
+    STATE.outboxLedger = data.ledger;
+    renderPublishingOutbox();
+    showToast(`Staged ${platforms.length} compliant platform packages into HITL Outbox!`);
+  } else {
+    showToast(data.error || "Unable to stage platform packages");
+  }
+}
+
+async function approveOutboxItems(outboxIds) {
+  const res = await fetch("/api/publisher/approve", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(outboxIds ? { outbox_ids: outboxIds } : {}),
+  });
+  const data = await res.json();
+  if (data.ledger) {
+    STATE.outboxLedger = data.ledger;
+    renderPublishingOutbox();
+    const count = (data.processed || []).length;
+    showToast(`Validated & processed ${count} Outbox package(s) via compliant API/Dry-Run dispatcher!`);
+  }
+}
+
+function polishUiTypography(str) {
+  return String(str || "")
+    .replace(/pass\^k/g, "passᵏ")
+    .replace(/pass\^3/g, "pass³")
+    .replace(/pass\^5/g, "pass⁵");
+}
+
+function formatModeDisplayName(modeKey) {
+  const map = {
+    Carousel: "Carousel",
+    Image: "Image",
+    Short_Video: "Short Video",
+    Video: "16:9 Video",
+    Slidedeck: "Slide Deck",
+    Slide: "1-Slide BLUF",
+    Doc: "Technical Doc",
+    Text: "Text / Thread",
+  };
+  return map[modeKey] || String(modeKey || "").replace(/_/g, " ");
+}
+
+function renderTop5EditorialDesk() {
+  const ideasCol = document.getElementById("top5-ideas-column");
+  const workbench = document.getElementById("top5-active-workbench");
+  if (!ideasCol || !workbench) return;
+  ideasCol.replaceChildren();
+  workbench.replaceChildren();
+
+  const ideas = STATE.top5Briefing?.ideas || [];
+  if (!ideas.length) {
+    ideasCol.appendChild(mkEl("div", "", "Loading Daily Top-5 Unique In-Demand Ideas..."));
+    return;
+  }
+
+  ideas.forEach((idea, idx) => {
+    const card = mkEl(
+      "button",
+      `top5-idea-card${idea.id === STATE.selectedIdeaId ? " active" : ""}`
+    );
+    card.type = "button";
+    card.setAttribute("data-testid", `top5-idea-card-${idx + 1}`);
+
+    const topRow = mkEl("div");
+    topRow.style.cssText =
+      "display:flex;justify-content:space-between;align-items:flex-start;gap:6px;flex-wrap:wrap;margin-bottom:6px;";
+    topRow.appendChild(
+      mkEl("span", "brand-badge", `#0${idea.rank} • ${idea.cluster_label}`)
+    );
+    const rightPills = mkEl("div");
+    rightPills.style.cssText = "display:flex;gap:5px;flex-wrap:wrap;";
+    rightPills.appendChild(
+      mkEl(
+        "span",
+        "pill-badge pill-emerald",
+        `Demand ${idea.scores?.demand_score ?? 94}/100`
+      )
+    );
+    if (idea.unique_30d_verified) {
+      rightPills.appendChild(mkEl("span", "pill-badge pill-sky", "30d Unique ✓"));
+    }
+    topRow.appendChild(rightPills);
+    card.appendChild(topRow);
+
+    const titleEl = mkEl("div", "", polishUiTypography(idea.title));
+    titleEl.style.cssText =
+      "font-size:14px;font-weight:800;color:#0f172a;line-height:1.34;margin-bottom:5px;";
+    card.appendChild(titleEl);
+
+    const sumEl = mkEl("div", "", polishUiTypography(idea.summary));
+    sumEl.style.cssText =
+      "font-size:12px;color:#475569;line-height:1.42;margin-bottom:7px;";
+    card.appendChild(sumEl);
+
+    const tplIds = (idea.matching_templates || []).map((t) => t.template_id).join(" · ");
+    const footEl = mkEl(
+      "div",
+      "",
+      `Top 5 Templates: ${tplIds} • Default Mode: ${formatModeDisplayName(idea.default_recommended_mode)}`
+    );
+    footEl.style.cssText = "font-size:11px;font-weight:700;color:#174ea6;";
+    card.appendChild(footEl);
+
+    card.addEventListener("click", async () => {
+      STATE.selectedIdeaId = idea.id;
+      STATE.selectedTemplateId = idea.default_template_id;
+      STATE.selectedMode = idea.default_recommended_mode || "Carousel";
+      renderTop5EditorialDesk();
+      await refreshPlatformPreviewPackages();
+    });
+    ideasCol.appendChild(card);
+  });
+
+  const activeIdea = getActiveTop5Idea();
+  const activeTpl = getActiveTop5Template(activeIdea);
+  if (!activeIdea || !activeTpl) return;
+
+  // Active Idea Header Banner
+  const hdrBox = mkEl("div");
+  hdrBox.style.cssText =
+    "display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;padding-bottom:10px;border-bottom:1px solid #e2e8f0;";
+  const hdrTextWrap = mkEl("div", "min-w-0");
+  const hdrKicker = mkEl(
+    "div",
+    "",
+    polishUiTypography(`ACTIVE IDEA #0${activeIdea.rank} • ${activeIdea.source_channel} • ${activeIdea.metrics_hint}`)
+  );
+  hdrKicker.style.cssText = "font-size:11px;font-weight:800;color:#0369a1;margin-bottom:3px;";
+  const hdrTitle = mkEl("h3", "", polishUiTypography(activeIdea.title));
+  hdrTitle.style.cssText = "font-size:15.5px;font-weight:800;color:#0f172a;line-height:1.32;";
+  hdrTextWrap.appendChild(hdrKicker);
+  hdrTextWrap.appendChild(hdrTitle);
+  hdrBox.appendChild(hdrTextWrap);
+
+  const srcLink = mkEl("a", "btn-secondary", "Primary Signal ↗");
+  srcLink.href = safeUrl(activeIdea.primary_url);
+  srcLink.target = "_blank";
+  srcLink.rel = "noopener";
+  hdrBox.appendChild(srcLink);
+  workbench.appendChild(hdrBox);
+
+  // Step 1: 5 Orthogonal Matching Templates
+  const step1 = mkEl("div", "top5-step-block");
+  step1.appendChild(
+    mkEl(
+      "div",
+      "top5-step-label",
+      "Step 1 — Top 5 Orthogonal Certified Templates (5 Storytelling Angles • 0 Legacy Gen-1)"
+    )
+  );
+  const tplRow = mkEl("div", "top5-pill-row");
+  tplRow.setAttribute("data-testid", "top5-template-pills");
+  (activeIdea.matching_templates || []).forEach((tpl, tIdx) => {
+    const isSel = tpl.template_id === activeTpl.template_id;
+    const pill = mkEl(
+      "button",
+      `top5-selector-pill${isSel ? " active" : ""}${tIdx === 0 ? " recommended" : ""}`,
+      `#${tIdx + 1} ${tpl.template_id} • ${tpl.angle_label || tpl.quality_tier} (${tpl.fit_score || 95})`
+    );
+    pill.type = "button";
+    pill.setAttribute("data-testid", `top5-tpl-pill-${tIdx + 1}`);
+    pill.title = `${tpl.name} — Recommended Mode: ${tpl.recommended_mode}`;
+    pill.addEventListener("click", async () => {
+      STATE.selectedTemplateId = tpl.template_id;
+      if (tpl.recommended_mode) {
+        STATE.selectedMode = tpl.recommended_mode;
+      }
+      renderTop5EditorialDesk();
+      await refreshPlatformPreviewPackages();
+    });
+    tplRow.appendChild(pill);
+  });
+  step1.appendChild(tplRow);
+
+  const tplReason = mkEl(
+    "div",
+    "",
+    `Selected Blueprint: ${activeTpl.template_id} (${activeTpl.name}) • Tier: ${activeTpl.quality_tier || "Best"} • Recommended Mode: ${activeTpl.recommended_mode || activeIdea.default_recommended_mode}`
+  );
+  tplReason.style.cssText = "margin-top:7px;font-size:11.5px;color:#334155;font-weight:600;";
+  step1.appendChild(tplReason);
+  workbench.appendChild(step1);
+
+  // Step 2: 8 Presentation Modes + 3-Part Content-Length Contract
+  const step2 = mkEl("div", "top5-step-block");
+  step2.appendChild(
+    mkEl(
+      "div",
+      "top5-step-label",
+      "Step 2 — Presentation Mode & 3-Part (Mode × Platform) Content-Length Contract"
+    )
+  );
+  const modeRow = mkEl("div", "top5-pill-row");
+  modeRow.setAttribute("data-testid", "top5-mode-pills");
+  const modeKeys = [
+    "Carousel",
+    "Image",
+    "Short_Video",
+    "Video",
+    "Slidedeck",
+    "Slide",
+    "Doc",
+    "Text",
+  ];
+  const recMode = activeTpl.recommended_mode || activeIdea.default_recommended_mode;
+  modeKeys.forEach((mKey) => {
+    const mSpec = STATE.modeContracts[mKey] || { short_label: mKey };
+    const isSel = STATE.selectedMode === mKey;
+    const isRec = recMode === mKey;
+    const pill = mkEl(
+      "button",
+      `top5-selector-pill${isSel ? " active" : ""}${isRec ? " recommended" : ""}`,
+      `${isRec ? "★ " : ""}${mSpec.short_label || mKey}`
+    );
+    pill.type = "button";
+    pill.setAttribute("data-testid", `top5-mode-pill-${mKey}`);
+    pill.addEventListener("click", async () => {
+      STATE.selectedMode = mKey;
+      renderTop5EditorialDesk();
+      await refreshPlatformPreviewPackages();
+    });
+    modeRow.appendChild(pill);
+  });
+  step2.appendChild(modeRow);
+
+  const activeModeSpec = STATE.modeContracts[STATE.selectedMode] || {};
+  const budget = activeModeSpec.length_budget || {};
+  const budgetGrid = mkEl("div", "top5-length-budget-grid");
+  budgetGrid.setAttribute("data-testid", "top5-length-budget-strip");
+
+  [
+    ["1. Hook / Above-the-Fold", budget.hook_above_fold || "Front-loaded metric hook"],
+    ["2. Per-Unit Density Cap", budget.per_unit_density || "Bounded visual density"],
+    [
+      `3. Total Deliverable (${budget.estimated_consumption_time || "Fast read"})`,
+      budget.total_deliverable_size || "Platform-calibrated deliverable",
+    ],
+  ].forEach(([bTitle, bVal]) => {
+    const bCard = mkEl("div", "top5-budget-card");
+    bCard.appendChild(mkEl("div", "top5-budget-card-title", bTitle));
+    bCard.appendChild(mkEl("div", "top5-budget-card-val", bVal));
+    budgetGrid.appendChild(bCard);
+  });
+  step2.appendChild(budgetGrid);
+  workbench.appendChild(step2);
+
+  // Step 3: 13-Platform Auto-Publish Staging & Live Compliance Preview
+  const step3 = mkEl("div", "top5-step-block");
+  const step3Hdr = mkEl("div");
+  step3Hdr.style.cssText =
+    "display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px;";
+  step3Hdr.appendChild(
+    mkEl(
+      "div",
+      "top5-step-label",
+      "Step 3 — 13-Channel Compliant Staging & Platform-Specific Limit Inspector"
+    )
+  );
+  const stageBtn = mkEl(
+    "button",
+    "btn-primary",
+    "📥 Stage Selected Channels to Outbox"
+  );
+  stageBtn.type = "button";
+  stageBtn.id = "stage-selected-platforms-btn";
+  stageBtn.setAttribute("data-testid", "stage-selected-platforms-btn");
+  stageBtn.addEventListener("click", stageSelectedPlatformsToOutbox);
+  step3Hdr.appendChild(stageBtn);
+  step3.appendChild(step3Hdr);
+
+  // Rule 25 Unified 13-Channel Bar: inline staging checkbox + click-to-inspect active channel
+  const orderedPlatforms = [
+    "linkedin",
+    "telegram",
+    "youtube",
+    "youtube_shorts",
+    "instagram",
+    "facebook",
+    "tiktok",
+    "whatsapp",
+    "devto",
+    "hashnode",
+    "bluesky",
+    "x",
+    "substack",
+  ];
+  const previewTabs = mkEl("div", "top5-unified-channel-bar");
+  previewTabs.setAttribute("data-testid", "top5-platform-preview-tabs");
+  orderedPlatforms.forEach((pid) => {
+    const pSpec = STATE.platformSpecs[pid];
+    if (!pSpec) return;
+    const isAct = STATE.selectedPreviewPlatform === pid;
+    const tabBtn = mkEl(
+      "button",
+      `top5-unified-channel-chip${isAct ? " active" : ""}`
+    );
+    tabBtn.type = "button";
+    tabBtn.setAttribute("data-testid", `top5-plat-tab-${pid}`);
+
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.checked = STATE.selectedStagePlatforms.has(pid);
+    cb.title = `Include ${pSpec.name} when staging to Outbox`;
+    cb.setAttribute("data-testid", `stage-check-${pid}`);
+    cb.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+    });
+    cb.addEventListener("change", () => {
+      if (cb.checked) STATE.selectedStagePlatforms.add(pid);
+      else STATE.selectedStagePlatforms.delete(pid);
+    });
+    tabBtn.appendChild(cb);
+    tabBtn.appendChild(mkEl("span", "", pSpec.name.split("(")[0].trim()));
+
+    tabBtn.addEventListener("click", () => {
+      STATE.selectedPreviewPlatform = pid;
+      previewTabs.querySelectorAll(".top5-unified-channel-chip").forEach((b) => {
+        b.classList.toggle("active", b === tabBtn);
+      });
+      renderTop5PlatformPreviewStage();
+    });
+    previewTabs.appendChild(tabBtn);
+  });
+  step3.appendChild(previewTabs);
+
+  const previewStageContainer = mkEl("div");
+  previewStageContainer.id = "top5-platform-preview-stage";
+  previewStageContainer.setAttribute("data-testid", "top5-platform-preview-stage");
+  step3.appendChild(previewStageContainer);
+  workbench.appendChild(step3);
+
+  renderTop5PlatformPreviewStage();
+}
+
+function renderTop5PlatformPreviewStage() {
+  const stage = document.getElementById("top5-platform-preview-stage");
+  if (!stage) return;
+  stage.replaceChildren();
+
+  const pkg = STATE.previewPackagesByPlatform[STATE.selectedPreviewPlatform];
+  if (!pkg) {
+    stage.appendChild(mkEl("div", "", "Compiling platform compliance preview..."));
+    return;
+  }
+
+  const checks = pkg.compliance_checks || {};
+  const media = pkg.media || {};
+
+  // Telemetry & Compliance Strip
+  const chipsRow = mkEl("div", "deliverable-chips");
+  chipsRow.style.marginTop = "10px";
+  chipsRow.appendChild(mkEl("span", "pill-badge pill-sky", pkg.tier_badge || pkg.tier));
+  chipsRow.appendChild(
+    mkEl(
+      "span",
+      `pill-badge ${checks.char_limit_ok ? "pill-emerald" : "pill-amber"}`,
+      `Chars: ${checks.char_used}/${checks.char_cap} ${checks.char_limit_ok ? "✓" : "!"}`
+    )
+  );
+  chipsRow.appendChild(
+    mkEl(
+      "span",
+      `pill-badge ${checks.fold_hook_ok ? "pill-emerald" : "pill-amber"}`,
+      `Above-Fold Hook: ${checks.fold_used}/${checks.fold_cap} chars ✓`
+    )
+  );
+  chipsRow.appendChild(
+    mkEl(
+      "span",
+      "pill-badge pill-emerald",
+      `Container: ${media.container_format} • ${media.aspect_ratio}`
+    )
+  );
+  chipsRow.appendChild(
+    mkEl(
+      "span",
+      "pill-badge pill-emerald",
+      `Link Rule: ${pkg.link_strategy}`
+    )
+  );
+  if (pkg.mode_auto_adapted) {
+    chipsRow.appendChild(
+      mkEl(
+        "span",
+        "pill-badge pill-amber",
+        `Auto-Adapted: ${pkg.requested_mode} → ${pkg.effective_mode}`
+      )
+    );
+  }
+  stage.appendChild(chipsRow);
+
+  const grid = mkEl("div", "top5-platform-preview-grid");
+
+  // Left: Media Container Preview
+  const mediaCol = mkEl("div", "top5-media-stage");
+  const mediaHdr = mkEl(
+    "div",
+    "",
+    `Media Deliverable • ${media.container_format} ${media.aspect_ratio}`
+  );
+  mediaHdr.style.cssText = "font-size:11.5px;font-weight:800;color:#0f172a;margin-bottom:8px;";
+  mediaCol.appendChild(mediaHdr);
+
+  if (media.container_format === "MP4" && media.primary_asset_url) {
+    const vid = document.createElement("video");
+    vid.controls = true;
+    vid.muted = true;
+    vid.playsInline = true;
+    vid.preload = "metadata";
+    if (media.poster_url) vid.poster = safeUrl(media.poster_url);
+    vid.src = safeUrl(media.primary_asset_url);
+    vid.style.cssText =
+      "width:100%;max-height:360px;object-fit:contain;border-radius:6px;background:#f8fafc;border:1px solid #cbd5e1;display:block;";
+    mediaCol.appendChild(vid);
+  } else if ((media.slide_urls || []).length > 0) {
+    const heroImg = document.createElement("img");
+    heroImg.src = safeUrl(media.slide_urls[0]);
+    heroImg.alt = `${pkg.platform_name} Slide 1 Preview`;
+    heroImg.style.cssText =
+      "width:100%;max-height:330px;object-fit:contain;border-radius:6px;background:#f8fafc;border:1px solid #cbd5e1;display:block;";
+    mediaCol.appendChild(heroImg);
+
+    const thumbs = mkEl("div", "top5-carousel-thumbs");
+    media.slide_urls.slice(0, 8).forEach((sUrl, sIdx) => {
+      const th = document.createElement("img");
+      th.src = safeUrl(sUrl);
+      th.alt = `Slide ${sIdx + 1}`;
+      th.title = `Preview Slide ${sIdx + 1} of ${media.slide_urls.length}`;
+      th.loading = "lazy";
+      th.addEventListener("click", () => {
+        heroImg.src = safeUrl(sUrl);
+      });
+      thumbs.appendChild(th);
+    });
+    mediaCol.appendChild(thumbs);
+  } else if (media.primary_asset_url) {
+    const img = document.createElement("img");
+    img.src = safeUrl(media.primary_asset_url);
+    img.alt = `${pkg.platform_name} Visual Preview`;
+    img.style.cssText =
+      "width:100%;max-height:320px;object-fit:contain;border-radius:6px;background:#ffffff;border:1px solid #cbd5e1;display:block;";
+    mediaCol.appendChild(img);
+  } else {
+    const txtNote = mkEl(
+      "div",
+      "",
+      "Typography-Only Native Post (Zero Media Attachment — High Dwell Text Mode)"
+    );
+    txtNote.style.cssText =
+      "padding:18px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:6px;font-size:12px;color:#475569;text-align:center;";
+    mediaCol.appendChild(txtNote);
+  }
+
+  const assetLinks = mkEl("div");
+  assetLinks.style.cssText = "display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;";
+  if (media.primary_asset_url) {
+    const openAsset = mkEl("a", "btn-secondary", `Open ${media.container_format} Asset ↗`);
+    openAsset.href = safeUrl(media.primary_asset_url);
+    openAsset.target = "_blank";
+    openAsset.rel = "noopener";
+    assetLinks.appendChild(openAsset);
+  }
+  if (pkg.share_intent_url) {
+    const shareLink = mkEl("a", "btn-secondary", "1-Click Native Share Intent ↗");
+    shareLink.href = safeUrl(pkg.share_intent_url);
+    shareLink.target = "_blank";
+    shareLink.rel = "noopener";
+    assetLinks.appendChild(shareLink);
+  }
+  mediaCol.appendChild(assetLinks);
+  grid.appendChild(mediaCol);
+
+  // Right: Tailored Copy + Comment #1 + Compliance Rule Note
+  const copyCol = mkEl("div", "min-w-0");
+  if (pkg.video_title) {
+    const vt = mkEl("div", "", `Video Title (${pkg.video_title.length}/100): ${pkg.video_title}`);
+    vt.style.cssText = "font-size:12px;font-weight:800;color:#0f172a;margin-bottom:6px;";
+    copyCol.appendChild(vt);
+  }
+
+  const copyHdr = mkEl("div");
+  copyHdr.style.cssText =
+    "display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:6px;";
+  copyHdr.appendChild(
+    mkEl("strong", "", `${pkg.platform_name} Calibrated Copy`)
+  );
+  const copyBtn = mkEl("button", "btn-secondary", "📋 Copy Channel Payload");
+  copyBtn.type = "button";
+  copyBtn.addEventListener("click", () => {
+    const combined = pkg.follow_up_comment
+      ? `${pkg.body}\n\n---\n${pkg.follow_up_comment}`
+      : pkg.body;
+    copyTextSafe(combined, `Copied ${pkg.platform_name} compliant payload!`);
+  });
+  copyHdr.appendChild(copyBtn);
+  copyCol.appendChild(copyHdr);
+
+  const bodyBox = mkEl("div", "top5-copy-full-box", polishUiTypography(pkg.body));
+  bodyBox.setAttribute("data-testid", "top5-platform-copy-box");
+  copyCol.appendChild(bodyBox);
+
+  if (pkg.follow_up_comment) {
+    const c1 = mkEl("div", "", `Chained Comment #1 / Reply #2: ${pkg.follow_up_comment}`);
+    c1.style.cssText =
+      "margin-top:8px;padding:8px 10px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;font-size:11.5px;color:#0c4a6e;word-break:break-word;";
+    copyCol.appendChild(c1);
+  }
+
+  const compBox = mkEl("div", "", `Platform Guardrail: ${pkg.compliance_note}`);
+  compBox.style.cssText =
+    "margin-top:8px;padding:8px 10px;background:#ecfdf5;border:1px solid #6ee7b7;border-radius:6px;font-size:11.5px;color:#065f46;line-height:1.4;";
+  copyCol.appendChild(compBox);
+
+  if ((pkg.missing_env_vars || []).length > 0) {
+    const envNote = mkEl(
+      "div",
+      "",
+      `Auth Mode: Validated Dry-Run Ready (set server env ${pkg.missing_env_vars.join(", ")} for live HTTPS API push)`
+    );
+    envNote.style.cssText =
+      "margin-top:6px;font-size:11px;color:#475569;font-family:ui-monospace,monospace;";
+    copyCol.appendChild(envNote);
+  }
+
+  grid.appendChild(copyCol);
+  stage.appendChild(grid);
+}
+
+function renderPublishingOutbox() {
+  const tbody = document.getElementById("publishing-outbox-tbody");
+  const badge = document.getElementById("outbox-summary-badge");
+  if (!tbody) return;
+  tbody.replaceChildren();
+
+  const ledger = STATE.outboxLedger || { items: [] };
+  const items = ledger.items || [];
+  const pendingCount = ledger.pending_count ?? 0;
+  if (badge) {
+    badge.textContent = `${pendingCount} Pending Approval • ${ledger.dispatched_count ?? 0} Validated/Dispatched (${items.length} Total)`;
+  }
+  const approveAllBtn = document.getElementById("approve-all-outbox-btn");
+  if (approveAllBtn) {
+    approveAllBtn.textContent =
+      pendingCount > 0
+        ? `✅ Approve & Dispatch Pending (${pendingCount})`
+        : `🔄 Re-Verify Validated Queue (${items.length})`;
+  }
+
+  if (!items.length) {
+    const tr = document.createElement("tr");
+    const td = mkEl("td", "", "No packages staged yet — select channels above and click 'Stage Selected Channels to Outbox'.");
+    td.colSpan = 6;
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    return;
+  }
+
+  items.slice(0, 20).forEach((item) => {
+    const tr = document.createElement("tr");
+    tr.setAttribute("data-testid", `outbox-row-${item.outbox_id}`);
+    const pkg = item.package || {};
+    const checks = pkg.compliance_checks || {};
+    const media = pkg.media || {};
+
+    // Col 1: Outbox ID & Channel
+    const td1 = document.createElement("td");
+    const c1 = mkEl("div", "cell-card-equal");
+    const idStrong = mkEl("strong", "", item.outbox_id);
+    idStrong.style.cssText = "font-size:11.5px;color:#174ea6;font-family:ui-monospace,monospace;";
+    c1.appendChild(idStrong);
+    c1.appendChild(mkEl("span", "", item.platform_name || item.platform_id));
+    td1.appendChild(c1);
+    tr.appendChild(td1);
+
+    // Col 2: Idea & Blueprint
+    const td2 = document.createElement("td");
+    const c2 = mkEl("div", "cell-card-equal");
+    const tStrong = mkEl("strong", "", polishUiTypography(item.idea_title || item.idea_id));
+    tStrong.style.fontSize = "12px";
+    const bpSpan = mkEl(
+      "span",
+      "",
+      `Blueprint ${item.template_id} (${item.template_name || ""})`
+    );
+    bpSpan.style.cssText = "font-size:11px;color:#475569;";
+    c2.appendChild(tStrong);
+    c2.appendChild(bpSpan);
+    td2.appendChild(c2);
+    tr.appendChild(td2);
+
+    // Col 3: Mode & Container
+    const td3 = document.createElement("td");
+    const c3 = mkEl("div", "cell-card-equal");
+    c3.appendChild(mkEl("strong", "", `Mode: ${formatModeDisplayName(item.mode)}`));
+    const mSpan = mkEl("span", "", `${media.container_format || "TEXT"} • ${media.aspect_ratio || ""}`);
+    mSpan.style.cssText = "font-size:11px;color:#0369a1;font-weight:700;";
+    c3.appendChild(mSpan);
+    td3.appendChild(c3);
+    tr.appendChild(td3);
+
+    // Col 4: Compliance Gate
+    const td4 = document.createElement("td");
+    const c4 = mkEl("div", "cell-card-equal");
+    c4.appendChild(
+      mkEl(
+        "span",
+        `pill-badge ${checks.all_passed ? "pill-emerald" : "pill-amber"}`,
+        checks.all_passed ? "100% COMPLIANT ✓" : "CHECK LIMITS"
+      )
+    );
+    const lenSpan = mkEl(
+      "span",
+      "",
+      `${checks.char_used || 0}/${checks.char_cap || 0} chars • Fold ${checks.fold_used || 0}/${checks.fold_cap || 0}`
+    );
+    lenSpan.style.cssText = "font-size:11px;color:#334155;margin-top:4px;";
+    c4.appendChild(lenSpan);
+    td4.appendChild(c4);
+    tr.appendChild(td4);
+
+    // Col 5: Status
+    const td5 = document.createElement("td");
+    const c5 = mkEl("div", "cell-card-equal");
+    const statusClass =
+      item.status === "PUBLISHED_LIVE" || item.status === "DRY_RUN_VALIDATED" || item.status === "SHARE_PACKET_READY"
+        ? "pill-emerald"
+        : "pill-amber";
+    c5.appendChild(mkEl("span", `pill-badge ${statusClass}`, item.status));
+    const tierNote = mkEl("span", "", item.tier_badge || "");
+    tierNote.style.cssText = "font-size:10.5px;color:#64748b;margin-top:4px;";
+    c5.appendChild(tierNote);
+    td5.appendChild(c5);
+    tr.appendChild(td5);
+
+    // Col 6: Actions
+    const td6 = document.createElement("td");
+    const c6 = mkEl("div", "cell-card-equal");
+    const btnWrap = mkEl("div");
+    btnWrap.style.cssText = "display:flex;gap:5px;flex-wrap:wrap;";
+    const appBtn = mkEl(
+      "button",
+      item.status === "PENDING_APPROVAL" ? "btn-primary" : "btn-secondary",
+      item.status === "PENDING_APPROVAL" ? "Approve" : "Re-Verify"
+    );
+    appBtn.type = "button";
+    appBtn.style.cssText = "padding:4px 8px;font-size:11px;";
+    appBtn.setAttribute("data-testid", `approve-outbox-btn-${item.outbox_id}`);
+    appBtn.addEventListener("click", () => approveOutboxItems([item.outbox_id]));
+    btnWrap.appendChild(appBtn);
+
+    const cpBtn = mkEl("button", "btn-secondary", "Copy");
+    cpBtn.type = "button";
+    cpBtn.style.cssText = "padding:4px 8px;font-size:11px;";
+    cpBtn.addEventListener("click", () =>
+      copyTextSafe(pkg.body || "", `Copied ${item.platform_name} Outbox copy!`)
+    );
+    btnWrap.appendChild(cpBtn);
+    c6.appendChild(btnWrap);
+    td6.appendChild(c6);
+    tr.appendChild(td6);
+
+    tbody.appendChild(tr);
+  });
+}
+
 function activateView(target) {
   document
     .querySelectorAll(".global-header .nav-tab-btn")
@@ -883,6 +1735,7 @@ function activateView(target) {
     if (el) el.style.display = vid === target ? "block" : "none";
   });
   if (target === "view-miner") {
+    if (!STATE.top5Briefing) loadDailyTop5Briefing();
     if (!(STATE.dailyPosts || []).length) loadDailyGeneratedPosts();
     refreshLiveFeeds();
   }
@@ -927,6 +1780,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("generate-daily-posts-btn")?.addEventListener("click", () => {
     triggerGenerateDailyPosts();
+  });
+
+  document.getElementById("generate-top5-briefing-btn")?.addEventListener("click", () => {
+    triggerGenerateTop5Briefing();
+  });
+
+  document.getElementById("transcode-active-idea-btn")?.addEventListener("click", () => {
+    triggerTranscodeActiveIdea();
+  });
+
+  document.getElementById("approve-all-outbox-btn")?.addEventListener("click", () => {
+    approveOutboxItems(null);
   });
 
   document.getElementById("refresh-live-feeds-btn").addEventListener("click", () => {

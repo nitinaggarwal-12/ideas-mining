@@ -1,0 +1,30 @@
+{
+  "item_id": "TOP5-20261104-01",
+  "template_id": "T61",
+  "video_url": "/assets/multi-platform/TOP5-20261104-01/vertical_short_9x16.mp4",
+  "poster_url": "/assets/multi-platform/TOP5-20261104-01/vertical_poster_9x16.png",
+  "width": 1080,
+  "height": 1920,
+  "aspect_ratio": "9:16",
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "duration_sec": 42.6,
+  "size_bytes": 4449925,
+  "top_safe_zone_y_min": 236,
+  "content_safe_zone_y": [
+    236,
+    1480
+  ],
+  "caption_safe_zone_y": [
+    1310,
+    1422
+  ],
+  "bottom_ui_clearance_px": 440,
+  "target_platforms": [
+    "youtube_shorts",
+    "instagram_reels",
+    "tiktok",
+    "facebook_reels"
+  ],
+  "gates_passed": true
+}

@@ -21,11 +21,18 @@ cp -R src "$TMP_DIR/src"
 cp -R data "$TMP_DIR/data"
 mkdir -p "$TMP_DIR/scripts"
 cp scripts/generate_daily_posts.py "$TMP_DIR/scripts/generate_daily_posts.py"
+cp scripts/run_daily_editorial_workflow.py "$TMP_DIR/scripts/run_daily_editorial_workflow.py"
 mkdir -p "$TMP_DIR/assets"
 cp -R assets/dynamic-top10 "$TMP_DIR/assets/dynamic-top10"
 cp -R assets/template-gallery "$TMP_DIR/assets/template-gallery"
 if [[ -d assets/daily-posts ]]; then
   cp -R assets/daily-posts "$TMP_DIR/assets/daily-posts"
+fi
+if [[ -d assets/videos ]]; then
+  cp -R assets/videos "$TMP_DIR/assets/videos"
+fi
+if [[ -d assets/multi-platform ]]; then
+  cp -R assets/multi-platform "$TMP_DIR/assets/multi-platform"
 fi
 cp -R generated-repos "$TMP_DIR/generated-repos"
 rm -rf "$TMP_DIR"/generated-repos/*/.git

@@ -168,6 +168,47 @@ class AgenticIdeaMiner:
                     "blueprint": existing,
                 }
 
+        for reviewed in self.playbook.get("reviewed_posts", []):
+            if reviewed.get("availability") != "PUBLIC_VERIFIED":
+                continue
+            if reviewed["activity_id"] in clean_url or reviewed["post_url"].rstrip("/") == clean_url.rstrip("/"):
+                slug_part = re.sub(r"[^a-z0-9]+", "-", reviewed["author_name"].lower()).strip("-")[:20]
+                repo_slug = f"radar-{reviewed['post_code'].lower()}-{slug_part}"
+                return {
+                    "status": "MATCHED_REVIEWED_CREATOR_POST",
+                    "matched_post_id": reviewed["post_code"],
+                    "repo_slug": repo_slug,
+                    "template_id": reviewed["matched_template_id"],
+                    "blueprint": {
+                        "id": reviewed["post_code"],
+                        "repo_slug": repo_slug,
+                        "repo_name": f"gcp-adk-{slug_part}-{reviewed['activity_id'][-4:]}",
+                        "activity_urn": reviewed["activity_urn"],
+                        "linkedin_url": reviewed["post_url"],
+                        "author_name": reviewed["author_name"],
+                        "author_linkedin": reviewed["author_profile_url"],
+                        "post_title": reviewed["hook_line_1"],
+                        "original_hook": reviewed["hook_line_1"],
+                        "primary_source": {
+                            "title": f"{reviewed['author_name']} — {reviewed['presentation_archetype_label']}",
+                            "type": "Audited LinkedIn Creator Signal",
+                            "url": reviewed["post_url"],
+                            "verified_claims": [
+                                reviewed["content_structure"],
+                                f"Verified engagement: {reviewed['reactions']} reactions, {reviewed['comments']} comments ({reviewed['discussion_ratio_pct']}% discussion ratio).",
+                                f"Paired with canonical blueprint {reviewed['matched_template_id']} ({reviewed['presentation_archetype_code']}).",
+                            ],
+                        },
+                        "diagram_archetype": f"{reviewed['presentation_archetype_code']}: {reviewed['presentation_archetype_label']}",
+                        "gcp_stack": [
+                            "Google Cloud ADK",
+                            "Vertex AI Gemini 4 Argon (locations/global, thinkingLevel=HIGH)",
+                            "Cloud Run v2 Service",
+                            "Google Cloud Model Armor",
+                        ],
+                    },
+                }
+
         digest = hashlib.sha256(clean_url.encode("utf-8")).hexdigest()[:8]
         title = custom_title.strip() or f"Enterprise Agentic Architecture ({digest})"
         slug_base = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")[:36]

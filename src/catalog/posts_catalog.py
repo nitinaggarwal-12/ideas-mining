@@ -347,6 +347,37 @@ CREATOR_MINING_PLAYBOOK: Dict[str, Any] = {
     },
 }
 
+from src.catalog.omnichannel_creator_radar import (  # noqa: E402
+    AUDIT_SUMMARY_STATS,
+    OMNICHANNEL_PLATFORM_PLAYBOOKS,
+    OMNICHANNEL_REPURPOSING_MATRIX,
+    PRESENTATION_ARCHETYPES_12,
+    REVIEWED_LINKEDIN_POSTS,
+    SIGNAL_CHANNELS_6,
+    UNIFIED_CREATOR_PROFILES,
+    X_ECOSYSTEM_LEADERS,
+)
+
+CREATOR_MINING_PLAYBOOK.update(
+    {
+        "executive_summary": (
+            "Holistic intelligence across 39 verified AI & Systems creators, 33 audited LinkedIn posts "
+            "(31 public harvested + 2 visibility-restricted URNs transparently disclosed, totaling 18,344 reactions "
+            "and 2,536 comments), 12 empirical visual presentation archetypes, and 10 omnichannel distribution "
+            "playbooks spanning X (Twitter Heavy Ranker + 15 AI builders), LinkedIn, YouTube, Substack, GitHub, "
+            "Reddit, Hacker News, Instagram, TikTok, Bluesky, and Telegram."
+        ),
+        "audit_summary_stats": AUDIT_SUMMARY_STATS,
+        "signal_channels": SIGNAL_CHANNELS_6,
+        "presentation_archetypes_12": PRESENTATION_ARCHETYPES_12,
+        "reviewed_posts": REVIEWED_LINKEDIN_POSTS,
+        "creator_profiles": UNIFIED_CREATOR_PROFILES,
+        "omnichannel_platforms": OMNICHANNEL_PLATFORM_PLAYBOOKS,
+        "x_ecosystem_leaders": X_ECOSYSTEM_LEADERS,
+        "repurposing_matrix": OMNICHANNEL_REPURPOSING_MATRIX,
+    }
+)
+
 
 POSTS_CATALOG: List[Dict[str, Any]] = [
     {

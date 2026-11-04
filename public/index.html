@@ -25,8 +25,8 @@
       --studio-ink-muted: #475569;
       --studio-border: #e2e8f0;
       --studio-border-strong: #cbd5e1;
-      --studio-accent: #1d4ed8;
-      --studio-accent-hover: #1e40af;
+      --studio-accent: #1e40af;
+      --studio-accent-hover: #1e3a8a;
       --studio-accent-soft: #eff6ff;
       --studio-emerald: #065f46;
       --studio-emerald-bg: #ecfdf5;
@@ -98,7 +98,7 @@
         </button>
         <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-view="view-playbook" id="tab-btn-playbook">
           <span>Creator Radar</span>
-          <span class="tab-count tabular-nums">16</span>
+          <span class="tab-count tabular-nums" id="nav-playbook-count">39</span>
         </button>
         <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-view="view-openhands" id="tab-btn-openhands">
           <span>Sandbox</span>
@@ -569,40 +569,229 @@
       </div>
     </section>
 
-    <!-- VIEW 3: CREATOR RADAR & HOOK INTELLIGENCE -->
+    <!-- VIEW 3: HOLISTIC CREATOR RADAR, 33-POST AUDIT & 10-PLATFORM OMNICHANNEL PLAYBOOK -->
     <section id="view-playbook" style="display: none;">
       <div class="workspace-masthead">
         <div class="masthead-copy">
           <div class="masthead-eyebrow-row">
-            <span class="eyebrow-label" id="creator-profiles-count-badge">16 Verified Creator Profiles</span>
+            <span class="eyebrow-label" id="creator-profiles-count-badge">39 Verified Creators · 33 Audited Posts</span>
             <span class="eyebrow-divider" aria-hidden="true">·</span>
-            <span class="eyebrow-muted">Paired with Canonical Templates T69–T84</span>
+            <span class="eyebrow-muted">LinkedIn · X (Twitter) · YouTube · Substack · GitHub · Reddit · HN · IG · TikTok · Bluesky</span>
           </div>
-          <h1 class="workspace-title">Creator Radar &amp; Hook Playbook</h1>
+          <h1 class="workspace-title">Creator Radar &amp; Omnichannel Social Playbook</h1>
           <p class="workspace-subtitle" id="playbook-summary-text"></p>
         </div>
+
+        <div class="subview-tabs playbook-subtabs" role="tablist" aria-label="Creator Radar Sections" data-testid="playbook-subtabs">
+          <button type="button" role="tab" aria-selected="true" class="subview-tab-btn active" data-playbook-panel="playbook-panel-posts" id="playbook-subtab-btn-posts">
+            <span>Reviewed Posts</span>
+            <span class="subview-count tabular-nums" id="playbook-posts-count-pill">33</span>
+          </button>
+          <button type="button" role="tab" aria-selected="false" class="subview-tab-btn" data-playbook-panel="playbook-panel-creators" id="playbook-subtab-btn-creators">
+            <span>Creators</span>
+            <span class="subview-count tabular-nums" id="playbook-creators-count-pill">39</span>
+          </button>
+          <button type="button" role="tab" aria-selected="false" class="subview-tab-btn" data-playbook-panel="playbook-panel-platforms" id="playbook-subtab-btn-platforms">
+            <span>Omnichannel &amp; X</span>
+            <span class="subview-count tabular-nums">10</span>
+          </button>
+          <button type="button" role="tab" aria-selected="false" class="subview-tab-btn" data-playbook-panel="playbook-panel-archetypes" id="playbook-subtab-btn-archetypes">
+            <span>Formats &amp; Signals</span>
+            <span class="subview-count tabular-nums">12</span>
+          </button>
+        </div>
       </div>
 
-      <div class="studio-surface" id="creator-profiles-section" style="margin-bottom: 24px;">
-        <div class="section-header-row" style="margin-bottom: 14px;">
-          <div>
-            <h2 class="section-heading">16 Agentic AI &amp; Systems Creators</h2>
-            <p class="section-description">
-              Inspect signature hooks, engagement benchmarks, and route any creator's visual style directly into the Daily Studio batch engine.
-            </p>
+      <div class="executive-kpi-strip playbook-kpi-strip" id="playbook-kpi-strip" data-testid="playbook-kpi-strip">
+        <div class="exec-kpi-card">
+          <span class="exec-kpi-label">Audited Post Corpus</span>
+          <strong class="exec-kpi-value tabular-nums" id="pb-kpi-posts">31 Public · 2 Restricted</strong>
+          <span class="exec-kpi-sub">Every public visual &amp; verbatim hook verified</span>
+        </div>
+        <div class="exec-kpi-card">
+          <span class="exec-kpi-label">Verified Engagement</span>
+          <strong class="exec-kpi-value tabular-nums" id="pb-kpi-engagement">18,344 Reactions · 2,536 Comments</strong>
+          <span class="exec-kpi-sub">13.8% weighted comment-to-reaction ratio</span>
+        </div>
+        <div class="exec-kpi-card">
+          <span class="exec-kpi-label">Unified Creator Graph</span>
+          <strong class="exec-kpi-value tabular-nums" id="pb-kpi-creators">39 Creator Portfolios</strong>
+          <span class="exec-kpi-sub">Cross-mapped to X, Substack, GitHub &amp; YouTube</span>
+        </div>
+        <div class="exec-kpi-card">
+          <span class="exec-kpi-label">Omnichannel Playbooks</span>
+          <strong class="exec-kpi-value tabular-nums">10 Platforms + 15 X Voices</strong>
+          <span class="exec-kpi-sub">X Heavy Ranker · Reply #2 · 4:5 &amp; 9:16 Safe Zones</span>
+        </div>
+      </div>
+
+      <!-- SUB-PANEL 1: 33 REVIEWED LINKEDIN POSTS -->
+      <div id="playbook-panel-posts" class="playbook-subpanel">
+        <div class="studio-surface" style="margin-bottom: 20px;">
+          <div class="section-header-row" style="margin-bottom: 12px;">
+            <div class="min-w-0">
+              <h2 class="section-heading">33 Audited Posts — Content, Visual Presentation &amp; Hook Teardown</h2>
+              <p class="section-description">
+                Click any artwork to zoom @2x, inspect the full verbatim copy &amp; structural teardown in the drawer, or remix its blueprint directly in Daily Studio.
+              </p>
+            </div>
+          </div>
+          <div class="studio-toolbar">
+            <input
+              type="search"
+              id="posts-audit-search-input"
+              class="input-light"
+              style="flex: 2; min-width: 220px;"
+              placeholder="Search 33 posts by hook, author (Farza, Sumanth, Posta, Xu, Saboo...), topic, or URN..."
+              aria-label="Search 33 reviewed LinkedIn posts"
+            />
+            <select id="posts-audit-filter-pres" class="select-light" aria-label="Filter by visual presentation archetype">
+              <option value="ALL">All 12 Presentation Formats + Restricted</option>
+              <option value="PRES-01">PRES-01 · Demo vs Production Split</option>
+              <option value="PRES-02">PRES-02 · Dark Ontology / Leaderboard</option>
+              <option value="PRES-03">PRES-03 · Cloud Swimlane &amp; Gateway Bento</option>
+              <option value="PRES-04">PRES-04 · Numbered Card Grid &amp; Matrix</option>
+              <option value="PRES-05">PRES-05 · Dark Neon Identity Trace</option>
+              <option value="PRES-06">PRES-06 · Raw GitHub / arXiv Proof Crop</option>
+              <option value="PRES-07">PRES-07 · Excalidraw / Hand-Drawn HLD</option>
+              <option value="PRES-08">PRES-08 · Spec Sheet + Brain/Router Analogy</option>
+              <option value="PRES-09">PRES-09 · Concentric Hub &amp; Mind-Map</option>
+              <option value="PRES-10">PRES-10 · LaTeX Math Derivation</option>
+              <option value="PRES-11">PRES-11 · A-vs-B Showdown &amp; Flowchart</option>
+              <option value="PRES-12">PRES-12 · Live Video, Skill-Tree &amp; Eval</option>
+              <option value="RESTRICTED">Disclosed Restricted / Removed URNs (2)</option>
+            </select>
+            <select id="posts-audit-filter-author" class="select-light" aria-label="Filter reviewed posts by author">
+              <option value="ALL">All 27 Batch Authors</option>
+            </select>
+            <select id="posts-audit-sort-select" class="select-light" aria-label="Sort reviewed posts">
+              <option value="INDEX">Curated Order (#01 → #33)</option>
+              <option value="REACTIONS">Most Reactions (5,252 → 0)</option>
+              <option value="DISCUSSION">Highest Discussion % (80.7% → 0%)</option>
+              <option value="COMMENTS">Most Comments (286 → 0)</option>
+            </select>
           </div>
         </div>
-        <div class="creator-profiles-grid" id="creator-profiles-grid"></div>
+        <div class="reviewed-posts-grid" id="reviewed-posts-grid" data-testid="reviewed-posts-grid"></div>
       </div>
 
-      <div class="studio-surface" style="margin-bottom: 24px;">
-        <h2 class="section-heading" style="margin-bottom: 14px;">4 High-Signal Discovery Channels</h2>
-        <div class="repos-grid" id="signal-channels-grid"></div>
+      <!-- SUB-PANEL 2: 39 UNIFIED CREATOR PROFILES & MULTI-POST PORTFOLIOS -->
+      <div id="playbook-panel-creators" class="playbook-subpanel" style="display: none;">
+        <div class="studio-surface" id="creator-profiles-section" style="margin-bottom: 20px;">
+          <div class="section-header-row" style="margin-bottom: 12px;">
+            <div class="min-w-0">
+              <h2 class="section-heading">39 Agentic AI, Cloud &amp; Systems Creator Portfolios</h2>
+              <p class="section-description">
+                Unified graph combining all 27 authors from the 33-post audit with 12 additional foundational creators (39 unique voices) — complete with verified X, Substack, GitHub, YouTube, and Instagram handles plus full post/repo portfolios.
+              </p>
+            </div>
+          </div>
+          <div class="studio-toolbar" style="margin-bottom: 16px;">
+            <input
+              type="search"
+              id="creator-search-input"
+              class="input-light"
+              style="flex: 2; min-width: 220px;"
+              placeholder="Search 39 creators by name, company, handle (@alexxubyte, @Saboo_Shubham_, @ceposta...), or domain..."
+              aria-label="Search 39 creator portfolios"
+            />
+            <select id="creator-platform-filter" class="select-light" aria-label="Filter creators by platform presence">
+              <option value="ALL">All 39 Verified Creators</option>
+              <option value="AUDIT_33">Audited in 33-Post Batch (27 Creators)</option>
+              <option value="HAS_X">Active on X / Twitter</option>
+              <option value="HAS_SUBSTACK">Publishes Substack / Engineering Blog</option>
+              <option value="HAS_GITHUB">Maintains Open-Source GitHub Repos</option>
+              <option value="HAS_VIDEO">Active on YouTube / Instagram / TikTok</option>
+            </select>
+          </div>
+          <div class="creator-profiles-grid" id="creator-profiles-grid"></div>
+        </div>
       </div>
 
-      <div class="studio-surface">
-        <h2 class="section-heading" style="margin-bottom: 14px;">4 Viral Technical Diagram Archetypes</h2>
-        <div class="repos-grid" id="archetypes-grid"></div>
+      <!-- SUB-PANEL 3: 10-PLATFORM OMNICHANNEL PLAYBOOKS + X (TWITTER) DEEP DIVE -->
+      <div id="playbook-panel-platforms" class="playbook-subpanel" style="display: none;">
+        <div class="studio-surface" style="margin-bottom: 20px;">
+          <div class="section-header-row" style="margin-bottom: 12px;">
+            <div class="min-w-0">
+              <h2 class="section-heading">10-Platform Omnichannel Algorithm &amp; Format Playbooks</h2>
+              <p class="section-description">
+                Select any social or developer channel to inspect ranking multipliers, ideal aspect ratios, outbound link rules, and fatal anti-patterns.
+              </p>
+            </div>
+          </div>
+          <div class="top5-pill-row" id="omnichannel-platform-pills" role="tablist" aria-label="Social Platform Playbooks" style="margin-bottom: 16px;"></div>
+          <div id="omnichannel-active-platform-stage" data-testid="omnichannel-active-platform-stage"></div>
+        </div>
+
+        <div class="studio-surface" style="margin-bottom: 20px;">
+          <div class="section-header-row" style="margin-bottom: 12px;">
+            <div class="min-w-0">
+              <h2 class="section-heading">X (Twitter) Ecosystem Radar — 15 High-Signal AI Builders &amp; Researchers</h2>
+              <p class="section-description">
+                How top technical voices on X engineer high-bookmark diagrams, zero-intro demos, and Reply #2 repo handoffs for the Heavy Ranker.
+              </p>
+            </div>
+          </div>
+          <div class="table-scroll-shell">
+            <table class="table-fixed gp-blue-grid-table">
+              <thead>
+                <tr>
+                  <th style="width: 21%;">Builder &amp; Verified Handle</th>
+                  <th style="width: 23%;">Role &amp; Affiliation</th>
+                  <th style="width: 28%;">Core Technical Focus</th>
+                  <th style="width: 28%;">Signature X Format</th>
+                </tr>
+              </thead>
+              <tbody id="x-leaders-tbody" data-testid="x-leaders-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="studio-surface">
+          <div class="section-header-row" style="margin-bottom: 12px;">
+            <div class="min-w-0">
+              <h2 class="section-heading">1 Technical Idea → 10 Native Platform Assets (Repurposing Flywheel)</h2>
+              <p class="section-description">
+                Never cross-post identical raw links across channels. Adapt one grounded engineering artifact into native per-platform containers.
+              </p>
+            </div>
+          </div>
+          <div class="table-scroll-shell">
+            <table class="table-fixed gp-blue-grid-table">
+              <thead>
+                <tr>
+                  <th style="width: 8%;">Step</th>
+                  <th style="width: 22%;">Native Asset Container</th>
+                  <th style="width: 22%;">Target Channels</th>
+                  <th style="width: 26%;">Format &amp; Link Spec</th>
+                  <th style="width: 22%;">Strategic Outcome</th>
+                </tr>
+              </thead>
+              <tbody id="repurposing-matrix-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-PANEL 4: 12 VISUAL PRESENTATION ARCHETYPES & 6 SIGNAL CHANNELS -->
+      <div id="playbook-panel-archetypes" class="playbook-subpanel" style="display: none;">
+        <div class="studio-surface" style="margin-bottom: 20px;">
+          <h2 class="section-heading" style="margin-bottom: 6px;">12 Empirical Visual Presentation Archetypes (PRES-01 .. PRES-12)</h2>
+          <p class="section-description" style="margin-bottom: 14px;">
+            Distilled from pixel-by-pixel inspection of all 31 public visuals in the audited cohort, mapped directly to certified Studio blueprints.
+          </p>
+          <div class="repos-grid" id="presentation-archetypes-12-grid"></div>
+        </div>
+
+        <div class="studio-surface" style="margin-bottom: 20px;">
+          <h2 class="section-heading" style="margin-bottom: 14px;">6 High-Signal Omnichannel Discovery Funnels (CH-01 .. CH-06)</h2>
+          <div class="repos-grid" id="signal-channels-grid"></div>
+        </div>
+
+        <div class="studio-surface">
+          <h2 class="section-heading" style="margin-bottom: 14px;">4 Foundational 2D Diagram Topologies (ARCH-2D-01 .. ARCH-2D-04)</h2>
+          <div class="repos-grid" id="archetypes-grid"></div>
+        </div>
       </div>
     </section>
 
@@ -788,6 +977,9 @@
     </section>
   </main>
 
+  <!-- Shared Backdrop Scrim for Slide-Over Drawers -->
+  <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true" data-testid="drawer-backdrop"></div>
+
   <!-- Right-Side Docked Deliverable Inspector Drawer -->
   <aside class="right-drawer" id="repo-inspector-drawer" aria-label="Repository Deliverable Inspector">
     <div class="drawer-header">
@@ -811,6 +1003,18 @@
       <div id="dtab-terraform" style="display: none;"></div>
       <div id="dtab-linkedin" style="display: none;"></div>
     </div>
+  </aside>
+
+  <!-- Right-Side Creator Portfolio & Post Anatomy Drawer -->
+  <aside class="right-drawer" id="creator-radar-drawer" role="dialog" aria-modal="false" aria-label="Post Anatomy &amp; Creator Portfolio Inspector" data-testid="creator-radar-drawer">
+    <div class="drawer-header">
+      <div class="min-w-0">
+        <div id="radar-drawer-badge" class="eyebrow-label">POST ANATOMY</div>
+        <h2 id="radar-drawer-title" class="drawer-title">Creator Radar Inspector</h2>
+      </div>
+      <button type="button" class="btn-secondary" id="close-radar-drawer-btn" data-testid="close-radar-drawer-btn">Close ✕</button>
+    </div>
+    <div class="drawer-body" id="radar-drawer-body"></div>
   </aside>
 
   <!-- Instant Command Palette Modal (⌘K / Ctrl+K) -->

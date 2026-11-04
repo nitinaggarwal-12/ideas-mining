@@ -345,7 +345,32 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                     "minting_topics_count": len(CAREER_MINTING_TOPICS),
                     "flagship_24slide_deck_id": FLAGSHIP_MINT01_24SLIDE_DECK_ID,
                     "creator_profiles_count": len(CREATOR_MINING_PLAYBOOK.get("creator_profiles", [])),
+                    "reviewed_posts_count": len(CREATOR_MINING_PLAYBOOK.get("reviewed_posts", [])),
+                    "public_reviewed_posts_count": sum(
+                        1
+                        for p in CREATOR_MINING_PLAYBOOK.get("reviewed_posts", [])
+                        if p.get("availability") == "PUBLIC_VERIFIED"
+                    ),
+                    "omnichannel_platforms_count": len(CREATOR_MINING_PLAYBOOK.get("omnichannel_platforms", [])),
                     "mined_template_posts_count": len(MINED_TEMPLATE_POSTS_CATALOG),
+                },
+            )
+            return
+        if path == "/api/creator-radar":
+            self._send_json(
+                200,
+                {
+                    "status": "ok",
+                    "audit_summary_stats": CREATOR_MINING_PLAYBOOK.get("audit_summary_stats", {}),
+                    "executive_summary": CREATOR_MINING_PLAYBOOK.get("executive_summary", ""),
+                    "reviewed_posts": CREATOR_MINING_PLAYBOOK.get("reviewed_posts", []),
+                    "creator_profiles": CREATOR_MINING_PLAYBOOK.get("creator_profiles", []),
+                    "omnichannel_platforms": CREATOR_MINING_PLAYBOOK.get("omnichannel_platforms", []),
+                    "x_ecosystem_leaders": CREATOR_MINING_PLAYBOOK.get("x_ecosystem_leaders", []),
+                    "repurposing_matrix": CREATOR_MINING_PLAYBOOK.get("repurposing_matrix", []),
+                    "presentation_archetypes_12": CREATOR_MINING_PLAYBOOK.get("presentation_archetypes_12", []),
+                    "signal_channels": CREATOR_MINING_PLAYBOOK.get("signal_channels", []),
+                    "diagram_archetypes_2d": CREATOR_MINING_PLAYBOOK.get("diagram_archetypes_2d", []),
                 },
             )
             return

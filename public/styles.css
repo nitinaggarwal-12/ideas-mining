@@ -62,14 +62,21 @@ body {
 }
 
 /* Rule 26 Inline Truncate Safety */
-span.truncate,
-.truncate {
+span.truncate {
   display: inline-block;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   vertical-align: bottom;
+}
+
+.truncate {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Subtle 3px Top Brand Accent Hairline */
@@ -753,8 +760,8 @@ body[data-repo-layout="matrix"] #repos-matrix-section {
   min-height: 36px;
   padding: 7px 14px;
   border-radius: 9px;
-  border: 1px solid #1d4ed8;
-  background: #1d4ed8;
+  border: 1px solid #1e40af;
+  background: #1e40af;
   color: #ffffff;
   font-family: inherit;
   font-size: 12.5px;
@@ -766,8 +773,8 @@ body[data-repo-layout="matrix"] #repos-matrix-section {
 }
 
 .btn-primary:hover {
-  background: #1e40af;
-  border-color: #1e40af;
+  background: #1e3a8a;
+  border-color: #1e3a8a;
 }
 
 .btn-primary:disabled {
@@ -1997,9 +2004,27 @@ table.table-fixed tbody td,
   gap: 4px;
 }
 
+.cell-card-equal .eyebrow-link {
+  align-self: flex-start;
+  width: fit-content;
+}
+
 /* ==========================================================================
    9. Right-Side Inspector Drawer, ⌘K Command Palette & Lightbox Modals
    ========================================================================== */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.34);
+  backdrop-filter: blur(1.5px);
+  z-index: 115;
+  display: none;
+}
+
+.drawer-backdrop.open {
+  display: block;
+}
+
 .right-drawer {
   position: fixed;
   top: 0;
@@ -2324,6 +2349,9 @@ pre.code-block-light {
     width: 100%;
     overflow: visible;
   }
+  .subview-tabs.playbook-subtabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .subview-tab-btn {
     width: 100%;
     justify-content: center;
@@ -2355,6 +2383,8 @@ pre.code-block-light {
     border-radius: 12px;
   }
   .repos-grid,
+  .reviewed-posts-grid,
+  .platform-playbook-grid,
   .creator-profiles-grid,
   .daily-posts-grid,
   .miner-feeds-grid {
@@ -2374,5 +2404,323 @@ pre.code-block-light {
   .right-drawer {
     width: 100vw;
     height: 100dvh;
+  }
+}
+
+
+/* ==========================================================================
+   11. Holistic Creator Radar, 33-Post Audit & 10-Platform Omnichannel Hub
+   ========================================================================== */
+.playbook-kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.reviewed-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 16px;
+}
+
+.reviewed-post-card {
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+  border-radius: 14px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: var(--studio-shadow-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  min-width: 0;
+}
+
+.reviewed-post-card:hover {
+  border-color: #93c5fd;
+  box-shadow: var(--studio-shadow-md);
+}
+
+.reviewed-post-card.restricted-card {
+  background: #f8fafc;
+  border-style: dashed;
+  border-color: #cbd5e1;
+}
+
+.post-visual-frame {
+  width: 100%;
+  height: 224px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  cursor: zoom-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-visual-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #ffffff;
+}
+
+.post-visual-zoom-pill {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 10.5px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.14s ease;
+}
+
+.post-visual-frame:hover .post-visual-zoom-pill,
+.post-visual-frame:focus-within .post-visual-zoom-pill {
+  opacity: 1;
+}
+
+.post-card-takeaway-strip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #1e40af;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 11.5px;
+  color: #334155;
+  line-height: 1.42;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.drawer-post-hero-grid {
+  display: grid;
+  grid-template-columns: 295px minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  margin-bottom: 14px;
+}
+
+.drawer-post-visual-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.drawer-post-visual-card img {
+  width: 100%;
+  max-height: 290px;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: zoom-in;
+}
+
+.drawer-blueprint-map-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+
+.drawer-blueprint-map-card img {
+  width: 78px;
+  height: 54px;
+  object-fit: contain;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.mentor-critic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.mentor-card {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 10px;
+  padding: 11px 13px;
+}
+
+.critic-card {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 10px;
+  padding: 11px 13px;
+}
+
+.post-author-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  min-width: 0;
+}
+
+.post-author-btn:hover h3 {
+  color: #1d4ed8 !important;
+}
+
+.post-hook-headline {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-structure-summary {
+  font-size: 12px;
+  color: #334155;
+  line-height: 1.48;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.social-handle-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 8px 0;
+}
+
+.social-chip-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #1e293b;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.social-chip-link:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1e40af;
+}
+
+.portfolio-mini-list {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.portfolio-mini-item {
+  font-size: 11.5px;
+  color: #334155;
+  line-height: 1.38;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.platform-playbook-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.platform-spec-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  min-width: 0;
+}
+
+.platform-spec-label {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+.platform-spec-text {
+  font-size: 12.5px;
+  color: #0f172a;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+@media (max-width: 1240px) {
+  .playbook-kpi-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .playbook-kpi-strip,
+  .drawer-post-hero-grid,
+  .mentor-critic-grid {
+    grid-template-columns: 1fr;
+  }
+  .masthead-eyebrow-row .eyebrow-divider {
+    display: none;
+  }
+  .header-utility-bar {
+    flex-wrap: nowrap;
+    gap: 5px;
+  }
+  .cmdk-trigger-btn span,
+  .status-trigger-btn span:not(.status-live-dot) {
+    display: none;
+  }
+  .cmdk-trigger-btn,
+  .status-trigger-btn {
+    padding: 0 9px;
+    min-width: 34px;
+    justify-content: center;
   }
 }

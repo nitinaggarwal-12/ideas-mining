@@ -527,20 +527,121 @@ try {
   await new Promise((r) => setTimeout(r, 250));
   await page.screenshot({ path: path.join(PROOF_DIR, 'after_view6_minting_studio.png') });
 
-  // 5. Test View 3: Creator Radar & View 5: Sandbox
+  // 5. Test View 3: Holistic Creator Radar (33 Posts, 39 Creators, 10 Omnichannel Playbooks & Drawers)
   await page.click('#tab-btn-playbook');
+  await new Promise((r) => setTimeout(r, 350));
+
+  // Force eager decode of all 31 post thumbnails so naturalWidth is verified deterministically
+  await page.evaluate(async () => {
+    const imgs = Array.from(document.querySelectorAll('#reviewed-posts-grid img'));
+    imgs.forEach((im) => {
+      im.loading = 'eager';
+    });
+    await Promise.all(
+      imgs.map(
+        (im) =>
+          im.complete
+            ? Promise.resolve()
+            : new Promise((res) => {
+                im.onload = res;
+                im.onerror = res;
+              })
+      )
+    );
+  });
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await new Promise((r) => setTimeout(r, 200));
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view3_playbook_posts.png') });
+
+  // Open Post Anatomy Drawer (#01 Prashant Rathi) & verify above-the-fold Mentor+Critic, 3-line hook, takeaways, blueprint & backdrop scrim
+  await page.click('[data-testid="inspect-post-anatomy-1"]');
   await new Promise((r) => setTimeout(r, 250));
+  const postDrawerCheck = await page.evaluate(() => {
+    const backdropOpen = document.getElementById('drawer-backdrop')?.classList.contains('open') === true;
+    const mentorCards = Array.from(document.querySelectorAll('#radar-drawer-body .mentor-card, #radar-drawer-body .critic-card'));
+    const mentorTop = mentorCards[0] ? Math.round(mentorCards[0].getBoundingClientRect().top) : 9999;
+    const blueprintThumb = Boolean(document.querySelector('#radar-drawer-body .drawer-blueprint-map-card img'));
+    const takeawayItems = document.querySelectorAll('#radar-drawer-body ul li').length;
+    const hasPortfolio = document.getElementById('radar-drawer-body')?.textContent?.includes('Cross-Platform Portfolio') === true;
+    // Also verify post-card author name & headline stack vertically (zero inline smash)
+    const firstCard = document.querySelector('#reviewed-posts-grid .reviewed-post-card');
+    const nameEl = firstCard?.querySelector('.post-author-btn h3');
+    const subEl = firstCard?.querySelector('.post-author-btn div.truncate');
+    const stackedMeta = nameEl && subEl ? subEl.getBoundingClientRect().top >= nameEl.getBoundingClientRect().bottom - 2 : false;
+    return { backdropOpen, mentorCount: mentorCards.length, mentorTop, blueprintThumb, takeawayItems, hasPortfolio, stackedMeta };
+  });
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view3_playbook_post_drawer.png') });
+  await page.click('#close-radar-drawer-btn');
+  await new Promise((r) => setTimeout(r, 150));
+
+  // Sub-Tab 2: 39 Creator Portfolios + Creator Portfolio Drawer
+  await page.click('#playbook-subtab-btn-creators');
+  await new Promise((r) => setTimeout(r, 250));
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view3_playbook_creators.png') });
+  await page.click('[data-testid="open-creator-portfolio-0"]');
+  await new Promise((r) => setTimeout(r, 250));
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view3_playbook_creator_drawer.png') });
+  await page.click('#close-radar-drawer-btn');
+  await new Promise((r) => setTimeout(r, 150));
+
+  // Sub-Tab 3: 10 Omnichannel Playbooks + X (Twitter) Heavy Ranker & 15 X Leaders
+  await page.click('#playbook-subtab-btn-platforms');
+  await new Promise((r) => setTimeout(r, 250));
+  const platformRowCheck = await page.evaluate(() => {
+    const btns = Array.from(document.querySelectorAll('#omnichannel-platform-pills button'));
+    const tops = new Set(btns.map((b) => Math.round(b.getBoundingClientRect().top / 6)));
+    const rawArrows = document.getElementById('omnichannel-active-platform-stage')?.textContent?.includes('->') === true;
+    return { pillRows: tops.size, rawArrows };
+  });
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view3_playbook_omnichannel_x.png') });
+
+  // Sub-Tab 4: 12 Presentation Archetypes + 6 Signal Channels + 4 Topologies
+  await page.click('#playbook-subtab-btn-archetypes');
+  await new Promise((r) => setTimeout(r, 250));
+  await page.screenshot({ path: path.join(PROOF_DIR, 'after_view3_playbook_formats.png') });
+
+  recordAssertion(
+    'Creator Radar Anatomy Drawer (Mentor+Critic Above Fold, 3 Takeaways, Blueprint SVG, Backdrop Scrim, 1-Row Pills)',
+    postDrawerCheck.backdropOpen &&
+      postDrawerCheck.mentorCount === 2 &&
+      postDrawerCheck.mentorTop < 920 &&
+      postDrawerCheck.blueprintThumb &&
+      postDrawerCheck.takeawayItems >= 3 &&
+      postDrawerCheck.hasPortfolio &&
+      postDrawerCheck.stackedMeta &&
+      platformRowCheck.pillRows === 1 &&
+      !platformRowCheck.rawArrows,
+    `backdrop=${postDrawerCheck.backdropOpen}, mentorCards=${postDrawerCheck.mentorCount} (top=${postDrawerCheck.mentorTop}px), takeaways=${postDrawerCheck.takeawayItems}, pillRows=${platformRowCheck.pillRows}, rawArrows=${platformRowCheck.rawArrows}`
+  );
+
   const playbookCheck = await page.evaluate(() => {
+    const postCards = document.querySelectorAll('#reviewed-posts-grid .reviewed-post-card').length;
+    const decodedImgs = Array.from(document.querySelectorAll('#reviewed-posts-grid img')).filter(
+      (im) => im.complete && im.naturalWidth > 100
+    ).length;
     const creators = document.querySelectorAll('#creator-profiles-grid .creator-profile-card').length;
+    const platformPills = document.querySelectorAll('#omnichannel-platform-pills button').length;
+    const xLeaders = document.querySelectorAll('#x-leaders-tbody tr').length;
+    const pres12 = document.querySelectorAll('#presentation-archetypes-12-grid .repo-card').length;
     const channels = document.querySelectorAll('#signal-channels-grid .repo-card').length;
     const archetypes = document.querySelectorAll('#archetypes-grid .repo-card').length;
-    return { creators, channels, archetypes };
+    return { postCards, decodedImgs, creators, platformPills, xLeaders, pres12, channels, archetypes };
   });
   recordAssertion(
-    'Creator Radar View Renders 16 Creator Profiles, 4 Channels & 4 Archetypes',
-    playbookCheck.creators === 16 && playbookCheck.channels === 4 && playbookCheck.archetypes === 4,
-    `creators=${playbookCheck.creators}, channels=${playbookCheck.channels}, archetypes=${playbookCheck.archetypes}`
+    'Creator Radar Renders 33 Posts (31 Decoded Visuals), 39 Creators, 10 Platforms, 15 X Leaders & 12 Formats',
+    playbookCheck.postCards === 33 &&
+      playbookCheck.decodedImgs === 31 &&
+      playbookCheck.creators === 39 &&
+      playbookCheck.platformPills === 10 &&
+      playbookCheck.xLeaders === 15 &&
+      playbookCheck.pres12 === 12 &&
+      playbookCheck.channels === 6 &&
+      playbookCheck.archetypes === 4,
+    `posts=${playbookCheck.postCards} (imgs=${playbookCheck.decodedImgs}/31), creators=${playbookCheck.creators}, platforms=${playbookCheck.platformPills}, xLeaders=${playbookCheck.xLeaders}, pres12=${playbookCheck.pres12}, ch=${playbookCheck.channels}`
   );
+  // Restore default Posts sub-tab on Playbook
+  await page.click('#playbook-subtab-btn-posts');
+  await new Promise((r) => setTimeout(r, 150));
 
   await page.click('#tab-btn-openhands');
   await new Promise((r) => setTimeout(r, 200));
@@ -702,6 +803,11 @@ try {
       await new Promise((r) => setTimeout(r, 150));
       await page.screenshot({ path: path.join(PROOF_DIR, 'after_view4_mobile_390x844.png') });
     }
+    if (btnId === 'tab-btn-playbook') {
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await new Promise((r) => setTimeout(r, 150));
+      await page.screenshot({ path: path.join(PROOF_DIR, 'after_view3_playbook_mobile_390x844.png') });
+    }
     const overflow = Math.max(0, m.scrollW - m.innerW);
     if (overflow > maxMobileOverflow) maxMobileOverflow = overflow;
     mobileDetails.push(`${btnId}:${overflow}px`);
@@ -712,13 +818,16 @@ try {
     mobileDetails.join(', ')
   );
 
-  // 9. Direct Deep-Link /?view=view-miner & Zero Console / COOP / HTTP Errors
+  // 9. Direct Deep-Link /?view=view-playbook & /?view=view-miner Zero Console / COOP / HTTP Errors
   await page.setViewport({ width: 1600, height: 1050, deviceScaleFactor: 2 });
+  const pbDeepRes = await page.goto(`${BASE_URL}/?view=view-playbook`, { waitUntil: 'networkidle0', timeout: 30000 });
+  await page.waitForSelector('[data-testid="reviewed-post-card-1"]', { timeout: 10000 });
   const deepLinkRes = await page.goto(`${BASE_URL}/?view=view-miner`, { waitUntil: 'networkidle0', timeout: 30000 });
   await page.waitForSelector('[data-testid="top5-idea-card-5"]', { timeout: 10000 });
   recordAssertion(
-    'Direct Deep-Link /?view=view-miner Returns HTTP 200 & Zero COOP/Console/HTTP Errors',
-    deepLinkRes?.status() === 200 &&
+    'Direct Deep-Links /?view=view-playbook & /?view=view-miner Return HTTP 200 & Zero Errors',
+    pbDeepRes?.status() === 200 &&
+      deepLinkRes?.status() === 200 &&
       consoleErrors.length === 0 &&
       coopWarnings.length === 0 &&
       failedRequests.length === 0,

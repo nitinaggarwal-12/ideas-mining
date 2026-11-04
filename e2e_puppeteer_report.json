@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-11-04T09:29:02.362Z",
+  "timestamp": "2026-11-04T19:49:17.030Z",
   "baseUrl": "http://127.0.0.1:8765",
-  "totalAssertions": 22,
-  "passedAssertions": 22,
+  "totalAssertions": 23,
+  "passedAssertions": 23,
   "failedAssertions": 0,
   "consoleErrors": [],
   "failedRequests": [],
@@ -30,7 +30,7 @@
     {
       "name": "Instant ⌘K Command Palette Searches Catalog & Closes on Escape",
       "passed": true,
-      "detail": "filteredItems=1, closedOnEsc=true"
+      "detail": "filteredItems=5, closedOnEsc=true"
     },
     {
       "name": "Daily Studio Instagram 4:5 Carousel Mockup & Link-Free Caption Compliance",
@@ -50,7 +50,7 @@
     {
       "name": "Batch & Signal Radar Sub-Tab Synthesizes 6 Creator Posts & Copies Payload",
       "passed": true,
-      "detail": "cards=6, svgs=6/6, copiedChars=1517"
+      "detail": "cards=6, svgs=6/6, copiedChars=1382"
     },
     {
       "name": "Blueprints View Renders 116 Templates, 23 T79 Spine Variants & 12 Stack Pairings",
@@ -88,9 +88,14 @@
       "detail": "topics=12/12, video=1920x1080"
     },
     {
-      "name": "Creator Radar View Renders 16 Creator Profiles, 4 Channels & 4 Archetypes",
+      "name": "Creator Radar Anatomy Drawer (Mentor+Critic Above Fold, 3 Takeaways, Blueprint SVG, Backdrop Scrim, 1-Row Pills)",
       "passed": true,
-      "detail": "creators=16, channels=4, archetypes=4"
+      "detail": "backdrop=true, mentorCards=2 (top=490px), takeaways=3, pillRows=1, rawArrows=false"
+    },
+    {
+      "name": "Creator Radar Renders 33 Posts (31 Decoded Visuals), 39 Creators, 10 Platforms, 15 X Leaders & 12 Formats",
+      "passed": true,
+      "detail": "posts=33 (imgs=31/31), creators=39, platforms=10, xLeaders=15, pres12=12, ch=6"
     },
     {
       "name": "Sandbox View Renders 5 Comparison Rows & 19 Execution Trajectories",
@@ -105,7 +110,7 @@
     {
       "name": "Rule 26 Table Cell Containment (overflow: hidden on all table-fixed tbody td)",
       "passed": true,
-      "detail": "checkedCells=279, uncontained=0"
+      "detail": "checkedCells=369, uncontained=0"
     },
     {
       "name": "Mobile 390x844 Responsive Layout (0px Horizontal Overflow Across All 6 Views)",
@@ -113,7 +118,7 @@
       "detail": "tab-btn-miner:0px, tab-btn-gallery:0px, tab-btn-repos:0px, tab-btn-minting-studio:0px, tab-btn-playbook:0px, tab-btn-openhands:0px"
     },
     {
-      "name": "Direct Deep-Link /?view=view-miner Returns HTTP 200 & Zero COOP/Console/HTTP Errors",
+      "name": "Direct Deep-Links /?view=view-playbook & /?view=view-miner Return HTTP 200 & Zero Errors",
       "passed": true,
       "detail": "status=200, errors=0, coopWarnings=0, failedReqs=0"
     }

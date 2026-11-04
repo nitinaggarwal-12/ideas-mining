@@ -44,11 +44,20 @@ const MINER_PANELS = [
   "miner-panel-radar",
 ];
 
+const PLAYBOOK_PANELS = [
+  "playbook-panel-posts",
+  "playbook-panel-creators",
+  "playbook-panel-platforms",
+  "playbook-panel-archetypes",
+];
+
 const STATE = {
   persona: "creator",
   repoLayout: "cards",
   activeView: "view-miner",
   activeMinerPanel: "miner-panel-composer",
+  activePlaybookPanel: "playbook-panel-posts",
+  activeOmnichannelPlatformId: "x_twitter",
   repos: [],
   playbook: null,
   activeRepoSlug: null,
@@ -147,6 +156,7 @@ function setPersonaMode(mode) {
   renderTop5EditorialDesk();
   renderGalleryView();
   renderReposView();
+  renderPlaybookView();
   renderMintingStudioView();
 }
 
@@ -256,8 +266,40 @@ function buildCmdkCatalog() {
     items.push({
       kind: "Creator",
       title: cp.name,
-      sub: `${cp.role} · Template ${cp.template_id}`,
-      run: () => activateView("view-playbook"),
+      sub: `${cp.role} · Blueprint ${cp.template_id}`,
+      run: () => {
+        activateView("view-playbook");
+        activatePlaybookPanel("playbook-panel-creators");
+        openCreatorPortfolioDrawer(cp.name);
+      },
+    });
+  });
+
+  (STATE.playbook?.reviewed_posts || []).forEach((rp) => {
+    if (rp.availability !== "PUBLIC_VERIFIED") return;
+    items.push({
+      kind: rp.post_code,
+      title: `${rp.author_name} — ${rp.hook_line_1}`,
+      sub: `${rp.reactions.toLocaleString()} reactions · ${rp.comments} comments · ${rp.presentation_archetype_code}`,
+      run: () => {
+        activateView("view-playbook");
+        activatePlaybookPanel("playbook-panel-posts");
+        openPostAnatomyDrawer(rp.activity_id);
+      },
+    });
+  });
+
+  (STATE.playbook?.omnichannel_platforms || []).forEach((plat) => {
+    items.push({
+      kind: "Platform",
+      title: `${plat.name} Playbook`,
+      sub: plat.badge,
+      run: () => {
+        activateView("view-playbook");
+        activatePlaybookPanel("playbook-panel-platforms");
+        STATE.activeOmnichannelPlatformId = plat.id;
+        renderOmnichannelPlaybooks();
+      },
     });
   });
 
@@ -798,7 +840,9 @@ async function openRepoInspector(slug) {
     liTab.append(hdr, copyPre);
   }
 
+  document.getElementById("creator-radar-drawer")?.classList.remove("open");
   document.getElementById("repo-inspector-drawer")?.classList.add("open");
+  document.getElementById("drawer-backdrop")?.classList.add("open");
 }
 
 /* ==========================================================================
@@ -1018,66 +1062,759 @@ function getInitials(name) {
     .toUpperCase();
 }
 
+function activatePlaybookPanel(panelId) {
+  const next = PLAYBOOK_PANELS.includes(panelId) ? panelId : "playbook-panel-posts";
+  STATE.activePlaybookPanel = next;
+  PLAYBOOK_PANELS.forEach((pid) => {
+    const el = document.getElementById(pid);
+    if (el) el.style.display = pid === next ? "block" : "none";
+  });
+  document.querySelectorAll("[data-playbook-panel]").forEach((btn) => {
+    const isAct = btn.getAttribute("data-playbook-panel") === next;
+    btn.classList.toggle("active", isAct);
+    btn.setAttribute("aria-selected", isAct ? "true" : "false");
+  });
+}
+
+function populateReviewedAuthorSelect(posts) {
+  const sel = document.getElementById("posts-audit-filter-author");
+  if (!sel || sel.dataset.hydrated === "1") return;
+  const authors = Array.from(
+    new Set(posts.filter((p) => p.availability === "PUBLIC_VERIFIED").map((p) => p.author_name))
+  ).sort((a, b) => a.localeCompare(b));
+  authors.forEach((name) => {
+    const opt = mkEl("option", "", name);
+    opt.value = name;
+    sel.appendChild(opt);
+  });
+  if (authors.length) sel.dataset.hydrated = "1";
+}
+
+async function remixPostInStudio(post) {
+  activateView("view-miner");
+  activateMinerPanel("miner-panel-composer");
+  const qInput = document.getElementById("top5-query-input");
+  if (qInput && post.hook_line_1) {
+    qInput.value = `${post.author_name}: ${post.hook_line_1.slice(0, 90)}`;
+  }
+  if (post.matched_template_id) {
+    STATE.selectedTemplateId = post.matched_template_id;
+  }
+  renderTop5EditorialDesk();
+  await refreshPlatformPreviewPackages();
+  showToast(`Loaded blueprint ${post.matched_template_id} from ${post.post_code} in Daily Studio`);
+}
+
+function polishArrows(s) {
+  return String(s || "").replace(/\s*->\s*/g, " → ");
+}
+
+function closeAllSlideDrawers() {
+  document.getElementById("repo-inspector-drawer")?.classList.remove("open");
+  document.getElementById("creator-radar-drawer")?.classList.remove("open");
+  document.getElementById("drawer-backdrop")?.classList.remove("open");
+}
+
+function openPostAnatomyDrawer(activityId) {
+  const pb = STATE.playbook || {};
+  const post = (pb.reviewed_posts || []).find((p) => p.activity_id === activityId);
+  const drawer = document.getElementById("creator-radar-drawer");
+  const badgeEl = document.getElementById("radar-drawer-badge");
+  const titleEl = document.getElementById("radar-drawer-title");
+  const bodyEl = document.getElementById("radar-drawer-body");
+  if (!post || !drawer || !bodyEl) return;
+
+  const matchedCreator = (pb.creator_profiles || []).find(
+    (c) => c.name.toLowerCase() === String(post.author_name || "").toLowerCase()
+  );
+
+  document.getElementById("repo-inspector-drawer")?.classList.remove("open");
+  if (badgeEl) badgeEl.textContent = `${post.post_code} · ${post.presentation_archetype_code} · ${post.published_utc || "DISCLOSED"}`;
+  if (titleEl) titleEl.textContent = `${post.author_name} — Post & Presentation Anatomy`;
+  bodyEl.replaceChildren();
+
+  const actionsBar = mkEl("div", "studio-toolbar-actions");
+  actionsBar.style.marginBottom = "12px";
+  const liBtn = mkEl("a", "btn-secondary", "Open Original LinkedIn Post ↗");
+  liBtn.href = safeUrl(post.post_url);
+  liBtn.target = "_blank";
+  liBtn.rel = "noopener";
+  actionsBar.appendChild(liBtn);
+
+  if (post.availability === "PUBLIC_VERIFIED") {
+    const copyBtn = mkEl("button", "btn-secondary", "Copy Verbatim Text");
+    copyBtn.type = "button";
+    copyBtn.addEventListener("click", () => copyTextSafe(post.full_text, `Copied ${post.post_code} verbatim text!`));
+    const creatorBtn = mkEl("button", "btn-secondary", `View ${post.author_name}'s Full Portfolio →`);
+    creatorBtn.type = "button";
+    creatorBtn.addEventListener("click", () => openCreatorPortfolioDrawer(post.author_name));
+    const remixBtn = mkEl("button", "btn-primary", `Remix with ${post.matched_template_id} →`);
+    remixBtn.type = "button";
+    remixBtn.addEventListener("click", () => {
+      closeAllSlideDrawers();
+      remixPostInStudio(post);
+    });
+    actionsBar.append(copyBtn, creatorBtn, remixBtn);
+  }
+  bodyEl.appendChild(actionsBar);
+
+  // Compact 2-Column Hero Grid: Left Visual + Right 3-Line Hook & Studio Blueprint Mapping
+  const heroGrid = mkEl("div", "drawer-post-hero-grid");
+  if (post.image_url) {
+    const vbox = mkEl("div", "drawer-post-visual-card");
+    const img = document.createElement("img");
+    img.src = safeUrl(post.image_url);
+    img.alt = `${post.author_name} post visual`;
+    img.addEventListener("click", () =>
+      openLightbox({
+        kicker: `${post.post_code} · ${post.presentation_archetype_code}`,
+        title: `${post.author_name} — ${post.hook_line_1}`,
+        imgUrl: post.image_url,
+        actions: [{ label: "Original LinkedIn Post ↗", href: post.post_url }],
+      })
+    );
+    const zHint = mkEl("span", "eyebrow-muted", "Click artwork to zoom @2x");
+    zHint.style.marginTop = "6px";
+    vbox.append(img, zHint);
+    heroGrid.appendChild(vbox);
+  } else {
+    const rBox = mkEl("div", "drawer-post-visual-card", "Public media unavailable (Restricted / Removed LinkedIn URN)");
+    rBox.style.cssText = "color:#475569;font-size:12px;text-align:center;padding:24px;";
+    heroGrid.appendChild(rBox);
+  }
+
+  const rightHero = mkEl("div");
+  rightHero.style.cssText = "display:flex;flex-direction:column;gap:10px;min-width:0;";
+
+  const hookBox = mkEl("div", "platform-spec-box");
+  hookBox.append(
+    mkEl("div", "platform-spec-label", `3-Line LinkedIn Opening Hook (${polishArrows(post.hook_formula)})`),
+    mkEl("div", "platform-spec-text", post.hook_3_lines || post.hook_line_1)
+  );
+  hookBox.lastChild.style.whiteSpace = "pre-line";
+  hookBox.lastChild.style.fontWeight = "600";
+  rightHero.appendChild(hookBox);
+
+  const tid = post.matched_template_id || "T79";
+  const bpMap = mkEl("div", "drawer-blueprint-map-card");
+  const bpImg = document.createElement("img");
+  bpImg.src = `/assets/template-gallery/${tid}.svg?v=20261104`;
+  bpImg.alt = `Studio Blueprint ${tid}`;
+  const bpInfo = mkEl("div", "min-w-0");
+  bpInfo.style.flex = "1";
+  const bpTitle = mkEl("div", "", `Matched Studio Blueprint ${tid}`);
+  bpTitle.style.cssText = "font-size:12.5px;font-weight:800;color:#1e40af;";
+  const bpSub = mkEl("div", "", `${post.presentation_archetype_code} · ${post.presentation_archetype_label}`);
+  bpSub.style.cssText = "font-size:11.5px;color:#334155;";
+  bpInfo.append(bpTitle, bpSub);
+  const openBpBtn = mkEl("button", "btn-secondary", `Inspect ${tid} →`);
+  openBpBtn.type = "button";
+  openBpBtn.addEventListener("click", () => {
+    closeAllSlideDrawers();
+    jumpToTemplateInGallery(tid);
+  });
+  bpMap.append(bpImg, bpInfo, openBpBtn);
+  rightHero.appendChild(bpMap);
+
+  const kpiRow = mkEl("div", "deliverable-chips");
+  kpiRow.append(
+    mkEl("span", "pill-badge pill-emerald tabular-nums", `${post.reactions.toLocaleString()} reactions`),
+    mkEl("span", "deliverable-chip tabular-nums", `${post.comments.toLocaleString()} comments`),
+    mkEl("span", "deliverable-chip chip-blue tabular-nums", `${post.discussion_ratio_pct}% discussion ratio`),
+    mkEl("span", "deliverable-chip", polishArrows(`CTA: ${post.cta_mechanic}`))
+  );
+  rightHero.appendChild(kpiRow);
+  heroGrid.appendChild(rightHero);
+  bodyEl.appendChild(heroGrid);
+
+  // Mentor + Critic Review Side-by-Side (Above the 1050px Fold!)
+  const mcGrid = mkEl("div", "mentor-critic-grid");
+  const mentorBox = mkEl("div", "mentor-card");
+  const mLbl = mkEl("div", "platform-spec-label", "Mentor Review — Why This Works");
+  mLbl.style.color = "#065f46";
+  mentorBox.append(mLbl, mkEl("div", "platform-spec-text", polishArrows(post.mentor_review || post.content_structure)));
+
+  const criticBox = mkEl("div", "critic-card");
+  const cLbl = mkEl("div", "platform-spec-label", "Critic Review — Where to Sharpen & Repurpose");
+  cLbl.style.color = "#92400e";
+  criticBox.append(cLbl, mkEl("div", "platform-spec-text", polishArrows(post.critic_review || "")));
+  mcGrid.append(mentorBox, criticBox);
+  bodyEl.appendChild(mcGrid);
+
+  // 3 Structural & Presentation Takeaways
+  const takeBox = mkEl("div", "platform-spec-box");
+  takeBox.style.marginBottom = "14px";
+  takeBox.appendChild(mkEl("div", "platform-spec-label", "Structural & Presentation Takeaways"));
+  const takeUl = document.createElement("ul");
+  takeUl.style.cssText = "padding-left:18px;margin:4px 0 0;font-size:12px;color:#0f172a;line-height:1.52;";
+  (post.structural_takeaways || [post.content_structure]).forEach((item) => {
+    takeUl.appendChild(mkEl("li", "", polishArrows(item)));
+  });
+  takeBox.appendChild(takeUl);
+  bodyEl.appendChild(takeBox);
+
+  // Creator's Multi-Post & Cross-Platform Portfolio Inline
+  if (matchedCreator && (matchedCreator.all_posts_portfolio || []).length) {
+    const portHdr = mkEl(
+      "h3",
+      "subsection-heading",
+      `${matchedCreator.name}'s Cross-Platform Portfolio (${matchedCreator.all_posts_portfolio.length} Artifacts)`
+    );
+    portHdr.style.marginBottom = "8px";
+    bodyEl.appendChild(portHdr);
+    const portWrap = mkEl("div", "platform-playbook-grid");
+    portWrap.style.marginBottom = "14px";
+    matchedCreator.all_posts_portfolio.forEach((entry) => {
+      const pCard = mkEl("div", "feed-item-card");
+      const pTop = mkEl("div", "composer-section-hdr");
+      pTop.append(
+        mkEl("strong", "", entry.title),
+        mkEl("span", "pill-badge pill-sky", `${entry.platform} · ${entry.format}`)
+      );
+      pCard.appendChild(pTop);
+      if (entry.url) {
+        const a = mkEl("a", "eyebrow-link", "Open Artifact ↗");
+        a.href = safeUrl(entry.url);
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.style.cssText = "display:inline-flex;width:fit-content;margin-top:6px;";
+        pCard.appendChild(a);
+      }
+      portWrap.appendChild(pCard);
+    });
+    bodyEl.appendChild(portWrap);
+  }
+
+  const copyHdr = mkEl("h3", "subsection-heading", `Verbatim Post Copy (${post.char_count.toLocaleString()} chars · ${post.line_count} lines)`);
+  copyHdr.style.marginBottom = "8px";
+  const pre = mkEl("pre", "code-block-light", post.full_text);
+  bodyEl.append(copyHdr, pre);
+
+  drawer.classList.add("open");
+  document.getElementById("drawer-backdrop")?.classList.add("open");
+}
+
+function openCreatorPortfolioDrawer(creatorName) {
+  const pb = STATE.playbook || {};
+  const cp = (pb.creator_profiles || []).find((c) => c.name.toLowerCase() === String(creatorName || "").toLowerCase());
+  const drawer = document.getElementById("creator-radar-drawer");
+  const badgeEl = document.getElementById("radar-drawer-badge");
+  const titleEl = document.getElementById("radar-drawer-title");
+  const bodyEl = document.getElementById("radar-drawer-body");
+  if (!cp || !drawer || !bodyEl) return;
+
+  document.getElementById("repo-inspector-drawer")?.classList.remove("open");
+  if (badgeEl) badgeEl.textContent = `CREATOR PORTFOLIO · BLUEPRINT ${cp.template_id} · ${Number(cp.followers || 0).toLocaleString()} FOLLOWERS`;
+  if (titleEl) titleEl.textContent = cp.name;
+  bodyEl.replaceChildren();
+
+  const roleP = mkEl("p", "section-description", cp.role);
+  roleP.style.marginBottom = "10px";
+  bodyEl.appendChild(roleP);
+
+  const handlesWrap = mkEl("div", "social-handle-chips");
+  handlesWrap.style.marginBottom = "14px";
+  const handleLabels = {
+    linkedin: "LinkedIn ↗",
+    x: "X / Twitter ↗",
+    substack: "Substack / Blog ↗",
+    github: "GitHub ↗",
+    youtube: "YouTube ↗",
+    instagram: "Instagram ↗",
+    tiktok: "TikTok ↗",
+    website: "Website ↗",
+  };
+  Object.entries(cp.handles || { linkedin: cp.linkedin_url }).forEach(([k, url]) => {
+    if (!url) return;
+    const a = mkEl("a", "social-chip-link", handleLabels[k] || `${k} ↗`);
+    a.href = safeUrl(url);
+    a.target = "_blank";
+    a.rel = "noopener";
+    handlesWrap.appendChild(a);
+  });
+  const styleBtn = mkEl("button", "btn-primary", `Generate Batch in ${cp.name}'s Style →`);
+  styleBtn.type = "button";
+  styleBtn.style.marginLeft = "auto";
+  styleBtn.addEventListener("click", () => {
+    closeAllSlideDrawers();
+    generateInCreatorStyle(cp.style_code || "AUTO", cp.name);
+  });
+  handlesWrap.appendChild(styleBtn);
+  bodyEl.appendChild(handlesWrap);
+
+  const sigBox = mkEl("div", "platform-spec-box");
+  sigBox.style.marginBottom = "16px";
+  sigBox.append(
+    mkEl("div", "platform-spec-label", `Signature Content & Visual Presentation (${cp.archetype_label})`),
+    mkEl("div", "platform-spec-text", cp.signature_style)
+  );
+  bodyEl.appendChild(sigBox);
+
+  const auditedPosts = (pb.reviewed_posts || []).filter(
+    (p) => p.availability === "PUBLIC_VERIFIED" && p.author_name.toLowerCase() === cp.name.toLowerCase()
+  );
+  if (auditedPosts.length) {
+    const audHdr = mkEl("h3", "subsection-heading", `Audited Posts in 33-Post Cohort (${auditedPosts.length})`);
+    audHdr.style.marginBottom = "10px";
+    bodyEl.appendChild(audHdr);
+    auditedPosts.forEach((ap) => {
+      const item = mkEl("div", "feed-item-card");
+      item.style.marginBottom = "10px";
+      const row = mkEl("div", "composer-section-hdr");
+      row.append(
+        mkEl("strong", "", `${ap.post_code} · ${ap.hook_line_1}`),
+        mkEl("span", "pill-badge pill-emerald tabular-nums", `${ap.reactions} 👍 · ${ap.comments} 💬`)
+      );
+      const sub = mkEl("p", "", ap.content_structure);
+      sub.style.cssText = "font-size:12px;color:#334155;margin:6px 0 8px;";
+      const openBtn = mkEl("button", "btn-secondary", "Inspect Full Post & Visual →");
+      openBtn.type = "button";
+      openBtn.addEventListener("click", () => openPostAnatomyDrawer(ap.activity_id));
+      item.append(row, sub, openBtn);
+      bodyEl.appendChild(item);
+    });
+  }
+
+  const portList = cp.all_posts_portfolio || [];
+  const portHdr = mkEl("h3", "subsection-heading", `Complete Researched Posts, Repos & Publications (${portList.length})`);
+  portHdr.style.margin = "14px 0 10px";
+  bodyEl.appendChild(portHdr);
+
+  portList.forEach((entry) => {
+    const card = mkEl("div", "feed-item-card");
+    card.style.marginBottom = "8px";
+    const hdr = mkEl("div", "composer-section-hdr");
+    hdr.append(
+      mkEl("strong", "", entry.title),
+      mkEl("span", "pill-badge pill-sky", `${entry.platform} · ${entry.format}`)
+    );
+    card.appendChild(hdr);
+    if (entry.url) {
+      const link = mkEl("a", "eyebrow-link", "Open Source Artifact ↗");
+      link.href = safeUrl(entry.url);
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.style.display = "inline-block";
+      link.style.marginTop = "6px";
+      card.appendChild(link);
+    }
+    bodyEl.appendChild(card);
+  });
+
+  drawer.classList.add("open");
+  document.getElementById("drawer-backdrop")?.classList.add("open");
+}
+
+function renderReviewedPostsGrid() {
+  const pb = STATE.playbook || {};
+  const allPosts = pb.reviewed_posts || [];
+  populateReviewedAuthorSelect(allPosts);
+
+  const grid = document.getElementById("reviewed-posts-grid");
+  if (!grid) return;
+  grid.replaceChildren();
+
+  const q = (document.getElementById("posts-audit-search-input")?.value || "").trim().toLowerCase();
+  const presFilter = document.getElementById("posts-audit-filter-pres")?.value || "ALL";
+  const authorFilter = document.getElementById("posts-audit-filter-author")?.value || "ALL";
+  const sortMode = document.getElementById("posts-audit-sort-select")?.value || "INDEX";
+
+  const filtered = allPosts.filter((p) => {
+    if (presFilter !== "ALL" && p.presentation_archetype_code !== presFilter) return false;
+    if (authorFilter !== "ALL" && p.author_name !== authorFilter) return false;
+    if (q) {
+      const hay = `${p.post_code} ${p.activity_id} ${p.author_name} ${p.hook_line_1} ${p.content_structure} ${p.full_text}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  filtered.sort((a, b) => {
+    if (sortMode === "REACTIONS") return b.reactions - a.reactions || a.index - b.index;
+    if (sortMode === "DISCUSSION") return b.discussion_ratio_pct - a.discussion_ratio_pct || b.comments - a.comments;
+    if (sortMode === "COMMENTS") return b.comments - a.comments || b.reactions - a.reactions;
+    return a.index - b.index;
+  });
+
+  const pillEl = document.getElementById("playbook-posts-count-pill");
+  if (pillEl) pillEl.textContent = String(filtered.length);
+
+  if (!filtered.length) {
+    const empty = mkEl("div", "studio-surface", "No reviewed posts match the current search/filter.");
+    empty.style.cssText = "grid-column: 1 / -1; text-align: center; padding: 32px; color: #475569;";
+    grid.appendChild(empty);
+    return;
+  }
+
+  filtered.forEach((post) => {
+    const isRestricted = post.availability !== "PUBLIC_VERIFIED";
+    const card = mkEl("article", `reviewed-post-card${isRestricted ? " restricted-card" : ""}`);
+    card.setAttribute("data-testid", `reviewed-post-card-${post.index}`);
+
+    const topCol = mkEl("div");
+    topCol.style.cssText = "display:flex;flex-direction:column;gap:10px;min-width:0;";
+
+    const metaRow = mkEl("div", "deliverable-chips");
+    metaRow.appendChild(mkEl("span", "brand-badge tabular-nums", `${post.post_code} · #${String(post.index).padStart(2, "0")}`));
+    metaRow.appendChild(
+      mkEl(
+        "span",
+        isRestricted ? "pill-badge pill-amber" : "pill-badge pill-sky",
+        isRestricted ? "RESTRICTED URN" : post.presentation_archetype_code
+      )
+    );
+    metaRow.appendChild(mkEl("span", "deliverable-chip tabular-nums", `Blueprint ${post.matched_template_id}`));
+    if (post.published_utc) {
+      metaRow.appendChild(mkEl("span", "deliverable-chip tabular-nums", post.published_utc));
+    }
+    topCol.appendChild(metaRow);
+
+    if (!isRestricted && post.image_url) {
+      const frame = mkEl("div", "post-visual-frame");
+      const img = document.createElement("img");
+      img.src = safeUrl(post.image_url);
+      img.alt = `${post.author_name} visual (${post.post_code})`;
+      img.loading = post.index <= 6 ? "eager" : "lazy";
+      const zoomPill = mkEl("span", "post-visual-zoom-pill", "Zoom Visual");
+      frame.append(img, zoomPill);
+      frame.addEventListener("click", () =>
+        openLightbox({
+          kicker: `${post.post_code} · ${post.presentation_archetype_code} · ${post.author_name}`,
+          title: post.hook_line_1,
+          imgUrl: post.image_url,
+          actions: [{ label: "LinkedIn Post ↗", href: post.post_url }],
+        })
+      );
+      topCol.appendChild(frame);
+    }
+
+    if (!isRestricted) {
+      const authorBtn = mkEl("button", "post-author-btn");
+      authorBtn.type = "button";
+      authorBtn.appendChild(mkEl("span", "creator-monogram", getInitials(post.author_name)));
+      const aMeta = mkEl("div", "min-w-0");
+      aMeta.style.cssText = "display:flex;flex-direction:column;gap:2px;min-width:0;flex:1;";
+      const aName = mkEl("h3", "truncate", post.author_name);
+      aName.style.cssText = "font-size:13.5px;font-weight:800;color:#0f172a;line-height:1.25;";
+      const aRole = mkEl("div", "truncate", post.author_headline || "Verified Creator");
+      aRole.style.cssText = "font-size:11px;color:#475569;";
+      aMeta.append(aName, aRole);
+      authorBtn.appendChild(aMeta);
+      authorBtn.addEventListener("click", () => openCreatorPortfolioDrawer(post.author_name));
+      topCol.appendChild(authorBtn);
+
+      const engRow = mkEl("div", "deliverable-chips");
+      engRow.append(
+        mkEl("span", "pill-badge pill-emerald tabular-nums", `${post.reactions.toLocaleString()} reactions`),
+        mkEl("span", "deliverable-chip tabular-nums", `${post.comments.toLocaleString()} comments`),
+        mkEl("span", "deliverable-chip chip-blue tabular-nums", `${post.discussion_ratio_pct}% discussion`)
+      );
+      topCol.appendChild(engRow);
+    }
+
+    topCol.appendChild(mkEl("div", "post-hook-headline", polishArrows(post.hook_line_1)));
+    topCol.appendChild(mkEl("p", "post-structure-summary", polishArrows(post.content_structure)));
+    if (!isRestricted && post.mentor_review) {
+      topCol.appendChild(mkEl("div", "post-card-takeaway-strip", polishArrows(post.mentor_review)));
+    }
+    card.appendChild(topCol);
+
+    const foot = mkEl("div", "repo-card-footer");
+    const leftBtns = mkEl("div", "studio-toolbar-actions");
+    const anatBtn = mkEl("button", "btn-secondary", isRestricted ? "Disclosure" : "Anatomy →");
+    anatBtn.type = "button";
+    anatBtn.setAttribute("data-testid", `inspect-post-anatomy-${post.index}`);
+    anatBtn.addEventListener("click", () => openPostAnatomyDrawer(post.activity_id));
+    const extLink = mkEl("a", "btn-secondary", "URN ↗");
+    extLink.href = safeUrl(post.post_url);
+    extLink.target = "_blank";
+    extLink.rel = "noopener";
+    leftBtns.append(anatBtn, extLink);
+    foot.appendChild(leftBtns);
+
+    if (!isRestricted) {
+      const remixBtn = mkEl("button", "btn-primary", "Remix →");
+      remixBtn.type = "button";
+      remixBtn.addEventListener("click", () => remixPostInStudio(post));
+      foot.appendChild(remixBtn);
+    }
+    card.appendChild(foot);
+    grid.appendChild(card);
+  });
+}
+
+function renderCreatorProfilesGrid() {
+  const pb = STATE.playbook || {};
+  const profiles = pb.creator_profiles || [];
+  const cpGrid = document.getElementById("creator-profiles-grid");
+  if (!cpGrid) return;
+  cpGrid.replaceChildren();
+
+  const q = (document.getElementById("creator-search-input")?.value || "").trim().toLowerCase();
+  const pFilter = document.getElementById("creator-platform-filter")?.value || "ALL";
+
+  const filtered = profiles.filter((cp) => {
+    const h = cp.handles || {};
+    if (pFilter === "AUDIT_33" && !cp.in_33_post_audit) return false;
+    if (pFilter === "HAS_X" && !h.x) return false;
+    if (pFilter === "HAS_SUBSTACK" && !h.substack) return false;
+    if (pFilter === "HAS_GITHUB" && !h.github) return false;
+    if (pFilter === "HAS_VIDEO" && !(h.youtube || h.instagram || h.tiktok)) return false;
+    if (q) {
+      const hay = `${cp.name} ${cp.role} ${cp.signature_style} ${JSON.stringify(h)} ${JSON.stringify(cp.all_posts_portfolio || [])}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  const cPill = document.getElementById("playbook-creators-count-pill");
+  if (cPill) cPill.textContent = String(filtered.length);
+
+  filtered.forEach((cp, idx) => {
+    const card = mkEl("article", "creator-profile-card");
+    card.setAttribute("data-testid", `creator-profile-${cp.template_id}-${idx}`);
+
+    const top = mkEl("div");
+    const avRow = mkEl("div", "creator-avatar-row");
+    avRow.appendChild(mkEl("span", "creator-monogram", getInitials(cp.name)));
+    const meta = mkEl("div", "min-w-0");
+    meta.style.cssText = "display:flex;flex-direction:column;gap:2px;min-width:0;flex:1;";
+    const nameEl = mkEl("h3", "truncate", cp.name);
+    nameEl.style.cssText = "font-size:14.5px;font-weight:800;color:#0f172a;line-height:1.25;";
+    const roleEl = mkEl("div", "truncate", cp.role);
+    roleEl.style.cssText = "font-size:11.5px;color:#475569;";
+    meta.append(nameEl, roleEl);
+    avRow.appendChild(meta);
+    top.appendChild(avRow);
+
+    const badges = mkEl("div", "deliverable-chips");
+    badges.style.marginBottom = "6px";
+    const bpBadgeBtn = mkEl("button", "brand-badge", `Blueprint ${cp.template_id} ↗`);
+    bpBadgeBtn.type = "button";
+    bpBadgeBtn.style.cursor = "pointer";
+    bpBadgeBtn.addEventListener("click", () => jumpToTemplateInGallery(cp.template_id));
+    badges.appendChild(bpBadgeBtn);
+    if (cp.in_33_post_audit) {
+      badges.appendChild(mkEl("span", "pill-badge pill-emerald", "In 33-Post Audit"));
+    }
+    if (cp.followers) {
+      badges.appendChild(mkEl("span", "pill-badge pill-sky tabular-nums", `${Number(cp.followers).toLocaleString()} reach`));
+    }
+    top.appendChild(badges);
+
+    const chipRow = mkEl("div", "social-handle-chips");
+    const shortLabels = { linkedin: "in", x: "X", substack: "Substack", github: "GitHub", youtube: "YT", instagram: "IG", tiktok: "TikTok", website: "Web" };
+    Object.entries(cp.handles || { linkedin: cp.linkedin_url }).forEach(([k, url]) => {
+      if (!url) return;
+      const a = mkEl("a", "social-chip-link", `${shortLabels[k] || k} ↗`);
+      a.href = safeUrl(url);
+      a.target = "_blank";
+      a.rel = "noopener";
+      chipRow.appendChild(a);
+    });
+    top.appendChild(chipRow);
+
+    top.appendChild(mkEl("p", "repo-card-hook", cp.signature_style));
+
+    const portfolio = cp.all_posts_portfolio || [];
+    if (portfolio.length) {
+      const pList = mkEl("div", "portfolio-mini-list");
+      portfolio.slice(0, 2).forEach((item) => {
+        const row = mkEl("div", "portfolio-mini-item");
+        const tSpan = mkEl("span", "truncate", `• ${item.title}`);
+        const pSpan = mkEl("span", "eyebrow-muted", item.platform);
+        pSpan.style.flexShrink = "0";
+        row.append(tSpan, pSpan);
+        pList.appendChild(row);
+      });
+      top.appendChild(pList);
+    }
+    card.appendChild(top);
+
+    const foot = mkEl("div", "repo-card-footer");
+    const leftBtns = mkEl("div", "studio-toolbar-actions");
+    const portBtn = mkEl("button", "btn-secondary", `All Posts (${portfolio.length}) →`);
+    portBtn.type = "button";
+    portBtn.setAttribute("data-testid", `open-creator-portfolio-${idx}`);
+    portBtn.addEventListener("click", () => openCreatorPortfolioDrawer(cp.name));
+    leftBtns.appendChild(portBtn);
+
+    const genBtn = mkEl("button", "btn-primary", "Use Style →");
+    genBtn.type = "button";
+    genBtn.setAttribute("data-testid", `generate-in-style-${cp.template_id}`);
+    genBtn.addEventListener("click", () => generateInCreatorStyle(cp.style_code || "AUTO", cp.name));
+    foot.append(leftBtns, genBtn);
+    card.appendChild(foot);
+    cpGrid.appendChild(card);
+  });
+}
+
+function renderOmnichannelPlaybooks() {
+  const pb = STATE.playbook || {};
+  const platforms = pb.omnichannel_platforms || [];
+  const pillsEl = document.getElementById("omnichannel-platform-pills");
+  const stageEl = document.getElementById("omnichannel-active-platform-stage");
+  if (pillsEl && stageEl && platforms.length) {
+    pillsEl.replaceChildren();
+    stageEl.replaceChildren();
+    const activePlat =
+      platforms.find((p) => p.id === STATE.activeOmnichannelPlatformId) || platforms[0];
+    STATE.activeOmnichannelPlatformId = activePlat.id;
+
+    platforms.forEach((plat) => {
+      const btn = mkEl(
+        "button",
+        `top5-selector-pill${plat.id === activePlat.id ? " active" : ""}`,
+        plat.short_label || plat.name
+      );
+      btn.type = "button";
+      btn.setAttribute("role", "tab");
+      btn.setAttribute("aria-selected", plat.id === activePlat.id ? "true" : "false");
+      btn.setAttribute("data-testid", `omnichannel-pill-${plat.id}`);
+      btn.addEventListener("click", () => {
+        STATE.activeOmnichannelPlatformId = plat.id;
+        renderOmnichannelPlaybooks();
+      });
+      pillsEl.appendChild(btn);
+    });
+
+    const hdrRow = mkEl("div", "composer-section-hdr");
+    hdrRow.style.marginBottom = "12px";
+    hdrRow.append(
+      mkEl("h3", "subsection-heading", `${activePlat.name} — Distribution & Presentation Architecture`),
+      mkEl("span", "pill-badge pill-emerald", activePlat.badge)
+    );
+    stageEl.appendChild(hdrRow);
+
+    const specGrid = mkEl("div", "platform-playbook-grid");
+    [
+      ["Algorithmic Ranking Weights", activePlat.primary_signal_weights],
+      ["Winning Visual & Copy Container", activePlat.ideal_specs],
+      ["Outbound Link Guardrail", activePlat.link_strategy],
+      ["Repeatable Structural Formula", activePlat.winning_formula],
+      ["Fatal Anti-Patterns to Avoid", activePlat.anti_patterns],
+      ["Sustainable Publishing Cadence", activePlat.cadence],
+    ].forEach(([lbl, txt]) => {
+      const box = mkEl("div", "platform-spec-box");
+      box.append(mkEl("div", "platform-spec-label", lbl), mkEl("div", "platform-spec-text", polishArrows(txt)));
+      specGrid.appendChild(box);
+    });
+    stageEl.appendChild(specGrid);
+  }
+
+  const xTbody = document.getElementById("x-leaders-tbody");
+  if (xTbody) {
+    xTbody.replaceChildren();
+    (pb.x_ecosystem_leaders || []).forEach((xl) => {
+      const tr = document.createElement("tr");
+      const td1 = document.createElement("td");
+      const c1 = mkEl("div", "cell-card-equal");
+      const strong = mkEl("strong", "", xl.name);
+      strong.style.cssText = "font-size:12.5px;color:#0f172a;";
+      const hLink = mkEl("a", "eyebrow-link", `${xl.handle} ↗`);
+      hLink.style.cssText = "width:fit-content;margin-top:4px;";
+      hLink.href = safeUrl(xl.url);
+      hLink.target = "_blank";
+      hLink.rel = "noopener";
+      c1.append(strong, hLink);
+      td1.appendChild(c1);
+
+      [xl.role, xl.focus, xl.winning_format].forEach((txt) => {
+        const td = document.createElement("td");
+        const c = mkEl("div", "cell-card-equal");
+        const sp = mkEl("span", "", txt);
+        sp.style.cssText = "font-size:12px;color:#334155;";
+        c.appendChild(sp);
+        td.appendChild(c);
+        tr.appendChild(td);
+      });
+      tr.prepend(td1);
+      xTbody.appendChild(tr);
+    });
+  }
+
+  const repTbody = document.getElementById("repurposing-matrix-tbody");
+  if (repTbody) {
+    repTbody.replaceChildren();
+    (pb.repurposing_matrix || []).forEach((row) => {
+      const tr = document.createElement("tr");
+      [
+        [row.step, "font-weight:800;color:#1e40af;"],
+        [row.asset, "font-weight:700;color:#0f172a;"],
+        [row.platforms, "font-weight:600;color:#065f46;"],
+        [row.spec, "color:#334155;"],
+        [row.goal, "color:#334155;"],
+      ].forEach(([txt, st]) => {
+        const td = document.createElement("td");
+        const c = mkEl("div", "cell-card-equal");
+        const sp = mkEl("span", "", txt);
+        sp.style.cssText = `font-size:12px;${st}`;
+        c.appendChild(sp);
+        td.appendChild(c);
+        tr.appendChild(td);
+      });
+      repTbody.appendChild(tr);
+    });
+  }
+}
+
 function renderPlaybookView() {
   const pb = STATE.playbook || {};
   const sumEl = document.getElementById("playbook-summary-text");
   if (sumEl) sumEl.textContent = pb.executive_summary || "";
 
   const profiles = pb.creator_profiles || [];
+  const posts = pb.reviewed_posts || [];
   const cpBadge = document.getElementById("creator-profiles-count-badge");
-  if (cpBadge) cpBadge.textContent = `${profiles.length} Verified Creator Profiles`;
+  if (cpBadge) cpBadge.textContent = `${profiles.length} Verified Creators · ${posts.length} Audited Posts`;
+  const navCnt = document.getElementById("nav-playbook-count");
+  if (navCnt) navCnt.textContent = String(profiles.length || 39);
 
-  const cpGrid = document.getElementById("creator-profiles-grid");
-  if (cpGrid) {
-    cpGrid.replaceChildren();
-    profiles.forEach((cp) => {
-      const card = mkEl("article", "creator-profile-card");
-      card.setAttribute("data-testid", `creator-profile-${cp.template_id}`);
+  renderReviewedPostsGrid();
+  renderCreatorProfilesGrid();
+  renderOmnichannelPlaybooks();
 
-      const top = mkEl("div");
-      const avRow = mkEl("div", "creator-avatar-row");
-      avRow.appendChild(mkEl("span", "creator-monogram", getInitials(cp.name)));
-      const meta = mkEl("div", "min-w-0");
-      const nameEl = mkEl("h3", "", cp.name);
-      nameEl.style.cssText = "font-size:14.5px;font-weight:800;color:#0f172a;line-height:1.25;";
-      const roleEl = mkEl("div", "truncate", cp.role);
-      roleEl.style.cssText = "font-size:11.5px;color:#475569;";
-      meta.append(nameEl, roleEl);
-      avRow.appendChild(meta);
-      top.appendChild(avRow);
-
-      const badges = mkEl("div", "deliverable-chips");
-      badges.style.marginBottom = "8px";
-      badges.appendChild(mkEl("span", "brand-badge", `Blueprint ${cp.template_id}`));
-      if (cp.followers) {
-        badges.appendChild(
-          mkEl("span", "pill-badge pill-sky tabular-nums", `${Number(cp.followers).toLocaleString()} followers`)
-        );
-      }
-      top.appendChild(badges);
-
-      const sig = mkEl("p", "repo-card-hook", cp.signature_style);
-      top.appendChild(sig);
-      card.appendChild(top);
+  const pres12Grid = document.getElementById("presentation-archetypes-12-grid");
+  if (pres12Grid) {
+    pres12Grid.replaceChildren();
+    (pb.presentation_archetypes_12 || []).forEach((pa) => {
+      const card = mkEl("div", "repo-card");
+      const inner = mkEl("div");
+      const chips = mkEl("div", "deliverable-chips");
+      chips.append(
+        mkEl("span", "brand-badge", pa.code),
+        mkEl("span", "pill-badge pill-sky", pa.aspect_ratio)
+      );
+      inner.appendChild(chips);
+      const h = mkEl("h3", "repo-card-title", pa.name);
+      h.style.margin = "8px 0 6px";
+      inner.appendChild(h);
+      const anat = mkEl("p", "", polishArrows(pa.visual_anatomy));
+      anat.style.cssText = "font-size:12px;color:#334155;margin-bottom:6px;line-height:1.48;";
+      inner.appendChild(anat);
+      const exFormatted = (pa.exemplar_posts || []).map((s) =>
+        String(s).replace(/#(\d+)\s*\(\d{10,}\)/g, "LI-$1 (#$1)")
+      );
+      const ex = mkEl("div", "", `Audited Exemplars: ${exFormatted.join(" · ")}`);
+      ex.style.cssText = "font-size:11.5px;font-weight:700;color:#1e40af;margin-bottom:8px;";
+      inner.appendChild(ex);
+      card.appendChild(inner);
 
       const foot = mkEl("div", "repo-card-footer");
-      const leftBtns = mkEl("div", "studio-toolbar-actions");
-      const liLink = mkEl("a", "btn-secondary", "Profile ↗");
-      liLink.href = safeUrl(cp.linkedin_url);
-      liLink.target = "_blank";
-      liLink.rel = "noopener";
-      const tplBtn = mkEl("button", "btn-secondary", cp.template_id);
+      const filterBtn = mkEl("button", "btn-secondary", "Filter Posts →");
+      filterBtn.type = "button";
+      filterBtn.addEventListener("click", () => {
+        const sel = document.getElementById("posts-audit-filter-pres");
+        if (sel) sel.value = pa.code;
+        activatePlaybookPanel("playbook-panel-posts");
+        renderReviewedPostsGrid();
+      });
+      const tplBtn = mkEl("button", "btn-primary", `Blueprint ${pa.matched_template_id}`);
       tplBtn.type = "button";
-      tplBtn.addEventListener("click", () => jumpToTemplateInGallery(cp.template_id));
-      leftBtns.append(liLink, tplBtn);
-
-      const genBtn = mkEl("button", "btn-primary", "Use Style →");
-      genBtn.type = "button";
-      genBtn.setAttribute("data-testid", `generate-in-style-${cp.template_id}`);
-      genBtn.addEventListener("click", () => generateInCreatorStyle(cp.style_code || "AUTO", cp.name));
-      foot.append(leftBtns, genBtn);
+      tplBtn.addEventListener("click", () => jumpToTemplateInGallery(pa.matched_template_id));
+      foot.append(filterBtn, tplBtn);
       card.appendChild(foot);
-      cpGrid.appendChild(card);
+      pres12Grid.appendChild(card);
     });
   }
 
@@ -1091,12 +1828,12 @@ function renderPlaybookView() {
       const h = mkEl("h3", "repo-card-title", ch.name);
       h.style.margin = "8px 0 6px";
       inner.appendChild(h);
-      const p = mkEl("p", "", ch.mining_pattern);
+      const p = mkEl("p", "", polishArrows(ch.mining_pattern));
       p.style.cssText = "font-size:12.5px;color:#475569;margin-bottom:8px;line-height:1.48;";
       inner.appendChild(p);
       const ul = document.createElement("ul");
       ul.style.cssText = "padding-left:18px;font-size:12px;color:#334155;line-height:1.5;";
-      (ch.sources || []).forEach((s) => ul.appendChild(mkEl("li", "", s)));
+      (ch.sources || []).forEach((s) => ul.appendChild(mkEl("li", "", polishArrows(s))));
       inner.appendChild(ul);
       card.appendChild(inner);
       chGrid.appendChild(card);
@@ -1113,7 +1850,7 @@ function renderPlaybookView() {
       const h = mkEl("h3", "repo-card-title", a.name);
       h.style.margin = "8px 0 6px";
       inner.appendChild(h);
-      const flow = mkEl("p", "", a.visual_flow);
+      const flow = mkEl("p", "", polishArrows(a.visual_flow));
       flow.style.cssText = "font-size:12.5px;color:#475569;margin-bottom:8px;";
       inner.appendChild(flow);
       const used = mkEl("div", "", `Exemplars: ${(a.used_in_posts || []).join(" · ")}`);
@@ -2571,6 +3308,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   wireRovingKeyboardGroup("[data-testid='miner-subtabs']", ".subview-tab-btn");
 
+  // Creator Radar Sub-Tabs
+  document.querySelectorAll("[data-playbook-panel]").forEach((btn) => {
+    btn.addEventListener("click", () => activatePlaybookPanel(btn.getAttribute("data-playbook-panel")));
+  });
+  wireRovingKeyboardGroup("[data-testid='playbook-subtabs']", ".subview-tab-btn");
+
   document.getElementById("back-to-composer-btn")?.addEventListener("click", () => {
     activateMinerPanel("miner-panel-composer");
   });
@@ -2664,17 +3407,22 @@ document.addEventListener("DOMContentLoaded", () => {
         popBtn?.setAttribute("aria-expanded", "false");
         return;
       }
+      const radarDrawer = document.getElementById("creator-radar-drawer");
+      if (radarDrawer?.classList.contains("open")) {
+        closeAllSlideDrawers();
+        return;
+      }
       const drawer = document.getElementById("repo-inspector-drawer");
       if (drawer?.classList.contains("open")) {
-        drawer.classList.remove("open");
+        closeAllSlideDrawers();
       }
     }
   });
 
   // Inspector Drawer Tabs & Close
-  document.querySelectorAll(".drawer-tabs .nav-tab-btn").forEach((btn) => {
+  document.querySelectorAll("#repo-inspector-drawer .drawer-tabs .nav-tab-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".drawer-tabs .nav-tab-btn").forEach((b) => {
+      document.querySelectorAll("#repo-inspector-drawer .drawer-tabs .nav-tab-btn").forEach((b) => {
         const isAct = b === btn;
         b.classList.toggle("active", isAct);
         b.setAttribute("aria-selected", isAct ? "true" : "false");
@@ -2686,11 +3434,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
-  wireRovingKeyboardGroup(".drawer-tabs", ".nav-tab-btn");
+  wireRovingKeyboardGroup("#repo-inspector-drawer .drawer-tabs", ".nav-tab-btn");
 
-  document.getElementById("close-drawer-btn")?.addEventListener("click", () => {
-    document.getElementById("repo-inspector-drawer")?.classList.remove("open");
-  });
+  document.getElementById("close-drawer-btn")?.addEventListener("click", closeAllSlideDrawers);
+  document.getElementById("close-radar-drawer-btn")?.addEventListener("click", closeAllSlideDrawers);
+  document.getElementById("drawer-backdrop")?.addEventListener("click", closeAllSlideDrawers);
+
+  // Creator Radar Filters & Sorts
+  document.getElementById("posts-audit-search-input")?.addEventListener("input", renderReviewedPostsGrid);
+  document.getElementById("posts-audit-filter-pres")?.addEventListener("change", renderReviewedPostsGrid);
+  document.getElementById("posts-audit-filter-author")?.addEventListener("change", renderReviewedPostsGrid);
+  document.getElementById("posts-audit-sort-select")?.addEventListener("change", renderReviewedPostsGrid);
+  document.getElementById("creator-search-input")?.addEventListener("input", renderCreatorProfilesGrid);
+  document.getElementById("creator-platform-filter")?.addEventListener("change", renderCreatorProfilesGrid);
 
   // Filters & Actions
   document.getElementById("gallery-search-input")?.addEventListener("input", renderGalleryView);

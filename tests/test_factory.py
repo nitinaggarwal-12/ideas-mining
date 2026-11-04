@@ -179,14 +179,35 @@ class TestIdeasMiningFactory(unittest.TestCase):
         self.assertTrue(vman["quality_gates"]["all_video_gates_passed"])
 
     def test_creator_mining_playbook_and_openhands_comparison(self) -> None:
+        from pathlib import Path
         from src.catalog.posts_catalog import MINED_TEMPLATE_POSTS_CATALOG
+        from src.harvester.idea_miner import AgenticIdeaMiner
 
-        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["signal_channels"]), 4)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["signal_channels"]), 6)
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["diagram_archetypes_2d"]), 4)
-        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["creator_profiles"]), 16)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["presentation_archetypes_12"]), 12)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["creator_profiles"]), 39)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["reviewed_posts"]), 33)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["omnichannel_platforms"]), 10)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["x_ecosystem_leaders"]), 15)
         self.assertEqual(len(MINED_TEMPLATE_POSTS_CATALOG), 16)
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["openhands_superiority"]["comparison"]), 5)
         self.assertIn("nitin-aggarwal-b49786a", USER_PROFILE["linkedin_url"])
+
+        repo_root = Path(__file__).resolve().parent.parent
+        public_posts = [p for p in CREATOR_MINING_PLAYBOOK["reviewed_posts"] if p["availability"] == "PUBLIC_VERIFIED"]
+        restricted_posts = [p for p in CREATOR_MINING_PLAYBOOK["reviewed_posts"] if p["availability"] != "PUBLIC_VERIFIED"]
+        self.assertEqual(len(public_posts), 31)
+        self.assertEqual(len(restricted_posts), 2)
+        for p in public_posts:
+            img_path = repo_root / p["image_url"].lstrip("/")
+            self.assertTrue(img_path.exists() and img_path.stat().st_size > 1000, f"Missing post image: {img_path}")
+
+        ingested = AgenticIdeaMiner().ingest_custom_post_or_url(
+            "https://www.linkedin.com/feed/update/urn:li:activity:7472740776519577601"
+        )
+        self.assertEqual(ingested["status"], "MATCHED_REVIEWED_CREATOR_POST")
+        self.assertEqual(ingested["matched_post_id"], "LI-26")
 
     def test_2d_visual_generators_produce_valid_light_theme_svg_and_drawio(self) -> None:
         for post in list(get_minted_repo_specs()) + list(POSTS_CATALOG) + list(TOMORROW_TOP10_IDEAS):

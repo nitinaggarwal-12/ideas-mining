@@ -193,7 +193,12 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         self.send_header("X-Frame-Options", "SAMEORIGIN")
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
         self.send_header("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
-        self.send_header("Content-Security-Policy", "frame-ancestors 'self'; object-src 'none'; base-uri 'self'")
+        self.send_header(
+            "Content-Security-Policy",
+            "frame-ancestors 'self'; object-src 'none'; base-uri 'self'; "
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+            "font-src 'self' https://fonts.gstatic.com data:",
+        )
         # Emit Cross-Origin-Opener-Policy ONLY on W3C potentially trustworthy origins (HTTPS or localhost/loopback)
         # so plain HTTP Cloudtop URLs (http://<host>.c.googlers.com:<port>) never trigger COOP console warnings.
         if self._is_trustworthy_origin():
@@ -624,6 +629,31 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 topic_query=topic_query,
                 use_live_network=bool(use_live),
             )
+            # Refresh lead signal's 4:5/9:16 carousel JPEGs & 9:16 Safe-Zone video asynchronously
+            is_test_mode = os.environ.get("STUDIO_TEST_MODE", "").strip().lower() in ("1", "true", "yes")
+            if briefing.get("ideas") and not is_test_mode:
+                ideas_snapshot = list(briefing["ideas"][:5])
+
+                def _bg_sync_media() -> None:
+                    for idx, item in enumerate(ideas_snapshot):
+                        tpl0 = (item.get("matching_templates") or [{}])[0]
+                        spec = {
+                            "id": item["id"],
+                            "title": item["title"],
+                            "summary": item["summary"],
+                            "template_id": tpl0.get("template_id") or "T85",
+                            "cluster_label": item.get("cluster_label", ""),
+                            "metrics_hint": item.get("metrics_hint", ""),
+                            "source_channel": item.get("source_channel", ""),
+                        }
+                        try:
+                            compile_carousel_jpegs(spec, force=True)
+                            if idx == 0:
+                                compile_vertical_9x16_short_video(spec, force=True)
+                        except Exception:
+                            pass
+
+                threading.Thread(target=_bg_sync_media, daemon=True).start()
             self._send_json(
                 200,
                 {

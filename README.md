@@ -26,6 +26,7 @@ $$S_{\text{iso}}(I, T) = 0.30 \cdot \text{Topology} + 0.25 \cdot \text{ControlFl
 - **Top 5 Orthogonal Certified Templates & 8 Presentation Modes**: Pairs each idea with 5 orthogonal storytelling blueprints from the `116` certified `Best` + `High` pool (`0` legacy `T02`–`T52`) and computes 3-part `(Mode × Platform)` content-length contracts across `Carousel`, `Image`, `Short_Video` (`9:16`), `Video` (`16:9`), `Slidedeck`, `Slide`, `Doc`, and `Text`.
 - **Native Multi-Platform Transcoder (`src/video/multi_platform_transcoder.py`)**: Compiles 8-slide `4:5` (`1080x1350`) + `9:16` (`1080x1920`) JPEG carousels, `4:5` PDF (`carousel_4x5.pdf`), and `9:16` (`1080x1920@30fps`, `42.6s`, Safe-Zone `y = 236..1480px`) vertical Shorts MP4s (`assets/multi-platform/*`).
 - **13-Channel Compliant HITL Outbox (`src/publisher/multi_platform_publisher.py` + `scripts/run_daily_editorial_workflow.py`)**: Validates `8 × 13 = 104` `(mode, platform)` compliance contracts across Tier 1 Instant APIs (`LinkedIn`, `Telegram`, `Dev.to`, `Hashnode`, `Bluesky`), Tier 2 Audited Container APIs (`YouTube`, `YouTube Shorts`, `Instagram`, `Facebook Page`, `TikTok` `SEND_TO_USER_INBOX`), and Tier 3 Share Packets / RSS 2.0 (`WhatsApp`, `X`, `Substack` via `/api/rss/daily-briefing.xml`), persisted in `data/publishing_outbox_ledger.json`.
+- **v3.0 Multi-Persona Executive Light Studio (`public/index.html`, `public/styles.css`, `public/app.js`)**: Adapts progressive disclosure across **`Creator`** (visual storytelling & live social/device mockups), **`Executive`** (4-card ROI & Approval Queue KPI strip), and **`Builder`** (Staff+ `S_iso` router telemetry, `.drawio`/`.pptx`/`SVG` vector downloads, and live JSON API dispatch envelopes), with an instant **`⌘K` Command Palette**, **Full-Resolution Blueprint Lightbox**, `0` `innerHTML` across `100%` of `public/app.js`, and 16-Pillar WCAG 2.2 AA/AAA contrast & `390×844` mobile verification.
 
 ---
 
@@ -59,7 +60,7 @@ python3 scripts/verify_all_repos.py
 # 2. Run Daily Top-5 Editorial + 13-Channel Compliant Outbox Workflow
 python3 scripts/run_daily_editorial_workflow.py
 
-# 3. Run unit tests (23/23), inked-pixel arrow-label centering gate (T69-T89) & Puppeteer E2E suite (32/32)
+# 3. Run unit tests (23/23), inked-pixel arrow-label centering gate (T69-T89) & Puppeteer E2E + WCAG 2.2 suite (22/22)
 STUDIO_TEST_MODE=1 python3 -m unittest discover -s tests -p "test_*.py" -v
 node scripts/verify_arrow_label_inked_pixel_centering.mjs
 node scripts/e2e_puppeteer_functional_suite.mjs

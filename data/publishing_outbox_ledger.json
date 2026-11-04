@@ -1,14 +1,379 @@
 {
-  "updated_at": "2026-11-04T06:49:50.377572+00:00",
-  "total_items": 12,
-  "pending_count": 7,
-  "dispatched_count": 5,
+  "updated_at": "2026-11-04T09:28:46.741109+00:00",
+  "total_items": 17,
+  "pending_count": 0,
+  "dispatched_count": 17,
   "items": [
+    {
+      "outbox_id": "OUT-D73FFF38E6",
+      "staged_at": "2026-11-04T09:28:28.239267+00:00",
+      "scheduled_for": "",
+      "status": "DRY_RUN_VALIDATED",
+      "idea_id": "TOP5-20261104-02",
+      "idea_title": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks",
+      "template_id": "T56",
+      "template_name": "PromptCanvas #55: Shadow AI Bubble Conceptual",
+      "mode": "Short_Video",
+      "platform_id": "tiktok",
+      "platform_name": "TikTok (9:16 Video / Photo Mode)",
+      "tier": "TIER_2_AUDITED_API",
+      "tier_badge": "Tier 2 \u2022 TikTok Posting API",
+      "package": {
+        "platform_id": "tiktok",
+        "platform_name": "TikTok (9:16 Video / Photo Mode)",
+        "tier": "TIER_2_AUDITED_API",
+        "tier_badge": "Tier 2 \u2022 TikTok Posting API",
+        "requested_mode": "Image",
+        "effective_mode": "Short_Video",
+        "mode_auto_adapted": true,
+        "video_title": "",
+        "fold_hook": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks",
+        "fold_hook_chars": 81,
+        "fold_limit_chars": 90,
+        "body": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks\n\nBlueprint T56 breakdown: pass^3 = 42.2% vs pass@3 = 98.4% \u2022 5 graded dimensions \u2022 Explicit 'unknown' judge. Full runnable Google Cloud ADK + OSS architecture in bio.\n#AgenticAI #GoogleCloud #SystemDesign #LLMEngineering #VertexAI",
+        "body_chars": 312,
+        "max_chars": 4000,
+        "follow_up_comment": "",
+        "media": {
+          "container_format": "MP4",
+          "aspect_ratio": "9:16 (1080\u00d71920 @ 30fps \u2022 42.6s Safe-Zone HD)",
+          "primary_asset_url": "/assets/multi-platform/MINT-01/vertical_short_9x16.mp4",
+          "poster_url": "/assets/multi-platform/TOP5-20261104-02/carousel_9x16/slide_01.jpg",
+          "preview_image_url": "/assets/multi-platform/TOP5-20261104-02/carousel_9x16/slide_01.jpg",
+          "blueprint_svg_url": "/assets/template-gallery/T56.svg",
+          "slide_urls": [],
+          "transcoded_ready": false
+        },
+        "link_strategy": "AUDIO_AND_ONSCREEN_SEO_PLUS_BIO",
+        "compliance_note": "PDFs rejected; Photo Mode supports 2\u201335 9:16 JPEGs. Unaudited apps are locked to SELF_ONLY on Direct Post, so we default to SEND_TO_USER_INBOX until TIKTOK_APP_AUDITED=true (cap: 15/day, 6/min).",
+        "credentials_configured": false,
+        "missing_env_vars": [
+          "TIKTOK_ACCESS_TOKEN"
+        ],
+        "share_intent_url": "",
+        "compliance_checks": {
+          "all_passed": true,
+          "char_limit_ok": true,
+          "char_used": 312,
+          "char_cap": 4000,
+          "fold_hook_ok": true,
+          "fold_used": 81,
+          "fold_cap": 90,
+          "container_format_ok": true,
+          "container_format": "MP4",
+          "link_hygiene_ok": true,
+          "official_api_only_anti_ban": true
+        }
+      },
+      "dispatch_receipt": {
+        "dispatch_mode": "DRY_RUN_VALIDATED",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T09:28:28.935895+00:00",
+        "missing_env_vars": [
+          "TIKTOK_ACCESS_TOKEN"
+        ],
+        "share_intent_url": "",
+        "note": "100% preflight compliance passed (312/4000 chars, MP4 9:16 (1080\u00d71920 @ 30fps \u2022 42.6s Safe-Zone HD)). Set server env TIKTOK_ACCESS_TOKEN to switch from Dry-Run to Live API dispatch."
+      }
+    },
+    {
+      "outbox_id": "OUT-CBB742DB4B",
+      "staged_at": "2026-11-04T09:28:28.239052+00:00",
+      "scheduled_for": "",
+      "status": "DRY_RUN_VALIDATED",
+      "idea_id": "TOP5-20261104-02",
+      "idea_title": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks",
+      "template_id": "T56",
+      "template_name": "PromptCanvas #55: Shadow AI Bubble Conceptual",
+      "mode": "Image",
+      "platform_id": "instagram",
+      "platform_name": "Instagram (Carousel / Reels)",
+      "tier": "TIER_2_AUDITED_API",
+      "tier_badge": "Tier 2 \u2022 Meta Graph API",
+      "package": {
+        "platform_id": "instagram",
+        "platform_name": "Instagram (Carousel / Reels)",
+        "tier": "TIER_2_AUDITED_API",
+        "tier_badge": "Tier 2 \u2022 Meta Graph API",
+        "requested_mode": "Image",
+        "effective_mode": "Image",
+        "mode_auto_adapted": false,
+        "video_title": "",
+        "fold_hook": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks (pass^3 = 42.2% vs pass@3 = 98.4%)",
+        "fold_hook_chars": 116,
+        "fold_limit_chars": 125,
+        "body": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks (pass^3 = 42.2% vs pass@3 = 98.4%)\n\nSwipe through all 8 slides of Blueprint T56 to see how production AI teams architect around this bottleneck:\n\u2022 Demonstrates why a 75% single-run agent succeeds across 3 consecutive customer runs only 42.2% of the time (pass^3), pairing sandbox env.reset() isolation with deterministic DB-state checks and restraint tasks.\n\u2022 pass^3 = 42.2% vs pass@3 = 98.4% \u2022 5 graded dimensions \u2022 Explicit 'unknown' judge\n\nSave this blueprint for your next architecture review \u2014 full runnable repo link is in bio.\n\n#AgenticAI #GoogleCloud #SystemDesign #LLMEngineering #VertexAI",
+        "body_chars": 680,
+        "max_chars": 2200,
+        "follow_up_comment": "",
+        "media": {
+          "container_format": "JPEG",
+          "aspect_ratio": "4:5 (1080\u00d71350)",
+          "primary_asset_url": "/assets/multi-platform/TOP5-20261104-02/carousel_4x5/slide_01.jpg",
+          "preview_image_url": "/assets/multi-platform/TOP5-20261104-02/carousel_4x5/slide_01.jpg",
+          "blueprint_svg_url": "/assets/template-gallery/T56.svg",
+          "slide_urls": [],
+          "transcoded_ready": true
+        },
+        "link_strategy": "BIO_LINK_NO_RAW_URLS",
+        "compliance_note": "PDFs are rejected! Requires Creator/Business account linked to a FB Page + public HTTPS JPEG/MP4 URLs (2\u201320 JPEG slides per carousel, \u2264100 API posts/24h). Raw URLs are stripped from captions.",
+        "credentials_configured": false,
+        "missing_env_vars": [
+          "IG_ACCESS_TOKEN",
+          "IG_USER_ID",
+          "PUBLIC_MEDIA_BASE_URL"
+        ],
+        "share_intent_url": "",
+        "compliance_checks": {
+          "all_passed": true,
+          "char_limit_ok": true,
+          "char_used": 680,
+          "char_cap": 2200,
+          "fold_hook_ok": true,
+          "fold_used": 116,
+          "fold_cap": 125,
+          "container_format_ok": true,
+          "container_format": "JPEG",
+          "link_hygiene_ok": true,
+          "official_api_only_anti_ban": true
+        }
+      },
+      "dispatch_receipt": {
+        "dispatch_mode": "DRY_RUN_VALIDATED",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T09:28:28.935913+00:00",
+        "missing_env_vars": [
+          "IG_ACCESS_TOKEN",
+          "IG_USER_ID",
+          "PUBLIC_MEDIA_BASE_URL"
+        ],
+        "share_intent_url": "",
+        "note": "100% preflight compliance passed (680/2200 chars, JPEG 4:5 (1080\u00d71350)). Set server env IG_ACCESS_TOKEN, IG_USER_ID, PUBLIC_MEDIA_BASE_URL to switch from Dry-Run to Live API dispatch."
+      }
+    },
+    {
+      "outbox_id": "OUT-4862F50EA9",
+      "staged_at": "2026-11-04T09:28:28.238930+00:00",
+      "scheduled_for": "",
+      "status": "DRY_RUN_VALIDATED",
+      "idea_id": "TOP5-20261104-02",
+      "idea_title": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks",
+      "template_id": "T56",
+      "template_name": "PromptCanvas #55: Shadow AI Bubble Conceptual",
+      "mode": "Short_Video",
+      "platform_id": "youtube_shorts",
+      "platform_name": "YouTube Shorts (9:16 \u22643m)",
+      "tier": "TIER_2_AUDITED_API",
+      "tier_badge": "Tier 2 \u2022 YouTube v3 Shorts",
+      "package": {
+        "platform_id": "youtube_shorts",
+        "platform_name": "YouTube Shorts (9:16 \u22643m)",
+        "tier": "TIER_2_AUDITED_API",
+        "tier_badge": "Tier 2 \u2022 YouTube v3 Shorts",
+        "requested_mode": "Image",
+        "effective_mode": "Short_Video",
+        "mode_auto_adapted": true,
+        "video_title": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks (T56.",
+        "fold_hook": "Beyond Single-Run Accuracy: Multi-Trial pass^k.",
+        "fold_hook_chars": 47,
+        "fold_limit_chars": 55,
+        "body": "Beyond Single-Run Accuracy: Multi-Trial pass^k.\n\n43-second vertical tier-by-tier architecture breakdown using Blueprint T56.\nKey telemetry: pass^3 = 42.2% vs pass@3 = 98.4% \u2022 5 graded dimensions \u2022 Explicit 'unknown' judge\nWatch the full 16:9 walkthrough via the Related Video link in the Shorts player.\n\n#AgenticAI #GoogleCloud #SystemDesign #LLMEngineering",
+        "body_chars": 357,
+        "max_chars": 5000,
+        "follow_up_comment": "",
+        "media": {
+          "container_format": "MP4",
+          "aspect_ratio": "9:16 (1080\u00d71920 @ 30fps \u2022 42.6s Safe-Zone HD)",
+          "primary_asset_url": "/assets/multi-platform/MINT-01/vertical_short_9x16.mp4",
+          "poster_url": "/assets/multi-platform/TOP5-20261104-02/carousel_9x16/slide_01.jpg",
+          "preview_image_url": "/assets/multi-platform/TOP5-20261104-02/carousel_9x16/slide_01.jpg",
+          "blueprint_svg_url": "/assets/template-gallery/T56.svg",
+          "slide_urls": [],
+          "transcoded_ready": false
+        },
+        "link_strategy": "RELATED_LONGFORM_VIDEO_POINTER",
+        "compliance_note": "Vertical 9:16 MP4 \u2264180s auto-classifies as a Short. URLs in Shorts descriptions are non-clickable; route viewers via YouTube Studio's Related Video link to the 16:9 walkthrough.",
+        "credentials_configured": false,
+        "missing_env_vars": [
+          "YOUTUBE_ACCESS_TOKEN"
+        ],
+        "share_intent_url": "",
+        "compliance_checks": {
+          "all_passed": true,
+          "char_limit_ok": true,
+          "char_used": 357,
+          "char_cap": 5000,
+          "fold_hook_ok": true,
+          "fold_used": 47,
+          "fold_cap": 55,
+          "container_format_ok": true,
+          "container_format": "MP4",
+          "link_hygiene_ok": true,
+          "official_api_only_anti_ban": true
+        }
+      },
+      "dispatch_receipt": {
+        "dispatch_mode": "DRY_RUN_VALIDATED",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T09:28:28.935919+00:00",
+        "missing_env_vars": [
+          "YOUTUBE_ACCESS_TOKEN"
+        ],
+        "share_intent_url": "",
+        "note": "100% preflight compliance passed (357/5000 chars, MP4 9:16 (1080\u00d71920 @ 30fps \u2022 42.6s Safe-Zone HD)). Set server env YOUTUBE_ACCESS_TOKEN to switch from Dry-Run to Live API dispatch."
+      }
+    },
+    {
+      "outbox_id": "OUT-89BFBAD467",
+      "staged_at": "2026-11-04T09:28:28.238688+00:00",
+      "scheduled_for": "",
+      "status": "DRY_RUN_VALIDATED",
+      "idea_id": "TOP5-20261104-02",
+      "idea_title": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks",
+      "template_id": "T56",
+      "template_name": "PromptCanvas #55: Shadow AI Bubble Conceptual",
+      "mode": "Image",
+      "platform_id": "telegram",
+      "platform_name": "Telegram Channel / Group",
+      "tier": "TIER_1_INSTANT_API",
+      "tier_badge": "Tier 1 \u2022 Official Bot API",
+      "package": {
+        "platform_id": "telegram",
+        "platform_name": "Telegram Channel / Group",
+        "tier": "TIER_1_INSTANT_API",
+        "tier_badge": "Tier 1 \u2022 Official Bot API",
+        "requested_mode": "Image",
+        "effective_mode": "Image",
+        "mode_auto_adapted": false,
+        "video_title": "",
+        "fold_hook": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks \u2014 pass^3 = 42.2% vs pass@3 = 98.4%",
+        "fold_hook_chars": 116,
+        "fold_limit_chars": 320,
+        "body": "\u26a1 Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks \u2014 pass^3 = 42.2% vs pass@3 = 98.4% \u2022 Architecture Blueprint: T56 (PromptCanvas #55: Shadow AI Bubble Conceptual) \u2022 Core Finding: Demonstrates why a 75% single-run agent succeeds across 3 consecutive customer runs only 42.2% of the time (pass^3), pairing sandbox env.reset() isolation with deterministic DB-state checks and restraint tasks. \u2022 Telemetry: pass^3 = 42.2% vs pass@3 = 98.4% \u2022 5 graded dimensions \u2022 Explicit 'unknown' judge \u2022 Primary Source: https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents #AgenticAI #GoogleCloud #SystemDesign #LLMEngineering",
+        "body_chars": 669,
+        "max_chars": 4096,
+        "follow_up_comment": "\ud83d\udcd0 Implementation Checklist (T56):\n1) Pin immutable prefix instructions for >90% KV-cache hits.\n2) Exchange caller OIDC tokens per tool hop (RFC 8693 OBO).\n3) Verify outputs in isolated OpenHands/gVisor sandboxes before commit.",
+        "media": {
+          "container_format": "PNG",
+          "aspect_ratio": "4:5 / 1:1 @2x Retina PNG",
+          "primary_asset_url": "/assets/template-gallery/T56.png",
+          "preview_image_url": "/assets/template-gallery/T56.png",
+          "blueprint_svg_url": "/assets/template-gallery/T56.svg",
+          "slide_urls": [],
+          "transcoded_ready": true
+        },
+        "link_strategy": "INLINE_MARKDOWN_AND_CHAINED_REPLY",
+        "compliance_note": "sendPhoto/sendDocument/sendVideo captions hard-fail >1,024 chars (400 Bad Request); publisher auto-splits >1,024 chars into Media (\u22641,024) + chained reply_to_message_id (\u22644,096).",
+        "credentials_configured": false,
+        "missing_env_vars": [
+          "TELEGRAM_BOT_TOKEN",
+          "TELEGRAM_CHAT_ID"
+        ],
+        "share_intent_url": "https://t.me/share/url?url=https%3A//cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents&text=Beyond%20Single-Run%20Accuracy%3A%20Multi-Trial%20pass%5Ek%20Consistency%20%26%20Restraint%20Benchmarks%20%E2%80%94%20pass%5E3%20%3D%2042.2%25%20vs%20pass%403%20%3D%2098.4%25",
+        "compliance_checks": {
+          "all_passed": true,
+          "char_limit_ok": true,
+          "char_used": 669,
+          "char_cap": 1024,
+          "fold_hook_ok": true,
+          "fold_used": 116,
+          "fold_cap": 320,
+          "container_format_ok": true,
+          "container_format": "PNG",
+          "link_hygiene_ok": true,
+          "official_api_only_anti_ban": true
+        }
+      },
+      "dispatch_receipt": {
+        "dispatch_mode": "DRY_RUN_VALIDATED",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T09:28:28.935922+00:00",
+        "missing_env_vars": [
+          "TELEGRAM_BOT_TOKEN",
+          "TELEGRAM_CHAT_ID"
+        ],
+        "share_intent_url": "https://t.me/share/url?url=https%3A//cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents&text=Beyond%20Single-Run%20Accuracy%3A%20Multi-Trial%20pass%5Ek%20Consistency%20%26%20Restraint%20Benchmarks%20%E2%80%94%20pass%5E3%20%3D%2042.2%25%20vs%20pass%403%20%3D%2098.4%25",
+        "note": "100% preflight compliance passed (669/4096 chars, PNG 4:5 / 1:1 @2x Retina PNG). Set server env TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID to switch from Dry-Run to Live API dispatch."
+      }
+    },
+    {
+      "outbox_id": "OUT-2D27C87CE1",
+      "staged_at": "2026-11-04T09:28:28.238476+00:00",
+      "scheduled_for": "",
+      "status": "DRY_RUN_VALIDATED",
+      "idea_id": "TOP5-20261104-02",
+      "idea_title": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks",
+      "template_id": "T56",
+      "template_name": "PromptCanvas #55: Shadow AI Bubble Conceptual",
+      "mode": "Image",
+      "platform_id": "linkedin",
+      "platform_name": "LinkedIn (Personal / Page)",
+      "tier": "TIER_1_INSTANT_API",
+      "tier_badge": "Tier 1 \u2022 Official REST API",
+      "package": {
+        "platform_id": "linkedin",
+        "platform_name": "LinkedIn (Personal / Page)",
+        "tier": "TIER_1_INSTANT_API",
+        "tier_badge": "Tier 1 \u2022 Official REST API",
+        "requested_mode": "Image",
+        "effective_mode": "Image",
+        "mode_auto_adapted": false,
+        "video_title": "",
+        "fold_hook": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks \u2014 pass^3 = 42.2% vs pass@3 = 98.4%",
+        "fold_hook_chars": 116,
+        "fold_limit_chars": 210,
+        "body": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks \u2014 pass^3 = 42.2% vs pass@3 = 98.4%\n\nWhy this architectural pattern is surging across production AI teams today:\n\u2022 Signal: Demonstrates why a 75% single-run agent succeeds across 3 consecutive customer runs only 42.2% of the time (pass^3), pairing sandbox env.reset() isolation with deterministic DB-state checks and restraint tasks.\n\u2022 Measured impact: pass^3 = 42.2% vs pass@3 = 98.4% \u2022 5 graded dimensions \u2022 Explicit 'unknown' judge\n\u2022 Visual Blueprint: T56 (PromptCanvas #55: Shadow AI Bubble Conceptual) \u2014 Image edition\n\n4 Production Engineering Rules:\n1. Bound per-turn schema & context budgets deterministically before model invocation.\n2. Enforce narrow-audience OAuth 2.1 OBO tokens + Model Armor policy gates outside prompts.\n3. Isolate untrusted tool & code execution inside ephemeral sandboxes with orthogonal verification.\n4. Gate rollouts on multi-trial pass^k replay benchmarks and SHA-256 audit receipts.\n\nWhich of these 4 gates is currently the hardest bottleneck in your agent stack?\n\n#AgenticAI #GoogleCloud #SystemDesign #LLMEngineering #VertexAI",
+        "body_chars": 1145,
+        "max_chars": 3000,
+        "follow_up_comment": "Primary engineering specification & reference repo: https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents",
+        "media": {
+          "container_format": "PNG",
+          "aspect_ratio": "4:5 / 1:1 @2x Retina PNG",
+          "primary_asset_url": "/assets/template-gallery/T56.png",
+          "preview_image_url": "/assets/template-gallery/T56.png",
+          "blueprint_svg_url": "/assets/template-gallery/T56.svg",
+          "slide_urls": [],
+          "transcoded_ready": true
+        },
+        "link_strategy": "FIRST_COMMENT_AND_FINAL_SLIDE",
+        "compliance_note": "Self-serve Share on LinkedIn (w_member_social) auto-publishes Text, Image, Video, and PDF Carousels (\u2264100 MB, \u2264300 pages). Comment #1 requires gated w_member_social_feed or 1-click paste.",
+        "credentials_configured": false,
+        "missing_env_vars": [
+          "LINKEDIN_ACCESS_TOKEN",
+          "LINKEDIN_PERSON_URN"
+        ],
+        "share_intent_url": "https://www.linkedin.com/sharing/share-offsite/?url=https%3A//cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents",
+        "compliance_checks": {
+          "all_passed": true,
+          "char_limit_ok": true,
+          "char_used": 1145,
+          "char_cap": 3000,
+          "fold_hook_ok": true,
+          "fold_used": 116,
+          "fold_cap": 210,
+          "container_format_ok": true,
+          "container_format": "PNG",
+          "link_hygiene_ok": true,
+          "official_api_only_anti_ban": true
+        }
+      },
+      "dispatch_receipt": {
+        "dispatch_mode": "DRY_RUN_VALIDATED",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T09:28:28.935926+00:00",
+        "missing_env_vars": [
+          "LINKEDIN_ACCESS_TOKEN",
+          "LINKEDIN_PERSON_URN"
+        ],
+        "share_intent_url": "https://www.linkedin.com/sharing/share-offsite/?url=https%3A//cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents",
+        "note": "100% preflight compliance passed (1145/3000 chars, PNG 4:5 / 1:1 @2x Retina PNG). Set server env LINKEDIN_ACCESS_TOKEN, LINKEDIN_PERSON_URN to switch from Dry-Run to Live API dispatch."
+      }
+    },
     {
       "outbox_id": "OUT-B9E051BB0B",
       "staged_at": "2026-11-04T06:49:50.377564+00:00",
       "scheduled_for": "",
-      "status": "PENDING_APPROVAL",
+      "status": "SHARE_PACKET_READY",
       "idea_id": "TOP5-20261104-01",
       "idea_title": "Tiered Speculative Cascade & <15ms Complexity Router",
       "template_id": "T61",
@@ -64,13 +429,19 @@
           "official_api_only_anti_ban": true
         }
       },
-      "dispatch_receipt": null
+      "dispatch_receipt": {
+        "dispatch_mode": "SHARE_PACKET_READY",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T08:58:41.822490+00:00",
+        "share_intent_url": "https://wa.me/?text=%2ATiered%20Speculative%20Cascade%20%26%20%3C15ms%20Complexity%20Router%2A%20%E2%80%A2%20%2ACore%20Pattern%20%28T61%29%2A%3A%20Hospital%20Triage%20Nurse%20Resolving%2080%25%20of%20Cases%20Instantly%20vs.%20Sending%20Every%20Band-Aid%20Visit%20into%20Open-Heart%20Surgery%20Optimize%20Cost-Per-Successful-Outcome%20%28CPSO%29%20by%20demoting%20bool/enum%20micro-gates%20to%20%3C15ms%20classifiers%20and%20cascading%20%60gemini-3.8-flash%60%20-%3E%20%60gemini-4-argon%60.%20%E2%80%A2%20%2AImpact%2A%3A%20-68%25%20inference%20spend%20while%20maintaining%20%3C1.1s%20p95%20turn%20latency.%20%E2%80%A2%20%2AReference%2A%3A%20https%3A//github.com/nitinaggarwal-12/ideas-mining",
+        "note": "Tier-3 compliant 1-Click Share Packet / RSS 2.0 feed ready (zero unofficial scraper risk)."
+      }
     },
     {
       "outbox_id": "OUT-DF4E816E52",
       "staged_at": "2026-11-04T06:49:50.377452+00:00",
       "scheduled_for": "",
-      "status": "PENDING_APPROVAL",
+      "status": "DRY_RUN_VALIDATED",
       "idea_id": "TOP5-20261104-01",
       "idea_title": "Tiered Speculative Cascade & <15ms Complexity Router",
       "template_id": "T61",
@@ -124,13 +495,22 @@
           "official_api_only_anti_ban": true
         }
       },
-      "dispatch_receipt": null
+      "dispatch_receipt": {
+        "dispatch_mode": "DRY_RUN_VALIDATED",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T08:58:41.822493+00:00",
+        "missing_env_vars": [
+          "DEVTO_API_KEY"
+        ],
+        "share_intent_url": "",
+        "note": "100% preflight compliance passed (1501/35000 chars, MARKDOWN 1.91:1 Cover + Inline @2x PNG). Set server env DEVTO_API_KEY to switch from Dry-Run to Live API dispatch."
+      }
     },
     {
       "outbox_id": "OUT-640169A01D",
       "staged_at": "2026-11-04T06:49:50.377392+00:00",
       "scheduled_for": "",
-      "status": "PENDING_APPROVAL",
+      "status": "DRY_RUN_VALIDATED",
       "idea_id": "TOP5-20261104-01",
       "idea_title": "Tiered Speculative Cascade & <15ms Complexity Router",
       "template_id": "T61",
@@ -185,13 +565,22 @@
           "official_api_only_anti_ban": true
         }
       },
-      "dispatch_receipt": null
+      "dispatch_receipt": {
+        "dispatch_mode": "DRY_RUN_VALIDATED",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T08:58:41.822496+00:00",
+        "missing_env_vars": [
+          "TIKTOK_ACCESS_TOKEN"
+        ],
+        "share_intent_url": "",
+        "note": "100% preflight compliance passed (264/4000 chars, MP4 9:16 (1080\u00d71920 @ 30fps \u2022 42.6s Safe-Zone HD)). Set server env TIKTOK_ACCESS_TOKEN to switch from Dry-Run to Live API dispatch."
+      }
     },
     {
       "outbox_id": "OUT-971A11DACA",
       "staged_at": "2026-11-04T06:49:50.377287+00:00",
       "scheduled_for": "",
-      "status": "PENDING_APPROVAL",
+      "status": "DRY_RUN_VALIDATED",
       "idea_id": "TOP5-20261104-01",
       "idea_title": "Tiered Speculative Cascade & <15ms Complexity Router",
       "template_id": "T61",
@@ -256,13 +645,24 @@
           "official_api_only_anti_ban": true
         }
       },
-      "dispatch_receipt": null
+      "dispatch_receipt": {
+        "dispatch_mode": "DRY_RUN_VALIDATED",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T08:58:41.822499+00:00",
+        "missing_env_vars": [
+          "IG_ACCESS_TOKEN",
+          "IG_USER_ID",
+          "PUBLIC_MEDIA_BASE_URL"
+        ],
+        "share_intent_url": "",
+        "note": "100% preflight compliance passed (716/2200 chars, JPEG 4:5 (1080\u00d71350 \u2022 8 JPEG Slides)). Set server env IG_ACCESS_TOKEN, IG_USER_ID, PUBLIC_MEDIA_BASE_URL to switch from Dry-Run to Live API dispatch."
+      }
     },
     {
       "outbox_id": "OUT-477283CBB6",
       "staged_at": "2026-11-04T06:49:50.377139+00:00",
       "scheduled_for": "",
-      "status": "PENDING_APPROVAL",
+      "status": "DRY_RUN_VALIDATED",
       "idea_id": "TOP5-20261104-01",
       "idea_title": "Tiered Speculative Cascade & <15ms Complexity Router",
       "template_id": "T61",
@@ -317,13 +717,22 @@
           "official_api_only_anti_ban": true
         }
       },
-      "dispatch_receipt": null
+      "dispatch_receipt": {
+        "dispatch_mode": "DRY_RUN_VALIDATED",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T08:58:41.822512+00:00",
+        "missing_env_vars": [
+          "YOUTUBE_ACCESS_TOKEN"
+        ],
+        "share_intent_url": "",
+        "note": "100% preflight compliance passed (343/5000 chars, MP4 9:16 (1080\u00d71920 @ 30fps \u2022 42.6s Safe-Zone HD)). Set server env YOUTUBE_ACCESS_TOKEN to switch from Dry-Run to Live API dispatch."
+      }
     },
     {
       "outbox_id": "OUT-ADC796A05D",
       "staged_at": "2026-11-04T06:49:50.377015+00:00",
       "scheduled_for": "",
-      "status": "PENDING_APPROVAL",
+      "status": "DRY_RUN_VALIDATED",
       "idea_id": "TOP5-20261104-01",
       "idea_title": "Tiered Speculative Cascade & <15ms Complexity Router",
       "template_id": "T61",
@@ -378,13 +787,23 @@
           "official_api_only_anti_ban": true
         }
       },
-      "dispatch_receipt": null
+      "dispatch_receipt": {
+        "dispatch_mode": "DRY_RUN_VALIDATED",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T08:58:41.822516+00:00",
+        "missing_env_vars": [
+          "TELEGRAM_BOT_TOKEN",
+          "TELEGRAM_CHAT_ID"
+        ],
+        "share_intent_url": "https://t.me/share/url?url=https%3A//github.com/nitinaggarwal-12/ideas-mining&text=Tiered%20Speculative%20Cascade%20%26%20%3C15ms%20Complexity%20Router%20%E2%80%94%20-68%25%20inference%20spend%20while%20maintaining%20%3C1.1s%20p95%20turn%20latency.",
+        "note": "100% preflight compliance passed (672/4096 chars, PPTX 16:9 Widescreen Native Deck). Set server env TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID to switch from Dry-Run to Live API dispatch."
+      }
     },
     {
       "outbox_id": "OUT-EF58D1E14C",
       "staged_at": "2026-11-04T06:49:50.376845+00:00",
       "scheduled_for": "",
-      "status": "PENDING_APPROVAL",
+      "status": "DRY_RUN_VALIDATED",
       "idea_id": "TOP5-20261104-01",
       "idea_title": "Tiered Speculative Cascade & <15ms Complexity Router",
       "template_id": "T61",
@@ -439,7 +858,17 @@
           "official_api_only_anti_ban": true
         }
       },
-      "dispatch_receipt": null
+      "dispatch_receipt": {
+        "dispatch_mode": "DRY_RUN_VALIDATED",
+        "http_status": 200,
+        "dispatched_at": "2026-11-04T08:58:41.822519+00:00",
+        "missing_env_vars": [
+          "LINKEDIN_ACCESS_TOKEN",
+          "LINKEDIN_PERSON_URN"
+        ],
+        "share_intent_url": "https://www.linkedin.com/sharing/share-offsite/?url=https%3A//github.com/nitinaggarwal-12/ideas-mining",
+        "note": "100% preflight compliance passed (1182/3000 chars, PDF 16:9 Widescreen Native Deck). Set server env LINKEDIN_ACCESS_TOKEN, LINKEDIN_PERSON_URN to switch from Dry-Run to Live API dispatch."
+      }
     },
     {
       "outbox_id": "OUT-8645A0494F",

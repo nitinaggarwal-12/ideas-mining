@@ -228,12 +228,21 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
             srv.shutdown()
             srv.server_close()
 
-        # Security check: new Top-5 controller in public/app.js uses createElement/replaceChildren (zero innerHTML)
+        # Security & UI regression check: 100% of public/app.js uses pure DOM construction (zero innerHTML),
+        # zero Web Storage, and Slidedeck mode always provides high-res preview_image_url + slide_urls
         app_js = (WORKSPACE_ROOT / "public" / "app.js").read_text(encoding="utf-8")
-        new_section = app_js.split("function mkEl(tag, className, text)", 1)[1]
-        self.assertNotIn("innerHTML", new_section)
+        self.assertNotIn("innerHTML", app_js)
         self.assertNotIn("localStorage", app_js)
         self.assertNotIn("sessionStorage", app_js)
+
+        deck_pkg = compile_platform_package(
+            {"id": "MINT-01", "title": "Deck Check", "summary": "S", "metrics_hint": "M"},
+            {"template_id": "T61", "name": "Executive Trade-Off Matrix"},
+            "Slidedeck",
+            "linkedin",
+        )
+        self.assertTrue(deck_pkg["media"]["preview_image_url"].endswith(".png"))
+        self.assertGreaterEqual(len(deck_pkg["media"]["slide_urls"]), 5)
 
 
 if __name__ == "__main__":

@@ -1,171 +1,121 @@
 {
-  "timestamp": "2026-11-04T06:49:07.915Z",
-  "baseUrl": "http://nitinagga.c.googlers.com:8765",
-  "totalAssertions": 32,
-  "passedAssertions": 32,
+  "timestamp": "2026-11-04T09:29:02.362Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "totalAssertions": 22,
+  "passedAssertions": 22,
   "failedAssertions": 0,
   "consoleErrors": [],
   "failedRequests": [],
   "results": [
     {
-      "name": "Rule 54 Executive Light Theme Default",
+      "name": "Rule 54 Executive Light Theme & Compact Single-Row Command Header (1600x1050)",
       "passed": true,
-      "detail": "body bg=rgb(248, 250, 252), darkClass=false"
+      "detail": "bg=rgb(248, 250, 252), headerH=59px, wordmarkH=17px, bpThumbs=5/5"
     },
     {
-      "name": "Zero Horizontal Overflow on View 1 (19 Repos)",
+      "name": "Slidedeck Mode Renders Crisp Multi-Slide Visual Mockup (Zero Broken/Empty Media Box)",
       "passed": true,
-      "detail": "scrollWidth=1600 <= innerWidth=1600"
+      "detail": "previewImgs=7/7, colHeights={\"left\":738,\"center\":965,\"right\":927}"
     },
     {
-      "name": "View 1 Renders All 19 Repo Cards & 19 Matrix Rows",
+      "name": "Laptop 1366x900 Zero Header Collision & Single-Line Tabs",
       "passed": true,
-      "detail": "cards=19, rows=19, badges=19/19 Git Repos Verified | 95/95 Sandbox Tests PASS"
+      "detail": "hdrH=104px, wordmarkH=17px, maxTabH=34px, overflow=0px"
     },
     {
-      "name": "All 19 Repo Card Lead SVGs Load with naturalWidth > 0",
+      "name": "Persona Switcher Adapts Workspace Density (Creator · Executive · Builder)",
       "passed": true,
-      "detail": "loaded=19/19"
+      "detail": "executiveStrip=true, builderStrip=true, drawio=true, jsonEnvelope=true"
     },
     {
-      "name": "Filter Series MINT (Flagship Career-Minting Exemplar MINT-01)",
+      "name": "Instant ⌘K Command Palette Searches Catalog & Closes on Escape",
       "passed": true,
-      "detail": "cards=1"
+      "detail": "filteredItems=1, closedOnEsc=true"
     },
     {
-      "name": "Filter Series ARCH-DYN (Tomorrow Morning EST Top 10)",
+      "name": "Daily Studio Instagram 4:5 Carousel Mockup & Link-Free Caption Compliance",
       "passed": true,
-      "detail": "cards=10"
+      "detail": "JPEG_4x5=true, rawUrls=false, imgs=9/9"
     },
     {
-      "name": "Filter Series ARCH-2D (8 Creator Signal Posts)",
+      "name": "9:16 Smartphone Safe-Zone Bezel & 3-Part Pacing Bar in Short Video Mode",
       "passed": true,
-      "detail": "cards=8"
+      "detail": "budgetCards=3, phoneVideo=true, safeZoneGuides=true"
     },
     {
-      "name": "Filter Creator Rakesh Gohel",
+      "name": "Publishing Queue Sub-Tab Stages, Approves & Serves Valid RSS 2.0",
       "passed": true,
-      "detail": "cards=3"
+      "detail": "rows=17, validated=true, rss200=true"
     },
     {
-      "name": "Empty Search Shows Resilient Empty State (#no-matching-cards)",
-      "passed": true,
-      "detail": "empty state visible"
-    },
-    {
-      "name": "Reset Filters Button Restores All 19 Repos",
-      "passed": true,
-      "detail": "cards=19"
-    },
-    {
-      "name": "Inspector Drawer Tab 1 (MINT-01 Dynamic & @2d Visuals) Renders All Figures & Prompt",
-      "passed": true,
-      "detail": "badge=\"MINT-01 • 7:30 AM EST (Flagship Idea-Minting Studio Release) • HEAD 7456654\", images=4/4, promptChars=4910"
-    },
-    {
-      "name": "Inspector Drawer Tab 2 Renders 24-Slide Google Slides Link + 12-Slide Deck",
-      "passed": true,
-      "detail": "slides=12/12, 24SlideBtn=true"
-    },
-    {
-      "name": "Inspector Drawer Tab 3 (1-Click GCP Terraform & ADK Code) Renders main.tf & Rule 55 engine.py",
-      "passed": true,
-      "detail": "main.tf=true, engine.py=true"
-    },
-    {
-      "name": "Inspector Drawer Tab 4 (LinkedIn Copy & Group Distribution Plan)",
-      "passed": true,
-      "detail": "hasGroups=true, draftChars=4512"
-    },
-    {
-      "name": "Close Drawer Button Collapses Inspector Drawer",
-      "passed": true,
-      "detail": "drawer closed"
-    },
-    {
-      "name": "View 2 Renders All 116 Certified Templates (72 Best + 44 High), 23 T79 Topic Variants & 12 Stack Pairings",
-      "passed": true,
-      "detail": "cards=116, badge=\"116 / 116 Certified Templates (72 Best + 44 High)\", t79Variants=23, pairings=12"
-    },
-    {
-      "name": "Filter Quality Tier Best Renders 72 Certified Best Templates",
-      "passed": true,
-      "detail": "cards=72"
-    },
-    {
-      "name": "Filter Quality Tier High Renders 44 Certified High Templates",
-      "passed": true,
-      "detail": "cards=44"
-    },
-    {
-      "name": "Filter PromptCanvas Canonical Infographics Renders 15 Archetypes (T54-T67 + T79 with 23 Topic Variants)",
-      "passed": true,
-      "detail": "badge=\"15 / 116 Certified Templates (15 Best + 0 High)\", range=template-card-T54..template-card-T79, brokenImgs=0"
-    },
-    {
-      "name": "View 3 Renders 4 Signal Channels, 16 Creator Profiles, 4 @2d Archetypes & Zero Badge Overflow",
-      "passed": true,
-      "detail": "channels=4, creators=16/16, archetypes=4, badgeOverflows=0"
-    },
-    {
-      "name": "View 4 Daily Top-5 Editorial Desk: 5 Unique Ideas × 5 Templates × 8 Modes × 13 Platforms (IG 4:5 JPEG Compliance)",
-      "passed": true,
-      "detail": "JPEG_4x5=true, rawUrlsInCaption=false, carouselImgs=9/9"
-    },
-    {
-      "name": "View 4 Mode Selector Updates 3-Part Content-Length Contract & Mounts 9:16 Safe-Zone Short MP4",
-      "passed": true,
-      "detail": "budgetCards=3, 9x16Budget=true, videoSrc=true"
-    },
-    {
-      "name": "View 4 HITL Outbox Stages, Approves & Validates Multi-Platform Queue + Serves Valid RSS 2.0 & Security Headers",
-      "passed": true,
-      "detail": "outboxRows=12, validated=true, rss200=true, nosniff=nosniff"
-    },
-    {
-      "name": "View 4 Daily Post Generator Studio Synthesizes 6 Posts, Loads Custom SVGs & Copies Post + Comment #1",
+      "name": "Batch & Signal Radar Sub-Tab Synthesizes 6 Creator Posts & Copies Payload",
       "passed": true,
       "detail": "cards=6, svgs=6/6, copiedChars=1517"
     },
     {
-      "name": "View 5 (OpenHands Sandbox Console) Renders Comparison Matrix & 19 Repo Trajectories",
+      "name": "Blueprints View Renders 116 Templates, 23 T79 Spine Variants & 12 Stack Pairings",
       "passed": true,
-      "detail": "comparisonRows=5, trajectories=19/19"
+      "detail": "cards=116, t79Variants=23, pairings=12"
     },
     {
-      "name": "View 6 (Idea-Minting & Video Studio) Renders 12 MINT Topics, 1080p30 Video & 24-Slide Google Slides Link",
+      "name": "Blueprint Artwork Opens Full-Resolution Lightbox & Closes on Escape",
       "passed": true,
-      "detail": "topics=12/12, video=1920x1080 (44s, readyState=4), brokenImgs=0"
+      "detail": "lightbox verified"
+    },
+    {
+      "name": "Blueprints Quality Tier Filters (72 Best + 44 High)",
+      "passed": true,
+      "detail": "best=72, high=44"
+    },
+    {
+      "name": "Cloud Repos View Renders 19 Visual Repo Cards (0 Broken SVGs) & 19 Matrix Rows",
+      "passed": true,
+      "detail": "cards=19/19, matrixRows=19/19"
+    },
+    {
+      "name": "Cloud Repos Resilient Empty State & Filter Reset",
+      "passed": true,
+      "detail": "emptyVisible=true, restored=19"
+    },
+    {
+      "name": "Inspector Drawer Renders Visuals, 12+24 Slide Deck, Terraform/ADK & Distribution Plan",
+      "passed": true,
+      "detail": "slides=12/12, terraform=true, distribution=true"
+    },
+    {
+      "name": "Video & Decks View Renders 1080p30 Walkthrough Video, Twin Video & 12 MINT Topics",
+      "passed": true,
+      "detail": "topics=12/12, video=1920x1080"
+    },
+    {
+      "name": "Creator Radar View Renders 16 Creator Profiles, 4 Channels & 4 Archetypes",
+      "passed": true,
+      "detail": "creators=16, channels=4, archetypes=4"
+    },
+    {
+      "name": "Sandbox View Renders 5 Comparison Rows & 19 Execution Trajectories",
+      "passed": true,
+      "detail": "rows=5, trajectories=19"
+    },
+    {
+      "name": "16-Pillar WCAG 2.2 AA/AAA Contrast, Landmarks, Zero Unlabeled Inputs & Design Tokens",
+      "passed": true,
+      "detail": "contrastFailures=0 (), unlabeledInputs=0"
     },
     {
       "name": "Rule 26 Table Cell Containment (overflow: hidden on all table-fixed tbody td)",
       "passed": true,
-      "detail": "checkedCells=249, uncontained=0"
+      "detail": "checkedCells=279, uncontained=0"
     },
     {
-      "name": "Rule 57C Canonical T01 + T53-T89 Zero Double-Footer (viewBox height === image height + W3C <title>/<desc>)",
+      "name": "Mobile 390x844 Responsive Layout (0px Horizontal Overflow Across All 6 Views)",
       "passed": true,
-      "detail": "verified=38/38 canonical PromptCanvas/Spine templates, doubleFooters=0"
+      "detail": "tab-btn-miner:0px, tab-btn-gallery:0px, tab-btn-repos:0px, tab-btn-minting-studio:0px, tab-btn-playbook:0px, tab-btn-openhands:0px"
     },
     {
-      "name": "Mobile 390x844 Responsive Layout Preserved (docOverflowPx === 0 across Views 1-6)",
+      "name": "Direct Deep-Link /?view=view-miner Returns HTTP 200 & Zero COOP/Console/HTTP Errors",
       "passed": true,
-      "detail": "tab-btn-repos:0px, tab-btn-gallery:0px, tab-btn-playbook:0px, tab-btn-miner:0px, tab-btn-openhands:0px, tab-btn-minting-studio:0px"
-    },
-    {
-      "name": "Direct Deep-Link /?view=view-miner Returns HTTP 200 & Activates View 4 Immediately",
-      "passed": true,
-      "detail": "status=200, minerVisible=true, top5Cards=5, zeroCOOPWarnings=true"
-    },
-    {
-      "name": "Zero Cross-Origin-Opener-Policy Untrustworthy-Origin Warnings & Zero Browser Errors",
-      "passed": true,
-      "detail": "errors=0, coopWarnings=0"
-    },
-    {
-      "name": "Zero HTTP >= 400 Responses",
-      "passed": true,
-      "detail": "failedRequests=0"
+      "detail": "status=200, errors=0, coopWarnings=0, failedReqs=0"
     }
   ]
 }

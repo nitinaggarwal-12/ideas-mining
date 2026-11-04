@@ -6,119 +6,445 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#f8fafc" />
   <meta name="format-detection" content="telephone=no" />
-  <title>Agentic AI Ideas-Minting &amp; OpenHands Autonomous Repo Factory (ideas-minting) — Nitin Aggarwal</title>
+  <title>Ideas Minting Studio — Daily AI Signal, Visual Blueprint &amp; Publishing Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet"
+  />
+  <style id="studio-design-tokens">
+    :root {
+      --studio-bg: #f8fafc;
+      --studio-surface: #ffffff;
+      --studio-surface-subtle: #f1f5f9;
+      --studio-ink: #0f172a;
+      --studio-ink-secondary: #334155;
+      --studio-ink-muted: #475569;
+      --studio-border: #e2e8f0;
+      --studio-border-strong: #cbd5e1;
+      --studio-accent: #1d4ed8;
+      --studio-accent-hover: #1e40af;
+      --studio-accent-soft: #eff6ff;
+      --studio-emerald: #065f46;
+      --studio-emerald-bg: #ecfdf5;
+      --studio-amber: #92400e;
+      --studio-amber-bg: #fffbeb;
+      --theme-font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --theme-font-serif: 'Newsreader', Georgia, serif;
+      --theme-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+      --studio-radius-sm: 8px;
+      --studio-radius-md: 12px;
+      --studio-radius-lg: 16px;
+      --studio-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --studio-shadow-md: 0 8px 24px -6px rgba(15, 23, 42, 0.07), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+    }
+    body {
+      font-family: var(--theme-font-sans);
+      background-color: var(--studio-bg);
+      color: var(--studio-ink);
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
   <link rel="stylesheet" href="/styles.css" />
 </head>
-<body>
-  <div class="quad-top-strip"></div>
+<body data-persona="creator">
+  <a href="#main-workspace" class="skip-to-main-link">Skip to main workspace</a>
+  <div class="quad-top-strip" aria-hidden="true"></div>
 
-  <!-- Single Persistent Global Navigation Bar (Rule 25A) -->
+  <!-- Global Studio Command Header (Zero Wrapping / Zero Crushed Columns) -->
   <header class="global-header">
-    <div class="brand-cluster">
-      <span class="brand-badge">IDEAS-MINTING • OPENHANDS + GOOGLE CLOUD ADK</span>
-      <div class="min-w-0">
-        <div class="brand-title">Agentic AI Ideas-Minting &amp; 1-Click Google Cloud Repo Factory</div>
-        <div class="brand-subtitle">Curated for Nitin Aggarwal (linkedin.com/in/nitin-aggarwal-b49786a) • 116 Certified Templates (72 Best + 44 High) • 24-Slide Cloudstyle 2.0 Decks • 1080p30 Walkthrough Videos</div>
+    <div class="global-header-primary-row">
+      <button type="button" class="brand-cluster" id="brand-home-btn" aria-label="Go to Daily Studio home">
+        <span class="brand-emblem" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </span>
+        <span class="brand-wordmark">Ideas Minting</span>
+        <span class="brand-edition-tag">Studio</span>
+      </button>
+
+      <nav class="nav-tabs" role="tablist" aria-label="Primary Workspace Views">
+        <button type="button" role="tab" aria-selected="true" class="nav-tab-btn active" data-view="view-miner" id="tab-btn-miner">
+          <span>Daily Studio</span>
+          <span class="tab-count tabular-nums">5</span>
+        </button>
+        <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-view="view-gallery" id="tab-btn-gallery">
+          <span>Blueprints</span>
+          <span class="tab-count tabular-nums">116</span>
+        </button>
+        <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-view="view-repos" id="tab-btn-repos">
+          <span>Cloud Repos</span>
+          <span class="tab-count tabular-nums">19</span>
+        </button>
+        <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-view="view-minting-studio" id="tab-btn-minting-studio">
+          <span>Video &amp; Decks</span>
+          <span class="tab-count tabular-nums">12</span>
+        </button>
+        <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-view="view-playbook" id="tab-btn-playbook">
+          <span>Creator Radar</span>
+          <span class="tab-count tabular-nums">16</span>
+        </button>
+        <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-view="view-openhands" id="tab-btn-openhands">
+          <span>Sandbox</span>
+        </button>
+      </nav>
+
+      <div class="header-utility-bar">
+        <div class="persona-switcher" role="radiogroup" aria-label="Workspace Experience Mode" data-testid="persona-mode-switcher">
+          <button type="button" role="radio" aria-checked="true" class="persona-radio active" data-persona="creator" id="persona-btn-creator" title="Creator Mode: Calm visual-first storytelling &amp; social mockups">
+            Creator
+          </button>
+          <button type="button" role="radio" aria-checked="false" class="persona-radio" data-persona="executive" id="persona-btn-executive" title="Executive Mode: Strategic ROI metrics, slide decks &amp; queue approval">
+            Executive
+          </button>
+          <button type="button" role="radio" aria-checked="false" class="persona-radio" data-persona="builder" id="persona-btn-builder" title="Builder Mode: Full Staff+ architecture specs, S_iso telemetry &amp; Terraform">
+            Builder
+          </button>
+        </div>
+
+        <button type="button" class="cmdk-trigger-btn" id="open-cmdk-btn" data-testid="open-cmdk-btn" aria-label="Open Quick Jump Command Palette (Command K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+          <span>Search</span>
+          <kbd>⌘K</kbd>
+        </button>
+
+        <div class="status-popover-wrap">
+          <button type="button" class="status-trigger-btn" id="status-popover-btn" aria-expanded="false" aria-controls="status-popover-panel" aria-label="View system verification status">
+            <span class="status-live-dot" aria-hidden="true"></span>
+            <span>Verified</span>
+          </button>
+          <div class="status-popover-panel" id="status-popover-panel" role="region" aria-label="Workspace Telemetry">
+            <div class="status-popover-title">Verified Workspace Telemetry</div>
+            <div class="status-popover-list">
+              <span class="pill-badge pill-emerald" id="telemetry-repos-badge">19/19 Git Repos Verified</span>
+              <span class="pill-badge pill-sky" id="telemetry-tests-badge">95/95 Sandbox Tests PASS</span>
+              <span class="pill-badge pill-amber" id="telemetry-templates-badge">116 Templates (72 Best + 44 High) • 38 Live Slides</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="header-feedback-slot" data-feedback-mount></div>
       </div>
-    </div>
-
-    <nav class="nav-tabs" aria-label="Primary Workspace Views">
-      <button class="nav-tab-btn active" data-view="view-repos" id="tab-btn-repos">1. 19 Verified Git Repos (MINT-01 + Top 10 + 8 Signals)</button>
-      <button class="nav-tab-btn" data-view="view-gallery" id="tab-btn-gallery">2. 116 Certified Templates (72 Best + 44 High)</button>
-      <button class="nav-tab-btn" data-view="view-playbook" id="tab-btn-playbook">3. Creator Mining Intelligence (16 Creators)</button>
-      <button class="nav-tab-btn" data-view="view-miner" id="tab-btn-miner">4. Daily Top-5 Editorial &amp; Auto-Publisher</button>
-      <button class="nav-tab-btn" data-view="view-openhands" id="tab-btn-openhands">5. OpenHands Autonomous Sandbox</button>
-      <button class="nav-tab-btn" data-view="view-minting-studio" id="tab-btn-minting-studio">6. Idea-Minting &amp; Video Studio (MINT-01..12)</button>
-    </nav>
-
-    <div class="telemetry-pills">
-      <span class="pill-badge pill-emerald" id="telemetry-repos-badge">19/19 Git Repos Verified</span>
-      <span class="pill-badge pill-sky" id="telemetry-tests-badge">95/95 Sandbox Tests PASS</span>
-      <span class="pill-badge pill-amber" id="telemetry-templates-badge">116 Templates (72 Best + 44 High) • 38 Live Slides</span>
     </div>
   </header>
 
-  <main class="fluid-workspace">
-    <!-- VIEW 1: 19 GENERATED GIT REPOSITORIES (MINT-01 + TOMORROW TOP 10 + 8 ANALYZED POSTS) -->
-    <section id="view-repos">
-      <div class="subtoolbar">
-        <div class="filter-controls">
-          <input
-            type="search"
-            id="search-input"
-            class="input-light"
-            placeholder="Filter by pain point (S.C.O.P.E., MCP OBO, loop, context rot, latency...), creator, or Google Cloud service..."
-            aria-label="Filter repositories"
-          />
-          <select id="filter-archetype" class="select-light" aria-label="Filter by Series or Archetype">
-            <option value="ALL">All 19 Verified Repos (1 Flagship Minted + 10 Tomorrow Morning EST + 8 Signal Posts)</option>
-            <option value="MINT">🚀 Flagship Career-Minting Exemplar (MINT-01: Zero-Bloat MCP OBO Gateway)</option>
-            <option value="ARCH-DYN">🌅 Tomorrow Morning EST Top 10 Daily Pain Points (IDEA-01..10)</option>
-            <option value="ARCH-2D">📌 8 Analyzed LinkedIn Creator Signal Repos (POST-01..08)</option>
-          </select>
-          <select id="filter-author" class="select-light" aria-label="Filter by Creator Lineage">
-            <option value="ALL">All Creators &amp; Series</option>
-            <option value="Nitin Aggarwal">Nitin Aggarwal (Career-Minting + Tomorrow Morning EST Series)</option>
-            <option value="Rakesh Gohel">Rakesh Gohel</option>
-            <option value="Aakash Gupta">Aakash Gupta / Addy Osmani</option>
-            <option value="Vaibhav Sisinty">Vaibhav Sisinty</option>
-            <option value="Matt Village">Matt Village / OpenHands</option>
-            <option value="Prashant Varshney">Prashant Varshney</option>
-            <option value="Prashant Rathi">Prashant Rathi</option>
-          </select>
+  <main id="main-workspace" class="fluid-workspace" tabindex="-1">
+    <!-- VIEW 4 (PRIMARY DEFAULT): DAILY CONTENT & DISTRIBUTION STUDIO -->
+    <section id="view-miner">
+      <div class="workspace-masthead">
+        <div class="masthead-copy">
+          <div class="masthead-eyebrow-row">
+            <span class="eyebrow-label" id="top5-edition-badge">5 Fresh Signals • Daily Edition</span>
+            <span class="eyebrow-divider" aria-hidden="true">·</span>
+            <span class="eyebrow-muted builder-only-inline" id="top5-ledger-badge">30-Day Dedupe Ledger Active</span>
+            <a
+              href="/api/rss/daily-briefing.xml"
+              target="_blank"
+              rel="noopener"
+              class="eyebrow-link"
+              id="top5-rss-link"
+              data-testid="top5-rss-feed-link"
+            >RSS 2.0 Feed ↗</a>
+          </div>
+          <h1 class="workspace-title">Daily Content &amp; Distribution Studio</h1>
+          <p class="workspace-subtitle">
+            Five non-overlapping AI engineering signals each day — paired with certified visual blueprints, pacing budgets, and live 13-channel previews.
+          </p>
         </div>
-        <div class="telemetry-pills">
-          <span class="pill-badge pill-sky">Target Google Cloud Projects: ramp-portal-dev &amp; bbar-138hf0</span>
-          <span class="pill-badge pill-emerald">Vertex AI: locations/global (gemini-4-argon &amp; gemini-3.8-flash)</span>
+
+        <div class="subview-tabs" role="tablist" aria-label="Daily Studio Sections" data-testid="miner-subtabs">
+          <button type="button" role="tab" aria-selected="true" class="subview-tab-btn active" data-miner-panel="miner-panel-composer" id="miner-subtab-btn-composer">
+            Today's Top 5
+          </button>
+          <button type="button" role="tab" aria-selected="false" class="subview-tab-btn" data-miner-panel="miner-panel-outbox" id="miner-subtab-btn-outbox">
+            <span><span class="hide-on-xs">Publishing </span>Queue</span>
+            <span class="subview-count tabular-nums" id="outbox-tab-count-pill">0</span>
+          </button>
+          <button type="button" role="tab" aria-selected="false" class="subview-tab-btn" data-miner-panel="miner-panel-radar" id="miner-subtab-btn-radar">
+            <span><span class="hide-on-xs">Batch &amp; </span>Signal Radar</span>
+          </button>
         </div>
       </div>
 
-      <!-- Resilient Empty State (Rule 25K) -->
-      <div id="no-matching-cards" class="section-card" style="display: none; text-align: center;">
-        <h3 style="margin-bottom: 8px;">No repositories match the active search or filter</h3>
-        <p style="color: #475569; margin-bottom: 12px;">Reset filters to view all 19 verified Google Cloud ADK + OpenHands Git repositories.</p>
-        <button class="btn-primary" id="reset-filters-btn">↺ Reset All Filters</button>
+      <!-- Executive Persona KPI Summary Strip (Visible in Executive Mode) -->
+      <div class="executive-kpi-strip executive-only-grid" id="executive-morning-strip" data-testid="executive-morning-strip">
+        <div class="exec-kpi-card">
+          <span class="exec-kpi-label">Today's Curated Signals</span>
+          <strong class="exec-kpi-value tabular-nums">5 Orthogonal Domains</strong>
+          <span class="exec-kpi-sub">Zero 30-day topic overlap</span>
+        </div>
+        <div class="exec-kpi-card">
+          <span class="exec-kpi-label">Visual Asset Pool</span>
+          <strong class="exec-kpi-value tabular-nums">116 Certified Blueprints</strong>
+          <span class="exec-kpi-sub">38 native Google Slides decks</span>
+        </div>
+        <div class="exec-kpi-card">
+          <span class="exec-kpi-label">Channel Compliance</span>
+          <strong class="exec-kpi-value tabular-nums">13 / 13 Guardrails Pass</strong>
+          <span class="exec-kpi-sub">4:5 PDF/JPEG + 9:16 Safe-Zone MP4</span>
+        </div>
+        <div class="exec-kpi-card exec-kpi-action-card">
+          <div>
+            <span class="exec-kpi-label">Approval Outbox</span>
+            <strong class="exec-kpi-value tabular-nums" id="exec-kpi-outbox-value">Ready for Review</strong>
+          </div>
+          <button type="button" class="btn-primary" id="exec-jump-outbox-btn">Review Queue →</button>
+        </div>
       </div>
 
-      <!-- 19 Repo Cards Grid -->
-      <div class="repos-grid" id="repos-cards-grid"></div>
+      <!-- Builder Persona Engineering & Pipeline Strip (Visible in Builder Mode) -->
+      <div class="executive-kpi-strip builder-only-grid builder-tech-strip" id="builder-engineering-strip" data-testid="builder-engineering-strip">
+        <div class="exec-kpi-card">
+          <span class="exec-kpi-label">Blueprint Isomorphism Router</span>
+          <strong class="exec-kpi-value tabular-nums" id="builder-kpi-siso">T61 · Score 99.2</strong>
+          <span class="exec-kpi-sub">Exports: .drawio · .pptx · @2x SVG</span>
+        </div>
+        <div class="exec-kpi-card">
+          <span class="exec-kpi-label">Media Transcode Pipeline</span>
+          <strong class="exec-kpi-value tabular-nums">FFmpeg H.264 + 4:5 PDF</strong>
+          <span class="exec-kpi-sub">1080×1920 @ 30fps · Safe-Zone y=236..1480px</span>
+        </div>
+        <div class="exec-kpi-card">
+          <span class="exec-kpi-label">Active REST / API Contract</span>
+          <strong class="exec-kpi-value tabular-nums" id="builder-kpi-api">LINKEDIN · TIER_1</strong>
+          <span class="exec-kpi-sub">Dry-Run Validated · Server-only OAuth</span>
+        </div>
+        <div class="exec-kpi-card exec-kpi-action-card">
+          <div>
+            <span class="exec-kpi-label">Runnable ADK Sandbox</span>
+            <strong class="exec-kpi-value tabular-nums">19 Repos · 95/95 Tests</strong>
+          </div>
+          <button type="button" class="btn-primary" id="builder-jump-sandbox-btn">Open Sandbox →</button>
+        </div>
+      </div>
 
-      <!-- Rigid-Containment 19-Repo Verification & Deliverable Table (Rule 26) -->
-      <div class="section-card">
-        <h2 style="font-size: 16px; font-weight: 800; margin-bottom: 12px;">
-          Complete 19-Repository Verification Matrix (MINT-01 Flagship + 10 Tomorrow Morning EST Daily Pain Points + 8 Analyzed Signal Posts)
-        </h2>
-        <table class="table-fixed gp-blue-grid-table">
-          <thead>
-            <tr>
-              <th style="width: 16.66%;">ID, EST Slot &amp; Repo Slug</th>
-              <th style="width: 16.66%;">Daily Problem / Primary Source</th>
-              <th style="width: 16.66%;">Dynamic &amp; @2d Visuals</th>
-              <th style="width: 16.66%;">Google Cloud ADK Stack</th>
-              <th style="width: 16.66%;">Deliverable Bundle</th>
-              <th style="width: 16.66%;">OpenHands Gate Status</th>
-            </tr>
-          </thead>
-          <tbody id="repos-matrix-tbody"></tbody>
-        </table>
+      <!-- SUB-PANEL 1: TODAY'S TOP 5 & MULTI-CHANNEL COMPOSER -->
+      <div id="miner-panel-composer" class="miner-subpanel">
+        <div class="studio-surface" id="daily-top5-editorial-desk" data-testid="daily-top5-editorial-desk">
+          <div class="studio-toolbar">
+            <div class="studio-search-wrap">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg>
+              <input
+                type="text"
+                id="top5-query-input"
+                class="studio-search-input"
+                placeholder="Steer today's editorial focus (e.g., MCP OAuth 2.1 OBO, multi-trial agent evals, KV cache)..."
+                aria-label="Daily Top-5 editorial focus query"
+              />
+            </div>
+            <div class="studio-toolbar-actions">
+              <button type="button" class="btn-secondary" id="transcode-active-idea-btn" data-testid="transcode-active-idea-btn">
+                Rebuild 4:5 &amp; 9:16 Media
+              </button>
+              <button type="button" class="btn-primary" id="generate-top5-briefing-btn" data-testid="generate-top5-briefing-btn">
+                Refresh Top 5
+              </button>
+            </div>
+          </div>
+
+          <!-- 3-Column Balanced Studio Desk: [Left: 5 Signals] | [Center: Blueprint + Mode + Copy] | [Right: Sticky Live Device Preview] -->
+          <div class="top5-studio-3col">
+            <aside class="top5-signals-rail" aria-label="Today's Top 5 Ranked Signals">
+              <div class="rail-section-header">
+                <span>Today's Top 5 Signals</span>
+                <span class="rail-section-hint tabular-nums">Ranked by Demand</span>
+              </div>
+              <div class="top5-ideas-column" id="top5-ideas-column" data-testid="top5-ideas-column"></div>
+            </aside>
+
+            <div class="top5-composer-center" id="top5-active-workbench" data-testid="top5-active-workbench"></div>
+
+            <aside class="top5-preview-rail" id="top5-preview-rail" aria-label="Live Multi-Platform Preview">
+              <div id="top5-channel-selector-mount"></div>
+              <div id="top5-platform-preview-stage" data-testid="top5-platform-preview-stage"></div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-PANEL 2: HUMAN-IN-THE-LOOP PUBLISHING QUEUE -->
+      <div id="miner-panel-outbox" class="miner-subpanel" style="display: none;">
+        <div class="studio-surface" id="publishing-outbox-card" data-testid="publishing-outbox-card">
+          <div class="section-header-row">
+            <div class="min-w-0">
+              <div class="masthead-eyebrow-row">
+                <span class="eyebrow-label">Human-in-the-Loop Dispatch</span>
+                <span class="eyebrow-divider" aria-hidden="true">·</span>
+                <span class="pill-badge pill-emerald tabular-nums" id="outbox-summary-badge">Outbox Ready</span>
+              </div>
+              <h2 class="section-heading">Multi-Platform Publishing Queue</h2>
+              <p class="section-description">
+                Every staged package passes character, fold-hook, aspect-ratio, and link-placement checks before official API dispatch or 1-click share packet export.
+              </p>
+            </div>
+            <div class="studio-toolbar-actions">
+              <button type="button" class="btn-secondary" id="back-to-composer-btn">← Back to Composer</button>
+              <button type="button" class="btn-primary" id="approve-all-outbox-btn" data-testid="approve-all-outbox-btn">
+                Approve &amp; Dispatch Pending
+              </button>
+            </div>
+          </div>
+
+          <div class="table-scroll-shell">
+            <table class="table-fixed gp-blue-grid-table">
+              <thead>
+                <tr>
+                  <th style="width: 15%;">Outbox ID &amp; Channel</th>
+                  <th style="width: 24%;">Idea &amp; Paired Blueprint</th>
+                  <th style="width: 16%;">Format &amp; Container</th>
+                  <th style="width: 18%;">Pacing &amp; Compliance</th>
+                  <th style="width: 14%;">Dispatch Status</th>
+                  <th style="width: 13%;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="publishing-outbox-tbody" data-testid="publishing-outbox-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-PANEL 3: 6-STYLE BATCH GENERATOR, URL SYNTHESIZER & LIVE SIGNAL RADAR -->
+      <div id="miner-panel-radar" class="miner-subpanel" style="display: none;">
+        <div class="studio-surface" id="daily-post-generator-card">
+          <div class="section-header-row">
+            <div class="min-w-0">
+              <div class="masthead-eyebrow-row">
+                <span class="eyebrow-label">6 Creator Archetypes (T79–T84)</span>
+                <span class="eyebrow-divider" aria-hidden="true">·</span>
+                <span class="pill-badge pill-emerald tabular-nums" id="daily-posts-status-badge">6 Daily Posts Ready</span>
+              </div>
+              <h2 class="section-heading">6-Style LinkedIn Batch &amp; Moving-Arrow SVG Studio</h2>
+              <p class="section-description">
+                Synthesize six distinct creator angles simultaneously from live arXiv, Hacker News, GitHub Breakout, and HuggingFace signals.
+              </p>
+            </div>
+          </div>
+
+          <div class="studio-toolbar" style="margin-bottom: 18px;">
+            <input
+              type="text"
+              id="daily-topic-input"
+              class="input-light"
+              style="flex: 2; min-width: 220px;"
+              placeholder="Optional focus topic (e.g., speculative decoding KV cache, multi-trial agent evals)..."
+              aria-label="Daily topic focus query"
+            />
+            <select id="daily-style-select" class="select-light" aria-label="Creator style archetype">
+              <option value="AUTO">All 6 Creator Styles (Auto-Match T79–T84)</option>
+              <option value="STYLE-01">STYLE-01 · Sivasankar Natarajan — A-vs-B Showdown (T79)</option>
+              <option value="STYLE-02">STYLE-02 · Rathnakumar Udayakumar — 9 Micro-Decisions (T80)</option>
+              <option value="STYLE-03">STYLE-03 · Mayank A. — Breakout OSS Curriculum (T81)</option>
+              <option value="STYLE-04">STYLE-04 · Bally S Kehal — Replay-Set Evaluation (T82)</option>
+              <option value="STYLE-05">STYLE-05 · Shivani Virdi — Multi-Trial Reliability (T83)</option>
+              <option value="STYLE-06">STYLE-06 · Pallavi Ahuja — Roofline &amp; Goodput (T84)</option>
+            </select>
+            <select id="daily-count-select" class="select-light" aria-label="Number of daily posts">
+              <option value="6" selected>6 Posts</option>
+              <option value="3">3 Posts</option>
+            </select>
+            <button type="button" class="btn-primary" id="generate-daily-posts-btn">Generate Batch</button>
+          </div>
+
+          <div class="daily-posts-grid" id="daily-generated-posts-grid"></div>
+        </div>
+
+        <div class="studio-surface">
+          <h2 class="section-heading">Turn Any URL into a Verified Google Cloud ADK Repository</h2>
+          <p class="section-description" style="margin-bottom: 14px;">
+            Paste a LinkedIn post, arXiv paper, or GitHub URL to ground the source, compile moving-arrow diagrams, build a 12-slide deck, and initialize Terraform + unit tests.
+          </p>
+          <div class="studio-toolbar">
+            <input
+              type="url"
+              id="inline-ingest-url-input"
+              class="input-light"
+              style="flex: 2; min-width: 240px;"
+              placeholder="https://arxiv.org/abs/... or https://github.com/..."
+              aria-label="Source URL to synthesize into a Google Cloud repository"
+            />
+            <input
+              type="text"
+              id="inline-ingest-title-input"
+              class="input-light"
+              style="flex: 1; min-width: 200px;"
+              placeholder="Optional custom architectural title"
+              aria-label="Optional custom architectural title"
+            />
+            <button type="button" class="btn-primary" id="trigger-ingest-btn">Synthesize Repo</button>
+            <button type="button" class="btn-secondary" id="refresh-live-feeds-btn">Refresh Radar</button>
+          </div>
+          <div id="ingest-result-banner" style="margin-top: 12px; display: none;"></div>
+        </div>
+
+        <div class="miner-feeds-grid">
+          <div class="studio-surface">
+            <h3 class="subsection-heading">Live arXiv cs.AI Papers</h3>
+            <div id="live-arxiv-list" class="signal-feed-stack"></div>
+          </div>
+          <div class="studio-surface">
+            <h3 class="subsection-heading">Breakout Agentic GitHub Repos</h3>
+            <div id="live-github-list" class="signal-feed-stack"></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- VIEW 2: 116 CERTIFIED VISUAL TEMPLATE GALLERY (72 BEST + 44 HIGH) -->
+    <!-- VIEW 2: 116 CERTIFIED VISUAL BLUEPRINTS GALLERY -->
     <section id="view-gallery" style="display: none;">
-      <div class="subtoolbar">
-        <div class="filter-controls">
-          <input type="search" id="gallery-search-input" class="input-light" placeholder="Filter 116 certified templates (T54–T67, T79 + 23 Topic Posts, T85–T89, Gen-5 Open-Grid Sculptural Posters...)" aria-label="Filter templates" />
+      <div class="workspace-masthead">
+        <div class="masthead-copy">
+          <div class="masthead-eyebrow-row">
+            <span class="eyebrow-label" id="gallery-count-badge">116 Certified Templates (72 Best + 44 High)</span>
+            <span class="eyebrow-divider" aria-hidden="true">·</span>
+            <span class="eyebrow-muted">38 Editable Google Slides Decks · Click Any Artwork to Zoom</span>
+          </div>
+          <h1 class="workspace-title">Certified Architecture &amp; Infographic Blueprints</h1>
+          <p class="workspace-subtitle">
+            Curated multi-tier diagrams, PromptCanvas infographics, and sculptural technical posters exported in native Google Slides, PPTX, Draw.io, and Retina PNG/SVG.
+          </p>
+        </div>
+      </div>
+
+      <div class="studio-surface" style="margin-bottom: 20px;">
+        <div class="studio-toolbar">
+          <input
+            type="search"
+            id="gallery-search-input"
+            class="input-light"
+            style="flex: 2; min-width: 240px;"
+            placeholder="Search 116 blueprints by ID (e.g., T54, T85, T190), topology, domain, or storytelling pattern..."
+            aria-label="Filter certified visual blueprints"
+          />
           <select id="gallery-filter-tier" class="select-light" aria-label="Filter by certified visual quality tier">
-            <option value="ALL">All Certified Tiers (116 Templates • 72 Best + 44 High • 0 Medium/Low/Worst)</option>
-            <option value="Best">🏆 Best Tier Only (72 Certified: 15 PromptCanvas + 24 Gen-4 + 33 Gen-5)</option>
-            <option value="High">✨ High Tier Only (44 Certified Templates)</option>
+            <option value="ALL">All Tiers (116 Certified · 72 Best + 44 High)</option>
+            <option value="Best">Best Tier Only (72 Blueprints)</option>
+            <option value="High">High Tier Only (44 Blueprints)</option>
           </select>
-          <select id="gallery-filter-type" class="select-light" aria-label="Filter by content type">
-            <option value="ALL">All Content Purposes (116 Templates)</option>
-            <option value="PromptCanvas Infographic">🎨 PromptCanvas Canonical Infographics (15 Templates + 23 T79 Topic Posts)</option>
+          <select id="gallery-filter-type" class="select-light" aria-label="Filter by content purpose">
+            <option value="ALL">All Storytelling Purposes</option>
+            <option value="PromptCanvas Infographic">PromptCanvas Canonical Infographics (15 + 23 Variants)</option>
             <option value="Educational">Educational content</option>
             <option value="Professional knowledge sharing">Professional knowledge sharing</option>
             <option value="Easy to understand">Easy to understand</option>
@@ -131,280 +457,223 @@
             <option value="Research topics">Research topics</option>
           </select>
         </div>
-        <div class="telemetry-pills">
-          <span class="pill-badge pill-emerald" id="gallery-count-badge">116 Certified Templates (72 Best + 44 High)</span>
-          <span class="pill-badge pill-sky">38 Live Google Slides • Zero Legacy Gen-1 Box Templates</span>
-        </div>
       </div>
 
-      <div class="repos-grid" id="gallery-cards-grid"></div>
+      <div class="repos-grid gallery-visual-grid" id="gallery-cards-grid"></div>
 
-      <div class="section-card">
-        <h2 style="font-size: 16px; font-weight: 800; margin-bottom: 6px;">Open-Source ⇄ Google Cloud Stack Pairing Reference (12 Capabilities)</h2>
-        <p style="font-size: 12.5px; color: #475569; margin-bottom: 12px;">Google ADK (<code>google/adk-python</code>) is Apache-2.0 open source and OpenHands is MIT-licensed. A2A is now a Linux Foundation project; MCP is an open specification. Pick managed for the SLA, open source for portability — the per-layer guarantees must not change.</p>
-        <table class="table-fixed gp-blue-grid-table">
-          <thead>
-            <tr>
-              <th style="width: 20%;">Capability</th>
-              <th style="width: 26%;">Google Cloud</th>
-              <th style="width: 28%;">Open-Source Equivalent</th>
-              <th style="width: 26%;">Architecture Note</th>
-            </tr>
-          </thead>
-          <tbody id="pairings-tbody"></tbody>
-        </table>
+      <div class="studio-surface" style="margin-top: 24px;">
+        <div class="section-header-row" style="margin-bottom: 12px;">
+          <div>
+            <h2 class="section-heading">Open-Source ⇄ Google Cloud Stack Reference (12 Capabilities)</h2>
+            <p class="section-description">
+              Pick managed services for enterprise SLA or open-source equivalents for portable self-hosting — keeping identical per-layer architectural guarantees.
+            </p>
+          </div>
+        </div>
+        <div class="table-scroll-shell">
+          <table class="table-fixed gp-blue-grid-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Capability</th>
+                <th style="width: 26%;">Google Cloud Managed</th>
+                <th style="width: 28%;">Open-Source Equivalent</th>
+                <th style="width: 26%;">Architectural Guarantee</th>
+              </tr>
+            </thead>
+            <tbody id="pairings-tbody"></tbody>
+          </table>
+        </div>
       </div>
     </section>
 
-    <!-- VIEW 3: CREATOR MINING INTELLIGENCE & PLAYBOOK -->
-    <section id="view-playbook" style="display: none;">
-      <div class="section-card">
-        <h2 style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">
-          How Top Agentic AI Creators Mine Ideas, Structure Hooks &amp; Design 2D Flows
-        </h2>
-        <p id="playbook-summary-text" style="font-size: 14px; color: #334155; line-height: 1.55; margin-bottom: 16px;"></p>
-        <div class="repos-grid" id="signal-channels-grid"></div>
+    <!-- VIEW 1: 19 VERIFIED GOOGLE CLOUD ADK REPOSITORIES -->
+    <section id="view-repos" style="display: none;">
+      <div class="workspace-masthead">
+        <div class="masthead-copy">
+          <div class="masthead-eyebrow-row">
+            <span class="eyebrow-label">19 Verified Repositories</span>
+            <span class="eyebrow-divider" aria-hidden="true">·</span>
+            <span class="eyebrow-muted builder-only-inline">Vertex AI Global Endpoint · Cloud Run v2 Terraform</span>
+          </div>
+          <h1 class="workspace-title">Verified Google Cloud ADK Repositories</h1>
+          <p class="workspace-subtitle">
+            Each repository ships runnable ADK Python code, unit tests, moving-arrow SVG/GIF diagrams, a 12-slide PPTX/PDF deck, and 1-click Terraform deployment.
+          </p>
+        </div>
+
+        <div class="persona-switcher" role="radiogroup" aria-label="Repository Layout View" id="repos-layout-switcher">
+          <button type="button" role="radio" aria-checked="true" class="persona-radio active" data-repo-layout="cards" id="repos-layout-cards-btn">Cards</button>
+          <button type="button" role="radio" aria-checked="false" class="persona-radio" data-repo-layout="matrix" id="repos-layout-matrix-btn">Matrix</button>
+        </div>
       </div>
 
-      <div class="section-card" id="creator-profiles-section">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 14px;">
-          <div class="min-w-0">
-            <h2 style="font-size: 16px; font-weight: 800; color: #0f172a; margin-bottom: 4px;">
-              16 Mined Agentic AI &amp; Systems Creator Profiles (Paired with Canonical Templates T69–T84)
-            </h2>
-            <p style="font-size: 12.5px; color: #475569; line-height: 1.45;">
-              Verified follower reach, post engagement metrics, contrarian hook formulas, and 1-click style routing into the Daily Latest-Topic Post Generator.
+      <div class="studio-surface" style="margin-bottom: 20px;">
+        <div class="studio-toolbar">
+          <input
+            type="search"
+            id="search-input"
+            class="input-light"
+            style="flex: 2; min-width: 240px;"
+            placeholder="Search 19 repositories by pain point (MCP OBO, context rot, latency...), creator, or service..."
+            aria-label="Filter repositories"
+          />
+          <select id="filter-archetype" class="select-light" aria-label="Filter by Series or Archetype">
+            <option value="ALL">All 19 Repositories (Flagship + Top 10 + 8 Signals)</option>
+            <option value="MINT">Flagship Exemplar (MINT-01: Zero-Bloat MCP Gateway)</option>
+            <option value="ARCH-DYN">Daily Pain-Point Series (IDEA-01..10)</option>
+            <option value="ARCH-2D">Creator Signal Series (POST-01..08)</option>
+          </select>
+          <select id="filter-author" class="select-light" aria-label="Filter by Creator Lineage">
+            <option value="ALL">All Creators &amp; Series</option>
+            <option value="Nitin Aggarwal">Nitin Aggarwal</option>
+            <option value="Rakesh Gohel">Rakesh Gohel</option>
+            <option value="Aakash Gupta">Aakash Gupta / Addy Osmani</option>
+            <option value="Vaibhav Sisinty">Vaibhav Sisinty</option>
+            <option value="Matt Village">Matt Village / OpenHands</option>
+            <option value="Prashant Varshney">Prashant Varshney</option>
+            <option value="Prashant Rathi">Prashant Rathi</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="no-matching-cards" class="studio-surface" style="display: none; text-align: center; padding: 40px 24px;">
+        <h2 class="section-heading" style="margin-bottom: 6px;">No repositories match your current filter</h2>
+        <p class="section-description" style="margin-bottom: 16px;">Clear active search terms to restore all 19 verified Google Cloud ADK repositories.</p>
+        <button type="button" class="btn-primary" id="reset-filters-btn">Reset All Filters</button>
+      </div>
+
+      <div class="repos-grid" id="repos-cards-grid"></div>
+
+      <div class="studio-surface" id="repos-matrix-section" style="margin-top: 24px;">
+        <div class="section-header-row" style="margin-bottom: 12px;">
+          <div>
+            <h2 class="section-heading">19-Repository Deliverable &amp; Gate Matrix</h2>
+            <p class="section-description">Full side-by-side audit of source signals, visual deliverables, ADK stack, and sandbox verification status.</p>
+          </div>
+        </div>
+        <div class="table-scroll-shell">
+          <table class="table-fixed gp-blue-grid-table">
+            <thead>
+              <tr>
+                <th style="width: 16.66%;">ID &amp; Repository</th>
+                <th style="width: 18.34%;">Problem &amp; Primary Source</th>
+                <th style="width: 16%;">Visual Bundle</th>
+                <th style="width: 17%;">Google Cloud Stack</th>
+                <th style="width: 18%;">Deliverables</th>
+                <th style="width: 14%;">Sandbox Gate</th>
+              </tr>
+            </thead>
+            <tbody id="repos-matrix-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: CREATOR RADAR & HOOK INTELLIGENCE -->
+    <section id="view-playbook" style="display: none;">
+      <div class="workspace-masthead">
+        <div class="masthead-copy">
+          <div class="masthead-eyebrow-row">
+            <span class="eyebrow-label" id="creator-profiles-count-badge">16 Verified Creator Profiles</span>
+            <span class="eyebrow-divider" aria-hidden="true">·</span>
+            <span class="eyebrow-muted">Paired with Canonical Templates T69–T84</span>
+          </div>
+          <h1 class="workspace-title">Creator Radar &amp; Hook Playbook</h1>
+          <p class="workspace-subtitle" id="playbook-summary-text"></p>
+        </div>
+      </div>
+
+      <div class="studio-surface" id="creator-profiles-section" style="margin-bottom: 24px;">
+        <div class="section-header-row" style="margin-bottom: 14px;">
+          <div>
+            <h2 class="section-heading">16 Agentic AI &amp; Systems Creators</h2>
+            <p class="section-description">
+              Inspect signature hooks, engagement benchmarks, and route any creator's visual style directly into the Daily Studio batch engine.
             </p>
           </div>
-          <span class="pill-badge pill-emerald" id="creator-profiles-count-badge">16 Verified Creator Profiles</span>
         </div>
         <div class="creator-profiles-grid" id="creator-profiles-grid"></div>
       </div>
 
-      <div class="section-card">
-        <h2 style="font-size: 16px; font-weight: 800; margin-bottom: 12px;">
-          The 4 Canonical @2d Diagram Archetypes Used Across Viral Agentic AI Posts
-        </h2>
+      <div class="studio-surface" style="margin-bottom: 24px;">
+        <h2 class="section-heading" style="margin-bottom: 14px;">4 High-Signal Discovery Channels</h2>
+        <div class="repos-grid" id="signal-channels-grid"></div>
+      </div>
+
+      <div class="studio-surface">
+        <h2 class="section-heading" style="margin-bottom: 14px;">4 Viral Technical Diagram Archetypes</h2>
         <div class="repos-grid" id="archetypes-grid"></div>
       </div>
     </section>
 
-    <!-- VIEW 4: DAILY TOP-5 EDITORIAL DESK, MULTI-PLATFORM AUTO-PUBLISHER & LIVE IDEA MINER -->
-    <section id="view-miner" style="display: none;">
-      <div class="section-card" id="daily-top5-editorial-desk" data-testid="daily-top5-editorial-desk">
-        <div class="daily-studio-header">
-          <div class="min-w-0">
-            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;">
-              <span class="brand-badge">DAILY TOP-5 UNIQUE IDEAS • 5 ORTHOGONAL TEMPLATES • 8 MODES • 13 CHANNELS</span>
-              <span class="pill-badge pill-emerald" id="top5-edition-badge">5 Unique Ideas • 5 Clusters</span>
-              <span class="pill-badge pill-sky" id="top5-ledger-badge">30-Day Dedupe Ledger Active</span>
-              <a
-                href="/api/rss/daily-briefing.xml"
-                target="_blank"
-                rel="noopener"
-                class="pill-badge pill-amber"
-                id="top5-rss-link"
-                data-testid="top5-rss-feed-link"
-                style="text-decoration: none;"
-              >📡 RSS 2.0 Feed ↗</a>
-            </div>
-            <h2 style="font-size: 18px; font-weight: 800; color: #0f172a; margin-bottom: 4px;">
-              Automated Daily Top-5 In-Demand Ideas, Certified Template Router &amp; Multi-Platform Compliance Workbench
-            </h2>
-            <p style="font-size: 13px; color: #475569; line-height: 1.48;">
-              Deduplicates 30 days of prior topics across 5 engineering sub-domains, pairs each idea with 5 orthogonal certified blueprints (<code>116 Best + High</code> pool, <code>0</code> legacy <code>T02–T52</code>), computes 3-part <code>(Mode × Platform)</code> content-length budgets, transcodes native <code>4:5</code> JPEGs/PDF + <code>9:16</code> Safe-Zone Shorts MP4, and stages compliant packages across 13 publishing channels.
-            </p>
-          </div>
-        </div>
-
-        <div class="daily-controls-bar">
-          <input
-            type="text"
-            id="top5-query-input"
-            class="input-light"
-            style="flex: 2; min-width: 240px;"
-            placeholder="Optional daily editorial focus (e.g., MCP OAuth 2.1 OBO, pass^k agent evals, KV cache disaggregation)..."
-            aria-label="Daily Top-5 editorial focus query"
-          />
-          <button type="button" class="btn-primary" id="generate-top5-briefing-btn" data-testid="generate-top5-briefing-btn">
-            ⚡ Refresh Daily Top-5 Briefing
-          </button>
-          <button type="button" class="btn-secondary" id="transcode-active-idea-btn" data-testid="transcode-active-idea-btn">
-            🎬 Transcode 4:5 Carousel + 9:16 Short MP4
-          </button>
-        </div>
-
-        <div class="top5-desk-split-grid">
-          <div class="top5-ideas-column" id="top5-ideas-column" data-testid="top5-ideas-column"></div>
-          <div class="top5-active-workbench" id="top5-active-workbench" data-testid="top5-active-workbench"></div>
-        </div>
-      </div>
-
-      <div class="section-card" id="publishing-outbox-card" data-testid="publishing-outbox-card">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
-          <div class="min-w-0">
-            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px;">
-              <span class="brand-badge">HUMAN-IN-THE-LOOP PUBLISHING OUTBOX • ZERO UNOFFICIAL SCRAPERS</span>
-              <span class="pill-badge pill-emerald" id="outbox-summary-badge">Outbox Ready</span>
-            </div>
-            <h2 style="font-size: 16.5px; font-weight: 800; color: #0f172a;">
-              Multi-Platform Compliance Outbox Queue (Tier 1 Instant API • Tier 2 Audited Container • Tier 3 Share Packet / RSS)
-            </h2>
-          </div>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <button type="button" class="btn-primary" id="approve-all-outbox-btn" data-testid="approve-all-outbox-btn">
-              ✅ Approve &amp; Dispatch Pending Outbox
-            </button>
-          </div>
-        </div>
-
-        <table class="table-fixed gp-blue-grid-table">
-          <thead>
-            <tr>
-              <th style="width: 15%;">Outbox ID &amp; Channel</th>
-              <th style="width: 23%;">Idea &amp; Paired Blueprint</th>
-              <th style="width: 16%;">Mode &amp; Media Container</th>
-              <th style="width: 18%;">Length &amp; Compliance Gate</th>
-              <th style="width: 15%;">Dispatch / Auth Status</th>
-              <th style="width: 13%;">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="publishing-outbox-tbody" data-testid="publishing-outbox-tbody"></tbody>
-        </table>
-      </div>
-
-      <div class="section-card" id="daily-post-generator-card">
-        <div class="daily-studio-header">
-          <div class="min-w-0">
-            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;">
-              <span class="brand-badge">DAILY LATEST-TOPIC ENGINE • STYLE-01..06 ⇄ T79–T84</span>
-              <span class="pill-badge pill-emerald" id="daily-posts-status-badge">6 Daily Posts Ready</span>
-            </div>
-            <h2 style="font-size: 18px; font-weight: 800; color: #0f172a; margin-bottom: 4px;">
-              End-to-End Daily Latest-Topic LinkedIn Post &amp; 2D Visual Generator
-            </h2>
-            <p style="font-size: 13px; color: #475569; line-height: 1.48;">
-              Harvests fresh daily signals across arXiv, Hacker News, GitHub Breakouts &amp; HuggingFace Daily Papers, scores each topic on 4 quantitative dimensions, synthesizes publication-ready LinkedIn copy + Comment #1 primary source in 6 creator styles, and renders a custom moving-arrow 2D SVG paired with canonical templates <code>T79–T84</code>.
-            </p>
-          </div>
-        </div>
-
-        <div class="daily-controls-bar">
-          <input
-            type="text"
-            id="daily-topic-input"
-            class="input-light"
-            style="flex: 2; min-width: 240px;"
-            placeholder="Optional daily focus topic (e.g., speculative decoding KV cache, pass^k agent evals, replay code review)..."
-            aria-label="Daily topic focus query"
-          />
-          <select id="daily-style-select" class="select-light" aria-label="Creator style archetype">
-            <option value="AUTO">⚡ Auto-Match Across All 6 Creator Styles (T79–T84)</option>
-            <option value="STYLE-01">STYLE-01 • Sivasankar Natarajan — A-vs-B Showdown + Caveat (T79)</option>
-            <option value="STYLE-02">STYLE-02 • Rathnakumar Udayakumar — 9 Micro-Decisions Loop (T80)</option>
-            <option value="STYLE-03">STYLE-03 • Mayank A. — Breakout OSS Curriculum &amp; Phases (T81)</option>
-            <option value="STYLE-04">STYLE-04 • Bally S Kehal — Replay-Set Misses &amp; SHA Eval (T82)</option>
-            <option value="STYLE-05">STYLE-05 • Shivani Virdi — Multi-Trial pass^k &amp; Restraint (T83)</option>
-            <option value="STYLE-06">STYLE-06 • Pallavi Ahuja — Roofline &amp; Goodput Cheat Sheet (T84)</option>
-          </select>
-          <select id="daily-count-select" class="select-light" aria-label="Number of daily posts">
-            <option value="6" selected>6 Daily Posts</option>
-            <option value="3">3 Focused Posts</option>
-          </select>
-          <button class="btn-primary" id="generate-daily-posts-btn">⚡ Mine &amp; Generate Fresh Daily Posts</button>
-        </div>
-
-        <div class="daily-posts-grid" id="daily-generated-posts-grid"></div>
-      </div>
-
-      <div class="section-card">
-        <h2 style="font-size: 17px; font-weight: 800; margin-bottom: 8px;">
-          Ingest Any LinkedIn Post, arXiv Paper, or GitHub Repo into a Verified GCP Repository
-        </h2>
-        <p style="font-size: 13px; color: #475569; margin-bottom: 14px;">
-          Paste any LinkedIn activity URL, arXiv link, or GitHub URL below. The OpenHands Autonomous Factory will ground the primary source, synthesize the ADK codebase, compile the Dynamic Moving-Arrow + @2d visuals + 12-slide PPTX/PDF deck + Terraform module, run sandbox unit tests, and initialize the Git repo.
-        </p>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <input
-            type="url"
-            id="inline-ingest-url-input"
-            class="input-light"
-            style="flex: 2; min-width: 240px;"
-            placeholder="https://www.linkedin.com/feed/update/urn:li:activity:... or https://arxiv.org/abs/..."
-          />
-          <input
-            type="text"
-            id="inline-ingest-title-input"
-            class="input-light"
-            style="flex: 1; min-width: 200px;"
-            placeholder="Optional custom architectural title"
-          />
-          <button class="btn-primary" id="trigger-ingest-btn">Synthesize &amp; Verify Git Repo</button>
-          <button class="btn-secondary" id="refresh-live-feeds-btn">Refresh Live arXiv &amp; GitHub Radar</button>
-        </div>
-        <div id="ingest-result-banner" style="margin-top: 12px; display: none;"></div>
-      </div>
-
-      <div class="miner-feeds-grid">
-        <div class="section-card">
-          <h3 style="font-size: 15px; font-weight: 800; margin-bottom: 12px;">Live arXiv cs.AI Agentic Papers Feed</h3>
-          <div id="live-arxiv-list" style="display: flex; flex-direction: column; gap: 10px;"></div>
-        </div>
-        <div class="section-card">
-          <h3 style="font-size: 15px; font-weight: 800; margin-bottom: 12px;">GitHub Breakout Agentic Repositories</h3>
-          <div id="live-github-list" style="display: flex; flex-direction: column; gap: 10px;"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIEW 5: OPENHANDS AUTONOMOUS AGENT SANDBOX CONSOLE -->
+    <!-- VIEW 5: OPENHANDS AUTONOMOUS SANDBOX -->
     <section id="view-openhands" style="display: none;">
-      <div class="section-card">
-        <h2 style="font-size: 17px; font-weight: 800; margin-bottom: 8px;">
-          OpenHands (CodeActAgent) Autonomous Sandbox vs. Static Meta-Prompt Templates (BMAD)
-        </h2>
-        <p style="font-size: 13px; color: #334155; margin-bottom: 14px;">
-          Instead of relying on static markdown meta-prompts or "vibe coding", OpenHands executes a 6-stage autonomous loop inside an isolated workspace: reading ASTs, generating Executive Light-Theme UI &amp; ADK code, and running deterministic unit tests before committing.
-        </p>
-        <table class="table-fixed gp-blue-grid-table" style="margin-bottom: 16px;">
-          <thead>
-            <tr>
-              <th style="width: 25%;">Engineering Dimension</th>
-              <th style="width: 37.5%;">Static Meta-Prompt Templates (BMAD)</th>
-              <th style="width: 37.5%;">OpenHands Autonomous Container Agent</th>
-            </tr>
-          </thead>
-          <tbody id="openhands-comparison-tbody"></tbody>
-        </table>
+      <div class="workspace-masthead">
+        <div class="masthead-copy">
+          <div class="masthead-eyebrow-row">
+            <span class="eyebrow-label">Autonomous CodeAct Verification</span>
+            <span class="eyebrow-divider" aria-hidden="true">·</span>
+            <span class="eyebrow-muted">19 / 19 Repositories Verified</span>
+          </div>
+          <h1 class="workspace-title">OpenHands Autonomous Sandbox</h1>
+          <p class="workspace-subtitle">
+            Six-stage isolated execution loop: AST inspection, ADK implementation, deterministic unit tests, diagram compilation, and verified Git commit receipts.
+          </p>
+        </div>
       </div>
 
-      <div class="section-card">
-        <h3 style="font-size: 15px; font-weight: 800; margin-bottom: 12px;">
-          Live OpenHands 6-Stage Sandbox Execution Trajectories (19/19 Repositories)
-        </h3>
-        <div id="openhands-trajectories-list" style="display: flex; flex-direction: column; gap: 12px;"></div>
+      <div class="studio-surface" style="margin-bottom: 24px;">
+        <h2 class="section-heading" style="margin-bottom: 12px;">OpenHands Container Agent vs. Static Meta-Prompts</h2>
+        <div class="table-scroll-shell">
+          <table class="table-fixed gp-blue-grid-table">
+            <thead>
+              <tr>
+                <th style="width: 24%;">Engineering Dimension</th>
+                <th style="width: 38%;">Static Meta-Prompt Templates</th>
+                <th style="width: 38%;">OpenHands Autonomous Sandbox</th>
+              </tr>
+            </thead>
+            <tbody id="openhands-comparison-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="studio-surface">
+        <h2 class="section-heading" style="margin-bottom: 14px;">Execution Trajectories Across All 19 Repositories</h2>
+        <div id="openhands-trajectories-list" class="trajectory-stack"></div>
       </div>
     </section>
 
-    <!-- VIEW 6: IDEA-MINTING & MULTIMODAL WALKTHROUGH VIDEO STUDIO (MINT-01 .. MINT-12) -->
+    <!-- VIEW 6: VIDEO & 24-SLIDE ENABLEMENT STUDIO (MINT-01 .. MINT-12) -->
     <section id="view-minting-studio" style="display: none;">
-      <div class="section-card" id="mint01-flagship-hero-card">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 14px;">
+      <div class="workspace-masthead">
+        <div class="masthead-copy">
+          <div class="masthead-eyebrow-row">
+            <span class="eyebrow-label" id="minting-topics-count-badge">12 Career-Minting Topics • 5 Newly Minted (T85–T89)</span>
+            <span class="eyebrow-divider" aria-hidden="true">·</span>
+            <span class="eyebrow-muted">1080p30 Walkthrough Video · Native 24-Slide Google Slides</span>
+          </div>
+          <h1 class="workspace-title">Video Walkthroughs &amp; Native Slide Decks</h1>
+          <p class="workspace-subtitle">
+            Flagship multimodal briefings combining 6-scene 1080p30 architecture animations, Chirp 3: HD narration, and 100% vector-editable 24-slide Google Slides decks.
+          </p>
+        </div>
+      </div>
+
+      <div class="studio-surface" id="mint01-flagship-hero-card" style="margin-bottom: 24px;">
+        <div class="section-header-row" style="margin-bottom: 16px;">
           <div class="min-w-0">
-            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;">
-              <span class="brand-badge">PROTOTYPE-FIRST EXEMPLAR • MINT-01 • S.C.O.P.E. ARCHITECTURE</span>
-              <span class="pill-badge pill-emerald">S_iso = 62.0 &lt; 65 → MINT_NEW (T85 @2x Spine + #78 + #81)</span>
-              <span class="pill-badge pill-sky">HTTP 206 Byte-Range Video + 24-Slide Native Google Slides</span>
+            <div class="masthead-eyebrow-row">
+              <span class="eyebrow-label">Flagship Exemplar · MINT-01</span>
+              <span class="eyebrow-divider" aria-hidden="true">·</span>
+              <span class="eyebrow-muted">Mnemonic: S.C.O.P.E. (Search · Compact · OBO · Policy · Emit)</span>
             </div>
-            <h2 style="font-size: 18px; font-weight: 800; color: #0f172a; margin-bottom: 4px;">
-              MINT-01 Flagship Package: Zero-Bloat MCP Gateway (Dynamic Tool Search + RFC 8693 OAuth 2.1 OBO)
-            </h2>
-            <p style="font-size: 13px; color: #475569; line-height: 1.48;">
-              <strong>Sticky Mnemonic (<code>S.C.O.P.E.</code>):</strong> Search Top-K · Compact Schema · OBO Token Swap · Policy Armor · Emit Receipt •
-              <strong>Mental Model Analogy:</strong> Restaurant Sommelier Presenting 4 Paired Wines vs. Dumping a 900-Bottle Cellar Ledger on Your Table.
+            <h2 class="section-heading">Zero-Bloat MCP Gateway: Dynamic Tool Search + OAuth 2.1 OBO</h2>
+            <p class="section-description">
+              Analogy: A sommelier presenting four paired wines for your dish instead of dropping a 900-bottle cellar ledger onto your table (-97.5% token overhead).
             </p>
           </div>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <div class="studio-toolbar-actions">
             <a
               class="btn-primary"
               id="open-24slide-google-slides-btn"
@@ -413,7 +682,7 @@
               target="_blank"
               rel="noopener"
             >
-              📊 Open 24-Slide Native Google Slides Deck ↗
+              Open 24-Slide Google Slides ↗
             </a>
             <a
               class="btn-secondary"
@@ -422,19 +691,19 @@
               target="_blank"
               rel="noopener"
             >
-              🎨 Open T85 Spine Slides ↗
+              T85 Spine Deck ↗
             </a>
             <button class="btn-secondary" type="button" onclick="openRepoInspector('gcp-mcp-zero-bloat-gateway')">
-              💻 Inspect Verified Repo (gcp-mcp-zero-bloat-gateway) →
+              Inspect ADK Repo →
             </button>
           </div>
         </div>
 
         <div class="minting-studio-hero-grid">
           <div class="minting-video-stage">
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;">
-              <strong style="font-size: 12.5px; color: #0f172a;">🎬 6-Scene 1080p30 Animated Architecture &amp; CLI Walkthrough (44.0s • 0.8s xfade • 0.0px² Occlusion)</strong>
-              <span class="pill-badge pill-emerald" id="mint01-video-meta-badge">1920×1080 @ 30fps • H.264 + AAC 48kHz</span>
+            <div class="video-stage-bar">
+              <strong>6-Scene 1080p30 Architecture &amp; CLI Walkthrough</strong>
+              <span class="pill-badge pill-emerald tabular-nums" id="mint01-video-meta-badge">1920×1080 @ 30fps · 44.0s</span>
             </div>
             <video
               id="mint01-walkthrough-video"
@@ -444,33 +713,31 @@
               muted
               poster="/assets/videos/MINT-01_poster.png"
               src="/assets/videos/MINT-01_walkthrough.mp4"
-              style="width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid #cbd5e1; background: #f8fafc; display: block;"
+              class="hero-video-player"
             ></video>
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 8px; padding: 6px 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
-              <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
-                <button type="button" class="btn-primary" id="mint01-play-toggle-btn" onclick="toggleMint01WalkthroughPlay()">▶ Play / Pause Walkthrough</button>
-                <button type="button" class="btn-secondary" onclick="toggleMint01WalkthroughMute()">🔊 Mute / Unmute</button>
-                <button type="button" class="btn-secondary" onclick="document.getElementById('mint01-walkthrough-video')?.requestFullscreen?.()">⛶ Fullscreen</button>
+            <div class="video-controls-strip">
+              <div class="studio-toolbar-actions">
+                <button type="button" class="btn-primary" id="mint01-play-toggle-btn" onclick="toggleMint01WalkthroughPlay()">Play / Pause</button>
+                <button type="button" class="btn-secondary" onclick="toggleMint01WalkthroughMute()">Mute / Unmute</button>
+                <button type="button" class="btn-secondary" onclick="document.getElementById('mint01-walkthrough-video')?.requestFullscreen?.()">Fullscreen</button>
               </div>
-              <span style="font-size: 11.5px; font-family: ui-monospace, monospace; font-weight: 700; color: #0f172a;" id="mint01-walkthrough-time-label">00:00 / 00:44 • 1080p30 Ready</span>
+              <span class="video-timecode tabular-nums" id="mint01-walkthrough-time-label">00:00 / 00:44 · Ready</span>
             </div>
-            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
-              <button type="button" class="btn-secondary" onclick="seekMint01Video(0)">0:00 Scene 1: 55K Bloat Crisis</button>
-              <button type="button" class="btn-secondary" onclick="seekMint01Video(6.4)">0:06 Scene 2: S+C Top-4 Search</button>
-              <button type="button" class="btn-secondary" onclick="seekMint01Video(14.6)">0:15 Scene 3: O • RFC 8693 OBO</button>
-              <button type="button" class="btn-secondary" onclick="seekMint01Video(22.8)">0:23 Scene 4: P • 0.4ms ACL Guard</button>
-              <button type="button" class="btn-secondary" onclick="seekMint01Video(30.0)">0:30 Scene 5: E • 30x FinOps Gate</button>
-              <button type="button" class="btn-secondary" onclick="seekMint01Video(37.2)">0:37 Scene 6: Live CLI &amp; 24-Slide Deck</button>
+            <div class="chapter-pills-row" aria-label="Video Chapters">
+              <button type="button" class="chapter-pill" onclick="seekMint01Video(0)">0:00 · 55K Bloat Crisis</button>
+              <button type="button" class="chapter-pill" onclick="seekMint01Video(6.4)">0:06 · Top-4 Tool Search</button>
+              <button type="button" class="chapter-pill" onclick="seekMint01Video(14.6)">0:15 · RFC 8693 OBO</button>
+              <button type="button" class="chapter-pill" onclick="seekMint01Video(22.8)">0:23 · 0.4ms ACL Guard</button>
+              <button type="button" class="chapter-pill" onclick="seekMint01Video(30.0)">0:30 · 30× FinOps Gate</button>
+              <button type="button" class="chapter-pill" onclick="seekMint01Video(37.2)">0:37 · Live CLI &amp; Deck</button>
             </div>
           </div>
 
           <div class="minting-side-panel">
-            <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px; margin-bottom: 12px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 6px;">
-                <span style="font-size: 12px; font-weight: 800; color: #0f172a;">
-                  🗣️ Omni 1.1 Digital Twin Presenter (Nitin Aggarwal • 6 Angles) &amp; Chirp 3: HD
-                </span>
-                <button type="button" class="btn-secondary" style="padding: 3px 8px; font-size: 11px;" onclick="toggleMint01TwinPlay()">▶ Play Twin</button>
+            <div class="twin-presenter-card">
+              <div class="video-stage-bar" style="margin-bottom: 8px;">
+                <strong>Digital Twin Presenter &amp; Chirp 3: HD</strong>
+                <button type="button" class="btn-secondary" style="padding: 4px 10px; font-size: 11.5px;" onclick="toggleMint01TwinPlay()">Play Twin</button>
               </div>
               <video
                 id="mint01-twin-video"
@@ -479,7 +746,7 @@
                 playsinline
                 muted
                 src="/assets/videos/MINT-01_digital_twin_nitin.mp4"
-                style="width: 100%; max-height: 190px; object-fit: cover; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; display: block; margin-bottom: 8px;"
+                class="twin-video-player"
               ></video>
               <audio
                 id="mint01-chirp3-audio"
@@ -488,60 +755,54 @@
                 preload="metadata"
                 src="/assets/videos/MINT-01_chirp3_hd.mp3"
                 style="width: 100%; height: 36px;"
+                aria-label="MINT-01 Chirp 3 HD Narration Track"
               ></audio>
             </div>
 
-            <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 10px; padding: 12px;">
-              <div style="font-size: 12px; font-weight: 800; color: #0369a1; margin-bottom: 6px;">
-                📐 Verified Deliverable &amp; Non-Occlusion Telemetry (MINT-01)
+            <div class="golden-rule-card">
+              <div class="eyebrow-label" style="margin-bottom: 8px;">Verified Outcome Metrics</div>
+              <div class="deliverable-chips" style="margin-bottom: 10px;">
+                <span class="deliverable-chip chip-emerald tabular-nums">55,240 → 1,380 Tokens (-97.5%)</span>
+                <span class="deliverable-chip chip-blue tabular-nums">94.2% Tool Accuracy</span>
+                <span class="deliverable-chip tabular-nums">24 Vector Slides</span>
               </div>
-              <div class="deliverable-chips" style="margin-bottom: 8px;">
-                <span class="deliverable-chip" style="background:#ecfdf5;border-color:#6ee7b7;color:#065f46;">55,240 → 1,380 Tokens (-97.5%)</span>
-                <span class="deliverable-chip" style="background:#eff6ff;border-color:#93c5fd;color:#1d4ed8;">94.2% Tool Acc • 0 OBO Leaks</span>
-                <span class="deliverable-chip">24 Native Slides • 1,294 Vector Elements</span>
-                <span class="deliverable-chip">Blueprint Occlusion: 0.0 px²</span>
-                <span class="deliverable-chip">en-IN-Chirp3-HD-Charon (-16 LUFS)</span>
-              </div>
-              <div style="font-size: 11.5px; color: #0f172a; line-height: 1.45;">
-                <strong>1-Sentence Golden Rule:</strong> Never mount more than top-K (K ≤ 5) compact tool schemas per turn or share static service-account keys across multi-tenant MCP calls.
-              </div>
+              <p class="golden-rule-copy">
+                <strong>Golden Rule:</strong> Never mount more than top-K (K ≤ 5) compact tool schemas per turn or share static service-account keys across multi-tenant MCP calls.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="section-card">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 14px;">
-          <div class="min-w-0">
-            <h2 style="font-size: 17px; font-weight: 800; color: #0f172a; margin-bottom: 4px;">
-              2026 High-Demand Agentic AI Career-Minting Curriculum (MINT-01 .. MINT-12 • Canonical S_iso Router)
-            </h2>
-            <p style="font-size: 12.5px; color: #475569; line-height: 1.45;">
-              Every topic is scored via the 5-signal Canonical Blueprint Isomorphism formula (<code>S_iso = 0.30·Topology + 0.25·ControlFlow + 0.20·Cardinality + 0.15·FinOpsSlot + 0.10·CognitiveFit</code>) over the Non-Legacy Canonical Pool (<code>T01</code>, <code>T53–T89</code> + <code>PromptCanvas #78/#79/#81/#84</code>) and paired with a Sticky Acronym Mnemonic + Real-World Analogy + Staff+ Interview Signal + L5→L7 Promo Metric.
+      <div class="studio-surface">
+        <div class="section-header-row" style="margin-bottom: 16px;">
+          <div>
+            <h2 class="section-heading">12 High-Demand Agentic Architecture Topics (MINT-01 .. MINT-12)</h2>
+            <p class="section-description">
+              Each topic pairs a sticky mnemonic, mental model analogy, Staff+ design interview signal, and canonical blueprint deck.
             </p>
           </div>
-          <span class="pill-badge pill-emerald" id="minting-topics-count-badge">12 Career-Minting Topics • 5 Newly Minted (T85–T89)</span>
         </div>
         <div class="repos-grid" id="minting-topics-grid"></div>
       </div>
     </section>
   </main>
 
-  <!-- Non-Blocking Docked Right-Side Inspector Drawer (Rule 25F) -->
+  <!-- Right-Side Docked Deliverable Inspector Drawer -->
   <aside class="right-drawer" id="repo-inspector-drawer" aria-label="Repository Deliverable Inspector">
     <div class="drawer-header">
       <div class="min-w-0">
-        <div id="drawer-repo-badge" style="font-size: 11px; font-weight: 800; color: #174ea6;">IDEA-01</div>
-        <h2 id="drawer-repo-title" style="font-size: 15px; font-weight: 800; color: #0f172a;">Repository Inspector</h2>
+        <div id="drawer-repo-badge" class="eyebrow-label">IDEA-01</div>
+        <h2 id="drawer-repo-title" class="drawer-title">Repository Inspector</h2>
       </div>
-      <button class="btn-secondary" id="close-drawer-btn">Collapse →</button>
+      <button type="button" class="btn-secondary" id="close-drawer-btn">Close ✕</button>
     </div>
 
-    <div class="drawer-tabs">
-      <button class="nav-tab-btn active" data-drawertab="dtab-visuals" id="dtab-btn-visuals">Dynamic Moving-Arrow &amp; @2d Visuals</button>
-      <button class="nav-tab-btn" data-drawertab="dtab-slides" id="dtab-btn-slides">Slide Deck &amp; Carousel</button>
-      <button class="nav-tab-btn" data-drawertab="dtab-terraform" id="dtab-btn-terraform">1-Click GCP Terraform &amp; Code</button>
-      <button class="nav-tab-btn" data-drawertab="dtab-linkedin" id="dtab-btn-linkedin">LinkedIn Post Copy &amp; Receipt</button>
+    <div class="drawer-tabs" role="tablist" aria-label="Repository Inspector Tabs">
+      <button type="button" role="tab" aria-selected="true" class="nav-tab-btn active" data-drawertab="dtab-visuals" id="dtab-btn-visuals">Visuals</button>
+      <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-drawertab="dtab-slides" id="dtab-btn-slides">Slide Deck</button>
+      <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-drawertab="dtab-terraform" id="dtab-btn-terraform">Terraform &amp; Code</button>
+      <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-drawertab="dtab-linkedin" id="dtab-btn-linkedin">Post &amp; Distribution</button>
     </div>
 
     <div class="drawer-body">
@@ -552,8 +813,50 @@
     </div>
   </aside>
 
-  <div id="toast-container"></div>
+  <!-- Instant Command Palette Modal (⌘K / Ctrl+K) -->
+  <div class="studio-modal-backdrop" id="cmdk-backdrop" style="display: none;" data-testid="cmdk-backdrop">
+    <div class="cmdk-dialog" role="dialog" aria-modal="true" aria-label="Quick Jump Command Palette">
+      <div class="cmdk-input-row">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+        <input
+          type="search"
+          id="cmdk-search-input"
+          class="cmdk-input"
+          placeholder="Jump to any Daily Idea, Blueprint (T54–T89), Cloud Repo, Video Topic, or Creator..."
+          aria-label="Search across Ideas Minting Studio"
+        />
+        <button type="button" class="cmdk-esc-btn" id="close-cmdk-btn" aria-label="Close Command Palette">Esc</button>
+      </div>
+      <div class="cmdk-results" id="cmdk-results-list" role="listbox" aria-label="Quick Jump Results"></div>
+    </div>
+  </div>
+
+  <!-- Full-Resolution Blueprint & Visual Lightbox Modal -->
+  <div class="studio-modal-backdrop" id="lightbox-backdrop" style="display: none;" data-testid="lightbox-backdrop">
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      <div class="lightbox-header">
+        <div class="min-w-0">
+          <div id="lightbox-kicker" class="eyebrow-label">CERTIFIED BLUEPRINT</div>
+          <h2 id="lightbox-title" class="lightbox-heading">Blueprint Preview</h2>
+        </div>
+        <div class="studio-toolbar-actions" id="lightbox-actions"></div>
+      </div>
+      <div class="lightbox-stage">
+        <img id="lightbox-img" src="/favicon.ico" alt="Full resolution blueprint preview" />
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
   <script src="/app.js"></script>
-  <script src="/universal_feedback_widget.js" data-app-id="ideas-mining" data-app-name="Ideas Minting &amp; Repo Factory" data-mount-selector="#nonexistent-fixed-corner"></script>
+  <script
+    src="/universal_feedback_widget.js"
+    data-app-id="ideas-mining"
+    data-app-name="Ideas Minting Studio"
+    data-mount-selector="#header-feedback-slot"
+  ></script>
 </body>
 </html>

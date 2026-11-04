@@ -1,0 +1,49 @@
+{
+  "item_id": "TOP5-20261104-03",
+  "template_id": "T85",
+  "slide_count": 8,
+  "aspect_ratios": {
+    "4x5": {
+      "width": 1080,
+      "height": 1350,
+      "format": "JPEG",
+      "target_platforms": [
+        "instagram",
+        "linkedin",
+        "facebook"
+      ],
+      "slides": [
+        "/assets/multi-platform/TOP5-20261104-03/carousel_4x5/slide_01.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_4x5/slide_02.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_4x5/slide_03.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_4x5/slide_04.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_4x5/slide_05.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_4x5/slide_06.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_4x5/slide_07.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_4x5/slide_08.jpg"
+      ],
+      "pdf_url": "/assets/multi-platform/TOP5-20261104-03/carousel_4x5.pdf",
+      "pdf_bytes": 3145859
+    },
+    "9x16": {
+      "width": 1080,
+      "height": 1920,
+      "format": "JPEG",
+      "target_platforms": [
+        "tiktok",
+        "instagram_stories",
+        "youtube_community"
+      ],
+      "slides": [
+        "/assets/multi-platform/TOP5-20261104-03/carousel_9x16/slide_01.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_9x16/slide_02.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_9x16/slide_03.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_9x16/slide_04.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_9x16/slide_05.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_9x16/slide_06.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_9x16/slide_07.jpg",
+        "/assets/multi-platform/TOP5-20261104-03/carousel_9x16/slide_08.jpg"
+      ]
+    }
+  }
+}

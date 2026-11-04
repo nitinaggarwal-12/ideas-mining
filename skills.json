@@ -1,5 +1,5 @@
 {
-  "bundleChecksum": "ee03459ad315a9f8319a3e787d4ea8154c187bcd031e2e445bf8a908b189e536",
+  "bundleChecksum": "beaaae7c3490002d899e3c2d199f36bc6a2cc9ac901fe0cc723255f5420fabba",
   "skills": {
     "accidental-data-loss-prevention": {
       "status": "installed",
@@ -19,7 +19,7 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "7bdd109924142ac3207e5b883cb0bb9fea1c349141b9870b5f2b20ee74a87b6f",
+      "checksum": "c19905ded910223db0716588426254523c1b5b5e3fbfe0656f73510369c0d4c7",
       "canonicalPath": "skills/bigquery-sql/SKILL.md"
     },
     "building-data-apps": {
@@ -96,28 +96,28 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "40242992f27596a0e34ee34195a261c8c7e5b656fed7f2d93126413ca9ff3d62",
+      "checksum": "40f082f72c034c3c69bfda1c570afe359994481f6d435535a545cb064544ddab",
       "canonicalPath": "skills/gcp-spark/SKILL.md"
     },
     "gcp-spark-troubleshooting": {
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "04922deb2fb8d9ef378833b865a10e12c3fe3b99951f00b196b3e8c6b36205d4",
+      "checksum": "b9f0b344c2cb0ee395d9c98fdcdbf4e3148749a401f58e637edef1e42c7fb7e9",
       "canonicalPath": "skills/gcp-spark-troubleshooting/SKILL.md"
     },
     "google-cloud-auth-verification": {
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "0d1e316d095d53a9ab443921e9b23d96bf1ba3ec3da866f927c40be939e3f5e6",
+      "checksum": "601559882938729f12fa3746f35b756d473b9af0ad185c413c273bfb7e402b38",
       "canonicalPath": "skills/google-cloud-auth-verification/SKILL.md"
     },
     "managing-python-dependencies": {
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "c87d58b802aeec6aa2d25c11a6d03dd9587b22be57c46b125ae54dde4d16fb92",
+      "checksum": "bb79234c455f7185f1475757e1868774d23f5f21cc03afda92233f5c15c7f30e",
       "canonicalPath": "skills/managing-python-dependencies/SKILL.md"
     },
     "ml-best-practices": {
@@ -131,7 +131,7 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "58c40fdc7a764e999bb033e943714ea0560dd27b06a00bf0def424f5ba9cf0ff",
+      "checksum": "3d08f0fcb8f3ed04b64e52bf5542d8e8b6a632c013c7443b94d43028d0ddf13e",
       "canonicalPath": "skills/notebook-guidance/SKILL.md"
     },
     "schema-mapping": {
@@ -159,7 +159,7 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "9ff5499af8d53d723e465972d10aa2ccb460382cfd80bdf0ad1da674c328d960",
+      "checksum": "094a2368e584d31f489159d0547831d1a9442090e0e2c8ffa6f314d47b467b3e",
       "canonicalPath": "skills/ai-prompt-evals/SKILL.md"
     },
     "askaioce-level50-gate": {
@@ -215,7 +215,7 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "e3b736ffa29db0e712cc1aa5ab137b358f18e0d79e1a4bb654e05a7d507187cf",
+      "checksum": "4e3e7195f102ce425852a49e744598bcc3d0e2f32e263f13bf36454008f49ef3",
       "canonicalPath": "skills/cross-viewport-auditor/SKILL.md"
     },
     "customer-lineage-forensic-guard": {
@@ -229,14 +229,14 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "498f8fd6069bae43190d79ca87d616c0006b5b9f56ded422cd42a227b15af3c1",
+      "checksum": "c8e136e17ef32d1440778e54d42972871bf7761eb8ba1fd85fd483f73f7643d9",
       "canonicalPath": "skills/database-schema-guard/SKILL.md"
     },
     "deepmind-emotional-audio-engine": {
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "5b353fc217c06534b571f167992fc83995178c5761a5ecdcaaf45baf144e9114",
+      "checksum": "9461b20d9863290fc79ce5de1947c69ee18731c4035c258c2a25ed6beddbf997",
       "canonicalPath": "skills/deepmind-emotional-audio-engine/SKILL.md"
     },
     "demoes-ge-omni-twin-audit": {
@@ -259,7 +259,7 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "a7d1ffe992602389840e2d92a0da6dcaff37375deabd0408d2cf934d0d964590",
+      "checksum": "abfcd90293342a3e01bd7f229efb5262ca164177b15b14cda4d217d5fdbe0419",
       "canonicalPath": "skills/diagram-generation-engine/SKILL.md"
     },
     "dual-theme-chrome-e2e": {
@@ -315,7 +315,7 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "185457189183e70fde6a02ef342c83c19fc470ac45afa32c7be6154fcdc77e9b",
+      "checksum": "6c372fed4732d450a62aa27e6705a396136854b583319ca3db9000f1d2c6b98f",
       "canonicalPath": "skills/gcp-enterprise-diagram-engine/SKILL.md"
     },
     "gemini-lyria-music-generation": {
@@ -336,7 +336,7 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "24d1aa59e8fe090d0d9cb1d6a1ff66f9414c9bc2e85d988aa8abfe489e4014d1",
+      "checksum": "3b39085f22ce327ae8b0add203bd9078e873f16aaddaefcff5aa472e061800d1",
       "canonicalPath": "skills/load-and-stress-testing/SKILL.md"
     },
     "meeting-decision-and-action-extractor": {
@@ -371,7 +371,7 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "21e508b7585e5d22b258dd43e441646204b7d9e7d123080ac2eb55c6a247405c",
+      "checksum": "c1b7a5fe85ece1e1dbf6da67b17ed4aacec3863f7deb81e4e145c11b6d3abc72",
       "canonicalPath": "skills/oce-agentic-bi-ground-truth/SKILL.md"
     },
     "oreilly_book_publishing": {
@@ -385,7 +385,7 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "69209990ed5efc6ed4eb08be075ee0f223f5530142341ba0aa872093b8cccfb7",
+      "checksum": "aa64b1f3da6ffcc5dc4057d195cf5604a61e6df31cb6a8ca0bb59cc77d8a7b60",
       "canonicalPath": "skills/performance-and-telemetry/SKILL.md"
     },
     "promptcanvas-blueprint-cert": {
@@ -399,7 +399,7 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "bfc6ee5e7c3d9df90cbb4c27f7a964ec201ba11d28e6633546fa7f63d1536f78",
+      "checksum": "c39a716fc3f2200a7d91cfe86d219d8616e95b416ff44372e35ab01e5c790cf9",
       "canonicalPath": "skills/puppeteer-pair-programming/SKILL.md"
     },
     "review-workspace": {
@@ -462,7 +462,7 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "f0b214049e365a329411175ac8156b910b5b4b606b9ee1d079c38706e517585b",
+      "checksum": "192bf5aef7aeaf46d9c9c45d43ce6fcc6d6685e0d0a1672d5869e52c8b9478a9",
       "canonicalPath": "skills/security-code-scanner/SKILL.md"
     },
     "slide-design": {
@@ -483,21 +483,21 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "a94a0fec12cb5385b28e24dc30677d1a760b11baaee41d885b6cf5e248dd525f",
+      "checksum": "62b1accb4c796706ece3b1d7f9e76eafdee30ee219346bc479e4e04e10ab0cd6",
       "canonicalPath": "skills/ui-first-design-system/SKILL.md"
     },
     "universal-document-cloud-hub": {
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "7e5339f776a7d68d6c99b1e38d01f2fb7099a1ecc218efd9544d3b9e2a04f5a4",
+      "checksum": "1d1dc431beebe8bde3215ae10e94e05a14f20f4462d134c2f3f770db599f2833",
       "canonicalPath": "skills/universal-document-cloud-hub/SKILL.md"
     },
     "visual-regression-testing": {
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "887c042a990f27661c67b4d23045e71de5416e7914b7cc74e611826e5a8f1140",
+      "checksum": "26802f92d3adbc87b56032f3723e145042e96a870d79347770cb17b3d58f192a",
       "canonicalPath": "skills/visual-regression-testing/SKILL.md"
     },
     "web-designer-and-developer": {
@@ -532,8 +532,22 @@
       "status": "installed",
       "disabled": false,
       "error": null,
-      "checksum": "340265e8c99641bce78b583f0d4fae2e5f29b34089b13535d5f5476dde13f81f",
+      "checksum": "e31f4c6e7d29fe147808ef1e7860723a90663ddc17d911ac8ae7c8ec4ffce1bd",
       "canonicalPath": "skills/default-demo-slide-template/SKILL.md"
+    },
+    "deepmind-video-generation": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "6b0f6a7ab956b190c2978e03005461fee43a2354aa3919c41dc51c39cdc8dcb8",
+      "canonicalPath": "skills/deepmind-video-generation/SKILL.md"
+    },
+    "e2e-puppeteer-visual-grounded-testcases": {
+      "status": "installed",
+      "disabled": false,
+      "error": null,
+      "checksum": "e50d64464b604bfb02407ea9a8a63e77a3a543e134edb9064b50d3a391547ac3",
+      "canonicalPath": "skills/e2e-puppeteer-visual-grounded-testcases/SKILL.md"
     }
   },
   "version": "3.7.0",

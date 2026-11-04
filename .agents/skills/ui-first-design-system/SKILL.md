@@ -118,3 +118,7 @@ When asked to run a comprehensive UI/UX & Accessibility Audit on any project:
 ## Rule 57C — Inked-Pixel (`ctx.getImageData`) Arrow-Label Centering & Canonical `S_iso` Minter
 - Enforces `|glyph_y_mid - shaft_y_mid| <= 0.5px` and `|L_left - L_right| <= 1.0px` across `T69`–`T89` via `scripts/verify_arrow_label_inked_pixel_centering.mjs`.
 - Enforces `116` certified templates (`72 Best` + `44 High`, `0` legacy `Gen-1` `T02`–`T52`) and `38` live Google Slides decks (`T01`, `T53`–`T89`).
+
+## 7. Multi-Persona Studio & Anti-Monolith Architecture Mandate (`v3.0`)
+- **Zero Vertical-Monolith & Zero Spec-Dump Clutter (`Rule 25`)**: Never stack 4–5 distinct operational workflows into a single 5,000px vertical page or print internal schema/compliance debug codes (`S_iso = ...`, `BIO_LINK_NO_RAW_URLS`) onto primary human surfaces. Segment workflows via dedicated top-level views + sub-navigation tabs (`Today's Top 5` | `Publishing Queue` | `Batch & Signal Radar`).
+- **3-Persona Experience Switcher (`Creator` · `Executive` · `Builder`)**: Serve distinct user archetypes via progressive disclosure (`Creator`: visual 5-blueprint thumbnail strip + native social/device preview; `Executive`: 4-card Morning KPI & Queue Review strip; `Builder`: 4-card Engineering & Pipeline strip + `.drawio`/`.pptx`/`SVG` vector chips + live JSON API payload preview), paired with a `⌘K` Command Palette, Full-Resolution Lightbox, `0` `innerHTML`/`localStorage`/`sessionStorage`, and `22/22` Puppeteer E2E + 16-Pillar WCAG 2.2 AA/AAA contrast/landmark/mobile-`390×844` gates.

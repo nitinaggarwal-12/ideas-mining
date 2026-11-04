@@ -295,11 +295,19 @@ def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id
     active_mp_dir = mp_dir if (mp_dir / "carousel_manifest.json").exists() else fallback_mp_dir
     active_mp_id = idea_id if active_mp_dir == mp_dir else "MINT-01"
 
+    tpl_png = f"/assets/template-gallery/{template_id}.png"
+    tpl_svg = f"/assets/template-gallery/{template_id}.svg"
+    carousel_4x5_slides = [
+        f"/assets/multi-platform/{active_mp_id}/carousel_4x5/slide_{i:02d}.jpg" for i in range(1, 9)
+    ]
+
     if mode == "Text":
         return {
             "container_format": "TEXT",
             "aspect_ratio": "Typography Only",
             "primary_asset_url": "",
+            "preview_image_url": "",
+            "blueprint_svg_url": tpl_svg,
             "slide_urls": [],
             "transcoded_ready": (mp_dir / "carousel_manifest.json").exists(),
         }
@@ -312,17 +320,21 @@ def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id
         return {
             "container_format": doc_container,
             "aspect_ratio": "1.91:1 Cover + Inline @2x PNG",
-            "primary_asset_url": f"/assets/template-gallery/{template_id}.png",
+            "primary_asset_url": tpl_png,
+            "preview_image_url": tpl_png,
+            "blueprint_svg_url": tpl_svg,
             "slide_urls": [],
             "transcoded_ready": True,
         }
     if mode == "Carousel":
         if platform_id == "instagram":
-            slides = [f"/assets/multi-platform/{active_mp_id}/carousel_4x5/slide_{i:02d}.jpg" for i in range(1, 9)]
+            slides = carousel_4x5_slides
             return {
                 "container_format": "JPEG",
                 "aspect_ratio": "4:5 (1080×1350 • 8 JPEG Slides)",
                 "primary_asset_url": slides[0],
+                "preview_image_url": slides[0],
+                "blueprint_svg_url": tpl_svg,
                 "slide_urls": slides,
                 "transcoded_ready": (mp_dir / "carousel_4x5" / "slide_01.jpg").exists(),
             }
@@ -332,15 +344,19 @@ def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id
                 "container_format": "JPEG",
                 "aspect_ratio": "9:16 (1080×1920 • 8 Photo Mode Slides)",
                 "primary_asset_url": slides[0],
+                "preview_image_url": slides[0],
+                "blueprint_svg_url": tpl_svg,
                 "slide_urls": slides,
                 "transcoded_ready": (mp_dir / "carousel_9x16" / "slide_01.jpg").exists(),
             }
         if platform_id == "facebook":
-            slides = [f"/assets/multi-platform/{active_mp_id}/carousel_4x5/slide_{i:02d}.jpg" for i in range(1, 9)]
+            slides = carousel_4x5_slides
             return {
                 "container_format": "JPEG",
                 "aspect_ratio": "4:5 (1080×1350 • Multi-Photo Page Post)",
                 "primary_asset_url": slides[0],
+                "preview_image_url": slides[0],
+                "blueprint_svg_url": tpl_svg,
                 "slide_urls": slides,
                 "transcoded_ready": (mp_dir / "carousel_4x5" / "slide_01.jpg").exists(),
             }
@@ -348,16 +364,26 @@ def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id
             "container_format": "PDF",
             "aspect_ratio": "4:5 (1080×1350 • 8-Page PDF Document)",
             "primary_asset_url": f"/assets/multi-platform/{active_mp_id}/carousel_4x5.pdf",
-            "slide_urls": [f"/assets/multi-platform/{active_mp_id}/carousel_4x5/slide_{i:02d}.jpg" for i in range(1, 9)],
+            "preview_image_url": carousel_4x5_slides[0],
+            "blueprint_svg_url": tpl_svg,
+            "slide_urls": carousel_4x5_slides,
             "transcoded_ready": (mp_dir / "carousel_4x5.pdf").exists(),
         }
     if mode == "Short_Video":
         short_id = idea_id if (mp_dir / "vertical_short_9x16.mp4").exists() else "MINT-01"
+        if (mp_dir / "vertical_poster_9x16.png").exists():
+            poster = f"/assets/multi-platform/{idea_id}/vertical_poster_9x16.png"
+        elif (mp_dir / "carousel_9x16" / "slide_01.jpg").exists():
+            poster = f"/assets/multi-platform/{idea_id}/carousel_9x16/slide_01.jpg"
+        else:
+            poster = f"/assets/multi-platform/{short_id}/vertical_poster_9x16.png"
         return {
             "container_format": "MP4",
             "aspect_ratio": "9:16 (1080×1920 @ 30fps • 42.6s Safe-Zone HD)",
             "primary_asset_url": f"/assets/multi-platform/{short_id}/vertical_short_9x16.mp4",
-            "poster_url": f"/assets/multi-platform/{short_id}/vertical_poster_9x16.png",
+            "poster_url": poster,
+            "preview_image_url": poster,
+            "blueprint_svg_url": tpl_svg,
             "slide_urls": [],
             "transcoded_ready": (mp_dir / "vertical_short_9x16.mp4").exists(),
         }
@@ -367,6 +393,8 @@ def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id
             "aspect_ratio": "16:9 (1920×1080 @ 30fps • 44.0s Walkthrough)",
             "primary_asset_url": "/assets/videos/MINT-01_walkthrough.mp4",
             "poster_url": "/assets/videos/MINT-01_poster.png",
+            "preview_image_url": "/assets/videos/MINT-01_poster.png",
+            "blueprint_svg_url": tpl_svg,
             "slide_urls": [],
             "transcoded_ready": True,
         }
@@ -379,7 +407,9 @@ def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id
                 if (WORKSPACE_ROOT / "assets" / "template-gallery" / f"{template_id}.pptx").exists()
                 else "/repos/gcp-mcp-zero-bloat-gateway/slides/linkedin_carousel.pdf"
             ),
-            "slide_urls": [],
+            "preview_image_url": tpl_png,
+            "blueprint_svg_url": tpl_svg,
+            "slide_urls": [tpl_png, *carousel_4x5_slides[1:6]],
             "transcoded_ready": True,
         }
     # Image or Slide
@@ -387,14 +417,18 @@ def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id
         return {
             "container_format": "JPEG",
             "aspect_ratio": "4:5 (1080×1350)",
-            "primary_asset_url": f"/assets/multi-platform/{active_mp_id}/carousel_4x5/slide_01.jpg",
+            "primary_asset_url": carousel_4x5_slides[0],
+            "preview_image_url": carousel_4x5_slides[0],
+            "blueprint_svg_url": tpl_svg,
             "slide_urls": [],
             "transcoded_ready": True,
         }
     return {
         "container_format": "PNG",
         "aspect_ratio": "4:5 / 1:1 @2x Retina PNG",
-        "primary_asset_url": f"/assets/template-gallery/{template_id}.png",
+        "primary_asset_url": tpl_png,
+        "preview_image_url": tpl_png,
+        "blueprint_svg_url": tpl_svg,
         "slide_urls": [],
         "transcoded_ready": True,
     }
@@ -425,7 +459,15 @@ def compile_platform_package(
     hashtags = " ".join(tags_pool[: pspec["max_hashtags"]]) if pspec["max_hashtags"] > 0 else ""
 
     hook_target = max(48, pspec["fold_chars"] - 12)
-    fold_hook = _trim_sentence_clean(f"{title} — {metrics.split('•')[0].strip()}", hook_target)
+    lead_metric = metrics.split("•")[0].strip()
+    if lead_metric.startswith("-") and "%" in lead_metric:
+        # Avoid awkward "— -68%" em-dash + minus clash in executive headlines
+        lead_metric_clean = f"{lead_metric[1:].split(' ', 1)[0]} lower {lead_metric.split(' ', 1)[1]}" if " " in lead_metric else lead_metric[1:]
+        fold_hook = _trim_sentence_clean(f"{title} — {lead_metric_clean}", hook_target)
+    elif lead_metric.startswith(("+", "-")):
+        fold_hook = _trim_sentence_clean(f"{title} ({lead_metric})", hook_target)
+    else:
+        fold_hook = _trim_sentence_clean(f"{title} — {lead_metric}", hook_target)
 
     follow_up_comment = ""
     video_title = ""

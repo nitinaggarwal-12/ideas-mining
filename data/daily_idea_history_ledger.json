@@ -1,12 +1,20 @@
 {
   "window_days": 30,
-  "updated_at": "2026-11-04T06:07:35.666728+00:00",
+  "updated_at": "2026-11-04T06:49:50.375301+00:00",
   "active_ledger_count": 5,
   "entries": [
     {
       "edition_date": "2026-11-04",
-      "fingerprint": "af44b7714826c5d4",
+      "fingerprint": "b95f4e37eb77ef93",
       "idea_id": "TOP5-20261104-01",
+      "title": "Tiered Speculative Cascade & <15ms Complexity Router",
+      "primary_url": "https://github.com/nitinaggarwal-12/ideas-mining",
+      "cluster_id": "CLUSTER_INFERENCE_KV"
+    },
+    {
+      "edition_date": "2026-11-04",
+      "fingerprint": "af44b7714826c5d4",
+      "idea_id": "TOP5-20261104-02",
       "title": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks",
       "primary_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents",
       "cluster_id": "CLUSTER_CODING_EVALS"
@@ -14,18 +22,10 @@
     {
       "edition_date": "2026-11-04",
       "fingerprint": "78befd5b51336208",
-      "idea_id": "TOP5-20261104-02",
+      "idea_id": "TOP5-20261104-03",
       "title": "Zero-Bloat MCP Tool Search with Per-Turn RFC 8693 OAuth 2.1 On-Behalf-Of Exchange",
       "primary_url": "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization",
       "cluster_id": "CLUSTER_MCP_IDENTITY"
-    },
-    {
-      "edition_date": "2026-11-04",
-      "fingerprint": "f215ad7417b45f6e",
-      "idea_id": "TOP5-20261104-03",
-      "title": "Grammar-Aligned Speculative Decoding with Zero-Retry Schema Guarantees",
-      "primary_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/control-generated-output",
-      "cluster_id": "CLUSTER_INFERENCE_KV"
     },
     {
       "edition_date": "2026-11-04",

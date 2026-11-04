@@ -59,8 +59,8 @@ python3 scripts/verify_all_repos.py
 # 2. Run Daily Top-5 Editorial + 13-Channel Compliant Outbox Workflow
 python3 scripts/run_daily_editorial_workflow.py
 
-# 3. Run unit tests (23/23), inked-pixel arrow-label centering gate (T69-T89) & Puppeteer E2E suite (31/31)
-python3 -m unittest discover -s tests -p "test_*.py" -v
+# 3. Run unit tests (23/23), inked-pixel arrow-label centering gate (T69-T89) & Puppeteer E2E suite (32/32)
+STUDIO_TEST_MODE=1 python3 -m unittest discover -s tests -p "test_*.py" -v
 node scripts/verify_arrow_label_inked_pixel_centering.mjs
 node scripts/e2e_puppeteer_functional_suite.mjs
 ```

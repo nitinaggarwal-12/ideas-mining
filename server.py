@@ -4,6 +4,8 @@ import json
 import mimetypes
 import os
 import re
+import signal
+import socket
 import threading
 import time
 from collections import deque
@@ -74,9 +76,16 @@ _RATE_BUCKETS: dict[str, deque[float]] = {}
 _RATE_LIMIT_MAX_REQ = int(os.environ.get("STUDIO_API_RATE_LIMIT_PER_MIN", "360"))
 
 
+def _normalize_client_ip(raw_ip: str) -> str:
+    ip = (raw_ip or "").strip()
+    if ip.lower().startswith("::ffff:"):
+        return ip[7:]
+    return ip
+
+
 def _allow_api_request(client_ip: str) -> bool:
     now = time.monotonic()
-    key = client_ip or "unknown"
+    key = _normalize_client_ip(client_ip) or "unknown"
     with _RATE_LOCK:
         dq = _RATE_BUCKETS.setdefault(key, deque())
         while dq and (now - dq[0]) > 60.0:
@@ -154,9 +163,30 @@ def _build_minting_studio_payload() -> dict:
     }
 
 
+FAVICON_SVG_BYTES = (
+    b'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">'
+    b'<rect width="32" height="32" rx="7" fill="#1a73e8"/>'
+    b'<text x="16" y="22" font-family="Arial,sans-serif" font-size="16" font-weight="700" '
+    b'text-anchor="middle" fill="#ffffff">IM</text></svg>'
+)
+
+
 class StudioRequestHandler(BaseHTTPRequestHandler):
+    protocol_version = "HTTP/1.1"
+
     def log_message(self, format: str, *args) -> None:
         pass
+
+    def _is_trustworthy_origin(self) -> bool:
+        proto = (self.headers.get("X-Forwarded-Proto") or "").split(",")[0].strip().lower()
+        if proto == "https":
+            return True
+        host_hdr = (self.headers.get("Host") or "").strip().lower()
+        if host_hdr.startswith("[") and "]" in host_hdr:
+            host_only = host_hdr[1 : host_hdr.index("]")]
+        else:
+            host_only = host_hdr.split(":")[0]
+        return host_only in ("localhost", "127.0.0.1", "::1")
 
     def _send_security_headers(self) -> None:
         self.send_header("X-Content-Type-Options", "nosniff")
@@ -164,6 +194,10 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
         self.send_header("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
         self.send_header("Content-Security-Policy", "frame-ancestors 'self'; object-src 'none'; base-uri 'self'")
+        # Emit Cross-Origin-Opener-Policy ONLY on W3C potentially trustworthy origins (HTTPS or localhost/loopback)
+        # so plain HTTP Cloudtop URLs (http://<host>.c.googlers.com:<port>) never trigger COOP console warnings.
+        if self._is_trustworthy_origin():
+            self.send_header("Cross-Origin-Opener-Policy", "same-origin-allow-popups")
 
     def _send_json(self, status: int, data: dict) -> None:
         raw = json.dumps(data, indent=2).encode("utf-8")
@@ -173,7 +207,8 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
         self.send_header("Content-Length", str(len(raw)))
         self.end_headers()
-        self.wfile.write(raw)
+        if self.command != "HEAD":
+            self.wfile.write(raw)
 
     def _send_file(self, file_path: Path, head_only: bool = False) -> None:
         if not file_path.exists() or not file_path.is_file():
@@ -204,12 +239,15 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 end = int(end_str) if end_str else total_size - 1
                 if start >= total_size:
                     self.send_response(416)
+                    self._send_security_headers()
                     self.send_header("Content-Range", f"bytes */{total_size}")
+                    self.send_header("Content-Length", "0")
                     self.end_headers()
                     return
                 end = min(end, total_size - 1)
                 chunk_len = (end - start) + 1
                 self.send_response(206)
+                self._send_security_headers()
                 self.send_header("Content-Type", ctype or "application/octet-stream")
                 self.send_header("Accept-Ranges", "bytes")
                 self.send_header("Content-Range", f"bytes {start}-{end}/{total_size}")
@@ -239,6 +277,14 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         if path in ("/", "/index.html", "/admin/feedback"):
             self._send_file(PUBLIC_DIR / "index.html", head_only=True)
             return
+        if path == "/favicon.ico":
+            self.send_response(200)
+            self._send_security_headers()
+            self.send_header("Content-Type", "image/svg+xml")
+            self.send_header("Cache-Control", "public, max-age=86400")
+            self.send_header("Content-Length", str(len(FAVICON_SVG_BYTES)))
+            self.end_headers()
+            return
         if path == "/styles.css":
             self._send_file(PUBLIC_DIR / "styles.css", head_only=True)
             return
@@ -258,6 +304,8 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 self._send_file(target, head_only=True)
                 return
         self.send_response(404)
+        self._send_security_headers()
+        self.send_header("Content-Length", "0")
         self.end_headers()
 
     def do_GET(self) -> None:
@@ -266,6 +314,15 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         qs = parse_qs(parsed.query)
         if path in ("/", "/index.html", "/admin/feedback"):
             self._send_file(PUBLIC_DIR / "index.html")
+            return
+        if path == "/favicon.ico":
+            self.send_response(200)
+            self._send_security_headers()
+            self.send_header("Content-Type", "image/svg+xml")
+            self.send_header("Cache-Control", "public, max-age=86400")
+            self.send_header("Content-Length", str(len(FAVICON_SVG_BYTES)))
+            self.end_headers()
+            self.wfile.write(FAVICON_SVG_BYTES)
             return
         if path == "/api/health":
             summary = get_gallery_summary()
@@ -664,9 +721,51 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
         self._send_json(404, {"error": "Not found"})
 
 
+class ReuseAddrThreadingHTTPServer(ThreadingHTTPServer):
+    allow_reuse_address = True
+    daemon_threads = True
+
+
+class DualStackThreadingHTTPServer(ReuseAddrThreadingHTTPServer):
+    address_family = socket.AF_INET6
+
+    def server_bind(self) -> None:
+        try:
+            self.socket.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 0)
+        except OSError:
+            pass
+        super().server_bind()
+
+
+def resolve_bind_host() -> str:
+    """Returns 127.0.0.1 in automated test mode, or 0.0.0.0 for Cloudtop proxy / Cloud Run ingress."""
+    if os.environ.get("STUDIO_TEST_MODE", "").strip().lower() in ("1", "true", "yes"):
+        return os.environ.get("HOST", "127.0.0.1")
+    # TODO(security): Cloudtop browser preview (http://nitinagga.c.googlers.com:8765 -> ens4 172.29.89.195)
+    # and Cloud Run container ingress require listening on 0.0.0.0 rather than loopback-only 127.0.0.1;
+    # automated tests pass STUDIO_TEST_MODE=1 or HOST=127.0.0.1 to stay strictly loopback-bound.
+    return os.environ.get("HOST", "0.0.0.0")
+
+
+def create_studio_server(host: str, port: int) -> ReuseAddrThreadingHTTPServer:
+    if host in ("0.0.0.0", "::", "") and socket.has_ipv6:
+        try:
+            return DualStackThreadingHTTPServer(("::", port), StudioRequestHandler)
+        except OSError:
+            pass
+    bind_host = "0.0.0.0" if host in ("::", "") else host
+    return ReuseAddrThreadingHTTPServer((bind_host, port), StudioRequestHandler)
+
+
 if __name__ == "__main__":
-    host = os.environ.get("HOST", "127.0.0.1")
+    host = resolve_bind_host()
     port = int(os.environ.get("PORT", "8765"))
-    httpd = ThreadingHTTPServer((host, port), StudioRequestHandler)
+    httpd = create_studio_server(host, port)
+
+    def _graceful_shutdown(signum: int, _frame) -> None:
+        threading.Thread(target=httpd.shutdown, daemon=True).start()
+
+    signal.signal(signal.SIGTERM, _graceful_shutdown)
+    signal.signal(signal.SIGINT, _graceful_shutdown)
     print(f"Ideas-Minting & Ideas-Mining Studio listening on http://{host}:{port}", flush=True)
     httpd.serve_forever()

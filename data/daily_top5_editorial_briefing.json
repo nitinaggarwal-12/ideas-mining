@@ -1,7 +1,7 @@
 {
   "status": "READY",
   "edition_date": "2026-11-04",
-  "generated_at": "2026-11-04T06:07:35.667156+00:00",
+  "generated_at": "2026-11-04T06:49:50.375674+00:00",
   "topic_query": "",
   "ideas_count": 5,
   "templates_per_idea": 5,
@@ -236,6 +236,198 @@
       "id": "TOP5-20261104-01",
       "rank": 1,
       "edition_date": "2026-11-04",
+      "fingerprint": "b95f4e37eb77ef93",
+      "unique_30d_verified": true,
+      "cluster_id": "CLUSTER_INFERENCE_KV",
+      "cluster_label": "LLM Serving, KV-Cache & Inference Goodput",
+      "title": "Tiered Speculative Cascade & <15ms Complexity Router",
+      "summary": "Hospital Triage Nurse Resolving 80% of Cases Instantly vs. Sending Every Band-Aid Visit into Open-Heart Surgery Optimize Cost-Per-Successful-Outcome (CPSO) by demoting bool/enum micro-gates to <15ms classifiers and cascading `gemini-3.8-flash` -> `gemini-4-argon`.",
+      "primary_url": "https://github.com/nitinaggarwal-12/ideas-mining",
+      "source_channel": "Google Cloud ADK \u2022 2026 Career-Minting Signal",
+      "published_at": "2026-11-04",
+      "metrics_hint": "-68% inference spend while maintaining <1.1s p95 turn latency.",
+      "scores": {
+        "novelty": 88.0,
+        "quantitative_density": 99.0,
+        "practitioner_utility": 85.0,
+        "visualizability": 88.0,
+        "composite_score": 89.8,
+        "demand_score": 95.1,
+        "corroborating_sources": [
+          "Google Cloud ADK",
+          "2026 Career-Minting Signal",
+          "GitHub Velocity"
+        ]
+      },
+      "default_template_id": "T61",
+      "default_recommended_mode": "Slidedeck",
+      "matching_templates": [
+        {
+          "template_id": "T61",
+          "name": "PromptCanvas #60: 4-Plane Runtime Topology",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_1_ARCHITECTURE",
+          "angle_label": "Architecture & Runtime Topology",
+          "fit_score": 99.2,
+          "best_for_short": "Vertex AI + Cloud Run + GKE gVisor + AlloyDB",
+          "when_to_use": "Show the 4-node enterprise runtime topology separating reasoning (Vertex AI), orchestration (Cloud Run), sandbox (GKE gVisor), and state (AlloyDB).",
+          "svg_url": "/assets/template-gallery/T61.svg",
+          "png_url": "/assets/template-gallery/T61.png",
+          "gif_url": "/assets/template-gallery/T61.gif",
+          "pptx_url": "/assets/template-gallery/T61.pptx",
+          "drawio_url": "/assets/template-gallery/T61.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Slidedeck",
+          "secondary_modes": [
+            "Image",
+            "Carousel",
+            "Slide",
+            "Doc"
+          ],
+          "mode_rationale": "T61 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
+            "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
+            "total_deliverable_size": "12-Slide 3-Act Deck (~650 slide words) or 24-Slide Cloudstyle 2.0 Master (~1,400 words)",
+            "estimated_consumption_time": "15\u201330 min briefing"
+          },
+          "rank": 1,
+          "is_primary_recommended": true
+        },
+        {
+          "template_id": "T56",
+          "name": "PromptCanvas #55: Shadow AI Bubble Conceptual",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_2_CONTRAST",
+          "angle_label": "Before/After & OFF-vs-ON Contrast",
+          "fit_score": 99.2,
+          "best_for_short": "4 perceived tools vs. 24 shadow AI pipelines",
+          "when_to_use": "Contrast what leadership thinks is running (4 approved tools) against 24 shadow AI tools across engineering, meetings, sales, and legal.",
+          "svg_url": "/assets/template-gallery/T56.svg",
+          "png_url": "/assets/template-gallery/T56.png",
+          "gif_url": "/assets/template-gallery/T56.gif",
+          "pptx_url": "/assets/template-gallery/T56.pptx",
+          "drawio_url": "/assets/template-gallery/T56.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Image",
+          "secondary_modes": [
+            "Carousel",
+            "Short_Video",
+            "Text",
+            "Slide"
+          ],
+          "mode_rationale": "T56 is an instant A-vs-B visual contrast poster: a single @2x 4:5 Infographic stops feed scroll in <2 seconds on LinkedIn, Telegram, Instagram, and X.",
+          "mode_length_budget": {
+            "hook_above_fold": "Caption Hook \u2264 180 chars (2 punchy lines above fold) + Poster Header \u2264 9 words",
+            "per_unit_density": "\u2264 12 words per diagram node \u2022 \u2265 11pt crisp vector labels",
+            "total_deliverable_size": "1 @2x PNG/SVG poster + 160\u2013220 word companion narrative (950\u20131,400 chars)",
+            "estimated_consumption_time": "30 sec scan"
+          },
+          "rank": 2,
+          "is_primary_recommended": false
+        },
+        {
+          "template_id": "T65",
+          "name": "PromptCanvas #64: 5x4 Feature Evaluation Matrix",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_3_QUANTITATIVE",
+          "angle_label": "Funnel, Roofline & Benchmark Matrix",
+          "fit_score": 99.2,
+          "best_for_short": "Score 4 agent stacks across 5 prod criteria",
+          "when_to_use": "Evaluate 4 agent architectures (Google ADK + Vertex, LangGraph + Postgres, OpenHands + Docker, Raw API) across 5 weighted production criteria.",
+          "svg_url": "/assets/template-gallery/T65.svg",
+          "png_url": "/assets/template-gallery/T65.png",
+          "gif_url": "/assets/template-gallery/T65.gif",
+          "pptx_url": "/assets/template-gallery/T65.pptx",
+          "drawio_url": "/assets/template-gallery/T65.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Carousel",
+          "secondary_modes": [
+            "Carousel",
+            "Image",
+            "Slidedeck",
+            "Video"
+          ],
+          "mode_rationale": "T65 carries high quantitative telemetry density: Carousel mode gives practitioners both the visual roofline/funnel and reproducible configuration thresholds.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
+            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
+            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
+            "estimated_consumption_time": "45\u201360 sec swipe"
+          },
+          "rank": 3,
+          "is_primary_recommended": false
+        },
+        {
+          "template_id": "T54",
+          "name": "PromptCanvas #53: Dual-Agent Process Workflow",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_4_CHECKLIST",
+          "angle_label": "Deployment Checklist & Cheat Sheet",
+          "fit_score": 99.2,
+          "best_for_short": "Primary Coding Agent + Reviewer Agent loop",
+          "when_to_use": "Show a 3-band workflow pairing a Primary Coding Agent with an independent Reviewer Agent across Install, Tool Mounting (YES/NO gate), and Recheck.",
+          "svg_url": "/assets/template-gallery/T54.svg",
+          "png_url": "/assets/template-gallery/T54.png",
+          "gif_url": "/assets/template-gallery/T54.gif",
+          "pptx_url": "/assets/template-gallery/T54.pptx",
+          "drawio_url": "/assets/template-gallery/T54.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Carousel",
+          "secondary_modes": [
+            "Image",
+            "Doc",
+            "Short_Video",
+            "Text"
+          ],
+          "mode_rationale": "T54 structures sequential implementation gates: 1 gate per slide in Carousel mode drives high bookmark/save rates across LinkedIn, Instagram, and TikTok Photo Mode.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
+            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
+            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
+            "estimated_consumption_time": "45\u201360 sec swipe"
+          },
+          "rank": 4,
+          "is_primary_recommended": false
+        },
+        {
+          "template_id": "T63",
+          "name": "PromptCanvas #62: 2x2 Impact vs. Complexity Matrix",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_5_EXECUTIVE",
+          "angle_label": "Executive 2\u00d72 Matrix, Pyramid & Roadmap",
+          "fit_score": 99.2,
+          "best_for_short": "20 use cases across Quick Wins, Bets & Traps",
+          "when_to_use": "Prioritize 20 concrete agent use cases across a 2x2 matrix of Business Impact vs. Technical Complexity (Quick Wins, Strategic Bets, Low Priority, Traps).",
+          "svg_url": "/assets/template-gallery/T63.svg",
+          "png_url": "/assets/template-gallery/T63.png",
+          "gif_url": "/assets/template-gallery/T63.gif",
+          "pptx_url": "/assets/template-gallery/T63.pptx",
+          "drawio_url": "/assets/template-gallery/T63.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Slidedeck",
+          "secondary_modes": [
+            "Image",
+            "Carousel",
+            "Slide",
+            "Doc"
+          ],
+          "mode_rationale": "T63 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
+            "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
+            "total_deliverable_size": "12-Slide 3-Act Deck (~650 slide words) or 24-Slide Cloudstyle 2.0 Master (~1,400 words)",
+            "estimated_consumption_time": "15\u201330 min briefing"
+          },
+          "rank": 5,
+          "is_primary_recommended": false
+        }
+      ]
+    },
+    {
+      "id": "TOP5-20261104-02",
+      "rank": 2,
+      "edition_date": "2026-11-04",
       "fingerprint": "af44b7714826c5d4",
       "unique_30d_verified": true,
       "cluster_id": "CLUSTER_CODING_EVALS",
@@ -424,8 +616,8 @@
       ]
     },
     {
-      "id": "TOP5-20261104-02",
-      "rank": 2,
+      "id": "TOP5-20261104-03",
+      "rank": 3,
       "edition_date": "2026-11-04",
       "fingerprint": "78befd5b51336208",
       "unique_30d_verified": true,
@@ -614,197 +806,6 @@
             "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
             "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
             "estimated_consumption_time": "45\u201360 sec swipe"
-          },
-          "rank": 5,
-          "is_primary_recommended": false
-        }
-      ]
-    },
-    {
-      "id": "TOP5-20261104-03",
-      "rank": 3,
-      "edition_date": "2026-11-04",
-      "fingerprint": "f215ad7417b45f6e",
-      "unique_30d_verified": true,
-      "cluster_id": "CLUSTER_INFERENCE_KV",
-      "cluster_label": "LLM Serving, KV-Cache & Inference Goodput",
-      "title": "Grammar-Aligned Speculative Decoding with Zero-Retry Schema Guarantees",
-      "summary": "Compiles JSON Schema and CFG constraints directly into draft-and-verify token masks, achieving 100% valid structured payloads at 2.4x lower p99 decode latency while surfacing token-level calibration scores.",
-      "primary_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/control-generated-output",
-      "source_channel": "arXiv cs.CL \u2022 Structured Generation",
-      "published_at": "2026-10-29",
-      "metrics_hint": "100% schema validity \u2022 0 parse retries \u2022 2.4x faster structured decode",
-      "scores": {
-        "novelty": 88.0,
-        "quantitative_density": 99.0,
-        "practitioner_utility": 85.0,
-        "visualizability": 84.0,
-        "composite_score": 89.0,
-        "demand_score": 92.7,
-        "corroborating_sources": [
-          "arXiv cs.CL",
-          "Structured Generation"
-        ]
-      },
-      "default_template_id": "T61",
-      "default_recommended_mode": "Slidedeck",
-      "matching_templates": [
-        {
-          "template_id": "T61",
-          "name": "PromptCanvas #60: 4-Plane Runtime Topology",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_1_ARCHITECTURE",
-          "angle_label": "Architecture & Runtime Topology",
-          "fit_score": 99.2,
-          "best_for_short": "Vertex AI + Cloud Run + GKE gVisor + AlloyDB",
-          "when_to_use": "Show the 4-node enterprise runtime topology separating reasoning (Vertex AI), orchestration (Cloud Run), sandbox (GKE gVisor), and state (AlloyDB).",
-          "svg_url": "/assets/template-gallery/T61.svg",
-          "png_url": "/assets/template-gallery/T61.png",
-          "gif_url": "/assets/template-gallery/T61.gif",
-          "pptx_url": "/assets/template-gallery/T61.pptx",
-          "drawio_url": "/assets/template-gallery/T61.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Slidedeck",
-          "secondary_modes": [
-            "Image",
-            "Carousel",
-            "Slide",
-            "Doc"
-          ],
-          "mode_rationale": "T61 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
-          "mode_length_budget": {
-            "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
-            "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
-            "total_deliverable_size": "12-Slide 3-Act Deck (~650 slide words) or 24-Slide Cloudstyle 2.0 Master (~1,400 words)",
-            "estimated_consumption_time": "15\u201330 min briefing"
-          },
-          "rank": 1,
-          "is_primary_recommended": true
-        },
-        {
-          "template_id": "T56",
-          "name": "PromptCanvas #55: Shadow AI Bubble Conceptual",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_2_CONTRAST",
-          "angle_label": "Before/After & OFF-vs-ON Contrast",
-          "fit_score": 99.2,
-          "best_for_short": "4 perceived tools vs. 24 shadow AI pipelines",
-          "when_to_use": "Contrast what leadership thinks is running (4 approved tools) against 24 shadow AI tools across engineering, meetings, sales, and legal.",
-          "svg_url": "/assets/template-gallery/T56.svg",
-          "png_url": "/assets/template-gallery/T56.png",
-          "gif_url": "/assets/template-gallery/T56.gif",
-          "pptx_url": "/assets/template-gallery/T56.pptx",
-          "drawio_url": "/assets/template-gallery/T56.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Image",
-          "secondary_modes": [
-            "Carousel",
-            "Short_Video",
-            "Text",
-            "Slide"
-          ],
-          "mode_rationale": "T56 is an instant A-vs-B visual contrast poster: a single @2x 4:5 Infographic stops feed scroll in <2 seconds on LinkedIn, Telegram, Instagram, and X.",
-          "mode_length_budget": {
-            "hook_above_fold": "Caption Hook \u2264 180 chars (2 punchy lines above fold) + Poster Header \u2264 9 words",
-            "per_unit_density": "\u2264 12 words per diagram node \u2022 \u2265 11pt crisp vector labels",
-            "total_deliverable_size": "1 @2x PNG/SVG poster + 160\u2013220 word companion narrative (950\u20131,400 chars)",
-            "estimated_consumption_time": "30 sec scan"
-          },
-          "rank": 2,
-          "is_primary_recommended": false
-        },
-        {
-          "template_id": "T58",
-          "name": "PromptCanvas #57: 3D Context Compression Funnel",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_3_QUANTITATIVE",
-          "angle_label": "Funnel, Roofline & Benchmark Matrix",
-          "fit_score": 99.2,
-          "best_for_short": "5-stage token refinement: 1M -> 2k tokens",
-          "when_to_use": "Visualize progressive token refinement across 5 tapering 3D-frustum funnel stages from 1,000,000 raw tokens down to 2,000 precision context tokens.",
-          "svg_url": "/assets/template-gallery/T58.svg",
-          "png_url": "/assets/template-gallery/T58.png",
-          "gif_url": "/assets/template-gallery/T58.gif",
-          "pptx_url": "/assets/template-gallery/T58.pptx",
-          "drawio_url": "/assets/template-gallery/T58.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Carousel",
-          "secondary_modes": [
-            "Carousel",
-            "Image",
-            "Slidedeck",
-            "Video"
-          ],
-          "mode_rationale": "T58 carries high quantitative telemetry density: Carousel mode gives practitioners both the visual roofline/funnel and reproducible configuration thresholds.",
-          "mode_length_budget": {
-            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
-            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
-            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
-            "estimated_consumption_time": "45\u201360 sec swipe"
-          },
-          "rank": 3,
-          "is_primary_recommended": false
-        },
-        {
-          "template_id": "T55",
-          "name": "PromptCanvas #54: Computer-Use Cheat Sheet Card",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_4_CHECKLIST",
-          "angle_label": "Deployment Checklist & Cheat Sheet",
-          "fit_score": 99.2,
-          "best_for_short": "7 setup steps + 4 copy-ready @Browser jobs",
-          "when_to_use": "Provide a 2-column executive quick-start card with 7 setup steps, a copy-paste prompt formula, and 4 high-ROI browser/computer-use workflows.",
-          "svg_url": "/assets/template-gallery/T55.svg",
-          "png_url": "/assets/template-gallery/T55.png",
-          "gif_url": "/assets/template-gallery/T55.gif",
-          "pptx_url": "/assets/template-gallery/T55.pptx",
-          "drawio_url": "/assets/template-gallery/T55.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Carousel",
-          "secondary_modes": [
-            "Image",
-            "Doc",
-            "Short_Video",
-            "Text"
-          ],
-          "mode_rationale": "T55 structures sequential implementation gates: 1 gate per slide in Carousel mode drives high bookmark/save rates across LinkedIn, Instagram, and TikTok Photo Mode.",
-          "mode_length_budget": {
-            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
-            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
-            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
-            "estimated_consumption_time": "45\u201360 sec swipe"
-          },
-          "rank": 4,
-          "is_primary_recommended": false
-        },
-        {
-          "template_id": "T60",
-          "name": "PromptCanvas #59: Q1-Q4 Quarterly Roadmap Tracks",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_5_EXECUTIVE",
-          "angle_label": "Executive 2\u00d72 Matrix, Pyramid & Roadmap",
-          "fit_score": 99.2,
-          "best_for_short": "Phased Q1-Q4 enterprise agent rollout plan",
-          "when_to_use": "Lay out a 4-quarter enterprise rollout roadmap (Q1 Discovery -> Q2 Sandbox -> Q3 State -> Q4 Fleet) with 8 numbered milestones and ACTIVE toggles.",
-          "svg_url": "/assets/template-gallery/T60.svg",
-          "png_url": "/assets/template-gallery/T60.png",
-          "gif_url": "/assets/template-gallery/T60.gif",
-          "pptx_url": "/assets/template-gallery/T60.pptx",
-          "drawio_url": "/assets/template-gallery/T60.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Slidedeck",
-          "secondary_modes": [
-            "Image",
-            "Carousel",
-            "Slide",
-            "Doc"
-          ],
-          "mode_rationale": "T60 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
-          "mode_length_budget": {
-            "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
-            "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
-            "total_deliverable_size": "12-Slide 3-Act Deck (~650 slide words) or 24-Slide Cloudstyle 2.0 Master (~1,400 words)",
-            "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 5,
           "is_primary_recommended": false

@@ -177,11 +177,56 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
         self.assertEqual(short_manifest["height"], 1920)
         self.assertTrue(short_manifest["gates_passed"])
 
-        # Security check: server.py binds 127.0.0.1 by default, enforces is_relative_to & nosniff
+        # Security & Cloudtop reachability check: STUDIO_TEST_MODE binds 127.0.0.1, Cloudtop/Cloud Run binds 0.0.0.0,
+        # enforces is_relative_to, nosniff, SIGTERM graceful shutdown, and trustworthy-origin COOP gating
         server_src = (WORKSPACE_ROOT / "server.py").read_text(encoding="utf-8")
         self.assertIn('os.environ.get("HOST", "127.0.0.1")', server_src)
+        self.assertIn('os.environ.get("HOST", "0.0.0.0")', server_src)
+        self.assertIn("signal.SIGTERM", server_src)
+        self.assertIn("allow_reuse_address = True", server_src)
         self.assertIn("is_relative_to(", server_src)
         self.assertIn("X-Content-Type-Options", server_src)
+
+        # Live socket verification on loopback (127.0.0.1) per mandatory-secure-web-skills testing rule
+        import http.client
+        import threading
+        from server import create_studio_server, resolve_bind_host
+
+        with patch.dict(os.environ, {"STUDIO_TEST_MODE": "1"}, clear=False):
+            self.assertEqual(resolve_bind_host(), "127.0.0.1")
+        with patch.dict(os.environ, {}, clear=True):
+            self.assertEqual(resolve_bind_host(), "0.0.0.0")
+
+        srv = create_studio_server("127.0.0.1", 0)
+        port = srv.server_address[1]
+        t = threading.Thread(target=srv.serve_forever, daemon=True)
+        t.start()
+        try:
+            # 1. Plain HTTP non-localhost Host (e.g. http://nitinagga.c.googlers.com:8765) -> 200 OK, NO COOP header
+            conn1 = http.client.HTTPConnection("127.0.0.1", port, timeout=5)
+            conn1.request("GET", "/?view=view-miner", headers={"Host": "nitinagga.c.googlers.com:8765"})
+            resp1 = conn1.getresponse()
+            resp1.read()
+            self.assertEqual(resp1.status, 200)
+            self.assertIsNone(resp1.getheader("Cross-Origin-Opener-Policy"))
+            self.assertEqual(resp1.getheader("X-Content-Type-Options"), "nosniff")
+            conn1.close()
+
+            # 2. HTTPS forwarded origin or localhost -> 200 OK, emits COOP header
+            conn2 = http.client.HTTPConnection("127.0.0.1", port, timeout=5)
+            conn2.request(
+                "GET",
+                "/?view=view-miner",
+                headers={"Host": "nitinagga.c.googlers.com:8765", "X-Forwarded-Proto": "https"},
+            )
+            resp2 = conn2.getresponse()
+            resp2.read()
+            self.assertEqual(resp2.status, 200)
+            self.assertEqual(resp2.getheader("Cross-Origin-Opener-Policy"), "same-origin-allow-popups")
+            conn2.close()
+        finally:
+            srv.shutdown()
+            srv.server_close()
 
         # Security check: new Top-5 controller in public/app.js uses createElement/replaceChildren (zero innerHTML)
         app_js = (WORKSPACE_ROOT / "public" / "app.js").read_text(encoding="utf-8")

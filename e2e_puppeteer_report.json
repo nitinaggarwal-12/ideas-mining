@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-11-04T06:29:13.160Z",
-  "baseUrl": "http://127.0.0.1:8765",
-  "totalAssertions": 31,
-  "passedAssertions": 31,
+  "timestamp": "2026-11-04T06:49:07.915Z",
+  "baseUrl": "http://nitinagga.c.googlers.com:8765",
+  "totalAssertions": 32,
+  "passedAssertions": 32,
   "failedAssertions": 0,
   "consoleErrors": [],
   "failedRequests": [],
@@ -125,7 +125,7 @@
     {
       "name": "View 4 Daily Post Generator Studio Synthesizes 6 Posts, Loads Custom SVGs & Copies Post + Comment #1",
       "passed": true,
-      "detail": "cards=6, svgs=6/6, copiedChars=1392"
+      "detail": "cards=6, svgs=6/6, copiedChars=1517"
     },
     {
       "name": "View 5 (OpenHands Sandbox Console) Renders Comparison Matrix & 19 Repo Trajectories",
@@ -153,9 +153,14 @@
       "detail": "tab-btn-repos:0px, tab-btn-gallery:0px, tab-btn-playbook:0px, tab-btn-miner:0px, tab-btn-openhands:0px, tab-btn-minting-studio:0px"
     },
     {
-      "name": "Zero Browser Page/Runtime Errors",
+      "name": "Direct Deep-Link /?view=view-miner Returns HTTP 200 & Activates View 4 Immediately",
       "passed": true,
-      "detail": "errors=0"
+      "detail": "status=200, minerVisible=true, top5Cards=5, zeroCOOPWarnings=true"
+    },
+    {
+      "name": "Zero Cross-Origin-Opener-Policy Untrustworthy-Origin Warnings & Zero Browser Errors",
+      "passed": true,
+      "detail": "errors=0, coopWarnings=0"
     },
     {
       "name": "Zero HTTP >= 400 Responses",

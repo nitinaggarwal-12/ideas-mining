@@ -468,15 +468,32 @@ async function openRepoInspector(slug) {
 }
 
 async function copyTextSafe(text, toastMessage) {
+  const val = String(text ?? "");
+  let copied = false;
   try {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      await navigator.clipboard.writeText(text);
+    if (window.isSecureContext && navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(val);
+      copied = true;
     }
   } catch (_) {
-    // Fallback silent in headless contexts without clipboard permission
+    copied = false;
   }
-  STATE.lastCopiedText = text;
-  window.__LAST_COPIED_TEXT__ = text;
+  if (!copied) {
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = val;
+      ta.setAttribute("readonly", "");
+      ta.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0;";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    } catch (_) {
+      // Fallback silent in headless contexts without clipboard permission
+    }
+  }
+  STATE.lastCopiedText = val;
+  window.__LAST_COPIED_TEXT__ = val;
   showToast(toastMessage || "Copied to clipboard!");
 }
 
@@ -1734,6 +1751,11 @@ function activateView(target) {
     const el = document.getElementById(vid);
     if (el) el.style.display = vid === target ? "block" : "none";
   });
+  try {
+    const nextUrl = new URL(window.location.href);
+    nextUrl.searchParams.set("view", target);
+    window.history.replaceState(null, "", `${nextUrl.pathname}${nextUrl.search}`);
+  } catch (_) {}
   if (target === "view-miner") {
     if (!STATE.top5Briefing) loadDailyTop5Briefing();
     if (!(STATE.dailyPosts || []).length) loadDailyGeneratedPosts();

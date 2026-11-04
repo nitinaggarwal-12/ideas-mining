@@ -54,6 +54,7 @@ fs.mkdirSync(CHROME_USER_DATA_DIR, { recursive: true });
 
 const results = [];
 const consoleErrors = [];
+const coopWarnings = [];
 const failedRequests = [];
 
 function recordAssertion(name, passed, detail = '') {
@@ -76,6 +77,8 @@ const browser = await puppeteer.launch({
     '--disable-sync',
     '--no-first-run',
     '--no-default-browser-check',
+    '--no-proxy-server',
+    '--host-resolver-rules=MAP nitinagga.c.googlers.com 172.29.89.195',
     '--window-size=1600,1050',
   ],
 });
@@ -86,6 +89,15 @@ try {
 
   page.on('pageerror', (err) => {
     consoleErrors.push(err.message || String(err));
+  });
+  page.on('console', (msg) => {
+    const txt = msg.text() || '';
+    if (txt.includes('Cross-Origin-Opener-Policy')) {
+      coopWarnings.push(txt);
+    }
+    if (msg.type() === 'error' && !txt.includes('favicon.ico')) {
+      consoleErrors.push(txt);
+    }
   });
   page.on('response', (res) => {
     if (res.status() >= 400 && !res.url().includes('favicon.ico')) {
@@ -626,8 +638,24 @@ try {
     mobileDetails.join(', ')
   );
 
-  // 10. Zero Console Errors & Zero Failed HTTP Requests
-  recordAssertion('Zero Browser Page/Runtime Errors', consoleErrors.length === 0, `errors=${consoleErrors.length}`);
+  // 10. Direct Cloudtop Deep-Link (/?view=view-miner) & Zero COOP / Console / HTTP Errors
+  await page.setViewport({ width: 1600, height: 1050, deviceScaleFactor: 2 });
+  const deepLinkRes = await page.goto(`${BASE_URL}/?view=view-miner`, { waitUntil: 'networkidle0', timeout: 30000 });
+  await page.waitForSelector('[data-testid="top5-idea-card-5"]', { timeout: 10000 });
+  const deepLinkState = await page.evaluate(() => ({
+    minerVisible: document.getElementById('view-miner')?.style.display === 'block',
+    top5Cards: document.querySelectorAll('[data-testid^="top5-idea-card-"]').length,
+  }));
+  recordAssertion(
+    'Direct Deep-Link /?view=view-miner Returns HTTP 200 & Activates View 4 Immediately',
+    deepLinkRes?.status() === 200 && deepLinkState.minerVisible && deepLinkState.top5Cards === 5,
+    `status=${deepLinkRes?.status()}, minerVisible=${deepLinkState.minerVisible}, top5Cards=${deepLinkState.top5Cards}, zeroCOOPWarnings=${coopWarnings.length === 0}`
+  );
+  recordAssertion(
+    'Zero Cross-Origin-Opener-Policy Untrustworthy-Origin Warnings & Zero Browser Errors',
+    consoleErrors.length === 0 && coopWarnings.length === 0,
+    `errors=${consoleErrors.length}, coopWarnings=${coopWarnings.length}`
+  );
   recordAssertion('Zero HTTP >= 400 Responses', failedRequests.length === 0, `failedRequests=${failedRequests.length}`);
 
   const passedCount = results.filter((r) => r.passed).length;

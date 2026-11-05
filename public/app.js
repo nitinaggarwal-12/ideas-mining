@@ -3487,6 +3487,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("trace-player-speed-select")?.addEventListener("change", (e) => {
     TRACE_PLAYER.speed = Number(e.target.value || 1);
   });
+  document.querySelectorAll("#trace-viz-mode-bar [data-viz-mode]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const mode = btn.getAttribute("data-viz-mode") || "option1";
+      setTraceVizMode(mode);
+    });
+  });
   document.getElementById("refresh-live-feeds-btn")?.addEventListener("click", () => {
     refreshLiveFeeds();
     showToast("Refreshed live arXiv & GitHub signals");
@@ -3530,12 +3536,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const reqPersona = params.get("persona");
   if (reqPersona) setPersonaMode(reqPersona);
 
+  const reqPreset = params.get("preset");
+  const reqTheme = params.get("theme");
+  const reqViz = params.get("viz");
+  const reqPath = params.get("path");
+  const reqSubtab = params.get("subtab");
+
+  if (reqPreset) {
+    const pSel = document.getElementById("step-flow-preset-select");
+    if (pSel) pSel.value = reqPreset;
+  }
+  if (reqTheme) {
+    const tSel = document.getElementById("step-flow-theme-select");
+    if (tSel) tSel.value = reqTheme;
+  }
+  if (reqPath === "deny" || reqPath === "allow") {
+    TRACE_PLAYER.pathMode = reqPath;
+    const pathSel = document.getElementById("trace-player-path-select");
+    if (pathSel) pathSel.value = reqPath;
+  }
+  if (reqViz) {
+    setTraceVizMode(reqViz);
+  }
+
   loadWorkspaceData();
   loadMintingStudioData();
-  loadStepFlowStudio();
+  loadStepFlowStudio(reqPreset || "FLOW-01", reqTheme || "light");
 
   const reqView = params.get("view");
   activateView(reqView && ALL_VIEWS.includes(reqView) ? reqView : "view-miner");
+
+  if (reqSubtab === "radar" || reqViz || reqPreset) {
+    document.getElementById("miner-subtab-btn-radar")?.click();
+    setTimeout(() => {
+      const targetEl = reqViz
+        ? document.getElementById("step-flow-trace-player")
+        : document.getElementById("step-by-step-flow-studio-card");
+      targetEl?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 250);
+  }
 });
 
 function renderStepFlowBundle(bundle) {
@@ -3623,9 +3662,21 @@ const TRACE_PLAYER = {
   totalMs: 320,
   speed: 1.0,
   pathMode: "allow",
+  vizMode: "option1",
   rafId: null,
   lastTick: 0,
 };
+
+function setTraceVizMode(mode) {
+  const validModes = ["option1", "option2", "option3", "option4", "option5", "option6", "option7"];
+  TRACE_PLAYER.vizMode = validModes.includes(mode) ? mode : "option1";
+  document.querySelectorAll("#trace-viz-mode-bar [data-viz-mode]").forEach((btn) => {
+    const isAct = btn.getAttribute("data-viz-mode") === TRACE_PLAYER.vizMode;
+    btn.classList.toggle("active", isAct);
+    btn.setAttribute("aria-selected", isAct ? "true" : "false");
+  });
+  renderTraceWaterfallAtTime(TRACE_PLAYER.currentMs);
+}
 
 function toggleTracePlayerPlayback() {
   TRACE_PLAYER.playing = !TRACE_PLAYER.playing;
@@ -3670,64 +3721,77 @@ function renderTraceWaterfallAtTime(tMs) {
   }
 
   const rowsWrap = document.getElementById("trace-player-waterfall-rows");
+  const customStage = document.getElementById("trace-player-custom-stage");
   if (!rowsWrap) return;
-  rowsWrap.replaceChildren();
 
   const activeSpans = [];
   trace.spans.forEach((sp) => {
     const isActive = cur >= sp.start_ms && cur <= sp.end_ms;
-    const isDone = cur > sp.end_ms;
     if (isActive) activeSpans.push(sp);
-
-    const row = mkEl("div", "");
-    row.style.cssText =
-      "display:grid;grid-template-columns:110px 210px 1fr 78px;align-items:center;gap:10px;padding:6px 10px;border-radius:8px;background:" +
-      (isActive ? "#eff6ff" : "#ffffff") +
-      ";border:1px solid " +
-      (isActive ? "#3b82f6" : "#e2e8f0") +
-      ";";
-
-    const modeBadge = mkEl(
-      "span",
-      `pill-badge ${sp.mode === "PARALLEL" ? "pill-amber" : "pill-blue"} tabular-nums`,
-      `${sp.order} · ${sp.mode}`
-    );
-    modeBadge.style.fontSize = "10.5px";
-
-    const whereCol = mkEl("div", "");
-    const wTitle = mkEl("div", "", sp.lane);
-    wTitle.style.cssText = "font-size:11.5px;font-weight:800;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
-    const wSub = mkEl("div", "", sp.where);
-    wSub.style.cssText = "font-size:10.5px;color:#475569;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
-    whereCol.append(wTitle, wSub);
-
-    const barTrack = mkEl("div", "");
-    barTrack.style.cssText =
-      "position:relative;height:20px;background:#f1f5f9;border-radius:6px;overflow:hidden;border:1px solid #cbd5e1;";
-
-    const leftPct = (sp.start_ms / totalMs) * 100;
-    const widthPct = Math.max(2, ((sp.end_ms - sp.start_ms) / totalMs) * 100);
-    const fillRatio = cur <= sp.start_ms ? 0 : cur >= sp.end_ms ? 1 : (cur - sp.start_ms) / Math.max(1, sp.end_ms - sp.start_ms);
-
-    const ghostBar = mkEl("div", "");
-    ghostBar.style.cssText = `position:absolute;top:2px;bottom:2px;left:${leftPct}%;width:${widthPct}%;background:${sp.color};opacity:0.22;border-radius:4px;`;
-
-    const liveBar = mkEl("div", "");
-    const barColor = TRACE_PLAYER.pathMode === "deny" && sp.span_id === "S5" ? "#dc2626" : sp.color;
-    liveBar.style.cssText = `position:absolute;top:2px;bottom:2px;left:${leftPct}%;width:${widthPct * fillRatio}%;background:${barColor};border-radius:4px;`;
-
-    const playhead = mkEl("div", "");
-    playhead.style.cssText = `position:absolute;top:0;bottom:0;left:${(cur / totalMs) * 100}%;width:2px;background:#0f172a;`;
-
-    barTrack.append(ghostBar, liveBar, playhead);
-
-    const timingCol = mkEl("span", "tabular-nums", `${sp.start_ms}–${sp.end_ms}ms`);
-    timingCol.style.cssText =
-      "font-size:11px;font-weight:700;text-align:right;color:" + (isDone ? "#059669" : isActive ? "#1d4ed8" : "#64748b") + ";";
-
-    row.append(modeBadge, whereCol, barTrack, timingCol);
-    rowsWrap.appendChild(row);
   });
+
+  if (TRACE_PLAYER.vizMode === "option1") {
+    rowsWrap.style.display = "flex";
+    if (customStage) customStage.style.display = "none";
+    rowsWrap.replaceChildren();
+    trace.spans.forEach((sp) => {
+      const isActive = cur >= sp.start_ms && cur <= sp.end_ms;
+      const isDone = cur > sp.end_ms;
+
+      const row = mkEl("div", "");
+      row.style.cssText =
+        "display:grid;grid-template-columns:110px 210px 1fr 78px;align-items:center;gap:10px;padding:6px 10px;border-radius:8px;background:" +
+        (isActive ? "#eff6ff" : "#ffffff") +
+        ";border:1px solid " +
+        (isActive ? "#3b82f6" : "#e2e8f0") +
+        ";";
+
+      const modeBadge = mkEl(
+        "span",
+        `pill-badge ${sp.mode === "PARALLEL" ? "pill-amber" : "pill-blue"} tabular-nums`,
+        `${sp.order} · ${sp.mode}`
+      );
+      modeBadge.style.fontSize = "10.5px";
+
+      const whereCol = mkEl("div", "");
+      const wTitle = mkEl("div", "", sp.lane);
+      wTitle.style.cssText = "font-size:11.5px;font-weight:800;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+      const wSub = mkEl("div", "", sp.where);
+      wSub.style.cssText = "font-size:10.5px;color:#475569;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+      whereCol.append(wTitle, wSub);
+
+      const barTrack = mkEl("div", "");
+      barTrack.style.cssText =
+        "position:relative;height:20px;background:#f1f5f9;border-radius:6px;overflow:hidden;border:1px solid #cbd5e1;";
+
+      const leftPct = (sp.start_ms / totalMs) * 100;
+      const widthPct = Math.max(2, ((sp.end_ms - sp.start_ms) / totalMs) * 100);
+      const fillRatio = cur <= sp.start_ms ? 0 : cur >= sp.end_ms ? 1 : (cur - sp.start_ms) / Math.max(1, sp.end_ms - sp.start_ms);
+
+      const ghostBar = mkEl("div", "");
+      ghostBar.style.cssText = `position:absolute;top:2px;bottom:2px;left:${leftPct}%;width:${widthPct}%;background:${sp.color};opacity:0.22;border-radius:4px;`;
+
+      const liveBar = mkEl("div", "");
+      const barColor = TRACE_PLAYER.pathMode === "deny" && sp.span_id === "S5" ? "#dc2626" : sp.color;
+      liveBar.style.cssText = `position:absolute;top:2px;bottom:2px;left:${leftPct}%;width:${widthPct * fillRatio}%;background:${barColor};border-radius:4px;`;
+
+      const playhead = mkEl("div", "");
+      playhead.style.cssText = `position:absolute;top:0;bottom:0;left:${(cur / totalMs) * 100}%;width:2px;background:#0f172a;`;
+
+      barTrack.append(ghostBar, liveBar, playhead);
+
+      const timingCol = mkEl("span", "tabular-nums", `${sp.start_ms}–${sp.end_ms}ms`);
+      timingCol.style.cssText =
+        "font-size:11px;font-weight:700;text-align:right;color:" + (isDone ? "#059669" : isActive ? "#1d4ed8" : "#64748b") + ";";
+
+      row.append(modeBadge, whereCol, barTrack, timingCol);
+      rowsWrap.appendChild(row);
+    });
+  } else if (customStage) {
+    rowsWrap.style.display = "none";
+    customStage.style.display = "block";
+    renderTraceCustomStage(TRACE_PLAYER.vizMode, customStage, trace, cur, totalMs, activeSpans);
+  }
 
   const stageLbl = document.getElementById("trace-player-active-stage-label");
   const modePill = document.getElementById("trace-player-active-mode-badge");
@@ -3755,14 +3819,336 @@ function renderTraceWaterfallAtTime(tMs) {
   }
 }
 
-async function loadStepFlowStudio() {
+async function loadStepFlowStudio(presetId = "FLOW-01", theme = "light") {
   try {
-    const res = await fetch("/api/step-flow?preset_id=FLOW-01&theme=light");
+    const res = await fetch(
+      `/api/step-flow?preset_id=${encodeURIComponent(presetId)}&theme=${encodeURIComponent(theme)}`
+    );
     if (!res.ok) return;
     const bundle = await res.json();
     renderStepFlowBundle(bundle);
   } catch (_err) {
     // Non-fatal on initial load
+  }
+}
+
+function renderTraceCustomStage(mode, container, trace, cur, totalMs, activeSpans) {
+  const bundle = STATE.activeStepFlowBundle || {};
+  const spec = bundle.spec || {};
+  const isDeny = TRACE_PLAYER.pathMode === "deny";
+
+  // Option 2: Native 4:5 H.264 MP4 Video Player + Frame HUD
+  if (mode === "option2") {
+    const existingVid = container.querySelector("video[data-src]");
+    const targetMp4 = safeUrl(bundle.mp4_url || "/assets/step-flows/FLOW-01-light-7742D372.mp4");
+    if (!existingVid || existingVid.getAttribute("data-src") !== targetMp4) {
+      container.replaceChildren();
+      const grid = mkEl("div", "composer-split-layout");
+      grid.style.alignItems = "center";
+
+      const vidCard = mkEl("div", "feed-item-card");
+      vidCard.style.cssText = "background:#ffffff;padding:12px;text-align:center;";
+      const vid = document.createElement("video");
+      vid.src = targetMp4;
+      vid.setAttribute("data-src", targetMp4);
+      vid.controls = true;
+      vid.autoplay = true;
+      vid.loop = true;
+      vid.muted = true;
+      vid.playsInline = true;
+      vid.style.cssText = "width:100%;max-width:380px;height:auto;border-radius:8px;border:1px solid #cbd5e1;";
+      vidCard.appendChild(vid);
+
+      const hud = mkEl("div", "feed-item-card");
+      hud.id = "opt2-frame-hud";
+      hud.style.cssText = "background:#ffffff;padding:16px;";
+      grid.append(vidCard, hud);
+      container.appendChild(grid);
+    }
+    const hud = container.querySelector("#opt2-frame-hud");
+    if (hud) {
+      hud.replaceChildren();
+      const frameIdx = Math.floor((cur / totalMs) * 360);
+      hud.append(
+        mkEl("span", "pill-badge pill-blue tabular-nums", `Option 2 · Frame ${frameIdx} / 360 @ 30fps H.264`),
+        mkEl("h4", "subsection-heading", `Programmatic 4:5 MP4 Video Mastering (${bundle.preset_id || "FLOW-01"})`),
+        mkEl(
+          "p",
+          "section-description",
+          "Plays natively with timeline scrubbing on LinkedIn, X (Twitter), and YouTube Shorts without GIF 256-color banding."
+        )
+      );
+      activeSpans.forEach((sp) => {
+        const line = mkEl("div", "feed-item-card", `${sp.order} [${sp.mode}] · ${sp.where} (${sp.start_ms}–${sp.end_ms}ms)`);
+        line.style.cssText = "margin-top:6px;font-size:12px;font-weight:700;color:#0f172a;";
+        hud.appendChild(line);
+      });
+    }
+    return;
+  }
+
+  container.replaceChildren();
+
+  // Option 3: 3-Pane Split-Screen (Live Agent Terminal CLI | Active Topology Nodes | OTel Span Stream)
+  if (mode === "option3") {
+    const split = mkEl("div", "");
+    split.style.cssText = "display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;";
+
+    const cliPane = mkEl("div", "feed-item-card");
+    cliPane.style.cssText = "background:#ffffff;border:1px solid #cbd5e1;padding:12px;font-family:ui-monospace,monospace;font-size:11.5px;";
+    cliPane.appendChild(mkEl("div", "pill-badge pill-blue", "Pane 1 · Live Agent CLI & Tool Stream"));
+    trace.spans.forEach((sp) => {
+      if (cur >= sp.start_ms) {
+        const ln = mkEl("div", "", `[+${String(sp.start_ms).padStart(3, "0")}ms] ${sp.mode === "PARALLEL" ? "⇉ [PARALLEL]" : "→ [SERIAL]"} ${sp.lane}`);
+        ln.style.cssText = "margin-top:5px;color:" + (cur <= sp.end_ms ? "#1d4ed8;font-weight:800;" : "#334155;");
+        cliPane.appendChild(ln);
+      }
+    });
+
+    const nodePane = mkEl("div", "feed-item-card");
+    nodePane.style.cssText = "background:#ffffff;border:1px solid #cbd5e1;padding:12px;";
+    nodePane.appendChild(mkEl("div", "pill-badge pill-amber", "Pane 2 · Active Service Boundaries (WHERE)"));
+    trace.spans.forEach((sp) => {
+      const act = cur >= sp.start_ms && cur <= sp.end_ms;
+      const card = mkEl("div", "", `${act ? "● ACTIVE: " : "○ "}${sp.where}`);
+      card.style.cssText =
+        "margin-top:5px;padding:4px 8px;border-radius:6px;font-size:11.5px;font-weight:" +
+        (act ? "800;background:#eff6ff;border:1px solid #3b82f6;color:#1e40af;" : "600;color:#64748b;");
+      nodePane.appendChild(card);
+    });
+
+    const otelPane = mkEl("div", "feed-item-card");
+    otelPane.style.cssText = "background:#ffffff;border:1px solid #cbd5e1;padding:12px;font-family:ui-monospace,monospace;font-size:11px;";
+    otelPane.appendChild(mkEl("div", "pill-badge pill-emerald", "Pane 3 · OpenTelemetry Live Spans (WHAT)"));
+    (activeSpans.length ? activeSpans : trace.spans.slice(0, 2)).forEach((sp) => {
+      const pText = isDeny ? sp.payload_deny : sp.payload_allow;
+      const box = mkEl("div", "", `span_id=${sp.span_id} (${sp.duration_ms}ms)\n${pText}`);
+      box.style.cssText = "margin-top:6px;padding:6px;background:#f8fafc;border-radius:6px;border:1px solid #e2e8f0;white-space:pre-wrap;color:#0f172a;";
+      otelPane.appendChild(box);
+    });
+
+    split.append(cliPane, nodePane, otelPane);
+    container.appendChild(split);
+    return;
+  }
+
+  // Option 4: Interactive 5-State Deterministic FSM + WebSpeech Audio Narration Cue Sync
+  if (mode === "option4") {
+    const fsmWrap = mkEl("div", "feed-item-card");
+    fsmWrap.style.cssText = "background:#ffffff;border:1px solid #cbd5e1;padding:14px;";
+    const hdr = mkEl("div", "composer-section-hdr");
+    hdr.style.marginBottom = "10px";
+    hdr.appendChild(mkEl("span", "pill-badge pill-blue", "Option 4 · 5-State Deterministic FSM + Audio Cue Sync"));
+    const speakBtn = mkEl("button", "btn-secondary", "🔊 Speak Step-by-Step Narration");
+    speakBtn.type = "button";
+    speakBtn.addEventListener("click", () => {
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(
+          `${spec.hook_line_1 || ""} Step 1: Serial ingress from ${spec.agent_title || "Agent"} to ${spec.gateway_title || "Gateway"}. Step 2: 4 parallel verification lanes execute concurrently in 30 milliseconds. Step 3: Barrier join enforces ${isDeny ? "circuit-breaker DENY" : "verified ALLOW"}.`
+        );
+        window.speechSynthesis.speak(u);
+      }
+      showToast("Triggered synchronized step-by-step narration");
+    });
+    hdr.appendChild(speakBtn);
+    fsmWrap.appendChild(hdr);
+
+    const states = [
+      { id: "S0", label: "1. Trust Root (0–45ms)", range: [0, 45] },
+      { id: "S1", label: "2. Serial Reasoning (45–115ms)", range: [45, 115] },
+      { id: "S2", label: "3. Gateway Intercept (115–135ms)", range: [115, 135] },
+      { id: "S3", label: "4. Parallel ×4 Fan-Out (135–165ms)", range: [135, 165] },
+      { id: "S4", label: isDeny ? "5. Barrier Join → DENY (165–320ms)" : "5. Barrier Join → ALLOW (165–320ms)", range: [165, 320] },
+    ];
+    const row = mkEl("div", "");
+    row.style.cssText = "display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;";
+    states.forEach((st) => {
+      const act = cur >= st.range[0] && cur <= st.range[1];
+      const btn = mkEl("button", "", st.label);
+      btn.type = "button";
+      btn.style.cssText =
+        "padding:10px 8px;border-radius:8px;cursor:pointer;font-size:11.5px;font-weight:800;border:2px solid " +
+        (act ? "#2563eb;background:#eff6ff;color:#1e3a8a;" : "#cbd5e1;background:#f8fafc;color:#475569;");
+      btn.addEventListener("click", () => {
+        TRACE_PLAYER.currentMs = st.range[0] + 5;
+        renderTraceWaterfallAtTime(TRACE_PLAYER.currentMs);
+      });
+      row.appendChild(btn);
+    });
+    fsmWrap.appendChild(row);
+    container.appendChild(fsmWrap);
+    return;
+  }
+
+  // Option 5: OpenTelemetry / Perfetto Distributed Trace Span Tree Replay
+  if (mode === "option5") {
+    const otelCard = mkEl("div", "feed-item-card");
+    otelCard.style.cssText = "background:#ffffff;border:1px solid #cbd5e1;padding:12px;font-family:ui-monospace,monospace;font-size:11.5px;";
+    otelCard.appendChild(
+      mkEl("div", "pill-badge pill-emerald", `Option 5 · OpenTelemetry Span Tree Replay · trace_id=0x752394973654 · barrier_join=${trace.barrier_join_ms}ms`)
+    );
+    trace.spans.forEach((sp) => {
+      const isAct = cur >= sp.start_ms && cur <= sp.end_ms;
+      const indent = sp.mode === "PARALLEL" ? "  ├─ [PARALLEL FORK] " : "├─ [ROOT/SERIAL] ";
+      const item = mkEl(
+        "div",
+        "",
+        `${indent}span=${sp.span_id} parent=${sp.mode === "PARALLEL" ? "S3" : "ROOT"} start=${sp.start_ms}ms end=${sp.end_ms}ms (${sp.duration_ms}ms) · ${sp.where}`
+      );
+      item.style.cssText =
+        "margin-top:5px;padding:4px 8px;border-radius:5px;background:" +
+        (isAct ? "#ecfdf5;border:1px solid #059669;font-weight:800;color:#065f46;" : "#f8fafc;color:#334155;");
+      otelCard.appendChild(item);
+    });
+    container.appendChild(otelCard);
+    return;
+  }
+
+  // Option 6: Animated UML Sequence Diagram with Parallel `par [4x Concurrent] ... end` Lifelines
+  if (mode === "option6") {
+    const ns = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", "0 0 960 280");
+    svg.style.cssText = "width:100%;height:auto;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;display:block;";
+
+    const actors = [
+      { x: 90, name: "1. Approver" },
+      { x: 250, name: "2. Agent ⇄ LLM" },
+      { x: 430, name: "3. Policy Gateway" },
+      { x: 610, name: "4. Approval / Policy" },
+      { x: 780, name: "5. Security / Ledger" },
+      { x: 900, name: isDeny ? "6. Blocked" : "6. Deploy Svc" },
+    ];
+    actors.forEach((a) => {
+      const rect = document.createElementNS(ns, "rect");
+      rect.setAttribute("x", String(a.x - 65));
+      rect.setAttribute("y", "10");
+      rect.setAttribute("width", "130");
+      rect.setAttribute("height", "28");
+      rect.setAttribute("rx", "6");
+      rect.setAttribute("fill", "#eff6ff");
+      rect.setAttribute("stroke", "#3b82f6");
+      svg.appendChild(rect);
+
+      const txt = document.createElementNS(ns, "text");
+      txt.setAttribute("x", String(a.x));
+      txt.setAttribute("y", "28");
+      txt.setAttribute("text-anchor", "middle");
+      txt.setAttribute("font-size", "11");
+      txt.setAttribute("font-weight", "800");
+      txt.setAttribute("fill", "#0f172a");
+      txt.textContent = a.name;
+      svg.appendChild(txt);
+
+      const line = document.createElementNS(ns, "line");
+      line.setAttribute("x1", String(a.x));
+      line.setAttribute("y1", "38");
+      line.setAttribute("x2", String(a.x));
+      line.setAttribute("y2", "268");
+      line.setAttribute("stroke", "#cbd5e1");
+      line.setAttribute("stroke-dasharray", "4 4");
+      svg.appendChild(line);
+    });
+
+    // Par box for 135..165ms
+    const parBox = document.createElementNS(ns, "rect");
+    parBox.setAttribute("x", "380");
+    parBox.setAttribute("y", "122");
+    parBox.setAttribute("width", "450");
+    parBox.setAttribute("height", "74");
+    parBox.setAttribute("rx", "6");
+    parBox.setAttribute("fill", "#fef3c7");
+    parBox.setAttribute("fill-opacity", "0.35");
+    parBox.setAttribute("stroke", "#d97706");
+    parBox.setAttribute("stroke-dasharray", "5 3");
+    svg.appendChild(parBox);
+
+    const parLbl = document.createElementNS(ns, "text");
+    parLbl.setAttribute("x", "390");
+    parLbl.setAttribute("y", "138");
+    parLbl.setAttribute("font-size", "10.5");
+    parLbl.setAttribute("font-weight", "800");
+    parLbl.setAttribute("fill", "#b45309");
+    parLbl.textContent = "par [PARALLEL ×4 FAN-OUT · 135–165ms · Simultaneous Execution]";
+    svg.appendChild(parLbl);
+
+    const arrows = [
+      { y: 62, x1: 90, x2: 610, col: "#2563eb", label: "S1 [0–45ms] Mint Signed Approval" },
+      { y: 88, x1: 250, x2: 430, col: "#0d9488", label: "S2–S3 [45–135ms] Tool Call → Gateway Intercept" },
+      { y: 154, x1: 430, x2: 610, col: "#059669", label: "P4A ∥ P4B [135–159ms] Approval + 4 Temporal Rules" },
+      { y: 178, x1: 430, x2: 780, col: "#7c3aed", label: "P4C ∥ P4D [135–165ms] Model Armor + Session Ledger" },
+      { y: 224, x1: 430, x2: 900, col: isDeny ? "#dc2626" : "#059669", label: isDeny ? "S5 [165ms] Barrier Join → DENY Block" : "S5 [165–265ms] Barrier Join → Verified ALLOW" },
+    ];
+    arrows.forEach((ar) => {
+      const ln = document.createElementNS(ns, "line");
+      ln.setAttribute("x1", String(ar.x1));
+      ln.setAttribute("y1", String(ar.y));
+      ln.setAttribute("x2", String(ar.x2));
+      ln.setAttribute("y2", String(ar.y));
+      ln.setAttribute("stroke", ar.col);
+      ln.setAttribute("stroke-width", "2.2");
+      svg.appendChild(ln);
+
+      const lb = document.createElementNS(ns, "text");
+      lb.setAttribute("x", String((ar.x1 + ar.x2) / 2));
+      lb.setAttribute("y", String(ar.y - 5));
+      lb.setAttribute("text-anchor", "middle");
+      lb.setAttribute("font-size", "10.5");
+      lb.setAttribute("font-weight", "700");
+      lb.setAttribute("fill", "#0f172a");
+      lb.textContent = ar.label;
+      svg.appendChild(lb);
+    });
+
+    // Moving horizontal time cursor
+    const cursorY = 48 + (cur / totalMs) * 210;
+    const curLine = document.createElementNS(ns, "line");
+    curLine.setAttribute("x1", "20");
+    curLine.setAttribute("y1", String(cursorY));
+    curLine.setAttribute("x2", "940");
+    curLine.setAttribute("y2", String(cursorY));
+    curLine.setAttribute("stroke", "#dc2626");
+    curLine.setAttribute("stroke-width", "1.8");
+    svg.appendChild(curLine);
+
+    container.appendChild(svg);
+    return;
+  }
+
+  // Option 7: 3D Isometric 4-Plane Spatial Layer Stack
+  if (mode === "option7") {
+    const ns = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", "0 0 960 270");
+    svg.style.cssText = "width:100%;height:auto;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;display:block;";
+
+    const planes = [
+      { y: 20, col: "#2563eb", title: "Plane 1 · Human & Workforce IAM Trust Root (0–45ms SERIAL)", active: cur < 45 },
+      { y: 80, col: "#0d9488", title: "Plane 2 · Agent Runtime ⇄ Frontier LLM Reasoning (45–135ms SERIAL)", active: cur >= 45 && cur < 135 },
+      { y: 140, col: "#d97706", title: "Plane 3 · Out-of-Loop Policy Mesh (135–165ms PARALLEL ×4 FAN-OUT)", active: cur >= 135 && cur <= 165 },
+      { y: 200, col: isDeny ? "#dc2626" : "#059669", title: isDeny ? "Plane 4 · Circuit-Breaker DENY + Async OTel (165–320ms)" : "Plane 4 · Protected Data Execution + Async OTel (165–320ms)", active: cur > 165 },
+    ];
+    planes.forEach((pl) => {
+      const poly = document.createElementNS(ns, "polygon");
+      const y = pl.y;
+      poly.setAttribute("points", `180,${y} 840,${y} 780,${y + 44} 120,${y + 44}`);
+      poly.setAttribute("fill", pl.active ? "#eff6ff" : "#f8fafc");
+      poly.setAttribute("stroke", pl.col);
+      poly.setAttribute("stroke-width", pl.active ? "3" : "1.5");
+      svg.appendChild(poly);
+
+      const tx = document.createElementNS(ns, "text");
+      tx.setAttribute("x", "480");
+      tx.setAttribute("y", String(y + 27));
+      tx.setAttribute("text-anchor", "middle");
+      tx.setAttribute("font-size", "12.5");
+      tx.setAttribute("font-weight", "800");
+      tx.setAttribute("fill", "#0f172a");
+      tx.textContent = pl.title;
+      svg.appendChild(tx);
+    });
+    container.appendChild(svg);
   }
 }
 

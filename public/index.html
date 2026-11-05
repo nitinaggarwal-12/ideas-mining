@@ -433,7 +433,19 @@
               </div>
             </div>
 
+            <!-- 7-OPTION EXECUTION VISUALIZATION MODE SWITCHER -->
+            <div class="subview-tabs" role="tablist" aria-label="7 Execution Visualization Modes" id="trace-viz-mode-bar" data-testid="trace-viz-mode-bar" style="margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 6px;">
+              <button type="button" class="subview-tab-btn active" data-viz-mode="option1" id="viz-btn-option1">1. Dual Waterfall Gantt</button>
+              <button type="button" class="subview-tab-btn" data-viz-mode="option2" id="viz-btn-option2">2. 4:5 H.264 MP4 Cinema</button>
+              <button type="button" class="subview-tab-btn" data-viz-mode="option3" id="viz-btn-option3">3. Split-Screen CLI + Trace</button>
+              <button type="button" class="subview-tab-btn" data-viz-mode="option4" id="viz-btn-option4">4. FSM + Audio Sync</button>
+              <button type="button" class="subview-tab-btn" data-viz-mode="option5" id="viz-btn-option5">5. OTel / Perfetto Replay</button>
+              <button type="button" class="subview-tab-btn" data-viz-mode="option6" id="viz-btn-option6">6. Sequence Diagram (par×4)</button>
+              <button type="button" class="subview-tab-btn" data-viz-mode="option7" id="viz-btn-option7">7. 3D Isometric 4-Plane Stack</button>
+            </div>
+
             <div id="trace-player-waterfall-rows" style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px;"></div>
+            <div id="trace-player-custom-stage" style="display: none; margin-bottom: 12px;"></div>
 
             <div class="feed-item-card" style="background: #ffffff; border: 1px solid #cbd5e1; padding: 10px 14px;">
               <div class="composer-section-hdr" style="margin-bottom: 4px;">

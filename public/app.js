@@ -3475,6 +3475,18 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("step-flow-preset-select")?.addEventListener("change", () => triggerCompileStepFlow(false));
   document.getElementById("step-flow-theme-select")?.addEventListener("change", () => triggerCompileStepFlow(false));
   document.getElementById("copy-step-flow-post-btn")?.addEventListener("click", copyStepFlowPostText);
+  document.getElementById("trace-player-play-btn")?.addEventListener("click", toggleTracePlayerPlayback);
+  document.getElementById("trace-player-scrubber")?.addEventListener("input", (e) => {
+    TRACE_PLAYER.currentMs = Number(e.target.value || 0);
+    renderTraceWaterfallAtTime(TRACE_PLAYER.currentMs);
+  });
+  document.getElementById("trace-player-path-select")?.addEventListener("change", (e) => {
+    TRACE_PLAYER.pathMode = e.target.value || "allow";
+    renderTraceWaterfallAtTime(TRACE_PLAYER.currentMs);
+  });
+  document.getElementById("trace-player-speed-select")?.addEventListener("change", (e) => {
+    TRACE_PLAYER.speed = Number(e.target.value || 1);
+  });
   document.getElementById("refresh-live-feeds-btn")?.addEventListener("click", () => {
     refreshLiveFeeds();
     showToast("Refreshed live arXiv & GitHub signals");
@@ -3557,6 +3569,13 @@ function renderStepFlowBundle(bundle) {
     gifLink.textContent = bundle.gif_url ? "Download 4:5 .GIF" : "Download 4:5 .SVG";
   }
 
+  const mp4Link = document.getElementById("step-flow-download-mp4-link");
+  if (mp4Link) {
+    const mp4Url = bundle.mp4_url || bundle.gif_url || bundle.svg_url || "";
+    mp4Link.href = safeUrl(mp4Url);
+    mp4Link.textContent = bundle.mp4_url ? "Download 4:5 .MP4" : "Download .MP4";
+  }
+
   const copyBundle = bundle.copy_bundle || {};
   const statsBadge = document.getElementById("step-flow-copy-stats-badge");
   if (statsBadge) {
@@ -3586,6 +3605,153 @@ function renderStepFlowBundle(bundle) {
   const c1Box = document.getElementById("step-flow-comment1-box");
   if (c1Box) {
     c1Box.textContent = `Comment #1 (Pinned Link): ${copyBundle.comment_1 || ""}`;
+  }
+
+  if (bundle.execution_trace) {
+    const spBadge = document.getElementById("trace-player-speedup-badge");
+    if (spBadge && bundle.execution_trace.parallel_speedup_label) {
+      spBadge.textContent = bundle.execution_trace.parallel_speedup_label;
+    }
+    renderTraceWaterfallAtTime(TRACE_PLAYER.currentMs);
+    startTracePlayerLoop();
+  }
+}
+
+const TRACE_PLAYER = {
+  playing: true,
+  currentMs: 148,
+  totalMs: 320,
+  speed: 1.0,
+  pathMode: "allow",
+  rafId: null,
+  lastTick: 0,
+};
+
+function toggleTracePlayerPlayback() {
+  TRACE_PLAYER.playing = !TRACE_PLAYER.playing;
+  const btn = document.getElementById("trace-player-play-btn");
+  if (btn) {
+    btn.textContent = TRACE_PLAYER.playing ? "⏸ Pause Trace" : "▶ Play Trace";
+  }
+  if (TRACE_PLAYER.playing) {
+    TRACE_PLAYER.lastTick = performance.now();
+    startTracePlayerLoop();
+  }
+}
+
+function startTracePlayerLoop() {
+  if (TRACE_PLAYER.rafId) return;
+  TRACE_PLAYER.lastTick = performance.now();
+  const step = (now) => {
+    const dt = now - TRACE_PLAYER.lastTick;
+    TRACE_PLAYER.lastTick = now;
+    if (TRACE_PLAYER.playing) {
+      // Advance ~45 timeline-ms per real second at 1x speed so the 320ms trace loops smoothly every ~7 seconds
+      TRACE_PLAYER.currentMs = (TRACE_PLAYER.currentMs + dt * 0.045 * TRACE_PLAYER.speed) % TRACE_PLAYER.totalMs;
+      const scrub = document.getElementById("trace-player-scrubber");
+      if (scrub) scrub.value = String(Math.round(TRACE_PLAYER.currentMs));
+      renderTraceWaterfallAtTime(TRACE_PLAYER.currentMs);
+    }
+    TRACE_PLAYER.rafId = requestAnimationFrame(step);
+  };
+  TRACE_PLAYER.rafId = requestAnimationFrame(step);
+}
+
+function renderTraceWaterfallAtTime(tMs) {
+  const trace = STATE.activeStepFlowBundle?.execution_trace;
+  if (!trace || !Array.isArray(trace.spans)) return;
+  const totalMs = trace.total_duration_ms || 320;
+  TRACE_PLAYER.totalMs = totalMs;
+  const cur = Math.max(0, Math.min(totalMs, Number(tMs || 0)));
+
+  const readout = document.getElementById("trace-player-time-readout");
+  if (readout) {
+    readout.textContent = `t = ${Math.round(cur)} ms / ${totalMs} ms`;
+  }
+
+  const rowsWrap = document.getElementById("trace-player-waterfall-rows");
+  if (!rowsWrap) return;
+  rowsWrap.replaceChildren();
+
+  const activeSpans = [];
+  trace.spans.forEach((sp) => {
+    const isActive = cur >= sp.start_ms && cur <= sp.end_ms;
+    const isDone = cur > sp.end_ms;
+    if (isActive) activeSpans.push(sp);
+
+    const row = mkEl("div", "");
+    row.style.cssText =
+      "display:grid;grid-template-columns:110px 210px 1fr 78px;align-items:center;gap:10px;padding:6px 10px;border-radius:8px;background:" +
+      (isActive ? "#eff6ff" : "#ffffff") +
+      ";border:1px solid " +
+      (isActive ? "#3b82f6" : "#e2e8f0") +
+      ";";
+
+    const modeBadge = mkEl(
+      "span",
+      `pill-badge ${sp.mode === "PARALLEL" ? "pill-amber" : "pill-blue"} tabular-nums`,
+      `${sp.order} · ${sp.mode}`
+    );
+    modeBadge.style.fontSize = "10.5px";
+
+    const whereCol = mkEl("div", "");
+    const wTitle = mkEl("div", "", sp.lane);
+    wTitle.style.cssText = "font-size:11.5px;font-weight:800;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+    const wSub = mkEl("div", "", sp.where);
+    wSub.style.cssText = "font-size:10.5px;color:#475569;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+    whereCol.append(wTitle, wSub);
+
+    const barTrack = mkEl("div", "");
+    barTrack.style.cssText =
+      "position:relative;height:20px;background:#f1f5f9;border-radius:6px;overflow:hidden;border:1px solid #cbd5e1;";
+
+    const leftPct = (sp.start_ms / totalMs) * 100;
+    const widthPct = Math.max(2, ((sp.end_ms - sp.start_ms) / totalMs) * 100);
+    const fillRatio = cur <= sp.start_ms ? 0 : cur >= sp.end_ms ? 1 : (cur - sp.start_ms) / Math.max(1, sp.end_ms - sp.start_ms);
+
+    const ghostBar = mkEl("div", "");
+    ghostBar.style.cssText = `position:absolute;top:2px;bottom:2px;left:${leftPct}%;width:${widthPct}%;background:${sp.color};opacity:0.22;border-radius:4px;`;
+
+    const liveBar = mkEl("div", "");
+    const barColor = TRACE_PLAYER.pathMode === "deny" && sp.span_id === "S5" ? "#dc2626" : sp.color;
+    liveBar.style.cssText = `position:absolute;top:2px;bottom:2px;left:${leftPct}%;width:${widthPct * fillRatio}%;background:${barColor};border-radius:4px;`;
+
+    const playhead = mkEl("div", "");
+    playhead.style.cssText = `position:absolute;top:0;bottom:0;left:${(cur / totalMs) * 100}%;width:2px;background:#0f172a;`;
+
+    barTrack.append(ghostBar, liveBar, playhead);
+
+    const timingCol = mkEl("span", "tabular-nums", `${sp.start_ms}–${sp.end_ms}ms`);
+    timingCol.style.cssText =
+      "font-size:11px;font-weight:700;text-align:right;color:" + (isDone ? "#059669" : isActive ? "#1d4ed8" : "#64748b") + ";";
+
+    row.append(modeBadge, whereCol, barTrack, timingCol);
+    rowsWrap.appendChild(row);
+  });
+
+  const stageLbl = document.getElementById("trace-player-active-stage-label");
+  const modePill = document.getElementById("trace-player-active-mode-badge");
+  const jsonBox = document.getElementById("trace-player-active-json");
+  const chosen = activeSpans.length ? activeSpans : [trace.spans[trace.spans.length - 1]];
+  const isParallelGroup = chosen.some((s) => s.mode === "PARALLEL" && s.fork_group === "GATEWAY_FANOUT_4");
+
+  if (stageLbl) {
+    stageLbl.textContent = isParallelGroup
+      ? `Active @ ${Math.round(cur)}ms: 4 Concurrent Gateway Verification Lanes Running in Parallel`
+      : `Active @ ${Math.round(cur)}ms: ${chosen.map((s) => `${s.order} (${s.where})`).join(" + ")}`;
+  }
+  if (modePill) {
+    modePill.textContent = isParallelGroup
+      ? `PARALLEL ×4 FAN-OUT · BARRIER JOIN @ ${trace.barrier_join_ms}ms`
+      : chosen.map((s) => s.mode).join(" + ");
+  }
+  if (jsonBox) {
+    jsonBox.textContent = chosen
+      .map((s) => {
+        const pStr = TRACE_PLAYER.pathMode === "deny" ? s.payload_deny : s.payload_allow;
+        return `[${s.order} | ${s.where}] ${s.what}\n  ↳ ${pStr}`;
+      })
+      .join("\n");
   }
 }
 

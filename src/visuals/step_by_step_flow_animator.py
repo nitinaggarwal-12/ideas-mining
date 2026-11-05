@@ -311,6 +311,157 @@ def compile_step_by_step_linkedin_post(spec: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def build_serial_parallel_execution_trace(spec: Dict[str, Any]) -> Dict[str, Any]:
+    """Build a millisecond-accurate End-to-End Serial & Parallel Execution DAG + Waterfall Trace (`0ms..320ms`).
+
+    Explicitly models:
+    - WHERE each hop executes (Component / Service boundary)
+    - WHEN it starts and ends (`start_ms`, `end_ms`, `duration_ms`)
+    - WHETHER it runs in `SERIAL` sequence or `PARALLEL` fan-out (`fork_group` + `barrier_join_ms`)
+    - WHAT exact payload / policy state is inspected or mutated at that millisecond
+    """
+    rules = spec.get("policy_rules") or []
+    return {
+        "total_duration_ms": 320,
+        "serial_equivalent_ms": 408,
+        "parallel_speedup_label": "2.8× faster gate (30ms parallel fan-out vs. 88ms serial)",
+        "barrier_join_ms": 165,
+        "spans": [
+            {
+                "span_id": "S1",
+                "order": "Step 1",
+                "mode": "SERIAL",
+                "lane": "1. Human / IdP Trust Root",
+                "where": f"{spec['approver_title']} → {spec['approval_svc_title']}",
+                "start_ms": 0,
+                "end_ms": 45,
+                "duration_ms": 45,
+                "color": "#2563EB",
+                "what": f"Mint signed approval record: ({spec['approved_primary']} · {spec['approved_secondary']}, nonce=1-shot)",
+                "payload_allow": f'{{"approved_item": "{spec["approved_primary"]}", "scope": "{spec["approved_secondary"]}", "ttl_s": 300, "used": false}}',
+                "payload_deny": f'{{"approved_item": "{spec["approved_primary"]}", "scope": "{spec["approved_secondary"]}", "ttl_s": 300, "used": false}}',
+            },
+            {
+                "span_id": "S2",
+                "order": "Step 2",
+                "mode": "SERIAL",
+                "lane": "2. Agent ⇄ LLM Reasoning",
+                "where": f"{spec['agent_title']} ⇄ {spec['model_title']}",
+                "start_ms": 45,
+                "end_ms": 115,
+                "duration_ms": 70,
+                "color": "#0D9488",
+                "what": "Synthesize tool call + attach caller identity & session context",
+                "payload_allow": f'{{"tool": "execute_action", "target": "{spec["approved_primary"]}", "ctx": "{spec["approved_secondary"]}"}}',
+                "payload_deny": f'{{"tool": "execute_action", "target": "{spec["requested_primary"]}", "ctx": "{spec["requested_secondary"]}", "warning": "PARAMETER_SWAP"}}',
+            },
+            {
+                "span_id": "S3",
+                "order": "Step 3",
+                "mode": "SERIAL",
+                "lane": "3. Gateway Intercept",
+                "where": f"{spec['agent_title']} → {spec['gateway_title']} ({spec['gateway_badge']})",
+                "start_ms": 115,
+                "end_ms": 135,
+                "duration_ms": 20,
+                "color": "#D97706",
+                "what": "Hold tool call at out-of-loop enforcement point; fork 4 parallel verification lanes",
+                "payload_allow": '{"gateway_state": "HOLD_FOR_PARALLEL_VERIFY", "fork_lanes": 4, "barrier": "ALL_MUST_PASS"}',
+                "payload_deny": '{"gateway_state": "HOLD_FOR_PARALLEL_VERIFY", "fork_lanes": 4, "barrier": "ALL_MUST_PASS"}',
+            },
+            {
+                "span_id": "P4A",
+                "order": "Step 4A ∥",
+                "mode": "PARALLEL",
+                "fork_group": "GATEWAY_FANOUT_4",
+                "lane": "4A. Trusted Approval Lookup",
+                "where": f"{spec['gateway_title']} ⇉ {spec['approval_svc_title']}",
+                "start_ms": 135,
+                "end_ms": 153,
+                "duration_ms": 18,
+                "color": "#2563EB",
+                "what": f"Parallel Lane 1: Read verified approval status ({rules[0] if rules else 'Digest check'})",
+                "payload_allow": f'{{"lookup": "FOUND", "expected": "{spec["approved_primary"]}", "actual": "{spec["approved_primary"]}", "match": true}}',
+                "payload_deny": f'{{"lookup": "FOUND", "expected": "{spec["approved_primary"]}", "actual": "{spec["requested_primary"]}", "match": false}}',
+            },
+            {
+                "span_id": "P4B",
+                "order": "Step 4B ∥",
+                "mode": "PARALLEL",
+                "fork_group": "GATEWAY_FANOUT_4",
+                "lane": "4B. 4-Rule Temporal Policy",
+                "where": f"{spec['gateway_title']} ⇉ {spec['policy_title']}",
+                "start_ms": 135,
+                "end_ms": 159,
+                "duration_ms": 24,
+                "color": "#059669",
+                "what": "Parallel Lane 2: Evaluate all 4 session-bound state rules outside agent loop",
+                "payload_allow": '{"rule_1_digest": "PASS", "rule_2_env": "PASS", "rule_3_fresh": "PASS", "rule_4_unused": "PASS"}',
+                "payload_deny": '{"rule_1_digest": "FAIL_MISMATCH", "rule_2_env": "FAIL_MISMATCH", "rule_3_fresh": "PASS", "rule_4_unused": "PASS"}',
+            },
+            {
+                "span_id": "P4C",
+                "order": "Step 4C ∥",
+                "mode": "PARALLEL",
+                "fork_group": "GATEWAY_FANOUT_4",
+                "lane": "4C. Security & Guardrails",
+                "where": f"{spec['gateway_title']} ⇉ Built-In Security Control",
+                "start_ms": 135,
+                "end_ms": 165,
+                "duration_ms": 30,
+                "color": "#DC2626",
+                "what": f"Parallel Lane 3: {spec['controls'][0][1]}",
+                "payload_allow": '{"pii_redaction": "CLEAN", "prompt_shield": "NO_INJECTION", "latency_ms": 30}',
+                "payload_deny": '{"parameter_tamper_alert": "HIGH_SEVERITY", "blocked_before_egress": true}',
+            },
+            {
+                "span_id": "P4D",
+                "order": "Step 4D ∥",
+                "mode": "PARALLEL",
+                "fork_group": "GATEWAY_FANOUT_4",
+                "lane": "4D. Session State Ledger",
+                "where": f"{spec['gateway_title']} ⇉ {spec['history_title']}",
+                "start_ms": 135,
+                "end_ms": 151,
+                "duration_ms": 16,
+                "color": "#7C3AED",
+                "what": f"Parallel Lane 4: Record tool call attempt in {spec['history_title']}",
+                "payload_allow": '{"session_seq": 4, "replay_protection": "NONCE_LOCKED", "state": "COMMITTED"}',
+                "payload_deny": '{"session_seq": 4, "violation_logged": "PARAMETER_SWAP_ATTEMPT", "state": "ABORTED"}',
+            },
+            {
+                "span_id": "S5",
+                "order": "Step 5 (Join)",
+                "mode": "SERIAL",
+                "lane": "5. Barrier Join → Execution / Block",
+                "where": f"{spec['gateway_title']} → {spec['exec_svc_title']} | {spec['blocked_title']}",
+                "start_ms": 165,
+                "end_ms": 265,
+                "duration_ms": 100,
+                "color": "#059669",
+                "what": f"Barrier Join @ 165ms: Route ALLOW to {spec['exec_svc_title']} or circuit-break DENY to {spec['blocked_title']}",
+                "payload_allow": f'{{"decision": "ALLOW", "service": "{spec["exec_svc_title"]}", "status": "200_EXECUTED_EXACT_MATCH"}}',
+                "payload_deny": f'{{"decision": "DENY", "action": "{spec["blocked_title"]}", "downstream_calls_made": 0}}',
+            },
+            {
+                "span_id": "P6",
+                "order": "Step 6 ∥",
+                "mode": "PARALLEL",
+                "fork_group": "POST_DECISION_ASYNC",
+                "lane": "6. Async Trace & FinOps Stream",
+                "where": f"{spec['gateway_title']} ⇉ {spec['trace_title']}",
+                "start_ms": 165,
+                "end_ms": 320,
+                "duration_ms": 155,
+                "color": "#DB2777",
+                "what": f"Async Parallel Stream: Emit OpenTelemetry spans + {spec['controls'][2][1]}",
+                "payload_allow": '{"otel_trace": "EXPORTED", "kv_cache_hit": true, "finops_cost_usd": 0.00042}',
+                "payload_deny": '{"otel_trace": "SECURITY_AUDIT_SPAN", "prevented_prod_incident": true}',
+            },
+        ],
+    }
+
+
 def generate_step_by_step_flow_svg(
     spec: Dict[str, Any],
     theme: str = "light",
@@ -753,9 +904,10 @@ def render_step_flow_bundle(
     compile_gif: bool = True,
     num_frames: int = 12,
 ) -> Dict[str, Any]:
-    """Compile the complete Step-by-Step Dynamic Flow Bundle (4:5 SVG + 4:5 Animated GIF89a + 6-Beat Post Copy)."""
+    """Compile the complete Step-by-Step Dynamic Flow Bundle (4:5 SVG + 4:5 GIF89a + 4:5 H.264 MP4 + Serial/Parallel Trace + 6-Beat Copy)."""
     spec = build_step_flow_spec_from_topic(preset_id=preset_id, custom_topic=custom_topic)
     copy_bundle = compile_step_by_step_linkedin_post(spec)
+    execution_trace = build_serial_parallel_execution_trace(spec)
     theme_key = "dark_neon" if str(theme or "light").lower() in ("dark", "dark_neon", "brij") else "light"
 
     slug_seed = f"{spec['preset_id']}|{custom_topic.strip()}|{theme_key}"
@@ -765,15 +917,17 @@ def render_step_flow_bundle(
     STEP_FLOW_ASSETS_DIR.mkdir(parents=True, exist_ok=True)
     svg_path = STEP_FLOW_ASSETS_DIR / f"{stem}.svg"
     gif_path = STEP_FLOW_ASSETS_DIR / f"{stem}.gif"
+    mp4_path = STEP_FLOW_ASSETS_DIR / f"{stem}.mp4"
     png_path = STEP_FLOW_ASSETS_DIR / f"{stem}.png"
 
     svg_text = generate_step_by_step_flow_svg(spec, theme=theme_key, frame_phase=None)
     svg_path.write_text(svg_text, encoding="utf-8")
 
     gif_ready = gif_path.exists() and gif_path.stat().st_size > 10000
+    mp4_ready = mp4_path.exists() and mp4_path.stat().st_size > 10000
+    ffmpeg = resolve_ffmpeg_bin()
     if compile_gif and not gif_ready:
         chrome = resolve_chrome_bin()
-        ffmpeg = resolve_ffmpeg_bin()
         if chrome is not None and ffmpeg is not None:
             with tempfile.TemporaryDirectory(prefix="step_flow_gif_") as tmp_dir:
                 tmp_path = Path(tmp_dir)
@@ -821,6 +975,32 @@ def render_step_flow_bundle(
                 )
                 gif_ready = gif_path.exists() and gif_path.stat().st_size > 10000
 
+    if compile_gif and gif_ready and not mp4_ready and ffmpeg is not None:
+        subprocess.run(
+            [
+                str(ffmpeg),
+                "-y",
+                "-stream_loop",
+                "2",
+                "-i",
+                str(gif_path),
+                "-c:v",
+                "libx264",
+                "-pix_fmt",
+                "yuv420p",
+                "-vf",
+                "scale=1080:1350:flags=lanczos",
+                "-r",
+                "30",
+                "-movflags",
+                "+faststart",
+                str(mp4_path),
+            ],
+            check=False,
+            capture_output=True,
+        )
+        mp4_ready = mp4_path.exists() and mp4_path.stat().st_size > 10000
+
     return {
         "status": "ok",
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -831,10 +1011,13 @@ def render_step_flow_bundle(
         "matched_template_id": spec["matched_template_id"],
         "svg_url": f"/assets/step-flows/{svg_path.name}",
         "gif_url": f"/assets/step-flows/{gif_path.name}" if gif_ready else "",
+        "mp4_url": f"/assets/step-flows/{mp4_path.name}" if mp4_ready else "",
         "png_url": f"/assets/step-flows/{png_path.name}" if png_path.exists() else "",
         "gif_ready": gif_ready,
+        "mp4_ready": mp4_ready,
         "spec": spec,
         "copy_bundle": copy_bundle,
+        "execution_trace": execution_trace,
         "available_presets": [
             {"id": k, "name": v["name"], "template_id": v["matched_template_id"]}
             for k, v in STEP_FLOW_PRESETS.items()

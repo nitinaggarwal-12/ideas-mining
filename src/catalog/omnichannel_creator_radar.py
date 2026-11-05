@@ -3011,7 +3011,12 @@ UNIFIED_CREATOR_PROFILES: List[Dict[str, Any]] = [{'name': 'Aishwarya Naresh Reg
               'github': 'https://github.com/honestsoul',
               'website': 'https://agenticbit.ai/'},
   'reviewed_post_ids': ['7523387700360638464'],
-  'all_posts_portfolio': [{'title': 'Before an AI Agent Goes Live, Three People Want a Meeting: Identity & '
+  'all_posts_portfolio': [{'title': 'Approved Tool. Unapproved Action by AI: Temporal Policies in AgentCore '
+                                    '(4:5 Animated GIF89a)',
+                           'platform': 'LinkedIn',
+                           'format': '4-Phase State-Machine GIF89a (345 reactions, 122 comments)',
+                           'url': 'https://www.linkedin.com/posts/brijpandeyji_your-ai-agent-can-use-an-approved-tool-to-share-7523949736547086336-YOf3'},
+                          {'title': 'Before an AI Agent Goes Live, Three People Want a Meeting: Identity & '
                                     'Permissions (#06)',
                            'platform': 'LinkedIn',
                            'format': '7-Step Dark Neon Trace (478 reactions, 102 comments)',

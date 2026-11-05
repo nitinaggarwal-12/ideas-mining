@@ -53,6 +53,7 @@ from src.video.multi_platform_transcoder import (
 )
 from src.visuals.canonical_blueprint_minter import compute_canonical_siso
 from src.visuals.canonical_template_registry import get_gallery_summary, list_templates
+from src.visuals.step_by_step_flow_animator import render_step_flow_bundle
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent
@@ -545,6 +546,19 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             self._send_json(200, {"pairings": OSS_GOOGLE_PAIRINGS})
             return
 
+        if path == "/api/step-flow":
+            preset_id = (qs.get("preset_id") or ["FLOW-01"])[0].strip()
+            theme = (qs.get("theme") or ["light"])[0].strip()
+            custom_topic = (qs.get("topic") or [""])[0].strip()[:180]
+            bundle = render_step_flow_bundle(
+                preset_id=preset_id,
+                custom_topic=custom_topic,
+                theme=theme,
+                compile_gif=False,
+            )
+            self._send_json(200, bundle)
+            return
+
         if path.startswith("/assets/"):
             rel = path.replace("/assets/", "", 1)
             target = (ASSETS_ROOT / rel).resolve()
@@ -772,6 +786,20 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 custom_title=payload.get("title", ""),
             )
             self._send_json(200, res)
+            return
+        if path == "/api/step-flow/generate":
+            preset_id = str(payload.get("preset_id") or "FLOW-01").strip()[:24]
+            custom_topic = str(payload.get("custom_topic") or payload.get("topic") or "").strip()[:180]
+            theme = str(payload.get("theme") or "light").strip()[:24]
+            compile_gif = bool(payload.get("compile_gif", True))
+            is_test_mode = os.environ.get("STUDIO_TEST_MODE", "").strip().lower() in ("1", "true", "yes")
+            bundle = render_step_flow_bundle(
+                preset_id=preset_id,
+                custom_topic=custom_topic,
+                theme=theme,
+                compile_gif=(compile_gif and not is_test_mode),
+            )
+            self._send_json(200, bundle)
             return
         self._send_json(404, {"error": "Not found"})
 

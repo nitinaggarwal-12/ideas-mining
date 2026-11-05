@@ -420,6 +420,26 @@ class TestIdeasMiningFactory(unittest.TestCase):
             self.assertEqual(g_item.get("google_slides_id"), sm["googleSlidesId"])
             self.assertEqual(g_item.get("google_slides_url"), sm["googleSlidesEditUrl"])
 
+    def test_step_by_step_flow_animator_and_presets(self) -> None:
+        from src.visuals.step_by_step_flow_animator import (
+            STEP_FLOW_PRESETS,
+            generate_step_by_step_flow_svg,
+            render_step_flow_bundle,
+        )
+
+        self.assertGreaterEqual(len(STEP_FLOW_PRESETS), 3)
+        for pid in ("FLOW-01", "FLOW-02", "FLOW-03"):
+            bundle = render_step_flow_bundle(preset_id=pid, custom_topic="", theme="light", compile_gif=False)
+            self.assertEqual(bundle["status"], "ok")
+            self.assertEqual(bundle["preset_id"], pid)
+            self.assertEqual(len(bundle["copy_bundle"]["beats"]), 6)
+            svg_light = generate_step_by_step_flow_svg(bundle["spec"], theme="light", frame_phase=None)
+            svg_dark = generate_step_by_step_flow_svg(bundle["spec"], theme="dark_neon", frame_phase=0.6)
+            self.assertIn('viewBox="0 0 1080 1350"', svg_light)
+            self.assertIn("#F8FAFC", svg_light)
+            self.assertIn("#0B1120", svg_dark)
+            self.assertIn("Google Cloud Agentic Architecture Engineering", svg_light)
+
 
 if __name__ == "__main__":
     unittest.main()

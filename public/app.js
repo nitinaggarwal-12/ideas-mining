@@ -3471,6 +3471,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("generate-top5-briefing-btn")?.addEventListener("click", triggerGenerateTop5Briefing);
   document.getElementById("transcode-active-idea-btn")?.addEventListener("click", triggerTranscodeActiveIdea);
   document.getElementById("approve-all-outbox-btn")?.addEventListener("click", () => approveOutboxItems(null));
+  document.getElementById("compile-step-flow-btn")?.addEventListener("click", triggerCompileStepFlow);
+  document.getElementById("step-flow-preset-select")?.addEventListener("change", () => triggerCompileStepFlow(false));
+  document.getElementById("step-flow-theme-select")?.addEventListener("change", () => triggerCompileStepFlow(false));
+  document.getElementById("copy-step-flow-post-btn")?.addEventListener("click", copyStepFlowPostText);
   document.getElementById("refresh-live-feeds-btn")?.addEventListener("click", () => {
     refreshLiveFeeds();
     showToast("Refreshed live arXiv & GitHub signals");
@@ -3516,7 +3520,121 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadWorkspaceData();
   loadMintingStudioData();
+  loadStepFlowStudio();
 
   const reqView = params.get("view");
   activateView(reqView && ALL_VIEWS.includes(reqView) ? reqView : "view-miner");
 });
+
+function renderStepFlowBundle(bundle) {
+  if (!bundle) return;
+  STATE.activeStepFlowBundle = bundle;
+
+  const badge = document.getElementById("step-flow-status-badge");
+  if (badge) {
+    badge.textContent = `${bundle.preset_id} · ${bundle.matched_template_id} · ${bundle.gif_ready ? "Looping GIF89a + SVG Ready" : "Animated SVG Ready"}`;
+  }
+
+  const visLbl = document.getElementById("step-flow-visual-label");
+  if (visLbl) {
+    visLbl.textContent = `4:5 Phased Blueprint (${bundle.theme === "dark_neon" ? "Dark-Grid Neon" : "Executive Light"})`;
+  }
+
+  const img = document.getElementById("step-flow-preview-img");
+  if (img && bundle.svg_url) {
+    img.src = `${safeUrl(bundle.svg_url)}?t=${Date.now()}`;
+  }
+
+  const svgLink = document.getElementById("step-flow-open-svg-link");
+  if (svgLink && bundle.svg_url) {
+    svgLink.href = safeUrl(bundle.svg_url);
+  }
+
+  const gifLink = document.getElementById("step-flow-download-gif-link");
+  if (gifLink) {
+    const targetUrl = bundle.gif_url || bundle.svg_url || "";
+    gifLink.href = safeUrl(targetUrl);
+    gifLink.textContent = bundle.gif_url ? "Download 4:5 .GIF" : "Download 4:5 .SVG";
+  }
+
+  const copyBundle = bundle.copy_bundle || {};
+  const statsBadge = document.getElementById("step-flow-copy-stats-badge");
+  if (statsBadge) {
+    statsBadge.textContent = `6-Beat Copy · ${copyBundle.char_count || 0} chars · ${copyBundle.line_count || 0} lines`;
+  }
+
+  const beatsStrip = document.getElementById("step-flow-beats-strip");
+  if (beatsStrip) {
+    beatsStrip.replaceChildren();
+    (copyBundle.beats || []).forEach((b) => {
+      const cell = mkEl("div", "feed-item-card");
+      cell.style.padding = "8px 10px";
+      const k = mkEl("div", "", b.beat);
+      k.style.cssText = "font-size:11px;font-weight:800;color:#1d4ed8;margin-bottom:2px;";
+      const v = mkEl("div", "", polishUiTypography(b.text));
+      v.style.cssText = "font-size:11.5px;color:#334155;line-height:1.35;";
+      cell.append(k, v);
+      beatsStrip.appendChild(cell);
+    });
+  }
+
+  const copyBox = document.getElementById("step-flow-post-copy-box");
+  if (copyBox) {
+    copyBox.textContent = polishUiTypography(copyBundle.post_copy || "");
+  }
+
+  const c1Box = document.getElementById("step-flow-comment1-box");
+  if (c1Box) {
+    c1Box.textContent = `Comment #1 (Pinned Link): ${copyBundle.comment_1 || ""}`;
+  }
+}
+
+async function loadStepFlowStudio() {
+  try {
+    const res = await fetch("/api/step-flow?preset_id=FLOW-01&theme=light");
+    if (!res.ok) return;
+    const bundle = await res.json();
+    renderStepFlowBundle(bundle);
+  } catch (_err) {
+    // Non-fatal on initial load
+  }
+}
+
+async function triggerCompileStepFlow(compileGif = true) {
+  const presetId = document.getElementById("step-flow-preset-select")?.value || "FLOW-01";
+  const theme = document.getElementById("step-flow-theme-select")?.value || "light";
+  const customTopic = (document.getElementById("step-flow-topic-input")?.value || "").trim();
+  const btn = document.getElementById("compile-step-flow-btn");
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = compileGif ? "Compiling 4:5 Flow & GIF..." : "Updating Preview...";
+  }
+  try {
+    const res = await fetch("/api/step-flow/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        preset_id: presetId,
+        theme,
+        custom_topic: customTopic,
+        compile_gif: Boolean(compileGif),
+      }),
+    });
+    const bundle = await res.json();
+    renderStepFlowBundle(bundle);
+    showToast(`Compiled ${bundle.preset_id} (${theme === "dark_neon" ? "Dark-Grid Neon" : "Executive Light"})`);
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "Compile 4:5 Flow & GIF";
+    }
+  }
+}
+
+function copyStepFlowPostText() {
+  const b = STATE.activeStepFlowBundle?.copy_bundle;
+  if (!b) return;
+  const full = `${b.post_copy}\n\n---\nComment #1: ${b.comment_1}`;
+  navigator.clipboard?.writeText(full);
+  showToast("Copied 6-Beat Step-by-Step Post + Comment #1");
+}

@@ -1142,6 +1142,13 @@ function openPostAnatomyDrawer(activityId) {
   actionsBar.appendChild(liBtn);
 
   if (post.availability === "PUBLIC_VERIFIED") {
+    if (post.gif_url) {
+      const gifBtn = mkEl("a", "btn-secondary", "Original 4:5 .GIF ↗");
+      gifBtn.href = safeUrl(post.gif_url);
+      gifBtn.target = "_blank";
+      gifBtn.rel = "noopener";
+      actionsBar.appendChild(gifBtn);
+    }
     const copyBtn = mkEl("button", "btn-secondary", "Copy Verbatim Text");
     copyBtn.type = "button";
     copyBtn.addEventListener("click", () => copyTextSafe(post.full_text, `Copied ${post.post_code} verbatim text!`));
@@ -1160,20 +1167,25 @@ function openPostAnatomyDrawer(activityId) {
 
   // Compact 2-Column Hero Grid: Left Visual + Right 3-Line Hook & Studio Blueprint Mapping
   const heroGrid = mkEl("div", "drawer-post-hero-grid");
-  if (post.image_url) {
+  if (post.gif_url || post.image_url) {
+    const activeMediaUrl = post.gif_url || post.image_url;
     const vbox = mkEl("div", "drawer-post-visual-card");
     const img = document.createElement("img");
-    img.src = safeUrl(post.image_url);
+    img.src = safeUrl(activeMediaUrl);
     img.alt = `${post.author_name} post visual`;
     img.addEventListener("click", () =>
       openLightbox({
-        kicker: `${post.post_code} · ${post.presentation_archetype_code}`,
+        kicker: `${post.post_code} · ${post.presentation_archetype_code}${post.gif_url ? " · 4:5 GIF89a" : ""}`,
         title: `${post.author_name} — ${post.hook_line_1}`,
-        imgUrl: post.image_url,
+        imgUrl: activeMediaUrl,
         actions: [{ label: "Original LinkedIn Post ↗", href: post.post_url }],
       })
     );
-    const zHint = mkEl("span", "eyebrow-muted", "Click artwork to zoom @2x");
+    const zHint = mkEl(
+      "span",
+      "eyebrow-muted",
+      post.gif_url ? "Live looping 4:5 GIF89a · Click to zoom @2x" : "Click artwork to zoom @2x"
+    );
     zHint.style.marginTop = "6px";
     vbox.append(img, zHint);
     heroGrid.appendChild(vbox);
@@ -1354,7 +1366,7 @@ function openCreatorPortfolioDrawer(creatorName) {
     (p) => p.availability === "PUBLIC_VERIFIED" && p.author_name.toLowerCase() === cp.name.toLowerCase()
   );
   if (auditedPosts.length) {
-    const audHdr = mkEl("h3", "subsection-heading", `Audited Posts in 33-Post Cohort (${auditedPosts.length})`);
+    const audHdr = mkEl("h3", "subsection-heading", `Audited Posts in 46-Post Cohort (${auditedPosts.length})`);
     audHdr.style.marginBottom = "10px";
     bodyEl.appendChild(audHdr);
     auditedPosts.forEach((ap) => {
@@ -1420,7 +1432,13 @@ function renderReviewedPostsGrid() {
   const sortMode = document.getElementById("posts-audit-sort-select")?.value || "INDEX";
 
   const filtered = allPosts.filter((p) => {
-    if (presFilter !== "ALL" && p.presentation_archetype_code !== presFilter) return false;
+    if (presFilter === "ANIMATED_GIF") {
+      if (!(p.is_gif || p.gif_url)) return false;
+    } else if (presFilter === "RESTRICTED") {
+      if (p.availability === "PUBLIC_VERIFIED") return false;
+    } else if (presFilter !== "ALL" && p.presentation_archetype_code !== presFilter) {
+      return false;
+    }
     if (authorFilter !== "ALL" && p.author_name !== authorFilter) return false;
     if (q) {
       const hay = `${p.post_code} ${p.activity_id} ${p.author_name} ${p.hook_line_1} ${p.content_structure} ${p.full_text}`.toLowerCase();
@@ -1464,6 +1482,9 @@ function renderReviewedPostsGrid() {
       )
     );
     metaRow.appendChild(mkEl("span", "deliverable-chip tabular-nums", `Blueprint ${post.matched_template_id}`));
+    if (post.is_gif || post.gif_url) {
+      metaRow.appendChild(mkEl("span", "pill-badge pill-emerald", "🎞️ 4:5 GIF89a"));
+    }
     if (post.published_utc) {
       metaRow.appendChild(mkEl("span", "deliverable-chip tabular-nums", post.published_utc));
     }
@@ -1475,13 +1496,13 @@ function renderReviewedPostsGrid() {
       img.src = safeUrl(post.image_url);
       img.alt = `${post.author_name} visual (${post.post_code})`;
       img.loading = post.index <= 6 ? "eager" : "lazy";
-      const zoomPill = mkEl("span", "post-visual-zoom-pill", "Zoom Visual");
+      const zoomPill = mkEl("span", "post-visual-zoom-pill", post.gif_url ? "Play 4:5 GIF89a" : "Zoom Visual");
       frame.append(img, zoomPill);
       frame.addEventListener("click", () =>
         openLightbox({
           kicker: `${post.post_code} · ${post.presentation_archetype_code} · ${post.author_name}`,
           title: post.hook_line_1,
-          imgUrl: post.image_url,
+          imgUrl: post.gif_url || post.image_url,
           actions: [{ label: "LinkedIn Post ↗", href: post.post_url }],
         })
       );
@@ -1595,7 +1616,7 @@ function renderCreatorProfilesGrid() {
     bpBadgeBtn.addEventListener("click", () => jumpToTemplateInGallery(cp.template_id));
     badges.appendChild(bpBadgeBtn);
     if (cp.in_33_post_audit) {
-      badges.appendChild(mkEl("span", "pill-badge pill-emerald", "In 33-Post Audit"));
+      badges.appendChild(mkEl("span", "pill-badge pill-emerald", "In 46-Post Audit"));
     }
     if (cp.followers) {
       badges.appendChild(mkEl("span", "pill-badge pill-sky tabular-nums", `${Number(cp.followers).toLocaleString()} reach`));

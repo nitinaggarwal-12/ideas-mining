@@ -186,8 +186,8 @@ class TestIdeasMiningFactory(unittest.TestCase):
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["signal_channels"]), 6)
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["diagram_archetypes_2d"]), 4)
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["presentation_archetypes_12"]), 12)
-        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["creator_profiles"]), 39)
-        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["reviewed_posts"]), 33)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["creator_profiles"]), 47)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["reviewed_posts"]), 46)
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["omnichannel_platforms"]), 10)
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["x_ecosystem_leaders"]), 15)
         self.assertEqual(len(MINED_TEMPLATE_POSTS_CATALOG), 16)
@@ -197,11 +197,16 @@ class TestIdeasMiningFactory(unittest.TestCase):
         repo_root = Path(__file__).resolve().parent.parent
         public_posts = [p for p in CREATOR_MINING_PLAYBOOK["reviewed_posts"] if p["availability"] == "PUBLIC_VERIFIED"]
         restricted_posts = [p for p in CREATOR_MINING_PLAYBOOK["reviewed_posts"] if p["availability"] != "PUBLIC_VERIFIED"]
-        self.assertEqual(len(public_posts), 31)
+        gif_posts = [p for p in public_posts if p.get("gif_url")]
+        self.assertEqual(len(public_posts), 44)
         self.assertEqual(len(restricted_posts), 2)
+        self.assertEqual(len(gif_posts), 10)
         for p in public_posts:
             img_path = repo_root / p["image_url"].lstrip("/")
             self.assertTrue(img_path.exists() and img_path.stat().st_size > 1000, f"Missing post image: {img_path}")
+            if p.get("gif_url"):
+                gif_path = repo_root / p["gif_url"].lstrip("/")
+                self.assertTrue(gif_path.exists() and gif_path.stat().st_size > 10000, f"Missing post gif: {gif_path}")
 
         ingested = AgenticIdeaMiner().ingest_custom_post_or_url(
             "https://www.linkedin.com/feed/update/urn:li:activity:7472740776519577601"

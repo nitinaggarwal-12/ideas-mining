@@ -105,17 +105,17 @@ class TestDailyPostGenerator(unittest.TestCase):
                     self.assertEqual(health["high_count"], 44)
                     self.assertEqual(health["repos_count"], 19)
                     self.assertEqual(health["minting_topics_count"], 12)
-                    self.assertEqual(health["creator_profiles_count"], 39)
-                    self.assertEqual(health["reviewed_posts_count"], 33)
-                    self.assertEqual(health["public_reviewed_posts_count"], 31)
+                    self.assertEqual(health["creator_profiles_count"], 47)
+                    self.assertEqual(health["reviewed_posts_count"], 46)
+                    self.assertEqual(health["public_reviewed_posts_count"], 44)
                     self.assertEqual(health["omnichannel_platforms_count"], 10)
                     self.assertEqual(health["mined_template_posts_count"], 16)
 
                     with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/creator-radar", timeout=5) as resp:
                         radar = json.loads(resp.read().decode("utf-8"))
                     self.assertEqual(radar["status"], "ok")
-                    self.assertEqual(len(radar["reviewed_posts"]), 33)
-                    self.assertEqual(len(radar["creator_profiles"]), 39)
+                    self.assertEqual(len(radar["reviewed_posts"]), 46)
+                    self.assertEqual(len(radar["creator_profiles"]), 47)
                     self.assertEqual(len(radar["omnichannel_platforms"]), 10)
                     self.assertEqual(len(radar["x_ecosystem_leaders"]), 15)
 

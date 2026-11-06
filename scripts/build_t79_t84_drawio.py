@@ -157,10 +157,14 @@ def build_spine_xml(spec: Dict[str, Any]) -> str:
         f'<br/><b style="font-size:11.5px;color:#0F172A;">☐ {html.escape(t3["check_1"])}<br/>☐ {html.escape(t3["check_2"])}</b></div>'
     )
     footer_html = _attr(
-        '<div style="display:flex;align-items:center;justify-content:center;gap:10px;font-family:Inter,sans-serif;">'
-        f'<b style="color:#FFFFFF;font-size:12px;letter-spacing:0.7px;">{html.escape(spec["footer_left"])}</b>'
-        '<span style="color:#38BDF8;font-size:14px;">•</span>'
-        f'<span style="color:#E2E8F0;font-size:12px;">{html.escape(spec["footer_right"])}</span></div>'
+        '<div style="white-space:nowrap;text-align:center;font-family:Inter,sans-serif;line-height:38px;">'
+        f'<b style="color:#FFFFFF;font-size:11px;letter-spacing:0.5px;">NITIN AGGARWAL</b>'
+        '<span style="color:#38BDF8;font-size:12px;margin:0 7px;">•</span>'
+        f'<b style="color:#FFFFFF;font-size:11px;letter-spacing:0.5px;">{html.escape(spec["footer_left"])}</b>'
+        '<span style="color:#38BDF8;font-size:12px;margin:0 7px;">•</span>'
+        f'<span style="color:#E2E8F0;font-size:11px;">{html.escape(spec["footer_right"])}</span>'
+        '<span style="color:#38BDF8;font-size:12px;margin:0 7px;">•</span>'
+        '<b style="color:#FDE68A;font-size:11px;letter-spacing:0.5px;">NOVEMBER 2026</b></div>'
     )
 
     def _bold_val(text: str, color: str, font_px: str = "11.5px", extra: str = "") -> str:
@@ -168,7 +172,7 @@ def build_spine_xml(spec: Dict[str, Any]) -> str:
         return _attr(f'<b style="{st}">{html.escape(text)}</b>')
 
     diag_name = html.escape(f"{p1} + {p2} + {p3} + {p4}")
-    return f"""<mxfile host="embed.diagrams.net" modified="2026-10-29T01:00:00.000Z" agent="ArchitectureEngine"><diagram id="infographic_{tid}_L2" name="{diag_name}"><mxGraphModel dx="1020" dy="1040" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1020" pageHeight="1040" background="#F8FAFC" math="0" shadow="0"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
+    return f"""<mxfile host="embed.diagrams.net" modified="2026-11-06T01:00:00.000Z" agent="ArchitectureEngine"><diagram id="infographic_{tid}_L2" name="{diag_name}"><mxGraphModel dx="1020" dy="1040" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1020" pageHeight="1040" background="#F8FAFC" math="0" shadow="0"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
       <mxCell id="header_title" value="{_attr(header_html)}" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1"><mxGeometry x="28" y="16" width="964" height="64" as="geometry"/></mxCell>
       <mxCell id="spine_line" value="" style="endArrow=oval;endFill=1;endSize=6;html=1;strokeColor=#CBD5E1;strokeWidth=2;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="47" y="114" as="sourcePoint"/><mxPoint x="47" y="954" as="targetPoint"/></mxGeometry></mxCell>
       <mxCell id="badge_01" value="01" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#B45309;" vertex="1" parent="1"><mxGeometry x="28" y="100" width="38" height="28" as="geometry"/></mxCell>
@@ -257,7 +261,7 @@ def build_spine_xml(spec: Dict[str, Any]) -> str:
       <mxCell id="t4_map_header" value="{_bold_val(t4['table_header'], '#1E3A8A', '11.5px', 'padding-left:12px;')}" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#93C5FD;strokeWidth=1;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="626" y="790" width="344" height="23" as="geometry"/></mxCell>
       <mxCell id="t4_map_rows" value="{_score_rows_val(t4['rows'], t4['stack'])}" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;spacingLeft=0;spacingRight=0;" vertex="1" parent="1"><mxGeometry x="626" y="813" width="344" height="81" as="geometry"/></mxCell>
       <mxCell id="t4_prompt_bar" value="{_prompt_bar_val(t4['prompt'])}" style="rounded=1;arcSize=16;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#E2E8F0;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="104" y="906" width="866" height="36" as="geometry"/></mxCell>
-      <mxCell id="footer_pill_52" value="{footer_html}" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#1E293B;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="130" y="968" width="760" height="42" as="geometry"/></mxCell>
+      <mxCell id="footer_pill_52" value="{footer_html}" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#1E293B;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="36" y="968" width="948" height="42" as="geometry"/></mxCell>
     </root></mxGraphModel></diagram></mxfile>
 """
 

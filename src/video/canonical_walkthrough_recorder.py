@@ -300,10 +300,10 @@ def _render_scene_pngs(scenes: List[Dict[str, Any]], topic_id: str, title: str, 
               </div>
               <div class="card" style="align-items:center;text-align:center;">
                 <div style="width:100%;">
-                  <div style="font-size:11.5px;font-weight:800;color:#1D4ED8;">OMNI 1.1 DIGITAL TWIN</div>
+                  <div style="font-size:11.5px;font-weight:800;color:#1D4ED8;">OMNI 1.1 DIGITAL TWIN • NOV 2026</div>
                   <div style="height:282px;"></div>
-                  <div style="font-size:14px;font-weight:800;margin-top:6px;">Principal AI Architect</div>
-                  <div style="font-size:12px;color:#475569;font-weight:600;">Google Cloud Practice</div>
+                  <div style="font-size:15px;font-weight:900;color:#0F172A;margin-top:6px;">Nitin Aggarwal</div>
+                  <div style="font-size:12px;color:#475569;font-weight:700;">Principal AI Architect • Google Cloud</div>
                   <div style="margin-top:8px;display:inline-block;background:#ECFDF5;color:#047857;border:1px solid #6EE7B7;border-radius:99px;padding:3px 10px;font-size:11px;font-weight:800;">🔊 Native Lip-Sync AV</div>
                 </div>
                 <div style="width:100%;background:#F8FAFC;border:1px solid #CBD5E1;border-radius:10px;padding:10px;">
@@ -339,6 +339,8 @@ def _render_scene_pngs(scenes: List[Dict[str, Any]], topic_id: str, title: str, 
 
 def _synthesize_chirp3_hd_mp3(out_mp3: Path, ffmpeg_bin: str, work_dir: Path) -> str:
     """Synthesize exact-metric MINT-01 Chirp3-HD SSML narration via Cloud TTS (`ramp-portal-dev`)."""
+    if out_mp3.exists() and out_mp3.stat().st_size > 10000:
+        return "en-IN-Chirp3-HD-Charon"
     ssml = """<speak>
       <p>
         <s><prosody rate="102%">Welcome to Idea Minting Topic One: the Zero-Bloat M C P Gateway with O-Auth two point one On-Behalf-Of security.</prosody><break time="360ms"/></s>

@@ -1,14 +1,14 @@
 {
   "status": "READY",
-  "generated_at": "2026-11-06T03:07:48.852177+00:00",
+  "generated_at": "2026-11-06T07:21:50.340988+00:00",
   "topic_query": "",
   "zero_manual_links_required": true,
-  "total_discovered_signals": 42,
+  "total_discovered_signals": 11,
   "live_channel_counts": {
-    "creator_rss_syndicate": 12,
-    "arxiv_and_hf_papers": 8,
-    "github_and_hn_velocity": 7,
-    "devto_and_reddit_pulse": 4,
+    "creator_rss_syndicate": 0,
+    "arxiv_and_hf_papers": 0,
+    "github_and_hn_velocity": 0,
+    "devto_and_reddit_pulse": 0,
     "curated_verified_floor": 11
   },
   "honest_scraping_reality_audit": {
@@ -417,51 +417,6 @@
       }
     },
     {
-      "signal_id": "AUTO-0BE3A8E8",
-      "fingerprint": "0be3a8e847d86b22",
-      "source_pipeline": "PIPE-01 \u2022 Creator RSS Syndicate",
-      "source_channel": "Paul Iusztin \u2022 Decoding AI Magazine",
-      "title": "Harness Engineering Roadmap: Claude Code From First Principles",
-      "summary": "The harness took LangChain's agent from outside the top 30 to the top 5.",
-      "primary_url": "https://www.decodingai.com/p/claude-code-from-scratch-harness-engineering-roadmap",
-      "published_at": "2026-11-06",
-      "metrics_hint": "Direct Creator RSS (4:5 Animated GIF89a Architecture + Substack Deep-Dive)",
-      "cluster_id": "CLUSTER_CODING_EVALS",
-      "cluster_label": "Autonomous Coding Harnesses & Sandbox Evals",
-      "demand_score": 90.8,
-      "scores": {
-        "novelty": 88.0,
-        "quantitative_density": 94.0,
-        "practitioner_utility": 80.0,
-        "visualizability": 85.0,
-        "composite_score": 86.5,
-        "demand_score": 90.8
-      },
-      "prescription": {
-        "recommended_primary_format": "8\u201310 Slide Native 4:5 PDF Document Carousel (`1080\u00d71350`)",
-        "recommended_format_id": "FMT-02-PDF-CAROUSEL-4X5",
-        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px per page (Native PDF upload)",
-        "optimal_duration_and_fps": "8 \u2013 10 slides \u2022 ~35\u201350s reader swipe dwell time (<= 35 words per slide)",
-        "text_copy_budget": "140 \u2013 220 words accompanying post \u2022 Slide 1 Hook -> Slides 2\u20137 1 Layer/Slide -> Slide 8 Benchmark -> Slide 9 Checklist",
-        "secondary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
-        "why_this_format_wins": "Structured around sequential layers/phases/gates: an 8\u201310 slide 4:5 PDF Carousel (1080\u00d71350, <=35 words/slide) maximizes swipe dwell time and bookmark saves.",
-        "target_channels": [
-          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
-          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
-          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
-          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
-        ],
-        "target_groups_and_communities": [
-          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
-          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
-          "X Community: AI Engineers & Agent Builders (85K+)",
-          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
-        ],
-        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
-        "studio_action_route": "View 1: Morning Brief & Top 5 -> Select Mode `Carousel` -> Export 8-Slide Spec + `.pptx` / Google Slides"
-      }
-    },
-    {
       "signal_id": "AUTO-498284CB",
       "fingerprint": "498284cbe94a0bf6",
       "source_pipeline": "PIPE-02 \u2022 Verified High-Demand Signal Floor",
@@ -687,51 +642,6 @@
       }
     },
     {
-      "signal_id": "AUTO-99372D41",
-      "fingerprint": "99372d4149fadbda",
-      "source_pipeline": "PIPE-02 \u2022 Multi-Source Discovery",
-      "source_channel": "arXiv Live Research",
-      "title": "tok: a textual concrete syntax of BPMN and DMN for humans and AI agents",
-      "summary": "tok is a plain-text notation for Business Process Model and Notation (BPMN) 2.0.2 process models and Decision Model and Notation (DMN) 1.5 decisions.",
-      "primary_url": "http://arxiv.org/abs/2611.07945v1",
-      "published_at": "2026-11-05",
-      "metrics_hint": "Peer-reviewed arXiv preprint \u2022 Primary technical specification",
-      "cluster_id": "CLUSTER_MCP_IDENTITY",
-      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
-      "demand_score": 88.6,
-      "scores": {
-        "novelty": 94.0,
-        "quantitative_density": 87.5,
-        "practitioner_utility": 80.0,
-        "visualizability": 85.0,
-        "composite_score": 86.4,
-        "demand_score": 88.6
-      },
-      "prescription": {
-        "recommended_primary_format": "Single @2x 4:5 High-Contrast Architecture / Roofline Cheat-Sheet Poster (`PNG` / `SVG`)",
-        "recommended_format_id": "FMT-05-STATIC-4X5-POSTER",
-        "aspect_ratio_and_px": "4:5 Portrait \u2022 1200\u00d71500 px (or 1600\u00d72000 px Retina @2x PNG)",
-        "optimal_duration_and_fps": "Static High-DPI Poster \u2022 <2s scroll-stop scan + 25s zoom inspection",
-        "text_copy_budget": "200 \u2013 300 words \u2022 Problem math (`pass@k vs pass^k`) + 3-column symptom-to-fix table + 'One Thing People Miss' box",
-        "secondary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
-        "why_this_format_wins": "High quantitative/mathematical density: pair an arXiv/Benchmark 4:5 Retina Poster (1200\u00d71500) or 4:5 GIF89a Roofline with a 3-column symptom-to-fix table and 'One Thing People Miss' caveat box.",
-        "target_channels": [
-          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
-          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
-          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
-          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
-        ],
-        "target_groups_and_communities": [
-          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
-          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
-          "X Community: AI Engineers & Agent Builders (85K+)",
-          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
-        ],
-        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
-        "studio_action_route": "View 2: 116 Certified Templates (`T53`\u2013`T89`) -> 1-Click Retina PNG / SVG / Google Slides"
-      }
-    },
-    {
       "signal_id": "AUTO-6F70C087",
       "fingerprint": "6f70c0876f66e295",
       "source_pipeline": "PIPE-02 \u2022 Verified Engineering Signal Floor",
@@ -862,232 +772,6 @@
           "Reddit: r/AI_Agents (190K+) & r/netsec",
           "X Community: AI Engineers & Agent Builders (85K+)",
           "Hacker News + DEV.to (#security, #ai, #architecture)"
-        ],
-        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
-        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
-      }
-    },
-    {
-      "signal_id": "AUTO-02B43881",
-      "fingerprint": "02b4388190d080bc",
-      "source_pipeline": "PIPE-02 \u2022 Multi-Source Discovery",
-      "source_channel": "GitHub Breakout Repository",
-      "title": "affaan-m/ECC: The agent harness performance optimization system. Skills",
-      "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
-      "primary_url": "https://github.com/affaan-m/ECC",
-      "published_at": "2026-11-02",
-      "metrics_hint": "297,927 GitHub stars \u2022 Active open-source implementation",
-      "cluster_id": "CLUSTER_MULTIAGENT_MEMORY",
-      "cluster_label": "Multi-Agent Orchestration, GraphRAG & Memory",
-      "demand_score": 85.5,
-      "scores": {
-        "novelty": 88.0,
-        "quantitative_density": 81.0,
-        "practitioner_utility": 80.0,
-        "visualizability": 85.0,
-        "composite_score": 83.2,
-        "demand_score": 85.5
-      },
-      "prescription": {
-        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
-        "recommended_format_id": "FMT-01-GIF89A-4X5",
-        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
-        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
-        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
-        "secondary_format": "43\u201360s Vertical 9:16 Narrated Architecture Short (`MP4` H.264 + Captions)",
-        "why_this_format_wins": "High practitioner utility signal: lead with a 4:5 Animated GIF89a (1080\u00d71350, 7.5s loop) on LinkedIn and a 45s 9:16 Vertical Short for YouTube Shorts / Reels.",
-        "target_channels": [
-          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
-          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
-          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
-          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
-        ],
-        "target_groups_and_communities": [
-          "LinkedIn: Enterprise Cybersecurity, IAM & Zero Trust (190K+)",
-          "LinkedIn: LLMOps, MLOps & Production AI Architects (140K+)",
-          "Reddit: r/AI_Agents (190K+) & r/netsec",
-          "X Community: AI Engineers & Agent Builders (85K+)",
-          "Hacker News + DEV.to (#security, #ai, #architecture)"
-        ],
-        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
-        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
-      }
-    },
-    {
-      "signal_id": "AUTO-D5604380",
-      "fingerprint": "d5604380381bd391",
-      "source_pipeline": "PIPE-02 \u2022 Multi-Source Discovery",
-      "source_channel": "HuggingFace Daily Papers",
-      "title": "D3D: Decoupled Diffusion Drafting for Asynchronous Speculative Decoding",
-      "summary": "Target-conditioned diffusion drafters predict candidate tokens in parallel, yet each new block must wait for updated target-model hidden states.",
-      "primary_url": "https://arxiv.org/abs/2611.06425",
-      "published_at": "2026-11-03",
-      "metrics_hint": "7 community upvotes \u2022 arXiv:2611.06425",
-      "cluster_id": "CLUSTER_MCP_IDENTITY",
-      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
-      "demand_score": 84.8,
-      "scores": {
-        "novelty": 94.0,
-        "quantitative_density": 81.0,
-        "practitioner_utility": 75.0,
-        "visualizability": 82.0,
-        "composite_score": 82.7,
-        "demand_score": 84.8
-      },
-      "prescription": {
-        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
-        "recommended_format_id": "FMT-01-GIF89A-4X5",
-        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
-        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
-        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
-        "secondary_format": "90\u2013150s Widescreen 16:9 Deep-Dive Execution Trace (`MP4` + Interactive Replay Link)",
-        "why_this_format_wins": "Contains a stateful multi-hop message flow or routing loop: a 4:5 Animated GIF89a (8.4s loop @ 20fps, 1080\u00d71350) shows packets moving across trust boundaries inline on LinkedIn without requiring a play click (69.9% avg comment ratio).",
-        "target_channels": [
-          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
-          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
-          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
-          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
-        ],
-        "target_groups_and_communities": [
-          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
-          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
-          "X Community: AI Engineers & Agent Builders (85K+)",
-          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
-        ],
-        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
-        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
-      }
-    },
-    {
-      "signal_id": "AUTO-25CA3CB1",
-      "fingerprint": "25ca3cb141463d52",
-      "source_pipeline": "PIPE-02 \u2022 Multi-Source Discovery",
-      "source_channel": "HuggingFace Daily Papers",
-      "title": "Multi-layer Indexer: Overlapping Selection and Attention in DeepSeek Sparse Attention",
-      "summary": "Sparse attention cuts the cost of long-context inference by making the attention matrix sparse: each query attends only a subset of the sequence, chosen by a fixed pattern or, in recent production LLMs, learned per query.",
-      "primary_url": "https://arxiv.org/abs/2611.03768",
-      "published_at": "2026-11-01",
-      "metrics_hint": "3 community upvotes \u2022 arXiv:2611.03768",
-      "cluster_id": "CLUSTER_MULTIAGENT_MEMORY",
-      "cluster_label": "Multi-Agent Orchestration, GraphRAG & Memory",
-      "demand_score": 84.8,
-      "scores": {
-        "novelty": 94.0,
-        "quantitative_density": 81.0,
-        "practitioner_utility": 75.0,
-        "visualizability": 82.0,
-        "composite_score": 82.7,
-        "demand_score": 84.8
-      },
-      "prescription": {
-        "recommended_primary_format": "Single @2x 4:5 High-Contrast Architecture / Roofline Cheat-Sheet Poster (`PNG` / `SVG`)",
-        "recommended_format_id": "FMT-05-STATIC-4X5-POSTER",
-        "aspect_ratio_and_px": "4:5 Portrait \u2022 1200\u00d71500 px (or 1600\u00d72000 px Retina @2x PNG)",
-        "optimal_duration_and_fps": "Static High-DPI Poster \u2022 <2s scroll-stop scan + 25s zoom inspection",
-        "text_copy_budget": "200 \u2013 300 words \u2022 Problem math (`pass@k vs pass^k`) + 3-column symptom-to-fix table + 'One Thing People Miss' box",
-        "secondary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
-        "why_this_format_wins": "High quantitative/mathematical density: pair an arXiv/Benchmark 4:5 Retina Poster (1200\u00d71500) or 4:5 GIF89a Roofline with a 3-column symptom-to-fix table and 'One Thing People Miss' caveat box.",
-        "target_channels": [
-          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
-          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
-          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
-          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
-        ],
-        "target_groups_and_communities": [
-          "Reddit: r/LocalLLaMA (580K+) & r/MachineLearning (3.0M+)",
-          "LinkedIn: LLMOps, MLOps & Production AI Architects (140K+)",
-          "X Community: Systems & GPU Programming (65K+)",
-          "Hacker News Frontpage (`Show HN` / Systems Deep-Dive)"
-        ],
-        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
-        "studio_action_route": "View 2: 116 Certified Templates (`T53`\u2013`T89`) -> 1-Click Retina PNG / SVG / Google Slides"
-      }
-    },
-    {
-      "signal_id": "AUTO-65691B4B",
-      "fingerprint": "65691b4b451f6490",
-      "source_pipeline": "PIPE-01 \u2022 Creator RSS Syndicate",
-      "source_channel": "Paul Iusztin \u2022 Decoding AI Magazine",
-      "title": "Building a Support Chatbot on Amazon Bedrock",
-      "summary": "One search or an AI agent that can search again? I tested both.",
-      "primary_url": "https://www.decodingai.com/p/agentic-rag-vs-single-search-amazon-bedrock",
-      "published_at": "2026-11-06",
-      "metrics_hint": "Direct Creator RSS (4:5 Animated GIF89a Architecture + Substack Deep-Dive)",
-      "cluster_id": "CLUSTER_CODING_EVALS",
-      "cluster_label": "Autonomous Coding Harnesses & Sandbox Evals",
-      "demand_score": 84.7,
-      "scores": {
-        "novelty": 88.0,
-        "quantitative_density": 81.0,
-        "practitioner_utility": 75.0,
-        "visualizability": 78.0,
-        "composite_score": 80.3,
-        "demand_score": 84.7
-      },
-      "prescription": {
-        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
-        "recommended_format_id": "FMT-01-GIF89A-4X5",
-        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
-        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
-        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
-        "secondary_format": "43\u201360s Vertical 9:16 Narrated Architecture Short (`MP4` H.264 + Captions)",
-        "why_this_format_wins": "High practitioner utility signal: lead with a 4:5 Animated GIF89a (1080\u00d71350, 7.5s loop) on LinkedIn and a 45s 9:16 Vertical Short for YouTube Shorts / Reels.",
-        "target_channels": [
-          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
-          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
-          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
-          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
-        ],
-        "target_groups_and_communities": [
-          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
-          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
-          "X Community: AI Engineers & Agent Builders (85K+)",
-          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
-        ],
-        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
-        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
-      }
-    },
-    {
-      "signal_id": "AUTO-EF73387B",
-      "fingerprint": "ef73387b3acabca1",
-      "source_pipeline": "PIPE-01 \u2022 Creator Atom Syndicate",
-      "source_channel": "Simon Willison \u2022 LLM & MCP Engineering Weblog",
-      "title": "datasette-llm 0.1a10",
-      "summary": "Release: datasette-llm 0.1a10 Fixes a bug that affected my agent.datasette.io demo site, where the set of available LLM models was not correctly restricted to just those in the configuration. Tags: datasette , llm.",
-      "primary_url": "https://simonwillison.net/2026/Nov/4/datasette-llm/",
-      "published_at": "2026-11-04",
-      "metrics_hint": "Direct Creator Atom Feed (Code-Backed Proof + CLI/Tool Execution Walkthrough)",
-      "cluster_id": "CLUSTER_MCP_IDENTITY",
-      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
-      "demand_score": 84.7,
-      "scores": {
-        "novelty": 88.0,
-        "quantitative_density": 81.0,
-        "practitioner_utility": 75.0,
-        "visualizability": 78.0,
-        "composite_score": 80.3,
-        "demand_score": 84.7
-      },
-      "prescription": {
-        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
-        "recommended_format_id": "FMT-01-GIF89A-4X5",
-        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
-        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
-        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
-        "secondary_format": "43\u201360s Vertical 9:16 Narrated Architecture Short (`MP4` H.264 + Captions)",
-        "why_this_format_wins": "High practitioner utility signal: lead with a 4:5 Animated GIF89a (1080\u00d71350, 7.5s loop) on LinkedIn and a 45s 9:16 Vertical Short for YouTube Shorts / Reels.",
-        "target_channels": [
-          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
-          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
-          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
-          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
-        ],
-        "target_groups_and_communities": [
-          "LinkedIn: Google Cloud Architects & Vertex AI Practitioners (220K+)",
-          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
-          "Reddit: r/AI_Agents (190K+) & r/LangChain (115K+)",
-          "X Community: AI Engineers & Agent Builders (85K+)"
         ],
         "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
         "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"

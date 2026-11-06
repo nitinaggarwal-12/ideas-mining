@@ -9,10 +9,10 @@
   "chirp3_hd_mp3": "/assets/videos/MINT-01_chirp3_hd.mp3",
   "poster_png": "/assets/videos/MINT-01_poster.png",
   "file_sizes_bytes": {
-    "walkthrough_mp4": 5004910,
-    "digital_twin_mp4": 5607265,
+    "walkthrough_mp4": 5012741,
+    "digital_twin_mp4": 5606628,
     "chirp3_hd_mp3": 569421,
-    "poster_png": 742558
+    "poster_png": 747486
   },
   "ffprobe": {
     "duration_sec": 44.0,
@@ -30,8 +30,8 @@
   "quality_gates": {
     "blueprint_occlusion_px2": 0.0,
     "benchmark_occlusion_px2": 0.0,
-    "twin_motion_frame_diff_rgb": 7.082,
-    "scene_transition_frame_diff_rgb": 18.927,
+    "twin_motion_frame_diff_rgb": 7.09,
+    "scene_transition_frame_diff_rgb": 19.29,
     "faststart_moov_atom": true,
     "loudnorm_lufs_target": -16.0,
     "all_video_gates_passed": true

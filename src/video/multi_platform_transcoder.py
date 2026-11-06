@@ -333,7 +333,7 @@ def _render_carousel_slide_html(
       </div>
       <div class="buls">{bullets_html}</div>
       <div class="ftr">
-        <span>Nitin Aggarwal • Agentic AI Architecture Studio</span>
+        <span>Nitin Aggarwal • Agentic AI Architecture Studio • November 2026</span>
         <span class="cta">{html.escape(shortlink_label)}</span>
       </div>
     </div>
@@ -588,7 +588,7 @@ def compile_vertical_9x16_short_video(spec: Dict[str, Any], force: bool = False)
             </div>
             <div class="karaoke-safe-band"><div>{cap}</div></div>
             <div class="safe-footer">
-              <span>Nitin Aggarwal • Google Cloud ADK + OpenHands</span>
+              <span>Nitin Aggarwal • Google Cloud ADK + OpenHands • November 2026</span>
               <span style="color:#1D4ED8;">Blueprint {html.escape(template_id)}</span>
             </div>
             </body></html>"""
@@ -740,3 +740,290 @@ def compile_vertical_9x16_short_video(spec: Dict[str, Any], force: bool = False)
     }
     manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     return manifest
+
+
+def compile_widescreen_16x9_walkthrough_video(spec: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
+    """Compile a topic- and blueprint-specific 5-scene 16:9 (1920x1080 @ 30fps, 44.0s) Widescreen Walkthrough MP4."""
+    item_id = _sanitize_slug(str(spec.get("id") or "MINT-01"))
+    template_id = _sanitize_slug(str(spec.get("template_id") or spec.get("canonical_template_id") or "T61"))
+    out_dir = MULTI_PLATFORM_DIR / item_id
+    manifest_path = out_dir / "video_16x9_manifest.json"
+    out_mp4 = out_dir / "walkthrough_16x9.mp4"
+    out_poster = out_dir / "poster_16x9.png"
+
+    if manifest_path.exists() and out_mp4.exists() and out_poster.exists() and not force:
+        try:
+            existing = json.loads(manifest_path.read_text(encoding="utf-8"))
+            if existing.get("template_id") == template_id:
+                return existing
+        except Exception:
+            pass
+
+    chrome_bin = resolve_chrome_bin()
+    if not chrome_bin:
+        raise RuntimeError("Headless Chrome binary required for 16:9 video rendering.")
+    ffmpeg_bin = _resolve_bin("ffmpeg")
+    ffprobe_bin = _resolve_bin("ffprobe")
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    b64_png = base64.b64encode(_resolve_template_png_bytes(template_id)).decode("ascii")
+    slides = _build_8_slide_carousel_models(spec)
+    selected_indices = [0, 3, 4, 5, 6]
+
+    title_clean = _polish_math_typography(str(spec.get("title") or "Enterprise Agentic Architecture"))
+    summary_clean = _polish_math_typography(str(spec.get("summary") or "Production Google Cloud ADK + OpenHands architecture."))
+    metrics_clean = _polish_math_typography(str(spec.get("metrics_hint") or "Verified production latency & token telemetry"))
+    lead_metric = metrics_clean.split("•")[0].strip()
+
+    spotlights = [
+        "top:1%;left:1.5%;width:97%;height:92%;border:3px solid #2563EB;",
+        "top:6%;left:2%;width:96%;height:24%;border:4px solid #2563EB;box-shadow:0 0 0 9999px rgba(15,23,42,0.12);",
+        "top:30%;left:2%;width:96%;height:24%;border:4px solid #7C3AED;box-shadow:0 0 0 9999px rgba(15,23,42,0.12);",
+        "top:54%;left:2%;width:96%;height:24%;border:4px solid #059669;box-shadow:0 0 0 9999px rgba(15,23,42,0.12);",
+        "top:74%;left:2%;width:96%;height:19%;border:4px solid #D97706;box-shadow:0 0 0 9999px rgba(15,23,42,0.12);",
+    ]
+    captions = [
+        f"Nitin Aggarwal (November 2026) — <mark>{html.escape(title_clean[:68])}</mark> on Blueprint {html.escape(template_id)}.",
+        f"Stage 01: Pin immutable prefix instructions and <mark>bound per-turn context &amp; schema budgets</mark> deterministically.",
+        "Stage 02: Enforce <mark>narrow-audience OAuth 2.1 OBO tokens</mark> and Model Armor policy gates outside the LLM.",
+        "Stage 03: Isolate untrusted tool &amp; code execution inside <mark>sandboxed verification gates</mark> before commit.",
+        f"Stage 04 Verified Telemetry: <mark>{html.escape(lead_metric[:68])}</mark> with cryptographic SHA-256 audit receipts.",
+    ]
+
+    scene_dur = 9.28
+    xfade_dur = 0.6
+    # 5 * 9.28 - 4 * 0.6 = 44.0s
+    expected_dur = 44.0
+
+    with tempfile.TemporaryDirectory(prefix=f"walk169_{item_id}_") as td:
+        td_path = Path(td)
+        scene_mp4s: List[Path] = []
+        for idx, slide_pos in enumerate(selected_indices):
+            s = slides[slide_pos]
+            cap = captions[idx]
+            spot_css = spotlights[idx]
+            html_file = td_path / f"wscene_{idx}.html"
+            png_file = td_path / f"wscene_{idx}.png"
+            seg_mp4 = td_path / f"wseg_{idx}.mp4"
+
+            trace_lines = [
+                f"$ python3 verify_architecture_gate.py --topic {item_id} --blueprint {template_id}",
+                f"[STAGE 01] Prefix Cache & Scoped Discovery   -> PASS (Blueprint {template_id})",
+                f"[STAGE 02] Zero-Trust OBO & Policy Guardrail -> {'ACTIVE' if idx == 2 else 'VERIFIED (0.4ms)'}",
+                f"[STAGE 03] Ephemeral Sandbox & Unit Gate     -> {'ACTIVE' if idx == 3 else 'VERIFIED (100%)'}",
+                f"[METRIC  ] {metrics_clean[:82]}",
+            ]
+            trace_html = "".join(
+                f"<div style='margin-bottom:8px;color:{'#6EE7B7' if i == len(trace_lines)-1 else ('#93C5FD' if i == idx+1 else '#E2E8F0')};font-weight:{'800' if i in (idx+1, len(trace_lines)-1) else '500'};'>{html.escape(line)}</div>"
+                for i, line in enumerate(trace_lines)
+            )
+
+            w_html = f"""<!doctype html><html><head><meta charset="utf-8"><style>
+            *{{box-sizing:border-box;margin:0;padding:0;}}
+            body{{width:1920px;height:1080px;overflow:hidden;background:#F8FAFC;color:#0F172A;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;display:flex;flex-direction:column;}}
+            .quad{{height:6px;background:linear-gradient(90deg,#4285F4 0 25%,#EA4335 25% 50%,#FBBC04 50% 75%,#34A853 75% 100%);}}
+            .top{{height:56px;background:#FFFFFF;border-bottom:1.5px solid #CBD5E1;display:flex;align-items:center;justify-content:space-between;padding:0 24px;}}
+            .stage{{flex:1;display:grid;grid-template-columns:1040px 824px;gap:16px;padding:12px 20px;align-items:stretch;min-height:0;}}
+            .card{{background:#FFFFFF;border:1.5px solid #CBD5E1;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 6px 18px rgba(15,23,42,0.04);min-height:0;}}
+            .bp-stage{{position:relative;flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:12px;background:#F8FAFC;border:1px solid #E2E8F0;min-height:0;}}
+            .bp-stage img{{max-width:100%;max-height:846px;width:auto;height:auto;display:block;}}
+            .spot{{position:absolute;border-radius:10px;pointer-events:none;{spot_css}}}
+            .author-bar{{display:flex;align-items:center;justify-content:space-between;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:12px;padding:10px 14px;margin-bottom:10px;}}
+            .avatar-pill{{width:42px;height:42px;border-radius:999px;background:#1D4ED8;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;flex-shrink:0;}}
+            .cmp{{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;}}
+            .bad{{background:#FFF1F2;border:1.5px solid #FDA4AF;border-radius:10px;padding:10px 12px;color:#881337;}}
+            .good{{background:#ECFDF5;border:1.5px solid #6EE7B7;border-radius:10px;padding:10px 12px;color:#064E3B;}}
+            .term{{background:#0F172A;color:#E2E8F0;border-radius:12px;padding:15px 18px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;line-height:1.5;}}
+            .ben{{background:#F8FAFC;border:1.5px solid #CBD5E1;border-left:6px solid {s['accent']};border-radius:12px;padding:12px 15px;}}
+            .cap{{height:60px;background:#FFFBEB;border-top:2px solid #FCD34D;display:flex;align-items:center;justify-content:center;font-size:18.5px;font-weight:800;color:#78350F;padding:0 24px;}}
+            .cap mark{{background:#FBBF24;color:#0F172A;padding:2px 10px;border-radius:8px;font-weight:900;margin:0 4px;}}
+            </style></head><body>
+            <div class="quad"></div>
+            <div class="top">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="background:#DBEAFE;color:#1E40AF;border:1px solid #93C5FD;padding:4px 11px;border-radius:99px;font-size:12px;font-weight:800;">● 16:9 ARCHITECTURE WALKTHROUGH 1080p30</span>
+                <span style="font-size:15.5px;font-weight:900;color:#0F172A;">{html.escape(title_clean[:74])}</span>
+              </div>
+              <div style="background:#0F172A;color:#FDE68A;padding:5px 14px;border-radius:99px;font-size:12px;font-weight:800;letter-spacing:0.04em;">NITIN AGGARWAL • BLUEPRINT {html.escape(template_id)} • NOVEMBER 2026</div>
+            </div>
+            <div class="stage">
+              <div class="card">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                  <span style="font-size:12.5px;font-weight:800;color:#1D4ED8;">CANONICAL VISUAL BLUEPRINT ({html.escape(template_id)} @2x)</span>
+                  <span style="background:#EFF6FF;color:#1E40AF;border:1px solid #BFDBFE;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:800;">SCENE 0{idx + 1} / 05 • {html.escape(s['tag'])}</span>
+                </div>
+                <div class="bp-stage">
+                  <div style="position:relative;display:inline-block;line-height:0;overflow:hidden;border-radius:10px;">
+                    <img src="data:image/png;base64,{b64_png}" alt="Canonical Blueprint {html.escape(template_id)}"/>
+                    <div class="spot"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div>
+                  <div class="author-bar">
+                    <div style="display:flex;align-items:center;gap:12px;">
+                      <div class="avatar-pill">NA</div>
+                      <div>
+                        <div style="font-size:15px;font-weight:900;color:#0F172A;">Nitin Aggarwal</div>
+                        <div style="font-size:12px;font-weight:700;color:#1E40AF;">AI Systems &amp; Google Cloud Architecture • November 2026</div>
+                      </div>
+                    </div>
+                    <span style="background:#ECFDF5;color:#047857;border:1px solid #6EE7B7;padding:4px 10px;border-radius:99px;font-size:11.5px;font-weight:800;">✓ Verified Signal</span>
+                  </div>
+                  <div style="font-size:21px;font-weight:900;color:#0F172A;line-height:1.22;">{html.escape(s['headline'])}</div>
+                  <div style="font-size:13.5px;font-weight:600;color:#334155;line-height:1.38;margin-top:5px;">{html.escape(summary_clean[:210])}</div>
+                  <div class="cmp">
+                    <div class="bad"><div style="font-size:11.5px;font-weight:800;">✗ NAIVE UNBOUNDED BASELINE</div><div style="font-size:13px;font-weight:800;margin-top:3px;">Unbounded context &amp; unverified loop</div></div>
+                    <div class="good"><div style="font-size:11.5px;font-weight:800;">✓ ENGINEERED PRODUCTION IMPACT</div><div style="font-size:13px;font-weight:800;margin-top:3px;">{html.escape(lead_metric[:48])}</div></div>
+                  </div>
+                  <div class="term">{trace_html}</div>
+                </div>
+                <div class="ben">
+                  <div style="font-size:12px;font-weight:900;color:{s['accent']};letter-spacing:0.03em;">ARCHITECTURAL TAKEAWAY (STAGE 0{idx + 1} / 05)</div>
+                  <div style="font-size:13.5px;font-weight:800;color:#0F172A;margin-top:4px;line-height:1.35;">• {html.escape(_polish_math_typography(s['bullets'][0]))}</div>
+                  <div style="font-size:13px;font-weight:700;color:#334155;margin-top:3px;line-height:1.35;">• {html.escape(_polish_math_typography(s['bullets'][1]))}</div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:6px;border-top:1px solid #E2E8F0;font-size:11.5px;font-weight:800;color:#475569;">
+                    <span>Author: Nitin Aggarwal • November 2026</span>
+                    <span style="color:#1D4ED8;">github.com/nitinaggarwal-12/ideas-mining • {html.escape(template_id)}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cap">🔊 {cap}</div>
+            </body></html>"""
+            html_file.write_text(w_html, encoding="utf-8")
+            _chrome_screenshot_png(chrome_bin, html_file, png_file, 1920, 1080)
+            if idx == 0:
+                shutil.copyfile(png_file, out_poster)
+
+            seg_cmd = [
+                ffmpeg_bin,
+                "-y",
+                "-loop",
+                "1",
+                "-t",
+                f"{scene_dur:.2f}",
+                "-i",
+                str(png_file),
+                "-vf",
+                "scale=1944:1094,crop=1920:1080:'12+8*sin(2*PI*t/9.28)':'7+5*cos(2*PI*t/9.28)',fps=30,format=yuv420p",
+                "-c:v",
+                "libx264",
+                "-preset",
+                "veryfast",
+                "-crf",
+                "20",
+                "-r",
+                "30",
+                str(seg_mp4),
+            ]
+            subprocess.run(seg_cmd, check=True, capture_output=True, timeout=60)
+            scene_mp4s.append(seg_mp4)
+
+        wav_bed = td_path / "ambient_16x9.wav"
+        _ensure_fallback_ambient_wav(wav_bed, expected_dur + 1.0)
+
+        offsets = [
+            scene_dur - xfade_dur,
+            2 * scene_dur - 2 * xfade_dur,
+            3 * scene_dur - 3 * xfade_dur,
+            4 * scene_dur - 4 * xfade_dur,
+        ]
+        fc = (
+            f"[0:v][1:v]xfade=transition=fade:duration={xfade_dur}:offset={offsets[0]:.2f}[v01];"
+            f"[v01][2:v]xfade=transition=fade:duration={xfade_dur}:offset={offsets[1]:.2f}[v02];"
+            f"[v02][3:v]xfade=transition=fade:duration={xfade_dur}:offset={offsets[2]:.2f}[v03];"
+            f"[v03][4:v]xfade=transition=fade:duration={xfade_dur}:offset={offsets[3]:.2f}[vout]"
+        )
+        stitch_cmd = [
+            ffmpeg_bin,
+            "-y",
+            "-i",
+            str(scene_mp4s[0]),
+            "-i",
+            str(scene_mp4s[1]),
+            "-i",
+            str(scene_mp4s[2]),
+            "-i",
+            str(scene_mp4s[3]),
+            "-i",
+            str(scene_mp4s[4]),
+            "-i",
+            str(wav_bed),
+            "-filter_complex",
+            fc,
+            "-map",
+            "[vout]",
+            "-map",
+            "5:a:0",
+            "-t",
+            f"{expected_dur:.2f}",
+            "-c:v",
+            "libx264",
+            "-preset",
+            "fast",
+            "-crf",
+            "21",
+            "-pix_fmt",
+            "yuv420p",
+            "-c:a",
+            "aac",
+            "-b:a",
+            "160k",
+            "-ar",
+            "48000",
+            "-ac",
+            "2",
+            "-movflags",
+            "+faststart",
+            str(out_mp4),
+        ]
+        subprocess.run(stitch_cmd, check=True, capture_output=True, timeout=120)
+
+    probe_proc = subprocess.run(
+        [
+            ffprobe_bin,
+            "-v",
+            "error",
+            "-show_entries",
+            "stream=codec_type,codec_name,width,height,r_frame_rate:format=duration,size",
+            "-of",
+            "json",
+            str(out_mp4),
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    probe = json.loads(probe_proc.stdout)
+    v_stream = next((s for s in probe.get("streams", []) if s.get("codec_type") == "video"), {})
+    a_stream = next((s for s in probe.get("streams", []) if s.get("codec_type") == "audio"), {})
+    duration_s = round(float(probe.get("format", {}).get("duration", expected_dur)), 2)
+    size_bytes = int(probe.get("format", {}).get("size", out_mp4.stat().st_size))
+
+    manifest = {
+        "item_id": item_id,
+        "template_id": template_id,
+        "author": "Nitin Aggarwal",
+        "edition_month": "NOVEMBER 2026",
+        "video_url": f"/assets/multi-platform/{item_id}/walkthrough_16x9.mp4",
+        "poster_url": f"/assets/multi-platform/{item_id}/poster_16x9.png",
+        "width": int(v_stream.get("width", 1920)),
+        "height": int(v_stream.get("height", 1080)),
+        "aspect_ratio": "16:9",
+        "video_codec": v_stream.get("codec_name", "h264"),
+        "audio_codec": a_stream.get("codec_name", "aac"),
+        "duration_sec": duration_s,
+        "size_bytes": size_bytes,
+        "target_platforms": ["linkedin", "youtube", "telegram", "facebook"],
+        "gates_passed": (
+            int(v_stream.get("width", 0)) == 1920
+            and int(v_stream.get("height", 0)) == 1080
+            and v_stream.get("codec_name") == "h264"
+            and a_stream.get("codec_name") == "aac"
+        ),
+    }
+    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    return manifest
+

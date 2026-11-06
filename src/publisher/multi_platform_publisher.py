@@ -295,11 +295,23 @@ def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id
     active_mp_dir = mp_dir if (mp_dir / "carousel_manifest.json").exists() else fallback_mp_dir
     active_mp_id = idea_id if active_mp_dir == mp_dir else "MINT-01"
 
+    manifest_tpl_id = ""
+    if (active_mp_dir / "carousel_manifest.json").exists():
+        try:
+            manifest_tpl_id = str(
+                json.loads((active_mp_dir / "carousel_manifest.json").read_text(encoding="utf-8")).get("template_id") or ""
+            )
+        except Exception:
+            manifest_tpl_id = ""
+
     tpl_png = f"/assets/template-gallery/{template_id}.png"
     tpl_svg = f"/assets/template-gallery/{template_id}.svg"
     carousel_4x5_slides = [
         f"/assets/multi-platform/{active_mp_id}/carousel_4x5/slide_{i:02d}.jpg" for i in range(1, 9)
     ]
+    if manifest_tpl_id and manifest_tpl_id != template_id:
+        carousel_4x5_slides[0] = tpl_png
+        carousel_4x5_slides[2] = tpl_png
 
     if mode == "Text":
         return {
@@ -340,6 +352,9 @@ def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id
             }
         if platform_id == "tiktok":
             slides = [f"/assets/multi-platform/{active_mp_id}/carousel_9x16/slide_{i:02d}.jpg" for i in range(1, 9)]
+            if manifest_tpl_id and manifest_tpl_id != template_id:
+                slides[0] = tpl_png
+                slides[2] = tpl_png
             return {
                 "container_format": "JPEG",
                 "aspect_ratio": "9:16 (1080×1920 • 8 Photo Mode Slides)",
@@ -371,7 +386,9 @@ def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id
         }
     if mode == "Short_Video":
         short_id = idea_id if (mp_dir / "vertical_short_9x16.mp4").exists() else "MINT-01"
-        if (mp_dir / "vertical_poster_9x16.png").exists():
+        if manifest_tpl_id and manifest_tpl_id != template_id:
+            poster = tpl_png
+        elif (mp_dir / "vertical_poster_9x16.png").exists():
             poster = f"/assets/multi-platform/{idea_id}/vertical_poster_9x16.png"
         elif (mp_dir / "carousel_9x16" / "slide_01.jpg").exists():
             poster = f"/assets/multi-platform/{idea_id}/carousel_9x16/slide_01.jpg"
@@ -388,15 +405,30 @@ def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id
             "transcoded_ready": (mp_dir / "vertical_short_9x16.mp4").exists(),
         }
     if mode == "Video":
+        if (mp_dir / "walkthrough_16x9.mp4").exists():
+            w_mp4 = f"/assets/multi-platform/{idea_id}/walkthrough_16x9.mp4"
+            if manifest_tpl_id and manifest_tpl_id != template_id:
+                w_poster = tpl_png
+            elif (mp_dir / "poster_16x9.png").exists():
+                w_poster = f"/assets/multi-platform/{idea_id}/poster_16x9.png"
+            else:
+                w_poster = tpl_png
+        elif (WORKSPACE_ROOT / "assets" / "videos" / f"{idea_id}_walkthrough.mp4").exists():
+            w_mp4 = f"/assets/videos/{idea_id}_walkthrough.mp4"
+            w_poster = f"/assets/videos/{idea_id}_poster.png"
+        else:
+            w_mp4 = "/assets/videos/MINT-01_walkthrough.mp4"
+            w_poster = "/assets/videos/MINT-01_poster.png"
         return {
             "container_format": "MP4",
             "aspect_ratio": "16:9 (1920×1080 @ 30fps • 44.0s Walkthrough)",
-            "primary_asset_url": "/assets/videos/MINT-01_walkthrough.mp4",
-            "poster_url": "/assets/videos/MINT-01_poster.png",
-            "preview_image_url": "/assets/videos/MINT-01_poster.png",
+            "primary_asset_url": w_mp4,
+            "poster_url": w_poster,
+            "preview_image_url": w_poster,
             "blueprint_svg_url": tpl_svg,
             "slide_urls": [],
-            "transcoded_ready": True,
+            "transcoded_ready": (mp_dir / "walkthrough_16x9.mp4").exists()
+            or (WORKSPACE_ROOT / "assets" / "videos" / f"{idea_id}_walkthrough.mp4").exists(),
         }
     if mode == "Slidedeck":
         return {

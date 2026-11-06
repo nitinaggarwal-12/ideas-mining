@@ -1,0 +1,22 @@
+{
+  "item_id": "TOP5-20261104-03",
+  "template_id": "T85",
+  "author": "Nitin Aggarwal",
+  "edition_month": "NOVEMBER 2026",
+  "video_url": "/assets/multi-platform/TOP5-20261104-03/walkthrough_16x9.mp4",
+  "poster_url": "/assets/multi-platform/TOP5-20261104-03/poster_16x9.png",
+  "width": 1920,
+  "height": 1080,
+  "aspect_ratio": "16:9",
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "duration_sec": 44.0,
+  "size_bytes": 5712390,
+  "target_platforms": [
+    "linkedin",
+    "youtube",
+    "telegram",
+    "facebook"
+  ],
+  "gates_passed": true
+}

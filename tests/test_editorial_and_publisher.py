@@ -311,6 +311,35 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
         self.assertEqual(replay_res["verdict"], "DENY")
         self.assertFalse(replay_res["parallel_rule_results"]["rule_4_one_shot_unused"]["passed"])
 
+    def test_10_november_2026_nitin_aggarwal_attribution_and_per_topic_video_routing(self) -> None:
+        gallery_dir = WORKSPACE_ROOT / "assets" / "template-gallery"
+        for p in gallery_dir.glob("*.drawio"):
+            txt = p.read_text(encoding="utf-8")
+            self.assertNotIn("SEPTEMBER 2026", txt, f"Stale month in {p.name}")
+            self.assertNotIn("SEP 2026", txt, f"Stale month in {p.name}")
+            self.assertIn("NITIN AGGARWAL", txt.upper(), f"Missing author attribution in {p.name}")
+            self.assertIn("NOVEMBER 2026", txt.upper(), f"Missing November 2026 date in {p.name}")
+
+        briefing = json.loads(
+            (WORKSPACE_ROOT / "data" / "daily_top5_editorial_briefing.json").read_text(encoding="utf-8")
+        )
+        for idea in briefing["ideas"]:
+            iid = idea["id"]
+            tpl = idea["matching_templates"][0]
+            vid_pkg = compile_platform_package(
+                idea,
+                template=tpl,
+                mode="Video",
+                platform_id="linkedin",
+            )
+            self.assertEqual(
+                vid_pkg["media"]["primary_asset_url"],
+                f"/assets/multi-platform/{iid}/walkthrough_16x9.mp4",
+            )
+            self.assertNotIn("MINT-01_walkthrough.mp4", vid_pkg["media"]["primary_asset_url"])
+            self.assertTrue((WORKSPACE_ROOT / "assets" / "multi-platform" / iid / "walkthrough_16x9.mp4").exists())
+            self.assertTrue((WORKSPACE_ROOT / "assets" / "multi-platform" / iid / "vertical_short_9x16.mp4").exists())
+
 
 if __name__ == "__main__":
     unittest.main()

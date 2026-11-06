@@ -890,7 +890,7 @@ def generate_step_by_step_flow_svg(
             f'<text x="36" y="1234" font-family="Inter, sans-serif" font-size="33" font-weight="900" fill="{text_main}" letter-spacing="-0.4">{_esc(spec["footer_takeaway"])}</text>',
             f'<text x="36" y="1272" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="{text_sub}">{_esc(spec["footer_sub"])}</text>',
             f'<rect x="36" y="1294" width="1008" height="32" rx="16" fill="{footer_bar_bg}" stroke="{card_border}" stroke-width="1.2"/>',
-            f'<text x="540" y="1315" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="{text_sub}" text-anchor="middle">STEP-BY-STEP DYNAMIC ARCHITECTURE  •  Blueprint {spec["matched_template_id"]}  •  Google Cloud Agentic Architecture Engineering</text>',
+            f'<text x="540" y="1315" font-family="Inter, sans-serif" font-size="11.5" font-weight="800" fill="{text_sub}" text-anchor="middle">NITIN AGGARWAL  •  STEP-BY-STEP DYNAMIC ARCHITECTURE  •  Blueprint {spec["matched_template_id"]}  •  GOOGLE CLOUD AGENTIC ARCHITECTURE  •  NOVEMBER 2026</text>',
             "</svg>",
         ]
     )

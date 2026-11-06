@@ -8,11 +8,18 @@ function mkEl(tag, className, text) {
   return el;
 }
 
+const ASSET_CACHE_BUST = "20261106b";
+
 function safeUrl(rawUrl) {
   const s = String(rawUrl || "").trim();
+  if (s.startsWith("/assets/") || s.startsWith("/repos/")) {
+    const clean = s.replace(/\?v=[A-Za-z0-9_.-]+$/, "");
+    if (/\.(png|svg|jpg|jpeg|gif|mp4|mp3)$/i.test(clean)) {
+      return `${clean}?v=${ASSET_CACHE_BUST}`;
+    }
+    return s;
+  }
   if (
-    s.startsWith("/assets/") ||
-    s.startsWith("/repos/") ||
     s.startsWith("/api/") ||
     s.startsWith("https://") ||
     s.startsWith("http://")
@@ -507,7 +514,7 @@ function renderReposView() {
     const topGroup = mkEl("div");
     const artStage = mkEl("div", "card-artwork-stage");
     artStage.style.marginBottom = "12px";
-    const imgUrl = `/repos/${encodeURIComponent(r.repo_slug)}/visuals/${plan ? "lead-template.svg" : "dynamic-solution-flow.svg"}?v=20261104`;
+    const imgUrl = `/repos/${encodeURIComponent(r.repo_slug)}/visuals/${plan ? "lead-template.svg" : "dynamic-solution-flow.svg"}?v=20261106b`;
     const img = document.createElement("img");
     img.src = imgUrl;
     img.alt = `${r.post_title} solution architecture`;
@@ -665,17 +672,17 @@ async function openRepoInspector(slug) {
     }
     if (plan) {
       const aSvg = mkEl("a", "btn-secondary", `Open Blueprint ${plan.primary_template_id} (.svg) ↗`);
-      aSvg.href = `/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261104`;
+      aSvg.href = `/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261106b`;
       aSvg.target = "_blank";
       actBar.appendChild(aSvg);
     }
     const aFlow = mkEl("a", "btn-secondary", "Moving-Arrow SVG ↗");
-    aFlow.href = `/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261104`;
+    aFlow.href = `/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261106b`;
     aFlow.target = "_blank";
     actBar.appendChild(aFlow);
 
     const aDrawio = mkEl("a", "btn-secondary", "Editable .drawio");
-    aDrawio.href = `/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.drawio?v=20261104`;
+    aDrawio.href = `/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.drawio?v=20261106b`;
     aDrawio.setAttribute("download", "");
     actBar.appendChild(aDrawio);
     visTab.appendChild(actBar);
@@ -684,21 +691,21 @@ async function openRepoInspector(slug) {
     if (plan) {
       figures.push([
         `Paired Blueprint (${plan.primary_template_id}: ${plan.primary_template_name})`,
-        `/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261104`,
+        `/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261106b`,
       ]);
     }
     figures.push(
       [
         "Figure 1 — Problem → 4-Step Moving-Arrow Solution Flow",
-        `/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261104`,
+        `/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261106b`,
       ],
       [
         "Figure 2 — Google Cloud #78 4-Zone Hub-and-Spoke Architecture",
-        `/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.svg?v=20261104`,
+        `/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.svg?v=20261106b`,
       ],
       [
         "Figure 3 — High-Resolution 2D Infographic Poster",
-        `/repos/${encodeURIComponent(slug)}/visuals/linkedin-infographic-2d.svg?v=20261104`,
+        `/repos/${encodeURIComponent(slug)}/visuals/linkedin-infographic-2d.svg?v=20261106b`,
       ]
     );
 
@@ -884,11 +891,11 @@ function renderGalleryView() {
 
   items.forEach((t) => {
     const files = t.files || {};
-    const svg = `/assets/template-gallery/${files.svg || t.id + ".svg"}?v=20261104`;
-    const png = `/assets/template-gallery/${files.png || t.id + ".png"}?v=20261104`;
-    const gif = `/assets/template-gallery/${files.gif || t.id + ".gif"}?v=20261104`;
-    const drawio = files.drawio ? `/assets/template-gallery/${files.drawio}?v=20261104` : "";
-    const pptx = files.pptx ? `/assets/template-gallery/${files.pptx}?v=20261104` : "";
+    const svg = `/assets/template-gallery/${files.svg || t.id + ".svg"}?v=20261106b`;
+    const png = `/assets/template-gallery/${files.png || t.id + ".png"}?v=20261106b`;
+    const gif = `/assets/template-gallery/${files.gif || t.id + ".gif"}?v=20261106b`;
+    const drawio = files.drawio ? `/assets/template-gallery/${files.drawio}?v=20261106b` : "";
+    const pptx = files.pptx ? `/assets/template-gallery/${files.pptx}?v=20261106b` : "";
     const gslidesUrl = t.google_slides_url || "";
     const qTier = t.quality_tier || "Best";
 
@@ -1210,7 +1217,7 @@ function openPostAnatomyDrawer(activityId) {
   const tid = post.matched_template_id || "T79";
   const bpMap = mkEl("div", "drawer-blueprint-map-card");
   const bpImg = document.createElement("img");
-  bpImg.src = `/assets/template-gallery/${tid}.svg?v=20261104`;
+  bpImg.src = `/assets/template-gallery/${tid}.svg?v=20261106b`;
   bpImg.alt = `Studio Blueprint ${tid}`;
   const bpInfo = mkEl("div", "min-w-0");
   bpInfo.style.flex = "1";
@@ -2194,7 +2201,7 @@ function renderMintingStudioView() {
     const tid = t.canonical_template_id || "T85";
     const gslidesUrl = t.template_google_slides_url || "";
     const flagshipUrl = t.flagship_24slide_url || "";
-    const svgUrl = `/assets/template-gallery/${tid}.svg?v=20261104`;
+    const svgUrl = `/assets/template-gallery/${tid}.svg?v=20261106b`;
 
     const card = mkEl("article", "repo-card");
     card.setAttribute("data-testid", `mint-topic-card-${t.id}`);
@@ -2392,14 +2399,14 @@ function renderDailyGeneratedPosts() {
 
     const imSvg = document.createElement("img");
     imSvg.id = `daily-vis-svg-${p.id}`;
-    imSvg.src = `${safeUrl(p.custom_dynamic_svg_url)}?v=20261104`;
+    imSvg.src = safeUrl(p.custom_dynamic_svg_url);
     imSvg.alt = `Custom flow SVG for ${p.topic_title}`;
     imSvg.style.cssText = "width:100%;height:auto;display:block;border-radius:6px;background:#ffffff;";
     imSvg.loading = "lazy";
 
     const imPng = document.createElement("img");
     imPng.id = `daily-vis-png-${p.id}`;
-    imPng.src = `${safeUrl(p.canonical_png_url)}?v=20261104`;
+    imPng.src = safeUrl(p.canonical_png_url);
     imPng.alt = `Canonical ${p.canonical_template_id} poster`;
     imPng.style.cssText = "width:100%;height:auto;display:none;border-radius:6px;background:#ffffff;";
     imPng.loading = "lazy";
@@ -2782,7 +2789,7 @@ function renderTop5EditorialDesk() {
     openLightbox({
       kicker: `${activeTpl.template_id} · ${activeTpl.angle_label || "CERTIFIED BLUEPRINT"}`,
       title: `${activeTpl.template_id} — ${activeTpl.name}`,
-      imgUrl: `/assets/template-gallery/${activeTpl.template_id}.svg?v=20261104`,
+      imgUrl: `/assets/template-gallery/${activeTpl.template_id}.svg?v=20261106b`,
       actions: [
         {
           label: "Download .pptx",
@@ -2816,7 +2823,7 @@ function renderTop5EditorialDesk() {
 
     const frame = mkEl("div", "blueprint-thumb-frame");
     const thImg = document.createElement("img");
-    thImg.src = `/assets/template-gallery/${encodeURIComponent(tpl.template_id)}.png?v=20261104`;
+    thImg.src = `/assets/template-gallery/${encodeURIComponent(tpl.template_id)}.png?v=20261106b`;
     thImg.alt = `${tpl.template_id} ${tpl.name}`;
     thImg.loading = "lazy";
     frame.appendChild(thImg);

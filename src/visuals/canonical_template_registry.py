@@ -404,8 +404,8 @@ def render_template(tid: str, spec: Optional[Dict[str, Any]] = None, phase: Opti
     )
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {cw} {ch}" width="{cw}" height="{ch}">',
-        f"<title>{_esc(f'{tid} • FORMAT LINEAGE: {lineage} • Proprietary + Confidential')}</title>",
-        f"<desc>{_esc(source_note)}</desc>",
+        f"<title>{_esc(f'{tid} • NITIN AGGARWAL • NOVEMBER 2026 • FORMAT LINEAGE: {lineage} • Proprietary + Confidential')}</title>",
+        f"<desc>{_esc(f'Author: Nitin Aggarwal • November 2026 • {source_note}')}</desc>",
         "<defs>",
         '<linearGradient id="glassCardGrad" x1="0" y1="0" x2="0" y2="1">'
         '<stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.98"/>'

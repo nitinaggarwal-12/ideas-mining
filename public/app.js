@@ -1881,6 +1881,203 @@ function renderPlaybookView() {
       archGrid.appendChild(card);
     });
   }
+
+  renderAutonomousMinerPanel();
+}
+
+async function loadAutonomousMinerData(forceLive = false) {
+  const btn = document.getElementById("run-autominer-live-btn");
+  const topicInput = document.getElementById("autominer-topic-input");
+  const topicQuery = (topicInput?.value || "").trim();
+  if (btn && forceLive) {
+    btn.disabled = true;
+    btn.textContent = "⏳ Harvesting Live RSS · arXiv · GitHub · DEV.to · Reddit...";
+  }
+  try {
+    let payload;
+    if (forceLive) {
+      const res = await fetch("/api/radar/autonomous-miner/run", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ topic_query: topicQuery, use_live_network: true }),
+      });
+      payload = await res.json();
+      showToast(`Harvested ${payload.total_discovered_signals || 0} zero-link signals with Format/Duration/Group prescriptions`);
+    } else {
+      const qParam = topicQuery ? `?q=${encodeURIComponent(topicQuery)}` : "";
+      const res = await fetch(`/api/radar/autonomous-miner${qParam}`);
+      payload = await res.json();
+    }
+    STATE.autonomousMiner = payload;
+    renderAutonomousMinerPanel();
+  } catch (_err) {
+    // Keep existing state if offline
+  } finally {
+    if (btn && forceLive) {
+      btn.disabled = false;
+      btn.textContent = "⚡ Run Zero-Link Live Harvest Now";
+    }
+  }
+}
+
+function renderAutonomousMinerPanel() {
+  const data = STATE.autonomousMiner;
+  if (!data) return;
+
+  const pill = document.getElementById("playbook-autominer-count-pill");
+  if (pill) {
+    pill.textContent = String((data.discovered_signals || []).length || "Live");
+  }
+
+  const badge = document.getElementById("autominer-status-badge");
+  if (badge) {
+    const counts = data.live_channel_counts || {};
+    const total = data.total_discovered_signals || (data.discovered_signals || []).length;
+    badge.textContent = `${total} Zero-Link Signals Ranked · RSS (${counts.creator_rss_syndicate || 0}) · Papers/Code (${(counts.arxiv_and_hf_papers || 0) + (counts.github_and_hn_velocity || 0)}) · Community (${counts.devto_and_reddit_pulse || 0})`;
+  }
+
+  const sigGrid = document.getElementById("autominer-signals-grid");
+  if (sigGrid) {
+    sigGrid.replaceChildren();
+    (data.discovered_signals || []).slice(0, 12).forEach((sig) => {
+      const pres = sig.prescription || {};
+      const card = mkEl("div", "repo-card");
+      card.setAttribute("data-testid", `autominer-signal-card-${sig.signal_id}`);
+      const inner = mkEl("div");
+
+      const chips = mkEl("div", "deliverable-chips");
+      chips.append(
+        mkEl("span", "brand-badge tabular-nums", `${sig.demand_score} Demand`),
+        mkEl("span", "pill-badge pill-sky", sig.source_pipeline || "Zero-Link Signal"),
+        mkEl("span", "pill-badge pill-emerald", sig.cluster_label || "AI Systems")
+      );
+      inner.appendChild(chips);
+
+      const h = mkEl("h3", "repo-card-title", polishUiTypography(sig.title));
+      h.style.margin = "8px 0 6px";
+      inner.appendChild(h);
+
+      const sum = mkEl("p", "", polishUiTypography(sig.summary));
+      sum.style.cssText = "font-size:12px;color:#334155;margin-bottom:8px;line-height:1.48;";
+      inner.appendChild(sum);
+
+      const rxBox = mkEl("div", "platform-spec-box");
+      rxBox.style.cssText = "background:#f8fafc;border:1px solid #cbd5e1;border-radius:8px;padding:10px;margin-bottom:8px;";
+      const rxFmt = mkEl("div", "", `🎯 Format: ${pres.recommended_primary_format || "4:5 Animated GIF89a"}`);
+      rxFmt.style.cssText = "font-size:11.5px;font-weight:800;color:#1e40af;margin-bottom:4px;";
+      const rxDur = mkEl("div", "", `⏱️ Duration & Spec: ${pres.optimal_duration_and_fps || "6–12s loop @ 20fps"} • ${pres.aspect_ratio_and_px || "1080×1350"}`);
+      rxDur.style.cssText = "font-size:11.5px;font-weight:700;color:#065f46;margin-bottom:4px;";
+      const rxGrp = mkEl(
+        "div",
+        "",
+        `📣 Target Groups: ${(pres.target_groups_and_communities || []).slice(0, 3).join(" · ")}`
+      );
+      rxGrp.style.cssText = "font-size:11px;color:#334155;margin-bottom:4px;";
+      const rxWin = mkEl("div", "", `🕒 Window: ${pres.optimal_posting_window || "Tue–Thu 07:45 AM EST"}`);
+      rxWin.style.cssText = "font-size:11px;color:#475569;";
+      rxBox.append(rxFmt, rxDur, rxGrp, rxWin);
+      inner.appendChild(rxBox);
+      card.appendChild(inner);
+
+      const foot = mkEl("div", "repo-card-footer");
+      const srcLink = mkEl("a", "btn-secondary", "Primary Source ↗");
+      srcLink.href = safeUrl(sig.primary_url);
+      srcLink.target = "_blank";
+      srcLink.rel = "noopener";
+
+      const synthBtn = mkEl("button", "btn-primary", "Synthesize in Studio →");
+      synthBtn.type = "button";
+      synthBtn.addEventListener("click", () => {
+        const top5Input = document.getElementById("top5-topic-query-input");
+        if (top5Input) top5Input.value = sig.title;
+        activateView("view-miner");
+        activateMinerPanel("miner-panel-composer");
+        triggerGenerateTop5Briefing();
+      });
+      foot.append(srcLink, synthBtn);
+      card.appendChild(foot);
+      sigGrid.appendChild(card);
+    });
+  }
+
+  const fmtTbody = document.getElementById("autominer-format-matrix-tbody");
+  if (fmtTbody) {
+    fmtTbody.replaceChildren();
+    (data.format_duration_matrix || []).forEach((row) => {
+      const tr = document.createElement("tr");
+      [
+        [row.format_name, "font-weight:800;color:#0f172a;"],
+        [`${row.aspect_ratio_and_px} — ${row.optimal_duration_and_fps}`, "font-weight:700;color:#1e40af;"],
+        [row.text_copy_budget, "color:#334155;"],
+        [row.empirical_audit_evidence, "color:#065f46;font-weight:600;"],
+        [(row.best_for_topic_types || []).join(" • "), "color:#334155;"],
+      ].forEach(([txt, st]) => {
+        const td = document.createElement("td");
+        const c = mkEl("div", "cell-card-equal");
+        const sp = mkEl("span", "", polishArrows(txt));
+        sp.style.cssText = `font-size:12px;${st}`;
+        c.appendChild(sp);
+        td.appendChild(c);
+        tr.appendChild(td);
+      });
+      fmtTbody.appendChild(tr);
+    });
+  }
+
+  const grpTbody = document.getElementById("autominer-groups-tbody");
+  if (grpTbody) {
+    grpTbody.replaceChildren();
+    (data.distribution_channels_and_groups || []).forEach((row) => {
+      const tr = document.createElement("tr");
+      [
+        [row.platform, "font-weight:800;color:#0f172a;"],
+        [row.community_or_group_name, "font-weight:700;color:#1e40af;"],
+        [row.optimal_duration_or_length, "color:#065f46;font-weight:600;"],
+        [row.best_posting_window_est, "color:#334155;font-weight:700;"],
+        [row.distribution_playbook, "color:#334155;"],
+      ].forEach(([txt, st]) => {
+        const td = document.createElement("td");
+        const c = mkEl("div", "cell-card-equal");
+        const sp = mkEl("span", "", polishArrows(txt));
+        sp.style.cssText = `font-size:12px;${st}`;
+        c.appendChild(sp);
+        td.appendChild(c);
+        tr.appendChild(td);
+      });
+      grpTbody.appendChild(tr);
+    });
+  }
+
+  const rssGrid = document.getElementById("autominer-rss-feeds-grid");
+  if (rssGrid) {
+    rssGrid.replaceChildren();
+    (data.creator_syndicate_feeds || []).forEach((fd) => {
+      const card = mkEl("div", "repo-card");
+      const inner = mkEl("div");
+      const chips = mkEl("div", "deliverable-chips");
+      chips.append(
+        mkEl("span", "brand-badge", fd.feed_id),
+        mkEl("span", "pill-badge pill-emerald", `@${fd.handle}`)
+      );
+      inner.appendChild(chips);
+      const h = mkEl("h3", "repo-card-title", fd.creator_or_lab);
+      h.style.margin = "8px 0 6px";
+      inner.appendChild(h);
+      const p = mkEl("p", "", `Signature Output: ${fd.typical_format}`);
+      p.style.cssText = "font-size:12px;color:#334155;margin-bottom:8px;";
+      inner.appendChild(p);
+      card.appendChild(inner);
+
+      const foot = mkEl("div", "repo-card-footer");
+      const link = mkEl("a", "btn-secondary", "Open RSS/Atom Feed ↗");
+      link.href = safeUrl(fd.rss_url);
+      link.target = "_blank";
+      link.rel = "noopener";
+      foot.appendChild(link);
+      card.appendChild(foot);
+      rssGrid.appendChild(card);
+    });
+  }
 }
 
 async function generateInCreatorStyle(styleCode, creatorName) {
@@ -3468,6 +3665,13 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("posts-audit-sort-select")?.addEventListener("change", renderReviewedPostsGrid);
   document.getElementById("creator-search-input")?.addEventListener("input", renderCreatorProfilesGrid);
   document.getElementById("creator-platform-filter")?.addEventListener("change", renderCreatorProfilesGrid);
+  document.getElementById("run-autominer-live-btn")?.addEventListener("click", () => loadAutonomousMinerData(true));
+  document.getElementById("autominer-topic-input")?.addEventListener("keydown", (ev) => {
+    if (ev.key === "Enter") {
+      ev.preventDefault();
+      loadAutonomousMinerData(true);
+    }
+  });
 
   // Filters & Actions
   document.getElementById("gallery-search-input")?.addEventListener("input", renderGalleryView);
@@ -3583,11 +3787,22 @@ document.addEventListener("DOMContentLoaded", () => {
   loadWorkspaceData();
   loadMintingStudioData();
   loadStepFlowStudio(reqPreset || "FLOW-01", reqTheme || "light");
+  loadAutonomousMinerData(false);
 
   const reqView = params.get("view");
   activateView(reqView && ALL_VIEWS.includes(reqView) ? reqView : "view-miner");
 
-  if (reqSubtab === "radar" || reqViz || reqPreset) {
+  if (reqView === "view-playbook" && reqSubtab) {
+    const subMap = {
+      posts: "playbook-subtab-btn-posts",
+      creators: "playbook-subtab-btn-creators",
+      platforms: "playbook-subtab-btn-platforms",
+      archetypes: "playbook-subtab-btn-archetypes",
+      autominer: "playbook-subtab-btn-autominer",
+    };
+    const btnId = subMap[reqSubtab] || reqSubtab;
+    document.getElementById(btnId)?.click();
+  } else if (reqSubtab === "radar" || reqViz || reqPreset) {
     document.getElementById("miner-subtab-btn-radar")?.click();
     setTimeout(() => {
       const targetEl = reqViz

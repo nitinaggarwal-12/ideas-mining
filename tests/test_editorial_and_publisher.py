@@ -244,6 +244,25 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
         self.assertTrue(deck_pkg["media"]["preview_image_url"].endswith(".png"))
         self.assertGreaterEqual(len(deck_pkg["media"]["slide_urls"]), 5)
 
+    def test_autonomous_zero_link_omnichannel_miner(self) -> None:
+        from src.harvester.autonomous_omnichannel_miner import run_autonomous_zero_link_discovery
+
+        payload = run_autonomous_zero_link_discovery(use_live_network=False)
+        self.assertEqual(payload["status"], "READY")
+        self.assertTrue(payload["zero_manual_links_required"])
+        self.assertGreaterEqual(payload["total_discovered_signals"], 10)
+        self.assertEqual(len(payload["format_duration_matrix"]), 5)
+        self.assertEqual(len(payload["distribution_channels_and_groups"]), 5)
+        self.assertGreaterEqual(len(payload["creator_syndicate_feeds"]), 8)
+
+        first_sig = payload["discovered_signals"][0]
+        self.assertIn("prescription", first_sig)
+        pres = first_sig["prescription"]
+        self.assertIn("recommended_primary_format", pres)
+        self.assertIn("optimal_duration_and_fps", pres)
+        self.assertIn("target_groups_and_communities", pres)
+        self.assertGreaterEqual(len(pres["target_groups_and_communities"]), 3)
+
 
 if __name__ == "__main__":
     unittest.main()

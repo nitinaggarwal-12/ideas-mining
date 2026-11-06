@@ -592,7 +592,18 @@ class DailyTop5EditorialEngine:
             if e.get("edition_date") != ed_date
         }
 
+        from src.harvester.autonomous_omnichannel_miner import (
+            fetch_creator_syndicate_rss_live,
+            fetch_devto_practitioner_pulse_live,
+            fetch_reddit_practitioner_json_live,
+            prescribe_format_duration_channels_and_groups,
+        )
+
         raw_candidates: List[Dict[str, Any]] = []
+        if use_live_network:
+            raw_candidates.extend(fetch_creator_syndicate_rss_live(limit_per_feed=2))
+            raw_candidates.extend(fetch_devto_practitioner_pulse_live(limit=3))
+            raw_candidates.extend(fetch_reddit_practitioner_json_live(limit_per_sub=2))
         if use_live_network or topic_query.strip():
             raw_candidates.extend(
                 self.legacy_post_engine.harvest_latest_topics(
@@ -697,6 +708,7 @@ class DailyTop5EditorialEngine:
                     "scores": idea["scores"],
                     "default_template_id": lead_tpl["template_id"],
                     "default_recommended_mode": lead_tpl["recommended_mode"],
+                    "omnichannel_prescription": prescribe_format_duration_channels_and_groups(idea),
                     "matching_templates": top5_templates,
                 }
             )

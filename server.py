@@ -28,6 +28,10 @@ from src.catalog.posts_catalog import (
 )
 from src.catalog.stack_pairings import OSS_GOOGLE_PAIRINGS
 from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
+from src.harvester.autonomous_omnichannel_miner import (
+    get_or_run_autonomous_discovery,
+    run_autonomous_zero_link_discovery,
+)
 from src.harvester.daily_post_generator import DailyLinkedInPostEngine
 from src.harvester.daily_top5_editorial_engine import (
     PRESENTATION_MODE_CONTRACTS,
@@ -372,8 +376,14 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                     "presentation_archetypes_12": CREATOR_MINING_PLAYBOOK.get("presentation_archetypes_12", []),
                     "signal_channels": CREATOR_MINING_PLAYBOOK.get("signal_channels", []),
                     "diagram_archetypes_2d": CREATOR_MINING_PLAYBOOK.get("diagram_archetypes_2d", []),
+                    "autonomous_miner": get_or_run_autonomous_discovery(force_live=False),
                 },
             )
+            return
+        if path == "/api/radar/autonomous-miner":
+            q = (qs.get("q") or qs.get("topic") or [""])[0].strip()[:180]
+            force_live = (qs.get("live") or ["0"])[0].strip().lower() in ("1", "true", "yes")
+            self._send_json(200, get_or_run_autonomous_discovery(topic_query=q, force_live=force_live))
             return
         if path == "/api/minting-studio":
             self._send_json(200, _build_minting_studio_payload())
@@ -779,6 +789,17 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             clean_ids = [str(x).strip() for x in outbox_ids] if isinstance(outbox_ids, list) else None
             res = OUTBOX_MANAGER.approve_and_publish(outbox_ids=clean_ids)
             self._send_json(200, {"status": "PROCESSED", **res})
+            return
+        if path == "/api/radar/autonomous-miner/run":
+            topic_query = str(payload.get("topic_query") or payload.get("topic") or "").strip()[:180]
+            use_live = payload.get("use_live_network")
+            if use_live is None:
+                use_live = True
+            res = run_autonomous_zero_link_discovery(
+                topic_query=topic_query,
+                use_live_network=bool(use_live),
+            )
+            self._send_json(200, res)
             return
         if path == "/api/ingest-url":
             res = MINER.ingest_custom_post_or_url(

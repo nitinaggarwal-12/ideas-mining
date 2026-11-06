@@ -390,7 +390,43 @@
               <button type="button" class="subview-tab-btn" data-continuum-stage="L6" id="continuum-btn-L6">L6 · Live Policy Sandbox</button>
             </div>
 
-            <div id="continuum-stage-inspector" data-testid="continuum-stage-inspector" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 14px;"></div>
+            <div id="continuum-stage-inspector" data-testid="continuum-stage-inspector" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 14px; margin-bottom: 12px;"></div>
+
+            <!-- RASTER-TO-IR DECONSTRUCTOR & DIRECT PIXEL-BOUNDING-BOX ANIMATOR -->
+            <div class="studio-surface" id="raster-deconstruct-toolbar" data-testid="raster-deconstruct-toolbar" style="padding: 12px 14px; background: #ffffff; border: 1px solid #cbd5e1;">
+              <div class="composer-section-hdr" style="margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                <div>
+                  <span class="pill-badge pill-sky">FFmpeg Rawvideo Gray8 Gradient Segmentation + Direct Pixel Overlay</span>
+                  <strong style="font-size: 12.5px; color: #0f172a; margin-left: 6px;">Deconstruct Any Flat Raster Image → Animate Original Pixels Directly or Reconstruct Vector IR</strong>
+                </div>
+                <span class="pill-badge pill-emerald tabular-nums" id="raster-deconstruct-status-badge">4 Spatial Zones Detected</span>
+              </div>
+              <div class="studio-toolbar" style="gap: 8px; flex-wrap: wrap;">
+                <select id="raster-source-select" class="select-light" aria-label="Select audited post raster image to deconstruct">
+                  <option value="LI-01">LI-01 · Aishwarya Reganti — Pilot Illusion vs Production Reality (Raster JPG)</option>
+                  <option value="LI-11">LI-11 · Christian Posta — Zero-Trust OBO Token Exchange (Raster JPG)</option>
+                  <option value="LI-14">LI-14 · Brij kishore Pandey — Approved Tool vs Unapproved Action (4:5 Flow)</option>
+                  <option value="LI-34">LI-34 · Gautami Nadkarni — 8-Step Agent Loop Architecture (4:5 GIF)</option>
+                  <option value="LI-38">LI-38 · Prashant Rathi — Multi-Agent Orchestration Spine (4:5 GIF)</option>
+                  <option value="LI-40">LI-40 · Anurag Karuparti — MCP Protocol Handshake (4:5 GIF)</option>
+                </select>
+                <input
+                  type="file"
+                  id="raster-upload-file-input"
+                  accept="image/png,image/jpeg,image/gif,image/webp"
+                  class="input-light"
+                  style="max-width: 230px; padding: 5px 8px; font-size: 11.5px;"
+                  aria-label="Upload any arbitrary external PNG, JPEG, GIF, or WEBP raster image"
+                />
+                <select id="raster-render-mode-select" class="select-light" aria-label="Raster animation mode">
+                  <option value="direct_pixels" selected>🖼️ Mode A: Animate Original Raster Pixels Directly (Bounding-Box Spotlights &amp; Packets)</option>
+                  <option value="vector_ir">📐 Mode B: Full Canonical Vector PostDynamicIR Reconstruction (1080×1350)</option>
+                </select>
+                <button type="button" class="btn-primary" id="deconstruct-raster-btn" data-testid="deconstruct-raster-btn">
+                  🔬 Deconstruct &amp; Animate Raster
+                </button>
+              </div>
+            </div>
           </div>
 
           <div class="composer-split-layout" style="align-items: start;">

@@ -57,6 +57,10 @@ from src.video.multi_platform_transcoder import (
 )
 from src.visuals.canonical_blueprint_minter import compute_canonical_siso
 from src.visuals.canonical_template_registry import get_gallery_summary, list_templates
+from src.visuals.raster_to_dynamic_ir_deconstructor import (
+    deconstruct_raster_to_dynamic_continuum,
+    evaluate_l6_policy_sandbox_server,
+)
 from src.visuals.step_by_step_flow_animator import render_step_flow_bundle
 
 
@@ -569,6 +573,10 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             self._send_json(200, bundle)
             return
 
+        if path == "/api/continuum/l6-sandbox-state":
+            self._send_json(200, evaluate_l6_policy_sandbox_server({}))
+            return
+
         if path.startswith("/assets/"):
             rel = path.replace("/assets/", "", 1)
             target = (ASSETS_ROOT / rel).resolve()
@@ -806,6 +814,24 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 url=payload.get("url", ""),
                 custom_title=payload.get("title", ""),
             )
+            self._send_json(200, res)
+            return
+        if path == "/api/continuum/deconstruct-raster":
+            source_id_or_path = str(payload.get("source_id_or_path") or payload.get("source") or "").strip()[:240]
+            image_base64 = str(payload.get("image_base64") or "").strip()
+            custom_hint = str(payload.get("custom_hint") or payload.get("topic") or "").strip()[:240]
+            compile_gif = bool(payload.get("compile_gif", True))
+            is_test_mode = os.environ.get("STUDIO_TEST_MODE", "").strip().lower() in ("1", "true", "yes")
+            res = deconstruct_raster_to_dynamic_continuum(
+                source_id_or_path=source_id_or_path,
+                image_base64=image_base64,
+                custom_hint=custom_hint,
+                compile_gif=(compile_gif and not is_test_mode),
+            )
+            self._send_json(200, res)
+            return
+        if path == "/api/continuum/execute-l6-sandbox":
+            res = evaluate_l6_policy_sandbox_server(payload)
             self._send_json(200, res)
             return
         if path == "/api/step-flow/generate":

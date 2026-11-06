@@ -3726,6 +3726,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.getElementById("continuum-prev-btn")?.addEventListener("click", () => stepContinuumStage(-1));
   document.getElementById("continuum-next-btn")?.addEventListener("click", () => stepContinuumStage(1));
+  document.getElementById("deconstruct-raster-btn")?.addEventListener("click", triggerDeconstructRaster);
+  document.getElementById("raster-render-mode-select")?.addEventListener("change", applyDeconstructedRasterMode);
   document.getElementById("refresh-live-feeds-btn")?.addEventListener("click", () => {
     refreshLiveFeeds();
     showToast("Refreshed live arXiv & GitHub signals");
@@ -3916,7 +3918,118 @@ const CONTINUUM_STATE = {
   l6Env: "production",
   l6Fresh: true,
   l6Unused: true,
+  l6RepoSlug: "gcp-mcp-zero-bloat-gateway",
+  l6ServerResponse: null,
+  lastDeconstructedRaster: null,
 };
+
+async function triggerDeconstructRaster() {
+  const btn = document.getElementById("deconstruct-raster-btn");
+  const fileInput = document.getElementById("raster-upload-file-input");
+  const srcSelect = document.getElementById("raster-source-select");
+  const customTopic = (document.getElementById("step-flow-topic-input")?.value || "").trim();
+
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "⏳ Segmenting Pixels & Compiling Direct Overlay + IR...";
+  }
+  try {
+    let imageBase64 = "";
+    const file = fileInput?.files?.[0];
+    if (file) {
+      imageBase64 = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(String(reader.result || ""));
+        reader.onerror = () => resolve("");
+        reader.readAsDataURL(file);
+      });
+    }
+    const res = await fetch("/api/continuum/deconstruct-raster", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        source_id_or_path: srcSelect?.value || "LI-01",
+        image_base64: imageBase64,
+        custom_hint: customTopic,
+        compile_gif: true,
+      }),
+    });
+    const out = await res.json();
+    CONTINUUM_STATE.lastDeconstructedRaster = out;
+    if (out.vector_ir_bundle) {
+      STATE.activeStepFlowBundle = out.vector_ir_bundle;
+    }
+    applyDeconstructedRasterMode();
+    const seg = out.raster_segmentation || {};
+    showToast(
+      `Deconstructed ${out.source_image_name} (${seg.width}×${seg.height}px, ${(seg.zones || []).length} zones detected)`
+    );
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "🔬 Deconstruct & Animate Raster";
+    }
+  }
+}
+
+function applyDeconstructedRasterMode() {
+  const dec = CONTINUUM_STATE.lastDeconstructedRaster;
+  if (!dec) return;
+  const mode = document.getElementById("raster-render-mode-select")?.value || "direct_pixels";
+  const badge = document.getElementById("raster-deconstruct-status-badge");
+  const seg = dec.raster_segmentation || {};
+  if (badge) {
+    badge.textContent = `${dec.source_image_name} · ${seg.width || 1080}×${seg.height || 1350}px · ${(seg.zones || []).length || 4} Bounding Boxes · Theme: ${seg.detected_theme || "light"}`;
+  }
+
+  const previewImg = document.getElementById("step-flow-preview-img");
+  const visLbl = document.getElementById("step-flow-visual-label");
+  const svgLink = document.getElementById("step-flow-open-svg-link");
+  const gifLink = document.getElementById("step-flow-download-gif-link");
+
+  if (mode === "direct_pixels") {
+    const useGif = CONTINUUM_STATE.activeStage === "L3" && dec.direct_raster_overlay_gif_url;
+    const url = useGif ? dec.direct_raster_overlay_gif_url : dec.direct_raster_overlay_svg_url;
+    if (previewImg && url) {
+      previewImg.src = `${safeUrl(url)}?t=${Date.now()}`;
+    }
+    if (visLbl) {
+      visLbl.textContent = `Direct Raster-Pixel Animation (${seg.width}×${seg.height}px · 4 Bounding-Box Spotlights)`;
+    }
+    if (svgLink && dec.direct_raster_overlay_svg_url) {
+      svgLink.href = safeUrl(dec.direct_raster_overlay_svg_url);
+    }
+    if (gifLink) {
+      gifLink.href = safeUrl(dec.direct_raster_overlay_gif_url || dec.direct_raster_overlay_svg_url || "");
+    }
+  } else if (dec.vector_ir_bundle) {
+    renderStepFlowBundle(dec.vector_ir_bundle);
+  }
+}
+
+async function triggerServerL6PolicySandbox(extraPayload = {}) {
+  try {
+    const res = await fetch("/api/continuum/execute-l6-sandbox", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        approved_artifact: "Artifact A",
+        approved_environment: "staging",
+        max_ttl_sec: 300,
+        requested_artifact: CONTINUUM_STATE.l6Artifact,
+        requested_environment: CONTINUUM_STATE.l6Env,
+        token_age_sec: CONTINUUM_STATE.l6Fresh ? 14 : 920,
+        simulate_replayed_nonce: !CONTINUUM_STATE.l6Unused,
+        repo_slug: CONTINUUM_STATE.l6RepoSlug,
+        ...extraPayload,
+      }),
+    });
+    CONTINUUM_STATE.l6ServerResponse = await res.json();
+    renderContinuumStageInspector();
+  } catch (_err) {
+    // Keep last state
+  }
+}
 
 const CONTINUUM_STAGE_META = {
   L0: {
@@ -3978,6 +4091,9 @@ function setContinuumStage(stageId) {
     btn.classList.toggle("active", isAct);
     btn.setAttribute("aria-selected", isAct ? "true" : "false");
   });
+  if (clean === "L6" && !CONTINUUM_STATE.l6ServerResponse) {
+    triggerServerL6PolicySandbox();
+  }
   renderContinuumStageInspector();
 }
 
@@ -4199,7 +4315,11 @@ function renderContinuumStageInspector() {
     actRow.append(btnAllow, btnDeny);
     stageArena.append(h, p, actRow);
   } else if (stg === "L6") {
-    const h = mkEl("strong", "", "L6 Live Executable Out-of-Loop Policy Sandbox — Mutate Inputs & Run Gate");
+    const h = mkEl(
+      "strong",
+      "",
+      "L6 Server-Backed Python ADK Policy Sandbox — Parallel ThreadPoolExecutor(4) + HMAC-SHA256 + Persistent Nonce Ledger"
+    );
     h.style.cssText = "display:block;font-size:13px;color:#0f172a;margin-bottom:8px;";
 
     const controlsRow = mkEl("div", "studio-toolbar");
@@ -4218,7 +4338,7 @@ function renderContinuumStageInspector() {
     });
     artSel.addEventListener("change", () => {
       CONTINUUM_STATE.l6Artifact = artSel.value;
-      renderContinuumStageInspector();
+      triggerServerL6PolicySandbox();
     });
 
     const envSel = document.createElement("select");
@@ -4234,7 +4354,7 @@ function renderContinuumStageInspector() {
     });
     envSel.addEventListener("change", () => {
       CONTINUUM_STATE.l6Env = envSel.value;
-      renderContinuumStageInspector();
+      triggerServerL6PolicySandbox();
     });
 
     const ttlBtn = mkEl(
@@ -4245,7 +4365,7 @@ function renderContinuumStageInspector() {
     ttlBtn.type = "button";
     ttlBtn.addEventListener("click", () => {
       CONTINUUM_STATE.l6Fresh = !CONTINUUM_STATE.l6Fresh;
-      renderContinuumStageInspector();
+      triggerServerL6PolicySandbox();
     });
 
     const nonceBtn = mkEl(
@@ -4256,48 +4376,29 @@ function renderContinuumStageInspector() {
     nonceBtn.type = "button";
     nonceBtn.addEventListener("click", () => {
       CONTINUUM_STATE.l6Unused = !CONTINUUM_STATE.l6Unused;
-      renderContinuumStageInspector();
+      triggerServerL6PolicySandbox();
     });
 
-    const matchPresetBtn = mkEl("button", "btn-primary", "Set Valid Approval (All 4 Pass)");
+    const matchPresetBtn = mkEl("button", "btn-primary", "▶ Run Valid Approval on Server (ALLOW)");
     matchPresetBtn.type = "button";
     matchPresetBtn.addEventListener("click", () => {
       CONTINUUM_STATE.l6Artifact = "Artifact A";
       CONTINUUM_STATE.l6Env = "staging";
       CONTINUUM_STATE.l6Fresh = true;
       CONTINUUM_STATE.l6Unused = true;
-      renderContinuumStageInspector();
+      triggerServerL6PolicySandbox({ reset_nonce: true });
     });
 
     controlsRow.append(artSel, envSel, ttlBtn, nonceBtn, matchPresetBtn);
 
-    const r1 = CONTINUUM_STATE.l6Artifact === "Artifact A";
-    const r2 = CONTINUUM_STATE.l6Env === "staging";
-    const r3 = CONTINUUM_STATE.l6Fresh;
-    const r4 = CONTINUUM_STATE.l6Unused;
-    const allPass = r1 && r2 && r3 && r4;
-
-    const receipt = {
-      gate: spec.gateway_title || "ADK BeforeToolCallback Policy Gateway",
-      approved_context: { artifact: "Artifact A", environment: "staging", max_ttl_sec: 300, one_shot: true },
-      agent_tool_call: {
-        tool: "deploy_release",
-        requested_artifact: CONTINUUM_STATE.l6Artifact,
-        requested_environment: CONTINUUM_STATE.l6Env,
-        token_age_sec: r3 ? 14 : 920,
-        nonce_state: r4 ? "UNUSED" : "ALREADY_CONSUMED",
-      },
-      parallel_rule_checks_30ms: {
-        rule_1_artifact_match: r1 ? "PASS ✓" : "FAIL ✕ (Artifact B != Artifact A)",
-        rule_2_environment_match: r2 ? "PASS ✓" : "FAIL ✕ (production != staging)",
-        rule_3_approval_fresh: r3 ? "PASS ✓" : "FAIL ✕ (TTL expired)",
-        rule_4_one_shot_unused: r4 ? "PASS ✓" : "FAIL ✕ (Replay attack blocked)",
-      },
-      verdict: allPass ? "ALLOW — Execute Authorized Deployment (265ms e2e)" : "DENY — Circuit-Breaker Halted Tool Call (165ms e2e, 0 downstream side-effects)",
+    const srvReceipt = CONTINUUM_STATE.l6ServerResponse || {
+      status: "EXECUTING_ON_SERVER",
+      note: "Dispatching to POST /api/continuum/execute-l6-sandbox...",
     };
+    const isAllow = srvReceipt.verdict === "ALLOW";
 
-    const pre = mkEl("pre", "tabular-nums", JSON.stringify(receipt, null, 2));
-    pre.style.cssText = `font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;padding:10px;border-radius:8px;border:1px solid ${allPass ? "#10b981" : "#ef4444"};background:#ffffff;color:#0f172a;overflow-x:auto;margin:0;`;
+    const pre = mkEl("pre", "tabular-nums", JSON.stringify(srvReceipt, null, 2));
+    pre.style.cssText = `font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;padding:10px;border-radius:8px;border:1px solid ${isAllow ? "#10b981" : "#ef4444"};background:#ffffff;color:#0f172a;overflow-x:auto;max-height:320px;margin:0;`;
 
     stageArena.append(h, controlsRow, pre);
   }

@@ -263,6 +263,54 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
         self.assertIn("target_groups_and_communities", pres)
         self.assertGreaterEqual(len(pres["target_groups_and_communities"]), 3)
 
+    def test_raster_to_ir_deconstructor_and_server_l6_policy_sandbox(self) -> None:
+        from src.visuals.raster_to_dynamic_ir_deconstructor import (
+            deconstruct_raster_to_dynamic_continuum,
+            evaluate_l6_policy_sandbox_server,
+        )
+
+        # 1. Deconstruct audited raster post into 4 spatial bounding boxes + direct raster pixel overlay SVG + vector IR
+        dec = deconstruct_raster_to_dynamic_continuum(source_id_or_path="LI-01", compile_gif=False)
+        self.assertEqual(dec["status"], "DECONSTRUCTED")
+        seg = dec["raster_segmentation"]
+        self.assertEqual(len(seg["zones"]), 4)
+        self.assertGreaterEqual(seg["width"], 400)
+        self.assertTrue(dec["direct_raster_overlay_svg_url"].endswith(".svg"))
+        self.assertEqual(dec["vector_ir_bundle"]["status"], "ok")
+
+        # 2. Server-side L6 policy gate evaluation: DENY on parameter swap, ALLOW on valid match + live ADK engine output
+        deny_res = evaluate_l6_policy_sandbox_server(
+            {"requested_artifact": "Artifact B", "requested_environment": "production", "reset_nonce": True}
+        )
+        self.assertEqual(deny_res["verdict"], "DENY")
+        self.assertFalse(deny_res["parallel_rule_results"]["rule_1_artifact_match"]["passed"])
+        self.assertIn("engineered_harness", deny_res["adk_repository_runtime"]["live_engine_output"])
+
+        allow_res = evaluate_l6_policy_sandbox_server(
+            {
+                "requested_artifact": "Artifact A",
+                "requested_environment": "staging",
+                "token_age_sec": 12,
+                "nonce_id": "NONCE-UNITTEST-001",
+                "reset_nonce": True,
+                "consume_nonce_on_allow": True,
+            }
+        )
+        self.assertEqual(allow_res["verdict"], "ALLOW")
+        self.assertEqual(len(allow_res["decision_receipt_hmac_sha256"]), 64)
+
+        # 3. Replay of consumed 1-shot nonce must fail closed on Rule 4
+        replay_res = evaluate_l6_policy_sandbox_server(
+            {
+                "requested_artifact": "Artifact A",
+                "requested_environment": "staging",
+                "token_age_sec": 14,
+                "nonce_id": "NONCE-UNITTEST-001",
+            }
+        )
+        self.assertEqual(replay_res["verdict"], "DENY")
+        self.assertFalse(replay_res["parallel_rule_results"]["rule_4_one_shot_unused"]["passed"])
+
 
 if __name__ == "__main__":
     unittest.main()

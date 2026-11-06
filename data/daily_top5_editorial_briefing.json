@@ -292,7 +292,8 @@
             "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 1,
-          "is_primary_recommended": true
+          "is_primary_recommended": true,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/preview"
         },
         {
           "template_id": "T56",
@@ -324,7 +325,8 @@
             "estimated_consumption_time": "30 sec scan"
           },
           "rank": 2,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/preview"
         },
         {
           "template_id": "T65",
@@ -356,7 +358,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 3,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/preview"
         },
         {
           "template_id": "T54",
@@ -388,7 +391,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 4,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/preview"
         },
         {
           "template_id": "T63",
@@ -420,7 +424,8 @@
             "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 5,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/preview"
         }
       ]
     },
@@ -483,7 +488,8 @@
             "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 1,
-          "is_primary_recommended": true
+          "is_primary_recommended": true,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/preview"
         },
         {
           "template_id": "T56",
@@ -515,7 +521,8 @@
             "estimated_consumption_time": "30 sec scan"
           },
           "rank": 2,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/preview"
         },
         {
           "template_id": "T83",
@@ -547,7 +554,8 @@
             "estimated_consumption_time": "7 min deep read"
           },
           "rank": 3,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs/preview"
         },
         {
           "template_id": "T54",
@@ -579,7 +587,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 4,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/preview"
         },
         {
           "template_id": "T60",
@@ -611,7 +620,8 @@
             "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 5,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/preview"
         }
       ]
     },
@@ -676,7 +686,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 1,
-          "is_primary_recommended": true
+          "is_primary_recommended": true,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/preview"
         },
         {
           "template_id": "T95",
@@ -692,7 +703,7 @@
           "gif_url": "/assets/template-gallery/T95.gif",
           "pptx_url": "/assets/template-gallery/T95.pptx",
           "drawio_url": "/assets/template-gallery/T95.drawio",
-          "google_slides_url": "",
+          "google_slides_url": "https://docs.google.com/presentation/d/1t0I2xgsJ0Zuawg-JtrUFkZyARTHEsU7g/edit?authuser=nitinagga%40google.com",
           "recommended_mode": "Carousel",
           "secondary_modes": [
             "Short_Video",
@@ -709,7 +720,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 2,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1t0I2xgsJ0Zuawg-JtrUFkZyARTHEsU7g/preview"
         },
         {
           "template_id": "T58",
@@ -742,7 +754,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 3,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/preview"
         },
         {
           "template_id": "T54",
@@ -775,7 +788,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 4,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/preview"
         },
         {
           "template_id": "T60",
@@ -808,7 +822,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 5,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/preview"
         }
       ]
     },
@@ -872,7 +887,8 @@
             "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 1,
-          "is_primary_recommended": true
+          "is_primary_recommended": true,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA/preview"
         },
         {
           "template_id": "T56",
@@ -904,7 +920,8 @@
             "estimated_consumption_time": "30 sec scan"
           },
           "rank": 2,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/preview"
         },
         {
           "template_id": "T58",
@@ -936,7 +953,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 3,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/preview"
         },
         {
           "template_id": "T54",
@@ -968,7 +986,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 4,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/preview"
         },
         {
           "template_id": "T66",
@@ -1000,7 +1019,8 @@
             "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 5,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/preview"
         }
       ]
     },
@@ -1065,7 +1085,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 1,
-          "is_primary_recommended": true
+          "is_primary_recommended": true,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/preview"
         },
         {
           "template_id": "T56",
@@ -1097,7 +1118,8 @@
             "estimated_consumption_time": "30 sec scan"
           },
           "rank": 2,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/preview"
         },
         {
           "template_id": "T65",
@@ -1129,7 +1151,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 3,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/preview"
         },
         {
           "template_id": "T55",
@@ -1161,7 +1184,8 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 4,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA/preview"
         },
         {
           "template_id": "T60",
@@ -1193,7 +1217,8 @@
             "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 5,
-          "is_primary_recommended": false
+          "is_primary_recommended": false,
+          "google_slides_preview_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/preview"
         }
       ]
     }

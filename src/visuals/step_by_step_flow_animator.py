@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import hashlib
 import html
+import json
 import subprocess
 import tempfile
 import textwrap
@@ -221,6 +222,67 @@ STEP_FLOW_PRESETS: Dict[str, Dict[str, Any]] = {
         "scenario_setup": "A coding agent edits 6 files, writes a polished PR summary, and declares victory — without ever running pytest on the final diff.",
         "core_question": "“Did the agent explain its fix?” is irrelevant if the pre-completion hook never executed the test binary in an isolated sandbox.",
         "closing_question": "In your coding agent workflow, what blocks a broken diff from reaching human review: prompt instructions, or a hard pre-completion sandbox gate?",
+        "primary_url": "https://github.com/nitinaggarwal-12/ideas-mining",
+    },
+    "FLOW-04": {
+        "preset_id": "FLOW-04",
+        "name": "Tiered Speculative Cascade & <15ms Complexity Router (CPSO Optimization)",
+        "inspiration_urn": "urn:li:activity:7524104105531752448",
+        "matched_template_id": "T61",
+        "title_line_1": "80% ROUTINE QUERIES.",
+        "title_line_2": "FRONTIER MODEL OVERKILL.",
+        "subtitle": "Route bool/enum gates via <15ms classifiers and cascade Flash -> Argon.",
+        "mismatch_kicker": "THE FINOPS LEAK",
+        "approved_label": "ACTUAL WORKLOAD",
+        "approved_primary": "80% Routine Triage",
+        "approved_secondary": "Target: <15ms Classifier",
+        "requested_label": "NAIVE ROUTING",
+        "requested_primary": "100% Frontier LLM",
+        "requested_secondary": "3.2x CPSO Waste",
+        "mismatch_caption": "Sending every classification gate to a frontier model burns budget and p95 latency.",
+        "agent_title": "Ingress Request Router",
+        "agent_sub": "Google Cloud ADK · AI Gateway",
+        "model_title": "Tiered Model Pool",
+        "model_sub": "Gemini 3.8 Flash -> Gemini 4 Argon",
+        "conduit_label": "Prompt + complexity score + logprob confidence threshold",
+        "gateway_title": "Speculative Cascade Gate",
+        "gateway_sub": "<15ms Complexity Classifier · Logprob Gate",
+        "gateway_badge": "FINOPS ROUTING POINT",
+        "policy_kicker": "ENFORCED BEFORE FRONTIER ESCALATION",
+        "policy_title": "Cascade Policy",
+        "policy_sub": "Cost-Per-Successful-Outcome rules",
+        "policy_rules": [
+            "Bool/enum gate routed to <15ms ONNX",
+            "Flash logprob confidence >= 0.92",
+            "JSON schema check = 100% valid",
+            "Token budget within tenant FinOps cap",
+        ],
+        "deny_label": "ESCALATE: low confidence or multi-hop synthesis",
+        "blocked_title": "Escalate to Argon",
+        "blocked_sub": "Only 16% of traffic hits Frontier tier",
+        "approver_title": "FinOps Budget Controller",
+        "approver_note": "Sets per-tenant CPSO targets and logprob confidence thresholds.",
+        "approval_svc_title": "Semantic Cache & KV Prefix",
+        "approval_svc_sub": "90% cached prefix discount",
+        "allow_label": "FAST PATH: resolved by Tier 0/1 (<420ms)",
+        "exec_svc_title": "Fast-Path Response",
+        "exec_svc_sub": "-68% inference spend · <1.1s p95",
+        "exec_side_note": "Verified schema + CPSO telemetry",
+        "history_title": "Cascade routing ledger",
+        "history_sub": "Tier 0/1/2 hit rates & savings",
+        "trace_title": "Cloud Trace & FinOps",
+        "trace_sub": "Per-turn CPSO & p95 latency spans",
+        "controls": [
+            ("SECURITY", "Model Armor ingress filter"),
+            ("PERFORMANCE", "<1.1s p95 end-to-end latency"),
+            ("COST", "-68% inference spend via cascade"),
+        ],
+        "footer_takeaway": "Optimize Cost-Per-Successful-Outcome, not raw token price.",
+        "footer_sub": "Resolve 84% of turns in Tier 0/1 and escalate only ambiguous reasoning to Frontier.",
+        "hook_line_1": "Routing 100% of agent turns to your largest frontier model is like sending every band-aid visit into open-heart surgery.",
+        "scenario_setup": "An enterprise workflow invokes a frontier model 9 times per turn — including simple boolean intent checks and enum extractions that a <15ms classifier handles with 99.4% accuracy.",
+        "core_question": "“Which model is smartest?” is the wrong production question. The right question is: “What is the minimum model tier that guarantees a verified outcome?”",
+        "closing_question": "How does your AI gateway route requests today: static single-model pinning, prompt-length heuristics, or a logprob-verified speculative cascade?",
         "primary_url": "https://github.com/nitinaggarwal-12/ideas-mining",
     },
 }
@@ -897,6 +959,58 @@ def generate_step_by_step_flow_svg(
     return "\n".join(out)
 
 
+def generate_step_by_step_flow_drawio(spec: Dict[str, Any]) -> str:
+    """Compile a 100% native editable Draw.io (<mxfile>) state-machine diagram for the Step-by-Step Flow spec."""
+    esc = lambda s: html.escape(str(s or ""), quote=True)
+    rules_html = "".join(
+        f"• {esc(r)}&lt;br/&gt;" for r in (spec.get("policy_rules") or [])[:4]
+    )
+    controls_cells = []
+    for idx, c in enumerate((spec.get("controls") or [])[:3]):
+        cx = 40 + idx * 338
+        if isinstance(c, (tuple, list)):
+            c_title = c[0] if len(c) > 0 else f"Control 0{idx + 1}"
+            c_body = c[1] if len(c) > 1 else ""
+        elif isinstance(c, dict):
+            c_title = f"{c.get('badge', '')}: {c.get('title', '')}".strip(": ")
+            c_body = c.get("body", "")
+        else:
+            c_title = str(c)
+            c_body = ""
+        controls_cells.append(
+            f'<mxCell id="ctrl_{idx + 1}" value="&lt;b&gt;0{idx + 1} · {esc(c_title)}&lt;/b&gt;&lt;br/&gt;{esc(c_body)}" '
+            f'style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#0F172A;fontSize=11;align=left;spacingLeft=10;" '
+            f'vertex="1" parent="1"><mxGeometry x="{cx}" y="1140" width="320" height="96" as="geometry"/></mxCell>'
+        )
+    return "\n".join(
+        [
+            f'<mxfile host="app.diagrams.net" modified="2026-11-06T00:00:00.000Z" agent="IdeasMintingStudio"><diagram id="{esc(spec.get("preset_id", "FLOW-01"))}" name="{esc(spec.get("name", "Step Flow"))}">',
+            '<mxGraphModel dx="1080" dy="1350" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="1350" background="#F8FAFC"><root><mxCell id="0"/><mxCell id="1" parent="0"/>',
+            f'<mxCell id="hdr" value="&lt;b style=\'font-size:22px;\'&gt;{esc(spec.get("title_line_1"))} {esc(spec.get("title_line_2"))}&lt;/b&gt;&lt;br/&gt;{esc(spec.get("subtitle"))}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#0F172A;fontSize=13;align=left;spacingLeft=16;" vertex="1" parent="1"><mxGeometry x="40" y="28" width="1000" height="84" as="geometry"/></mxCell>',
+            f'<mxCell id="mismatch_a" value="&lt;b&gt;{esc(spec.get("approved_label"))}&lt;/b&gt;&lt;br/&gt;{esc(spec.get("approved_primary"))} ({esc(spec.get("approved_secondary"))})" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontColor=#065F46;fontSize=12;" vertex="1" parent="1"><mxGeometry x="40" y="132" width="480" height="74" as="geometry"/></mxCell>',
+            f'<mxCell id="mismatch_b" value="&lt;b&gt;{esc(spec.get("requested_label"))}&lt;/b&gt;&lt;br/&gt;{esc(spec.get("requested_primary"))} ({esc(spec.get("requested_secondary"))})" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF1F2;strokeColor=#E11D48;fontColor=#881337;fontSize=12;" vertex="1" parent="1"><mxGeometry x="560" y="132" width="480" height="74" as="geometry"/></mxCell>',
+            f'<mxCell id="agent" value="&lt;b&gt;{esc(spec.get("agent_title"))}&lt;/b&gt;&lt;br/&gt;{esc(spec.get("agent_sub"))}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="248" width="260" height="80" as="geometry"/></mxCell>',
+            f'<mxCell id="llm" value="&lt;b&gt;{esc(spec.get("model_title"))}&lt;/b&gt;&lt;br/&gt;{esc(spec.get("model_sub"))}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontColor=#4C1D95;fontSize=12;" vertex="1" parent="1"><mxGeometry x="410" y="248" width="260" height="80" as="geometry"/></mxCell>',
+            f'<mxCell id="gateway" value="&lt;b&gt;{esc(spec.get("gateway_title"))} ({esc(spec.get("gateway_badge"))})&lt;/b&gt;&lt;br/&gt;{esc(spec.get("gateway_sub"))}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#78350F;fontSize=12;" vertex="1" parent="1"><mxGeometry x="235" y="388" width="610" height="84" as="geometry"/></mxCell>',
+            f'<mxCell id="policy" value="&lt;b&gt;{esc(spec.get("policy_title"))} — {esc(spec.get("policy_kicker"))}&lt;/b&gt;&lt;br/&gt;{rules_html}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontSize=12;align=left;spacingLeft=14;" vertex="1" parent="1"><mxGeometry x="235" y="520" width="610" height="128" as="geometry"/></mxCell>',
+            f'<mxCell id="approver" value="&lt;b&gt;{esc(spec.get("approver_title"))}&lt;/b&gt;&lt;br/&gt;{esc(spec.get("approval_svc_title"))} ({esc(spec.get("approval_svc_sub"))})" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontColor=#065F46;fontSize=11.5;" vertex="1" parent="1"><mxGeometry x="40" y="700" width="300" height="90" as="geometry"/></mxCell>',
+            f'<mxCell id="exec_allow" value="&lt;b&gt;ALLOW → {esc(spec.get("exec_svc_title"))}&lt;/b&gt;&lt;br/&gt;{esc(spec.get("exec_svc_sub"))}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#065F46;fontSize=12;" vertex="1" parent="1"><mxGeometry x="390" y="700" width="300" height="90" as="geometry"/></mxCell>',
+            f'<mxCell id="exec_deny" value="&lt;b&gt;DENY → {esc(spec.get("blocked_title"))}&lt;/b&gt;&lt;br/&gt;{esc(spec.get("blocked_sub"))}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF1F2;strokeColor=#E11D48;strokeWidth=2;fontColor=#881337;fontSize=12;" vertex="1" parent="1"><mxGeometry x="740" y="700" width="300" height="90" as="geometry"/></mxCell>',
+            f'<mxCell id="trace" value="&lt;b&gt;{esc(spec.get("trace_title"))} &amp;amp; {esc(spec.get("history_title"))}&lt;/b&gt;&lt;br/&gt;{esc(spec.get("trace_sub"))} • {esc(spec.get("history_sub"))}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#64748B;fontColor=#0F172A;fontSize=11.5;" vertex="1" parent="1"><mxGeometry x="235" y="840" width="610" height="76" as="geometry"/></mxCell>',
+            *controls_cells,
+            f'<mxCell id="ftr" value="NITIN AGGARWAL • {esc(spec.get("preset_id"))} • BLUEPRINT {esc(spec.get("matched_template_id"))} • NOVEMBER 2026" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#1E293B;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1"><mxGeometry x="40" y="1268" width="1000" height="44" as="geometry"/></mxCell>',
+            '<mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="agent" target="llm"><mxGeometry relative="1" as="geometry"/></mxCell>',
+            '<mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#D97706;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="agent" target="gateway"><mxGeometry relative="1" as="geometry"/></mxCell>',
+            '<mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gateway" target="policy"><mxGeometry relative="1" as="geometry"/></mxCell>',
+            '<mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="approver" target="policy"><mxGeometry relative="1" as="geometry"/></mxCell>',
+            '<mxCell id="e5" value="ALLOW" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;fontColor=#065F46;fontStyle=1;" edge="1" parent="1" source="policy" target="exec_allow"><mxGeometry relative="1" as="geometry"/></mxCell>',
+            '<mxCell id="e6" value="DENY" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#E11D48;strokeWidth=2;endArrow=block;endFill=1;fontColor=#881337;fontStyle=1;" edge="1" parent="1" source="policy" target="exec_deny"><mxGeometry relative="1" as="geometry"/></mxCell>',
+            '<mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748B;strokeWidth=1.6;endArrow=block;endFill=1;" edge="1" parent="1" source="exec_allow" target="trace"><mxGeometry relative="1" as="geometry"/></mxCell>',
+            '</root></mxGraphModel></diagram></mxfile>',
+        ]
+    )
+
+
 def render_step_flow_bundle(
     preset_id: str = "FLOW-01",
     custom_topic: str = "",
@@ -904,7 +1018,7 @@ def render_step_flow_bundle(
     compile_gif: bool = True,
     num_frames: int = 12,
 ) -> Dict[str, Any]:
-    """Compile the complete Step-by-Step Dynamic Flow Bundle (4:5 SVG + 4:5 GIF89a + 4:5 H.264 MP4 + Serial/Parallel Trace + 6-Beat Copy)."""
+    """Compile the complete Step-by-Step Dynamic Flow Bundle (4:5 SVG + 4:5 GIF89a + 4:5 H.264 MP4 + Draw.io + Google Slides + Serial/Parallel Trace + 6-Beat Copy)."""
     spec = build_step_flow_spec_from_topic(preset_id=preset_id, custom_topic=custom_topic)
     copy_bundle = compile_step_by_step_linkedin_post(spec)
     execution_trace = build_serial_parallel_execution_trace(spec)
@@ -916,12 +1030,14 @@ def render_step_flow_bundle(
 
     STEP_FLOW_ASSETS_DIR.mkdir(parents=True, exist_ok=True)
     svg_path = STEP_FLOW_ASSETS_DIR / f"{stem}.svg"
+    drawio_path = STEP_FLOW_ASSETS_DIR / f"{stem}.drawio"
     gif_path = STEP_FLOW_ASSETS_DIR / f"{stem}.gif"
     mp4_path = STEP_FLOW_ASSETS_DIR / f"{stem}.mp4"
     png_path = STEP_FLOW_ASSETS_DIR / f"{stem}.png"
 
     svg_text = generate_step_by_step_flow_svg(spec, theme=theme_key, frame_phase=None)
     svg_path.write_text(svg_text, encoding="utf-8")
+    drawio_path.write_text(generate_step_by_step_flow_drawio(spec), encoding="utf-8")
 
     gif_ready = gif_path.exists() and gif_path.stat().st_size > 10000
     mp4_ready = mp4_path.exists() and mp4_path.stat().st_size > 10000
@@ -1001,6 +1117,16 @@ def render_step_flow_bundle(
         )
         mp4_ready = mp4_path.exists() and mp4_path.stat().st_size > 10000
 
+    matched_tid = spec.get("matched_template_id", "T85")
+    google_slides_url = ""
+    slides_manifest_path = WORKSPACE_ROOT / "data" / "template_google_slides_manifest.json"
+    if slides_manifest_path.exists():
+        try:
+            sm = json.loads(slides_manifest_path.read_text(encoding="utf-8")).get("slides", {})
+            google_slides_url = sm.get(matched_tid, {}).get("googleSlidesEditUrl", "")
+        except Exception:
+            google_slides_url = ""
+
     return {
         "status": "ok",
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -1008,8 +1134,11 @@ def render_step_flow_bundle(
         "preset_name": spec["name"],
         "theme": theme_key,
         "aspect_ratio": "4:5 (1080×1350 Portrait)",
-        "matched_template_id": spec["matched_template_id"],
+        "matched_template_id": matched_tid,
         "svg_url": f"/assets/step-flows/{svg_path.name}",
+        "drawio_url": f"/assets/step-flows/{drawio_path.name}",
+        "pptx_url": f"/assets/template-gallery/{matched_tid}.pptx",
+        "google_slides_url": google_slides_url,
         "gif_url": f"/assets/step-flows/{gif_path.name}" if gif_ready else "",
         "mp4_url": f"/assets/step-flows/{mp4_path.name}" if mp4_ready else "",
         "png_url": f"/assets/step-flows/{png_path.name}" if png_path.exists() else "",

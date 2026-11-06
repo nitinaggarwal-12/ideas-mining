@@ -8,7 +8,7 @@ function mkEl(tag, className, text) {
   return el;
 }
 
-const ASSET_CACHE_BUST = "20261106b";
+const ASSET_CACHE_BUST = "20261106c";
 
 function safeUrl(rawUrl) {
   const s = String(rawUrl || "").trim();
@@ -514,7 +514,7 @@ function renderReposView() {
     const topGroup = mkEl("div");
     const artStage = mkEl("div", "card-artwork-stage");
     artStage.style.marginBottom = "12px";
-    const imgUrl = `/repos/${encodeURIComponent(r.repo_slug)}/visuals/${plan ? "lead-template.svg" : "dynamic-solution-flow.svg"}?v=20261106b`;
+    const imgUrl = `/repos/${encodeURIComponent(r.repo_slug)}/visuals/${plan ? "lead-template.svg" : "dynamic-solution-flow.svg"}?v=20261106c`;
     const img = document.createElement("img");
     img.src = imgUrl;
     img.alt = `${r.post_title} solution architecture`;
@@ -672,17 +672,17 @@ async function openRepoInspector(slug) {
     }
     if (plan) {
       const aSvg = mkEl("a", "btn-secondary", `Open Blueprint ${plan.primary_template_id} (.svg) ↗`);
-      aSvg.href = `/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261106b`;
+      aSvg.href = `/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261106c`;
       aSvg.target = "_blank";
       actBar.appendChild(aSvg);
     }
     const aFlow = mkEl("a", "btn-secondary", "Moving-Arrow SVG ↗");
-    aFlow.href = `/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261106b`;
+    aFlow.href = `/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261106c`;
     aFlow.target = "_blank";
     actBar.appendChild(aFlow);
 
     const aDrawio = mkEl("a", "btn-secondary", "Editable .drawio");
-    aDrawio.href = `/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.drawio?v=20261106b`;
+    aDrawio.href = `/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.drawio?v=20261106c`;
     aDrawio.setAttribute("download", "");
     actBar.appendChild(aDrawio);
     visTab.appendChild(actBar);
@@ -691,21 +691,21 @@ async function openRepoInspector(slug) {
     if (plan) {
       figures.push([
         `Paired Blueprint (${plan.primary_template_id}: ${plan.primary_template_name})`,
-        `/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261106b`,
+        `/repos/${encodeURIComponent(slug)}/visuals/lead-template.svg?v=20261106c`,
       ]);
     }
     figures.push(
       [
         "Figure 1 — Problem → 4-Step Moving-Arrow Solution Flow",
-        `/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261106b`,
+        `/repos/${encodeURIComponent(slug)}/visuals/dynamic-solution-flow.svg?v=20261106c`,
       ],
       [
         "Figure 2 — Google Cloud #78 4-Zone Hub-and-Spoke Architecture",
-        `/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.svg?v=20261106b`,
+        `/repos/${encodeURIComponent(slug)}/visuals/gcp-architecture-2d.svg?v=20261106c`,
       ],
       [
         "Figure 3 — High-Resolution 2D Infographic Poster",
-        `/repos/${encodeURIComponent(slug)}/visuals/linkedin-infographic-2d.svg?v=20261106b`,
+        `/repos/${encodeURIComponent(slug)}/visuals/linkedin-infographic-2d.svg?v=20261106c`,
       ]
     );
 
@@ -891,11 +891,11 @@ function renderGalleryView() {
 
   items.forEach((t) => {
     const files = t.files || {};
-    const svg = `/assets/template-gallery/${files.svg || t.id + ".svg"}?v=20261106b`;
-    const png = `/assets/template-gallery/${files.png || t.id + ".png"}?v=20261106b`;
-    const gif = `/assets/template-gallery/${files.gif || t.id + ".gif"}?v=20261106b`;
-    const drawio = files.drawio ? `/assets/template-gallery/${files.drawio}?v=20261106b` : "";
-    const pptx = files.pptx ? `/assets/template-gallery/${files.pptx}?v=20261106b` : "";
+    const svg = `/assets/template-gallery/${files.svg || t.id + ".svg"}?v=20261106c`;
+    const png = `/assets/template-gallery/${files.png || t.id + ".png"}?v=20261106c`;
+    const gif = `/assets/template-gallery/${files.gif || t.id + ".gif"}?v=20261106c`;
+    const drawio = files.drawio ? `/assets/template-gallery/${files.drawio}?v=20261106c` : "";
+    const pptx = files.pptx ? `/assets/template-gallery/${files.pptx}?v=20261106c` : "";
     const gslidesUrl = t.google_slides_url || "";
     const qTier = t.quality_tier || "Best";
 
@@ -1217,7 +1217,7 @@ function openPostAnatomyDrawer(activityId) {
   const tid = post.matched_template_id || "T79";
   const bpMap = mkEl("div", "drawer-blueprint-map-card");
   const bpImg = document.createElement("img");
-  bpImg.src = `/assets/template-gallery/${tid}.svg?v=20261106b`;
+  bpImg.src = `/assets/template-gallery/${tid}.svg?v=20261106c`;
   bpImg.alt = `Studio Blueprint ${tid}`;
   const bpInfo = mkEl("div", "min-w-0");
   bpInfo.style.flex = "1";
@@ -2201,7 +2201,7 @@ function renderMintingStudioView() {
     const tid = t.canonical_template_id || "T85";
     const gslidesUrl = t.template_google_slides_url || "";
     const flagshipUrl = t.flagship_24slide_url || "";
-    const svgUrl = `/assets/template-gallery/${tid}.svg?v=20261106b`;
+    const svgUrl = `/assets/template-gallery/${tid}.svg?v=20261106c`;
 
     const card = mkEl("article", "repo-card");
     card.setAttribute("data-testid", `mint-topic-card-${t.id}`);
@@ -2768,39 +2768,77 @@ function renderTop5EditorialDesk() {
   s1Hdr.appendChild(mkEl("span", "composer-step-title", "1. Visual Blueprint"));
 
   const s1Actions = mkEl("div", "studio-toolbar-actions");
-  if (STATE.persona === "builder") {
-    [
-      [".drawio", `/assets/template-gallery/${activeTpl.template_id}.drawio`],
-      [".pptx", `/assets/template-gallery/${activeTpl.template_id}.pptx`],
-      ["SVG", `/assets/template-gallery/${activeTpl.template_id}.svg`],
-    ].forEach(([lbl, href]) => {
-      const a = mkEl("a", "deliverable-chip chip-blue", lbl);
-      a.style.textDecoration = "none";
-      a.href = safeUrl(href);
+  const resolvedTplObj =
+    (STATE.templates || []).find((t) => t.id === activeTpl.template_id) || {};
+  const activeGslidesUrl =
+    activeTpl.google_slides_url || resolvedTplObj.google_slides_url || "";
+  const activeDrawioUrl =
+    activeTpl.drawio_url || `/assets/template-gallery/${activeTpl.template_id}.drawio`;
+  const activePptxUrl =
+    activeTpl.pptx_url || `/assets/template-gallery/${activeTpl.template_id}.pptx`;
+  const activeSvgUrl =
+    activeTpl.svg_url || `/assets/template-gallery/${activeTpl.template_id}.svg`;
+
+  if (activeGslidesUrl) {
+    const gsA = mkEl("a", "deliverable-chip chip-blue", "Google Slides ↗");
+    gsA.setAttribute("data-testid", "daily-open-google-slides-btn");
+    gsA.style.textDecoration = "none";
+    gsA.href = safeUrl(activeGslidesUrl);
+    gsA.target = "_blank";
+    gsA.rel = "noopener";
+    s1Actions.appendChild(gsA);
+  }
+  [
+    [".drawio", activeDrawioUrl, `${activeTpl.template_id}.drawio`, "daily-download-drawio-btn"],
+    [".pptx", activePptxUrl, `${activeTpl.template_id}.pptx`, "daily-download-pptx-btn"],
+    ["SVG ↗", activeSvgUrl, "", "daily-open-svg-btn"],
+  ].forEach(([lbl, href, dlName, testId]) => {
+    const a = mkEl("a", "deliverable-chip chip-blue", lbl);
+    a.setAttribute("data-testid", testId);
+    a.style.textDecoration = "none";
+    a.href = safeUrl(href);
+    if (dlName) {
+      a.setAttribute("download", dlName);
+    } else {
       a.target = "_blank";
       a.rel = "noopener";
-      s1Actions.appendChild(a);
-    });
-  }
+    }
+    s1Actions.appendChild(a);
+  });
+
   const zoomBtn = mkEl("button", "btn-secondary", `Full Size (${activeTpl.template_id})`);
   zoomBtn.type = "button";
   zoomBtn.style.cssText = "min-height:28px;padding:3px 9px;font-size:11.5px;white-space:nowrap;";
   zoomBtn.addEventListener("click", () => {
+    const lbActions = [];
+    if (activeGslidesUrl) {
+      lbActions.push({
+        label: "Open Google Slides ↗",
+        href: activeGslidesUrl,
+        primary: true,
+      });
+    }
+    lbActions.push(
+      {
+        label: "Download .drawio",
+        href: activeDrawioUrl,
+        download: `${activeTpl.template_id}.drawio`,
+      },
+      {
+        label: "Download .pptx",
+        href: activePptxUrl,
+        download: `${activeTpl.template_id}.pptx`,
+      },
+      {
+        label: "Open SVG ↗",
+        href: activeSvgUrl,
+      }
+    );
     openLightbox({
       kicker: `${activeTpl.template_id} · ${activeTpl.angle_label || "CERTIFIED BLUEPRINT"}`,
       title: `${activeTpl.template_id} — ${activeTpl.name}`,
-      imgUrl: `/assets/template-gallery/${activeTpl.template_id}.svg?v=20261106b`,
-      actions: [
-        {
-          label: "Download .pptx",
-          href: `/assets/template-gallery/${activeTpl.template_id}.pptx`,
-          download: `${activeTpl.template_id}.pptx`,
-        },
-        {
-          label: "Open SVG ↗",
-          href: `/assets/template-gallery/${activeTpl.template_id}.svg`,
-        },
-      ],
+      imgUrl: `${activeSvgUrl}?v=20261106c`,
+      actions: lbActions,
     });
   });
   s1Actions.appendChild(zoomBtn);
@@ -2823,7 +2861,7 @@ function renderTop5EditorialDesk() {
 
     const frame = mkEl("div", "blueprint-thumb-frame");
     const thImg = document.createElement("img");
-    thImg.src = `/assets/template-gallery/${encodeURIComponent(tpl.template_id)}.png?v=20261106b`;
+    thImg.src = `/assets/template-gallery/${encodeURIComponent(tpl.template_id)}.png?v=20261106c`;
     thImg.alt = `${tpl.template_id} ${tpl.name}`;
     thImg.loading = "lazy";
     frame.appendChild(thImg);
@@ -3853,6 +3891,45 @@ function renderStepFlowBundle(bundle) {
   const img = document.getElementById("step-flow-preview-img");
   if (img && bundle.svg_url) {
     img.src = `${safeUrl(bundle.svg_url)}?t=${Date.now()}`;
+  }
+
+  const gslidesLink = document.getElementById("step-flow-open-gslides-link");
+  if (gslidesLink) {
+    const matchedTpl = (STATE.templates || []).find(
+      (t) => t.id === bundle.matched_template_id
+    );
+    const gsUrl =
+      bundle.google_slides_url || matchedTpl?.google_slides_url || "";
+    if (gsUrl) {
+      gslidesLink.href = safeUrl(gsUrl);
+      gslidesLink.style.display = "inline-flex";
+    } else {
+      gslidesLink.style.display = "none";
+    }
+  }
+
+  const drawioLink = document.getElementById("step-flow-download-drawio-link");
+  if (drawioLink) {
+    const drUrl =
+      bundle.drawio_url ||
+      `/assets/template-gallery/${bundle.matched_template_id || "T85"}.drawio`;
+    drawioLink.href = safeUrl(drUrl);
+    drawioLink.setAttribute(
+      "download",
+      `${bundle.preset_id || "FLOW-01"}.drawio`
+    );
+  }
+
+  const pptxLink = document.getElementById("step-flow-download-pptx-link");
+  if (pptxLink) {
+    const ppUrl =
+      bundle.pptx_url ||
+      `/assets/template-gallery/${bundle.matched_template_id || "T85"}.pptx`;
+    pptxLink.href = safeUrl(ppUrl);
+    pptxLink.setAttribute(
+      "download",
+      `${bundle.matched_template_id || "T85"}.pptx`
+    );
   }
 
   const svgLink = document.getElementById("step-flow-open-svg-link");

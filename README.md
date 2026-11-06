@@ -2,7 +2,7 @@
 
 > **Architected for**: [Nitin Aggarwal](https://www.linkedin.com/in/nitin-aggarwal-b49786a/)
 > **Autonomous Engineering Engine**: **OpenHands (`CodeActAgent`)** + **Google Cloud ADK** + **Vertex AI Gemini 4 Argon & 3.8 Flash (`locations/global`)**
-> **Zero-Hallucination & Zero-Shortcut Guarantee (`Law 18`)**: `116` Certified Unique Visual Templates (`72 Best` + `44 High`, `0 Medium/Low/Worst`) • `38` Live Editable Google Slides Decks (`T01`, `T53`–`T89`) • Flagship 24-Slide Cloudstyle 2.0 Google Slides Deck (`1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY`) • `19` Verified Standalone Git Repositories • `1080p30` `0.8s xfade` Multi-Scene Walkthrough Video (`MINT-01_walkthrough.mp4`) • **`46` Audited LinkedIn Creator Posts (`44` Public + `10` Animated `4:5` `GIF89a` Infographics + `2` Restricted Disclosed, `21,109` Reactions, `3,384` Comments) • `47` Unified Creator Portfolios • `10` Omnichannel Social Playbooks (`X` Heavy Ranker + `15` X Builders)**
+> **Zero-Hallucination & Zero-Shortcut Guarantee (`Law 18`)**: `116` Certified Unique Visual Templates (`72 Best` + `44 High`, `0 Medium/Low/Worst`) + `23` `T79-*` Variants = **`139/139` Draw.io (`.drawio`), OpenXML PowerPoint (`.pptx`), and Live Google Slides Decks (`100%` coverage)** • Flagship 24-Slide Cloudstyle 2.0 Google Slides Deck (`1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY`) • `19` Verified Standalone Git Repositories (`38` `.drawio` diagrams) • `1080p30` `0.8s xfade` Multi-Scene Walkthrough Videos (`MINT-01` + `TOP5-20261104-01..05`) • **`46` Audited LinkedIn Creator Posts (`44` Public + `10` Animated `4:5` `GIF89a` Infographics + `2` Restricted Disclosed, `21,109` Reactions, `3,384` Comments) • `47` Unified Creator Portfolios • `10` Omnichannel Social Playbooks (`X` Heavy Ranker + `15` X Builders)**
 
 ---
 
@@ -43,7 +43,7 @@ $$S_{\text{iso}}(I, T) = 0.30 \cdot \text{Topology} + 0.25 \cdot \text{ControlFl
 All `53` legacy `Gen-1` raw Python SVG templates (`T02`–`T52`) and `19` boxy templates have been permanently purged (`Law 18` / `Rule 57B`), and `33` `Medium/Low/Worst` session blueprints were refactored into `Gen-5` Open-Drafting-Grid Sculptural Posters (`Best` tier).
 
 - **`15` PromptCanvas Canonical `Best` Templates (`T54`–`T67` + `T79` 4-Tier Spine Archetype)**:
-  - `T79` hosts all `23` Canonical 4-Tier Spine Topic Variants on disk and in `T79.topic_posts` (`T01, T53, T68–T78, T80–T89`, including newly minted `T85`–`T89`), with `38` live Google Slides decks in `data/template_google_slides_manifest.json`.
+  - `T79` hosts all `23` Canonical 4-Tier Spine Topic Variants on disk and in `T79.topic_posts` (`T01, T53, T68–T78, T80–T89`, including newly minted `T85`–`T89`), with all **`139/139` live Google Slides decks (`116` main templates + `23` `T79` variants)** persisted in `data/template_google_slides_manifest.json` and `assets/template-gallery/gallery_manifest.json`.
 - **`24` Kept `Gen-4` Sculptural `Best` Templates** (`T90`..`T195`).
 - **`33` Refactored `Gen-5` Open-Drafting-Grid `Best` Templates** (`T95`..`T207`).
 - **`44` Certified `High` Templates** (`T92`..`T209`).
@@ -68,7 +68,7 @@ python3 scripts/verify_all_repos.py
 # 2. Run Daily Top-5 Editorial + 13-Channel Compliant Outbox Workflow
 python3 scripts/run_daily_editorial_workflow.py
 
-# 3. Run unit tests (23/23), inked-pixel arrow-label centering gate (T69-T89) & Puppeteer E2E + WCAG 2.2 suite (22/22)
+# 3. Run unit tests (28/28), inked-pixel arrow-label centering gate (T69-T89) & Puppeteer E2E + WCAG 2.2 suite (22/22)
 STUDIO_TEST_MODE=1 python3 -m unittest discover -s tests -p "test_*.py" -v
 node scripts/verify_arrow_label_inked_pixel_centering.mjs
 node scripts/e2e_puppeteer_functional_suite.mjs

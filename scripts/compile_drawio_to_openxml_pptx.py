@@ -612,7 +612,7 @@ def compile_drawio_to_pptx(tid: str, title: str) -> Tuple[Path, bytes, int]:
 
     GALLERY_DIR.mkdir(parents=True, exist_ok=True)
     out_pptx = GALLERY_DIR / f"{tid}.pptx"
-    with zipfile.ZipFile(out_pptx, "w", zipfile.ZIP_DEFLATED) as zf:
+    with zipfile.ZipFile(out_pptx, "w", zipfile.ZIP_STORED) as zf:
         ct_overrides = [
             '<Override PartName="/ppt/presentation.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml"/>',
             '<Override PartName="/ppt/slideMasters/slideMaster1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slideMaster+xml"/>',

@@ -340,6 +340,59 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
             self.assertTrue((WORKSPACE_ROOT / "assets" / "multi-platform" / iid / "walkthrough_16x9.mp4").exists())
             self.assertTrue((WORKSPACE_ROOT / "assets" / "multi-platform" / iid / "vertical_short_9x16.mp4").exists())
 
+    def test_11_all_139_templates_and_flow_presets_drawio_pptx_and_google_slides_ready(self) -> None:
+        import xml.etree.ElementTree as ET
+        import zipfile
+        from src.visuals.step_by_step_flow_animator import render_step_flow_bundle
+
+        gallery_dir = WORKSPACE_ROOT / "assets" / "template-gallery"
+        manifest = json.loads((gallery_dir / "gallery_manifest.json").read_text(encoding="utf-8"))
+        templates = manifest.get("templates", [])
+        self.assertEqual(len(templates), 116)
+
+        all_checked_ids = []
+        for t in templates:
+            tid = t["id"]
+            all_checked_ids.append(tid)
+            self.assertTrue(
+                str(t.get("google_slides_url") or "").startswith("https://docs.google.com/presentation/d/"),
+                f"Missing google_slides_url for {tid}",
+            )
+            drawio_path = gallery_dir / t["files"]["drawio"]
+            pptx_path = gallery_dir / t["files"]["pptx"]
+            self.assertTrue(drawio_path.exists(), f"Missing .drawio for {tid}")
+            self.assertTrue(pptx_path.exists(), f"Missing .pptx for {tid}")
+            root = ET.fromstring(drawio_path.read_text(encoding="utf-8"))
+            self.assertEqual(root.tag, "mxfile", f"Invalid .drawio XML root for {tid}")
+            with zipfile.ZipFile(pptx_path, "r") as zf:
+                slide_xml = zf.read("ppt/slides/slide1.xml").decode("utf-8", errors="ignore")
+                self.assertNotIn("SEPTEMBER 2026", slide_xml, f"Stale month in {pptx_path.name}")
+                self.assertIn("NOVEMBER 2026", slide_xml.upper(), f"Missing November 2026 in {pptx_path.name}")
+                self.assertIn("NITIN AGGARWAL", slide_xml.upper(), f"Missing author in {pptx_path.name}")
+
+            for tp in t.get("topic_posts", []):
+                v_id = tp["id"]
+                all_checked_ids.append(v_id)
+                self.assertTrue(
+                    str(tp.get("google_slides_url") or "").startswith("https://docs.google.com/presentation/d/"),
+                    f"Missing google_slides_url for {v_id}",
+                )
+                self.assertTrue((gallery_dir / tp["files"]["drawio"]).exists())
+                self.assertTrue((gallery_dir / tp["files"]["pptx"]).exists())
+
+        self.assertEqual(len(all_checked_ids), 139)
+
+        for preset_id in ("FLOW-01", "FLOW-02", "FLOW-03", "FLOW-04"):
+            bundle = render_step_flow_bundle(preset_id=preset_id, theme="light", compile_gif=False)
+            self.assertTrue(str(bundle.get("drawio_url") or "").endswith(".drawio"))
+            self.assertTrue(str(bundle.get("pptx_url") or "").endswith(".pptx"))
+            self.assertTrue(
+                str(bundle.get("google_slides_url") or "").startswith("https://docs.google.com/presentation/d/")
+            )
+            drawio_file = WORKSPACE_ROOT / bundle["drawio_url"].lstrip("/")
+            self.assertTrue(drawio_file.exists())
+            self.assertEqual(ET.fromstring(drawio_file.read_text(encoding="utf-8")).tag, "mxfile")
+
 
 if __name__ == "__main__":
     unittest.main()

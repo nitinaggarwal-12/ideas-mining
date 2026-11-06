@@ -3718,6 +3718,14 @@ document.addEventListener("DOMContentLoaded", () => {
       setTraceVizMode(mode);
     });
   });
+  document.querySelectorAll("#continuum-stage-bar [data-continuum-stage]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const stg = btn.getAttribute("data-continuum-stage") || "L3";
+      setContinuumStage(stg);
+    });
+  });
+  document.getElementById("continuum-prev-btn")?.addEventListener("click", () => stepContinuumStage(-1));
+  document.getElementById("continuum-next-btn")?.addEventListener("click", () => stepContinuumStage(1));
   document.getElementById("refresh-live-feeds-btn")?.addEventListener("click", () => {
     refreshLiveFeeds();
     showToast("Refreshed live arXiv & GitHub signals");
@@ -3766,6 +3774,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const reqViz = params.get("viz");
   const reqPath = params.get("path");
   const reqSubtab = params.get("subtab");
+  const reqContinuum = params.get("continuum");
 
   if (reqPreset) {
     const pSel = document.getElementById("step-flow-preset-select");
@@ -3782,6 +3791,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   if (reqViz) {
     setTraceVizMode(reqViz);
+  }
+  if (reqContinuum) {
+    setContinuumStage(reqContinuum.toUpperCase());
   }
 
   loadWorkspaceData();
@@ -3802,12 +3814,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     const btnId = subMap[reqSubtab] || reqSubtab;
     document.getElementById(btnId)?.click();
-  } else if (reqSubtab === "radar" || reqViz || reqPreset) {
+  } else if (reqSubtab === "radar" || reqViz || reqPreset || reqContinuum) {
     document.getElementById("miner-subtab-btn-radar")?.click();
     setTimeout(() => {
-      const targetEl = reqViz
-        ? document.getElementById("step-flow-trace-player")
-        : document.getElementById("step-by-step-flow-studio-card");
+      const targetEl = reqContinuum
+        ? document.getElementById("static-to-dynamic-continuum-card")
+        : reqViz
+          ? document.getElementById("step-flow-trace-player")
+          : document.getElementById("step-by-step-flow-studio-card");
       targetEl?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 250);
   }
@@ -3890,6 +3904,405 @@ function renderStepFlowBundle(bundle) {
     renderTraceWaterfallAtTime(TRACE_PLAYER.currentMs);
     startTracePlayerLoop();
   }
+
+  renderContinuumStageInspector();
+}
+
+const CONTINUUM_STAGE_ORDER = ["L0", "L1", "L2", "L3", "L4", "L5", "L6"];
+const CONTINUUM_STATE = {
+  activeStage: "L3",
+  l1SlideIdx: 0,
+  l6Artifact: "Artifact B",
+  l6Env: "production",
+  l6Fresh: true,
+  l6Unused: true,
+};
+
+const CONTINUUM_STAGE_META = {
+  L0: {
+    badge: "L0 · Pure Static Poster (0 Hz · Simultaneous Spatial View)",
+    dimension: "Spatial Topology (x, y) — Zero Motion",
+    artifact: "@2x Retina PNG (1080×1350) + Static PDF Brief",
+    compiler: "Renders Canonical Scene-Graph with motion=off, opacity=1.0 across all 5 architectural zones.",
+    whenToUse: "Executive PDF handouts, fast <2s scroll-stop scan, print/Substack static embeds.",
+  },
+  L1: {
+    badge: "L1 · 4-Step Progressive Reveal Carousel (Discrete Paged Build)",
+    dimension: "Discrete Ordinal Sequence (Step 1/4 → 4/4)",
+    artifact: "8-Slide 4:5 Native PDF Carousel + Interactive Step-Through Deck",
+    compiler: "Slices the Scene-Graph by phase_index=1..4, spotlighting 1 active zone per card while dimming future hops.",
+    whenToUse: "LinkedIn Native PDF Carousels, Instagram Carousels, progressive slide build-animations.",
+  },
+  L2: {
+    badge: "L2 · Ambient Vector Micro-Motion (<25 KB CSS/SMIL SVG)",
+    dimension: "Continuous Directional Velocity (dx/dt)",
+    artifact: "Lightweight Vector SVG with Marching-Ant Conduits & Gate Pulse",
+    compiler: "Injects CSS stroke-dashoffset keyframes along directed edges and radial glow on the enforcement point.",
+    whenToUse: "Engineering blogs, GitHub READMEs, Substack/DEV.to articles with infinite Retina zoom.",
+  },
+  L3: {
+    badge: "L3 · Choreographed 4:5 GIF89a State-Machine Loop (15–30 fps)",
+    dimension: "Autonomous State Transitions (Phase 0..3 over 6–12s Loop)",
+    artifact: "1080×1350 Looping GIF89a (<=12 MB, Bayer Dithered)",
+    compiler: "Samples Scene-Graph across 12–180 keyframes, animates packet tokens ①..⑧, and compiles via Chrome + FFmpeg paletteuse.",
+    whenToUse: "#1 LinkedIn Feed Format (69.9% avg comment ratio) — auto-loops inline on mobile with zero click.",
+  },
+  L4: {
+    badge: "L4 · Synchronized Multi-Track Cinema (H.264 MP4 + Voiceover)",
+    dimension: "Synchronized Audio + Video Timeline + Clause Captions",
+    artifact: "1080×1350 (4:5) & 1080×1920 (9:16) H.264 MP4 + 155 WPM Script",
+    compiler: "Muxes 30fps H.264 yuv420p stream with clause-timed narration beats and burned-in gold karaoke captions.",
+    whenToUse: "YouTube Shorts, Reels, TikTok, X Native Video, LinkedIn Mobile Video Tab.",
+  },
+  L5: {
+    badge: "L5 · Interactive Time-Travel & Branch Debugger (t=0..320ms)",
+    dimension: "User-Controlled Time (Scrubber) + Branch Mutation (ALLOW ⇄ DENY)",
+    artifact: "60fps DOM/SVG Dual Swimlane + Gantt Waterfall + Live JSON Span Inspector",
+    compiler: "Binds the post's execution_trace DAG to a real-time playhead scrubber comparing Serial (320ms) vs Parallel ×4 (165ms).",
+    whenToUse: "Interactive engineering deep-dives, Comment #1 live replay links, architecture reviews.",
+  },
+  L6: {
+    badge: "L6 · Live Executable Policy & ADK Sandbox (Interactive Compute)",
+    dimension: "Live Computation & Verifiable State (Input Mutation → Gate Execution)",
+    artifact: "Live Out-of-Loop Temporal Policy Evaluator + Runnable ADK Repository",
+    compiler: "Executes the 4 deterministic temporal policy rules against user-mutated tool parameters and emits a signed audit receipt.",
+    whenToUse: "Staff/Principal engineer validation, hands-on codelabs, customer PoCs, OpenHands verification.",
+  },
+};
+
+function setContinuumStage(stageId) {
+  const clean = CONTINUUM_STAGE_ORDER.includes(stageId) ? stageId : "L3";
+  CONTINUUM_STATE.activeStage = clean;
+  document.querySelectorAll("#continuum-stage-bar [data-continuum-stage]").forEach((btn) => {
+    const isAct = btn.getAttribute("data-continuum-stage") === clean;
+    btn.classList.toggle("active", isAct);
+    btn.setAttribute("aria-selected", isAct ? "true" : "false");
+  });
+  renderContinuumStageInspector();
+}
+
+function stepContinuumStage(delta) {
+  const idx = CONTINUUM_STAGE_ORDER.indexOf(CONTINUUM_STATE.activeStage);
+  const nextIdx = (idx + delta + CONTINUUM_STAGE_ORDER.length) % CONTINUUM_STAGE_ORDER.length;
+  setContinuumStage(CONTINUUM_STAGE_ORDER[nextIdx]);
+}
+
+function renderContinuumStageInspector() {
+  const box = document.getElementById("continuum-stage-inspector");
+  if (!box) return;
+  box.replaceChildren();
+
+  const stg = CONTINUUM_STATE.activeStage || "L3";
+  const meta = CONTINUUM_STAGE_META[stg] || CONTINUUM_STAGE_META.L3;
+  const bundle = STATE.activeStepFlowBundle || {};
+  const spec = bundle.spec || {};
+
+  const badgeEl = document.getElementById("continuum-active-stage-badge");
+  if (badgeEl) badgeEl.textContent = meta.badge;
+
+  // Synchronize the main left-hand visual preview image with the active continuum level!
+  const previewImg = document.getElementById("step-flow-preview-img");
+  const visLbl = document.getElementById("step-flow-visual-label");
+  if (previewImg) {
+    if (stg === "L0" && bundle.png_url) {
+      previewImg.src = safeUrl(bundle.png_url);
+      if (visLbl) visLbl.textContent = "L0 · Pure Static Retina PNG Snapshot (0 Hz)";
+    } else if (stg === "L3" && bundle.gif_url) {
+      previewImg.src = safeUrl(bundle.gif_url);
+      if (visLbl) visLbl.textContent = "L3 · Native 4:5 Looping GIF89a State Machine";
+    } else if (bundle.svg_url) {
+      previewImg.src = safeUrl(bundle.svg_url);
+      if (visLbl) visLbl.textContent = `${stg} · 4:5 Vector State-Machine Blueprint`;
+    }
+  }
+
+  // Top Metadata Spec Strip for the selected stage
+  const metaGrid = mkEl("div", "platform-playbook-grid");
+  metaGrid.style.marginBottom = "12px";
+  [
+    ["Unlocked Dynamic Dimension", meta.dimension],
+    ["Compiled Output Artifact", meta.artifact],
+    ["Deterministic IR Compiler Pass", meta.compiler],
+    ["Optimal Channel & Reader Mode", meta.whenToUse],
+  ].forEach(([lbl, val]) => {
+    const cell = mkEl("div", "platform-spec-box");
+    cell.append(mkEl("div", "platform-spec-label", lbl), mkEl("div", "platform-spec-text", val));
+    metaGrid.appendChild(cell);
+  });
+  box.appendChild(metaGrid);
+
+  // Stage-specific interactive experience
+  const stageArena = mkEl("div", "feed-item-card");
+  stageArena.style.cssText = "background:#f8fafc;border:1px solid #cbd5e1;padding:12px 14px;";
+
+  if (stg === "L0") {
+    const h = mkEl("strong", "", "L0 Pure Static Snapshot — Flattened t=∞ Topology");
+    h.style.cssText = "display:block;font-size:13px;color:#0f172a;margin-bottom:6px;";
+    const p = mkEl(
+      "p",
+      "",
+      `All 5 architectural zones (${spec.approved_label || "Human Approved"} vs ${spec.requested_label || "Agent Requested"} → ${spec.gateway_title || "Policy Gateway"} → ${spec.policy_title || "Temporal Policy"} → ALLOW/DENY) are rendered simultaneously at 100% opacity with zero motion. Ideal for instant <2s scanning or PDF printing.`
+    );
+    p.style.cssText = "font-size:12px;color:#334155;margin-bottom:8px;";
+    const dlLink = mkEl("a", "btn-primary", "Open Static @2x PNG Snapshot ↗");
+    dlLink.href = safeUrl(bundle.png_url || bundle.svg_url || "");
+    dlLink.target = "_blank";
+    dlLink.rel = "noopener";
+    stageArena.append(h, p, dlLink);
+  } else if (stg === "L1") {
+    const slides = [
+      {
+        step: "Step 1 of 4 · Zone 1: The Parameter-Swap Mismatch",
+        zone: `${spec.approved_label || "HUMAN APPROVED"} (${spec.approved_primary || "Artifact A"} @ ${spec.approved_secondary || "staging"}) vs. ${spec.requested_label || "AGENT REQUESTED"} (${spec.requested_primary || "Artifact B"} @ ${spec.requested_secondary || "production"})`,
+        narrative: spec.scenario_setup || "Human approves Artifact A for staging; seconds later the agent requests Artifact B for production.",
+        takeaway: "Static tool permissions ('Can this agent call deploy?') pass 100% — yet the action is unauthorized.",
+      },
+      {
+        step: "Step 2 of 4 · Zone 2: Out-of-Loop Enforcement Point",
+        zone: `${spec.gateway_title || "Policy Gateway"} (${spec.gateway_sub || "ADK BeforeToolCallback"}) intercepts the tool call BEFORE downstream execution`,
+        narrative: spec.core_question || "The policy gate evaluates the bound approval record outside the probabilistic LLM prompt.",
+        takeaway: `Enforces 4 deterministic rules: ${(spec.policy_rules || []).join(" · ")}`,
+      },
+      {
+        step: "Step 3 of 4 · Zone 3A: Parallel ×4 Verification → ALLOW Stream",
+        zone: `When all 4 temporal rules pass in parallel (135–165ms) → ${spec.exec_svc_title || "Deployment Service"} executes with idempotency key`,
+        narrative: "Parallel fan-out across Approval Lookup + 4 Rules + Model Armor + Session Ledger cuts gate latency from 88ms serial to 30ms parallel.",
+        takeaway: "Zero added human friction on valid, matching approvals.",
+      },
+      {
+        step: "Step 4 of 4 · Zone 3B & Zone 4: Circuit-Breaker DENY + 3 Built-In Pillars",
+        zone: `${spec.deny_label || "DENY: artifact or environment mismatch"} → ${spec.blocked_title || "Action blocked"} (${spec.blocked_sub || "No call made"})`,
+        narrative: `${spec.footer_takeaway || "Approval must match the action that executes."} ${spec.closing_question || ""}`,
+        takeaway: "Security (Model Armor) · Performance (Regional routing) · Cost (Prefix KV-cache).",
+      },
+    ];
+    const curIdx = CONTINUUM_STATE.l1SlideIdx % slides.length;
+    const curSlide = slides[curIdx];
+
+    const navRow = mkEl("div", "composer-section-hdr");
+    navRow.style.marginBottom = "8px";
+    const stepTitle = mkEl("strong", "", curSlide.step);
+    stepTitle.style.cssText = "font-size:13px;color:#1e40af;";
+    const btnGroup = mkEl("div", "studio-toolbar-actions");
+    const prevS = mkEl("button", "btn-secondary", "◀ Prev Slide");
+    prevS.type = "button";
+    prevS.addEventListener("click", () => {
+      CONTINUUM_STATE.l1SlideIdx = (curIdx - 1 + slides.length) % slides.length;
+      renderContinuumStageInspector();
+    });
+    const nextS = mkEl("button", "btn-primary", "Next Slide ▶");
+    nextS.type = "button";
+    nextS.addEventListener("click", () => {
+      CONTINUUM_STATE.l1SlideIdx = (curIdx + 1) % slides.length;
+      renderContinuumStageInspector();
+    });
+    btnGroup.append(prevS, nextS);
+    navRow.append(stepTitle, btnGroup);
+
+    const zBox = mkEl("div", "", `Spotlighted Architecture Zone: ${curSlide.zone}`);
+    zBox.style.cssText = "font-size:12px;font-weight:700;color:#0f172a;margin-bottom:4px;";
+    const nBox = mkEl("div", "", curSlide.narrative);
+    nBox.style.cssText = "font-size:12px;color:#334155;margin-bottom:4px;";
+    const tBox = mkEl("div", "", `Slide Takeaway: ${curSlide.takeaway}`);
+    tBox.style.cssText = "font-size:11.5px;font-weight:700;color:#065f46;";
+    stageArena.append(navRow, zBox, nBox, tBox);
+  } else if (stg === "L2") {
+    const h = mkEl("strong", "", "L2 Ambient Vector Micro-Motion (<25 KB SVG with CSS Keyframes)");
+    h.style.cssText = "display:block;font-size:13px;color:#0f172a;margin-bottom:6px;";
+    const p = mkEl(
+      "p",
+      "",
+      "The left canvas is now rendering the live vector SVG with CSS marching-ant conduits (stroke-dashoffset) and pulsing status nodes. Readers get instant directional flow cues at infinite Retina resolution without downloading a multi-megabyte video."
+    );
+    p.style.cssText = "font-size:12px;color:#334155;margin-bottom:8px;";
+    const openSvg = mkEl("a", "btn-primary", "Inspect Live Animated Vector SVG ↗");
+    openSvg.href = safeUrl(bundle.svg_url || "");
+    openSvg.target = "_blank";
+    openSvg.rel = "noopener";
+    stageArena.append(h, p, openSvg);
+  } else if (stg === "L3") {
+    const h = mkEl("strong", "", "L3 Choreographed 4:5 GIF89a State-Machine Loop (LinkedIn Feed Champion)");
+    h.style.cssText = "display:block;font-size:13px;color:#0f172a;margin-bottom:6px;";
+    const p = mkEl(
+      "p",
+      "",
+      "The left canvas is now displaying the compiled 1080×1350 GIF89a loop cycling automatically through Phase 1 (Mismatch Ingress) → Phase 2 (Gateway + 4 Temporal Rules) → Phase 3 (ALLOW Stream) → Phase 4 (Circuit-Breaker DENY). Auto-plays inline on LinkedIn mobile with zero click."
+    );
+    p.style.cssText = "font-size:12px;color:#334155;margin-bottom:8px;";
+    const dlGif = mkEl("a", "btn-primary", "Download 4:5 Animated .GIF (1080×1350)");
+    dlGif.href = safeUrl(bundle.gif_url || bundle.svg_url || "");
+    dlGif.setAttribute("download", "");
+    stageArena.append(h, p, dlGif);
+  } else if (stg === "L4") {
+    const h = mkEl("strong", "", "L4 Synchronized H.264 MP4 Cinema + Clause-Timed Narration Track");
+    h.style.cssText = "display:block;font-size:13px;color:#0f172a;margin-bottom:8px;";
+    const split = mkEl("div", "composer-split-layout");
+    split.style.alignItems = "start";
+
+    const vidWrap = mkEl("div");
+    if (bundle.mp4_url) {
+      const vid = document.createElement("video");
+      vid.src = safeUrl(bundle.mp4_url);
+      vid.controls = true;
+      vid.autoplay = true;
+      vid.loop = true;
+      vid.muted = true;
+      vid.playsInline = true;
+      vid.style.cssText = "width:100%;max-width:280px;border-radius:8px;border:1px solid #cbd5e1;background:#0f172a;display:block;";
+      vidWrap.appendChild(vid);
+    }
+
+    const scriptBox = mkEl("div");
+    [
+      ["00:00 – 00:08 · Beat 1 (Hook & Mismatch)", spec.hook_line_1 || "Your AI agent can use an approved tool to perform an unapproved action."],
+      ["00:08 – 00:19 · Beat 2 (Parameter Swap)", spec.scenario_setup || "Human approves Artifact A for staging; agent requests Artifact B for production."],
+      ["00:19 – 00:32 · Beat 3 (Out-of-Loop Gate)", `At t=135ms, ${spec.gateway_title || "Policy Gateway"} fans out across 4 parallel temporal rules in 30ms.`],
+      ["00:32 – 00:45 · Beat 4 (Verdict & Takeaway)", `${spec.footer_takeaway || "Approval must match the action that executes."} ${spec.footer_sub || ""}`],
+    ].forEach(([tc, line]) => {
+      const row = mkEl("div", "platform-spec-box");
+      row.style.marginBottom = "6px";
+      row.append(mkEl("div", "platform-spec-label", tc), mkEl("div", "platform-spec-text", line));
+      scriptBox.appendChild(row);
+    });
+    split.append(vidWrap, scriptBox);
+    stageArena.append(h, split);
+  } else if (stg === "L5") {
+    const h = mkEl("strong", "", "L5 Interactive Time-Travel Scrubber & Serial-vs-Parallel Debugger (t = 0..320ms)");
+    h.style.cssText = "display:block;font-size:13px;color:#0f172a;margin-bottom:6px;";
+    const p = mkEl(
+      "p",
+      "",
+      "Use the interactive 60fps Trace Player directly below to scrub across t=0..320ms, switch between the 7 visualization modes (Dual Waterfall, Split CLI, FSM, OTel, Sequence Diagram, 3D Stack), or toggle Happy Path (ALLOW) vs Attack Path (DENY)."
+    );
+    p.style.cssText = "font-size:12px;color:#334155;margin-bottom:8px;";
+    const actRow = mkEl("div", "studio-toolbar-actions");
+    const btnAllow = mkEl("button", "btn-secondary", "Jump to t=150ms Parallel Fan-Out (ALLOW)");
+    btnAllow.type = "button";
+    btnAllow.addEventListener("click", () => {
+      TRACE_PLAYER.pathMode = "allow";
+      TRACE_PLAYER.currentMs = 150;
+      const pSel = document.getElementById("trace-player-path-select");
+      if (pSel) pSel.value = "allow";
+      renderTraceWaterfallAtTime(150);
+      document.getElementById("step-flow-trace-player")?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    const btnDeny = mkEl("button", "btn-primary", "Inject Parameter Swap @ t=165ms (DENY)");
+    btnDeny.type = "button";
+    btnDeny.addEventListener("click", () => {
+      TRACE_PLAYER.pathMode = "deny";
+      TRACE_PLAYER.currentMs = 175;
+      const pSel = document.getElementById("trace-player-path-select");
+      if (pSel) pSel.value = "deny";
+      renderTraceWaterfallAtTime(175);
+      document.getElementById("step-flow-trace-player")?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    actRow.append(btnAllow, btnDeny);
+    stageArena.append(h, p, actRow);
+  } else if (stg === "L6") {
+    const h = mkEl("strong", "", "L6 Live Executable Out-of-Loop Policy Sandbox — Mutate Inputs & Run Gate");
+    h.style.cssText = "display:block;font-size:13px;color:#0f172a;margin-bottom:8px;";
+
+    const controlsRow = mkEl("div", "studio-toolbar");
+    controlsRow.style.marginBottom = "10px";
+
+    const artSel = document.createElement("select");
+    artSel.className = "select-light";
+    [
+      ["Artifact A", "Requested: Artifact A (Matches Approval ✓)"],
+      ["Artifact B", "Requested: Artifact B (Parameter Swap ✕)"],
+    ].forEach(([val, lbl]) => {
+      const opt = mkEl("option", "", lbl);
+      opt.value = val;
+      if (CONTINUUM_STATE.l6Artifact === val) opt.selected = true;
+      artSel.appendChild(opt);
+    });
+    artSel.addEventListener("change", () => {
+      CONTINUUM_STATE.l6Artifact = artSel.value;
+      renderContinuumStageInspector();
+    });
+
+    const envSel = document.createElement("select");
+    envSel.className = "select-light";
+    [
+      ["staging", "Target Env: staging (Matches Approval ✓)"],
+      ["production", "Target Env: production (Env Escalation ✕)"],
+    ].forEach(([val, lbl]) => {
+      const opt = mkEl("option", "", lbl);
+      opt.value = val;
+      if (CONTINUUM_STATE.l6Env === val) opt.selected = true;
+      envSel.appendChild(opt);
+    });
+    envSel.addEventListener("change", () => {
+      CONTINUUM_STATE.l6Env = envSel.value;
+      renderContinuumStageInspector();
+    });
+
+    const ttlBtn = mkEl(
+      "button",
+      CONTINUUM_STATE.l6Fresh ? "btn-secondary" : "btn-primary",
+      CONTINUUM_STATE.l6Fresh ? "TTL: Fresh (14s < 300s ✓)" : "TTL: Expired (920s > 300s ✕)"
+    );
+    ttlBtn.type = "button";
+    ttlBtn.addEventListener("click", () => {
+      CONTINUUM_STATE.l6Fresh = !CONTINUUM_STATE.l6Fresh;
+      renderContinuumStageInspector();
+    });
+
+    const nonceBtn = mkEl(
+      "button",
+      CONTINUUM_STATE.l6Unused ? "btn-secondary" : "btn-primary",
+      CONTINUUM_STATE.l6Unused ? "1-Shot Nonce: UNUSED ✓" : "1-Shot Nonce: REPLAYED ✕"
+    );
+    nonceBtn.type = "button";
+    nonceBtn.addEventListener("click", () => {
+      CONTINUUM_STATE.l6Unused = !CONTINUUM_STATE.l6Unused;
+      renderContinuumStageInspector();
+    });
+
+    const matchPresetBtn = mkEl("button", "btn-primary", "Set Valid Approval (All 4 Pass)");
+    matchPresetBtn.type = "button";
+    matchPresetBtn.addEventListener("click", () => {
+      CONTINUUM_STATE.l6Artifact = "Artifact A";
+      CONTINUUM_STATE.l6Env = "staging";
+      CONTINUUM_STATE.l6Fresh = true;
+      CONTINUUM_STATE.l6Unused = true;
+      renderContinuumStageInspector();
+    });
+
+    controlsRow.append(artSel, envSel, ttlBtn, nonceBtn, matchPresetBtn);
+
+    const r1 = CONTINUUM_STATE.l6Artifact === "Artifact A";
+    const r2 = CONTINUUM_STATE.l6Env === "staging";
+    const r3 = CONTINUUM_STATE.l6Fresh;
+    const r4 = CONTINUUM_STATE.l6Unused;
+    const allPass = r1 && r2 && r3 && r4;
+
+    const receipt = {
+      gate: spec.gateway_title || "ADK BeforeToolCallback Policy Gateway",
+      approved_context: { artifact: "Artifact A", environment: "staging", max_ttl_sec: 300, one_shot: true },
+      agent_tool_call: {
+        tool: "deploy_release",
+        requested_artifact: CONTINUUM_STATE.l6Artifact,
+        requested_environment: CONTINUUM_STATE.l6Env,
+        token_age_sec: r3 ? 14 : 920,
+        nonce_state: r4 ? "UNUSED" : "ALREADY_CONSUMED",
+      },
+      parallel_rule_checks_30ms: {
+        rule_1_artifact_match: r1 ? "PASS ✓" : "FAIL ✕ (Artifact B != Artifact A)",
+        rule_2_environment_match: r2 ? "PASS ✓" : "FAIL ✕ (production != staging)",
+        rule_3_approval_fresh: r3 ? "PASS ✓" : "FAIL ✕ (TTL expired)",
+        rule_4_one_shot_unused: r4 ? "PASS ✓" : "FAIL ✕ (Replay attack blocked)",
+      },
+      verdict: allPass ? "ALLOW — Execute Authorized Deployment (265ms e2e)" : "DENY — Circuit-Breaker Halted Tool Call (165ms e2e, 0 downstream side-effects)",
+    };
+
+    const pre = mkEl("pre", "tabular-nums", JSON.stringify(receipt, null, 2));
+    pre.style.cssText = `font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;padding:10px;border-radius:8px;border:1px solid ${allPass ? "#10b981" : "#ef4444"};background:#ffffff;color:#0f172a;overflow-x:auto;margin:0;`;
+
+    stageArena.append(h, controlsRow, pre);
+  }
+
+  box.appendChild(stageArena);
 }
 
 const TRACE_PLAYER = {

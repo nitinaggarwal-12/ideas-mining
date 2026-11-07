@@ -8,7 +8,7 @@ function mkEl(tag, className, text) {
   return el;
 }
 
-const ASSET_CACHE_BUST = "20261106c";
+const ASSET_CACHE_BUST = "20261107a";
 
 function safeUrl(rawUrl) {
   const s = String(rawUrl || "").trim();
@@ -85,6 +85,7 @@ const STATE = {
   previewPackagesByPlatform: {},
   activeCarouselIndex: 0,
   mockupCopyExpanded: false,
+  composerCopyExpanded: false,
   showSafeZoneOverlay: true,
   cmdkActiveIdx: 0,
   cmdkFilteredItems: [],
@@ -2690,6 +2691,66 @@ async function approveOutboxItems(outboxIds) {
   }
 }
 
+const SHORT_PLATFORM_TAB_LABELS = {
+  linkedin: "LinkedIn",
+  telegram: "Telegram",
+  youtube: "YouTube",
+  youtube_shorts: "Shorts",
+  instagram: "Instagram",
+  facebook: "Facebook",
+  tiktok: "TikTok",
+  whatsapp: "WhatsApp",
+  devto: "Dev.to",
+  hashnode: "Hashnode",
+  bluesky: "Bluesky",
+  x: "X",
+  substack: "Substack",
+};
+
+function shortenClusterLabel(raw) {
+  const s = String(raw || "").trim();
+  if (/LLM Serving|KV-Cache|Speculative/i.test(s)) return "KV-Cache & Routing";
+  if (/FinOps|ROI|Governance/i.test(s)) return "FinOps & Governance";
+  if (/Coding|Harnesses|Software/i.test(s)) return "Coding Harnesses";
+  if (/MCP|Zero-Trust|OAuth/i.test(s)) return "MCP & Zero-Trust";
+  if (/Multi-Agent|GraphRAG|Context/i.test(s)) return "Multi-Agent & Context";
+  if (/Reliability|Tool-Calling|Production/i.test(s)) return "Agentic Reliability";
+  return s.length > 24 ? `${s.slice(0, 22)}…` : s;
+}
+
+function extractIdeaTldrChips(idea, activeTpl) {
+  const chips = [];
+  const impact = String(idea.metrics_hint || idea.summary || "");
+  const pctMatch = impact.match(/([+-]?\d+(?:\.\d+)?%\s+[A-Za-z -]{3,22})/);
+  const latMatch = impact.match(/(<\s*\d+(?:\.\d+)?(?:ms|s)\s+[A-Za-z0-9 -]{2,18})/i);
+  if (pctMatch) {
+    const cleanPct = pctMatch[1]
+      .trim()
+      .replace(/\s+(?:while|with|across|in|for|by|on|at|to|and|or|from)$/i, "")
+      .trim();
+    chips.push({ icon: "⚡", text: cleanPct, tone: "emerald" });
+  } else {
+    chips.push({ icon: "⚡", text: `Demand ${idea.scores?.demand_score ?? 95}/100`, tone: "emerald" });
+  }
+  if (latMatch) {
+    const cleanLat = latMatch[1]
+      .trim()
+      .replace(/\s+(?:while|with|across|in|for|by|on|at|to|and|or|from)$/i, "")
+      .trim();
+    chips.push({ icon: "🎯", text: cleanLat, tone: "blue" });
+  } else {
+    chips.push({ icon: "🎯", text: shortenClusterLabel(idea.cluster_label), tone: "blue" });
+  }
+  if (activeTpl?.template_id) {
+    chips.push({
+      icon: "📐",
+      text: `${activeTpl.template_id} · ${activeTpl.angle_label || formatModeDisplayName(STATE.selectedMode)}`,
+      tone: "slate",
+    });
+  }
+  return chips;
+}
+
 function renderTop5EditorialDesk() {
   const ideasCol = document.getElementById("top5-ideas-column");
   const workbench = document.getElementById("top5-active-workbench");
@@ -2706,7 +2767,7 @@ function renderTop5EditorialDesk() {
     return;
   }
 
-  // Column 1: 5 Ranked Signal Cards
+  // Column 1: 5 Ranked Signal Cards (Linear-style compact signal list)
   ideas.forEach((idea, idx) => {
     const isAct = idea.id === STATE.selectedIdeaId;
     const card = mkEl("button", `top5-idea-card${isAct ? " active" : ""}`);
@@ -2714,7 +2775,9 @@ function renderTop5EditorialDesk() {
     card.setAttribute("data-testid", `top5-idea-card-${idx + 1}`);
 
     const metaRow = mkEl("div", "idea-card-meta-row");
-    metaRow.appendChild(mkEl("span", "idea-rank-cluster tabular-nums", `0${idea.rank} · ${idea.cluster_label}`));
+    metaRow.appendChild(
+      mkEl("span", "idea-rank-cluster tabular-nums", `0${idea.rank} · ${shortenClusterLabel(idea.cluster_label)}`)
+    );
     metaRow.appendChild(
       mkEl("span", "idea-demand-score tabular-nums", `${idea.scores?.demand_score ?? 94}`)
     );
@@ -2734,6 +2797,7 @@ function renderTop5EditorialDesk() {
       STATE.selectedMode = idea.default_recommended_mode || "Carousel";
       STATE.activeCarouselIndex = 0;
       STATE.mockupCopyExpanded = false;
+      STATE.composerCopyExpanded = false;
       renderTop5EditorialDesk();
       await refreshPlatformPreviewPackages();
     });
@@ -2744,25 +2808,35 @@ function renderTop5EditorialDesk() {
   const activeTpl = getActiveTop5Template(activeIdea);
   if (!activeIdea || !activeTpl) return;
 
-  // Column 2: Center Editorial & Visual Blueprint Composer
+  // Column 2: Center Visual Stage (Canva Magic Studio + Gamma Pattern)
   const ideaHdr = mkEl("div", "composer-idea-header");
   const kickerRow = mkEl("div", "composer-idea-kicker");
   kickerRow.appendChild(
     mkEl("span", "", polishUiTypography(`SIGNAL 0${activeIdea.rank} · ${activeIdea.source_channel}`))
   );
-  const srcA = mkEl("a", "eyebrow-link", "Primary Source ↗");
+  const srcA = mkEl("a", "eyebrow-link", "Source ↗");
   srcA.href = safeUrl(activeIdea.primary_url);
   srcA.target = "_blank";
   srcA.rel = "noopener";
   kickerRow.appendChild(srcA);
   ideaHdr.appendChild(kickerRow);
   ideaHdr.appendChild(mkEl("h2", "composer-idea-title", polishUiTypography(activeIdea.title)));
+
+  // Canva/Gamma 3-Chip Visual TL;DR Bar (replaces dense paragraph in Creator mode)
+  const tldrRow = mkEl("div", "composer-tldr-chip-row");
+  extractIdeaTldrChips(activeIdea, activeTpl).forEach((c) => {
+    const pill = mkEl("span", `composer-tldr-chip tone-${c.tone}`, `${c.icon} ${polishUiTypography(c.text)}`);
+    tldrRow.appendChild(pill);
+  });
+  ideaHdr.appendChild(tldrRow);
+
+  // Retained for Builder/Executive deep-read mode
   ideaHdr.appendChild(
     mkEl("p", "composer-idea-impact", polishUiTypography(activeIdea.metrics_hint || activeIdea.summary))
   );
   workbench.appendChild(ideaHdr);
 
-  // Step 1: Visual 5-Blueprint Thumbnail Strip
+  // Step 1: Canva-Style Visual Blueprint Stage + 5-Thumbnail Switcher
   const step1 = mkEl("div", "composer-section");
   const s1Hdr = mkEl("div", "composer-section-hdr");
   s1Hdr.appendChild(mkEl("span", "composer-step-title", "1. Visual Blueprint"));
@@ -2806,10 +2880,7 @@ function renderTop5EditorialDesk() {
     s1Actions.appendChild(a);
   });
 
-  const zoomBtn = mkEl("button", "btn-secondary", `Full Size (${activeTpl.template_id})`);
-  zoomBtn.type = "button";
-  zoomBtn.style.cssText = "min-height:28px;padding:3px 9px;font-size:11.5px;white-space:nowrap;";
-  zoomBtn.addEventListener("click", () => {
+  const openActiveBlueprintLightbox = () => {
     const lbActions = [];
     if (activeGslidesUrl) {
       lbActions.push({
@@ -2837,10 +2908,15 @@ function renderTop5EditorialDesk() {
     openLightbox({
       kicker: `${activeTpl.template_id} · ${activeTpl.angle_label || "CERTIFIED BLUEPRINT"}`,
       title: `${activeTpl.template_id} — ${activeTpl.name}`,
-      imgUrl: `${activeSvgUrl}?v=20261106c`,
+      imgUrl: safeUrl(activeSvgUrl),
       actions: lbActions,
     });
-  });
+  };
+
+  const zoomBtn = mkEl("button", "btn-secondary", `🔍 Zoom ${activeTpl.template_id}`);
+  zoomBtn.type = "button";
+  zoomBtn.style.cssText = "min-height:28px;padding:3px 9px;font-size:11.5px;white-space:nowrap;";
+  zoomBtn.addEventListener("click", openActiveBlueprintLightbox);
   s1Actions.appendChild(zoomBtn);
   s1Hdr.appendChild(s1Actions);
   step1.appendChild(s1Hdr);
@@ -2849,6 +2925,23 @@ function renderTop5EditorialDesk() {
   if (builderSiso) {
     builderSiso.textContent = `${activeTpl.template_id} · Score ${activeTpl.match_score || "99.2"}`;
   }
+
+  // Canva-Style Center Artboard Stage (shows the active blueprint at crisp scale)
+  const heroArtboard = mkEl("div", "composer-blueprint-hero-stage");
+  heroArtboard.setAttribute("data-testid", "composer-blueprint-hero-stage");
+  heroArtboard.title = "Click to inspect full-resolution blueprint (@2x)";
+  const heroImg = document.createElement("img");
+  heroImg.src = safeUrl(activeSvgUrl);
+  heroImg.alt = `${activeTpl.template_id} — ${activeTpl.name} active visual blueprint`;
+  heroArtboard.appendChild(heroImg);
+  const heroOverlayPill = mkEl(
+    "span",
+    "composer-blueprint-hero-pill",
+    `${activeTpl.template_id} · ${activeTpl.name} · Click to Zoom`
+  );
+  heroArtboard.appendChild(heroOverlayPill);
+  heroArtboard.addEventListener("click", openActiveBlueprintLightbox);
+  step1.appendChild(heroArtboard);
 
   const bpGrid = mkEl("div", "top5-blueprint-grid");
   bpGrid.setAttribute("data-testid", "top5-template-pills");
@@ -2861,7 +2954,7 @@ function renderTop5EditorialDesk() {
 
     const frame = mkEl("div", "blueprint-thumb-frame");
     const thImg = document.createElement("img");
-    thImg.src = `/assets/template-gallery/${encodeURIComponent(tpl.template_id)}.png?v=20261106c`;
+    thImg.src = safeUrl(`/assets/template-gallery/${encodeURIComponent(tpl.template_id)}.png`);
     thImg.alt = `${tpl.template_id} ${tpl.name}`;
     thImg.loading = "lazy";
     frame.appendChild(thImg);
@@ -2884,19 +2977,12 @@ function renderTop5EditorialDesk() {
     bpGrid.appendChild(btn);
   });
   step1.appendChild(bpGrid);
-
-  const bpCaption = mkEl(
-    "div",
-    "composer-step-sub",
-    `${activeTpl.template_id}: ${activeTpl.name} · Recommended format: ${formatModeDisplayName(activeTpl.recommended_mode || activeIdea.default_recommended_mode)}`
-  );
-  step1.appendChild(bpCaption);
   workbench.appendChild(step1);
 
-  // Step 2: 8 Presentation Modes + Calm 3-Metric Pacing Bar
+  // Step 2: 8 Presentation Modes + Whisper-Quiet Pacing Strip
   const step2 = mkEl("div", "composer-section");
   const s2Hdr = mkEl("div", "composer-section-hdr");
-  s2Hdr.appendChild(mkEl("span", "composer-step-title", "2. Presentation Format & Content Pacing"));
+  s2Hdr.appendChild(mkEl("span", "composer-step-title", "2. Format"));
   step2.appendChild(s2Hdr);
 
   const modeRow = mkEl("div", "top5-pill-row");
@@ -2928,10 +3014,10 @@ function renderTop5EditorialDesk() {
   const budgetGrid = mkEl("div", "top5-length-budget-grid");
   budgetGrid.setAttribute("data-testid", "top5-length-budget-strip");
   [
-    ["Above-Fold Hook", budget.hook_above_fold || "Front-loaded metric hook"],
-    ["Per-Unit Density", budget.per_unit_density || "Bounded visual density"],
+    ["Hook", budget.hook_above_fold || "Front-loaded metric hook"],
+    ["Density", budget.per_unit_density || "Bounded visual density"],
     [
-      `Deliverable (${budget.estimated_consumption_time || "Fast read"})`,
+      `Spec (${budget.estimated_consumption_time || "Fast read"})`,
       budget.total_deliverable_size || "Platform-calibrated asset",
     ],
   ].forEach(([bTitle, bVal]) => {
@@ -2943,16 +3029,16 @@ function renderTop5EditorialDesk() {
   step2.appendChild(budgetGrid);
   workbench.appendChild(step2);
 
-  // Step 3: Channel Copy Mount inside Center Composer
+  // Step 3: Collapsible Channel Copy Bar inside Center Composer
   const copyMount = mkEl("div", "composer-copy-card");
   copyMount.id = "top5-composer-copy-mount";
   workbench.appendChild(copyMount);
 
-  // Column 3 Top: 13-Channel Selector Card + Stage CTA
+  // Column 3 Top: Compact 13-Channel Selector Bar + Stage CTA
   const chCard = mkEl("div", "channel-selector-card");
   const chHdr = mkEl("div", "composer-section-hdr");
   chHdr.appendChild(
-    mkEl("span", "composer-step-title tabular-nums", `3. Channels (${STATE.selectedStagePlatforms.size} checked)`)
+    mkEl("span", "composer-step-title tabular-nums", `3. Channels (${STATE.selectedStagePlatforms.size})`)
   );
   const stageBtn = mkEl("button", "btn-primary", `Stage to Queue (${STATE.selectedStagePlatforms.size})`);
   stageBtn.type = "button";
@@ -2983,7 +3069,7 @@ function renderTop5EditorialDesk() {
   orderedPlatforms.forEach((pid) => {
     const pSpec = STATE.platformSpecs[pid];
     if (!pSpec) return;
-    const shortName = pSpec.name.split("(")[0].trim();
+    const shortName = SHORT_PLATFORM_TAB_LABELS[pid] || pSpec.name.split("(")[0].trim();
     const isAct = STATE.selectedPreviewPlatform === pid;
     const tabBtn = mkEl("button", `top5-unified-channel-chip${isAct ? " active" : ""}`);
     tabBtn.type = "button";
@@ -3035,10 +3121,13 @@ function renderTop5ComposerCopySection() {
   }
 
   const checks = pkg.compliance_checks || {};
+  const shortPlat = SHORT_PLATFORM_TAB_LABELS[STATE.selectedPreviewPlatform] || pkg.platform_name.split("(")[0].trim();
+  const isExpanded = STATE.composerCopyExpanded || STATE.persona === "builder";
+
   const hdr = mkEl("div", "composer-section-hdr");
-  hdr.style.marginBottom = "8px";
+  hdr.style.marginBottom = "6px";
   const leftMeta = mkEl("div", "studio-toolbar-actions");
-  leftMeta.appendChild(mkEl("span", "composer-step-title", `${pkg.platform_name.split("(")[0].trim()} Copy`));
+  leftMeta.appendChild(mkEl("span", "composer-step-title", `${shortPlat} Caption`));
   leftMeta.appendChild(
     mkEl(
       "span",
@@ -3048,76 +3137,105 @@ function renderTop5ComposerCopySection() {
   );
   hdr.appendChild(leftMeta);
 
-  const copyBtn = mkEl("button", "btn-secondary", "Copy Channel Payload");
+  const rightBtns = mkEl("div", "studio-toolbar-actions");
+  const toggleBtn = mkEl(
+    "button",
+    "btn-secondary",
+    isExpanded ? "Collapse Text ▴" : "✍️ Expand Caption ▾"
+  );
+  toggleBtn.type = "button";
+  toggleBtn.setAttribute("data-testid", "toggle-composer-copy-btn");
+  toggleBtn.style.cssText = "min-height:28px;padding:3px 9px;font-size:11.5px;";
+  toggleBtn.addEventListener("click", () => {
+    STATE.composerCopyExpanded = !STATE.composerCopyExpanded;
+    renderTop5ComposerCopySection();
+  });
+  rightBtns.appendChild(toggleBtn);
+
+  const copyBtn = mkEl("button", "btn-secondary", "Copy Post");
   copyBtn.type = "button";
-  copyBtn.style.cssText = "min-height:30px;padding:4px 10px;font-size:12px;";
+  copyBtn.style.cssText = "min-height:28px;padding:3px 10px;font-size:11.5px;";
   copyBtn.addEventListener("click", () => {
     const combined = pkg.follow_up_comment
       ? `${pkg.body}\n\n---\n${pkg.follow_up_comment}`
       : pkg.body;
     copyTextSafe(combined, `Copied ${pkg.platform_name} payload!`);
   });
-  hdr.appendChild(copyBtn);
+  rightBtns.appendChild(copyBtn);
+  hdr.appendChild(rightBtns);
   mount.appendChild(hdr);
 
-  if (pkg.video_title) {
+  if (pkg.video_title && isExpanded) {
     const vt = mkEl("div", "", `Video Title (${pkg.video_title.length}/100): ${polishUiTypography(pkg.video_title)}`);
     vt.style.cssText = "font-size:12px;font-weight:700;color:#0f172a;margin-bottom:6px;";
     mount.appendChild(vt);
   }
 
-  const bodyBox = mkEl("div", "top5-copy-full-box", polishUiTypography(pkg.body));
+  const bodyBox = mkEl(
+    "div",
+    `top5-copy-full-box${isExpanded ? " expanded" : " collapsed-preview"}`,
+    polishUiTypography(pkg.body)
+  );
   bodyBox.setAttribute("data-testid", "top5-platform-copy-box");
+  bodyBox.title = isExpanded ? "" : "Click to expand full caption";
+  if (!isExpanded) {
+    bodyBox.addEventListener("click", () => {
+      STATE.composerCopyExpanded = true;
+      renderTop5ComposerCopySection();
+    });
+  }
   mount.appendChild(bodyBox);
 
-  if (pkg.follow_up_comment) {
+  if (pkg.follow_up_comment && isExpanded) {
     mount.appendChild(
       mkEl("div", "composer-followup-note", `First Comment / Reply #2: ${pkg.follow_up_comment}`)
     );
   }
 
-  const details = document.createElement("details");
-  details.className = "composer-guardrail-details";
-  if (STATE.persona === "builder") details.open = true;
-  const sum = mkEl("summary", "", `Platform Compliance Guardrail (${pkg.link_strategy})`);
-  const gBody = mkEl("div", "composer-guardrail-body", pkg.compliance_note);
-  details.append(sum, gBody);
+  if (isExpanded || STATE.persona === "builder") {
+    const details = document.createElement("details");
+    details.className = "composer-guardrail-details";
+    if (STATE.persona === "builder") details.open = true;
+    const sum = mkEl("summary", "", `Platform Compliance Guardrail (${pkg.link_strategy})`);
+    const gBody = mkEl("div", "composer-guardrail-body", pkg.compliance_note);
+    details.append(sum, gBody);
 
-  if (STATE.persona === "builder") {
-    const builderApi = document.getElementById("builder-kpi-api");
-    if (builderApi) {
-      builderApi.textContent = `${STATE.selectedPreviewPlatform.toUpperCase()} · ${pkg.tier || "TIER_1"}`;
-    }
-    if ((pkg.missing_env_vars || []).length > 0) {
-      const envDiv = mkEl(
-        "div",
-        "",
-        `Live API env vars: ${pkg.missing_env_vars.join(", ")} (currently Dry-Run Validated)`
+    if (STATE.persona === "builder") {
+      const builderApi = document.getElementById("builder-kpi-api");
+      if (builderApi) {
+        builderApi.textContent = `${STATE.selectedPreviewPlatform.toUpperCase()} · ${pkg.tier || "TIER_1"}`;
+      }
+      if ((pkg.missing_env_vars || []).length > 0) {
+        const envDiv = mkEl(
+          "div",
+          "",
+          `Live API env vars: ${pkg.missing_env_vars.join(", ")} (currently Dry-Run Validated)`
+        );
+        envDiv.style.cssText = "margin-top:6px;font-family:var(--theme-font-mono,monospace);font-size:11px;color:#475569;";
+        details.appendChild(envDiv);
+      }
+      const jsonPreview = mkEl(
+        "pre",
+        "code-block-light",
+        JSON.stringify(
+          {
+            platform_id: pkg.platform_id,
+            tier: pkg.tier,
+            effective_mode: pkg.effective_mode,
+            link_strategy: pkg.link_strategy,
+            media_container: pkg.media?.container_format,
+            primary_asset_url: pkg.media?.primary_asset_url,
+            compliance_checks: pkg.compliance_checks,
+          },
+          null,
+          2
+        )
       );
-      envDiv.style.cssText = "margin-top:6px;font-family:var(--theme-font-mono,monospace);font-size:11px;color:#475569;";
-      details.appendChild(envDiv);
+      jsonPreview.style.cssText = "margin-top:8px;max-height:140px;font-size:11px;padding:8px 10px;";
+      details.appendChild(jsonPreview);
     }
-    const jsonPreview = mkEl(
-      "pre",
-      "code-block-light",
-      JSON.stringify(
-        {
-          platform_id: pkg.platform_id,
-          tier: pkg.tier,
-          effective_mode: pkg.effective_mode,
-          link_strategy: pkg.link_strategy,
-          media_container: pkg.media?.container_format,
-          primary_asset_url: pkg.media?.primary_asset_url,
-          compliance_checks: pkg.compliance_checks,
-        },
-        null,
-        2
-      )
-    );
-    jsonPreview.style.cssText = "margin-top:8px;max-height:140px;font-size:11px;padding:8px 10px;";
-    details.appendChild(jsonPreview);
+    mount.appendChild(details);
   }
-  mount.appendChild(details);
 }
 
 function renderTop5PlatformPreviewStage() {
@@ -3178,9 +3296,9 @@ function renderTop5PlatformPreviewStage() {
     authorRow.appendChild(aMeta);
     mockup.appendChild(authorRow);
 
-    // Realistic Above-the-Fold Copy Preview with word-boundary "…more"
+    // Realistic Above-the-Fold Copy Preview with word-boundary "…more" (crisp 1-2 lines so media leads)
     const cleanBody = polishUiTypography(pkg.body || "");
-    const foldCap = Math.max(90, checks.fold_cap || 180);
+    const foldCap = Math.min(115, Math.max(85, checks.fold_cap || 110));
     const copyDiv = mkEl("div", "mockup-post-copy");
     if (!STATE.mockupCopyExpanded && cleanBody.length > foldCap) {
       let cut = cleanBody.slice(0, foldCap);
@@ -4216,8 +4334,19 @@ function renderContinuumStageInspector() {
     }
   }
 
-  // Top Metadata Spec Strip for the selected stage
-  const metaGrid = mkEl("div", "platform-playbook-grid");
+  // Top Metadata Spec Strip for the selected stage (compact 3-chip summary in Creator mode; full 4-box grid in Builder mode)
+  const metaChipRow = mkEl("div", "composer-tldr-chip-row continuum-meta-chips");
+  metaChipRow.style.marginBottom = "10px";
+  [
+    ["⚡", meta.dimension, "blue"],
+    ["📦", meta.artifact, "emerald"],
+    ["🎯", meta.whenToUse.split("—")[0].trim(), "slate"],
+  ].forEach(([ic, txt, tone]) => {
+    metaChipRow.appendChild(mkEl("span", `composer-tldr-chip tone-${tone}`, `${ic} ${txt}`));
+  });
+  box.appendChild(metaChipRow);
+
+  const metaGrid = mkEl("div", "platform-playbook-grid continuum-builder-grid");
   metaGrid.style.marginBottom = "12px";
   [
     ["Unlocked Dynamic Dimension", meta.dimension],

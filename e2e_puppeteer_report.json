@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-04T19:49:17.030Z",
+  "timestamp": "2026-11-07T03:07:01.371Z",
   "baseUrl": "http://127.0.0.1:8765",
   "totalAssertions": 23,
   "passedAssertions": 23,
@@ -15,7 +15,7 @@
     {
       "name": "Slidedeck Mode Renders Crisp Multi-Slide Visual Mockup (Zero Broken/Empty Media Box)",
       "passed": true,
-      "detail": "previewImgs=7/7, colHeights={\"left\":738,\"center\":965,\"right\":927}"
+      "detail": "previewImgs=7/7, colHeights={\"left\":517,\"center\":815,\"right\":834}"
     },
     {
       "name": "Laptop 1366x900 Zero Header Collision & Single-Line Tabs",
@@ -50,7 +50,7 @@
     {
       "name": "Batch & Signal Radar Sub-Tab Synthesizes 6 Creator Posts & Copies Payload",
       "passed": true,
-      "detail": "cards=6, svgs=6/6, copiedChars=1382"
+      "detail": "cards=6, svgs=6/6, copiedChars=1493"
     },
     {
       "name": "Blueprints View Renders 116 Templates, 23 T79 Spine Variants & 12 Stack Pairings",
@@ -93,9 +93,9 @@
       "detail": "backdrop=true, mentorCards=2 (top=490px), takeaways=3, pillRows=1, rawArrows=false"
     },
     {
-      "name": "Creator Radar Renders 33 Posts (31 Decoded Visuals), 39 Creators, 10 Platforms, 15 X Leaders & 12 Formats",
+      "name": "Creator Radar Renders 46 Posts (44 Decoded Visuals), 47 Creators, 10 Platforms, 15 X Leaders & 12 Formats",
       "passed": true,
-      "detail": "posts=33 (imgs=31/31), creators=39, platforms=10, xLeaders=15, pres12=12, ch=6"
+      "detail": "posts=46 (imgs=44/44), creators=47, platforms=10, xLeaders=15, pres12=12, ch=6"
     },
     {
       "name": "Sandbox View Renders 5 Comparison Rows & 19 Execution Trajectories",
@@ -110,7 +110,7 @@
     {
       "name": "Rule 26 Table Cell Containment (overflow: hidden on all table-fixed tbody td)",
       "passed": true,
-      "detail": "checkedCells=369, uncontained=0"
+      "detail": "checkedCells=419, uncontained=0"
     },
     {
       "name": "Mobile 390x844 Responsive Layout (0px Horizontal Overflow Across All 6 Views)",

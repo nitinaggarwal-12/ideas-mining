@@ -2724,3 +2724,247 @@ pre.code-block-light {
     justify-content: center;
   }
 }
+
+/* ==========================================================================
+   11. Canva Magic Studio / Gamma / Linear / Typefully Visual-First Polish (v4.0)
+   Eliminates 4x text repetition & prose walls in Creator Mode while preserving
+   100% WCAG 2.2 AA/AAA contrast (>= 4.5:1) and full Builder Mode inspection.
+   ========================================================================== */
+
+/* 1. Left Signal Rail (Linear-style compact signal cards without 3-line prose walls) */
+body:not([data-persona="builder"]) .idea-card-summary {
+  display: none;
+}
+
+.top5-idea-card {
+  padding: 11px 13px;
+  gap: 6px;
+}
+
+.idea-card-headline {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 2. Center Header: 3-Chip Visual TL;DR Bar replaces dense paragraph in Creator mode */
+body:not([data-persona="builder"]) .composer-idea-impact {
+  display: none;
+}
+
+.composer-idea-header {
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.composer-idea-title {
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.28;
+  margin-bottom: 8px;
+}
+
+.composer-tldr-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.composer-tldr-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.composer-tldr-chip.tone-emerald {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #065f46;
+}
+
+.composer-tldr-chip.tone-blue {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e40af;
+}
+
+.composer-tldr-chip.tone-slate {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+/* 3. Canva-Style Center Artboard Stage inside Step 1 (1. Visual Blueprint) */
+.composer-blueprint-hero-stage {
+  position: relative;
+  width: 100%;
+  height: 204px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  background-image: radial-gradient(#cbd5e1 0.85px, transparent 0.85px);
+  background-size: 14px 14px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.composer-blueprint-hero-stage:hover {
+  border-color: #2563eb;
+  box-shadow: 0 6px 18px -6px rgba(30, 64, 175, 0.16);
+}
+
+.composer-blueprint-hero-stage img {
+  max-width: 100%;
+  max-height: 186px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  background: #ffffff;
+  border-radius: 6px;
+}
+
+.composer-blueprint-hero-pill {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 10.5px;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+  pointer-events: none;
+}
+
+/* 4. Compact 5-Blueprint Switcher Thumbnails */
+.blueprint-thumb-frame {
+  height: 54px;
+  margin-bottom: 4px;
+}
+
+.blueprint-thumb-btn {
+  padding: 5px;
+}
+
+/* 5. Whisper-Quiet Single-Line Pacing Strip (replaces 3 tall prose boxes) */
+.top5-length-budget-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.top5-budget-card {
+  padding: 6px 10px;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.top5-budget-card-title {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #1e40af;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.top5-budget-card-val {
+  font-size: 11px;
+  color: #334155;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* 6. Collapsible Caption Drawer (eliminates 18-line text wall by default) */
+.top5-copy-full-box.collapsed-preview {
+  max-height: 52px;
+  overflow: hidden;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 1.42;
+  cursor: pointer;
+  position: relative;
+  border-style: dashed;
+}
+
+.top5-copy-full-box.collapsed-preview:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+/* 7. Crisp 2-Row Channel Pill Bar & Media-First Device Preview */
+.top5-unified-channel-bar {
+  gap: 4px;
+}
+
+.top5-unified-channel-chip {
+  padding: 4px 8px;
+  font-size: 11.5px;
+  gap: 5px;
+}
+
+.mockup-post-copy {
+  padding: 0 14px 8px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* 8. Cross-View Visual-First Scannability in Creator Mode */
+body[data-persona="creator"] .workspace-subtitle,
+body[data-persona="creator"] .section-description {
+  display: none;
+}
+
+body[data-persona="creator"] .repo-card-hook {
+  -webkit-line-clamp: 1;
+  font-size: 12px;
+}
+
+body[data-persona="creator"] .post-structure-summary,
+body[data-persona="creator"] .post-card-takeaway-strip {
+  display: none;
+}
+
+body:not([data-persona="builder"]) .continuum-builder-grid {
+  display: none;
+}
+
+body[data-persona="builder"] .continuum-meta-chips {
+  display: none;
+}
+
+body[data-persona="creator"] #step-flow-post-copy-box {
+  max-height: 115px;
+  font-size: 12px;
+}

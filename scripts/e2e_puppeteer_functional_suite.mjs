@@ -628,16 +628,16 @@ try {
     return { postCards, decodedImgs, creators, platformPills, xLeaders, pres12, channels, archetypes };
   });
   recordAssertion(
-    'Creator Radar Renders 33 Posts (31 Decoded Visuals), 39 Creators, 10 Platforms, 15 X Leaders & 12 Formats',
-    playbookCheck.postCards === 33 &&
-      playbookCheck.decodedImgs === 31 &&
-      playbookCheck.creators === 39 &&
+    'Creator Radar Renders 46 Posts (44 Decoded Visuals), 47 Creators, 10 Platforms, 15 X Leaders & 12 Formats',
+    playbookCheck.postCards === 46 &&
+      playbookCheck.decodedImgs === 44 &&
+      playbookCheck.creators === 47 &&
       playbookCheck.platformPills === 10 &&
       playbookCheck.xLeaders === 15 &&
       playbookCheck.pres12 === 12 &&
       playbookCheck.channels === 6 &&
       playbookCheck.archetypes === 4,
-    `posts=${playbookCheck.postCards} (imgs=${playbookCheck.decodedImgs}/31), creators=${playbookCheck.creators}, platforms=${playbookCheck.platformPills}, xLeaders=${playbookCheck.xLeaders}, pres12=${playbookCheck.pres12}, ch=${playbookCheck.channels}`
+    `posts=${playbookCheck.postCards} (imgs=${playbookCheck.decodedImgs}/44), creators=${playbookCheck.creators}, platforms=${playbookCheck.platformPills}, xLeaders=${playbookCheck.xLeaders}, pres12=${playbookCheck.pres12}, ch=${playbookCheck.channels}`
   );
   // Restore default Posts sub-tab on Playbook
   await page.click('#playbook-subtab-btn-posts');

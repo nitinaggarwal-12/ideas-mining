@@ -8,7 +8,7 @@ function mkEl(tag, className, text) {
   return el;
 }
 
-const ASSET_CACHE_BUST = "20261107a";
+const ASSET_CACHE_BUST = "20261107b";
 
 function safeUrl(rawUrl) {
   const s = String(rawUrl || "").trim();

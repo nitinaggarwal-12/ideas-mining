@@ -35,6 +35,22 @@ CSS = """
 .pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
 @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
 .blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes phaseSpot1 { 0%,24% { opacity: 0.96; stroke-width: 3.4px; } 26%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot2 { 0%,24% { opacity: 0.22; stroke-width: 1.5px; } 25%,49% { opacity: 0.96; stroke-width: 3.4px; } 51%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot3 { 0%,49% { opacity: 0.22; stroke-width: 1.5px; } 50%,74% { opacity: 0.96; stroke-width: 3.4px; } 76%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot4 { 0%,74% { opacity: 0.22; stroke-width: 1.5px; } 75%,99% { opacity: 0.96; stroke-width: 3.4px; } 100% { opacity: 0.22; stroke-width: 1.5px; } }
+.phase-glow-1 { animation: phaseSpot1 4.8s ease-in-out infinite; }
+.phase-glow-2 { animation: phaseSpot2 4.8s ease-in-out infinite; }
+.phase-glow-3 { animation: phaseSpot3 4.8s ease-in-out infinite; }
+.phase-glow-4 { animation: phaseSpot4 4.8s ease-in-out infinite; }
+@keyframes phasePill1 { 0%,24% { opacity: 1.0; } 26%,100% { opacity: 0.58; } }
+@keyframes phasePill2 { 0%,24% { opacity: 0.58; } 25%,49% { opacity: 1.0; } 51%,100% { opacity: 0.58; } }
+@keyframes phasePill3 { 0%,49% { opacity: 0.58; } 50%,74% { opacity: 1.0; } 76%,100% { opacity: 0.58; } }
+@keyframes phasePill4 { 0%,74% { opacity: 0.58; } 75%,99% { opacity: 1.0; } 100% { opacity: 0.58; } }
+.phase-pill-1 { animation: phasePill1 4.8s ease-in-out infinite; }
+.phase-pill-2 { animation: phasePill2 4.8s ease-in-out infinite; }
+.phase-pill-3 { animation: phasePill3 4.8s ease-in-out infinite; }
+.phase-pill-4 { animation: phasePill4 4.8s ease-in-out infinite; }
 """
 
 

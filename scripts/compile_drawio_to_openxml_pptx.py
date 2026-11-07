@@ -42,6 +42,19 @@ TOKEN_PATHS = [
 ]
 
 GDRIVE_BIN = Path("/google/bin/releases/gemini-agents-gdrive/gdrive")
+GSLIDES_BIN = Path("/google/bin/releases/gemini-agents-gslides/gslides")
+SCRATCH_BATCH_DIR = Path(
+    "/usr/local/google/home/nitinagga/.gemini/jetski/brain/57999333-132a-4bd6-9b5e-5329281d864c/scratch"
+)
+
+
+def _hex_to_rgb_float(hex6: Optional[str]) -> Dict[str, float]:
+    c = _clean_hex(hex6, "0F172A") or "0F172A"
+    return {
+        "red": round(int(c[0:2], 16) / 255.0, 4),
+        "green": round(int(c[2:4], 16) / 255.0, 4),
+        "blue": round(int(c[4:6], 16) / 255.0, 4),
+    }
 
 
 def _xml_esc(val: Any) -> str:
@@ -62,18 +75,112 @@ def _clean_hex(raw: Optional[str], fallback: str = "FFFFFF") -> Optional[str]:
     return fallback
 
 
+def _is_dark_hex(hex6: Optional[str]) -> bool:
+    if not hex6 or len(hex6) != 6:
+        return False
+    try:
+        r = int(hex6[0:2], 16)
+        g = int(hex6[2:4], 16)
+        b = int(hex6[4:6], 16)
+        lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
+        return lum < 155.0
+    except ValueError:
+        return False
+
+
 def _strip_html(raw: str) -> str:
-    txt = str(raw or "")
-    txt = re.sub(r"&lt;svg[\s\S]*?&lt;/svg&gt;", " ", txt, flags=re.IGNORECASE)
-    txt = re.sub(r"<svg[\s\S]*?</svg>", " ", txt, flags=re.IGNORECASE)
+    txt = html.unescape(str(raw or ""))
+    txt = re.sub(r"<defs[\s\S]*?</defs>", " ", txt, flags=re.IGNORECASE)
+    txt = re.sub(r"<style[\s\S]*?</style>", " ", txt, flags=re.IGNORECASE)
+    txt = re.sub(r"</text>", "\n", txt, flags=re.IGNORECASE)
     txt = re.sub(r"<br\s*/?>", "\n", txt, flags=re.IGNORECASE)
     txt = re.sub(r"</(?:div|p|li|tr|h[1-6])>", "\n", txt, flags=re.IGNORECASE)
     txt = re.sub(r"</?[a-zA-Z][^>]*>", " ", txt)
     txt = html.unescape(txt)
     txt = re.sub(r"</?[a-zA-Z][^>]*>", " ", txt)
     lines = [re.sub(r"\s+", " ", ln).strip() for ln in txt.splitlines()]
-    lines = [ln for ln in lines if ln]
+    lines = [ln for ln in lines if ln and ln not in (">_", "✓", "×", "★")]
     return "\n".join(lines[:6])
+
+
+def _resolve_edge_points(
+    sbox: Optional[Tuple[float, float, float, float]],
+    tbox: Optional[Tuple[float, float, float, float]],
+    style: Dict[str, str],
+    waypoints: List[Tuple[float, float]],
+    source_pt: Optional[Tuple[float, float]],
+    target_pt: Optional[Tuple[float, float]],
+) -> List[Tuple[float, float]]:
+    pts: List[Tuple[float, float]] = []
+    if sbox is not None:
+        sx, sy, sw, sh = sbox
+        if "exitX" in style or "exitY" in style:
+            ex = float(style.get("exitX", 0.5))
+            ey = float(style.get("exitY", 0.5))
+            pts.append((sx + sw * ex, sy + sh * ey))
+        elif waypoints:
+            wx, wy = waypoints[0]
+            cx, cy = sx + sw / 2.0, sy + sh / 2.0
+            if abs(wx - cx) >= abs(wy - cy):
+                pts.append((sx + sw if wx >= cx else sx, max(sy, min(sy + sh, wy))))
+            else:
+                pts.append((max(sx, min(sx + sw, wx)), sy + sh if wy >= cy else sy))
+        elif tbox is not None:
+            tx, ty, tw, th = tbox
+            scx, scy = sx + sw / 2.0, sy + sh / 2.0
+            tcx, tcy = tx + tw / 2.0, ty + th / 2.0
+            if abs(tcx - scx) >= abs(tcy - scy):
+                pts.append((sx + sw if tcx >= scx else sx, scy))
+            else:
+                pts.append((scx, sy + sh if tcy >= scy else sy))
+    elif source_pt is not None:
+        pts.append(source_pt)
+
+    pts.extend(waypoints)
+
+    if tbox is not None:
+        tx, ty, tw, th = tbox
+        if "entryX" in style or "entryY" in style:
+            nx = float(style.get("entryX", 0.5))
+            ny = float(style.get("entryY", 0.5))
+            pts.append((tx + tw * nx, ty + th * ny))
+        elif pts:
+            lx, ly = pts[-1]
+            if tx <= lx <= tx + tw:
+                pts.append((lx, ty if ly <= ty + th / 2.0 else ty + th))
+            elif ty <= ly <= ty + th:
+                pts.append((tx if lx <= tx + tw / 2.0 else tx + tw, ly))
+            else:
+                cx, cy = tx + tw / 2.0, ty + th / 2.0
+                if abs(lx - cx) >= abs(ly - cy):
+                    pts.append((tx if lx < cx else tx + tw, cy))
+                else:
+                    pts.append((cx, ty if ly < cy else ty + th))
+    elif target_pt is not None:
+        pts.append(target_pt)
+
+    # Orthogonalize any diagonal hop so every connector segment is 100% horizontal or vertical
+    ortho: List[Tuple[float, float]] = []
+    for p in pts:
+        if not ortho:
+            ortho.append(p)
+            continue
+        px, py = ortho[-1]
+        nx, ny = p
+        if abs(nx - px) > 2.0 and abs(ny - py) > 2.0:
+            if not waypoints and style.get("exitY") in ("0", "1") and style.get("entryY") in ("0", "1"):
+                mid_y = (py + ny) / 2.0
+                ortho.append((px, mid_y))
+                ortho.append((nx, mid_y))
+            elif not waypoints and style.get("exitX") in ("0", "1") and style.get("entryX") in ("0", "1"):
+                mid_x = (px + nx) / 2.0
+                ortho.append((mid_x, py))
+                ortho.append((mid_x, ny))
+            else:
+                ortho.append((nx, py))
+        if abs(nx - ortho[-1][0]) > 0.5 or abs(ny - ortho[-1][1]) > 0.5:
+            ortho.append((nx, ny))
+    return ortho
 
 
 def _parse_style(style_str: str) -> Dict[str, str]:
@@ -117,6 +224,7 @@ def parse_drawio(drawio_path: Path) -> Dict[str, Any]:
 
     vertices: List[Dict[str, Any]] = []
     edges: List[Dict[str, Any]] = []
+    poster_svg_texts: List[str] = []
 
     for cell in gm.findall(".//mxCell"):
         cid = cell.attrib.get("id", "")
@@ -124,13 +232,17 @@ def parse_drawio(drawio_path: Path) -> Dict[str, Any]:
             continue
         style = _parse_style(cell.attrib.get("style", ""))
         val_raw = cell.attrib.get("value", "")
+        unesc_val = html.unescape(val_raw)
+        if cid.startswith(("bg", "poster_bg")) and "<svg" in unesc_val:
+            poster_svg_texts.append(unesc_val)
+            continue
+
         text = _strip_html(val_raw)
         geom = cell.find("mxGeometry")
         ox, oy = _parent_offset(cell.attrib.get("parent"))
 
         if cell.attrib.get("vertex") == "1" and geom is not None:
             if geom.attrib.get("relative") == "1":
-                # Edge child label or relative badge
                 parent_cell = cells_by_id.get(cell.attrib.get("parent", ""))
                 if parent_cell is not None and parent_cell.attrib.get("edge") == "1":
                     continue
@@ -140,6 +252,24 @@ def parse_drawio(drawio_path: Path) -> Dict[str, Any]:
             h = float(geom.attrib.get("height", 0.0))
             if w <= 1.0 and h <= 1.0:
                 continue
+            # If vertex is an inline SVG card/bubble with fillColor=none, inherit fill/stroke from its outer SVG rect/circle
+            if "<svg" in unesc_val and style.get("fillColor", "none").lower() == "none":
+                cm = re.search(r'<circle\b[^>]*\bfill="([^"]+)"[^>]*\bstroke="([^"]+)"', unesc_val)
+                rm = re.search(r'<rect\b[^>]*\bfill="([^"]+)"[^>]*\bstroke="([^"]+)"', unesc_val)
+                if cm and abs(w - h) <= 12.0:
+                    style = {**style, "shape": "ellipse", "fillColor": cm.group(1), "strokeColor": cm.group(2)}
+                elif rm:
+                    style = {**style, "rounded": "1", "fillColor": rm.group(1), "strokeColor": rm.group(2)}
+            elif "text" in style and "fillColor" not in style:
+                bg_m = re.search(r"background:\s*(#[0-9A-Fa-f]{6})", unesc_val)
+                bd_m = re.search(r"border:\s*[0-9.]+px\s+solid\s+(#[0-9A-Fa-f]{6})", unesc_val)
+                if bg_m and bd_m:
+                    style = {
+                        **style,
+                        "rounded": "1",
+                        "fillColor": bg_m.group(1),
+                        "strokeColor": bd_m.group(1),
+                    }
             vertices.append(
                 {
                     "id": cid,
@@ -152,7 +282,6 @@ def parse_drawio(drawio_path: Path) -> Dict[str, Any]:
                 }
             )
         elif cell.attrib.get("edge") == "1":
-            pts: List[Tuple[float, float]] = []
             src_id = cell.attrib.get("source")
             tgt_id = cell.attrib.get("target")
             sp_el = None
@@ -183,6 +312,156 @@ def parse_drawio(drawio_path: Path) -> Dict[str, Any]:
                 }
             )
 
+    # Extract native editable shapes and lines from poster_bg / bg_ SVG backdrops when present
+    for svg_idx, p_svg in enumerate(poster_svg_texts):
+        body = re.sub(r"<defs[\s\S]*?</defs>", "", p_svg, flags=re.IGNORECASE)
+        body = re.sub(r"<style[\s\S]*?</style>", "", body, flags=re.IGNORECASE)
+        svg_texts: List[Tuple[float, float, str]] = []
+        for tm in re.finditer(r"<text\b([^>]*)>(.*?)</text>", body, flags=re.DOTALL | re.IGNORECASE):
+            t_attrs = dict(re.findall(r'([a-zA-Z0-9_:-]+)="([^"]*)"', tm.group(1) or ""))
+            clean_t = re.sub(r"<[^>]+>", " ", tm.group(2) or "").strip()
+            clean_t = html.unescape(re.sub(r"\s+", " ", clean_t))
+            if clean_t:
+                try:
+                    svg_texts.append((float(t_attrs.get("x", 0.0)), float(t_attrs.get("y", 0.0)), clean_t))
+                except ValueError:
+                    pass
+
+        sub_idx = 0
+        raw_svg_shapes: List[Dict[str, Any]] = []
+        for sm in re.finditer(r"<(rect|circle|line)\b([^>]*)/?>", body, flags=re.IGNORECASE):
+            tag = sm.group(1).lower()
+            s_attrs = dict(re.findall(r'([a-zA-Z0-9_:-]+)="([^"]*)"', sm.group(2) or ""))
+            sub_idx += 1
+            if tag == "rect":
+                try:
+                    rx = float(s_attrs.get("x", 0.0))
+                    ry = float(s_attrs.get("y", 0.0))
+                    rw = float(s_attrs.get("width", 0.0))
+                    rh = float(s_attrs.get("height", 0.0))
+                    if rw >= page_w * 0.94 and rh >= page_h * 0.85:
+                        continue
+                    if rw < 42.0 or rh < 20.0 or ry < 110.0 or ry > page_h - 48.0:
+                        continue
+                    f_col = s_attrs.get("fill", "#FFFFFF")
+                    if f_col.startswith("url(") or f_col == "none":
+                        f_col = "#FFFFFF"
+                    st_col = s_attrs.get("stroke", "#CBD5E1")
+                    raw_svg_shapes.append(
+                        {
+                            "kind": "rect",
+                            "id": f"svg_rect_{svg_idx}_{sub_idx}",
+                            "x": rx,
+                            "y": ry,
+                            "w": rw,
+                            "h": rh,
+                            "order": sub_idx,
+                            "style": {
+                                "rounded": "1" if s_attrs.get("rx") else "0",
+                                "fillColor": f_col,
+                                "strokeColor": st_col,
+                                "fontSize": "9.5" if rh <= 30.0 else "10.5",
+                            },
+                        }
+                    )
+                except ValueError:
+                    pass
+            elif tag == "circle":
+                try:
+                    cx = float(s_attrs["cx"])
+                    cy = float(s_attrs["cy"])
+                    r = float(s_attrs["r"])
+                    if r < 15.0 or r > 140.0 or cy < 130.0 or cy > page_h - 50.0:
+                        continue
+                    f_col = s_attrs.get("fill", "#FFFFFF")
+                    if f_col.startswith("url(") or f_col == "none":
+                        f_col = "#FFFFFF"
+                    st_col = s_attrs.get("stroke", "#2563EB")
+                    raw_svg_shapes.append(
+                        {
+                            "kind": "circle",
+                            "id": f"svg_circ_{svg_idx}_{sub_idx}",
+                            "x": cx - r,
+                            "y": cy - r,
+                            "w": 2.0 * r,
+                            "h": 2.0 * r,
+                            "cx": cx,
+                            "cy": cy,
+                            "r": r,
+                            "order": sub_idx,
+                            "style": {
+                                "shape": "ellipse",
+                                "fillColor": f_col,
+                                "strokeColor": st_col,
+                                "fontSize": "9.5",
+                                "verticalAlign": "bottom" if r >= 70.0 else "middle",
+                            },
+                        }
+                    )
+                except (KeyError, ValueError):
+                    pass
+            elif tag == "line":
+                try:
+                    x1 = float(s_attrs["x1"])
+                    y1 = float(s_attrs["y1"])
+                    x2 = float(s_attrs["x2"])
+                    y2 = float(s_attrs["y2"])
+                    llen = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+                    is_ortho = abs(x1 - x2) <= 3.0 or abs(y1 - y2) <= 3.0
+                    if 18.0 <= llen <= 780.0 and min(y1, y2) >= 130.0 and max(y1, y2) <= page_h - 50.0 and is_ortho:
+                        st_col = s_attrs.get("stroke", "#475569")
+                        edges.append(
+                            {
+                                "id": f"svg_line_{svg_idx}_{sub_idx}",
+                                "source": None,
+                                "target": None,
+                                "source_pt": (x1, y1),
+                                "target_pt": (x2, y2),
+                                "waypoints": [],
+                                "text": "",
+                                "style": {
+                                    "strokeColor": st_col,
+                                    "strokeWidth": s_attrs.get("stroke-width", "1.8"),
+                                    "dashed": "1" if s_attrs.get("stroke-dasharray") else "0",
+                                    "endArrow": "classic" if s_attrs.get("marker-end") else "none",
+                                },
+                            }
+                        )
+                except (KeyError, ValueError):
+                    pass
+
+        # Claim svg_texts smallest-shape-first so inner pill rects never duplicate their text onto outer lens circles
+        claimed_text_idxs: set[int] = set()
+        for shp in sorted(raw_svg_shapes, key=lambda s: s["w"] * s["h"]):
+            matched: List[str] = []
+            for t_idx, (tx, ty, t_str) in enumerate(svg_texts):
+                if t_idx in claimed_text_idxs:
+                    continue
+                if shp["kind"] == "rect":
+                    if shp["x"] - 6.0 <= tx <= shp["x"] + shp["w"] + 6.0 and shp["y"] <= ty <= shp["y"] + shp["h"] + 5.0:
+                        matched.append(t_str)
+                        claimed_text_idxs.add(t_idx)
+                else:
+                    if (tx - shp["cx"]) ** 2 + (ty - shp["cy"]) ** 2 <= (shp["r"] + 8.0) ** 2:
+                        matched.append(t_str)
+                        claimed_text_idxs.add(t_idx)
+            shp["text"] = "\n".join(matched[:4])
+
+        for shp in sorted(raw_svg_shapes, key=lambda s: s["order"]):
+            if shp["kind"] == "rect" and shp["w"] > page_w * 0.75 and shp["h"] > 360.0 and not shp["text"]:
+                continue
+            vertices.append(
+                {
+                    "id": shp["id"],
+                    "x": shp["x"],
+                    "y": shp["y"],
+                    "w": shp["w"],
+                    "h": shp["h"],
+                    "text": shp["text"],
+                    "style": shp["style"],
+                }
+            )
+
     # Compute tight bounding box if vertices exceed page_w/page_h
     if vertices:
         max_r = max(v["x"] + v["w"] for v in vertices)
@@ -193,25 +472,11 @@ def parse_drawio(drawio_path: Path) -> Dict[str, Any]:
     v_map = {v["id"]: v for v in vertices}
     resolved_edges: List[Dict[str, Any]] = []
     for e in edges:
-        pts: List[Tuple[float, float]] = []
-        if e["source"] and e["source"] in v_map:
-            sv = v_map[e["source"]]
-            ex = float(e["style"].get("exitX", 0.5))
-            ey = float(e["style"].get("exitY", 0.5))
-            pts.append((sv["x"] + sv["w"] * ex, sv["y"] + sv["h"] * ey))
-        elif e["source_pt"] is not None:
-            pts.append(e["source_pt"])
-
-        pts.extend(e["waypoints"])
-
-        if e["target"] and e["target"] in v_map:
-            tv = v_map[e["target"]]
-            nx = float(e["style"].get("entryX", 0.5))
-            ny = float(e["style"].get("entryY", 0.5))
-            pts.append((tv["x"] + tv["w"] * nx, tv["y"] + tv["h"] * ny))
-        elif e["target_pt"] is not None:
-            pts.append(e["target_pt"])
-
+        sv = v_map.get(e["source"]) if e["source"] else None
+        tv = v_map.get(e["target"]) if e["target"] else None
+        sbox = (sv["x"], sv["y"], sv["w"], sv["h"]) if sv else None
+        tbox = (tv["x"], tv["y"], tv["w"], tv["h"]) if tv else None
+        pts = _resolve_edge_points(sbox, tbox, e["style"], e["waypoints"], e["source_pt"], e["target_pt"])
         if len(pts) >= 2:
             resolved_edges.append({**e, "points": pts})
 
@@ -255,6 +520,41 @@ def _shape_preset(style: Dict[str, str]) -> str:
     return "rect"
 
 
+def _partition_bg_and_fg_vertices(
+    vertices: List[Dict[str, Any]], crop: Tuple[float, float, float, float]
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    cx0, cy0, cw, ch = crop
+    visible: List[Dict[str, Any]] = []
+    for v in vertices:
+        if v["w"] >= cw * 0.97 and v["h"] >= ch * 0.95 and not v["text"]:
+            continue
+        vx2 = v["x"] + v["w"]
+        vy2 = v["y"] + v["h"]
+        if vx2 < cx0 + 2 or v["x"] > cx0 + cw - 2 or vy2 < cy0 + 2 or v["y"] > cy0 + ch - 2:
+            continue
+        visible.append(v)
+
+    bg_containers: List[Dict[str, Any]] = []
+    fg_cards: List[Dict[str, Any]] = []
+    for a in visible:
+        a_area = a["w"] * a["h"]
+        contains_smaller = any(
+            b["id"] != a["id"]
+            and (b["w"] * b["h"]) < a_area * 0.85
+            and (b["x"] + b["w"] / 2.0) >= a["x"] + 2.0
+            and (b["x"] + b["w"] / 2.0) <= a["x"] + a["w"] - 2.0
+            and (b["y"] + b["h"] / 2.0) >= a["y"] + 2.0
+            and (b["y"] + b["h"] / 2.0) <= a["y"] + a["h"] - 2.0
+            for b in visible
+        )
+        if contains_smaller or (a["w"] >= cw * 0.62 and a["h"] >= 110.0 and not a["text"]):
+            bg_containers.append(a)
+        else:
+            fg_cards.append(a)
+    bg_containers.sort(key=lambda b: -(b["w"] * b["h"]))
+    return bg_containers, fg_cards
+
+
 def _render_region_shapes_xml(
     vertices: List[Dict[str, Any]],
     edges: List[Dict[str, Any]],
@@ -273,25 +573,22 @@ def _render_region_shapes_xml(
 
     shapes: List[str] = []
     next_id = start_id
+    bg_containers, fg_cards = _partition_bg_and_fg_vertices(vertices, crop)
 
-    for v in vertices:
-        # Skip huge full-page canvas wrapper if identical to page background
-        if v["w"] >= cw * 0.97 and v["h"] >= ch * 0.95 and not v["text"]:
-            continue
-        vx2 = v["x"] + v["w"]
-        vy2 = v["y"] + v["h"]
-        if vx2 < cx0 + 2 or v["x"] > cx0 + cw - 2 or vy2 < cy0 + 2 or v["y"] > cy0 + ch - 2:
-            continue
-
+    def _emit_vertex_xml(v: Dict[str, Any]) -> None:
+        nonlocal next_id
         x_emu = max(0, pad_x + int((v["x"] - cx0) * scale))
         y_emu = max(0, pad_y + int((v["y"] - cy0) * scale))
         w_emu = max(25400, int(v["w"] * scale))
         h_emu = max(25400, int(v["h"] * scale))
 
         st = v["style"]
-        fill_hex = _clean_hex(st.get("fillColor"), "FFFFFF")
-        stroke_hex = _clean_hex(st.get("strokeColor"), "CBD5E1")
-        font_hex = _clean_hex(st.get("fontColor"), "0F172A") or "0F172A"
+        is_text_only = "text" in st and "fillColor" not in st and "strokeColor" not in st
+        fill_hex = None if is_text_only else _clean_hex(st.get("fillColor"), "FFFFFF")
+        stroke_hex = None if is_text_only else _clean_hex(st.get("strokeColor"), "CBD5E1")
+        is_dark = _is_dark_hex(fill_hex)
+        default_font = "FFFFFF" if is_dark else "0F172A"
+        font_hex = _clean_hex(st.get("fontColor"), default_font) or default_font
         prst = _shape_preset(st)
 
         fill_xml = f'<a:solidFill><a:srgbClr val="{fill_hex}"/></a:solidFill>' if fill_hex else "<a:noFill/>"
@@ -303,20 +600,33 @@ def _render_region_shapes_xml(
         else:
             ln_xml = "<a:ln><a:noFill/></a:ln>"
 
-        raw_fs = float(st.get("fontSize", 11.0) or 11.0)
+        raw_fs = float(st.get("fontSize", 11.5) or 11.5)
         pt_sz = max(7.5, min(20.0, raw_fs * (scale / 9525.0) * 0.92 * font_scale))
-        sz_hundredths = int(round(pt_sz * 100))
-        is_bold = "1" if (st.get("fontStyle") in ("1", "3", "5") or "<b>" in str(st) or len(v["text"]) <= 28) else "0"
         align_map = {"left": "l", "center": "ctr", "right": "r"}
         algn = align_map.get(st.get("align", "center"), "ctr")
         valign_map = {"top": "t", "middle": "ctr", "bottom": "b"}
         anchor = valign_map.get(st.get("verticalAlign", "middle"), "ctr")
 
         if v["text"]:
-            p_Xml = "\n".join(
-                f'              <a:p><a:pPr algn="{algn}"/><a:r><a:rPr lang="en-US" sz="{sz_hundredths}" b="{is_bold}"><a:solidFill><a:srgbClr val="{font_hex}"/></a:solidFill></a:rPr><a:t>{_xml_esc(ln)}</a:t></a:r></a:p>'
-                for ln in v["text"].split("\n")
-            )
+            lines = v["text"].split("\n")
+            p_rows: List[str] = []
+            for l_idx, ln in enumerate(lines):
+                if len(lines) >= 2 and l_idx == 0:
+                    line_b = "1"
+                    line_sz = int(round(min(21.0, pt_sz * 1.12) * 100))
+                    line_col = "FFFFFF" if is_dark else (font_hex if font_hex != "0F172A" else "1E3A8A")
+                elif len(lines) >= 2:
+                    line_b = "0"
+                    line_sz = int(round(max(7.0, pt_sz * 0.90) * 100))
+                    line_col = "E2E8F0" if is_dark else "334155"
+                else:
+                    line_b = "1" if (st.get("fontStyle") in ("1", "3", "5") or len(v["text"]) <= 36) else "0"
+                    line_sz = int(round(pt_sz * 100))
+                    line_col = font_hex
+                p_rows.append(
+                    f'              <a:p><a:pPr algn="{algn}"/><a:r><a:rPr lang="en-US" sz="{line_sz}" b="{line_b}"><a:solidFill><a:srgbClr val="{line_col}"/></a:solidFill></a:rPr><a:t>{_xml_esc(ln)}</a:t></a:r></a:p>'
+                )
+            p_Xml = "\n".join(p_rows)
             tx_xml = (
                 f"          <p:txBody>\n"
                 f'            <a:bodyPr wrap="square" anchor="{anchor}" lIns="45720" tIns="27432" rIns="45720" bIns="27432"/>\n'
@@ -341,18 +651,17 @@ def _render_region_shapes_xml(
         )
         next_id += 1
 
-    # Native editable polyline connectors (`<a:custGeom>` with canonical positive coordinates, flipH=0, flipV=0)
+    # Pass 1: Background containers & section bands
+    for v in bg_containers:
+        _emit_vertex_xml(v)
+
+    # Pass 2: Native editable orthogonal straightConnector1 segments (<p:cxnSp>)
+    edge_label_shapes: List[str] = []
     for e in edges:
         pts = e["points"]
         if any(px < cx0 - 8 or px > cx0 + cw + 8 or py < cy0 - 8 or py > cy0 + ch + 8 for (px, py) in pts):
             continue
         emu_pts = [(pad_x + int((px - cx0) * scale), pad_y + int((py - cy0) * scale)) for (px, py) in pts]
-        min_x = min(p[0] for p in emu_pts)
-        min_y = min(p[1] for p in emu_pts)
-        max_x = max(p[0] for p in emu_pts)
-        max_y = max(p[1] for p in emu_pts)
-        ext_w = max(12700, max_x - min_x)
-        ext_h = max(12700, max_y - min_y)
 
         st = e["style"]
         stroke_hex = _clean_hex(st.get("strokeColor"), "475569") or "475569"
@@ -360,29 +669,43 @@ def _render_region_shapes_xml(
         ln_w = max(12700, min(38100, int(sw_px * 9525)))
         dash_xml = '<a:prstDash val="dash"/>' if st.get("dashed") == "1" else ""
         end_arrow = st.get("endArrow", "classic")
-        tail_xml = '<a:tailEnd type="triangle" w="med" len="med"/>' if end_arrow != "none" else ""
         start_arrow = st.get("startArrow", "none")
-        head_xml = '<a:headEnd type="triangle" w="med" len="med"/>' if start_arrow not in ("none", "") else ""
 
-        rel_pts = [(p[0] - min_x, p[1] - min_y) for p in emu_pts]
-        path_cmds = [f'<a:moveTo><a:pt x="{rel_pts[0][0]}" y="{rel_pts[0][1]}"/></a:moveTo>']
-        for rx, ry in rel_pts[1:]:
-            path_cmds.append(f'<a:lnTo><a:pt x="{rx}" y="{ry}"/></a:lnTo>')
-
-        shapes.append(
-            f"        <p:sp>\n"
-            f'          <p:nvSpPr><p:cNvPr id="{next_id}" name="Edge_{next_id}"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>\n'
-            f"          <p:spPr>\n"
-            f'            <a:xfrm><a:off x="{min_x}" y="{min_y}"/><a:ext cx="{ext_w}" cy="{ext_h}"/></a:xfrm>\n'
-            f"            <a:custGeom><a:avLst/><a:gdLst/><a:ahLst/><a:cxnLst/><a:rect l=\"l\" t=\"t\" r=\"r\" b=\"b\"/>"
-            f'<a:pathLst><a:path w="{ext_w}" h="{ext_h}">{"".join(path_cmds)}</a:path></a:pathLst></a:custGeom>\n'
-            f"            <a:noFill/>\n"
-            f'            <a:ln w="{ln_w}"><a:solidFill><a:srgbClr val="{stroke_hex}"/></a:solidFill>{dash_xml}{head_xml}{tail_xml}</a:ln>\n'
-            f"          </p:spPr>\n"
-            f'          <p:txBody><a:bodyPr/><a:lstStyle/><a:p/></p:txBody>\n'
-            f"        </p:sp>"
-        )
-        next_id += 1
+        num_segs = len(emu_pts) - 1
+        for seg_idx in range(num_segs):
+            (x1, y1), (x2, y2) = emu_pts[seg_idx], emu_pts[seg_idx + 1]
+            if abs(x2 - x1) < 100 and abs(y2 - y1) < 100:
+                continue
+            seg_min_x = min(x1, x2)
+            seg_min_y = min(y1, y2)
+            seg_w = max(0, abs(x2 - x1))
+            seg_h = max(0, abs(y2 - y1))
+            flip_attrs = ""
+            if x2 < x1:
+                flip_attrs += ' flipH="1"'
+            if y2 < y1:
+                flip_attrs += ' flipV="1"'
+            head_xml = (
+                '<a:headEnd type="triangle" w="med" len="med"/>'
+                if (seg_idx == 0 and start_arrow not in ("none", ""))
+                else ""
+            )
+            tail_xml = (
+                '<a:tailEnd type="triangle" w="med" len="med"/>'
+                if (seg_idx == num_segs - 1 and end_arrow != "none")
+                else ""
+            )
+            shapes.append(
+                f"        <p:cxnSp>\n"
+                f'          <p:nvCxnSpPr><p:cNvPr id="{next_id}" name="EdgeSeg_{next_id}"/><p:cNvCxnSpPr/><p:nvPr/></p:nvCxnSpPr>\n'
+                f"          <p:spPr>\n"
+                f'            <a:xfrm{flip_attrs}><a:off x="{seg_min_x}" y="{seg_min_y}"/><a:ext cx="{seg_w}" cy="{seg_h}"/></a:xfrm>\n'
+                f'            <a:prstGeom prst="straightConnector1"><a:avLst/></a:prstGeom>\n'
+                f'            <a:ln w="{ln_w}"><a:solidFill><a:srgbClr val="{stroke_hex}"/></a:solidFill>{dash_xml}{head_xml}{tail_xml}</a:ln>\n'
+                f"          </p:spPr>\n"
+                f"        </p:cxnSp>"
+            )
+            next_id += 1
 
         if e["text"]:
             mid_idx = len(emu_pts) // 2
@@ -391,7 +714,7 @@ def _render_region_shapes_xml(
             lbl_h = 228600
             lx = max(0, mx - lbl_w // 2)
             ly = max(0, my - lbl_h // 2)
-            shapes.append(
+            edge_label_shapes.append(
                 f"        <p:sp>\n"
                 f'          <p:nvSpPr><p:cNvPr id="{next_id}" name="EdgeLabel_{next_id}"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>\n'
                 f"          <p:spPr>\n"
@@ -408,6 +731,11 @@ def _render_region_shapes_xml(
                 f"        </p:sp>"
             )
             next_id += 1
+
+    # Pass 3: Foreground cards, badges, pills, headers, footers & edge labels (sit cleanly above edges)
+    for v in fg_cards:
+        _emit_vertex_xml(v)
+    shapes.extend(edge_label_shapes)
 
     return shapes, next_id
 
@@ -514,7 +842,7 @@ def compile_drawio_to_pptx(tid: str, title: str) -> Tuple[Path, bytes, int]:
     edges = parsed["edges"]
 
     bands = _detect_section_bands(vertices, page_w)
-    total_slides = 1 + (len(bands) if len(bands) >= 2 else 1)
+    total_slides = 1 + (len(bands) if len(bands) >= 2 else 2)
 
     slide_xmls: List[str] = []
 
@@ -592,23 +920,41 @@ def compile_drawio_to_pptx(tid: str, title: str) -> Tuple[Path, bytes, int]:
             ) + band_shapes
             slide_xmls.append(_wrap_slide_xml("F8FAFC", sb_shapes))
     else:
-        # Slide 2: Full-Bleed Widescreen Vector Zoom
-        zoom_shapes, _ = _render_region_shapes_xml(
+        # Slide 2: Upper Architecture Stage Widescreen Vector Zoom
+        zoom_top, _ = _render_region_shapes_xml(
             vertices,
             edges,
-            (0.0, 0.0, page_w, page_h),
+            (0.0, 0.0, page_w, page_h * 0.58),
             (280000, 760000, 11630000, 5640000),
             start_id=10,
-            font_scale=1.18,
+            font_scale=1.22,
         )
         s2_shapes = _header_and_footer_shapes(
             tid,
             title,
-            "Slide 2: Full-Width 16:9 Widescreen Editable Vector Canvas",
+            "Slide 2: Upper Architecture Stage 16:9 Widescreen Editable Vector Zoom",
             2,
             total_slides,
-        ) + zoom_shapes
+        ) + zoom_top
         slide_xmls.append(_wrap_slide_xml("FFFFFF", s2_shapes))
+
+        # Slide 3: Lower Execution & Telemetry Widescreen Vector Zoom
+        zoom_bot, _ = _render_region_shapes_xml(
+            vertices,
+            edges,
+            (0.0, page_h * 0.42, page_w, page_h * 0.58),
+            (280000, 760000, 11630000, 5640000),
+            start_id=10,
+            font_scale=1.22,
+        )
+        s3_shapes = _header_and_footer_shapes(
+            tid,
+            title,
+            "Slide 3: Lower Execution & Telemetry 16:9 Widescreen Editable Vector Zoom",
+            3,
+            total_slides,
+        ) + zoom_bot
+        slide_xmls.append(_wrap_slide_xml("F8FAFC", s3_shapes))
 
     GALLERY_DIR.mkdir(parents=True, exist_ok=True)
     out_pptx = GALLERY_DIR / f"{tid}.pptx"
@@ -749,9 +1095,781 @@ def _get_refresh_access_token() -> Optional[str]:
     return None
 
 
+def _gslides_shape_type(style: Dict[str, str]) -> str:
+    sh = style.get("shape", "")
+    if "ellipse" in style or sh == "ellipse":
+        return "ELLIPSE"
+    if "rhombus" in style or sh == "rhombus":
+        return "DIAMOND"
+    if sh == "hexagon":
+        return "HEXAGON"
+    if sh in ("cylinder", "cylinder3"):
+        return "CAN"
+    if style.get("rounded") == "1":
+        return "ROUND_RECTANGLE"
+    return "RECTANGLE"
+
+
+def _make_gslides_shape_With_text_reqs(
+    obj_id: str,
+    slide_id: str,
+    shape_type: str,
+    x_emu: int,
+    y_emu: int,
+    w_emu: int,
+    h_emu: int,
+    fill_hex: Optional[str],
+    stroke_hex: Optional[str],
+    stroke_emu: int,
+    dashed: bool,
+    text_str: str,
+    pt_sz: float,
+    align: str = "CENTER",
+    valign: str = "MIDDLE",
+    font_hex: str = "0F172A",
+    force_bold_single: bool = False,
+) -> List[Dict[str, Any]]:
+    reqs: List[Dict[str, Any]] = [
+        {
+            "createShape": {
+                "objectId": obj_id,
+                "shapeType": shape_type,
+                "elementProperties": {
+                    "pageObjectId": slide_id,
+                    "size": {
+                        "width": {"magnitude": max(12700, int(w_emu)), "unit": "EMU"},
+                        "height": {"magnitude": max(12700, int(h_emu)), "unit": "EMU"},
+                    },
+                    "transform": {
+                        "scaleX": 1,
+                        "scaleY": 1,
+                        "translateX": max(0, int(x_emu)),
+                        "translateY": max(0, int(y_emu)),
+                        "unit": "EMU",
+                    },
+                },
+            }
+        }
+    ]
+
+    shape_props: Dict[str, Any] = {"contentAlignment": valign}
+    fields = ["contentAlignment"]
+    if fill_hex:
+        shape_props["shapeBackgroundFill"] = {
+            "solidFill": {"color": {"rgbColor": _hex_to_rgb_float(fill_hex)}, "alpha": 1}
+        }
+        fields.append("shapeBackgroundFill")
+    else:
+        shape_props["shapeBackgroundFill"] = {"propertyState": "NOT_RENDERED"}
+        fields.append("shapeBackgroundFill.propertyState")
+
+    if stroke_hex:
+        shape_props["outline"] = {
+            "outlineFill": {"solidFill": {"color": {"rgbColor": _hex_to_rgb_float(stroke_hex)}}},
+            "weight": {"magnitude": max(9525, int(stroke_emu)), "unit": "EMU"},
+            "dashStyle": "DASH" if dashed else "SOLID",
+        }
+        fields.extend(["outline.outlineFill", "outline.weight", "outline.dashStyle"])
+    else:
+        shape_props["outline"] = {"propertyState": "NOT_RENDERED"}
+        fields.append("outline.propertyState")
+
+    reqs.append(
+        {
+            "updateShapeProperties": {
+                "objectId": obj_id,
+                "shapeProperties": shape_props,
+                "fields": ",".join(fields),
+            }
+        }
+    )
+
+    clean_txt = (text_str or "").strip()
+    if clean_txt:
+        is_dark = _is_dark_hex(fill_hex)
+        lines = clean_txt.split("\n")
+        w_pt = max(8.0, w_emu / 12700.0)
+        h_pt = max(6.0, h_emu / 12700.0)
+        is_compact_badge = (
+            len(lines) == 1
+            and len(clean_txt) <= 16
+            and (fill_hex is not None or stroke_hex is not None)
+            and (shape_type == "ELLIPSE" or w_emu < 1250000 or h_emu < 380000)
+        )
+
+        # Fit pt_sz so no word ever breaks mid-word ("boar\nd", "Clou\nd") and total lines never overflow h_pt
+        usable_w_pt = w_pt * (0.82 if shape_type == "ELLIPSE" else 0.94)
+        if not is_compact_badge:
+            words = re.findall(r"[A-Za-z0-9+/._-]+", clean_txt)
+            max_word_len = max((len(w) for w in words), default=1)
+            if max_word_len >= 4 and len(clean_txt) <= 48:
+                pt_sz = min(pt_sz, usable_w_pt / (max_word_len * 0.57))
+            for _ in range(3):
+                cpl = max(5.0, usable_w_pt / max(2.0, pt_sz * 0.53))
+                vis_lines = sum(max(1, int((len(ln) + cpl - 1) // cpl)) for ln in lines)
+                max_h_pt = (h_pt * 0.92) / max(1.0, vis_lines * 1.22)
+                if pt_sz > max_h_pt:
+                    pt_sz = max_h_pt
+        pt_sz = max(3.6, pt_sz)
+
+        # Compensate for Google Slides' built-in 7.2pt horizontal (182,880 EMU) and 3.6pt vertical (91,440 EMU) textbox margins
+        PAD_X_EMU = 91440
+        PAD_Y_EMU = 45720
+        text_target_id = obj_id
+        if fill_hex is not None or stroke_hex is not None:
+            text_target_id = f"{obj_id}_t"
+            cx_emu = x_emu + w_emu // 2
+            cy_emu = y_emu + h_emu // 2
+            if is_compact_badge:
+                tb_w = max(w_emu + 420000, len(clean_txt) * 125000 + 320000)
+                tb_h = max(h_emu + 90000, 260000)
+                tb_x = max(0, cx_emu - tb_w // 2)
+                tb_y = max(0, cy_emu - tb_h // 2)
+            elif shape_type == "ELLIPSE":
+                inscribed_w = int(w_emu * 0.84) + PAD_X_EMU * 2
+                inscribed_h = int(h_emu * 0.84) + PAD_Y_EMU * 2
+                tb_w = max(127000, inscribed_w)
+                tb_h = max(127000, inscribed_h)
+                tb_x = max(0, cx_emu - tb_w // 2)
+                tb_y = max(0, cy_emu - tb_h // 2)
+            else:
+                tb_w = w_emu + PAD_X_EMU * 2
+                tb_h = h_emu + PAD_Y_EMU * 2
+                tb_x = max(0, x_emu - PAD_X_EMU)
+                tb_y = max(0, y_emu - PAD_Y_EMU)
+            reqs.append(
+                {
+                    "createShape": {
+                        "objectId": text_target_id,
+                        "shapeType": "TEXT_BOX",
+                        "elementProperties": {
+                            "pageObjectId": slide_id,
+                            "size": {
+                                "width": {"magnitude": int(tb_w), "unit": "EMU"},
+                                "height": {"magnitude": int(tb_h), "unit": "EMU"},
+                            },
+                            "transform": {
+                                "scaleX": 1,
+                                "scaleY": 1,
+                                "translateX": int(tb_x),
+                                "translateY": int(tb_y),
+                                "unit": "EMU",
+                            },
+                        },
+                    }
+                }
+            )
+            reqs.append(
+                {
+                    "updateShapeProperties": {
+                        "objectId": text_target_id,
+                        "shapeProperties": {
+                            "contentAlignment": "MIDDLE" if is_compact_badge else valign,
+                            "shapeBackgroundFill": {"propertyState": "NOT_RENDERED"},
+                            "outline": {"propertyState": "NOT_RENDERED"},
+                        },
+                        "fields": "contentAlignment,shapeBackgroundFill.propertyState,outline.propertyState",
+                    }
+                }
+            )
+        else:
+            # Pure borderless text shape: widen/heighten in place to offset Google Slides' 7.2pt/3.6pt inset
+            reqs[0]["createShape"]["elementProperties"]["size"]["width"]["magnitude"] = max(12700, int(w_emu + PAD_X_EMU * 2))
+            reqs[0]["createShape"]["elementProperties"]["size"]["height"]["magnitude"] = max(12700, int(h_emu + PAD_Y_EMU * 2))
+            reqs[0]["createShape"]["elementProperties"]["transform"]["translateX"] = max(0, int(x_emu - PAD_X_EMU))
+            reqs[0]["createShape"]["elementProperties"]["transform"]["translateY"] = max(0, int(y_emu - PAD_Y_EMU))
+
+        reqs.append(
+            {
+                "insertText": {
+                    "objectId": text_target_id,
+                    "text": clean_txt,
+                }
+            }
+        )
+        reqs.append(
+            {
+                "updateParagraphStyle": {
+                    "objectId": text_target_id,
+                    "textRange": {"type": "ALL"},
+                    "style": {
+                        "alignment": "CENTER" if is_compact_badge else align,
+                        "lineSpacing": 100,
+                        "spaceAbove": {"magnitude": 0.1, "unit": "PT"},
+                        "spaceBelow": {"magnitude": 0.5 if len(lines) > 1 else 0.1, "unit": "PT"},
+                    },
+                    "fields": "alignment,lineSpacing,spaceAbove,spaceBelow",
+                }
+            }
+        )
+        if len(lines) >= 2:
+            head_len = len(lines[0])
+            head_col = "FFFFFF" if is_dark else (font_hex if font_hex != "0F172A" else "1E3A8A")
+            body_col = "E2E8F0" if is_dark else "334155"
+            head_pt = round(max(3.8, min(16.0, pt_sz * 1.06)), 1)
+            body_pt = round(max(3.5, min(13.5, pt_sz * 0.90)), 1)
+            reqs.append(
+                {
+                    "updateTextStyle": {
+                        "objectId": text_target_id,
+                        "textRange": {"type": "ALL"},
+                        "style": {
+                            "fontFamily": "Arial",
+                            "fontSize": {"magnitude": head_pt, "unit": "PT"},
+                            "bold": True,
+                            "foregroundColor": {"opaqueColor": {"rgbColor": _hex_to_rgb_float(head_col)}},
+                        },
+                        "fields": "fontFamily,fontSize,bold,foregroundColor",
+                    }
+                }
+            )
+            if len(clean_txt) > head_len + 1:
+                reqs.append(
+                    {
+                        "updateTextStyle": {
+                            "objectId": text_target_id,
+                            "textRange": {
+                                "type": "FIXED_RANGE",
+                                "startIndex": head_len + 1,
+                                "endIndex": len(clean_txt),
+                            },
+                            "style": {
+                                "fontFamily": "Arial",
+                                "fontSize": {"magnitude": body_pt, "unit": "PT"},
+                                "bold": False,
+                                "foregroundColor": {"opaqueColor": {"rgbColor": _hex_to_rgb_float(body_col)}},
+                            },
+                            "fields": "fontFamily,fontSize,bold,foregroundColor",
+                        }
+                    }
+                )
+        else:
+            single_pt = round(max(3.8, min(16.0, pt_sz * (0.90 if is_compact_badge else 1.0))), 1)
+            reqs.append(
+                {
+                    "updateTextStyle": {
+                        "objectId": text_target_id,
+                        "textRange": {"type": "ALL"},
+                        "style": {
+                            "fontFamily": "Arial",
+                            "fontSize": {"magnitude": single_pt, "unit": "PT"},
+                            "bold": bool(force_bold_single or len(clean_txt) <= 42),
+                            "foregroundColor": {"opaqueColor": {"rgbColor": _hex_to_rgb_float(font_hex)}},
+                        },
+                        "fields": "fontFamily,fontSize,bold,foregroundColor",
+                    }
+                }
+            )
+    return reqs
+
+
+def _build_gslides_region_requests(
+    slide_id: str,
+    prefix: str,
+    vertices: List[Dict[str, Any]],
+    edges: List[Dict[str, Any]],
+    crop: Tuple[float, float, float, float],
+    dest_emu: Tuple[int, int, int, int],
+    emu_sx: float,
+    emu_sy: float,
+    font_scale: float = 1.0,
+) -> List[Dict[str, Any]]:
+    cx0, cy0, cw, ch = crop
+    dx0, dy0, dw, dh = dest_emu
+    sx = dw / max(cw, 1.0)
+    sy = dh / max(ch, 1.0)
+    scale = min(sx, sy)
+    pad_x = dx0 + int((dw - cw * scale) / 2.0)
+    pad_y = dy0 + int((dh - ch * scale) / 2.0)
+    emu_s = min(emu_sx, emu_sy)
+
+    reqs: List[Dict[str, Any]] = []
+    seq = 0
+    bg_containers, fg_cards = _partition_bg_and_fg_vertices(vertices, crop)
+
+    def _emit_vertex_gslides(v: Dict[str, Any]) -> None:
+        nonlocal seq
+        seq += 1
+        obj_id = f"{prefix}_n_{seq}"
+        x_emu = int((pad_x + int((v["x"] - cx0) * scale)) * emu_sx)
+        y_emu = int((pad_y + int((v["y"] - cy0) * scale)) * emu_sy)
+        w_emu = max(18000, int(v["w"] * scale * emu_sx))
+        h_emu = max(18000, int(v["h"] * scale * emu_sy))
+
+        st = v["style"]
+        is_text_only = "text" in st and "fillColor" not in st and "strokeColor" not in st
+        fill_hex = None if is_text_only else _clean_hex(st.get("fillColor"), "FFFFFF")
+        stroke_hex = None if is_text_only else _clean_hex(st.get("strokeColor"), "CBD5E1")
+        is_dark = _is_dark_hex(fill_hex)
+        default_font = "FFFFFF" if is_dark else "0F172A"
+        font_hex = _clean_hex(st.get("fontColor"), default_font) or default_font
+        shape_type = _gslides_shape_type(st)
+
+        sw_px = float(st.get("strokeWidth", 1.2) or 1.2)
+        ln_w = max(9525, min(38100, int(sw_px * 9525 * emu_s)))
+        raw_fs = float(st.get("fontSize", 11.5) or 11.5)
+        pt_sz = max(4.2, min(16.5, raw_fs * (scale / 9525.0) * 0.88 * font_scale * emu_s))
+
+        align_map = {"left": "START", "center": "CENTER", "right": "END"}
+        algn = align_map.get(st.get("align", "center"), "CENTER")
+        valign_map = {"top": "TOP", "middle": "MIDDLE", "bottom": "BOTTOM"}
+        valgn = valign_map.get(st.get("verticalAlign", "middle"), "MIDDLE")
+
+        if is_text_only and "\n" not in v["text"] and algn == "START":
+            w_emu = max(w_emu, int((len(v["text"]) * 145000 + 260000) * emu_s))
+        if v["w"] >= cw * 0.85 and v["h"] <= 56.0 and "\n" not in v["text"] and len(v["text"]) > 40:
+            max_banner_pt = max(5.5, ((w_emu / 12700.0) - 18.0) / max(1.0, len(v["text"]) * 0.62))
+            pt_sz = min(pt_sz, max_banner_pt)
+
+        reqs.extend(
+            _make_gslides_shape_With_text_reqs(
+                obj_id=obj_id,
+                slide_id=slide_id,
+                shape_type=shape_type,
+                x_emu=x_emu,
+                y_emu=y_emu,
+                w_emu=w_emu,
+                h_emu=h_emu,
+                fill_hex=fill_hex,
+                stroke_hex=stroke_hex,
+                stroke_emu=ln_w,
+                dashed=(st.get("dashed") == "1"),
+                text_str=v["text"],
+                pt_sz=pt_sz,
+                align=algn,
+                valign=valgn,
+                font_hex=font_hex,
+                force_bold_single=(st.get("fontStyle") in ("1", "3", "5")),
+            )
+        )
+
+    # Pass 1: Background section bands & containers
+    for v in bg_containers:
+        _emit_vertex_gslides(v)
+
+    # Pass 2: Strictly orthogonal STRAIGHT lines (scaleX=1, scaleY=1, 0 diagonal distortions)
+    edge_label_reqs: List[Dict[str, Any]] = []
+    for e in edges:
+        pts = e["points"]
+        if any(px < cx0 - 8 or px > cx0 + cw + 8 or py < cy0 - 8 or py > cy0 + ch + 8 for (px, py) in pts):
+            continue
+        emu_pts = [
+            (int((pad_x + int((px - cx0) * scale)) * emu_sx), int((pad_y + int((py - cy0) * scale)) * emu_sy))
+            for (px, py) in pts
+        ]
+        st = e["style"]
+        stroke_hex = _clean_hex(st.get("strokeColor"), "2554B0") or "2554B0"
+        sw_px = float(st.get("strokeWidth", 1.8) or 1.8)
+        ln_w = max(12700, min(32000, int(sw_px * 9525 * emu_s)))
+        is_dashed = st.get("dashed") == "1"
+        end_arrow_raw = st.get("endArrow", "classic")
+        start_arrow_raw = st.get("startArrow", "none")
+
+        num_segs = len(emu_pts) - 1
+        for seg_idx in range(num_segs):
+            (x1, y1), (x2, y2) = emu_pts[seg_idx], emu_pts[seg_idx + 1]
+            if abs(x2 - x1) < 6000 and abs(y2 - y1) < 6000:
+                continue
+            s_arr = "FILL_ARROW" if (seg_idx == 0 and start_arrow_raw not in ("none", "")) else "NONE"
+            e_arr = "FILL_ARROW" if (seg_idx == num_segs - 1 and end_arrow_raw != "none") else "NONE"
+
+            if abs(x2 - x1) >= abs(y2 - y1):
+                mid_y = (y1 + y2) // 2
+                if x2 < x1:
+                    x1, x2 = x2, x1
+                    s_arr, e_arr = e_arr, s_arr
+                w_mag = max(12700, x2 - x1)
+                h_mag = 12700
+                tx, ty = x1, mid_y
+            else:
+                mid_x = (x1 + x2) // 2
+                if y2 < y1:
+                    y1, y2 = y2, y1
+                    s_arr, e_arr = e_arr, s_arr
+                w_mag = 12700
+                h_mag = max(12700, y2 - y1)
+                tx, ty = mid_x, y1
+
+            seq += 1
+            line_id = f"{prefix}_l_{seq}"
+            reqs.append(
+                {
+                    "createLine": {
+                        "objectId": line_id,
+                        "category": "STRAIGHT",
+                        "elementProperties": {
+                            "pageObjectId": slide_id,
+                            "size": {
+                                "width": {"magnitude": w_mag, "unit": "EMU"},
+                                "height": {"magnitude": h_mag, "unit": "EMU"},
+                            },
+                            "transform": {
+                                "scaleX": 1,
+                                "scaleY": 1,
+                                "translateX": max(0, tx),
+                                "translateY": max(0, ty),
+                                "unit": "EMU",
+                            },
+                        },
+                    }
+                }
+            )
+            reqs.append(
+                {
+                    "updateLineProperties": {
+                        "objectId": line_id,
+                        "lineProperties": {
+                            "lineFill": {"solidFill": {"color": {"rgbColor": _hex_to_rgb_float(stroke_hex)}}},
+                            "weight": {"magnitude": ln_w, "unit": "EMU"},
+                            "dashStyle": "DASH" if is_dashed else "SOLID",
+                            "startArrow": s_arr,
+                            "endArrow": e_arr,
+                        },
+                        "fields": "lineFill,weight,dashStyle,startArrow,endArrow",
+                    }
+                }
+            )
+
+        if e["text"]:
+            seq += 1
+            mid_idx = len(emu_pts) // 2
+            mx, my = emu_pts[mid_idx]
+            lbl_w = max(int(520000 * emu_sx), min(int(1750000 * emu_sx), int(len(e["text"]) * 60000 * emu_sx)))
+            lbl_h = max(180000, int(228600 * emu_sy))
+            edge_label_reqs.extend(
+                _make_gslides_shape_With_text_reqs(
+                    obj_id=f"{prefix}_el_{seq}",
+                    slide_id=slide_id,
+                    shape_type="ROUND_RECTANGLE",
+                    x_emu=max(0, mx - lbl_w // 2),
+                    y_emu=max(0, my - lbl_h // 2),
+                    w_emu=lbl_w,
+                    h_emu=lbl_h,
+                    fill_hex="FFFFFF",
+                    stroke_hex=stroke_hex,
+                    stroke_emu=9525,
+                    dashed=False,
+                    text_str=e["text"],
+                    pt_sz=max(6.5, 7.8 * emu_s),
+                    align="CENTER",
+                    valign="MIDDLE",
+                    font_hex="0F172A",
+                    force_bold_single=True,
+                )
+            )
+
+    # Pass 3: Foreground cards, pills, badges & edge labels
+    for v in fg_cards:
+        _emit_vertex_gslides(v)
+    reqs.extend(edge_label_reqs)
+    return reqs
+
+
+def _sync_via_gslides_cli(tid: str, title: str, existing_id: Optional[str]) -> str:
+    drawio_path = DRAWIO_DIR / f"{tid}.drawio"
+    if not drawio_path.exists():
+        drawio_path = GALLERY_DIR / f"{tid}.drawio"
+    parsed = parse_drawio(drawio_path)
+    page_w = parsed["page_w"]
+    page_h = parsed["page_h"]
+    bg_hex = parsed["bg_hex"]
+    vertices = parsed["vertices"]
+    edges = parsed["edges"]
+    bands = _detect_section_bands(vertices, page_w)
+    total_slides = 1 + (len(bands) if len(bands) >= 2 else 2)
+
+    deck_name = f"{tid} — {title} (Editable Google Slides)"
+    pres_id = existing_id if (existing_id and len(str(existing_id)) >= 40) else None
+    if not pres_id:
+        cr = subprocess.run(
+            [str(GSLIDES_BIN), "mutate", "create", "--title", deck_name],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        m_id = re.search(r"\(ID:\s*([A-Za-z0-9_-]+)\)", cr.stdout)
+        if m_id:
+            pres_id = m_id.group(1)
+        else:
+            cr_json = json.loads(cr.stdout[cr.stdout.find("{") :])
+            pres_id = str(cr_json.get("presentationId") or cr_json.get("id"))
+        subprocess.run(
+            [str(GSLIDES_BIN), "mutate", "share", pres_id, "--role", "reader", "--type", "domain", "--domain", "google.com"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+    info_res = subprocess.run(
+        [str(GSLIDES_BIN), "readonly", "info", pres_id, "--json"],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    info_json = json.loads(info_res.stdout[info_res.stdout.find("{") :])
+    ps = info_json.get("pageSize") or {}
+    pres_w_emu = float((ps.get("width") or {}).get("magnitude") or SLIDE_W_EMU)
+    pres_h_emu = float((ps.get("height") or {}).get("magnitude") or SLIDE_H_EMU)
+    emu_sx = pres_w_emu / SLIDE_W_EMU
+    emu_sy = pres_h_emu / SLIDE_H_EMU
+    emu_s = min(emu_sx, emu_sy)
+    old_slide_ids = [str(s["objectId"]) for s in (info_json.get("slides") or []) if s.get("objectId")]
+    layouts = info_json.get("layouts") or []
+    slide_layout_ref = (
+        {"layoutId": str(layouts[0]["objectId"])}
+        if layouts and layouts[0].get("objectId")
+        else {"predefinedLayout": "BLANK"}
+    )
+
+    run_tag = uuid.uuid4().hex[:6]
+    all_reqs: List[Dict[str, Any]] = []
+
+    def _add_slide_chrome(sid: str, pfx: str, subtitle: str, s_idx: int, slide_bg: str) -> None:
+        all_reqs.append(
+            {
+                "createSlide": {
+                    "objectId": sid,
+                    "slideLayoutReference": slide_layout_ref,
+                }
+            }
+        )
+        all_reqs.append(
+            {
+                "updatePageProperties": {
+                    "objectId": sid,
+                    "pageProperties": {
+                        "pageBackgroundFill": {
+                            "solidFill": {"color": {"rgbColor": _hex_to_rgb_float(slide_bg)}}
+                        }
+                    },
+                    "fields": "pageBackgroundFill.solidFill.color",
+                }
+            }
+        )
+        # Top banner
+        all_reqs.extend(
+            _make_gslides_shape_With_text_reqs(
+                obj_id=f"{pfx}_hdr",
+                slide_id=sid,
+                shape_type="RECTANGLE",
+                x_emu=int(320000 * emu_sx),
+                y_emu=int(140000 * emu_sy),
+                w_emu=int(9200000 * emu_sx),
+                h_emu=int(560000 * emu_sy),
+                fill_hex=None,
+                stroke_hex=None,
+                stroke_emu=0,
+                dashed=False,
+                text_str=f"{tid} — {title}\n{subtitle}",
+                pt_sz=12.5 * emu_s,
+                align="START",
+                valign="TOP",
+                font_hex="0F172A",
+            )
+        )
+        # Green native badge
+        all_reqs.extend(
+            _make_gslides_shape_With_text_reqs(
+                obj_id=f"{pfx}_bdg",
+                slide_id=sid,
+                shape_type="ROUND_RECTANGLE",
+                x_emu=int(9620000 * emu_sx),
+                y_emu=int(190000 * emu_sy),
+                w_emu=int(2250000 * emu_sx),
+                h_emu=int(320000 * emu_sy),
+                fill_hex="ECFDF5",
+                stroke_hex="10B981",
+                stroke_emu=int(12700 * emu_s),
+                dashed=False,
+                text_str="100% Native Editable Shapes",
+                pt_sz=8.5 * emu_s,
+                align="CENTER",
+                valign="MIDDLE",
+                font_hex="065F46",
+                force_bold_single=True,
+            )
+        )
+        # Footer bar
+        all_reqs.extend(
+            _make_gslides_shape_With_text_reqs(
+                obj_id=f"{pfx}_ftr",
+                slide_id=sid,
+                shape_type="RECTANGLE",
+                x_emu=int(320000 * emu_sx),
+                y_emu=int(6480000 * emu_sy),
+                w_emu=int(11550000 * emu_sx),
+                h_emu=int(260000 * emu_sy),
+                fill_hex=None,
+                stroke_hex=None,
+                stroke_emu=0,
+                dashed=False,
+                text_str=f"Proprietary + Confidential  |  Cloudstyle 2.0 Canonical Blueprint ({tid})  |  Slide {s_idx} of {total_slides}",
+                pt_sz=8.2 * emu_s,
+                align="START",
+                valign="MIDDLE",
+                font_hex="64748B",
+                force_bold_single=True,
+            )
+        )
+
+    # Slide 1: Full-Poster Overview + Right Executive Design Rail
+    s1_id = f"s1_{run_tag}"
+    p1_fx = f"p1_{run_tag}"
+    _add_slide_chrome(
+        s1_id,
+        p1_fx,
+        "Slide 1: Complete Cloudstyle 2.0 Native Editable Blueprint Overview",
+        1,
+        "F8FAFC" if bg_hex == "FFFFFF" else bg_hex,
+    )
+    if page_h > page_w * 0.92:
+        all_reqs.extend(
+            _build_gslides_region_requests(
+                s1_id,
+                p1_fx,
+                vertices,
+                edges,
+                (0.0, 0.0, page_w, page_h),
+                (320000, 760000, 7820000, 5620000),
+                emu_sx,
+                emu_sy,
+                font_scale=1.08,
+            )
+        )
+        rail_cards = [
+            ("DESIGN INVARIANT — Canonical Geometry", f"Compiled from {tid}.drawio with zero text collisions and 100% orthogonal vector connectors.", "2563EB", 780000),
+            ("PRODUCTION STACK — Google Cloud ADK ⇄ OSS", "Vertex AI Gemini 4 Argon / 3.8 Flash (locations/global) + Model Armor + OpenHands.", "059669", 2680000),
+            ("CAREER & SLO IMPACT — Staff+ Proof Telemetry", "100% editable shapes in Google Slides & PowerPoint for executive & customer reviews.", "7C3AED", 4580000),
+        ]
+        for r_idx, (r_head, r_body, r_col, ry) in enumerate(rail_cards, start=1):
+            all_reqs.extend(
+                _make_gslides_shape_With_text_reqs(
+                    obj_id=f"{p1_fx}_rail_{r_idx}",
+                    slide_id=s1_id,
+                    shape_type="ROUND_RECTANGLE",
+                    x_emu=int(8320000 * emu_sx),
+                    y_emu=int(ry * emu_sy),
+                    w_emu=int(3550000 * emu_sx),
+                    h_emu=int(1740000 * emu_sy),
+                    fill_hex="FFFFFF",
+                    stroke_hex=r_col,
+                    stroke_emu=int(15875 * emu_s),
+                    dashed=False,
+                    text_str=f"{r_head}\n{r_body}",
+                    pt_sz=10.5 * emu_s,
+                    align="START",
+                    valign="MIDDLE",
+                    font_hex=r_col,
+                )
+            )
+    else:
+        all_reqs.extend(
+            _build_gslides_region_requests(
+                s1_id,
+                p1_fx,
+                vertices,
+                edges,
+                (0.0, 0.0, page_w, page_h),
+                (320000, 760000, 11550000, 5620000),
+                emu_sx,
+                emu_sy,
+                font_scale=1.05,
+            )
+        )
+
+    if len(bands) >= 2:
+        for b_idx, band in enumerate(bands, start=2):
+            sb_id = f"s{b_idx}_{run_tag}"
+            pb_fx = f"p{b_idx}_{run_tag}"
+            _add_slide_chrome(
+                sb_id,
+                pb_fx,
+                f"Slide {b_idx}: Widescreen Section Band {b_idx - 1:02d} Native Architecture Zoom",
+                b_idx,
+                "F8FAFC",
+            )
+            all_reqs.extend(
+                _build_gslides_region_requests(
+                    sb_id,
+                    pb_fx,
+                    vertices,
+                    edges,
+                    (max(0.0, band["x"] - 24.0), max(0.0, band["y"] - 12.0), min(page_w, band["w"] + 48.0), band["h"] + 24.0),
+                    (320000, 820000, 11550000, 5520000),
+                    emu_sx,
+                    emu_sy,
+                    font_scale=1.25,
+                )
+            )
+    else:
+        s2_id = f"s2_{run_tag}"
+        p2_fx = f"p2_{run_tag}"
+        _add_slide_chrome(
+            s2_id,
+            p2_fx,
+            "Slide 2: Upper Architecture Stage 16:9 Widescreen Editable Vector Zoom",
+            2,
+            "FFFFFF",
+        )
+        all_reqs.extend(
+            _build_gslides_region_requests(
+                s2_id,
+                p2_fx,
+                vertices,
+                edges,
+                (0.0, 0.0, page_w, page_h * 0.58),
+                (280000, 760000, 11630000, 5640000),
+                emu_sx,
+                emu_sy,
+                font_scale=1.22,
+            )
+        )
+        s3_id = f"s3_{run_tag}"
+        p3_fx = f"p3_{run_tag}"
+        _add_slide_chrome(
+            s3_id,
+            p3_fx,
+            "Slide 3: Lower Execution & Telemetry 16:9 Widescreen Editable Vector Zoom",
+            3,
+            "F8FAFC",
+        )
+        all_reqs.extend(
+            _build_gslides_region_requests(
+                s3_id,
+                p3_fx,
+                vertices,
+                edges,
+                (0.0, page_h * 0.42, page_w, page_h * 0.58),
+                (280000, 760000, 11630000, 5640000),
+                emu_sx,
+                emu_sy,
+                font_scale=1.22,
+            )
+        )
+
+    for old_sid in old_slide_ids:
+        all_reqs.append({"deleteObject": {"objectId": old_sid}})
+
+    SCRATCH_BATCH_DIR.mkdir(parents=True, exist_ok=True)
+    chunk_size = 500
+    for c_idx in range(0, len(all_reqs), chunk_size):
+        chunk = all_reqs[c_idx : c_idx + chunk_size]
+        batch_file = SCRATCH_BATCH_DIR / f"gslides_batch_{tid}_{c_idx // chunk_size}.json"
+        batch_file.write_text(json.dumps({"requests": chunk}), encoding="utf-8")
+        subprocess.run(
+            [str(GSLIDES_BIN), "mutate", "raw-batch", pres_id, "--file", str(batch_file)],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+    return pres_id
+
+
 def _upload_pptx_to_google_slides(
     pptx_path: Path, pptx_buf: bytes, tid: str, title: str, existing_id: Optional[str], token: Optional[str]
 ) -> str:
+    if GSLIDES_BIN.exists():
+        return _sync_via_gslides_cli(tid, title, existing_id)
     deck_name = f"{tid} — {title} (Editable Google Slides)"
     if token:
         boundary = f"----TemplateSlidesBridge{uuid.uuid4().hex}"

@@ -43,14 +43,6 @@ CSS = """
 .phase-glow-2 { animation: phaseSpot2 4.8s ease-in-out infinite; }
 .phase-glow-3 { animation: phaseSpot3 4.8s ease-in-out infinite; }
 .phase-glow-4 { animation: phaseSpot4 4.8s ease-in-out infinite; }
-@keyframes phasePill1 { 0%,24% { opacity: 1.0; } 26%,100% { opacity: 0.58; } }
-@keyframes phasePill2 { 0%,24% { opacity: 0.58; } 25%,49% { opacity: 1.0; } 51%,100% { opacity: 0.58; } }
-@keyframes phasePill3 { 0%,49% { opacity: 0.58; } 50%,74% { opacity: 1.0; } 76%,100% { opacity: 0.58; } }
-@keyframes phasePill4 { 0%,74% { opacity: 0.58; } 75%,99% { opacity: 1.0; } 100% { opacity: 0.58; } }
-.phase-pill-1 { animation: phasePill1 4.8s ease-in-out infinite; }
-.phase-pill-2 { animation: phasePill2 4.8s ease-in-out infinite; }
-.phase-pill-3 { animation: phasePill3 4.8s ease-in-out infinite; }
-.phase-pill-4 { animation: phasePill4 4.8s ease-in-out infinite; }
 """
 
 
@@ -193,7 +185,7 @@ def _flow(
             f'<path d="{d}" fill="none" stroke="#FFFFFF" stroke-opacity="0.80" stroke-width="{eff_width + 2.0:.1f}" '
             f'stroke-linecap="round" stroke-linejoin="round"/>'
         )
-    if solid or total_len < 30.0:
+    if solid:
         out.append(
             f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{eff_width:.1f}" stroke-linejoin="round" stroke-linecap="round"/>'
         )

@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-06T06:43:55.908836+00:00",
+  "updated_at": "2026-11-07T15:48:58.820437+00:00",
   "total_items": 17,
   "pending_count": 0,
   "dispatched_count": 17,
   "items": [
     {
       "outbox_id": "OUT-D73FFF38E6",
-      "staged_at": "2026-11-04T19:48:18.868743+00:00",
+      "staged_at": "2026-11-07T15:48:16.859144+00:00",
       "scheduled_for": "",
       "status": "DRY_RUN_VALIDATED",
       "idea_id": "TOP5-20261104-02",
@@ -37,12 +37,12 @@
         "media": {
           "container_format": "MP4",
           "aspect_ratio": "9:16 (1080\u00d71920 @ 30fps \u2022 42.6s Safe-Zone HD)",
-          "primary_asset_url": "/assets/multi-platform/MINT-01/vertical_short_9x16.mp4",
-          "poster_url": "/assets/multi-platform/TOP5-20261104-02/carousel_9x16/slide_01.jpg",
-          "preview_image_url": "/assets/multi-platform/TOP5-20261104-02/carousel_9x16/slide_01.jpg",
+          "primary_asset_url": "/assets/multi-platform/TOP5-20261104-02/vertical_short_9x16.mp4",
+          "poster_url": "/assets/template-gallery/T56.png",
+          "preview_image_url": "/assets/template-gallery/T56.png",
           "blueprint_svg_url": "/assets/template-gallery/T56.svg",
           "slide_urls": [],
-          "transcoded_ready": false
+          "transcoded_ready": true
         },
         "link_strategy": "AUDIO_AND_ONSCREEN_SEO_PLUS_BIO",
         "compliance_note": "PDFs rejected; Photo Mode supports 2\u201335 9:16 JPEGs. Unaudited apps are locked to SELF_ONLY on Direct Post, so we default to SEND_TO_USER_INBOX until TIKTOK_APP_AUDITED=true (cap: 15/day, 6/min).",
@@ -68,7 +68,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T19:48:19.574857+00:00",
+        "dispatched_at": "2026-11-07T15:48:17.556020+00:00",
         "missing_env_vars": [
           "TIKTOK_ACCESS_TOKEN"
         ],
@@ -78,7 +78,7 @@
     },
     {
       "outbox_id": "OUT-CBB742DB4B",
-      "staged_at": "2026-11-04T19:48:18.868612+00:00",
+      "staged_at": "2026-11-07T15:48:16.858923+00:00",
       "scheduled_for": "",
       "status": "DRY_RUN_VALIDATED",
       "idea_id": "TOP5-20261104-02",
@@ -109,8 +109,8 @@
         "media": {
           "container_format": "JPEG",
           "aspect_ratio": "4:5 (1080\u00d71350)",
-          "primary_asset_url": "/assets/multi-platform/TOP5-20261104-02/carousel_4x5/slide_01.jpg",
-          "preview_image_url": "/assets/multi-platform/TOP5-20261104-02/carousel_4x5/slide_01.jpg",
+          "primary_asset_url": "/assets/template-gallery/T56.png",
+          "preview_image_url": "/assets/template-gallery/T56.png",
           "blueprint_svg_url": "/assets/template-gallery/T56.svg",
           "slide_urls": [],
           "transcoded_ready": true
@@ -141,7 +141,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T19:48:19.574878+00:00",
+        "dispatched_at": "2026-11-07T15:48:17.556038+00:00",
         "missing_env_vars": [
           "IG_ACCESS_TOKEN",
           "IG_USER_ID",
@@ -153,7 +153,7 @@
     },
     {
       "outbox_id": "OUT-4862F50EA9",
-      "staged_at": "2026-11-04T19:48:18.868520+00:00",
+      "staged_at": "2026-11-07T15:48:16.858727+00:00",
       "scheduled_for": "",
       "status": "DRY_RUN_VALIDATED",
       "idea_id": "TOP5-20261104-02",
@@ -184,12 +184,12 @@
         "media": {
           "container_format": "MP4",
           "aspect_ratio": "9:16 (1080\u00d71920 @ 30fps \u2022 42.6s Safe-Zone HD)",
-          "primary_asset_url": "/assets/multi-platform/MINT-01/vertical_short_9x16.mp4",
-          "poster_url": "/assets/multi-platform/TOP5-20261104-02/carousel_9x16/slide_01.jpg",
-          "preview_image_url": "/assets/multi-platform/TOP5-20261104-02/carousel_9x16/slide_01.jpg",
+          "primary_asset_url": "/assets/multi-platform/TOP5-20261104-02/vertical_short_9x16.mp4",
+          "poster_url": "/assets/template-gallery/T56.png",
+          "preview_image_url": "/assets/template-gallery/T56.png",
           "blueprint_svg_url": "/assets/template-gallery/T56.svg",
           "slide_urls": [],
-          "transcoded_ready": false
+          "transcoded_ready": true
         },
         "link_strategy": "RELATED_LONGFORM_VIDEO_POINTER",
         "compliance_note": "Vertical 9:16 MP4 \u2264180s auto-classifies as a Short. URLs in Shorts descriptions are non-clickable; route viewers via YouTube Studio's Related Video link to the 16:9 walkthrough.",
@@ -215,7 +215,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T19:48:19.574885+00:00",
+        "dispatched_at": "2026-11-07T15:48:17.556043+00:00",
         "missing_env_vars": [
           "YOUTUBE_ACCESS_TOKEN"
         ],
@@ -225,7 +225,7 @@
     },
     {
       "outbox_id": "OUT-89BFBAD467",
-      "staged_at": "2026-11-04T19:48:18.868345+00:00",
+      "staged_at": "2026-11-07T15:48:16.858479+00:00",
       "scheduled_for": "",
       "status": "DRY_RUN_VALIDATED",
       "idea_id": "TOP5-20261104-02",
@@ -287,7 +287,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T19:48:19.574890+00:00",
+        "dispatched_at": "2026-11-07T15:48:17.556047+00:00",
         "missing_env_vars": [
           "TELEGRAM_BOT_TOKEN",
           "TELEGRAM_CHAT_ID"
@@ -298,7 +298,7 @@
     },
     {
       "outbox_id": "OUT-2D27C87CE1",
-      "staged_at": "2026-11-04T19:48:18.868170+00:00",
+      "staged_at": "2026-11-07T15:48:16.858170+00:00",
       "scheduled_for": "",
       "status": "DRY_RUN_VALIDATED",
       "idea_id": "TOP5-20261104-02",
@@ -360,7 +360,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T19:48:19.574894+00:00",
+        "dispatched_at": "2026-11-07T15:48:17.556051+00:00",
         "missing_env_vars": [
           "LINKEDIN_ACCESS_TOKEN",
           "LINKEDIN_PERSON_URN"

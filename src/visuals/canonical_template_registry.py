@@ -451,8 +451,178 @@ def _parse_svg_path_points(d_str: str) -> List[Point]:
     return dedup
 
 
+def _parse_mx_style(style_str: str) -> Dict[str, str]:
+    out: Dict[str, str] = {}
+    for part in str(style_str or "").split(";"):
+        t = part.strip()
+        if not t:
+            continue
+        if "=" in t:
+            k, v = t.split("=", 1)
+            out[k.strip()] = v.strip()
+        else:
+            out[t] = "1"
+    return out
+
+
+def _resolve_mx_edge_points(
+    sbox: Optional[Tuple[float, float, float, float]],
+    tbox: Optional[Tuple[float, float, float, float]],
+    style: Dict[str, str],
+    waypoints: Sequence[Point],
+    source_pt: Optional[Point],
+    target_pt: Optional[Point],
+) -> List[Point]:
+    """Resolve exact orthogonal Draw.io edge polyline from exitX/Y, waypoints, and entryX/Y."""
+    pts: List[Point] = []
+    if sbox is not None:
+        sx, sy, sw, sh = sbox
+        if "exitX" in style and "exitY" in style:
+            pts.append((sx + sw * float(style["exitX"]), sy + sh * float(style["exitY"])))
+        elif waypoints:
+            wx, wy = waypoints[0]
+            scx, scy = sx + sw / 2.0, sy + sh / 2.0
+            if abs(wx - scx) <= sw * 0.48:
+                pts.append((wx, sy + sh if wy >= scy else sy))
+            elif abs(wy - scy) <= sh * 0.48:
+                pts.append((sx + sw if wx >= scx else sx, wy))
+            else:
+                pts.append((scx, sy + sh if wy >= scy else sy))
+        elif tbox is not None:
+            tx, ty, tw, th = tbox
+            scx, scy = sx + sw / 2.0, sy + sh / 2.0
+            tcx, tcy = tx + tw / 2.0, ty + th / 2.0
+            if abs(scy - tcy) <= max(sh, th) * 0.75:
+                pts.append((sx + sw if tcx >= scx else sx, scy))
+            else:
+                pts.append((scx, sy + sh if tcy >= scy else sy))
+    elif source_pt is not None:
+        pts.append(source_pt)
+
+    for wp in waypoints:
+        pts.append(wp)
+
+    if tbox is not None:
+        tx, ty, tw, th = tbox
+        if "entryX" in style and "entryY" in style:
+            pts.append((tx + tw * float(style["entryX"]), ty + th * float(style["entryY"])))
+        elif pts:
+            lx, ly = pts[-1]
+            tcx, tcy = tx + tw / 2.0, ty + th / 2.0
+            if tx - 4.0 <= lx <= tx + tw + 4.0:
+                pts.append((lx, ty if ly <= tcy else ty + th))
+            elif ty - 4.0 <= ly <= ty + th + 4.0:
+                pts.append((tx if lx <= tcx else tx + tw, ly))
+            elif abs(ly - tcy) <= abs(lx - tcx):
+                pts.append((tx if lx <= tcx else tx + tw, tcy))
+            else:
+                pts.append((tcx, ty if ly <= tcy else ty + th))
+    elif target_pt is not None:
+        pts.append(target_pt)
+
+    # Orthogonalize micro-slants (<= 3px) so vertical/horizontal shafts stay 100% collinear
+    ortho: List[Point] = []
+    for p in pts:
+        if not ortho:
+            ortho.append(p)
+            continue
+        px, py = ortho[-1]
+        nx, ny = p
+        if abs(nx - px) <= 3.0 and abs(ny - py) > 3.0:
+            nx = px
+        elif abs(ny - py) <= 3.0 and abs(nx - px) > 3.0:
+            ny = py
+        if abs(nx - px) > 1.0 or abs(ny - py) > 1.0:
+            ortho.append((nx, ny))
+    return ortho
+
+
+def _clip_segment_outside_boxes(
+    p1: Point,
+    p2: Point,
+    boxes: Sequence[Tuple[float, float, float, float]],
+) -> List[Tuple[Point, Point]]:
+    """Liang-Barsky 1D interval subtraction: return sub-segments of (p1, p2) strictly outside all boxes."""
+    x1, y1 = p1
+    x2, y2 = p2
+    dx = x2 - x1
+    dy = y2 - y1
+    seg_len = (dx * dx + dy * dy) ** 0.5
+    if seg_len < 2.0:
+        return []
+
+    intervals: List[Tuple[float, float]] = [(0.0, 1.0)]
+    for bx0, by0, bx1, by1 in boxes:
+        if max(x1, x2) <= bx0 or min(x1, x2) >= bx1 or max(y1, y2) <= by0 or min(y1, y2) >= by1:
+            continue
+        t0, t1 = 0.0, 1.0
+        inside = True
+        for p, q in ((-dx, x1 - bx0), (dx, bx1 - x1), (-dy, y1 - by0), (dy, by1 - y1)):
+            if abs(p) < 1e-9:
+                if q < 0.0:
+                    inside = False
+                    break
+            else:
+                r = q / p
+                if p < 0.0:
+                    if r > t1:
+                        inside = False
+                        break
+                    if r > t0:
+                        t0 = r
+                else:
+                    if r < t0:
+                        inside = False
+                        break
+                    if r < t1:
+                        t1 = r
+        if inside and t1 > t0 + 1e-6:
+            next_intervals: List[Tuple[float, float]] = []
+            for a, b in intervals:
+                if t1 <= a or t0 >= b:
+                    next_intervals.append((a, b))
+                else:
+                    if t0 > a + 1e-4:
+                        next_intervals.append((a, t0))
+                    if t1 < b - 1e-4:
+                        next_intervals.append((t1, b))
+            intervals = next_intervals
+            if not intervals:
+                return []
+
+    out: List[Tuple[Point, Point]] = []
+    for a, b in intervals:
+        if (b - a) * seg_len >= 10.0:
+            out.append(((x1 + a * dx, y1 + a * dy), (x1 + b * dx, y1 + b * dy)))
+    return out
+
+
+def _clip_polyline_outside_boxes(
+    pts: Sequence[Point],
+    boxes: Sequence[Tuple[float, float, float, float]],
+    min_len: float = 16.0,
+) -> List[List[Point]]:
+    """Split and clip a polyline against forbidden boxes so 0.0px ever touches any card, pill, or text."""
+    if len(pts) < 2:
+        return []
+    chains: List[List[Point]] = []
+    for i in range(len(pts) - 1):
+        sub_segs = _clip_segment_outside_boxes(pts[i], pts[i + 1], boxes)
+        for sp1, sp2 in sub_segs:
+            if chains and abs(chains[-1][-1][0] - sp1[0]) <= 2.0 and abs(chains[-1][-1][1] - sp1[1]) <= 2.0:
+                chains[-1].append(sp2)
+            else:
+                chains.append([sp1, sp2])
+    valid: List[List[Point]] = []
+    for ch_pts in chains:
+        total = sum(((p2[0] - p1[0]) ** 2 + (p2[1] - p1[1]) ** 2) ** 0.5 for p1, p2 in zip(ch_pts, ch_pts[1:]))
+        if total >= min_len:
+            valid.append(ch_pts)
+    return valid
+
+
 def _extract_drawio_topology(tid: str, cw: int, ch: int) -> Dict[str, Any]:
-    """Extract internal connector lines, paths, stage rects, circles, and mxGraph edges from {tid}.drawio."""
+    """Extract internal connector lines, stage rects, circles, mxGraph edges, and forbidden card/text boxes from {tid}.drawio."""
     cached = _DRAWIO_TOPOLOGY_CACHE.get(tid)
     if cached is not None:
         return cached
@@ -464,29 +634,62 @@ def _extract_drawio_topology(tid: str, cw: int, ch: int) -> Dict[str, Any]:
         drawio_path = _TEMPLATE_GALLERY_DIR / "T79.drawio"
 
     mx_verts: Dict[str, Tuple[float, float, float, float, str]] = {}
-    mx_edges: List[Tuple[str, str, str]] = []
+    raw_edges: List[Dict[str, Any]] = []
     bg_lines: List[List[Point]] = []
-    bg_paths: List[List[Point]] = []
     bg_circles: List[Tuple[float, float, float]] = []
     bg_rects: List[Tuple[float, float, float, float]] = []
+    forbidden_boxes: List[Tuple[float, float, float, float]] = [
+        (0.0, 0.0, float(cw), 115.0),
+        (0.0, float(ch - 52), float(cw), float(ch)),
+    ]
 
     if drawio_path.exists():
         try:
             root = ET.fromstring(drawio_path.read_text(encoding="utf-8"))
             bg_svg = ""
+            has_poster_bg = False
             for c in root.findall(".//mxCell"):
                 cid = c.attrib.get("id", "")
                 val = c.attrib.get("value", "")
                 if "<svg" in val and cid.startswith(("bg", "poster_bg")):
                     bg_svg = val
+                    has_poster_bg = True
                 elif c.attrib.get("edge") == "1":
                     src = c.attrib.get("source", "")
                     tgt = c.attrib.get("target", "")
-                    if src and tgt:
-                        mx_edges.append((cid, src, tgt))
+                    style = _parse_mx_style(c.attrib.get("style", ""))
+                    g = c.find("mxGeometry")
+                    wps: List[Point] = []
+                    sp: Optional[Point] = None
+                    tp: Optional[Point] = None
+                    if g is not None:
+                        for pt in g.findall("mxPoint"):
+                            role = pt.attrib.get("as", "")
+                            if role == "sourcePoint":
+                                sp = (float(pt.attrib.get("x", 0.0)), float(pt.attrib.get("y", 0.0)))
+                            elif role == "targetPoint":
+                                tp = (float(pt.attrib.get("x", 0.0)), float(pt.attrib.get("y", 0.0)))
+                        arr = g.find("Array[@as='points']")
+                        if arr is not None:
+                            for pt in arr.findall("mxPoint"):
+                                wps.append((float(pt.attrib.get("x", 0.0)), float(pt.attrib.get("y", 0.0))))
+                    clean_lbl = re.sub(r"<[^>]+>", " ", val).strip()
+                    clean_lbl = re.sub(r"\s+", " ", clean_lbl)
+                    raw_edges.append(
+                        {
+                            "id": cid,
+                            "src": src,
+                            "tgt": tgt,
+                            "style": style,
+                            "waypoints": wps,
+                            "source_pt": sp,
+                            "target_pt": tp,
+                            "label": clean_lbl,
+                        }
+                    )
                 elif c.attrib.get("vertex") == "1":
                     g = c.find("mxGeometry")
-                    if g is not None and g.attrib.get("x") is not None and g.attrib.get("y") is not None:
+                    if g is not None and g.attrib.get("x") is not None and g.attrib.get("y") is not None and g.attrib.get("relative") != "1":
                         vx = float(g.attrib.get("x", 0.0))
                         vy = float(g.attrib.get("y", 0.0))
                         vw = float(g.attrib.get("width", 0.0))
@@ -495,15 +698,76 @@ def _extract_drawio_topology(tid: str, cw: int, ch: int) -> Dict[str, Any]:
                         clean_txt = re.sub(r"\s+", " ", clean_txt)
                         mx_verts[cid] = (vx, vy, vw, vh, clean_txt)
 
-            # GraphViewer (border: 0) translates graphs without a (0,0) backdrop by (-min_vx, -min_vy)
-            if mx_verts:
+            # GraphViewer translates ONLY graphs that lack a (0,0) poster_bg backdrop (i.e. T01, T53, T68-T89)
+            offset_x, offset_y = 0.0, 0.0
+            if mx_verts and not has_poster_bg:
                 min_vx = min(v[0] for v in mx_verts.values())
                 min_vy = min(v[1] for v in mx_verts.values())
                 if min_vx > 2.0 or min_vy > 2.0:
+                    offset_x, offset_y = min_vx, min_vy
                     mx_verts = {
-                        k: (vx - min_vx, vy - min_vy, vw, vh, txt)
+                        k: (vx - offset_x, vy - offset_y, vw, vh, txt)
                         for k, (vx, vy, vw, vh, txt) in mx_verts.items()
                     }
+
+            # Register opaque leaf content vertices as forbidden boxes so no conduit ever crosses a card or pill
+            container_prefixes = (
+                "band",
+                "t1_card",
+                "t2_card",
+                "t3_card",
+                "t4_card",
+                "t1_left",
+                "t1_right",
+                "t2_sub",
+                "t4_left",
+                "t4_right",
+                "col54_L",
+                "tr59_",
+                "z61_",
+                "hdr_cols",
+                "grid",
+                "left_hdr",
+                "right_hdr",
+                "div_line",
+                "stage_frame",
+            )
+            for cid, (vx, vy, vw, vh, txt) in mx_verts.items():
+                if cid.startswith(container_prefixes):
+                    continue
+                if vw * vh >= float(cw * ch) * 0.20 and not txt:
+                    continue
+                is_parent_container = False
+                for ocid, (ox, oy, ow, oh, _) in mx_verts.items():
+                    if ocid != cid and ow * oh < vw * vh * 0.75:
+                        ocx, ocy = ox + ow / 2.0, oy + oh / 2.0
+                        if vx <= ocx <= vx + vw and vy <= ocy <= vy + vh:
+                            is_parent_container = True
+                            break
+                if is_parent_container:
+                    continue
+                pad = 0.5
+                forbidden_boxes.append((vx - pad, vy - pad, vx + vw + pad, vy + vh + pad))
+
+            mx_edges: List[Tuple[str, str, str, List[Point], Dict[str, str]]] = []
+            for e in raw_edges:
+                cid = e["id"]
+                src = e["src"]
+                tgt = e["tgt"]
+                sbox = mx_verts[src][:4] if src in mx_verts else None
+                tbox = mx_verts[tgt][:4] if tgt in mx_verts else None
+                wps = [(wx - offset_x, wy - offset_y) for wx, wy in e["waypoints"]]
+                sp = (e["source_pt"][0] - offset_x, e["source_pt"][1] - offset_y) if e["source_pt"] else None
+                tp = (e["target_pt"][0] - offset_x, e["target_pt"][1] - offset_y) if e["target_pt"] else None
+                pts = _resolve_mx_edge_points(sbox, tbox, e["style"], wps, sp, tp)
+                if len(pts) >= 2:
+                    mx_edges.append((cid, src, tgt, pts, e["style"]))
+                    if e["label"] and len(pts) >= 2:
+                        # Protect midpoint edge label text (e.g., 'retries', 'check', 'yes', 'no', 'win')
+                        mx_pt, my_pt = _pat(pts, 0.5)
+                        lw = max(28.0, len(e["label"]) * 6.2 + 8.0)
+                        lh = 16.0
+                        forbidden_boxes.append((mx_pt - lw / 2.0, my_pt - lh / 2.0, mx_pt + lw / 2.0, my_pt + lh / 2.0))
 
             if bg_svg:
                 body = re.sub(r"<defs>.*?</defs>", "", bg_svg, flags=re.DOTALL)
@@ -513,36 +777,30 @@ def _extract_drawio_topology(tid: str, cw: int, ch: int) -> Dict[str, Any]:
                     body,
                     flags=re.DOTALL,
                 )
-                for m in re.finditer(r"<(line|path|circle|rect)\b([^>]*)/?>", body):
-                    tag = m.group(1)
-                    attrs = dict(re.findall(r'([a-zA-Z0-9_:-]+)="([^"]*)"', m.group(2)))
+                for m in re.finditer(r"<(line|circle|rect|text)\b([^>]*)>(.*?)</\1>|<(line|circle|rect)\b([^>]*)/?>", body, flags=re.DOTALL):
+                    tag = m.group(1) or m.group(4)
+                    attr_str = m.group(2) if m.group(1) else m.group(5)
+                    inner_txt = (m.group(3) or "").strip() if m.group(1) else ""
+                    attrs = dict(re.findall(r'([a-zA-Z0-9_:-]+)="([^"]*)"', attr_str or ""))
                     if tag == "line":
                         try:
                             x1, y1 = float(attrs["x1"]), float(attrs["y1"])
                             x2, y2 = float(attrs["x2"]), float(attrs["y2"])
                             seg_len = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
-                            if 125.0 <= min(y1, y2) and max(y1, y2) <= ch - 55.0 and 14.0 <= seg_len <= 820.0:
-                                bg_lines.append([(x1, y1), (x2, y2)])
+                            is_ortho = abs(x1 - x2) <= 3.0 or abs(y1 - y2) <= 3.0
+                            has_marker_or_dash = bool(attrs.get("marker-end") or attrs.get("stroke-dasharray"))
+                            if 135.0 <= min(y1, y2) and max(y1, y2) <= ch - 60.0 and 18.0 <= seg_len <= 780.0:
+                                if is_ortho or has_marker_or_dash:
+                                    bg_lines.append([(x1, y1), (x2, y2)])
                         except (KeyError, ValueError):
                             pass
-                    elif tag == "path":
-                        pts = _parse_svg_path_points(attrs.get("d", ""))
-                        if len(pts) >= 2:
-                            xs = [p[0] for p in pts]
-                            ys = [p[1] for p in pts]
-                            bw, bh = max(xs) - min(xs), max(ys) - min(ys)
-                            if (
-                                min(ys) >= 135.0
-                                and max(ys) <= ch - 55.0
-                                and (bw >= 22.0 or bh >= 22.0)
-                                and bw <= cw - 90.0
-                            ):
-                                bg_paths.append(pts[:8])
                     elif tag == "circle":
                         try:
                             cx, cy, r = float(attrs["cx"]), float(attrs["cy"]), float(attrs["r"])
                             if 16.0 <= r <= 185.0 and 175.0 <= cy <= ch - 75.0:
                                 bg_circles.append((cx, cy, r))
+                                if r <= 52.0:
+                                    forbidden_boxes.append((cx - r - 2.0, cy - r - 2.0, cx + r + 2.0, cy + r + 2.0))
                         except (KeyError, ValueError):
                             pass
                     elif tag == "rect":
@@ -551,56 +809,45 @@ def _extract_drawio_topology(tid: str, cw: int, ch: int) -> Dict[str, Any]:
                             rw, rh = float(attrs["width"]), float(attrs["height"])
                             if 180.0 <= ry <= ch - 85.0 and 44.0 <= rw <= cw - 85.0 and 18.0 <= rh <= 420.0:
                                 bg_rects.append((rx, ry, rw, rh))
+                                if rw <= 320.0 and rh <= 95.0:
+                                    forbidden_boxes.append((rx - 2.0, ry - 2.0, rx + rw + 2.0, ry + rh + 2.0))
                         except (KeyError, ValueError):
                             pass
+                    elif tag == "text" and inner_txt:
+                        try:
+                            tx = float(attrs.get("x", 0.0))
+                            ty = float(attrs.get("y", 0.0))
+                            fs = float(re.sub(r"[^0-9.]", "", attrs.get("font-size", "11")) or 11.0)
+                            clean_t = re.sub(r"<[^>]+>", "", inner_txt).strip()
+                            if clean_t and ty >= 120.0:
+                                tw = len(clean_t) * fs * 0.56 + 8.0
+                                anchor = attrs.get("text-anchor", "start")
+                                if anchor == "middle":
+                                    tx0, tx1 = tx - tw / 2.0, tx + tw / 2.0
+                                elif anchor == "end":
+                                    tx0, tx1 = tx - tw, tx
+                                else:
+                                    tx0, tx1 = tx, tx + tw
+                                forbidden_boxes.append((tx0 - 3.0, ty - fs - 2.0, tx1 + 3.0, ty + 4.0))
+                        except (ValueError, KeyError):
+                            pass
         except Exception:
-            pass
+            mx_edges = []
+
+    if tid == "T56":
+        # Protect the executive portrait illustration in T56
+        forbidden_boxes.append((28.0, 200.0, 305.0, 560.0))
 
     topo = {
         "mx_verts": mx_verts,
         "mx_edges": mx_edges,
         "bg_lines": bg_lines,
-        "bg_paths": bg_paths,
         "bg_circles": bg_circles,
         "bg_rects": bg_rects,
+        "forbidden_boxes": forbidden_boxes,
     }
     _DRAWIO_TOPOLOGY_CACHE[tid] = topo
     return topo
-
-
-def _edge_port_points(
-    sbox: Tuple[float, float, float, float],
-    tbox: Tuple[float, float, float, float],
-) -> List[Point]:
-    """Compute clean port-to-port polyline between two vertex bounding boxes."""
-    sx, sy, sw, sh = sbox
-    tx, ty, tw, th = tbox
-    scx, scy = sx + sw / 2.0, sy + sh / 2.0
-    tcx, tcy = tx + tw / 2.0, ty + th / 2.0
-
-    # Horizontal right-to-left or left-to-right when vertically overlapping
-    if abs(scy - tcy) <= max(sh, th) * 0.85:
-        if sx + sw <= tx + 6.0:
-            y_mid = (scy + tcy) / 2.0
-            return [(sx + sw, y_mid), (tx, y_mid)]
-        if tx + tw <= sx + 6.0:
-            y_mid = (scy + tcy) / 2.0
-            return [(sx, y_mid), (tx + tw, y_mid)]
-
-    # Vertical top-to-bottom or bottom-to-top
-    if sy + sh <= ty + 8.0:
-        p1 = (scx, sy + sh)
-        p2 = (tcx, ty)
-        if abs(scx - tcx) <= 18.0:
-            return [p1, (scx, ty)]
-        ym = (p1[1] + p2[1]) / 2.0
-        return [p1, (scx, ym), (tcx, ym), p2]
-
-    if ty + th <= sy + 8.0:
-        # Feedback / replan loop going upward (e.g., t3_fix_box -> t3_model_circle)
-        return [(sx, scy), (tcx, scy), (tcx, ty + th)]
-
-    return [(scx, scy), (tcx, tcy)]
 
 
 def _render_spot_rect(
@@ -613,18 +860,18 @@ def _render_spot_rect(
     phase: Optional[float],
     rx: float = 12.0,
 ) -> str:
-    """Render a 4-phase spotlight frame around a diagram zone or card."""
+    """Render a clean, non-dashed 4-phase outer perimeter glow around a diagram zone or card."""
     cls = f' class="phase-glow-{phase_idx}"' if phase is None else ""
     if phase is not None:
         active = int((phase * 4.0) % 4) + 1 == phase_idx
-        op = 0.95 if active else 0.22
-        sw = 3.2 if active else 1.4
+        op = 0.82 if active else 0.16
+        sw = 2.6 if active else 1.2
     else:
-        op = 0.88
-        sw = 2.8
+        op = 0.72
+        sw = 2.2
     return (
-        f'<rect x="{x - 3.0:.1f}" y="{y - 3.0:.1f}" width="{w + 6.0:.1f}" height="{h + 6.0:.1f}" rx="{rx:.1f}"'
-        f'{cls} fill="none" stroke="{color}" stroke-width="{sw:.1f}" stroke-opacity="{op:.2f}" stroke-dasharray="8 4"/>'
+        f'<rect x="{x - 2.0:.1f}" y="{y - 2.0:.1f}" width="{w + 4.0:.1f}" height="{h + 4.0:.1f}" rx="{rx:.1f}"'
+        f'{cls} fill="none" stroke="{color}" stroke-width="{sw:.1f}" stroke-opacity="{op:.2f}"/>'
     )
 
 
@@ -636,23 +883,52 @@ def _render_spot_circle(
     phase_idx: int,
     phase: Optional[float],
 ) -> str:
-    """Render a 4-phase spotlight ring around a circular lens or hub."""
+    """Render a clean, non-dashed 4-phase outer perimeter ring around a circular lens or bubble."""
     cls = f' class="phase-glow-{phase_idx}"' if phase is None else ""
     if phase is not None:
         active = int((phase * 4.0) % 4) + 1 == phase_idx
-        op = 0.95 if active else 0.24
-        sw = 3.4 if active else 1.5
+        op = 0.84 if active else 0.18
+        sw = 2.8 if active else 1.3
     else:
-        op = 0.90
-        sw = 3.0
+        op = 0.74
+        sw = 2.4
     return (
-        f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r + 4.5:.1f}"{cls} fill="none" '
-        f'stroke="{color}" stroke-width="{sw:.1f}" stroke-opacity="{op:.2f}" stroke-dasharray="9 5"/>'
+        f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r + 3.0:.1f}"{cls} fill="none" '
+        f'stroke="{color}" stroke-width="{sw:.1f}" stroke-opacity="{op:.2f}"/>'
     )
 
 
+def _conduit_pulse(
+    pts: Sequence[Point],
+    color: str,
+    phase: Optional[float],
+    forbidden_boxes: Sequence[Tuple[float, float, float, float]] = (),
+    dur: float = 1.4,
+    width: float = 2.2,
+    packets: int = 1,
+) -> str:
+    """Render a zero-track, zero-occlusion animated signal conduit strictly outside all card/text boxes."""
+    chains = _clip_polyline_outside_boxes(pts, forbidden_boxes, min_len=14.0) if forbidden_boxes else [list(pts)]
+    out: List[str] = []
+    for ch_pts in chains:
+        out.append(
+            _flow(
+                ch_pts,
+                color,
+                phase=phase,
+                dur=dur,
+                width=width,
+                head=False,
+                packets=packets,
+                dash="7 5",
+                track=False,
+            )
+        )
+    return "\n".join(s for s in out if s)
+
+
 def _render_master_packet(pts: Sequence[Point], color: str, phase: Optional[float], dur: float = 4.8) -> str:
-    """Render a high-visibility multi-ring master signal packet traversing the entire end-to-end architecture path."""
+    """Render a high-visibility multi-ring master signal packet traversing the end-to-end gutter route."""
     clean: List[Point] = []
     for p in pts:
         pt = (float(p[0]), float(p[1]))
@@ -664,78 +940,20 @@ def _render_master_packet(pts: Sequence[Point], color: str, phase: Optional[floa
     if phase is None:
         return (
             f"<g>"
-            f'<circle r="11.0" fill="{color}" fill-opacity="0.18"/>'
-            f'<circle r="7.2" fill="{color}" fill-opacity="0.34"/>'
-            f'<circle r="4.8" fill="#FFFFFF" stroke="{color}" stroke-width="2.4"/>'
-            f'<circle r="2.2" fill="{color}"/>'
+            f'<circle r="9.0" fill="{color}" fill-opacity="0.16"/>'
+            f'<circle r="5.8" fill="{color}" fill-opacity="0.30"/>'
+            f'<circle r="4.0" fill="#FFFFFF" stroke="{color}" stroke-width="2.2"/>'
+            f'<circle r="1.8" fill="{color}"/>'
             f'<animateMotion dur="{dur:.2f}s" begin="0s" repeatCount="indefinite" path="{d}"/>'
             f"</g>"
         )
     px, py = _pat(clean, phase % 1.0)
     return (
-        f'<circle cx="{px:.1f}" cy="{py:.1f}" r="11.0" fill="{color}" fill-opacity="0.18"/>'
-        f'<circle cx="{px:.1f}" cy="{py:.1f}" r="7.2" fill="{color}" fill-opacity="0.34"/>'
-        f'<circle cx="{px:.1f}" cy="{py:.1f}" r="4.8" fill="#FFFFFF" stroke="{color}" stroke-width="2.4"/>'
-        f'<circle cx="{px:.1f}" cy="{py:.1f}" r="2.2" fill="{color}"/>'
+        f'<circle cx="{px:.1f}" cy="{py:.1f}" r="9.0" fill="{color}" fill-opacity="0.16"/>'
+        f'<circle cx="{px:.1f}" cy="{py:.1f}" r="5.8" fill="{color}" fill-opacity="0.30"/>'
+        f'<circle cx="{px:.1f}" cy="{py:.1f}" r="4.0" fill="#FFFFFF" stroke="{color}" stroke-width="2.2"/>'
+        f'<circle cx="{px:.1f}" cy="{py:.1f}" r="1.8" fill="{color}"/>'
     )
-
-
-def _render_phase_telemetry_strip(
-    cw: int,
-    strip_y: float,
-    labels: Sequence[str],
-    colors: Sequence[str],
-    phase: Optional[float],
-) -> str:
-    """Render a 4-phase synchronized WHEN · WHERE · WHY telemetry strip with zero text bbox overlaps."""
-    margin_x = 24.0
-    gap = 8.0
-    avail_w = float(cw) - 2.0 * margin_x - 3.0 * gap
-    pill_w = avail_w / 4.0
-    pill_h = 20.0
-    out: List[str] = []
-    centers: List[Point] = []
-    font_sz = 7.9 if cw < 860 else 8.3
-    max_chars = max(24, int(pill_w / 4.2))
-
-    for idx in range(4):
-        px = margin_x + idx * (pill_w + gap)
-        col = colors[idx % len(colors)]
-        raw_lbl = str(labels[idx] if idx < len(labels) else f"Phase 0{idx + 1}").replace(" GCP ", " Google Cloud ")
-        if len(raw_lbl) > max_chars:
-            raw_lbl = raw_lbl[:max_chars].rstrip()
-        cls = f' class="phase-pill-{idx + 1}"' if phase is None else ""
-        if phase is not None:
-            active = int((phase * 4.0) % 4) == idx
-            op = "1.0" if active else "0.55"
-            sw = "2.2" if active else "1.2"
-        else:
-            op = "0.96"
-            sw = "1.6"
-        out.append(
-            f'<g{cls} opacity="{op}">'
-            f'<rect x="{px:.1f}" y="{strip_y:.1f}" width="{pill_w:.1f}" height="{pill_h:.1f}" rx="10.0" '
-            f'fill="#FFFFFF" fill-opacity="0.96" stroke="{col}" stroke-width="{sw}"/>'
-            f'{_t(px + pill_w / 2.0, strip_y + 13.4, raw_lbl, font_sz, 800, col, "middle")}'
-            f"</g>"
-        )
-        centers.append((px + pill_w / 2.0, strip_y + pill_h / 2.0))
-
-    # Synchronized time-cursor orb gliding across the 4 phase pills
-    out.append(
-        _flow(
-            [(margin_x + 12.0, strip_y - 2.0), (float(cw) - margin_x - 12.0, strip_y - 2.0)],
-            colors[0],
-            phase=phase,
-            dur=4.8,
-            width=1.8,
-            head=True,
-            packets=1,
-            dash="6 4",
-            track=False,
-        )
-    )
-    return "\n".join(out)
 
 
 def _build_template_flow_overlay(
@@ -746,526 +964,392 @@ def _build_template_flow_overlay(
     meta: Dict[str, Any],
     phase: Optional[float] = None,
 ) -> str:
-    """Compile true end-to-end multi-phase signal, bit-stream, and causal spotlight animations for {tid}."""
+    """Compile clean, zero-occlusion, gutter-only multi-phase signal animations for {tid}."""
     out: List[str] = []
     phase_colors = [BLUE, GREEN, AMBER, PURPLE]
+    topo = _extract_drawio_topology(tid, cw, ch)
+    mx_verts = topo["mx_verts"]
+    mx_edges = topo["mx_edges"]
+    bg_lines = topo["bg_lines"]
+    bg_circles = topo["bg_circles"]
+    bg_rects = topo["bg_rects"]
+    forbidden_boxes = topo["forbidden_boxes"]
 
     # 1. Bespoke Flagship Exemplar: T160 (C4 Model 3-Lens Telescopic AI Architecture Zoom, 920x1150)
     if tid == "T160":
-        # Top Bad-vs-Good comparison transformation bridge
-        out.append(
-            _flow(
-                [(442.0, 272.0), (478.0, 272.0)],
-                GREEN,
-                phase=phase,
-                dur=1.4,
-                width=2.6,
-                head=True,
-                packets=1,
-            )
-        )
-        # 4-Phase Stage Spotlights (Lens 1 C1 -> Lens 2 C2 -> Lens 3 C3 -> LENSES Takeaway)
         out.append(_render_spot_circle(156.0, 446.0, 86.0, BLUE, 1, phase))
-        out.append(_render_spot_rect(90.0, 434.0, 132.0, 24.0, BLUE, 1, phase, rx=8.0))
         out.append(_render_spot_circle(438.0, 540.0, 108.0, GREEN, 2, phase))
-        out.append(_render_spot_rect(359.0, 506.0, 158.0, 24.0, GREEN, 2, phase, rx=8.0))
         out.append(_render_spot_circle(734.0, 632.0, 122.0, AMBER, 3, phase))
-        out.append(_render_spot_rect(642.0, 580.0, 184.0, 66.0, AMBER, 3, phase, rx=10.0))
         out.append(_render_spot_rect(42.0, 788.0, 836.0, 122.0, PURPLE, 4, phase, rx=16.0))
 
-        # Phase 1: C1 System Context Internal Signal Flow (Enterprise User -> AI Support System -> Spanner + Billing)
-        out.append(_flow([(156.0, 372.0), (156.0, 392.0)], BLUE, phase=phase, dur=1.2, width=2.4, packets=1))
-        out.append(_flow([(156.0, 416.0), (156.0, 434.0)], BLUE, phase=phase, dur=1.1, width=2.8, packets=1))
-        out.append(_flow([(156.0, 458.0), (156.0, 476.0)], BLUE, phase=phase, dur=1.1, width=2.8, packets=1))
-        out.append(
-            _flow(
-                [(217.0, 488.0), (232.0, 488.0), (232.0, 446.0), (222.0, 446.0)],
-                SKY,
-                phase=phase,
-                dur=1.5,
-                width=2.2,
-                packets=1,
-            )
-        )
+        t160_routes = [
+            ([(242.0, 446.0), (330.0, 505.0)], BLUE, 1.4, 2),
+            ([(184.0, 362.0), (426.0, 430.0)], BLUE, 1.6, 1),
+            ([(156.0, 532.0), (388.0, 646.0)], GREEN, 1.6, 1),
+            ([(546.0, 540.0), (612.0, 595.0)], AMBER, 1.4, 2),
+            ([(488.0, 434.0), (734.0, 508.0)], AMBER, 1.6, 1),
+            ([(456.0, 648.0), (698.0, 752.0)], AMBER, 1.6, 1),
+            ([(734.0, 756.0), (734.0, 786.0)], PURPLE, 1.3, 1),
+            ([(163.0, 912.0), (163.0, 982.0)], BLUE, 1.4, 1),
+            ([(460.0, 912.0), (460.0, 982.0)], GREEN, 1.4, 1),
+            ([(757.0, 912.0), (757.0, 982.0)], AMBER, 1.4, 1),
+        ]
+        for r_pts, col, dur, pkts in t160_routes:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=dur, packets=pkts))
 
-        # Optical Zoom Bridge 1 (C1 AI Support System -> C2 Envoy OIDC Gateway)
-        out.append(
-            _flow(
-                [(184.0, 386.0), (426.0, 430.0)],
-                BLUE,
-                phase=phase,
-                label="①→② ZOOM: JWT → OIDC mTLS",
-                label_dy=-18.0,
-                label_at=0.48,
-                dur=1.8,
-                width=2.0,
-                head=True,
-                packets=1,
-                dash="7 5",
-                track=False,
-            )
-        )
-        out.append(
-            _flow(
-                [(222.0, 446.0), (294.0, 460.0), (365.0, 474.0)],
-                BLUE,
-                phase=phase,
-                dur=1.4,
-                width=3.2,
-                head=True,
-                packets=2,
-            )
-        )
-        out.append(
-            _flow(
-                [(156.0, 506.0), (388.0, 634.0)],
-                GREEN,
-                phase=phase,
-                dur=1.8,
-                width=2.0,
-                head=True,
-                packets=1,
-                dash="7 5",
-                track=False,
-            )
-        )
-
-        # Phase 2: C2 Container Mesh Flow (Envoy OIDC -> ADK Orchestrator Pod -> IAM STS OBO & FastMCP Svc)
-        out.append(_flow([(438.0, 486.0), (438.0, 506.0)], GREEN, phase=phase, dur=1.1, width=2.8, packets=1))
-        out.append(_flow([(406.0, 530.0), (388.0, 564.0)], GREEN, phase=phase, dur=1.2, width=2.8, packets=1))
-        out.append(_flow([(470.0, 530.0), (488.0, 564.0)], GREEN, phase=phase, dur=1.2, width=2.8, packets=1))
-        out.append(
-            _flow(
-                [(388.0, 588.0), (438.0, 604.0), (488.0, 588.0)],
-                TEAL,
-                phase=phase,
-                dur=1.5,
-                width=2.2,
-                packets=1,
-            )
-        )
-
-        # Optical Zoom Bridge 2 (C2 ADK Orchestrator Pod -> C3 4-Hook Harness Pipeline)
-        out.append(
-            _flow(
-                [(488.0, 464.0), (734.0, 512.0)],
-                AMBER,
-                phase=phase,
-                label="②→③ ZOOM: POD → 4 ADK HOOKS",
-                label_dy=-18.0,
-                label_at=0.45,
-                dur=1.8,
-                width=2.0,
-                head=True,
-                packets=1,
-                dash="7 5",
-                track=False,
-            )
-        )
-        out.append(
-            _flow(
-                [(517.0, 518.0), (582.0, 534.0), (647.0, 550.0)],
-                AMBER,
-                phase=phase,
-                dur=1.4,
-                width=3.2,
-                head=True,
-                packets=2,
-            )
-        )
-        out.append(
-            _flow(
-                [(456.0, 628.0), (698.0, 748.0)],
-                AMBER,
-                phase=phase,
-                dur=1.8,
-                width=2.0,
-                head=True,
-                packets=1,
-                dash="7 5",
-                track=False,
-            )
-        )
-
-        # Phase 3: C3 In-Process ADK Runner 4-Hook Sequential Bit-Stream Cascade
-        out.append(
-            _flow(
-                [(821.0, 550.0), (842.0, 550.0), (842.0, 592.0), (826.0, 592.0)],
-                AMBER,
-                phase=phase,
-                dur=1.2,
-                width=2.5,
-                packets=1,
-            )
-        )
-        out.append(
-            _flow(
-                [(642.0, 592.0), (624.0, 592.0), (624.0, 634.0), (642.0, 634.0)],
-                AMBER,
-                phase=phase,
-                dur=1.2,
-                width=2.5,
-                packets=1,
-            )
-        )
-        out.append(
-            _flow(
-                [(826.0, 634.0), (842.0, 634.0), (842.0, 676.0), (820.0, 676.0)],
-                AMBER,
-                phase=phase,
-                dur=1.2,
-                width=2.5,
-                packets=1,
-            )
-        )
-
-        # Phase 4: OTel GenAI Span Commit -> L·E·N·S·E·S Takeaway & 3 Executive Outcome Cards
-        out.append(
-            _flow(
-                [(734.0, 688.0), (734.0, 772.0), (540.0, 772.0), (540.0, 788.0)],
-                PURPLE,
-                phase=phase,
-                label="④ OTel SPAN → L·E·N·S·E·S",
-                label_dy=-14.0,
-                label_at=0.58,
-                dur=1.4,
-                width=3.0,
-                packets=2,
-            )
-        )
-        out.append(
-            _flow(
-                [(163.0, 910.0), (163.0, 948.0)],
-                BLUE,
-                phase=phase,
-                dur=1.6,
-                width=2.2,
-                packets=1,
-            )
-        )
-        out.append(
-            _flow(
-                [(460.0, 910.0), (460.0, 948.0)],
-                GREEN,
-                phase=phase,
-                dur=1.6,
-                width=2.2,
-                packets=1,
-            )
-        )
-        out.append(
-            _flow(
-                [(757.0, 910.0), (757.0, 948.0)],
-                AMBER,
-                phase=phase,
-                dur=1.6,
-                width=2.2,
-                packets=1,
-            )
-        )
-
-        # Continuous Master End-to-End Telemetry Packet across all 3 Lenses + Takeaway
         out.append(
             _render_master_packet(
                 [
-                    (156.0, 392.0),
-                    (156.0, 446.0),
-                    (156.0, 488.0),
-                    (156.0, 446.0),
-                    (222.0, 446.0),
-                    (365.0, 474.0),
-                    (438.0, 474.0),
-                    (438.0, 518.0),
-                    (388.0, 576.0),
-                    (488.0, 576.0),
-                    (517.0, 518.0),
-                    (647.0, 550.0),
-                    (734.0, 550.0),
-                    (734.0, 592.0),
-                    (734.0, 634.0),
-                    (734.0, 676.0),
-                    (734.0, 788.0),
-                    (460.0, 848.0),
+                    (242.0, 446.0),
+                    (330.0, 505.0),
+                    (438.0, 430.0),
+                    (546.0, 540.0),
+                    (612.0, 595.0),
+                    (734.0, 508.0),
+                    (734.0, 756.0),
+                    (734.0, 786.0),
                 ],
                 BLUE,
                 phase,
                 dur=4.8,
             )
         )
+        return "\n".join(s for s in out if s)
 
+    # 2. Bespoke PromptCanvas Infographics (T55-T67) with exact inter-card gutter coordinates
+    if tid == "T55":
+        out.append(_render_spot_rect(20.0, 122.0, 414.0, 716.0, BLUE, 1, phase, rx=14.0))
+        out.append(_render_spot_rect(20.0, 882.0, 414.0, 128.0, PURPLE, 2, phase, rx=12.0))
+        out.append(_render_spot_rect(452.0, 280.0, 418.0, 350.0, GREEN, 3, phase, rx=14.0))
+        out.append(_render_spot_rect(452.0, 644.0, 418.0, 366.0, AMBER, 4, phase, rx=14.0))
+        for r_pts, col in [
+            ([(443.0, 186.0), (443.0, 918.0)], BLUE),
+            ([(227.0, 840.0), (227.0, 880.0)], PURPLE),
+            ([(434.0, 364.0), (452.0, 364.0)], GREEN),
+            ([(878.0, 364.0), (878.0, 546.0)], GREEN),
+            ([(878.0, 546.0), (878.0, 728.0)], AMBER),
+            ([(878.0, 728.0), (878.0, 918.0)], PURPLE),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.5, packets=1))
+        out.append(_render_master_packet([(443.0, 186.0), (443.0, 364.0), (443.0, 546.0), (443.0, 728.0), (443.0, 918.0)], BLUE, phase))
+        return "\n".join(s for s in out if s)
+
+    if tid == "T56":
+        out.append(_render_spot_rect(152.0, 218.0, 140.0, 68.0, BLUE, 1, phase, rx=12.0))
+        out.append(_render_spot_circle(116.0, 642.0, 56.0, GREEN, 2, phase))
+        out.append(_render_spot_circle(198.0, 800.0, 58.0, AMBER, 3, phase))
+        out.append(_render_spot_circle(138.0, 938.0, 58.0, PURPLE, 4, phase))
+        # Conduits flow strictly along the vertical divider (x=312) and horizontal inter-row bubble gutters (y=295, 428, 561, 698, 830)
+        for r_pts, col in [
+            ([(294.0, 252.0), (312.0, 252.0), (312.0, 295.0), (836.0, 295.0)], BLUE),
+            ([(312.0, 295.0), (312.0, 428.0), (836.0, 428.0)], PURPLE),
+            ([(174.0, 642.0), (312.0, 642.0), (312.0, 561.0), (836.0, 561.0)], GREEN),
+            ([(312.0, 642.0), (312.0, 698.0), (836.0, 698.0)], AMBER),
+            ([(258.0, 800.0), (312.0, 800.0), (312.0, 830.0), (836.0, 830.0)], RED),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.6, packets=1))
         out.append(
-            _render_phase_telemetry_strip(
-                cw,
-                954.0,
-                [
-                    "① 0–1.2s · C1 User → AI → Spanner",
-                    "② 1.2–2.4s · C2 OIDC → ADK → OBO/MCP",
-                    "③ 2.4–3.6s · C3 KV → Breaker → Armor",
-                    "④ 3.6–4.8s · OTel Span → L·E·N·S·E·S",
-                ],
-                phase_colors,
+            _render_master_packet(
+                [(312.0, 252.0), (312.0, 295.0), (836.0, 295.0), (836.0, 561.0), (312.0, 561.0), (312.0, 830.0), (836.0, 830.0)],
+                RED,
                 phase,
             )
         )
-        return "\n".join(out)
+        return "\n".join(s for s in out if s)
 
-    # 2. Bespoke Flagship Exemplar: T61 (PromptCanvas #60: 4-Plane Runtime Topology, 765x1024)
+    if tid == "T57":
+        out.append(_render_spot_rect(414.0, 280.0, 306.0, 106.0, BLUE, 1, phase, rx=12.0))
+        out.append(_render_spot_rect(414.0, 425.0, 306.0, 106.0, GREEN, 2, phase, rx=12.0))
+        out.append(_render_spot_rect(414.0, 570.0, 306.0, 106.0, AMBER, 3, phase, rx=12.0))
+        out.append(_render_spot_rect(414.0, 860.0, 306.0, 106.0, PURPLE, 4, phase, rx=12.0))
+        # Conduits connect consecutive cards vertically in the 39px inter-row gutters + outer column spine
+        for r_pts, col in [
+            ([(198.0, 238.0), (198.0, 278.0)], RED),
+            ([(198.0, 388.0), (198.0, 423.0)], RED),
+            ([(198.0, 533.0), (198.0, 568.0)], AMBER),
+            ([(198.0, 678.0), (198.0, 713.0)], AMBER),
+            ([(198.0, 823.0), (198.0, 858.0)], RED),
+            ([(567.0, 238.0), (567.0, 278.0)], BLUE),
+            ([(567.0, 388.0), (567.0, 423.0)], GREEN),
+            ([(567.0, 533.0), (567.0, 568.0)], TEAL),
+            ([(567.0, 678.0), (567.0, 713.0)], PURPLE),
+            ([(567.0, 823.0), (567.0, 858.0)], GREEN),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.4, packets=1))
+        out.append(
+            _render_master_packet(
+                [(738.0, 280.0), (738.0, 478.0), (738.0, 623.0), (738.0, 768.0), (738.0, 960.0)],
+                GREEN,
+                phase,
+            )
+        )
+        return "\n".join(s for s in out if s)
+
+    if tid == "T58":
+        out.append(_render_spot_rect(130.0, 266.0, 505.0, 82.0, BLUE, 1, phase, rx=10.0))
+        out.append(_render_spot_rect(170.0, 394.0, 425.0, 82.0, GREEN, 2, phase, rx=10.0))
+        out.append(_render_spot_rect(260.0, 646.0, 245.0, 92.0, AMBER, 3, phase, rx=10.0))
+        out.append(_render_spot_rect(160.0, 904.0, 445.0, 50.0, PURPLE, 4, phase, rx=10.0))
+        for r_pts, col in [
+            ([(382.5, 350.0), (382.5, 392.0)], BLUE),
+            ([(382.5, 478.0), (382.5, 518.0)], GREEN),
+            ([(382.5, 608.0), (382.5, 644.0)], AMBER),
+            ([(382.5, 740.0), (382.5, 774.0)], PURPLE),
+            ([(382.5, 868.0), (382.5, 902.0)], GREEN),
+            ([(88.0, 307.0), (128.0, 435.0), (172.0, 563.0), (216.0, 692.0)], BLUE),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.4, packets=1))
+        out.append(_render_master_packet([(88.0, 307.0), (128.0, 435.0), (172.0, 563.0), (216.0, 692.0), (260.0, 821.0)], BLUE, phase))
+        return "\n".join(s for s in out if s)
+
+    if tid == "T59":
+        out.append(_render_spot_rect(130.0, 180.0, 586.0, 102.0, BLUE, 1, phase, rx=12.0))
+        out.append(_render_spot_rect(130.0, 428.0, 586.0, 102.0, GREEN, 2, phase, rx=12.0))
+        out.append(_render_spot_rect(130.0, 676.0, 586.0, 102.0, AMBER, 3, phase, rx=12.0))
+        out.append(_render_spot_rect(50.0, 916.0, 666.0, 48.0, PURPLE, 4, phase, rx=10.0))
+        for r_pts, col in [
+            ([(84.0, 267.0), (84.0, 319.0)], BLUE),
+            ([(84.0, 391.0), (84.0, 443.0)], GREEN),
+            ([(84.0, 515.0), (84.0, 567.0)], AMBER),
+            ([(84.0, 639.0), (84.0, 691.0)], PURPLE),
+            ([(84.0, 763.0), (84.0, 815.0)], BLUE),
+            ([(734.0, 231.0), (734.0, 851.0)], GREEN),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.4, packets=1))
+        out.append(_render_master_packet([(734.0, 231.0), (734.0, 479.0), (734.0, 727.0), (734.0, 851.0)], BLUE, phase))
+        return "\n".join(s for s in out if s)
+
+    if tid == "T60":
+        out.append(_render_spot_rect(38.0, 192.0, 689.0, 160.0, BLUE, 1, phase, rx=12.0))
+        out.append(_render_spot_rect(38.0, 366.0, 689.0, 160.0, GREEN, 2, phase, rx=12.0))
+        out.append(_render_spot_rect(38.0, 540.0, 689.0, 160.0, AMBER, 3, phase, rx=12.0))
+        out.append(_render_spot_rect(38.0, 714.0, 689.0, 160.0, PURPLE, 4, phase, rx=12.0))
+        for r_pts, col in [
+            ([(22.0, 272.0), (22.0, 896.0)], BLUE),
+            ([(38.0, 359.0), (727.0, 359.0)], BLUE),
+            ([(38.0, 533.0), (727.0, 533.0)], GREEN),
+            ([(38.0, 707.0), (727.0, 707.0)], AMBER),
+            ([(38.0, 885.0), (727.0, 885.0)], PURPLE),
+            ([(742.0, 272.0), (742.0, 896.0)], GREEN),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.4, packets=1))
+        out.append(_render_master_packet([(22.0, 272.0), (22.0, 446.0), (22.0, 620.0), (22.0, 794.0), (22.0, 920.0)], BLUE, phase))
+        return "\n".join(s for s in out if s)
+
     if tid == "T61":
         out.append(_render_spot_rect(180.0, 492.0, 224.0, 160.0, BLUE, 1, phase, rx=12.0))
         out.append(_render_spot_rect(180.0, 240.0, 280.0, 180.0, PURPLE, 2, phase, rx=12.0))
         out.append(_render_spot_rect(492.0, 392.0, 228.0, 204.0, GREEN, 3, phase, rx=12.0))
         out.append(_render_spot_rect(423.0, 638.0, 297.0, 288.0, AMBER, 4, phase, rx=12.0))
-
-        # Phase 1: HTTPS Ingress -> Cloud Load Balancing -> 02 Cloud Run Orchestrator
-        out.append(
-            _flow(
-                [(22.0, 572.0), (92.0, 572.0), (178.0, 572.0)],
-                BLUE,
-                phase=phase,
-                label="① HTTPS → CLB → Cloud Run",
-                label_dy=-56.0,
-                dur=1.3,
-                width=3.0,
-                packets=2,
-            )
-        )
-        # Phase 2: 02 Cloud Run <-> 01 Vertex AI Reasoning Engine (Gemini)
-        out.append(
-            _flow(
-                [(291.0, 492.0), (291.0, 422.0)],
-                PURPLE,
-                phase=phase,
-                dur=1.2,
-                width=2.8,
-                packets=1,
-            )
-        )
-        out.append(
-            _flow(
-                [(311.0, 422.0), (311.0, 490.0)],
-                PURPLE,
-                phase=phase,
-                dur=1.2,
-                width=2.8,
-                packets=1,
-            )
-        )
-        # Phase 3: 01 Vertex AI & 02 Cloud Run <-> 04 AlloyDB State & Knowledge (pgvector)
-        out.append(
-            _flow(
-                [(460.0, 324.0), (613.0, 324.0), (613.0, 390.0)],
-                GREEN,
-                phase=phase,
-                label="③ pgvector RAG Grounding",
-                label_dy=-16.0,
-                dur=1.5,
-                width=3.0,
-                packets=2,
-            )
-        )
-        out.append(
-            _flow(
-                [(406.0, 556.0), (490.0, 556.0)],
-                TEAL,
-                phase=phase,
-                dur=1.3,
-                width=2.8,
-                packets=1,
-            )
-        )
-        out.append(
-            _flow(
-                [(490.0, 540.0), (406.0, 540.0)],
-                TEAL,
-                phase=phase,
-                dur=1.3,
-                width=2.4,
-                packets=1,
-            )
-        )
-        # Phase 4: 02 Cloud Run <-> 03 GKE gVisor Sandbox Secure Execution
-        out.append(
-            _flow(
-                [(291.0, 654.0), (291.0, 795.0), (423.0, 795.0)],
-                AMBER,
-                phase=phase,
-                dur=1.5,
-                width=3.0,
-                packets=2,
-            )
-        )
-        out.append(
-            _flow(
-                [(423.0, 779.0), (307.0, 779.0), (307.0, 654.0)],
-                GREEN,
-                phase=phase,
-                dur=1.5,
-                width=2.8,
-                packets=2,
-            )
-        )
-
-        # Continuous Master End-to-End Signal Packet across all 4 Runtime Planes
+        for r_pts, col in [
+            ([(88.0, 572.0), (178.0, 572.0)], BLUE),
+            ([(291.0, 490.0), (291.0, 422.0)], PURPLE),
+            ([(311.0, 422.0), (311.0, 490.0)], PURPLE),
+            ([(462.0, 324.0), (613.0, 324.0), (613.0, 390.0)], GREEN),
+            ([(406.0, 556.0), (490.0, 556.0)], TEAL),
+            ([(490.0, 540.0), (406.0, 540.0)], TEAL),
+            ([(291.0, 654.0), (291.0, 795.0), (421.0, 795.0)], AMBER),
+            ([(421.0, 779.0), (307.0, 779.0), (307.0, 654.0)], GREEN),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.4, packets=1))
         out.append(
             _render_master_packet(
-                [
-                    (22.0, 572.0),
-                    (180.0, 572.0),
-                    (291.0, 540.0),
-                    (291.0, 340.0),
-                    (460.0, 324.0),
-                    (613.0, 324.0),
-                    (613.0, 490.0),
-                    (490.0, 556.0),
-                    (291.0, 556.0),
-                    (291.0, 795.0),
-                    (560.0, 795.0),
-                    (423.0, 779.0),
-                    (307.0, 779.0),
-                    (307.0, 572.0),
-                ],
+                [(88.0, 572.0), (178.0, 572.0), (291.0, 490.0), (291.0, 422.0), (462.0, 324.0), (613.0, 324.0), (613.0, 390.0)],
                 TEAL,
                 phase,
-                dur=4.8,
             )
         )
+        return "\n".join(s for s in out if s)
+
+    if tid == "T62":
+        out.append(_render_spot_rect(275.0, 196.0, 215.0, 170.0, BLUE, 1, phase, rx=12.0))
+        out.append(_render_spot_rect(275.0, 445.0, 215.0, 189.0, GREEN, 2, phase, rx=12.0))
+        out.append(_render_spot_rect(40.0, 688.0, 685.0, 84.0, AMBER, 3, phase, rx=12.0))
+        out.append(_render_spot_rect(40.0, 848.0, 685.0, 72.0, PURPLE, 4, phase, rx=12.0))
+        for r_pts, col in [
+            ([(382.5, 368.0), (382.5, 412.0), (147.5, 412.0), (147.5, 443.0)], BLUE),
+            ([(382.5, 368.0), (382.5, 443.0)], GREEN),
+            ([(382.5, 412.0), (617.5, 412.0), (617.5, 443.0)], PURPLE),
+            ([(191.0, 622.0), (191.0, 643.0), (382.5, 643.0)], BLUE),
+            ([(382.5, 622.0), (382.5, 668.0)], GREEN),
+            ([(574.0, 622.0), (574.0, 643.0), (382.5, 643.0)], AMBER),
+            ([(382.5, 800.0), (382.5, 826.0)], PURPLE),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.4, packets=1))
+        out.append(_render_master_packet([(382.5, 368.0), (382.5, 443.0), (382.5, 622.0), (382.5, 668.0)], BLUE, phase))
+        return "\n".join(s for s in out if s)
+
+    if tid == "T63":
+        out.append(_render_spot_rect(116.0, 262.0, 284.0, 260.0, BLUE, 1, phase, rx=12.0))
+        out.append(_render_spot_rect(415.0, 262.0, 292.0, 260.0, GREEN, 2, phase, rx=12.0))
+        out.append(_render_spot_rect(116.0, 536.0, 284.0, 260.0, AMBER, 3, phase, rx=12.0))
+        out.append(_render_spot_rect(415.0, 536.0, 292.0, 260.0, PURPLE, 4, phase, rx=12.0))
+        for r_pts, col in [
+            ([(407.5, 262.0), (407.5, 529.0)], BLUE),
+            ([(407.5, 529.0), (407.5, 796.0)], GREEN),
+            ([(116.0, 529.0), (407.5, 529.0)], AMBER),
+            ([(407.5, 529.0), (707.0, 529.0)], PURPLE),
+            ([(724.0, 262.0), (724.0, 878.0)], BLUE),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.5, packets=1))
+        out.append(_render_master_packet([(116.0, 529.0), (407.5, 529.0), (707.0, 529.0), (407.5, 529.0), (407.5, 796.0)], BLUE, phase))
+        return "\n".join(s for s in out if s)
+
+    if tid == "T64":
+        out.append(_render_spot_rect(311.0, 164.0, 143.0, 70.0, BLUE, 1, phase, rx=10.0))
+        out.append(_render_spot_rect(311.0, 384.0, 143.0, 50.0, GREEN, 2, phase, rx=10.0))
+        out.append(_render_spot_rect(424.0, 606.0, 134.0, 54.0, AMBER, 3, phase, rx=10.0))
+        out.append(_render_spot_rect(310.0, 870.0, 145.0, 60.0, PURPLE, 4, phase, rx=10.0))
+        for r_pts, col in [
+            ([(382.5, 236.0), (382.5, 256.0)], BLUE),
+            ([(382.5, 356.0), (382.5, 382.0)], GREEN),
+            ([(382.5, 436.0), (382.5, 454.0)], AMBER),
+            ([(255.0, 566.0), (255.0, 658.0), (382.5, 658.0), (382.5, 678.0)], BLUE),
+            ([(382.5, 578.0), (382.5, 658.0)], GREEN),
+            ([(382.5, 730.0), (382.5, 750.0)], AMBER),
+            ([(382.5, 834.0), (382.5, 846.0)], PURPLE),
+            ([(103.0, 848.0), (88.0, 848.0), (88.0, 704.0), (304.0, 704.0)], RED),
+            ([(744.0, 199.0), (744.0, 900.0)], BLUE),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.4, packets=1))
+        out.append(_render_master_packet([(744.0, 199.0), (744.0, 480.0), (744.0, 721.0), (744.0, 900.0)], BLUE, phase))
+        return "\n".join(s for s in out if s)
+
+    if tid == "T65":
+        out.append(_render_spot_rect(170.0, 168.0, 140.0, 54.0, BLUE, 1, phase, rx=8.0))
+        out.append(_render_spot_rect(312.0, 168.0, 140.0, 54.0, GREEN, 2, phase, rx=8.0))
+        out.append(_render_spot_rect(596.0, 820.0, 140.0, 92.0, AMBER, 3, phase, rx=10.0))
+        out.append(_render_spot_rect(26.0, 928.0, 713.0, 64.0, PURPLE, 4, phase, rx=10.0))
+        for r_pts, col in [
+            ([(169.0, 168.0), (169.0, 912.0)], BLUE),
+            ([(311.0, 168.0), (311.0, 912.0)], GREEN),
+            ([(453.0, 168.0), (453.0, 912.0)], AMBER),
+            ([(595.0, 168.0), (595.0, 912.0)], PURPLE),
+            ([(746.0, 168.0), (746.0, 960.0)], GREEN),
+            ([(169.0, 920.0), (738.0, 920.0)], BLUE),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.5, packets=1))
+        out.append(_render_master_packet([(746.0, 168.0), (746.0, 540.0), (746.0, 920.0), (169.0, 920.0)], GREEN, phase))
+        return "\n".join(s for s in out if s)
+
+    if tid == "T66":
+        out.append(_render_spot_rect(82.0, 750.0, 202.0, 154.0, BLUE, 1, phase, rx=10.0))
+        out.append(_render_spot_rect(82.0, 568.0, 202.0, 160.0, GREEN, 2, phase, rx=10.0))
+        out.append(_render_spot_rect(82.0, 388.0, 202.0, 160.0, AMBER, 3, phase, rx=10.0))
+        out.append(_render_spot_rect(82.0, 214.0, 202.0, 158.0, PURPLE, 4, phase, rx=10.0))
+        for r_pts, col in [
+            ([(56.0, 900.0), (56.0, 214.0)], BLUE),
+            ([(286.0, 819.0), (528.0, 819.0)], BLUE),
+            ([(286.0, 644.0), (518.0, 644.0)], GREEN),
+            ([(286.0, 471.0), (506.0, 471.0)], AMBER),
+            ([(286.0, 302.0), (498.0, 302.0)], PURPLE),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.4, packets=1))
+        out.append(_render_master_packet([(56.0, 900.0), (56.0, 644.0), (56.0, 302.0), (498.0, 302.0)], PURPLE, phase))
+        return "\n".join(s for s in out if s)
+
+    if tid == "T67":
+        out.append(_render_spot_rect(39.0, 168.0, 263.0, 118.0, BLUE, 1, phase, rx=12.0))
+        out.append(_render_spot_rect(464.0, 168.0, 263.0, 118.0, GREEN, 2, phase, rx=12.0))
+        out.append(_render_spot_rect(487.0, 428.0, 240.0, 125.0, AMBER, 3, phase, rx=12.0))
+        out.append(_render_spot_rect(39.0, 585.0, 253.0, 118.0, PURPLE, 4, phase, rx=12.0))
+        for r_pts, col in [
+            ([(304.0, 227.0), (462.0, 227.0)], BLUE),
+            ([(595.0, 288.0), (595.0, 394.0)], GREEN),
+            ([(607.0, 555.0), (607.0, 578.0)], AMBER),
+            ([(529.0, 734.0), (382.0, 734.0), (382.0, 808.0)], PURPLE),
+            ([(175.0, 548.0), (175.0, 322.0)], BLUE),
+        ]:
+            out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.4, packets=1))
         out.append(
-            _render_phase_telemetry_strip(
-                cw,
-                942.0,
-                [
-                    "① 0–1.2s · HTTPS → Cloud Run",
-                    "② 1.2–2.4s · Vertex AI Plan Loop",
-                    "③ 2.4–3.6s · AlloyDB pgvector RAG",
-                    "④ 3.6–4.8s · GKE gVisor Sandbox",
-                ],
-                [BLUE, PURPLE, GREEN, AMBER],
+            _render_master_packet(
+                [(304.0, 227.0), (462.0, 227.0), (595.0, 288.0), (595.0, 394.0), (175.0, 548.0), (175.0, 322.0)],
+                BLUE,
                 phase,
             )
         )
-        return "\n".join(out)
+        return "\n".join(s for s in out if s)
 
-    # 3. Universal .drawio Topology Compiler for all remaining 137 templates
-    topo = _extract_drawio_topology(tid, cw, ch)
-    mx_verts = topo["mx_verts"]
-    mx_edges = topo["mx_edges"]
-    bg_lines = topo["bg_lines"]
-    bg_paths = topo["bg_paths"]
-    bg_circles = topo["bg_circles"]
-    bg_rects = topo["bg_rects"]
-
-    # Case A: 4-Tier Spine & Process Templates with explicit mxGraph edges (T01, T53, T54, T68-T89, T79_P01-P23)
+    # 3. Case A: Templates with explicit Draw.io mxGraph edges (T54, T01, T53, T68-T89, T79_P01-P23)
     if mx_edges:
-        for idx, card_id in enumerate(("t1_card", "t2_card", "t3_card", "t4_card"), start=1):
-            if card_id in mx_verts:
-                vx, vy, vw, vh, _ = mx_verts[card_id]
-                out.append(
-                    _render_spot_rect(
-                        vx,
-                        vy,
-                        vw,
-                        vh,
-                        [RED, BLUE, AMBER, GREEN][idx - 1],
-                        idx,
-                        phase,
-                        rx=14.0,
+        if tid == "T54":
+            out.append(_render_spot_rect(26.0, 122.0, 1023.0, 316.0, BLUE, 1, phase, rx=16.0))
+            out.append(_render_spot_rect(26.0, 458.0, 1023.0, 432.0, PURPLE, 2, phase, rx=16.0))
+            out.append(_render_spot_rect(392.0, 704.0, 306.0, 154.0, GREEN, 3, phase, rx=12.0))
+            out.append(_render_spot_rect(26.0, 910.0, 1023.0, 352.0, AMBER, 4, phase, rx=16.0))
+        else:
+            for idx, card_id in enumerate(("t1_card", "t2_card", "t3_card", "t4_card"), start=1):
+                if card_id in mx_verts:
+                    vx, vy, vw, vh, _ = mx_verts[card_id]
+                    out.append(
+                        _render_spot_rect(
+                            vx,
+                            vy,
+                            vw,
+                            vh,
+                            [RED, BLUE, AMBER, GREEN][idx - 1],
+                            idx,
+                            phase,
+                            rx=14.0,
+                        )
                     )
-                )
-        # Vertical spine progression across 01 -> 02 -> 03 -> 04 badges
-        if all(b in mx_verts for b in ("badge_01", "badge_02", "badge_03", "badge_04")):
-            spine_pts: List[Point] = []
-            for b in ("badge_01", "badge_02", "badge_03", "badge_04"):
-                bx, by, bw, bh, _ = mx_verts[b]
-                spine_pts.append((bx + bw / 2.0, by + bh / 2.0))
-            out.append(
-                _flow(
-                    spine_pts,
-                    BLUE,
-                    phase=phase,
-                    dur=3.2,
-                    width=3.0,
-                    head=True,
-                    packets=3,
-                )
-            )
+            if all(b in mx_verts for b in ("badge_01", "badge_02", "badge_03", "badge_04")):
+                for b1, b2, col in [
+                    ("badge_01", "badge_02", RED),
+                    ("badge_02", "badge_03", BLUE),
+                    ("badge_03", "badge_04", GREEN),
+                ]:
+                    x1, y1, w1, h1, _ = mx_verts[b1]
+                    x2, y2, w2, _h2, _ = mx_verts[b2]
+                    out.append(
+                        _conduit_pulse(
+                            [(x1 + w1 / 2.0, y1 + h1 + 2.0), (x2 + w2 / 2.0, y2 - 2.0)],
+                            col,
+                            phase,
+                            forbidden_boxes,
+                            dur=1.4,
+                            packets=1,
+                        )
+                    )
 
         master_pts: List[Point] = []
-        for cid, src, tgt in mx_edges:
-            if cid in ("t4_m2", "t4_m4", "t4_m5", "t4_m6"):
+        for idx, (cid, _src, tgt, pts, _st) in enumerate(mx_edges):
+            if cid.startswith("t4_m") or cid == "spine_line":
                 continue
-            if src not in mx_verts or tgt not in mx_verts:
-                continue
-            sbox = mx_verts[src][:4]
-            tbox = mx_verts[tgt][:4]
-            pts = _edge_port_points(sbox, tbox)
-            ymid = (sbox[1] + tbox[1]) / 2.0
-            if ymid < 300.0:
-                col = RED
-            elif ymid < 520.0:
-                col = BLUE
-            elif ymid < 740.0:
-                col = GREEN if "yes1" in cid or "done" in tgt else AMBER
+            ymid = sum(p[1] for p in pts) / len(pts)
+            if tid == "T54":
+                col = BLUE if ymid < 450.0 else (PURPLE if ymid < 865.0 else (GREEN if "yes" in cid or "dec" in tgt else AMBER))
             else:
-                col = GREEN if "map" in cid or "map" in tgt else RED
-            out.append(
-                _flow(
-                    pts,
-                    col,
-                    phase=phase,
-                    dur=1.4,
-                    width=2.6,
-                    head=True,
-                    packets=1,
-                )
-            )
-            if cid in ("t1_edge_1", "t1_edge_2", "t2_edge_in", "t2_edge_calls", "t2_edge_checks", "t3_e1", "t3_e2", "t3_e_yes1", "t4_edge_maps"):
+                col = RED if ymid < 300.0 else (BLUE if ymid < 520.0 else (GREEN if "yes1" in cid or "loop" in cid or "map" in cid else AMBER))
+            out.append(_conduit_pulse(pts, col, phase, forbidden_boxes, dur=1.35 + (idx % 3) * 0.15, packets=1))
+            if tid == "T54" and cid in ("e53_1a", "e53_p2q", "e53_q1_yes", "e53_q2_yes", "e53_m_C", "e53_b_no", "e53_af", "e53_recheck"):
+                master_pts.extend(pts)
+            elif tid != "T54" and cid in ("t1_edge_1", "t1_edge_2", "t2_edge_calls", "t2_edge_checks", "t3_e1", "t3_e2", "t3_e_yes1", "t4_edge_maps"):
                 master_pts.extend(pts)
 
         if len(master_pts) >= 2:
-            out.append(_render_master_packet(master_pts, BLUE, phase, dur=4.8))
+            out.append(_render_master_packet(master_pts[:10], BLUE, phase, dur=4.8))
+        return "\n".join(s for s in out if s)
 
-        strip_y = float(ch - 26) if ch >= 1030 else 892.0
-        out.append(
-            _render_phase_telemetry_strip(
-                cw,
-                strip_y,
-                [
-                    "① 0–1.2s · Tier 01 Trigger & Failure",
-                    "② 1.2–2.4s · Tier 02 Pre-Tool Gate",
-                    "③ 2.4–3.6s · Tier 03 Check-Fix Loop",
-                    "④ 3.6–4.8s · Tier 04 Verified Metrics",
-                ],
-                [RED, BLUE, AMBER, GREEN],
-                phase,
-            )
-        )
-        return "\n".join(out)
-
-    # Case B: Infographics & Sculptural Architecture Posters (T55-T67, T90-T209)
-    # Collect stage nodes from circles, stage rects, and interior mxCell vertices
+    # 4. Case B: Sculptural Architecture Posters (T90-T209, 920x1150)
     stage_nodes: List[Tuple[float, float, float, float, str]] = []
+    for cid, (vx, vy, vw, vh, _) in sorted(mx_verts.items(), key=lambda kv: (round(kv[1][1] / 95.0), kv[1][0])):
+        if cid.startswith(("bg", "poster_bg", "hdr", "brand", "ftr", "an_bad", "an_good")):
+            continue
+        if 195.0 <= vy <= ch - 95.0 and 48.0 <= vw <= cw - 40.0 and 24.0 <= vh <= 420.0:
+            kind = "circle" if abs(vw - vh) <= 6.0 and vw <= 125.0 else "rect"
+            stage_nodes.append((vx, vy, vw, vh, kind))
+
     for cx, cy, r in sorted(bg_circles, key=lambda c: (round(c[1] / 90.0), c[0])):
-        if r >= 22.0:
+        if r >= 26.0 and 330.0 <= cy <= 780.0:
             stage_nodes.append((cx - r, cy - r, 2.0 * r, 2.0 * r, "circle"))
 
-    for rx, ry, rw, rh in sorted(bg_rects, key=lambda b: (round(b[1] / 90.0), b[0])):
-        if 210.0 <= ry <= 780.0 and rw <= 720.0 and rh <= 360.0:
-            stage_nodes.append((rx, ry, rw, rh, "rect"))
-
-    for cid, (vx, vy, vw, vh, _) in sorted(mx_verts.items(), key=lambda kv: (round(kv[1][1] / 95.0), kv[1][0])):
-        if cid.startswith(("bg", "poster_bg", "hdr", "brand", "ftr")):
-            continue
-        if 165.0 <= vy <= ch - 95.0 and 48.0 <= vw <= cw - 40.0 and 24.0 <= vh <= 420.0:
-            stage_nodes.append((vx, vy, vw, vh, "mx"))
-
-    # Select 4 representative stage nodes across the diagram's reading order for 4-phase spotlighting
-    spot_candidates = [n for n in stage_nodes if 170.0 <= n[1] <= 915.0]
-    if len(spot_candidates) >= 4:
+    if len(stage_nodes) >= 4:
         idxs = [
             0,
-            max(1, len(spot_candidates) // 3),
-            max(2, (2 * len(spot_candidates)) // 3),
-            len(spot_candidates) - 1,
+            1 if len(stage_nodes) > 2 else 0,
+            max(2, len(stage_nodes) // 2),
+            len(stage_nodes) - 1,
         ]
         seen_idx = set()
         phase_num = 1
@@ -1273,7 +1357,7 @@ def _build_template_flow_overlay(
             if i in seen_idx or phase_num > 4:
                 continue
             seen_idx.add(i)
-            nx, ny, nw, nh, kind = spot_candidates[i]
+            nx, ny, nw, nh, kind = stage_nodes[i]
             col = phase_colors[(phase_num - 1) % 4]
             if kind == "circle":
                 out.append(_render_spot_circle(nx + nw / 2.0, ny + nh / 2.0, nw / 2.0, col, phase_num, phase))
@@ -1281,91 +1365,30 @@ def _build_template_flow_overlay(
                 out.append(_render_spot_rect(nx, ny, nw, nh, col, phase_num, phase, rx=12.0))
             phase_num += 1
 
-    # Animate all internal connector lines and paths extracted from the .drawio SVG stage
-    conduit_paths: List[List[Point]] = []
-    for seg in bg_lines[:14]:
-        conduit_paths.append(seg)
-    for ppts in bg_paths[:10]:
-        conduit_paths.append(ppts)
+    # Gutter-only conduits: top Bad->Good bridge, clipped stage lines, left/right margin bus, and bottom outcome gutter bridges
+    sculptural_routes: List[Tuple[List[Point], str]] = [
+        ([(450.0, 163.0), (462.0, 163.0)], GREEN),
+        ([(18.0, 272.0), (18.0, 848.0)], BLUE),
+        ([(902.0, 272.0), (902.0, 848.0)], GREEN),
+        ([(163.0, 914.0), (163.0, 980.0)], BLUE),
+        ([(460.0, 914.0), (460.0, 980.0)], GREEN),
+        ([(757.0, 914.0), (757.0, 980.0)], AMBER),
+    ]
+    for idx, seg in enumerate(bg_lines[:8]):
+        sculptural_routes.append((seg, phase_colors[idx % len(phase_colors)]))
 
-    # Also build causal stage-to-stage bridges across the diagram's interior nodes so every stage is connected end-to-end
-    interior_centers: List[Point] = []
-    for nx, ny, nw, nh, kind in spot_candidates[:12]:
-        pt = (nx + nw / 2.0, ny + nh / 2.0)
-        if not interior_centers or ((pt[0] - interior_centers[-1][0]) ** 2 + (pt[1] - interior_centers[-1][1]) ** 2) ** 0.5 >= 58.0:
-            interior_centers.append(pt)
-
-    for idx, pts in enumerate(conduit_paths):
-        col = phase_colors[idx % len(phase_colors)]
-        out.append(
-            _flow(
-                pts,
-                col,
-                phase=phase,
-                dur=1.35 + (idx % 3) * 0.2,
-                width=2.6,
-                head=True,
-                packets=1,
-            )
-        )
-
-    for idx in range(len(interior_centers) - 1):
-        p1, p2 = interior_centers[idx], interior_centers[idx + 1]
-        col = phase_colors[idx % len(phase_colors)]
-        if abs(p1[0] - p2[0]) > 45.0 and abs(p1[1] - p2[1]) > 45.0:
-            mid = (p2[0], p1[1]) if idx % 2 == 0 else (p1[0], p2[1])
-            bridge_pts = [p1, mid, p2]
-        else:
-            bridge_pts = [p1, p2]
-        out.append(
-            _flow(
-                bridge_pts,
-                col,
-                phase=phase,
-                dur=1.5,
-                width=2.5,
-                head=True,
-                packets=1,
-            )
-        )
-
-    # Master end-to-end packet route across interior centers (or conduit endpoints)
-    master_route: List[Point] = list(interior_centers)
-    if len(master_route) < 3 and conduit_paths:
-        for seg in conduit_paths[:6]:
-            master_route.extend(seg)
-    if len(master_route) >= 2:
-        out.append(_render_master_packet(master_route, accent or BLUE, phase, dur=4.8))
-
-    # Compute verified clear horizontal gutter for the 4-Phase Telemetry Strip
-    if ch >= 1140:
-        strip_y = 955.0
-    elif tid in ("T61", "T62", "T63", "T64", "T66"):
-        strip_y = 940.0
-    elif tid in ("T58", "T60", "T67"):
-        strip_y = 958.0
-    elif tid == "T65":
-        strip_y = 148.0
-    elif tid == "T59":
-        strip_y = 283.0
-    else:
-        strip_y = float(ch - 24)
+    for idx, (r_pts, col) in enumerate(sculptural_routes):
+        out.append(_conduit_pulse(r_pts, col, phase, forbidden_boxes, dur=1.4 + (idx % 3) * 0.15, packets=1))
 
     out.append(
-        _render_phase_telemetry_strip(
-            cw,
-            strip_y,
-            [
-                "① 0–1.2s · Signal Ingress & Context",
-                "② 1.2–2.4s · Policy Gate & Routing",
-                "③ 2.4–3.6s · Core Agent Execution",
-                "④ 3.6–4.8s · Telemetry & Verified ACK",
-            ],
-            phase_colors,
+        _render_master_packet(
+            [(18.0, 272.0), (18.0, 560.0), (18.0, 848.0), (18.0, 948.0), (902.0, 948.0), (902.0, 560.0), (902.0, 272.0)],
+            accent or BLUE,
             phase,
+            dur=4.8,
         )
     )
-    return "\n".join(out)
+    return "\n".join(s for s in out if s)
 
 
 def render_template(tid: str, spec: Optional[Dict[str, Any]] = None, phase: Optional[float] = None) -> str:

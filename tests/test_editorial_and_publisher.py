@@ -394,5 +394,47 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
             self.assertEqual(ET.fromstring(drawio_file.read_text(encoding="utf-8")).tag, "mxfile")
 
 
+
+    def test_12_autonomous_self_critic_and_auto_healing_harness(self) -> None:
+        from src.openhands_harness.self_critic_harness import (
+            critique_and_heal_generated_blueprint,
+            get_self_critic_harness,
+        )
+
+        harness = get_self_critic_harness()
+        report = harness.run_full_self_critic_cycle(
+            auto_heal=True,
+            refresh_discovery=False,
+            trigger_source="unit_test_verification",
+        )
+        self.assertEqual(report["status"], "ALL_GATES_VERIFIED")
+        self.assertEqual(report["gates_passed"], 8)
+        self.assertEqual(report["gates_total"], 8)
+        self.assertTrue(report["all_gates_passed"])
+        self.assertGreaterEqual(report["overall_score"], 99.0)
+        self.assertEqual(len(report["six_closed_loops"]), 6)
+        self.assertEqual(len(report["persona_critics"]), 4)
+        self.assertEqual(
+            len(report["discovery_and_gap_radar"]["auto_synthesized_gap_exemplars"]),
+            6,
+        )
+
+        # Verify pre-render & post-render blueprint self-critic auto-heals overly long copy
+        long_topic = " ".join(["Enterprise Agentic FinOps Governance and Recursive Self-Critic Loop"] * 3)
+        bundle = critique_and_heal_generated_blueprint(
+            {
+                "topic": long_topic,
+                "persona_id": "ciso_governance",
+                "org_id": "regulated_enterprise",
+            }
+        )
+        rc = bundle["self_critic_receipt"]
+        self.assertEqual(rc["status"], "CERTIFIED_BY_SELF_CRITIC")
+        self.assertGreaterEqual(rc["overall_score"], 98.0)
+        self.assertGreaterEqual(len(rc["auto_healed_adjustments"]), 1)
+        self.assertTrue(rc["geometry_check"]["zero_collision"])
+        self.assertEqual(len(rc["persona_critiques"]), 4)
+
+
 if __name__ == "__main__":
     unittest.main()

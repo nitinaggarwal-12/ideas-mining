@@ -1,4 +1,4 @@
-"""Canonical Template Registry — 116 Certified Unique `Best` + `High` Visual Templates.
+"""Canonical Template Registry — 128 Certified Unique `Best` + `High` Visual Templates.
 
 Consolidates the entire visual catalog with zero legacy Gen-1 raw Python SVG box approximations (`Law 18` / `Rule 57B`):
 - 15 PromptCanvas Canonical `Best` Blueprints:
@@ -10,7 +10,7 @@ Consolidates the entire visual catalog with zero legacy Gen-1 raw Python SVG box
 - 44 Kept Session `High` Blueprints (`Gen-4` Certified High):
     `T92, T93, T96, T97, T99, T109, T112, T117, T119, T120, T121, T122, T123, T127, T133, T136, T137, T140, T146, T151, T154, T157, T160, T161, T162, T164, T170, T172, T173, T174, T177, T179, T184, T187, T193, T196, T200, T201, T202, T204, T205, T206, T208, T209`.
 
-Total Certified Gallery Templates = `116` (`72 Best` + `44 High`, `0 Medium/Low/Worst`).
+Total Certified Gallery Templates = `128` (`84 Best` + `44 High`, `0 Medium/Low/Worst`).
 All `38` canonical PromptCanvas/Spine Draw.io + PNG + Google Slides assets (`T01, T53–T89`) remain intact on disk (`Law 18`).
 """
 
@@ -1541,7 +1541,7 @@ def render_template_gif(
 
 
 def list_templates() -> List[Dict[str, Any]]:
-    """Return the ordered list of 116 Certified Unique Visual Templates (`72 Best` + `44 High`)."""
+    """Return the ordered list of 128 Certified Unique Visual Templates (`84 Best` + `44 High`)."""
     return [{"id": tid, **meta} for tid, meta in TEMPLATE_META.items()]
 
 

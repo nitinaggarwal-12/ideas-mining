@@ -3,7 +3,7 @@
 Implements the complete editorial decision pipeline:
   Daily Signal Harvest + 30-Day Rolling Dedupe Ledger
     -> Top 5 Unique Most In-Demand Ideas (diversified across 5 engineering clusters)
-    -> Top 5 Orthogonal Certified Templates per Idea (drawn strictly from the 116 Best+High pool)
+    -> Top 5 Orthogonal Certified Templates per Idea (drawn strictly from the 128 Best+High pool)
     -> Recommended Mode of Presentation (Carousel, Image, Short_Video, Video, Slidedeck, Slide, Doc, Text)
     -> 3-Part Mode & Platform Content-Length Budgets (Hook Fold, Per-Unit Density, Total Deliverable)
 """
@@ -233,31 +233,31 @@ ORTHOGONAL_TEMPLATE_ANGLES: List[Dict[str, Any]] = [
     {
         "angle_id": "ANGLE_1_ARCHITECTURE",
         "angle_label": "Architecture & Runtime Topology",
-        "preferred_ids": ["T85", "T61", "T62", "T64", "T79", "T86", "T87", "T131", "T153"],
+        "preferred_ids": ["T85", "T61", "T62", "T64", "T79", "T86", "T87", "T212", "T217", "T220", "T131", "T153"],
         "keywords": ("topology", "runtime", "supervisor", "tree", "hub", "gateway", "plane", "sequence", "flow"),
     },
     {
         "angle_id": "ANGLE_2_CONTRAST",
         "angle_label": "Before/After & OFF-vs-ON Contrast",
-        "preferred_ids": ["T57", "T56", "T90", "T101", "T125", "T150", "T175", "T188"],
+        "preferred_ids": ["T57", "T56", "T90", "T215", "T218", "T101", "T125", "T150", "T175", "T188"],
         "keywords": ("vs", "comparison", "contrast", "toggle", "shadow", "naive", "before", "blindspot", "trap"),
     },
     {
         "angle_id": "ANGLE_3_QUANTITATIVE",
         "angle_label": "Funnel, Roofline & Benchmark Matrix",
-        "preferred_ids": ["T58", "T65", "T83", "T84", "T88", "T89", "T155", "T157", "T181"],
+        "preferred_ids": ["T58", "T65", "T83", "T84", "T88", "T89", "T211", "T216", "T155", "T157", "T181"],
         "keywords": ("funnel", "matrix", "eval", "benchmark", "score", "metric", "budget", "latency", "compression"),
     },
     {
         "angle_id": "ANGLE_4_CHECKLIST",
         "angle_label": "Deployment Checklist & Cheat Sheet",
-        "preferred_ids": ["T59", "T54", "T55", "T80", "T82", "T95", "T104", "T148"],
+        "preferred_ids": ["T59", "T54", "T55", "T80", "T82", "T210", "T214", "T219", "T95", "T104", "T148"],
         "keywords": ("checklist", "cheat sheet", "workflow", "setup", "step", "review", "gate", "guide"),
     },
     {
         "angle_id": "ANGLE_5_EXECUTIVE",
         "angle_label": "Executive 2×2 Matrix, Pyramid & Roadmap",
-        "preferred_ids": ["T63", "T60", "T66", "T67", "T81", "T154", "T156", "T167"],
+        "preferred_ids": ["T63", "T60", "T66", "T67", "T81", "T213", "T221", "T154", "T156", "T167"],
         "keywords": ("roadmap", "quadrant", "2x2", "pyramid", "portfolio", "executive", "maturity", "curriculum"),
     },
 ]
@@ -342,7 +342,7 @@ def _load_slides_map() -> Dict[str, Dict[str, Any]]:
 
 
 def _build_full_certified_catalog_index() -> Dict[str, Dict[str, Any]]:
-    """Index all 116 certified Best+High templates + 23 T79 spine variants (zero legacy T02-T52)."""
+    """Index all 128 certified Best+High templates + 23 T79 spine variants (zero legacy T02-T52)."""
     slides_map = _load_slides_map()
     catalog: Dict[str, Dict[str, Any]] = {}
     for tid, meta in TEMPLATE_META.items():
@@ -522,7 +522,7 @@ class DailyTop5EditorialEngine:
             best_tid: Optional[str] = None
             best_score = -1.0
 
-            # Score all 116+23 certified templates for this specific orthogonal angle
+            # Score all 128+23 certified templates for this specific orthogonal angle
             for tid, tmeta in self.template_catalog.items():
                 if tid in used_ids or tid in BANNED_LEGACY_GEN1_IDS:
                     continue
@@ -735,6 +735,9 @@ class DailyTop5EditorialEngine:
         if DAILY_TOP5_BRIEFING_JSON.exists():
             try:
                 cached = json.loads(DAILY_TOP5_BRIEFING_JSON.read_text(encoding="utf-8"))
+                if cached.get("certified_pool_size") != len(TEMPLATE_META):
+                    cached["certified_pool_size"] = len(TEMPLATE_META)
+                    DAILY_TOP5_BRIEFING_JSON.write_text(json.dumps(cached, indent=2), encoding="utf-8")
                 if not edition_date or cached.get("edition_date") == edition_date:
                     return cached
             except Exception:

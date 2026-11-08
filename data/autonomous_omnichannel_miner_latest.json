@@ -1,6 +1,6 @@
 {
   "status": "READY",
-  "generated_at": "2026-11-08T17:46:15.509345+00:00",
+  "generated_at": "2026-11-08T19:39:31.032839+00:00",
   "topic_query": "",
   "zero_manual_links_required": true,
   "total_discovered_signals": 11,
@@ -33,7 +33,7 @@
     "five_zero_link_upstream_pipelines": [
       {
         "pipeline_id": "PIPE-01",
-        "name": "47-Creator Primary Substack, Newsletter & Engineering Blog RSS Syndicate",
+        "name": "55-Creator Primary Substack, Newsletter & Engineering Blog RSS Syndicate",
         "lead_time_advantage": "24\u201372 hours BEFORE LinkedIn/X carousel or GIF condensation",
         "auth_required": "None (100% Standard RSS 2.0 / Atom XML)",
         "coverage": "Decoding AI (Paul Iusztin), ByteByteGo (Alex Xu), Unwind AI (Shubham Saboo), AI With Aish (Aishwarya Srinivasan), Anurag Karuparti Substack, Rakesh Gohel Substack, Charlie Hills Substack, Shivani Virdi Substack, Simon Willison, Chip Huyen, Eugene Yan, Lilian Weng, LangChain Blog, LlamaIndex Blog, Google Cloud AI Blog"
@@ -212,7 +212,7 @@
         "Quantitative evaluation math (`pass^k`, Roofline arithmetic intensity, Goodput SLOs)",
         "arXiv Page-1 Header + Benchmark Table + Architecture Figure composite (`Christian Posta` / `Hamza Abbas` pattern)"
       ],
-      "studio_generator_route": "View 2: 116 Certified Templates (`T53`\u2013`T89`) -> 1-Click Retina PNG / SVG / Google Slides"
+      "studio_generator_route": "View 2: 128 Certified Templates (`T53`\u2013`T221`) -> 1-Click Retina PNG / SVG / Google Slides"
     }
   ],
   "distribution_channels_and_groups": [
@@ -322,7 +322,7 @@
           "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
         ],
         "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
-        "studio_action_route": "View 2: 116 Certified Templates (`T53`\u2013`T89`) -> 1-Click Retina PNG / SVG / Google Slides"
+        "studio_action_route": "View 2: 128 Certified Templates (`T53`\u2013`T221`) -> 1-Click Retina PNG / SVG / Google Slides"
       }
     },
     {
@@ -413,7 +413,7 @@
           "Hacker News Frontpage (`Show HN` / Systems Deep-Dive)"
         ],
         "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
-        "studio_action_route": "View 2: 116 Certified Templates (`T53`\u2013`T89`) -> 1-Click Retina PNG / SVG / Google Slides"
+        "studio_action_route": "View 2: 128 Certified Templates (`T53`\u2013`T221`) -> 1-Click Retina PNG / SVG / Google Slides"
       }
     },
     {
@@ -683,7 +683,7 @@
           "Hacker News Frontpage (`Show HN` / Systems Deep-Dive)"
         ],
         "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
-        "studio_action_route": "View 2: 116 Certified Templates (`T53`\u2013`T89`) -> 1-Click Retina PNG / SVG / Google Slides"
+        "studio_action_route": "View 2: 128 Certified Templates (`T53`\u2013`T221`) -> 1-Click Retina PNG / SVG / Google Slides"
       }
     },
     {

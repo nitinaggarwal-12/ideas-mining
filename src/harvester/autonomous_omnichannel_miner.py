@@ -5,7 +5,7 @@ Eliminates manual link-feeding by combining 5 sanctioned, zero-CAPTCHA upstream 
 2. Primary Research & Code Velocity APIs (arXiv, HuggingFace Daily Papers, GitHub Breakout, Hacker News Algolia)
 3. Practitioner Community Pulse APIs (DEV.to AI Top Articles, Reddit r/LocalLLaMA / r/AI_Agents / r/MachineLearning JSON)
 4. Search-Indexed Public Permalink Discovery & OpenGraph/Media-Header Inspector (LinkedIn public post URLs & GIF89a/MP4 binary inspection)
-5. Deterministic Format + Duration + Channel + Target Group Prescription Engine backed by our 46-Post / 47-Creator empirical audit.
+5. Deterministic Format + Duration + Channel + Target Group Prescription Engine backed by our 60-Post / 55-Creator empirical audit.
 """
 
 from __future__ import annotations
@@ -68,7 +68,7 @@ HONEST_SCRAPING_REALITY_AUDIT: Dict[str, Any] = {
     "five_zero_link_upstream_pipelines": [
         {
             "pipeline_id": "PIPE-01",
-            "name": "47-Creator Primary Substack, Newsletter & Engineering Blog RSS Syndicate",
+            "name": "55-Creator Primary Substack, Newsletter & Engineering Blog RSS Syndicate",
             "lead_time_advantage": "24–72 hours BEFORE LinkedIn/X carousel or GIF condensation",
             "auth_required": "None (100% Standard RSS 2.0 / Atom XML)",
             "coverage": (
@@ -202,7 +202,7 @@ CREATOR_AND_LAB_RSS_FEEDS: List[Dict[str, str]] = [
 
 # ---------------------------------------------------------------------------
 # 3. Empirical Format, Duration, Aspect Ratio & Engagement Multiplier Matrix
-#    (Derived directly from our 46-Post / 47-Creator Omnichannel Audit)
+#    (Derived directly from our 60-Post / 55-Creator Omnichannel Audit)
 # ---------------------------------------------------------------------------
 EMPIRICAL_FORMAT_DURATION_BENCHMARKS: List[Dict[str, Any]] = [
     {
@@ -290,7 +290,7 @@ EMPIRICAL_FORMAT_DURATION_BENCHMARKS: List[Dict[str, Any]] = [
             "Quantitative evaluation math (`pass^k`, Roofline arithmetic intensity, Goodput SLOs)",
             "arXiv Page-1 Header + Benchmark Table + Architecture Figure composite (`Christian Posta` / `Hamza Abbas` pattern)",
         ],
-        "studio_generator_route": "View 2: 116 Certified Templates (`T53`–`T89`) -> 1-Click Retina PNG / SVG / Google Slides",
+        "studio_generator_route": "View 2: 128 Certified Templates (`T53`–`T221`) -> 1-Click Retina PNG / SVG / Google Slides",
     },
 ]
 

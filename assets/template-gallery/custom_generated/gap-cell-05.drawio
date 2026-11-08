@@ -1,0 +1,98 @@
+<mxfile host="app.diagrams.net" modified="2026-11-08T17:00:00.000Z" agent="IdeasMintingGenerativeEngine/4.0" version="24.7.8">
+  <diagram id="gen_T218" name="T218 — Formal Logic &amp; Spec Quine">
+    <mxGraphModel dx="920" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="1150" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      <mxCell id="hdr_banner" value="T218 • FORMAL LOGIC &amp; SPEC QUINE • ZERO-TRUST GUARDRAIL &amp; COMPLIANCE LENS • REGULATED ENTERPRISE
+Formal OWL/SHACL Policy Guards &amp; RFC 8693 OBO vs. Prompt-Only &#x27;Ontology Washing&#x27;
+Enforcing deterministic pre-execution constraint proofs, narrow-audience OBO tokens, and immutable audit lineage in regulated pharma &amp; banking.
+Stack Anchor: Google Cloud Vertex AI + Spanner Graph + Model Armor + OpenTelemetry  |  KPIs: 0 Static Agent Keys · 100% PII Redacted · Deterministic Kill Switch" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0D9488;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="24" width="864" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="SubBanner" value="GOVERNANCE &amp; PERSONA CONTRACT: Security Mandate: AI colleagues build, deterministic scripts prove, a human owner decides (y/N).
+HIPAA / SOX / GxP Deterministic Audit Trail • VPC-SC + Customer-Managed Encryption (CMEK)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#DBEAFE;strokeColor=#0D9488;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
+      </mxCell>
+      <mxCell id="quine_left" value="LEFT HEMISPHERE • FORMAL ONTOLOGY &amp; EXECUTABLE SPEC
+Machine-Verifiable Soul (∀, ∃, SHACL, OWL)
+• First-Order Description Logic &amp; SHACL shape constraints
+• Development-Driven Literate Specification (`ensemble`)
+• Explicit domain invariants, state transitions &amp; post-conditions
+• Zero ambiguity: invalid states are rejected before model execution" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="208" width="420" height="320" as="geometry" />
+      </mxCell>
+      <mxCell id="quine_right" value="RIGHT HEMISPHERE • SHALLOW &#x27;ONTOLOGY WASHING&#x27;
+Disconnected Metadata &amp; Prompt Drift
+• Rebranding flat data catalogs as &#x27;ontologies&#x27; without axioms
+• Hand-written prose specs that rot the moment code ships
+• Unverified LLM JSON outputs with silent semantic hallucinations
+• Result: brittle agents that fail on multi-hop reasoning" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FEF2F2;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="472" y="208" width="420" height="320" as="geometry" />
+      </mxCell>
+      <mxCell id="quine_s_1" value="01 • WORKING PROTOTYPE
+Iterate in Real Code First
+Discover true edge cases in running software before freezing specs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="564" width="204" height="300" as="geometry" />
+      </mxCell>
+      <mxCell id="quine_s_2" value="02 • LITERATE SPEC BOOK
+Extract Executable Spec
+Distill architecture + SHACL axioms into self-contained Markdown chapters" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0D9488;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="248" y="564" width="204" height="300" as="geometry" />
+      </mxCell>
+      <mxCell id="quine_s_3" value="03 • COMPILER AGENT
+Autonomous Synthesis
+Coding agent compiles spec chapters into clean source + unit tests" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="468" y="564" width="204" height="300" as="geometry" />
+      </mxCell>
+      <mxCell id="quine_s_4" value="04 • QUINE VERIFICATION
+Next-Edition Regeneration
+Agent proves 100% test pass &amp; updates the specification book" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="688" y="564" width="204" height="300" as="geometry" />
+      </mxCell>
+      <mxCell id="quine_foot" value="DEVELOPMENT-DRIVEN SPECS INVARIANT
+The Book Builds the AI Coding Agent  &lt;===&gt;  The AI Coding Agent Builds &amp; Verifies the Next Edition of the Book
+Combines Bill Cox&#x27;s `waywardgeek/ensemble` literate spec loop with Emeka Okoye&#x27;s formal SHACL/OWL ontological verification." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0FDFA;strokeColor=#0D9488;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="912" width="864" height="144" as="geometry" />
+      </mxCell>
+      <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-09 (T218) • CISO &amp; GOVERNANCE • REGULATED ENTERPRISE" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="1076" width="864" height="48" as="geometry" />
+      </mxCell>
+      <mxCell id="e_gen_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="232" y="714" as="sourcePoint" />
+          <mxPoint x="248" y="714" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0D9488;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="452" y="714" as="sourcePoint" />
+          <mxPoint x="468" y="714" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="672" y="714" as="sourcePoint" />
+          <mxPoint x="688" y="714" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="238" y="528" as="sourcePoint" />
+          <mxPoint x="238" y="564" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="790" y="864" as="sourcePoint" />
+          <mxPoint x="130" y="864" as="targetPoint" />
+          <Array as="points">
+            <mxPoint x="790" y="892" />
+            <mxPoint x="130" y="892" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

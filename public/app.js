@@ -240,7 +240,7 @@ function buildCmdkCatalog() {
     });
   });
 
-  (STATE.templates || []).slice(0, 116).forEach((t) => {
+  (STATE.templates || []).slice(0, 140).forEach((t) => {
     items.push({
       kind: `Blueprint ${t.id}`,
       title: `${t.id} — ${t.name}`,
@@ -854,7 +854,7 @@ async function openRepoInspector(slug) {
 }
 
 /* ==========================================================================
-   View 2: 116 Certified Visual Blueprints Gallery
+   View 2: 128 Certified Visual Blueprints Gallery
    ========================================================================== */
 async function loadGalleryData() {
   const [gRes, pRes] = await Promise.all([fetch("/api/template-gallery"), fetch("/api/stack-pairings")]);
@@ -1374,7 +1374,7 @@ function openCreatorPortfolioDrawer(creatorName) {
     (p) => p.availability === "PUBLIC_VERIFIED" && p.author_name.toLowerCase() === cp.name.toLowerCase()
   );
   if (auditedPosts.length) {
-    const audHdr = mkEl("h3", "subsection-heading", `Audited Posts in 46-Post Cohort (${auditedPosts.length})`);
+    const audHdr = mkEl("h3", "subsection-heading", `Audited Posts in 60-Post Cohort (${auditedPosts.length})`);
     audHdr.style.marginBottom = "10px";
     bodyEl.appendChild(audHdr);
     auditedPosts.forEach((ap) => {
@@ -1624,7 +1624,7 @@ function renderCreatorProfilesGrid() {
     bpBadgeBtn.addEventListener("click", () => jumpToTemplateInGallery(cp.template_id));
     badges.appendChild(bpBadgeBtn);
     if (cp.in_33_post_audit) {
-      badges.appendChild(mkEl("span", "pill-badge pill-emerald", "In 46-Post Audit"));
+      badges.appendChild(mkEl("span", "pill-badge pill-emerald", "In 60-Post Audit"));
     }
     if (cp.followers) {
       badges.appendChild(mkEl("span", "pill-badge pill-sky tabular-nums", `${Number(cp.followers).toLocaleString()} reach`));
@@ -2555,7 +2555,7 @@ function applyTop5BriefingPayload(data) {
   }
   const ledgerBadge = document.getElementById("top5-ledger-badge");
   if (ledgerBadge && STATE.top5Briefing) {
-    ledgerBadge.textContent = `30-Day Dedupe (${STATE.top5Briefing.dedupe_ledger_entries || 5} tracked · ${STATE.top5Briefing.certified_pool_size || 116} blueprints)`;
+    ledgerBadge.textContent = `30-Day Dedupe (${STATE.top5Briefing.dedupe_ledger_entries || 5} tracked · ${STATE.top5Briefing.certified_pool_size || 128} blueprints)`;
   }
   STATE.activeCarouselIndex = 0;
   STATE.mockupCopyExpanded = false;
@@ -5223,6 +5223,25 @@ async function triggerSynthesizeCustomTemplate() {
     metaRow.append(leftInfo, actions);
     stage.appendChild(metaRow);
 
+    if (data.self_critic_receipt) {
+      const rc = data.self_critic_receipt;
+      const criticBar = mkEl("div", "feed-item-card");
+      criticBar.style.cssText = "margin-bottom:12px;background:#ecfdf5;border:1px solid #a7f3d0;padding:10px 14px;";
+      const hdr = mkEl("div", "masthead-eyebrow-row");
+      hdr.append(
+        mkEl("span", "pill-badge pill-emerald tabular-nums", `Self-Critic: ${rc.overall_score}/100 · 4/4 Judges PASS`),
+        mkEl("span", "pill-badge pill-sky tabular-nums", `SVG: ${rc.geometry_check?.svg_rects || 0} cards / ${rc.geometry_check?.svg_texts || 0} text nodes`),
+        mkEl("span", "pill-badge pill-amber tabular-nums", `Draw.io: ${rc.geometry_check?.drawio_vertices || 0}v / ${rc.geometry_check?.drawio_edges || 0}e`)
+      );
+      criticBar.appendChild(hdr);
+      if ((rc.auto_healed_adjustments || []).length) {
+        const adj = mkEl("div", "", `Auto-Healed: ${rc.auto_healed_adjustments.join(" · ")}`);
+        adj.style.cssText = "font-size:11.5px;color:#065f46;margin-top:6px;font-weight:600;";
+        criticBar.appendChild(adj);
+      }
+      stage.appendChild(criticBar);
+    }
+
     const previewWrap = mkEl("div");
     previewWrap.style.cssText = "background:#f8fafc;border:1px solid #cbd5e1;border-radius:12px;padding:16px;display:flex;justify-content:center;max-height:760px;overflow:auto;";
     if (data.files?.svg_url) {
@@ -5242,9 +5261,126 @@ async function triggerSynthesizeCustomTemplate() {
   }
 }
 
+async function loadAndRenderSelfCriticHarness(triggerRun = false) {
+  const gatesGrid = document.getElementById("self-critic-gates-grid");
+  const personasGrid = document.getElementById("self-critic-personas-grid");
+  const gapsGrid = document.getElementById("self-critic-gap-exemplars-grid");
+  const scorePill = document.getElementById("self-critic-live-score-pill");
+  const mastheadBadge = document.getElementById("self-critic-masthead-badge");
+  const headerBadge = document.getElementById("telemetry-self-critic-badge");
+  const btn = document.getElementById("run-self-critic-sweep-btn");
+
+  if (triggerRun && btn) {
+    btn.disabled = true;
+    btn.textContent = "Running 8-Gate Self-Critic...";
+  }
+  try {
+    const res = triggerRun
+      ? await fetch("/api/harness/self-critic/run", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ auto_heal: true, refresh_discovery: false }),
+        })
+      : await fetch("/api/harness/self-critic");
+    const data = await res.json();
+    if (!res.ok || !data) return;
+
+    const summaryTxt = `Harness² v2.4 · ${data.gates_passed}/${data.gates_total} Gates PASS (${data.overall_score}/100)`;
+    if (scorePill) scorePill.textContent = `Score: ${data.overall_score} / 100 · All ${data.gates_passed}/${data.gates_total} Gates Verified`;
+    if (mastheadBadge) mastheadBadge.textContent = summaryTxt;
+    if (headerBadge) headerBadge.textContent = `Harness² Self-Critic: ${data.gates_passed}/${data.gates_total} Gates PASS (${data.overall_score}%)`;
+
+    if (gatesGrid) {
+      gatesGrid.replaceChildren();
+      (data.gates || []).forEach((g) => {
+        const card = mkEl("article", "repo-card");
+        const top = mkEl("div", "masthead-eyebrow-row");
+        top.append(
+          mkEl("span", g.status === "PASS" ? "pill-badge pill-emerald" : "pill-badge pill-amber", `${g.status} · ${g.score}%`),
+          mkEl("span", "deliverable-chip tabular-nums", g.gate_id)
+        );
+        const h3 = mkEl("h3", "subsection-heading", g.name);
+        h3.style.margin = "8px 0 6px";
+        const m = mkEl("p", "", g.metrics);
+        m.style.cssText = "font-size:12px;color:#0f172a;font-weight:600;margin-bottom:6px;";
+        const prev = mkEl("p", "", g.what_it_prevents);
+        prev.style.cssText = "font-size:11.5px;color:#475569;line-height:1.45;";
+        card.append(top, h3, m, prev);
+        gatesGrid.appendChild(card);
+      });
+    }
+
+    if (personasGrid) {
+      personasGrid.replaceChildren();
+      (data.persona_critics || []).forEach((c) => {
+        const card = mkEl("article", "repo-card");
+        const top = mkEl("div", "masthead-eyebrow-row");
+        top.append(
+          mkEl("span", "pill-badge pill-emerald tabular-nums", `${c.status} · ${c.score}/100`),
+          mkEl("span", "pill-badge pill-sky", c.critic_id)
+        );
+        const h3 = mkEl("h3", "subsection-heading", c.role);
+        h3.style.margin = "8px 0 6px";
+        const foc = mkEl("p", "", `Focus: ${c.focus}`);
+        foc.style.cssText = "font-size:11.5px;color:#334155;margin-bottom:6px;";
+        const fnd = mkEl("p", "", c.latest_finding);
+        fnd.style.cssText = "font-size:11.5px;color:#065f46;font-weight:600;";
+        card.append(top, h3, foc, fnd);
+        personasGrid.appendChild(card);
+      });
+    }
+
+    if (gapsGrid) {
+      gapsGrid.replaceChildren();
+      const exemplars = data.discovery_and_gap_radar?.auto_synthesized_gap_exemplars || [];
+      exemplars.forEach((ex) => {
+        const card = mkEl("article", "repo-card");
+        const top = mkEl("div", "masthead-eyebrow-row");
+        top.append(
+          mkEl("span", "pill-badge pill-emerald", `${ex.gap_id} · ${ex.grammar_id} (${ex.template_id})`),
+          mkEl("span", "pill-badge pill-sky", ex.persona_label),
+          mkEl("span", "pill-badge pill-amber", ex.org_label)
+        );
+        const h3 = mkEl("h3", "subsection-heading", ex.topic);
+        h3.style.margin = "8px 0 6px";
+        const sub = mkEl("p", "", ex.subtitle);
+        sub.style.cssText = "font-size:11.5px;color:#475569;margin-bottom:10px;line-height:1.45;";
+        const acts = mkEl("div", "studio-toolbar-actions");
+        const aSvg = mkEl("a", "btn-secondary", "Preview SVG ↗");
+        aSvg.href = safeUrl(ex.svg_url);
+        aSvg.target = "_blank";
+        aSvg.rel = "noopener";
+        const aDio = mkEl("a", "btn-secondary", ".drawio");
+        aDio.href = safeUrl(ex.drawio_url);
+        aDio.setAttribute("download", `${ex.gap_id.toLowerCase()}.drawio`);
+        const aPptx = mkEl("a", "btn-primary", ".pptx");
+        aPptx.href = safeUrl(ex.pptx_url);
+        aPptx.setAttribute("download", `${ex.template_id}.pptx`);
+        acts.append(aSvg, aDio, aPptx);
+        card.append(top, h3, sub, acts);
+        gapsGrid.appendChild(card);
+      });
+    }
+
+    if (triggerRun) {
+      showToast(`Self-Critic Sweep Complete: ${data.gates_passed}/${data.gates_total} Gates PASS (${data.overall_score}/100)`);
+    }
+  } finally {
+    if (triggerRun && btn) {
+      btn.disabled = false;
+      btn.textContent = "🛡️ Run Self-Critic & Auto-Heal Sweep";
+    }
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const synthBtn = document.getElementById("synthesize-custom-template-btn");
   if (synthBtn) {
     synthBtn.addEventListener("click", () => triggerSynthesizeCustomTemplate());
   }
+  const criticBtn = document.getElementById("run-self-critic-sweep-btn");
+  if (criticBtn) {
+    criticBtn.addEventListener("click", () => loadAndRenderSelfCriticHarness(true));
+  }
+  loadAndRenderSelfCriticHarness(false);
 });

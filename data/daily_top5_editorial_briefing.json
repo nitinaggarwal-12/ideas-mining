@@ -5,7 +5,7 @@
   "topic_query": "",
   "ideas_count": 5,
   "templates_per_idea": 5,
-  "certified_pool_size": 116,
+  "certified_pool_size": 128,
   "dedupe_ledger_window_days": 30,
   "dedupe_ledger_entries": 5,
   "mode_contracts": {

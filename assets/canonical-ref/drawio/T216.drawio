@@ -1,0 +1,105 @@
+<mxfile host="app.diagrams.net" modified="2026-11-08T17:00:00.000Z" agent="IdeasMintingGenerativeEngine/4.0" version="24.7.8">
+  <diagram id="gen_T216" name="T216 — Inverted Funnel + Build Loop">
+    <mxGraphModel dx="920" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="1150" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      <mxCell id="hdr_banner" value="T216 • INVERTED FUNNEL + BUILD LOOP • AGENTIC PRODUCT &amp; FDE GTM LENS • FRONTIER AI STARTUP
+Agentic Product Management: 4-Stage Signal Funnel &amp; Closed-Loop Delivery
+When Engineers Ship Code 5x Faster with Agents, Product Discovery &amp; Prioritization Become the Primary Bottleneck
+Stack Anchor: Gemini 4 Argon / 3.8 Flash + ADK + LangGraph + Arize Phoenix  |  KPIs: 3x Faster Spec-to-Ship · 1 FDE : 1.5 AE Ratio · +42% Feature Adoption" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="24" width="864" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="SubBanner" value="GOVERNANCE &amp; PERSONA CONTRACT: Product Loop: Let 6 ambient agents gather &amp; cost signals; human product lead owns Gate A.
+Sub-Second Speculative Cascade • 1 FDE : 1.5 AE Field Velocity • Continuous Trace-to-Eval" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EDE9FE;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
+      </mxCell>
+      <mxCell id="funnel_s_1" value="STEP 1 • 6 AMBIENT AGENTS GATHER EVERY SIGNAL AROUND THE CLOCK
+Market Research · Customer Signals · Portfolio Goals · Tech Debt · Product Analytics · Release Metrics" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="48" y="208" width="824" height="114" as="geometry" />
+      </mxCell>
+      <mxCell id="funnel_s_2" value="STEP 2 • AGENTS SYNTHESIZE &amp; RANK THE UNIFIED BACKLOG
+Strategic Bet  ·  Customer Request  ·  Architecture Debt  ·  Funnel Drop-Off Finding" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0FDF4;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="118" y="338" width="684" height="96" as="geometry" />
+      </mxCell>
+      <mxCell id="funnel_s_3" value="STEP 3 • AGENTS COST &amp; SIMULATE EVERY OPTION BEFORE HUMANS MEET
+Option A (€ · Weeks · Δ Metric)   |   Option B (€ · Weeks · Δ Metric)   |   Option C (€ · Weeks · Δ Metric)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FEFCE8;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="188" y="450" width="544" height="96" as="geometry" />
+      </mxCell>
+      <mxCell id="funnel_s_4" value="STEP 4 • HUMAN DECISION GATE A: PRODUCT LEAD PICKS ONE BET
+Agents do the research &amp; costing; your human leadership team decides what to build." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FEF9C3;strokeColor=#CA8A04;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="258" y="562" width="404" height="96" as="geometry" />
+      </mxCell>
+      <mxCell id="build_c_1" value="STEP 5A • ARCHITECT + AGENTS
+Shape the Slice
+Product Slice = Epic + User Stories + Verifiable Acceptance Tests" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="48" y="692" width="248" height="168" as="geometry" />
+      </mxCell>
+      <mxCell id="build_c_2" value="STEP 5B • ENGINEER + AGENTS
+Build &amp; Ship
+Agentic production worktrees with deterministic CI/CD into users&#x27; hands" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="336" y="692" width="248" height="168" as="geometry" />
+      </mxCell>
+      <mxCell id="build_c_3" value="STEP 5C • GATE B OUTCOME REVIEW
+Measure the Outcome
+Track conversion, retention &amp; LTV deltas -&gt; feed back into Step 1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="624" y="692" width="248" height="168" as="geometry" />
+      </mxCell>
+      <mxCell id="funnel_score_foot" value="HOW AGENTS SCORE EVERY OPTION BEFORE ANYONE DECIDES
+[1. COST]: People, token compute &amp; infra to build and run   |   [2. TIME TO MARKET]: Days until users touch it &amp; signal returns   |   [3. VALUE]: Expected move in conversion, retention &amp; LTV
+Closed-Loop Rule: Every production release automatically emits telemetry back into Step 1&#x27;s Metrics Agent." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="48" y="888" width="824" height="168" as="geometry" />
+      </mxCell>
+      <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-07 (T216) • PRODUCT &amp; GTM • FRONTIER AI STARTUP" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="1076" width="864" height="48" as="geometry" />
+      </mxCell>
+      <mxCell id="e_gen_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="460" y="322" as="sourcePoint" />
+          <mxPoint x="460" y="338" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="460" y="434" as="sourcePoint" />
+          <mxPoint x="460" y="450" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="460" y="546" as="sourcePoint" />
+          <mxPoint x="460" y="562" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="296" y="776" as="sourcePoint" />
+          <mxPoint x="336" y="776" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="584" y="776" as="sourcePoint" />
+          <mxPoint x="624" y="776" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#CA8A04;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="460" y="658" as="sourcePoint" />
+          <mxPoint x="460" y="692" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="872" y="776" as="sourcePoint" />
+          <mxPoint x="872" y="265" as="targetPoint" />
+          <Array as="points">
+            <mxPoint x="896" y="776" />
+            <mxPoint x="896" y="265" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

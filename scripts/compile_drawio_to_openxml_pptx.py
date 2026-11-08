@@ -799,7 +799,7 @@ def _header_and_footer_shapes(tid: str, title: str, subtitle: str, slide_idx: in
           <p:txBody>
             <a:bodyPr anchor="ctr"/>
             <a:lstStyle/>
-            <a:p><a:r><a:rPr lang="en-US" sz="850" b="1"><a:solidFill><a:srgbClr val="64748B"/></a:solidFill></a:rPr><a:t>Proprietary + Confidential  |  Cloudstyle 2.0 Canonical Blueprint ({_xml_esc(tid)})  |  Slide {slide_idx} of {total_slides}</a:t></a:r></a:p>
+            <a:p><a:r><a:rPr lang="en-US" sz="850" b="1"><a:solidFill><a:srgbClr val="64748B"/></a:solidFill></a:rPr><a:t>NITIN AGGARWAL • NOVEMBER 2026  |  Proprietary + Confidential  |  Cloudstyle 2.0 Canonical Blueprint ({_xml_esc(tid)})  |  Slide {slide_idx} of {total_slides}</a:t></a:r></a:p>
           </p:txBody>
         </p:sp>""",
     ]

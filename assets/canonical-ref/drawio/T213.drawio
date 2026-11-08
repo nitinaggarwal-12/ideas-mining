@@ -1,0 +1,160 @@
+<mxfile host="app.diagrams.net" modified="2026-11-08T17:00:00.000Z" agent="IdeasMintingGenerativeEngine/4.0" version="24.7.8">
+  <diagram id="gen_T213" name="T213 — 4-Rung Concept + Mini-Graphs">
+    <mxGraphModel dx="920" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="1150" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      <mxCell id="hdr_banner" value="T213 • 4-RUNG CONCEPT + MINI-GRAPHS • ENTERPRISE CONTROL &amp; DATA PLANE LENS • TRANSFORMATION &amp; FDE
+Taxonomy vs. Ontology vs. Semantic Model vs. Knowledge Graph
+Four Complementary Building Blocks That Turn Raw Enterprise Data into Machine-Reasonable Meaning
+Stack Anchor: Enterprise Knowledge Graph + Vertex AI Search + Looker + BigQuery  |  KPIs: 99.95% Control Plane SLO · Zero-Trust OBO · Unified Ontology Graph" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#1D4ED8;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="24" width="864" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="SubBanner" value="GOVERNANCE &amp; PERSONA CONTRACT: ARB Invariant: Decouple reasoning state and semantic ontology from single-app schemas.
+30-Day Self-Funding Pilot Loop • Semantic Ontology Foundation • Change Management &amp; Adoption" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F1F5F9;strokeColor=#1D4ED8;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_left_1" value="LAYER 01
+TAXONOMY
+Complementary Foundation Pillar" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#1D4ED8;strokeColor=#1D4ED8;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="208" width="182" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_mid_1" value="How do we classify things?
+Organizes concepts into hierarchical parent-child trees (Product -&gt; Electronics -&gt; Laptops).
+✓ Use for: Catalog navigation, faceted search, and hierarchy tagging" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#1D4ED8;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="224" y="208" width="384" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_right_1" value="CONCRETE INSTANCE TOPOLOGY
+Tree: Product -&gt; [Electronics -&gt; Laptops | Mobiles] + [Furniture]
+Machine-verifiable schema &amp; query contract" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#1D4ED8;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="622" y="208" width="270" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_left_2" value="LAYER 02
+ONTOLOGY
+Complementary Foundation Pillar" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#4F46E5;strokeColor=#4F46E5;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="384" width="182" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_mid_2" value="What do things mean &amp; how are they related?
+Defines formal domain concepts, typed relationships, axioms, and constraints (Customer --places--&gt; Order --contains--&gt; Product).
+✓ Use for: Shared enterprise vocabulary, business rules, and logical inference" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#4F46E5;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="224" y="384" width="384" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_right_2" value="CONCRETE INSTANCE TOPOLOGY
+Axiom Graph: Customer --places--&gt; Order --contains--&gt; Product --belongsTo--&gt; Category
+Machine-verifiable schema &amp; query contract" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#4F46E5;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="622" y="384" width="270" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_left_3" value="LAYER 03
+SEMANTIC MODEL
+Complementary Foundation Pillar" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#D97706;strokeColor=#D97706;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="560" width="182" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_mid_3" value="How do we calculate KPIs consistently?
+Defines governed metrics, dimensions, and calculation formulas (`Net Revenue = SUM(Order_Amt) WHERE status=&#x27;PAID&#x27;`).
+✓ Use for: Governed BI, zero-hallucination Text-to-SQL, and consistent KPIs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="224" y="560" width="384" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_right_3" value="CONCRETE INSTANCE TOPOLOGY
+Metric Spec: Revenue = SUM(Amount) | Dims: Product, Region, Date | Filter: Paid
+Machine-verifiable schema &amp; query contract" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="622" y="560" width="270" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_left_4" value="LAYER 04
+KNOWLEDGE GRAPH
+Complementary Foundation Pillar" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#059669;strokeColor=#059669;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="736" width="182" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_mid_4" value="Which real-world entities &amp; facts connect?
+Instantiates millions of real-world entity nodes and edges (`Ada [Customer] --purchased--&gt; Laptop-101 --madeBy--&gt; Acme`).
+✓ Use for: Multi-hop GraphRAG, fraud rings, recommendations, and entity resolution" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="224" y="736" width="384" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_right_4" value="CONCRETE INSTANCE TOPOLOGY
+Instance Graph: Ada (Customer) -&gt; Laptop-101 (Product) -&gt; Acme (Manufacturer)
+Machine-verifiable schema &amp; query contract" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="622" y="736" width="270" height="154" as="geometry" />
+      </mxCell>
+      <mxCell id="rung_synth_bar" value="UNIFIED ENTERPRISE KNOWLEDGE ARCHITECTURE
+Taxonomy (Classification) + Ontology (Meaning &amp; Axioms) + Semantic Model (Governed KPIs) + Knowledge Graph (Connected Facts)
+Powers Zero-Hallucination BI &amp; Analytics  |  Autonomous AI Agents  |  Multi-Hop GraphRAG  |  Real-Time Decision Intelligence" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#1D4ED8;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="912" width="864" height="144" as="geometry" />
+      </mxCell>
+      <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-04 (T213) • PRINCIPAL ARCHITECT • TRANSFORMATION &amp; FDE" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="1076" width="864" height="48" as="geometry" />
+      </mxCell>
+      <mxCell id="e_gen_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1D4ED8;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="210" y="285" as="sourcePoint" />
+          <mxPoint x="224" y="285" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1D4ED8;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="608" y="285" as="sourcePoint" />
+          <mxPoint x="622" y="285" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1D4ED8;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="757" y="362" as="sourcePoint" />
+          <mxPoint x="757" y="384" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4F46E5;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="210" y="461" as="sourcePoint" />
+          <mxPoint x="224" y="461" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4F46E5;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="608" y="461" as="sourcePoint" />
+          <mxPoint x="622" y="461" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4F46E5;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="757" y="538" as="sourcePoint" />
+          <mxPoint x="757" y="560" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="210" y="637" as="sourcePoint" />
+          <mxPoint x="224" y="637" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="608" y="637" as="sourcePoint" />
+          <mxPoint x="622" y="637" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="757" y="714" as="sourcePoint" />
+          <mxPoint x="757" y="736" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="210" y="813" as="sourcePoint" />
+          <mxPoint x="224" y="813" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="608" y="813" as="sourcePoint" />
+          <mxPoint x="622" y="813" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="757" y="890" as="sourcePoint" />
+          <mxPoint x="757" y="912" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

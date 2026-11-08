@@ -1,0 +1,193 @@
+<mxfile host="app.diagrams.net" modified="2026-11-08T17:00:00.000Z" agent="IdeasMintingGenerativeEngine/4.0" version="24.7.8">
+  <diagram id="gen_T221" name="T221 — GTM Org-Ratio &amp; FDE Wave">
+    <mxGraphModel dx="920" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="1150" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      <mxCell id="hdr_banner" value="T221 • GTM ORG-RATIO &amp; FDE WAVE • AGENTIC PRODUCT &amp; FDE GTM LENS • FRONTIER AI STARTUP
+Frontier AI Startup GTM Org-Ratio Tree (1 FDE : 1.5 AE) &amp; 7-Stage Field Wave
+How Hypergrowth AI Leaders Pair Forward Deployed Engineers (+92 FDEs) with Account Executives (+126 AEs) to Turn Pilots into Production
+Stack Anchor: Gemini 4 Argon / 3.8 Flash + ADK + LangGraph + Arize Phoenix  |  KPIs: 3x Faster Spec-to-Ship · 1 FDE : 1.5 AE Ratio · +42% Feature Adoption" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="24" width="864" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="SubBanner" value="GOVERNANCE &amp; PERSONA CONTRACT: Product Loop: Let 6 ambient agents gather &amp; cost signals; human product lead owns Gate A.
+Sub-Second Speculative Cascade • 1 FDE : 1.5 AE Field Velocity • Continuous Trace-to-Eval" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EDE9FE;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
+      </mxCell>
+      <mxCell id="gtm_top_bus" value="PART 1 • FRONTIER AI GTM ORG RATIO BENCHMARK (1 FDE FOR EVERY 1.5 ACCOUNT EXECUTIVES)
+Why AI-Native Startups Pair Almost 1:1 Forward Deployed Engineers with Quota-Carrying AEs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#2563EB;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="208" width="864" height="62" as="geometry" />
+      </mxCell>
+      <mxCell id="gtm_col_1" value="ACCOUNT EXECUTIVES
++126 Team
+Enterprise deal strategy &amp; executive sponsorship" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="292" width="134" height="218" as="geometry" />
+      </mxCell>
+      <mxCell id="gtm_col_2" value="DEPLOYED ENGINEERS
++92 FDEs
+Embed with customer squads to ship into prod" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="174" y="292" width="134" height="218" as="geometry" />
+      </mxCell>
+      <mxCell id="gtm_col_3" value="SALES LEADERS
++31 Leaders
+Regional &amp; vertical revenue ownership" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="320" y="292" width="134" height="218" as="geometry" />
+      </mxCell>
+      <mxCell id="gtm_col_4" value="APPLIED AI
++8 Specialists
+AI transformation &amp; eval benchmarking" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="466" y="292" width="134" height="218" as="geometry" />
+      </mxCell>
+      <mxCell id="gtm_col_5" value="PARTNERSHIPS
++17 Channel
+Cloud hyperscalers &amp; global SIs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="612" y="292" width="134" height="218" as="geometry" />
+      </mxCell>
+      <mxCell id="gtm_col_6" value="REVOPS &amp; GTM ENG
++15 Builders
+Automated signal mining &amp; pipeline telemetry" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="758" y="292" width="134" height="218" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_wave_hdr" value="PART 2 • HOW THE FORWARD DEPLOYED ENGINEER (FDE) OPERATING WAVE RUNS IN PRODUCTION
+95% of GenAI Pilots Fail from Integration &amp; Workflow Gaps — FDEs Own the Outcome in Production" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FEF2F2;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="534" width="864" height="56" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_w_1" value="STAGE 01
+DISCOVER
+Shadow end users &amp; map real data" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="610" width="116" height="172" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_w_2" value="STAGE 02
+SCOPE
+Pick 1 metric &amp; lock data ACLs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0F2942;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="152" y="610" width="116" height="172" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_w_3" value="STAGE 03
+PROTOTYPE
+Thin slice on live customer data" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="276" y="610" width="116" height="172" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_w_4" value="STAGE 04
+EVALUATE
+Golden set + red-team edge cases" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0F2942;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="400" y="610" width="116" height="172" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_w_5" value="STAGE 05
+DEPLOY
+Wire into production VPC &amp; IAM" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="524" y="610" width="116" height="172" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_w_6" value="STAGE 06
+ADOPT
+Train users &amp; remove friction" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0F2942;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="648" y="610" width="116" height="172" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_w_7" value="STAGE 07
+HAND OFF
+Runbooks + customer owns stack" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="772" y="610" width="116" height="172" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_f_1" value="ROLE DISTINCTION
+Role Distinction
+SE wins the deal · Consultant delivers scope · FDE owns production business metric" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#475569;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="810" width="204" height="126" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_f_2" value="INTERVIEW LOOP
+Interview Loop
+Ambiguous problem decomposition · Unfamiliar codebase debug · System design" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#475569;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="248" y="810" width="204" height="126" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_f_3" value="SUCCESS METRIC
+Success Metric
+Daily active usage · Days from pilot to prod · Customer runs without you" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#475569;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="468" y="810" width="204" height="126" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_f_4" value="WATCH-OUTS
+Watch-Outs
+Avoid &#x27;Endless FDE&#x27; consulting traps by productizing repeatable patterns" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#475569;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="688" y="810" width="204" height="126" as="geometry" />
+      </mxCell>
+      <mxCell id="fde_bottom_bar" value="ENTERPRISE &amp; HYPERSCALER TAKEAWAY
+Demand for Forward Deployed AI Engineers Grew +729% YoY Because Integration &amp; Eval Rigor Beat Raw Model Demos
+Synthesizes Feroz Mulla&#x27;s Cognition GTM ratio analysis (LI-60) with Naman Pandey&#x27;s FDE operating manual (LI-34)." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="956" width="864" height="100" as="geometry" />
+      </mxCell>
+      <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-12 (T221) • PRODUCT &amp; GTM • FRONTIER AI STARTUP" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="1076" width="864" height="48" as="geometry" />
+      </mxCell>
+      <mxCell id="e_gen_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="95" y="270" as="sourcePoint" />
+          <mxPoint x="95" y="292" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="241" y="270" as="sourcePoint" />
+          <mxPoint x="241" y="292" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="387" y="270" as="sourcePoint" />
+          <mxPoint x="387" y="292" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="533" y="270" as="sourcePoint" />
+          <mxPoint x="533" y="292" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="679" y="270" as="sourcePoint" />
+          <mxPoint x="679" y="292" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284C7;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="825" y="270" as="sourcePoint" />
+          <mxPoint x="825" y="292" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="144" y="696" as="sourcePoint" />
+          <mxPoint x="152" y="696" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="268" y="696" as="sourcePoint" />
+          <mxPoint x="276" y="696" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="392" y="696" as="sourcePoint" />
+          <mxPoint x="400" y="696" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="516" y="696" as="sourcePoint" />
+          <mxPoint x="524" y="696" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="640" y="696" as="sourcePoint" />
+          <mxPoint x="648" y="696" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="764" y="696" as="sourcePoint" />
+          <mxPoint x="772" y="696" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

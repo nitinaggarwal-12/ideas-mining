@@ -328,6 +328,12 @@ TOPIC_POSTS_T79: List[Dict[str, str]] = [
 ]
 
 
+from src.visuals.generative_template_synthesizer import (
+    GENERATIVE_GRAMMAR_TEMPLATE_META,
+    synthesize_generative_template_svg,
+)
+
+
 def _load_session_meta() -> Dict[str, Dict[str, Any]]:
     if not _SESSION_META_PATH.exists():
         return {}
@@ -344,6 +350,8 @@ def _build_template_meta() -> Dict[str, Dict[str, Any]]:
             entry["topic_posts"] = list(TOPIC_POSTS_T79)
         meta[tid] = entry
     meta.update(_load_session_meta())
+    for tid in sorted(GENERATIVE_GRAMMAR_TEMPLATE_META.keys(), key=lambda k: int(k[1:])):
+        meta[tid] = dict(GENERATIVE_GRAMMAR_TEMPLATE_META[tid])
     return meta
 
 
@@ -1392,9 +1400,11 @@ def _build_template_flow_overlay(
 
 
 def render_template(tid: str, spec: Optional[Dict[str, Any]] = None, phase: Optional[float] = None) -> str:
-    """Render any certified gallery template (`116`) or preserved `T79` topic post (`22`) into a Zero-Origin W3C SVG."""
+    """Render any certified gallery template (`128`) or preserved `T79` topic post (`23`) into a Zero-Origin W3C SVG."""
     if tid not in TEMPLATE_META and tid not in TOPIC_POST_IDS:
         raise KeyError(f"Unknown or purged template ID: {tid}")
+    if tid in GENERATIVE_GRAMMAR_TEMPLATE_META:
+        return synthesize_generative_template_svg({"tid": tid, **(spec or {})}, phase=phase)
     s = spec or {}
     meta = TEMPLATE_META.get(tid) or {
         "accent": BLUE,

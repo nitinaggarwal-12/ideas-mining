@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 1150" width="920" height="1150">
+<title>T212 • NITIN AGGARWAL • NOVEMBER 2026 • FORMAT LINEAGE: Universal 7-Organism Cognitive Agent Loop + Guardrail Pillar • Proprietary + Confidential</title>
+<desc>Author: Nitin Aggarwal • November 2026 • Brij Kishore Pandey (LI-49 · One Architecture Diagram That Explains Every AI Agent) • Google ADK + LangGraph + MCP</desc>
+<defs>
+<pattern id="genGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.20"/></pattern>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes phaseSpot1 { 0%,24% { opacity: 0.96; stroke-width: 3.4px; } 26%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot2 { 0%,24% { opacity: 0.22; stroke-width: 1.5px; } 25%,49% { opacity: 0.96; stroke-width: 3.4px; } 51%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot3 { 0%,49% { opacity: 0.22; stroke-width: 1.5px; } 50%,74% { opacity: 0.96; stroke-width: 3.4px; } 76%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot4 { 0%,74% { opacity: 0.22; stroke-width: 1.5px; } 75%,99% { opacity: 0.96; stroke-width: 3.4px; } 100% { opacity: 0.22; stroke-width: 1.5px; } }
+.phase-glow-1 { animation: phaseSpot1 4.8s ease-in-out infinite; }
+.phase-glow-2 { animation: phaseSpot2 4.8s ease-in-out infinite; }
+.phase-glow-3 { animation: phaseSpot3 4.8s ease-in-out infinite; }
+.phase-glow-4 { animation: phaseSpot4 4.8s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0" y="0" width="920" height="1150" fill="#F8FAFC"/>
+<rect x="0" y="0" width="920" height="1150" fill="url(#genGrid)"/>
+<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+<text x="42.0" y="44.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">T212 • 7-PART COGNITIVE AGENT LOOP • ENTERPRISE CONTROL &amp; DATA PLANE LENS • CLOUD HYPERSCALER</text>
+<text x="42.0" y="62.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Universal 7-Part Cognitive Agent Loop &amp; Guardrail Pillar</text>
+<text x="42.0" y="86.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Strip Away Framework Names: Every Production AI Agent Is the Same 7 Components Wired into a Governed Loop</text>
+<text x="42.0" y="101.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack Anchor: Vertex AI Agent Engine + Cloud Run + AlloyDB pgvector + Cloud Trace | KPIs: 99.95% Control Plane SLO · Zero-Trust OBO ·</text>
+<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Unified Ontology Graph</text>
+<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#E0F2FE" stroke="#2563EB" stroke-width="2"/>
+<text x="42.0" y="170.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: ARB Invariant: Decouple reasoning state and semantic ontology from single-app schemas.</text>
+<rect x="28.0" y="212.0" width="118.0" height="728.0" rx="12.0" fill="#FEF2F2" stroke="#DC2626" stroke-width="2"/>
+<text x="42.0" y="232.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626">SAFETY RAIL</text>
+<text x="42.0" y="250.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Guardrails &amp;</text>
+<text x="42.0" y="268.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Policy</text>
+<text x="42.0" y="286.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">• OAuth 2.1 OBO</text>
+<text x="42.0" y="301.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">• Approval Gates</text>
+<text x="42.0" y="316.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">• Model Armor</text>
+<text x="42.0" y="331.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">PII</text>
+<text x="42.0" y="346.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">• Token Rate</text>
+<text x="42.0" y="361.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Limits</text>
+<text x="42.0" y="376.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">• Human-in-Loop</text>
+<rect x="290.0" y="212.0" width="270.0" height="112.0" rx="12.0" fill="#F8FAFC" stroke="#475569" stroke-width="2"/>
+<text x="304.0" y="232.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#475569">01 • INPUT &amp; PERCEPTION LAYER</text>
+<text x="304.0" y="250.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Perceive Multimodal Signals</text>
+<text x="304.0" y="268.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">User text, API webhooks, telemetry</text>
+<text x="304.0" y="283.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">events, and document streams normalized</text>
+<text x="304.0" y="298.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">into typed context.</text>
+<rect x="290.0" y="356.0" width="270.0" height="142.0" rx="12.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+<text x="304.0" y="376.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">02 • THINK (REASONING ENGINE / LLM)</text>
+<text x="304.0" y="394.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Chain-of-Thought &amp; ReAct</text>
+<text x="304.0" y="412.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Gemini 4 Argon / 3.8 Flash evaluates</text>
+<text x="304.0" y="427.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">state, selects next action, and checks</text>
+<text x="304.0" y="442.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">completion criteria.</text>
+<rect x="604.0" y="250.0" width="288.0" height="248.0" rx="12.0" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
+<text x="618.0" y="270.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">03 • REMEMBER (MEMORY SYSTEM)</text>
+<text x="618.0" y="288.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Short-Term &amp; Long-Term State</text>
+<text x="618.0" y="306.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">• Working Memory: Active turn window &amp;</text>
+<text x="618.0" y="321.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">scratchpad</text>
+<text x="618.0" y="336.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">• Episodic &amp; Semantic: Spanner Graph +</text>
+<text x="618.0" y="351.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">AlloyDB pgvector recalled on demand</text>
+<rect x="168.0" y="532.0" width="240.0" height="144.0" rx="12.0" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2"/>
+<text x="182.0" y="552.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">04 • PLAN MODULE</text>
+<text x="182.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Task Decomposition</text>
+<text x="182.0" y="588.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Breaks complex goal into</text>
+<text x="182.0" y="603.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">verifiable sub-steps: Step 1 -&gt;</text>
+<text x="182.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Step 2 -&gt; Step 3 with rollback</text>
+<text x="182.0" y="633.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">hooks.</text>
+<rect x="440.0" y="532.0" width="220.0" height="144.0" rx="12.0" fill="#FFFBEB" stroke="#D97706" stroke-width="2"/>
+<text x="454.0" y="552.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">05 • ROUTING GATE</text>
+<text x="454.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Can I Answer Directly?</text>
+<text x="454.0" y="588.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">YES -&gt; Emit verified output</text>
+<text x="454.0" y="603.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">NO -&gt; Delegate to Planning &amp;</text>
+<text x="454.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Tool Execution layer.</text>
+<rect x="290.0" y="712.0" width="310.0" height="118.0" rx="12.0" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
+<text x="304.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">06 • ACT (TOOL EXECUTION LAYER)</text>
+<text x="304.0" y="750.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Sandboxed Tool &amp; MCP Invocation</text>
+<text x="304.0" y="768.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Executes MCP tools, REST/gRPC APIs, SQL/Graph</text>
+<text x="304.0" y="783.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">queries, and gVisor code sandboxes.</text>
+<rect x="636.0" y="712.0" width="256.0" height="118.0" rx="12.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+<text x="650.0" y="732.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">07 • VERIFICATION LOOP</text>
+<text x="650.0" y="750.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Goal Achieved &amp; Verified?</text>
+<text x="650.0" y="768.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">YES -&gt; Deliver signed response</text>
+<text x="650.0" y="783.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">NO -&gt; Feed observation back to</text>
+<text x="650.0" y="798.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Reasoning Engine.</text>
+<rect x="168.0" y="852.0" width="724.0" height="88.0" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="182.0" y="872.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">6 STANDARDIZED EXECUTION ADAPTERS</text>
+<text x="182.0" y="890.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">[1] Model Context Protocol (MCP) · [2] REST/gRPC APIs · [3] Code Sandbox · [4] Spanner/BigQuery</text>
+<text x="182.0" y="908.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">· [5] File System · [6] Git/External SaaS</text>
+<text x="182.0" y="926.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">All tool calls pass through deterministic schema validation and per-turn OAuth 2.1 On-Behalf-Of (OBO) scoping.</text>
+<rect x="28.0" y="960.0" width="864.0" height="96.0" rx="12.0" fill="#FFF7ED" stroke="#EA580C" stroke-width="2"/>
+<text x="42.0" y="980.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#EA580C">CROSS-CUTTING OBSERVABILITY &amp; FINOPS BUS</text>
+<text x="42.0" y="998.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">OpenTelemetry Distributed Traces • Token &amp; Cost Attribution • Drift &amp; Hallucination Evals • Continuous Replay Set</text>
+<text x="42.0" y="1016.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Every Perceive -&gt; Think -&gt; Remember -&gt; Plan -&gt; Act span is exported asynchronously with zero user-facing latency.</text>
+<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<text x="460.0" y="1105.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-03 (T212) • PRINCIPAL ARCHITECT • CLOUD HYPERSCALER</text>
+<path d="M 425.0 324.0 L 425.0 356.0" fill="none" stroke="#475569" stroke-width="2"/>
+<path d="M 560.0 410.0 L 604.0 410.0" fill="none" stroke="#059669" stroke-width="2"/>
+<path d="M 604.0 440.0 L 560.0 440.0" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 425.0 498.0 L 425.0 515.0 L 550.0 515.0 L 550.0 532.0" fill="none" stroke="#2563EB" stroke-width="2"/>
+<path d="M 440.0 604.0 L 408.0 604.0" fill="none" stroke="#7C3AED" stroke-width="2"/>
+<path d="M 288.0 676.0 L 288.0 771.0 L 290.0 771.0" fill="none" stroke="#7C3AED" stroke-width="2"/>
+<path d="M 600.0 771.0 L 636.0 771.0" fill="none" stroke="#059669" stroke-width="2"/>
+<path d="M 764.0 712.0 L 764.0 515.0 L 425.0 515.0 L 425.0 498.0" fill="none" stroke="#2563EB" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 445.0 830.0 L 445.0 852.0" fill="none" stroke="#059669" stroke-width="2"/>
+<path d="M 146.0 425.0 L 290.0 425.0" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 146.0 771.0 L 290.0 771.0" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 530.0 940.0 L 530.0 960.0" fill="none" stroke="#EA580C" stroke-width="2" stroke-dasharray="6 4"/>
+<rect x="288.0" y="210.0" width="274.0" height="116.0" rx="12.0" class="phase-glow-1" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="288.0" y="354.0" width="274.0" height="146.0" rx="12.0" class="phase-glow-2" fill="none" stroke="#7C3AED" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="602.0" y="248.0" width="292.0" height="252.0" rx="12.0" class="phase-glow-3" fill="none" stroke="#059669" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="288.0" y="710.0" width="314.0" height="122.0" rx="12.0" class="phase-glow-4" fill="none" stroke="#D97706" stroke-width="2.6" stroke-opacity="0.78"/>
+<path d="M 425.0 324.0 L 425.0 356.0" class="flow-line" fill="none" stroke="#475569" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#475569" fill-opacity="0.15"/><circle r="3.8" fill="#475569" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#475569" stroke-width="2.0"/><circle r="1.3" fill="#475569"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 425.0 324.0 L 425.0 356.0"/></g>
+<path d="M 560.0 410.0 L 604.0 410.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 560.0 410.0 L 604.0 410.0"/></g>
+<path d="M 604.0 440.0 L 560.0 440.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 604.0 440.0 L 560.0 440.0"/></g>
+<path d="M 425.0 498.0 L 425.0 515.0 L 550.0 515.0 L 550.0 532.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 425.0 498.0 L 425.0 515.0 L 550.0 515.0 L 550.0 532.0"/></g>
+<path d="M 440.0 604.0 L 408.0 604.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 440.0 604.0 L 408.0 604.0"/></g>
+<path d="M 288.0 676.0 L 288.0 771.0 L 290.0 771.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="7.4" fill="#7C3AED" fill-opacity="0.15"/><circle r="5.0" fill="#7C3AED" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.7" fill="#7C3AED"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 288.0 676.0 L 288.0 771.0 L 290.0 771.0"/></g>
+<path d="M 600.0 771.0 L 636.0 771.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 600.0 771.0 L 636.0 771.0"/></g>
+<path d="M 764.0 712.0 L 764.0 515.0 L 425.0 515.0 L 425.0 498.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 764.0 712.0 L 764.0 515.0 L 425.0 515.0 L 425.0 498.0"/></g>
+<path d="M 445.0 830.0 L 445.0 852.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 445.0 830.0 L 445.0 852.0"/></g>
+<path d="M 146.0 425.0 L 290.0 425.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="7.4" fill="#DC2626" fill-opacity="0.15"/><circle r="5.0" fill="#DC2626" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.0"/><circle r="1.7" fill="#DC2626"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 146.0 425.0 L 290.0 425.0"/></g>
+<path d="M 146.0 771.0 L 290.0 771.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="7.4" fill="#DC2626" fill-opacity="0.15"/><circle r="5.0" fill="#DC2626" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.0"/><circle r="1.7" fill="#DC2626"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 146.0 771.0 L 290.0 771.0"/></g>
+<path d="M 530.0 940.0 L 530.0 960.0" class="flow-line" fill="none" stroke="#EA580C" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#EA580C" fill-opacity="0.15"/><circle r="3.8" fill="#EA580C" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#EA580C" stroke-width="2.0"/><circle r="1.3" fill="#EA580C"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 530.0 940.0 L 530.0 960.0"/></g>
+<path d="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 6" stroke-dashoffset="0.0"/>
+<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="3.60s" begin="-0.00s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
+<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="3.60s" begin="-1.80s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
+</svg>

@@ -1,12 +1,8 @@
 {
-  "template_count": 116,
-  "best_count": 72,
+  "template_count": 128,
+  "best_count": 84,
   "high_count": 44,
-  "medium_low_worst_count": 0,
-  "topic_posts_collapsed_under_T79": 23,
-  "purged_legacy_gen1_count": 53,
-  "purged_boxy_session_count": 19,
-  "refactored_to_best_count": 33,
+  "t79_topic_posts_count": 23,
   "templates": [
     {
       "id": "T54",
@@ -37,9 +33,7 @@
         "pptx": "T54.pptx"
       },
       "google_slides_id": "1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc",
-      "google_slides_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/preview",
-      "editable_slide_count": 4
+      "google_slides_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T55",
@@ -70,9 +64,7 @@
         "pptx": "T55.pptx"
       },
       "google_slides_id": "1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA",
-      "google_slides_url": "https://docs.google.com/presentation/d/1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T56",
@@ -103,9 +95,7 @@
         "pptx": "T56.pptx"
       },
       "google_slides_id": "1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c",
-      "google_slides_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T57",
@@ -136,9 +126,7 @@
         "pptx": "T57.pptx"
       },
       "google_slides_id": "1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM",
-      "google_slides_url": "https://docs.google.com/presentation/d/1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T58",
@@ -169,9 +157,7 @@
         "pptx": "T58.pptx"
       },
       "google_slides_id": "100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU",
-      "google_slides_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T59",
@@ -202,9 +188,7 @@
         "pptx": "T59.pptx"
       },
       "google_slides_id": "1ovGVAtNq3riAB-HWwxIqceM5Z74xQnuZRy2LbhVWX08",
-      "google_slides_url": "https://docs.google.com/presentation/d/1ovGVAtNq3riAB-HWwxIqceM5Z74xQnuZRy2LbhVWX08/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1ovGVAtNq3riAB-HWwxIqceM5Z74xQnuZRy2LbhVWX08/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/1ovGVAtNq3riAB-HWwxIqceM5Z74xQnuZRy2LbhVWX08/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T60",
@@ -235,9 +219,7 @@
         "pptx": "T60.pptx"
       },
       "google_slides_id": "1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90",
-      "google_slides_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/preview",
-      "editable_slide_count": 5
+      "google_slides_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T61",
@@ -268,9 +250,7 @@
         "pptx": "T61.pptx"
       },
       "google_slides_id": "1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg",
-      "google_slides_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T62",
@@ -301,9 +281,7 @@
         "pptx": "T62.pptx"
       },
       "google_slides_id": "1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA",
-      "google_slides_url": "https://docs.google.com/presentation/d/1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T63",
@@ -334,9 +312,7 @@
         "pptx": "T63.pptx"
       },
       "google_slides_id": "1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc",
-      "google_slides_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T64",
@@ -367,9 +343,7 @@
         "pptx": "T64.pptx"
       },
       "google_slides_id": "1ZSEcVu6FCqNEUKs_88SHQo51sO9-hq88iHLuRx7HIaU",
-      "google_slides_url": "https://docs.google.com/presentation/d/1ZSEcVu6FCqNEUKs_88SHQo51sO9-hq88iHLuRx7HIaU/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZSEcVu6FCqNEUKs_88SHQo51sO9-hq88iHLuRx7HIaU/preview",
-      "editable_slide_count": 4
+      "google_slides_url": "https://docs.google.com/presentation/d/1ZSEcVu6FCqNEUKs_88SHQo51sO9-hq88iHLuRx7HIaU/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T65",
@@ -400,9 +374,7 @@
         "pptx": "T65.pptx"
       },
       "google_slides_id": "19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk",
-      "google_slides_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T66",
@@ -433,9 +405,7 @@
         "pptx": "T66.pptx"
       },
       "google_slides_id": "1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI",
-      "google_slides_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T67",
@@ -466,9 +436,7 @@
         "pptx": "T67.pptx"
       },
       "google_slides_id": "1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls",
-      "google_slides_url": "https://docs.google.com/presentation/d/1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T79",
@@ -503,9 +471,7 @@
             "pptx": "T01.pptx"
           },
           "google_slides_id": "19NPxGI00oNtQ-YHFFFZ0mc0dJS30d_RA9YTVUEt0t1w",
-          "google_slides_url": "https://docs.google.com/presentation/d/19NPxGI00oNtQ-YHFFFZ0mc0dJS30d_RA9YTVUEt0t1w/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/19NPxGI00oNtQ-YHFFFZ0mc0dJS30d_RA9YTVUEt0t1w/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/19NPxGI00oNtQ-YHFFFZ0mc0dJS30d_RA9YTVUEt0t1w/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T53",
@@ -518,9 +484,7 @@
             "pptx": "T53.pptx"
           },
           "google_slides_id": "1ka7XO814fI8cXvTbk0Jf2I4J6b25MwMxAofUqtflo8I",
-          "google_slides_url": "https://docs.google.com/presentation/d/1ka7XO814fI8cXvTbk0Jf2I4J6b25MwMxAofUqtflo8I/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1ka7XO814fI8cXvTbk0Jf2I4J6b25MwMxAofUqtflo8I/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1ka7XO814fI8cXvTbk0Jf2I4J6b25MwMxAofUqtflo8I/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T68",
@@ -533,9 +497,7 @@
             "pptx": "T68.pptx"
           },
           "google_slides_id": "12zuYvrOthfRefhY9yTuBjmz__IlD7b1Oc-7NaUxl7h0",
-          "google_slides_url": "https://docs.google.com/presentation/d/12zuYvrOthfRefhY9yTuBjmz__IlD7b1Oc-7NaUxl7h0/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/12zuYvrOthfRefhY9yTuBjmz__IlD7b1Oc-7NaUxl7h0/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/12zuYvrOthfRefhY9yTuBjmz__IlD7b1Oc-7NaUxl7h0/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T69",
@@ -548,9 +510,7 @@
             "pptx": "T69.pptx"
           },
           "google_slides_id": "1m8ftvKAfEs4v3webmvdYYWECau_Zow0sxetPbi5ZFEs",
-          "google_slides_url": "https://docs.google.com/presentation/d/1m8ftvKAfEs4v3webmvdYYWECau_Zow0sxetPbi5ZFEs/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1m8ftvKAfEs4v3webmvdYYWECau_Zow0sxetPbi5ZFEs/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1m8ftvKAfEs4v3webmvdYYWECau_Zow0sxetPbi5ZFEs/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T70",
@@ -563,9 +523,7 @@
             "pptx": "T70.pptx"
           },
           "google_slides_id": "1XdopOPFjVHEvQj6g0DnXBLXWJjTSFdjz-R65idf75Uk",
-          "google_slides_url": "https://docs.google.com/presentation/d/1XdopOPFjVHEvQj6g0DnXBLXWJjTSFdjz-R65idf75Uk/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1XdopOPFjVHEvQj6g0DnXBLXWJjTSFdjz-R65idf75Uk/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1XdopOPFjVHEvQj6g0DnXBLXWJjTSFdjz-R65idf75Uk/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T71",
@@ -578,9 +536,7 @@
             "pptx": "T71.pptx"
           },
           "google_slides_id": "1PQo5l37NujJqaywYZwlMixTb0YpFN-UtCdFtsLBTwCo",
-          "google_slides_url": "https://docs.google.com/presentation/d/1PQo5l37NujJqaywYZwlMixTb0YpFN-UtCdFtsLBTwCo/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1PQo5l37NujJqaywYZwlMixTb0YpFN-UtCdFtsLBTwCo/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1PQo5l37NujJqaywYZwlMixTb0YpFN-UtCdFtsLBTwCo/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T72",
@@ -593,9 +549,7 @@
             "pptx": "T72.pptx"
           },
           "google_slides_id": "12z5r7OwTaZaJtGNtloGkeAo2NHjC6EoKcTWq_la3dfE",
-          "google_slides_url": "https://docs.google.com/presentation/d/12z5r7OwTaZaJtGNtloGkeAo2NHjC6EoKcTWq_la3dfE/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/12z5r7OwTaZaJtGNtloGkeAo2NHjC6EoKcTWq_la3dfE/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/12z5r7OwTaZaJtGNtloGkeAo2NHjC6EoKcTWq_la3dfE/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T73",
@@ -608,9 +562,7 @@
             "pptx": "T73.pptx"
           },
           "google_slides_id": "1UqfaBydn0uSP9COi-1_D_W8dxVbUjaXMNmt35m30Vow",
-          "google_slides_url": "https://docs.google.com/presentation/d/1UqfaBydn0uSP9COi-1_D_W8dxVbUjaXMNmt35m30Vow/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1UqfaBydn0uSP9COi-1_D_W8dxVbUjaXMNmt35m30Vow/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1UqfaBydn0uSP9COi-1_D_W8dxVbUjaXMNmt35m30Vow/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T74",
@@ -623,9 +575,7 @@
             "pptx": "T74.pptx"
           },
           "google_slides_id": "1a1PErom5XVvTF6E0YroCnpZqt7ilnawgRe6XCCWcMes",
-          "google_slides_url": "https://docs.google.com/presentation/d/1a1PErom5XVvTF6E0YroCnpZqt7ilnawgRe6XCCWcMes/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1a1PErom5XVvTF6E0YroCnpZqt7ilnawgRe6XCCWcMes/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1a1PErom5XVvTF6E0YroCnpZqt7ilnawgRe6XCCWcMes/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T75",
@@ -638,9 +588,7 @@
             "pptx": "T75.pptx"
           },
           "google_slides_id": "12901SpuX5d4-rdtMyechy6VUPLRgVf94tQySV92klRQ",
-          "google_slides_url": "https://docs.google.com/presentation/d/12901SpuX5d4-rdtMyechy6VUPLRgVf94tQySV92klRQ/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/12901SpuX5d4-rdtMyechy6VUPLRgVf94tQySV92klRQ/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/12901SpuX5d4-rdtMyechy6VUPLRgVf94tQySV92klRQ/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T76",
@@ -653,9 +601,7 @@
             "pptx": "T76.pptx"
           },
           "google_slides_id": "1YDuwoGe3d0eu7l1VzHumYKINxyYVGI7tBLKrOVyIMIA",
-          "google_slides_url": "https://docs.google.com/presentation/d/1YDuwoGe3d0eu7l1VzHumYKINxyYVGI7tBLKrOVyIMIA/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1YDuwoGe3d0eu7l1VzHumYKINxyYVGI7tBLKrOVyIMIA/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1YDuwoGe3d0eu7l1VzHumYKINxyYVGI7tBLKrOVyIMIA/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T77",
@@ -668,9 +614,7 @@
             "pptx": "T77.pptx"
           },
           "google_slides_id": "1NS0Dr5s1U_ya-orRLefXigNopMCpIdjr7rpce-beo5U",
-          "google_slides_url": "https://docs.google.com/presentation/d/1NS0Dr5s1U_ya-orRLefXigNopMCpIdjr7rpce-beo5U/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1NS0Dr5s1U_ya-orRLefXigNopMCpIdjr7rpce-beo5U/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1NS0Dr5s1U_ya-orRLefXigNopMCpIdjr7rpce-beo5U/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T78",
@@ -683,9 +627,7 @@
             "pptx": "T78.pptx"
           },
           "google_slides_id": "1GujPHlWxTPMmyQzGKYVzVy3AQjRgzKac1O-FgRnMoT4",
-          "google_slides_url": "https://docs.google.com/presentation/d/1GujPHlWxTPMmyQzGKYVzVy3AQjRgzKac1O-FgRnMoT4/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1GujPHlWxTPMmyQzGKYVzVy3AQjRgzKac1O-FgRnMoT4/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1GujPHlWxTPMmyQzGKYVzVy3AQjRgzKac1O-FgRnMoT4/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T80",
@@ -698,9 +640,7 @@
             "pptx": "T80.pptx"
           },
           "google_slides_id": "13DumpG21XZaSSnaKprfLMUD64pT9jk-O7qk8SoRqk80",
-          "google_slides_url": "https://docs.google.com/presentation/d/13DumpG21XZaSSnaKprfLMUD64pT9jk-O7qk8SoRqk80/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/13DumpG21XZaSSnaKprfLMUD64pT9jk-O7qk8SoRqk80/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/13DumpG21XZaSSnaKprfLMUD64pT9jk-O7qk8SoRqk80/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T81",
@@ -713,9 +653,7 @@
             "pptx": "T81.pptx"
           },
           "google_slides_id": "1JUspmb5kwz56tmyCT6_6f-J_yscjq3ogevV5NHAO4yE",
-          "google_slides_url": "https://docs.google.com/presentation/d/1JUspmb5kwz56tmyCT6_6f-J_yscjq3ogevV5NHAO4yE/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1JUspmb5kwz56tmyCT6_6f-J_yscjq3ogevV5NHAO4yE/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1JUspmb5kwz56tmyCT6_6f-J_yscjq3ogevV5NHAO4yE/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T82",
@@ -728,9 +666,7 @@
             "pptx": "T82.pptx"
           },
           "google_slides_id": "15vK7Z8X_ASnH1NmpZS6OhPsZlB0a04LI05WKbrziSM4",
-          "google_slides_url": "https://docs.google.com/presentation/d/15vK7Z8X_ASnH1NmpZS6OhPsZlB0a04LI05WKbrziSM4/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/15vK7Z8X_ASnH1NmpZS6OhPsZlB0a04LI05WKbrziSM4/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/15vK7Z8X_ASnH1NmpZS6OhPsZlB0a04LI05WKbrziSM4/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T83",
@@ -743,9 +679,7 @@
             "pptx": "T83.pptx"
           },
           "google_slides_id": "18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs",
-          "google_slides_url": "https://docs.google.com/presentation/d/18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T84",
@@ -758,9 +692,7 @@
             "pptx": "T84.pptx"
           },
           "google_slides_id": "1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI",
-          "google_slides_url": "https://docs.google.com/presentation/d/1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1WOIvCjEtoBinvG6E4-xhe1hOYDMxn3je3OTqofuFonI/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T85",
@@ -773,9 +705,7 @@
             "pptx": "T85.pptx"
           },
           "google_slides_id": "1PsJh1GaF5KnHscqoG5yIhhfjuNwEZtm7228vRHMvdYo",
-          "google_slides_url": "https://docs.google.com/presentation/d/1PsJh1GaF5KnHscqoG5yIhhfjuNwEZtm7228vRHMvdYo/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1PsJh1GaF5KnHscqoG5yIhhfjuNwEZtm7228vRHMvdYo/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1PsJh1GaF5KnHscqoG5yIhhfjuNwEZtm7228vRHMvdYo/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T86",
@@ -788,9 +718,7 @@
             "pptx": "T86.pptx"
           },
           "google_slides_id": "110rgBIQU_KhYeRlYsy6t2L0t1mpq16w3H-3WeKwmGrc",
-          "google_slides_url": "https://docs.google.com/presentation/d/110rgBIQU_KhYeRlYsy6t2L0t1mpq16w3H-3WeKwmGrc/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/110rgBIQU_KhYeRlYsy6t2L0t1mpq16w3H-3WeKwmGrc/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/110rgBIQU_KhYeRlYsy6t2L0t1mpq16w3H-3WeKwmGrc/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T87",
@@ -803,9 +731,7 @@
             "pptx": "T87.pptx"
           },
           "google_slides_id": "1EYxP3tcbrCtHJKO2anzfHubhUQojQBoE--waCrx9yls",
-          "google_slides_url": "https://docs.google.com/presentation/d/1EYxP3tcbrCtHJKO2anzfHubhUQojQBoE--waCrx9yls/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1EYxP3tcbrCtHJKO2anzfHubhUQojQBoE--waCrx9yls/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1EYxP3tcbrCtHJKO2anzfHubhUQojQBoE--waCrx9yls/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T88",
@@ -818,9 +744,7 @@
             "pptx": "T88.pptx"
           },
           "google_slides_id": "1dml8fQuFE7GrShIAjpaxIzoYApuufPK00KZY_pk-csw",
-          "google_slides_url": "https://docs.google.com/presentation/d/1dml8fQuFE7GrShIAjpaxIzoYApuufPK00KZY_pk-csw/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1dml8fQuFE7GrShIAjpaxIzoYApuufPK00KZY_pk-csw/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1dml8fQuFE7GrShIAjpaxIzoYApuufPK00KZY_pk-csw/edit?authuser=nitinagga%40google.com"
         },
         {
           "id": "T89",
@@ -833,9 +757,7 @@
             "pptx": "T89.pptx"
           },
           "google_slides_id": "1lJi0FoL5RRod5_pneMNEk-cAH9fEIvq9g6iBJvMVgo0",
-          "google_slides_url": "https://docs.google.com/presentation/d/1lJi0FoL5RRod5_pneMNEk-cAH9fEIvq9g6iBJvMVgo0/edit?authuser=nitinagga%40google.com",
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1lJi0FoL5RRod5_pneMNEk-cAH9fEIvq9g6iBJvMVgo0/preview",
-          "editable_slide_count": 5
+          "google_slides_url": "https://docs.google.com/presentation/d/1lJi0FoL5RRod5_pneMNEk-cAH9fEIvq9g6iBJvMVgo0/edit?authuser=nitinagga%40google.com"
         }
       ],
       "files": {
@@ -846,9 +768,7 @@
         "pptx": "T79.pptx"
       },
       "google_slides_id": "1w2wGc9dYagoCB38cqgmd9lmLkXftQsWr75WcKjHvCLY",
-      "google_slides_url": "https://docs.google.com/presentation/d/1w2wGc9dYagoCB38cqgmd9lmLkXftQsWr75WcKjHvCLY/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1w2wGc9dYagoCB38cqgmd9lmLkXftQsWr75WcKjHvCLY/preview",
-      "editable_slide_count": 5
+      "google_slides_url": "https://docs.google.com/presentation/d/1w2wGc9dYagoCB38cqgmd9lmLkXftQsWr75WcKjHvCLY/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T90",
@@ -881,9 +801,7 @@
         "pptx": "T90.pptx"
       },
       "google_slides_id": "1chkkPU4Wy9lClnBrSitfgvWt36F_cCOD",
-      "google_slides_url": "https://docs.google.com/presentation/d/1chkkPU4Wy9lClnBrSitfgvWt36F_cCOD/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1chkkPU4Wy9lClnBrSitfgvWt36F_cCOD/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1chkkPU4Wy9lClnBrSitfgvWt36F_cCOD/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T91",
@@ -916,9 +834,7 @@
         "pptx": "T91.pptx"
       },
       "google_slides_id": "19wL8xx6D1cSyUECEimhIO5HlTXmMQzVO",
-      "google_slides_url": "https://docs.google.com/presentation/d/19wL8xx6D1cSyUECEimhIO5HlTXmMQzVO/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/19wL8xx6D1cSyUECEimhIO5HlTXmMQzVO/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/19wL8xx6D1cSyUECEimhIO5HlTXmMQzVO/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T92",
@@ -951,9 +867,7 @@
         "pptx": "T92.pptx"
       },
       "google_slides_id": "1FYba-Fg-1GjnEueWnwCeFrBQ1YJCp-kc",
-      "google_slides_url": "https://docs.google.com/presentation/d/1FYba-Fg-1GjnEueWnwCeFrBQ1YJCp-kc/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1FYba-Fg-1GjnEueWnwCeFrBQ1YJCp-kc/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1FYba-Fg-1GjnEueWnwCeFrBQ1YJCp-kc/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T93",
@@ -986,9 +900,7 @@
         "pptx": "T93.pptx"
       },
       "google_slides_id": "1vZQc29EKbNkZORQR-8x81SUDE2ghSKZQ",
-      "google_slides_url": "https://docs.google.com/presentation/d/1vZQc29EKbNkZORQR-8x81SUDE2ghSKZQ/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1vZQc29EKbNkZORQR-8x81SUDE2ghSKZQ/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1vZQc29EKbNkZORQR-8x81SUDE2ghSKZQ/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T94",
@@ -1021,9 +933,7 @@
         "pptx": "T94.pptx"
       },
       "google_slides_id": "1H4tjV7aKkgElWSZ0MCHaU9e5Qa2cVW9l",
-      "google_slides_url": "https://docs.google.com/presentation/d/1H4tjV7aKkgElWSZ0MCHaU9e5Qa2cVW9l/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1H4tjV7aKkgElWSZ0MCHaU9e5Qa2cVW9l/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1H4tjV7aKkgElWSZ0MCHaU9e5Qa2cVW9l/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T95",
@@ -1056,9 +966,7 @@
         "pptx": "T95.pptx"
       },
       "google_slides_id": "1t0I2xgsJ0Zuawg-JtrUFkZyARTHEsU7g",
-      "google_slides_url": "https://docs.google.com/presentation/d/1t0I2xgsJ0Zuawg-JtrUFkZyARTHEsU7g/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1t0I2xgsJ0Zuawg-JtrUFkZyARTHEsU7g/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1t0I2xgsJ0Zuawg-JtrUFkZyARTHEsU7g/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T96",
@@ -1091,9 +999,7 @@
         "pptx": "T96.pptx"
       },
       "google_slides_id": "1C4PpnDx3ip3dc1hTmcUAUfHXvHpDH-LU",
-      "google_slides_url": "https://docs.google.com/presentation/d/1C4PpnDx3ip3dc1hTmcUAUfHXvHpDH-LU/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1C4PpnDx3ip3dc1hTmcUAUfHXvHpDH-LU/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1C4PpnDx3ip3dc1hTmcUAUfHXvHpDH-LU/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T97",
@@ -1126,9 +1032,7 @@
         "pptx": "T97.pptx"
       },
       "google_slides_id": "1uzTxYJ9p5g57zFkZJMNc1BlrNjHMtHPF",
-      "google_slides_url": "https://docs.google.com/presentation/d/1uzTxYJ9p5g57zFkZJMNc1BlrNjHMtHPF/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1uzTxYJ9p5g57zFkZJMNc1BlrNjHMtHPF/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1uzTxYJ9p5g57zFkZJMNc1BlrNjHMtHPF/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T98",
@@ -1161,9 +1065,7 @@
         "pptx": "T98.pptx"
       },
       "google_slides_id": "1Z49kc6nTgwwr0F16EkJPn_FXMwG2HZvb",
-      "google_slides_url": "https://docs.google.com/presentation/d/1Z49kc6nTgwwr0F16EkJPn_FXMwG2HZvb/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1Z49kc6nTgwwr0F16EkJPn_FXMwG2HZvb/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1Z49kc6nTgwwr0F16EkJPn_FXMwG2HZvb/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T99",
@@ -1196,9 +1098,7 @@
         "pptx": "T99.pptx"
       },
       "google_slides_id": "15ARZKmu6-hDTDomLA_-4Gh9qMm-uSioe",
-      "google_slides_url": "https://docs.google.com/presentation/d/15ARZKmu6-hDTDomLA_-4Gh9qMm-uSioe/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/15ARZKmu6-hDTDomLA_-4Gh9qMm-uSioe/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/15ARZKmu6-hDTDomLA_-4Gh9qMm-uSioe/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T100",
@@ -1231,9 +1131,7 @@
         "pptx": "T100.pptx"
       },
       "google_slides_id": "1VI07SbEN1sTz-wbQRBqr9XW4sCcZFr4L",
-      "google_slides_url": "https://docs.google.com/presentation/d/1VI07SbEN1sTz-wbQRBqr9XW4sCcZFr4L/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1VI07SbEN1sTz-wbQRBqr9XW4sCcZFr4L/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1VI07SbEN1sTz-wbQRBqr9XW4sCcZFr4L/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T101",
@@ -1266,9 +1164,7 @@
         "pptx": "T101.pptx"
       },
       "google_slides_id": "1DBPR5cfPqPIrldQDGY-jE_4vPNuijpIe",
-      "google_slides_url": "https://docs.google.com/presentation/d/1DBPR5cfPqPIrldQDGY-jE_4vPNuijpIe/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1DBPR5cfPqPIrldQDGY-jE_4vPNuijpIe/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1DBPR5cfPqPIrldQDGY-jE_4vPNuijpIe/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T102",
@@ -1301,9 +1197,7 @@
         "pptx": "T102.pptx"
       },
       "google_slides_id": "1_Xsl7FFcX58faka7EYilPasMMUcYufoe",
-      "google_slides_url": "https://docs.google.com/presentation/d/1_Xsl7FFcX58faka7EYilPasMMUcYufoe/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1_Xsl7FFcX58faka7EYilPasMMUcYufoe/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1_Xsl7FFcX58faka7EYilPasMMUcYufoe/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T103",
@@ -1336,9 +1230,7 @@
         "pptx": "T103.pptx"
       },
       "google_slides_id": "1FeltYg3TcFnEBLaJxghSASDAKUCvED-5",
-      "google_slides_url": "https://docs.google.com/presentation/d/1FeltYg3TcFnEBLaJxghSASDAKUCvED-5/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1FeltYg3TcFnEBLaJxghSASDAKUCvED-5/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1FeltYg3TcFnEBLaJxghSASDAKUCvED-5/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T104",
@@ -1371,9 +1263,7 @@
         "pptx": "T104.pptx"
       },
       "google_slides_id": "1Ho68lFU1R594E-a5PpNOOvs8uxrnL72A",
-      "google_slides_url": "https://docs.google.com/presentation/d/1Ho68lFU1R594E-a5PpNOOvs8uxrnL72A/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1Ho68lFU1R594E-a5PpNOOvs8uxrnL72A/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1Ho68lFU1R594E-a5PpNOOvs8uxrnL72A/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T105",
@@ -1406,9 +1296,7 @@
         "pptx": "T105.pptx"
       },
       "google_slides_id": "1EiFGumHx9SwLI0oTfJ-jnkcok_36yGUU",
-      "google_slides_url": "https://docs.google.com/presentation/d/1EiFGumHx9SwLI0oTfJ-jnkcok_36yGUU/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1EiFGumHx9SwLI0oTfJ-jnkcok_36yGUU/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1EiFGumHx9SwLI0oTfJ-jnkcok_36yGUU/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T106",
@@ -1441,9 +1329,7 @@
         "pptx": "T106.pptx"
       },
       "google_slides_id": "1A3OIwiiJtmCXAg4a79RoRZ80h2XSpyGs",
-      "google_slides_url": "https://docs.google.com/presentation/d/1A3OIwiiJtmCXAg4a79RoRZ80h2XSpyGs/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1A3OIwiiJtmCXAg4a79RoRZ80h2XSpyGs/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1A3OIwiiJtmCXAg4a79RoRZ80h2XSpyGs/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T107",
@@ -1476,9 +1362,7 @@
         "pptx": "T107.pptx"
       },
       "google_slides_id": "16I5mx0tRpMRwhHAvMHSZGMmO10GocQAx",
-      "google_slides_url": "https://docs.google.com/presentation/d/16I5mx0tRpMRwhHAvMHSZGMmO10GocQAx/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/16I5mx0tRpMRwhHAvMHSZGMmO10GocQAx/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/16I5mx0tRpMRwhHAvMHSZGMmO10GocQAx/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T108",
@@ -1511,9 +1395,7 @@
         "pptx": "T108.pptx"
       },
       "google_slides_id": "1nX24f8NN2OyBFnRbu4MZ3dw0fIH5z9PQ",
-      "google_slides_url": "https://docs.google.com/presentation/d/1nX24f8NN2OyBFnRbu4MZ3dw0fIH5z9PQ/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1nX24f8NN2OyBFnRbu4MZ3dw0fIH5z9PQ/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1nX24f8NN2OyBFnRbu4MZ3dw0fIH5z9PQ/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T109",
@@ -1546,9 +1428,7 @@
         "pptx": "T109.pptx"
       },
       "google_slides_id": "1XN0j1kQyNjVo71eSKRYqS2RCK8h6vBCD",
-      "google_slides_url": "https://docs.google.com/presentation/d/1XN0j1kQyNjVo71eSKRYqS2RCK8h6vBCD/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1XN0j1kQyNjVo71eSKRYqS2RCK8h6vBCD/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1XN0j1kQyNjVo71eSKRYqS2RCK8h6vBCD/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T110",
@@ -1581,9 +1461,7 @@
         "pptx": "T110.pptx"
       },
       "google_slides_id": "1LUzsvsoCD9hMfTXmdGS31EJrw06tF0r5",
-      "google_slides_url": "https://docs.google.com/presentation/d/1LUzsvsoCD9hMfTXmdGS31EJrw06tF0r5/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1LUzsvsoCD9hMfTXmdGS31EJrw06tF0r5/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1LUzsvsoCD9hMfTXmdGS31EJrw06tF0r5/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T111",
@@ -1616,9 +1494,7 @@
         "pptx": "T111.pptx"
       },
       "google_slides_id": "1CwCQYorgA24uVWEmIp-TetHv60S-pA-z",
-      "google_slides_url": "https://docs.google.com/presentation/d/1CwCQYorgA24uVWEmIp-TetHv60S-pA-z/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1CwCQYorgA24uVWEmIp-TetHv60S-pA-z/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1CwCQYorgA24uVWEmIp-TetHv60S-pA-z/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T112",
@@ -1651,9 +1527,7 @@
         "pptx": "T112.pptx"
       },
       "google_slides_id": "1uW3jMjB4PgQU-siW6M0EHg2sn1jPEzGu",
-      "google_slides_url": "https://docs.google.com/presentation/d/1uW3jMjB4PgQU-siW6M0EHg2sn1jPEzGu/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1uW3jMjB4PgQU-siW6M0EHg2sn1jPEzGu/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1uW3jMjB4PgQU-siW6M0EHg2sn1jPEzGu/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T115",
@@ -1686,9 +1560,7 @@
         "pptx": "T115.pptx"
       },
       "google_slides_id": "1gi9vYsNqJp1-XlMXDKZviNchVhGY2v9A",
-      "google_slides_url": "https://docs.google.com/presentation/d/1gi9vYsNqJp1-XlMXDKZviNchVhGY2v9A/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1gi9vYsNqJp1-XlMXDKZviNchVhGY2v9A/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1gi9vYsNqJp1-XlMXDKZviNchVhGY2v9A/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T117",
@@ -1721,9 +1593,7 @@
         "pptx": "T117.pptx"
       },
       "google_slides_id": "1X50rQI_d85KnHHYkUw2Qoy5VC6CQws1X",
-      "google_slides_url": "https://docs.google.com/presentation/d/1X50rQI_d85KnHHYkUw2Qoy5VC6CQws1X/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1X50rQI_d85KnHHYkUw2Qoy5VC6CQws1X/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1X50rQI_d85KnHHYkUw2Qoy5VC6CQws1X/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T118",
@@ -1756,9 +1626,7 @@
         "pptx": "T118.pptx"
       },
       "google_slides_id": "187eP3tfXYbf9F5IGlXMoK70wT6d5DVBN",
-      "google_slides_url": "https://docs.google.com/presentation/d/187eP3tfXYbf9F5IGlXMoK70wT6d5DVBN/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/187eP3tfXYbf9F5IGlXMoK70wT6d5DVBN/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/187eP3tfXYbf9F5IGlXMoK70wT6d5DVBN/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T119",
@@ -1791,9 +1659,7 @@
         "pptx": "T119.pptx"
       },
       "google_slides_id": "1F9WrO51dsci0LKIuEiQWJSJ-rXI057yA",
-      "google_slides_url": "https://docs.google.com/presentation/d/1F9WrO51dsci0LKIuEiQWJSJ-rXI057yA/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1F9WrO51dsci0LKIuEiQWJSJ-rXI057yA/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1F9WrO51dsci0LKIuEiQWJSJ-rXI057yA/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T120",
@@ -1826,9 +1692,7 @@
         "pptx": "T120.pptx"
       },
       "google_slides_id": "12k3A8Gu92GW-ZJP3727VqRWPxeVT7Iyz",
-      "google_slides_url": "https://docs.google.com/presentation/d/12k3A8Gu92GW-ZJP3727VqRWPxeVT7Iyz/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/12k3A8Gu92GW-ZJP3727VqRWPxeVT7Iyz/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/12k3A8Gu92GW-ZJP3727VqRWPxeVT7Iyz/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T121",
@@ -1861,9 +1725,7 @@
         "pptx": "T121.pptx"
       },
       "google_slides_id": "1JOcTitloCCk6WtJzLU17wQNAwLTgSyL0",
-      "google_slides_url": "https://docs.google.com/presentation/d/1JOcTitloCCk6WtJzLU17wQNAwLTgSyL0/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1JOcTitloCCk6WtJzLU17wQNAwLTgSyL0/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1JOcTitloCCk6WtJzLU17wQNAwLTgSyL0/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T122",
@@ -1896,9 +1758,7 @@
         "pptx": "T122.pptx"
       },
       "google_slides_id": "1Xvjx-FsW-PBZ82P8c4qq62XBlQiLgxQG",
-      "google_slides_url": "https://docs.google.com/presentation/d/1Xvjx-FsW-PBZ82P8c4qq62XBlQiLgxQG/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1Xvjx-FsW-PBZ82P8c4qq62XBlQiLgxQG/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1Xvjx-FsW-PBZ82P8c4qq62XBlQiLgxQG/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T123",
@@ -1931,9 +1791,7 @@
         "pptx": "T123.pptx"
       },
       "google_slides_id": "13bbfknH20IPIYu2A7b1yyRoSRle5ei9r",
-      "google_slides_url": "https://docs.google.com/presentation/d/13bbfknH20IPIYu2A7b1yyRoSRle5ei9r/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/13bbfknH20IPIYu2A7b1yyRoSRle5ei9r/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/13bbfknH20IPIYu2A7b1yyRoSRle5ei9r/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T124",
@@ -1966,9 +1824,7 @@
         "pptx": "T124.pptx"
       },
       "google_slides_id": "1Neu9VCrkaTE5biJd4RXXyCDrzO8TaMB7",
-      "google_slides_url": "https://docs.google.com/presentation/d/1Neu9VCrkaTE5biJd4RXXyCDrzO8TaMB7/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1Neu9VCrkaTE5biJd4RXXyCDrzO8TaMB7/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1Neu9VCrkaTE5biJd4RXXyCDrzO8TaMB7/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T125",
@@ -2001,9 +1857,7 @@
         "pptx": "T125.pptx"
       },
       "google_slides_id": "17GK1TsA8TAODyCaNPrjvC5MJWqkTvNMr",
-      "google_slides_url": "https://docs.google.com/presentation/d/17GK1TsA8TAODyCaNPrjvC5MJWqkTvNMr/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/17GK1TsA8TAODyCaNPrjvC5MJWqkTvNMr/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/17GK1TsA8TAODyCaNPrjvC5MJWqkTvNMr/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T127",
@@ -2036,9 +1890,7 @@
         "pptx": "T127.pptx"
       },
       "google_slides_id": "1bsNQ1uk9BLzsybipG6EwHr0INgAJrrL-",
-      "google_slides_url": "https://docs.google.com/presentation/d/1bsNQ1uk9BLzsybipG6EwHr0INgAJrrL-/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1bsNQ1uk9BLzsybipG6EwHr0INgAJrrL-/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1bsNQ1uk9BLzsybipG6EwHr0INgAJrrL-/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T128",
@@ -2071,9 +1923,7 @@
         "pptx": "T128.pptx"
       },
       "google_slides_id": "1S_LpoEeJn0RuRr7Wvh65hRhPZOucVBOd",
-      "google_slides_url": "https://docs.google.com/presentation/d/1S_LpoEeJn0RuRr7Wvh65hRhPZOucVBOd/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1S_LpoEeJn0RuRr7Wvh65hRhPZOucVBOd/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1S_LpoEeJn0RuRr7Wvh65hRhPZOucVBOd/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T129",
@@ -2106,9 +1956,7 @@
         "pptx": "T129.pptx"
       },
       "google_slides_id": "1MmhfLENIqeF8HTveEYQxI_0WZJ7-XGw8",
-      "google_slides_url": "https://docs.google.com/presentation/d/1MmhfLENIqeF8HTveEYQxI_0WZJ7-XGw8/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1MmhfLENIqeF8HTveEYQxI_0WZJ7-XGw8/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1MmhfLENIqeF8HTveEYQxI_0WZJ7-XGw8/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T130",
@@ -2141,9 +1989,7 @@
         "pptx": "T130.pptx"
       },
       "google_slides_id": "1BuAjSoTdRz5j2E62MY6dsB5CBgCFn8Tc",
-      "google_slides_url": "https://docs.google.com/presentation/d/1BuAjSoTdRz5j2E62MY6dsB5CBgCFn8Tc/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1BuAjSoTdRz5j2E62MY6dsB5CBgCFn8Tc/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1BuAjSoTdRz5j2E62MY6dsB5CBgCFn8Tc/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T131",
@@ -2176,9 +2022,7 @@
         "pptx": "T131.pptx"
       },
       "google_slides_id": "1KNNniLHsJtrtmPEQ8O4WfIfpnyg6ZNfw",
-      "google_slides_url": "https://docs.google.com/presentation/d/1KNNniLHsJtrtmPEQ8O4WfIfpnyg6ZNfw/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1KNNniLHsJtrtmPEQ8O4WfIfpnyg6ZNfw/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1KNNniLHsJtrtmPEQ8O4WfIfpnyg6ZNfw/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T133",
@@ -2211,9 +2055,7 @@
         "pptx": "T133.pptx"
       },
       "google_slides_id": "1JvuBYY3Em_ER57b7m--QuBGbnaNTo2WY",
-      "google_slides_url": "https://docs.google.com/presentation/d/1JvuBYY3Em_ER57b7m--QuBGbnaNTo2WY/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1JvuBYY3Em_ER57b7m--QuBGbnaNTo2WY/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1JvuBYY3Em_ER57b7m--QuBGbnaNTo2WY/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T136",
@@ -2246,9 +2088,7 @@
         "pptx": "T136.pptx"
       },
       "google_slides_id": "15yZK1cVBo5SUiOhBJxJwI7OQH3SpeKH6",
-      "google_slides_url": "https://docs.google.com/presentation/d/15yZK1cVBo5SUiOhBJxJwI7OQH3SpeKH6/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/15yZK1cVBo5SUiOhBJxJwI7OQH3SpeKH6/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/15yZK1cVBo5SUiOhBJxJwI7OQH3SpeKH6/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T137",
@@ -2281,9 +2121,7 @@
         "pptx": "T137.pptx"
       },
       "google_slides_id": "1jauoH1VctkY5bOEDw9okBvtR1N3bX86q",
-      "google_slides_url": "https://docs.google.com/presentation/d/1jauoH1VctkY5bOEDw9okBvtR1N3bX86q/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1jauoH1VctkY5bOEDw9okBvtR1N3bX86q/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1jauoH1VctkY5bOEDw9okBvtR1N3bX86q/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T140",
@@ -2316,9 +2154,7 @@
         "pptx": "T140.pptx"
       },
       "google_slides_id": "1uJ-9ElBcmNmnOTPvAR6NWrKDfw8rt1or",
-      "google_slides_url": "https://docs.google.com/presentation/d/1uJ-9ElBcmNmnOTPvAR6NWrKDfw8rt1or/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1uJ-9ElBcmNmnOTPvAR6NWrKDfw8rt1or/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1uJ-9ElBcmNmnOTPvAR6NWrKDfw8rt1or/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T142",
@@ -2351,9 +2187,7 @@
         "pptx": "T142.pptx"
       },
       "google_slides_id": "10DQQXmqHror3OBm1D_9jnhEPsiQC4gLM",
-      "google_slides_url": "https://docs.google.com/presentation/d/10DQQXmqHror3OBm1D_9jnhEPsiQC4gLM/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/10DQQXmqHror3OBm1D_9jnhEPsiQC4gLM/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/10DQQXmqHror3OBm1D_9jnhEPsiQC4gLM/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T145",
@@ -2386,9 +2220,7 @@
         "pptx": "T145.pptx"
       },
       "google_slides_id": "17Mboh-E-7WKkkPeWmF38gCJou19GPfdv",
-      "google_slides_url": "https://docs.google.com/presentation/d/17Mboh-E-7WKkkPeWmF38gCJou19GPfdv/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/17Mboh-E-7WKkkPeWmF38gCJou19GPfdv/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/17Mboh-E-7WKkkPeWmF38gCJou19GPfdv/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T146",
@@ -2421,9 +2253,7 @@
         "pptx": "T146.pptx"
       },
       "google_slides_id": "1lS68LpzkiDYXiv5VZY_zT-IxDZbhXrHN",
-      "google_slides_url": "https://docs.google.com/presentation/d/1lS68LpzkiDYXiv5VZY_zT-IxDZbhXrHN/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1lS68LpzkiDYXiv5VZY_zT-IxDZbhXrHN/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1lS68LpzkiDYXiv5VZY_zT-IxDZbhXrHN/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T148",
@@ -2456,9 +2286,7 @@
         "pptx": "T148.pptx"
       },
       "google_slides_id": "1Xtm8N8OVfzoux5n7V0_YMSnMQwplnReY",
-      "google_slides_url": "https://docs.google.com/presentation/d/1Xtm8N8OVfzoux5n7V0_YMSnMQwplnReY/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1Xtm8N8OVfzoux5n7V0_YMSnMQwplnReY/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1Xtm8N8OVfzoux5n7V0_YMSnMQwplnReY/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T150",
@@ -2491,9 +2319,7 @@
         "pptx": "T150.pptx"
       },
       "google_slides_id": "1Np3Avofo0K0l-HJHg71aGTSIGVNLDoC3",
-      "google_slides_url": "https://docs.google.com/presentation/d/1Np3Avofo0K0l-HJHg71aGTSIGVNLDoC3/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1Np3Avofo0K0l-HJHg71aGTSIGVNLDoC3/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1Np3Avofo0K0l-HJHg71aGTSIGVNLDoC3/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T151",
@@ -2526,9 +2352,7 @@
         "pptx": "T151.pptx"
       },
       "google_slides_id": "1DOs6Ku9mXHWF2d_PQn2P4jkEQaMVcBht",
-      "google_slides_url": "https://docs.google.com/presentation/d/1DOs6Ku9mXHWF2d_PQn2P4jkEQaMVcBht/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1DOs6Ku9mXHWF2d_PQn2P4jkEQaMVcBht/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1DOs6Ku9mXHWF2d_PQn2P4jkEQaMVcBht/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T152",
@@ -2561,9 +2385,7 @@
         "pptx": "T152.pptx"
       },
       "google_slides_id": "17sdhb-V0YLeMCg7Ogm-cQEQqb1tAoCFz",
-      "google_slides_url": "https://docs.google.com/presentation/d/17sdhb-V0YLeMCg7Ogm-cQEQqb1tAoCFz/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/17sdhb-V0YLeMCg7Ogm-cQEQqb1tAoCFz/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/17sdhb-V0YLeMCg7Ogm-cQEQqb1tAoCFz/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T153",
@@ -2596,9 +2418,7 @@
         "pptx": "T153.pptx"
       },
       "google_slides_id": "16FWkL5eYJuIh-5vy9xGL4y5FWDar3UWi",
-      "google_slides_url": "https://docs.google.com/presentation/d/16FWkL5eYJuIh-5vy9xGL4y5FWDar3UWi/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/16FWkL5eYJuIh-5vy9xGL4y5FWDar3UWi/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/16FWkL5eYJuIh-5vy9xGL4y5FWDar3UWi/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T154",
@@ -2631,9 +2451,7 @@
         "pptx": "T154.pptx"
       },
       "google_slides_id": "1EmkdUR0TvCnClJkvbPvyj-ThafuSTRN4",
-      "google_slides_url": "https://docs.google.com/presentation/d/1EmkdUR0TvCnClJkvbPvyj-ThafuSTRN4/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1EmkdUR0TvCnClJkvbPvyj-ThafuSTRN4/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1EmkdUR0TvCnClJkvbPvyj-ThafuSTRN4/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T155",
@@ -2666,9 +2484,7 @@
         "pptx": "T155.pptx"
       },
       "google_slides_id": "10joxuUw43nviaocuiNOfxdfGYhGPMBEL",
-      "google_slides_url": "https://docs.google.com/presentation/d/10joxuUw43nviaocuiNOfxdfGYhGPMBEL/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/10joxuUw43nviaocuiNOfxdfGYhGPMBEL/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/10joxuUw43nviaocuiNOfxdfGYhGPMBEL/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T157",
@@ -2701,9 +2517,7 @@
         "pptx": "T157.pptx"
       },
       "google_slides_id": "100G5FAmkFKOpC8xc7f6VEYWqTXXqJpFF",
-      "google_slides_url": "https://docs.google.com/presentation/d/100G5FAmkFKOpC8xc7f6VEYWqTXXqJpFF/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/100G5FAmkFKOpC8xc7f6VEYWqTXXqJpFF/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/100G5FAmkFKOpC8xc7f6VEYWqTXXqJpFF/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T158",
@@ -2736,9 +2550,7 @@
         "pptx": "T158.pptx"
       },
       "google_slides_id": "1cANH7CNFjSomWT7dKZGime_cpA16v0tY",
-      "google_slides_url": "https://docs.google.com/presentation/d/1cANH7CNFjSomWT7dKZGime_cpA16v0tY/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1cANH7CNFjSomWT7dKZGime_cpA16v0tY/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1cANH7CNFjSomWT7dKZGime_cpA16v0tY/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T159",
@@ -2771,9 +2583,7 @@
         "pptx": "T159.pptx"
       },
       "google_slides_id": "1sjGQcuBW-m3YKYH_KNRTvK8enBs8GN_i",
-      "google_slides_url": "https://docs.google.com/presentation/d/1sjGQcuBW-m3YKYH_KNRTvK8enBs8GN_i/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1sjGQcuBW-m3YKYH_KNRTvK8enBs8GN_i/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1sjGQcuBW-m3YKYH_KNRTvK8enBs8GN_i/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T160",
@@ -2806,9 +2616,7 @@
         "pptx": "T160.pptx"
       },
       "google_slides_id": "1c8cbr5-abRLFiPSWBTkuvpawltOfEYpPLjdOUqGYMZ8",
-      "google_slides_url": "https://docs.google.com/presentation/d/1c8cbr5-abRLFiPSWBTkuvpawltOfEYpPLjdOUqGYMZ8/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1c8cbr5-abRLFiPSWBTkuvpawltOfEYpPLjdOUqGYMZ8/preview",
-      "editable_slide_count": 3
+      "google_slides_url": "https://docs.google.com/presentation/d/1c8cbr5-abRLFiPSWBTkuvpawltOfEYpPLjdOUqGYMZ8/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T161",
@@ -2841,9 +2649,7 @@
         "pptx": "T161.pptx"
       },
       "google_slides_id": "1duM4TVvQM3PMtiMxR5ZbcnQJSfDUXDdz",
-      "google_slides_url": "https://docs.google.com/presentation/d/1duM4TVvQM3PMtiMxR5ZbcnQJSfDUXDdz/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1duM4TVvQM3PMtiMxR5ZbcnQJSfDUXDdz/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1duM4TVvQM3PMtiMxR5ZbcnQJSfDUXDdz/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T162",
@@ -2876,9 +2682,7 @@
         "pptx": "T162.pptx"
       },
       "google_slides_id": "1w69O-4_P3y-5dYo1LImEhQfDEvLSFN8w",
-      "google_slides_url": "https://docs.google.com/presentation/d/1w69O-4_P3y-5dYo1LImEhQfDEvLSFN8w/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1w69O-4_P3y-5dYo1LImEhQfDEvLSFN8w/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1w69O-4_P3y-5dYo1LImEhQfDEvLSFN8w/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T163",
@@ -2911,9 +2715,7 @@
         "pptx": "T163.pptx"
       },
       "google_slides_id": "161M9SLKtGwF4iioAH-9rdFYxozqVGlK7",
-      "google_slides_url": "https://docs.google.com/presentation/d/161M9SLKtGwF4iioAH-9rdFYxozqVGlK7/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/161M9SLKtGwF4iioAH-9rdFYxozqVGlK7/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/161M9SLKtGwF4iioAH-9rdFYxozqVGlK7/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T164",
@@ -2946,9 +2748,7 @@
         "pptx": "T164.pptx"
       },
       "google_slides_id": "1-q0zsGkMnmeJNSRqd8Tc4QwLRKSTiXM5",
-      "google_slides_url": "https://docs.google.com/presentation/d/1-q0zsGkMnmeJNSRqd8Tc4QwLRKSTiXM5/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1-q0zsGkMnmeJNSRqd8Tc4QwLRKSTiXM5/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1-q0zsGkMnmeJNSRqd8Tc4QwLRKSTiXM5/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T165",
@@ -2981,9 +2781,7 @@
         "pptx": "T165.pptx"
       },
       "google_slides_id": "1Runh7cvjmTRWyaWKrtuvCpIXvsU9Fxba",
-      "google_slides_url": "https://docs.google.com/presentation/d/1Runh7cvjmTRWyaWKrtuvCpIXvsU9Fxba/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1Runh7cvjmTRWyaWKrtuvCpIXvsU9Fxba/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1Runh7cvjmTRWyaWKrtuvCpIXvsU9Fxba/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T167",
@@ -3016,9 +2814,7 @@
         "pptx": "T167.pptx"
       },
       "google_slides_id": "18TxbU-CpGHm3FOD7g4pn343eiHvyghNi",
-      "google_slides_url": "https://docs.google.com/presentation/d/18TxbU-CpGHm3FOD7g4pn343eiHvyghNi/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/18TxbU-CpGHm3FOD7g4pn343eiHvyghNi/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/18TxbU-CpGHm3FOD7g4pn343eiHvyghNi/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T168",
@@ -3051,9 +2847,7 @@
         "pptx": "T168.pptx"
       },
       "google_slides_id": "1G_h8mnfgV0N_wOugLRMN7atltyKEj5bF",
-      "google_slides_url": "https://docs.google.com/presentation/d/1G_h8mnfgV0N_wOugLRMN7atltyKEj5bF/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1G_h8mnfgV0N_wOugLRMN7atltyKEj5bF/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1G_h8mnfgV0N_wOugLRMN7atltyKEj5bF/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T169",
@@ -3086,9 +2880,7 @@
         "pptx": "T169.pptx"
       },
       "google_slides_id": "1qUIkLNIPGRGf9SpPSCRhs_FCWt4sKpLj",
-      "google_slides_url": "https://docs.google.com/presentation/d/1qUIkLNIPGRGf9SpPSCRhs_FCWt4sKpLj/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1qUIkLNIPGRGf9SpPSCRhs_FCWt4sKpLj/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1qUIkLNIPGRGf9SpPSCRhs_FCWt4sKpLj/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T170",
@@ -3121,9 +2913,7 @@
         "pptx": "T170.pptx"
       },
       "google_slides_id": "1AFuMXxSGaRhztP5vsDDyZvYJMVYv0kwZ",
-      "google_slides_url": "https://docs.google.com/presentation/d/1AFuMXxSGaRhztP5vsDDyZvYJMVYv0kwZ/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1AFuMXxSGaRhztP5vsDDyZvYJMVYv0kwZ/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1AFuMXxSGaRhztP5vsDDyZvYJMVYv0kwZ/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T171",
@@ -3156,9 +2946,7 @@
         "pptx": "T171.pptx"
       },
       "google_slides_id": "1zohd1S-VQJSVBRTP0uSUsjpA_dZ2etoQ",
-      "google_slides_url": "https://docs.google.com/presentation/d/1zohd1S-VQJSVBRTP0uSUsjpA_dZ2etoQ/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1zohd1S-VQJSVBRTP0uSUsjpA_dZ2etoQ/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1zohd1S-VQJSVBRTP0uSUsjpA_dZ2etoQ/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T172",
@@ -3191,9 +2979,7 @@
         "pptx": "T172.pptx"
       },
       "google_slides_id": "1CkbKJLuZ374cNdYjRGtXz0YiwDDs3_mC",
-      "google_slides_url": "https://docs.google.com/presentation/d/1CkbKJLuZ374cNdYjRGtXz0YiwDDs3_mC/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1CkbKJLuZ374cNdYjRGtXz0YiwDDs3_mC/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1CkbKJLuZ374cNdYjRGtXz0YiwDDs3_mC/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T173",
@@ -3226,9 +3012,7 @@
         "pptx": "T173.pptx"
       },
       "google_slides_id": "1wCaUm9BKizOzsnoMUBlHvw9z8KLxAH1c",
-      "google_slides_url": "https://docs.google.com/presentation/d/1wCaUm9BKizOzsnoMUBlHvw9z8KLxAH1c/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1wCaUm9BKizOzsnoMUBlHvw9z8KLxAH1c/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1wCaUm9BKizOzsnoMUBlHvw9z8KLxAH1c/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T174",
@@ -3261,9 +3045,7 @@
         "pptx": "T174.pptx"
       },
       "google_slides_id": "1i1X67x2hChZzMT9xsIgJXy63j1oINWer",
-      "google_slides_url": "https://docs.google.com/presentation/d/1i1X67x2hChZzMT9xsIgJXy63j1oINWer/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1i1X67x2hChZzMT9xsIgJXy63j1oINWer/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1i1X67x2hChZzMT9xsIgJXy63j1oINWer/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T175",
@@ -3296,9 +3078,7 @@
         "pptx": "T175.pptx"
       },
       "google_slides_id": "18fgsj25m8482TAyL_OoWuRRVlB8P30rZ",
-      "google_slides_url": "https://docs.google.com/presentation/d/18fgsj25m8482TAyL_OoWuRRVlB8P30rZ/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/18fgsj25m8482TAyL_OoWuRRVlB8P30rZ/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/18fgsj25m8482TAyL_OoWuRRVlB8P30rZ/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T176",
@@ -3331,9 +3111,7 @@
         "pptx": "T176.pptx"
       },
       "google_slides_id": "1MhkqDhGoasnqebfl6TBvs86iud3y84Rt",
-      "google_slides_url": "https://docs.google.com/presentation/d/1MhkqDhGoasnqebfl6TBvs86iud3y84Rt/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1MhkqDhGoasnqebfl6TBvs86iud3y84Rt/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1MhkqDhGoasnqebfl6TBvs86iud3y84Rt/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T177",
@@ -3366,9 +3144,7 @@
         "pptx": "T177.pptx"
       },
       "google_slides_id": "1Ca0Zc43Z4GRXjDc2gYQUXhPQ-449E_5f",
-      "google_slides_url": "https://docs.google.com/presentation/d/1Ca0Zc43Z4GRXjDc2gYQUXhPQ-449E_5f/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1Ca0Zc43Z4GRXjDc2gYQUXhPQ-449E_5f/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1Ca0Zc43Z4GRXjDc2gYQUXhPQ-449E_5f/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T178",
@@ -3401,9 +3177,7 @@
         "pptx": "T178.pptx"
       },
       "google_slides_id": "1RTY6a-5YBhvY2vRzh3F_KLI7kZ_k88hn",
-      "google_slides_url": "https://docs.google.com/presentation/d/1RTY6a-5YBhvY2vRzh3F_KLI7kZ_k88hn/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1RTY6a-5YBhvY2vRzh3F_KLI7kZ_k88hn/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1RTY6a-5YBhvY2vRzh3F_KLI7kZ_k88hn/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T179",
@@ -3436,9 +3210,7 @@
         "pptx": "T179.pptx"
       },
       "google_slides_id": "1XZGHQJ3cC-kYOXLbtvVuuh5y_2kK6_i0",
-      "google_slides_url": "https://docs.google.com/presentation/d/1XZGHQJ3cC-kYOXLbtvVuuh5y_2kK6_i0/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1XZGHQJ3cC-kYOXLbtvVuuh5y_2kK6_i0/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1XZGHQJ3cC-kYOXLbtvVuuh5y_2kK6_i0/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T181",
@@ -3471,9 +3243,7 @@
         "pptx": "T181.pptx"
       },
       "google_slides_id": "1e1rZ2brxv5oVTIrTN_99MHr2NZ7ylSTi",
-      "google_slides_url": "https://docs.google.com/presentation/d/1e1rZ2brxv5oVTIrTN_99MHr2NZ7ylSTi/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1e1rZ2brxv5oVTIrTN_99MHr2NZ7ylSTi/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1e1rZ2brxv5oVTIrTN_99MHr2NZ7ylSTi/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T183",
@@ -3506,9 +3276,7 @@
         "pptx": "T183.pptx"
       },
       "google_slides_id": "1Tc1ewFleTh380q9vxp-Pd8UXhYt6XvPR",
-      "google_slides_url": "https://docs.google.com/presentation/d/1Tc1ewFleTh380q9vxp-Pd8UXhYt6XvPR/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1Tc1ewFleTh380q9vxp-Pd8UXhYt6XvPR/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1Tc1ewFleTh380q9vxp-Pd8UXhYt6XvPR/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T184",
@@ -3541,9 +3309,7 @@
         "pptx": "T184.pptx"
       },
       "google_slides_id": "1g60dkW_Q3zodSgnfO0GkW9esPB5Jih3d",
-      "google_slides_url": "https://docs.google.com/presentation/d/1g60dkW_Q3zodSgnfO0GkW9esPB5Jih3d/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1g60dkW_Q3zodSgnfO0GkW9esPB5Jih3d/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1g60dkW_Q3zodSgnfO0GkW9esPB5Jih3d/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T185",
@@ -3576,9 +3342,7 @@
         "pptx": "T185.pptx"
       },
       "google_slides_id": "1RzwIWvK4pCzgQWMyvN4cFuG8pQ3fFCw8",
-      "google_slides_url": "https://docs.google.com/presentation/d/1RzwIWvK4pCzgQWMyvN4cFuG8pQ3fFCw8/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1RzwIWvK4pCzgQWMyvN4cFuG8pQ3fFCw8/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1RzwIWvK4pCzgQWMyvN4cFuG8pQ3fFCw8/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T186",
@@ -3611,9 +3375,7 @@
         "pptx": "T186.pptx"
       },
       "google_slides_id": "1wB1UKsXjrNUQLdN2A7GyQgG6MwgOw-EB",
-      "google_slides_url": "https://docs.google.com/presentation/d/1wB1UKsXjrNUQLdN2A7GyQgG6MwgOw-EB/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1wB1UKsXjrNUQLdN2A7GyQgG6MwgOw-EB/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1wB1UKsXjrNUQLdN2A7GyQgG6MwgOw-EB/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T187",
@@ -3646,9 +3408,7 @@
         "pptx": "T187.pptx"
       },
       "google_slides_id": "1UVZU0ZTeLry9lN5oiJv0G9UJGp5yOzOC",
-      "google_slides_url": "https://docs.google.com/presentation/d/1UVZU0ZTeLry9lN5oiJv0G9UJGp5yOzOC/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1UVZU0ZTeLry9lN5oiJv0G9UJGp5yOzOC/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1UVZU0ZTeLry9lN5oiJv0G9UJGp5yOzOC/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T188",
@@ -3681,9 +3441,7 @@
         "pptx": "T188.pptx"
       },
       "google_slides_id": "1-rq0nAaPbTjhlmPl78IVFtytz0C2pWpa",
-      "google_slides_url": "https://docs.google.com/presentation/d/1-rq0nAaPbTjhlmPl78IVFtytz0C2pWpa/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1-rq0nAaPbTjhlmPl78IVFtytz0C2pWpa/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1-rq0nAaPbTjhlmPl78IVFtytz0C2pWpa/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T190",
@@ -3716,9 +3474,7 @@
         "pptx": "T190.pptx"
       },
       "google_slides_id": "1gag8-ZQ_7oFMPjikQK4GvXCp_WlGCC13",
-      "google_slides_url": "https://docs.google.com/presentation/d/1gag8-ZQ_7oFMPjikQK4GvXCp_WlGCC13/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1gag8-ZQ_7oFMPjikQK4GvXCp_WlGCC13/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1gag8-ZQ_7oFMPjikQK4GvXCp_WlGCC13/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T191",
@@ -3751,9 +3507,7 @@
         "pptx": "T191.pptx"
       },
       "google_slides_id": "1ojylMS-_t1aDhuiP1WsNWIfUW9Mt2qTm",
-      "google_slides_url": "https://docs.google.com/presentation/d/1ojylMS-_t1aDhuiP1WsNWIfUW9Mt2qTm/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1ojylMS-_t1aDhuiP1WsNWIfUW9Mt2qTm/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1ojylMS-_t1aDhuiP1WsNWIfUW9Mt2qTm/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T192",
@@ -3786,9 +3540,7 @@
         "pptx": "T192.pptx"
       },
       "google_slides_id": "1W0DeHpetf4pkdjqZgc_r-t5bvbJFAH4f",
-      "google_slides_url": "https://docs.google.com/presentation/d/1W0DeHpetf4pkdjqZgc_r-t5bvbJFAH4f/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1W0DeHpetf4pkdjqZgc_r-t5bvbJFAH4f/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1W0DeHpetf4pkdjqZgc_r-t5bvbJFAH4f/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T193",
@@ -3821,9 +3573,7 @@
         "pptx": "T193.pptx"
       },
       "google_slides_id": "10acHTmUAV4AzVe7hlvqHjrjR6ha41Ti7",
-      "google_slides_url": "https://docs.google.com/presentation/d/10acHTmUAV4AzVe7hlvqHjrjR6ha41Ti7/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/10acHTmUAV4AzVe7hlvqHjrjR6ha41Ti7/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/10acHTmUAV4AzVe7hlvqHjrjR6ha41Ti7/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T194",
@@ -3856,9 +3606,7 @@
         "pptx": "T194.pptx"
       },
       "google_slides_id": "11GU8G029ZQAYlb4lYkQkUCfbebQm2r_J",
-      "google_slides_url": "https://docs.google.com/presentation/d/11GU8G029ZQAYlb4lYkQkUCfbebQm2r_J/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/11GU8G029ZQAYlb4lYkQkUCfbebQm2r_J/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/11GU8G029ZQAYlb4lYkQkUCfbebQm2r_J/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T195",
@@ -3891,9 +3639,7 @@
         "pptx": "T195.pptx"
       },
       "google_slides_id": "12cI5Y3JoiAH6MmmzqDq3n3wyAIYDGFpv",
-      "google_slides_url": "https://docs.google.com/presentation/d/12cI5Y3JoiAH6MmmzqDq3n3wyAIYDGFpv/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/12cI5Y3JoiAH6MmmzqDq3n3wyAIYDGFpv/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/12cI5Y3JoiAH6MmmzqDq3n3wyAIYDGFpv/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T196",
@@ -3926,9 +3672,7 @@
         "pptx": "T196.pptx"
       },
       "google_slides_id": "101xl2AndlA8ih56D82dLAIOg18FidY0V",
-      "google_slides_url": "https://docs.google.com/presentation/d/101xl2AndlA8ih56D82dLAIOg18FidY0V/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/101xl2AndlA8ih56D82dLAIOg18FidY0V/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/101xl2AndlA8ih56D82dLAIOg18FidY0V/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T197",
@@ -3961,9 +3705,7 @@
         "pptx": "T197.pptx"
       },
       "google_slides_id": "1IXx4jA0qm3DSjbtsFEuHLUpVTMFvzc3j",
-      "google_slides_url": "https://docs.google.com/presentation/d/1IXx4jA0qm3DSjbtsFEuHLUpVTMFvzc3j/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1IXx4jA0qm3DSjbtsFEuHLUpVTMFvzc3j/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1IXx4jA0qm3DSjbtsFEuHLUpVTMFvzc3j/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T198",
@@ -3996,9 +3738,7 @@
         "pptx": "T198.pptx"
       },
       "google_slides_id": "16FFhXjMqRrgCIQrnTGlw2lgwE9R4f7Pl",
-      "google_slides_url": "https://docs.google.com/presentation/d/16FFhXjMqRrgCIQrnTGlw2lgwE9R4f7Pl/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/16FFhXjMqRrgCIQrnTGlw2lgwE9R4f7Pl/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/16FFhXjMqRrgCIQrnTGlw2lgwE9R4f7Pl/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T199",
@@ -4031,9 +3771,7 @@
         "pptx": "T199.pptx"
       },
       "google_slides_id": "1pwLNOb0hcFgVq3ZaQfCju-3oikJGkrC4",
-      "google_slides_url": "https://docs.google.com/presentation/d/1pwLNOb0hcFgVq3ZaQfCju-3oikJGkrC4/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1pwLNOb0hcFgVq3ZaQfCju-3oikJGkrC4/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1pwLNOb0hcFgVq3ZaQfCju-3oikJGkrC4/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T200",
@@ -4066,9 +3804,7 @@
         "pptx": "T200.pptx"
       },
       "google_slides_id": "11_EgksDRA0nsDgq1VQO67RQyBLFzedNQ",
-      "google_slides_url": "https://docs.google.com/presentation/d/11_EgksDRA0nsDgq1VQO67RQyBLFzedNQ/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/11_EgksDRA0nsDgq1VQO67RQyBLFzedNQ/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/11_EgksDRA0nsDgq1VQO67RQyBLFzedNQ/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T201",
@@ -4101,9 +3837,7 @@
         "pptx": "T201.pptx"
       },
       "google_slides_id": "1RYDhqNfZc9_-C9cgN7HpmefcHm14vm3H",
-      "google_slides_url": "https://docs.google.com/presentation/d/1RYDhqNfZc9_-C9cgN7HpmefcHm14vm3H/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1RYDhqNfZc9_-C9cgN7HpmefcHm14vm3H/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1RYDhqNfZc9_-C9cgN7HpmefcHm14vm3H/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T202",
@@ -4136,9 +3870,7 @@
         "pptx": "T202.pptx"
       },
       "google_slides_id": "1bJs_8ZOmpRvEsCA8l5VDxIQbXPn3BqnW",
-      "google_slides_url": "https://docs.google.com/presentation/d/1bJs_8ZOmpRvEsCA8l5VDxIQbXPn3BqnW/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1bJs_8ZOmpRvEsCA8l5VDxIQbXPn3BqnW/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1bJs_8ZOmpRvEsCA8l5VDxIQbXPn3BqnW/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T203",
@@ -4171,9 +3903,7 @@
         "pptx": "T203.pptx"
       },
       "google_slides_id": "1A_VbCplKlkvpxki8FNSwaNsPkCiTKiHT",
-      "google_slides_url": "https://docs.google.com/presentation/d/1A_VbCplKlkvpxki8FNSwaNsPkCiTKiHT/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1A_VbCplKlkvpxki8FNSwaNsPkCiTKiHT/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1A_VbCplKlkvpxki8FNSwaNsPkCiTKiHT/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T204",
@@ -4206,9 +3936,7 @@
         "pptx": "T204.pptx"
       },
       "google_slides_id": "1zsjgQ5wI3Mws7FZdydvOiyctjcQvGsD-",
-      "google_slides_url": "https://docs.google.com/presentation/d/1zsjgQ5wI3Mws7FZdydvOiyctjcQvGsD-/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1zsjgQ5wI3Mws7FZdydvOiyctjcQvGsD-/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1zsjgQ5wI3Mws7FZdydvOiyctjcQvGsD-/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T205",
@@ -4241,9 +3969,7 @@
         "pptx": "T205.pptx"
       },
       "google_slides_id": "15E1YcBBDf-YHz5FsxFzTg-QEaxpYbTBo",
-      "google_slides_url": "https://docs.google.com/presentation/d/15E1YcBBDf-YHz5FsxFzTg-QEaxpYbTBo/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/15E1YcBBDf-YHz5FsxFzTg-QEaxpYbTBo/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/15E1YcBBDf-YHz5FsxFzTg-QEaxpYbTBo/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T206",
@@ -4276,9 +4002,7 @@
         "pptx": "T206.pptx"
       },
       "google_slides_id": "12A04J8fivt_-qXuz_-AnpA_yqFkQnp1i",
-      "google_slides_url": "https://docs.google.com/presentation/d/12A04J8fivt_-qXuz_-AnpA_yqFkQnp1i/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/12A04J8fivt_-qXuz_-AnpA_yqFkQnp1i/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/12A04J8fivt_-qXuz_-AnpA_yqFkQnp1i/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T207",
@@ -4311,9 +4035,7 @@
         "pptx": "T207.pptx"
       },
       "google_slides_id": "1WI-EZ7IJNxwFCkYbOPTK7flrwqzeIoxT",
-      "google_slides_url": "https://docs.google.com/presentation/d/1WI-EZ7IJNxwFCkYbOPTK7flrwqzeIoxT/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1WI-EZ7IJNxwFCkYbOPTK7flrwqzeIoxT/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1WI-EZ7IJNxwFCkYbOPTK7flrwqzeIoxT/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T208",
@@ -4346,9 +4068,7 @@
         "pptx": "T208.pptx"
       },
       "google_slides_id": "1Xq_fbqveFAnWr310WJ7V3i_nB6zc5-On",
-      "google_slides_url": "https://docs.google.com/presentation/d/1Xq_fbqveFAnWr310WJ7V3i_nB6zc5-On/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1Xq_fbqveFAnWr310WJ7V3i_nB6zc5-On/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1Xq_fbqveFAnWr310WJ7V3i_nB6zc5-On/edit?authuser=nitinagga%40google.com"
     },
     {
       "id": "T209",
@@ -4381,9 +4101,415 @@
         "pptx": "T209.pptx"
       },
       "google_slides_id": "1t6ByTlw4fQjN3oc09RwO921xbNydndHC",
-      "google_slides_url": "https://docs.google.com/presentation/d/1t6ByTlw4fQjN3oc09RwO921xbNydndHC/edit?authuser=nitinagga%40google.com",
-      "google_slides_preview_url": "https://docs.google.com/presentation/d/1t6ByTlw4fQjN3oc09RwO921xbNydndHC/preview",
-      "editable_slide_count": 2
+      "google_slides_url": "https://docs.google.com/presentation/d/1t6ByTlw4fQjN3oc09RwO921xbNydndHC/edit?authuser=nitinagga%40google.com"
+    },
+    {
+      "id": "T210",
+      "name": "Generative GRAMMAR-01: Enterprise AI Platform 6-Zone Bento Cheatsheet",
+      "best_for_short": "6-Zone Bento Cheatsheet",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "DevRel & Creator",
+        "Regulated Enterprise"
+      ],
+      "when_to_use": "1-page platform reference sheets, enterprise AI stack guides, and multi-agent control-tower overviews.",
+      "dynamic": "Platform ecosystem overview + quickstart checklist + step-by-step build spine + 3 runtime flows",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-01 (6-Zone Bento Cheatsheet) \u2022 LI-47 (7524825931560124416 \u00b7 Vaibhav Aggarwal \u2014 ServiceNow AI Platform Cheatsheet)",
+      "category": "Multi-Zone Bento Cheatsheet",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "Developer Advocate / Technical Creator \u2022 Regulated Enterprise (FinServ, Pharma, Healthcare)",
+      "best_for": "1-page platform reference sheets, enterprise AI stack guides, and multi-agent control-tower overviews.",
+      "inspired_by": "Vaibhav Aggarwal (LI-47 \u00b7 ServiceNow AI Platform Cheatsheet) \u2022 Google Cloud Vertex AI + FastMCP + OpenHands",
+      "accent": "#059669",
+      "hot_topic": "Enterprise AI Platform 6-Zone Bento Cheatsheet",
+      "grammar_id": "GRAMMAR-01",
+      "persona_id": "devrel_creator",
+      "org_id": "regulated_enterprise",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T210.svg",
+        "gif": "T210.gif",
+        "png": "T210.png",
+        "drawio": "T210.drawio",
+        "pptx": "T210.pptx"
+      }
+    },
+    {
+      "id": "T211",
+      "name": "Generative GRAMMAR-02: Executive AI FinOps & ROI 8-Card Micro-Chart Playbook",
+      "best_for_short": "8-Card FinOps Micro-Charts",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "C-Suite & CFO",
+        "Regulated Enterprise"
+      ],
+      "when_to_use": "AI FinOps, token budget optimization, CFO business cases, build-vs-buy ladders, and license utilization.",
+      "dynamic": "2x4 numbered strategy grid embedding 8 distinct micro-charts (Iceberg, Formulas, Ladder, Bars, Loop, Break-Even, Seats, Training)",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-02 (8-Card FinOps Micro-Charts) \u2022 LI-48 (7524806199293329408 \u00b7 Prashant Rathi \u2014 Framework to Use AI Without Overspending)",
+      "category": "Executive FinOps Playbook",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "C-Suite / Board / CFO \u2022 Regulated Enterprise (FinServ, Pharma, Healthcare)",
+      "best_for": "AI FinOps, token budget optimization, CFO business cases, build-vs-buy ladders, and license utilization.",
+      "inspired_by": "Prashant Rathi (LI-48 \u00b7 Framework to Use AI Without Overspending) \u2022 Google Cloud Vertex AI + LiteLLM + OpenTelemetry",
+      "accent": "#7C3AED",
+      "hot_topic": "Executive AI FinOps & ROI 8-Card Micro-Chart Playbook",
+      "grammar_id": "GRAMMAR-02",
+      "persona_id": "c_suite_board",
+      "org_id": "regulated_enterprise",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T211.svg",
+        "gif": "T211.gif",
+        "png": "T211.png",
+        "drawio": "T211.drawio",
+        "pptx": "T211.pptx"
+      }
+    },
+    {
+      "id": "T212",
+      "name": "Generative GRAMMAR-03: Universal 7-Part Cognitive Agent Loop & Guardrail Pillar",
+      "best_for_short": "7-Part Cognitive Agent Loop",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "Principal Architect",
+        "Cloud Hyperscaler"
+      ],
+      "when_to_use": "First-principles agent anatomy, ReAct / Plan-and-Execute loops, memory integration, and tool fan-out.",
+      "dynamic": "Input -> Perceive -> Think <-> Remember -> Plan -> Act -> Goal Achieved loop flanked by Guardrails pillar & Observability bus",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-03 (7-Part Cognitive Agent Loop) \u2022 LI-49 (7524855506109267968 \u00b7 Brij Pandey \u2014 One Architecture Diagram That Explains Every AI Agent)",
+      "category": "First-Principles Agent Anatomy",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "VP / Principal Enterprise Architect \u2022 Cloud Hyperscaler & Platform Engineering",
+      "best_for": "First-principles agent anatomy, ReAct / Plan-and-Execute loops, memory integration, and tool fan-out.",
+      "inspired_by": "Brij Kishore Pandey (LI-49 \u00b7 One Architecture Diagram That Explains Every AI Agent) \u2022 Google ADK + LangGraph + MCP",
+      "accent": "#2563EB",
+      "hot_topic": "Universal 7-Part Cognitive Agent Loop & Guardrail Pillar",
+      "grammar_id": "GRAMMAR-03",
+      "persona_id": "vp_principal_architect",
+      "org_id": "cloud_hyperscaler",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T212.svg",
+        "gif": "T212.gif",
+        "png": "T212.png",
+        "drawio": "T212.drawio",
+        "pptx": "T212.pptx"
+      }
+    },
+    {
+      "id": "T213",
+      "name": "Generative GRAMMAR-04: Taxonomy vs. Ontology vs. Semantic Model vs. Knowledge Graph",
+      "best_for_short": "4-Rung Concept + Mini-Graphs",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "Principal Architect",
+        "Transformation & FDE"
+      ],
+      "when_to_use": "Disambiguating 4 oft-confused architectural concepts (e.g., Taxonomy / Ontology / Semantic Model / Knowledge Graph; RAG / CAG / Fine-Tuning / Agents).",
+      "dynamic": "4 horizontal color-coded bands pairing a guiding question + definition with a concrete mini instance graph, converging at bottom",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-04 (4-Rung Concept + Mini-Graphs) \u2022 LI-50 (7524840702967611393 \u00b7 Suraj Negi \u2014 Taxonomy vs Ontology vs Semantic Model vs Knowledge Graph)",
+      "category": "Concept Disambiguation Matrix",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "VP / Principal Enterprise Architect \u2022 Executive Transformation & Forward-Deployed Advisory",
+      "best_for": "Disambiguating 4 oft-confused architectural concepts (e.g., Taxonomy / Ontology / Semantic Model / Knowledge Graph; RAG / CAG / Fine-Tuning / Agents).",
+      "inspired_by": "Suraj Negi (LI-50 \u00b7 Enterprise Knowledge Architecture) \u2022 Google Cloud Spanner Graph + BigQuery Semantic Layer + RDF/OWL",
+      "accent": "#1D4ED8",
+      "hot_topic": "Taxonomy vs. Ontology vs. Semantic Model vs. Knowledge Graph",
+      "grammar_id": "GRAMMAR-04",
+      "persona_id": "vp_principal_architect",
+      "org_id": "strategic_advisory_si",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T213.svg",
+        "gif": "T213.gif",
+        "png": "T213.png",
+        "drawio": "T213.drawio",
+        "pptx": "T213.pptx"
+      }
+    },
+    {
+      "id": "T214",
+      "name": "Generative GRAMMAR-05: From SKILL.md & YAML Manifest to Managed Agent Harness",
+      "best_for_short": "IDE Code + Runtime Hybrid",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "Staff+ SWE Builder",
+        "Cloud Hyperscaler"
+      ],
+      "when_to_use": "Developer tutorials, SKILL.md authoring guides, ADK/Foundry agent deployment flows, and SDK quickstarts.",
+      "dynamic": "Top dark IDE editors (SKILL.md + YAML manifest) + CLI terminal commands wired into managed runtime loop + 'Platform vs You Bring' bar",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-05 (IDE Code + Runtime Hybrid) \u2022 LI-51 (7524810540251066368 \u00b7 Rakesh Gohel \u2014 Build Your First Agent on the Copilot Harness)",
+      "category": "Code-to-Runtime Hybrid Blueprint",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "Staff+ IC / AI Systems Engineer \u2022 Cloud Hyperscaler & Platform Engineering",
+      "best_for": "Developer tutorials, SKILL.md authoring guides, ADK/Foundry agent deployment flows, and SDK quickstarts.",
+      "inspired_by": "Rakesh Gohel (LI-51 \u00b7 Build Your First Agent on the Copilot Harness) \u2022 Google ADK + Vertex AI Agent Engine + OpenHands",
+      "accent": "#0284C7",
+      "hot_topic": "From SKILL.md & YAML Manifest to Managed Agent Harness",
+      "grammar_id": "GRAMMAR-05",
+      "persona_id": "staff_swe_builder",
+      "org_id": "cloud_hyperscaler",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T214.svg",
+        "gif": "T214.gif",
+        "png": "T214.png",
+        "drawio": "T214.drawio",
+        "pptx": "T214.pptx"
+      }
+    },
+    {
+      "id": "T215",
+      "name": "Generative GRAMMAR-06: Data Model vs. Ontology: 6-Panel Executive Dossier & Ladder of Meaning",
+      "best_for_short": "6-Panel Concept Dossier",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "Principal Architect",
+        "Regulated Enterprise"
+      ],
+      "when_to_use": "Deep A-vs-B architectural comparisons (Data Model vs Ontology, Stateless API vs Stateful Runtime, SQL vs Graph).",
+      "dynamic": "3x2 executive dossier: Analogy Split + 7-Row Table + Closed/Open World + 5-Rung Ladder + 6-Step Flow + Combined Power Equation",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-06 (6-Panel Concept Dossier) \u2022 LI-53 (7524365452991725568 \u00b7 Prashant Rathi \u2014 Data Model vs Ontology: What's the Difference?)",
+      "category": "6-Panel Executive Dossier",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "VP / Principal Enterprise Architect \u2022 Regulated Enterprise (FinServ, Pharma, Healthcare)",
+      "best_for": "Deep A-vs-B architectural comparisons (Data Model vs Ontology, Stateless API vs Stateful Runtime, SQL vs Graph).",
+      "inspired_by": "Prashant Rathi (LI-53 \u00b7 Data Model vs Ontology) \u2022 Google Cloud Spanner Graph + AlloyDB + OWL/SHACL",
+      "accent": "#4F46E5",
+      "hot_topic": "Data Model vs. Ontology: 6-Panel Executive Dossier & Ladder of Meaning",
+      "grammar_id": "GRAMMAR-06",
+      "persona_id": "vp_principal_architect",
+      "org_id": "regulated_enterprise",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T215.svg",
+        "gif": "T215.gif",
+        "png": "T215.png",
+        "drawio": "T215.drawio",
+        "pptx": "T215.pptx"
+      }
+    },
+    {
+      "id": "T216",
+      "name": "Generative GRAMMAR-07: Agentic Product Management: 4-Stage Signal Funnel & Closed-Loop Delivery",
+      "best_for_short": "Inverted Funnel + Build Loop",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "Product & GTM",
+        "Frontier AI Startup"
+      ],
+      "when_to_use": "Agentic Product Management, autonomous backlog triage, human-in-the-loop prioritization gates, and continuous outcome measurement.",
+      "dynamic": "Wide 6-agent signal funnel narrowing through Rank & Cost to Human Gate A, then expanding to 3 build/measure stages with feedback bus",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-07 (Inverted Funnel + Build Loop) \u2022 LI-54 (7524444158783291392 \u00b7 Alex Bar\u00e1dy \u2014 How to Run Agentic Product Management)",
+      "category": "Inverted Funnel & Delivery Loop",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "VP Product / GTM & FDE Leader \u2022 AI-Native Frontier Lab / Hypergrowth Startup",
+      "best_for": "Agentic Product Management, autonomous backlog triage, human-in-the-loop prioritization gates, and continuous outcome measurement.",
+      "inspired_by": "Alex Bar\u00e1dy (LI-54 \u00b7 How to Run Agentic Product Management) \u2022 Google Cloud Vertex AI + Linear/Jira MCP + BigQuery",
+      "accent": "#059669",
+      "hot_topic": "Agentic Product Management: 4-Stage Signal Funnel & Closed-Loop Delivery",
+      "grammar_id": "GRAMMAR-07",
+      "persona_id": "product_gtm_leader",
+      "org_id": "frontier_ai_startup",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T216.svg",
+        "gif": "T216.gif",
+        "png": "T216.png",
+        "drawio": "T216.drawio",
+        "pptx": "T216.pptx"
+      }
+    },
+    {
+      "id": "T217",
+      "name": "Generative GRAMMAR-08: Dual-Path Agent Observability & OpenTelemetry Collector Zoom-In",
+      "best_for_short": "Dual-Path OTel Collector Zoom",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "Staff+ SWE Builder",
+        "Cloud Hyperscaler"
+      ],
+      "when_to_use": "Agent observability, OpenTelemetry pipelines, PII redaction, tail-sampling, Langfuse/Jaeger/Prometheus sinks, and trace-to-test loops.",
+      "dynamic": "Synchronous user request lane at top + zoomed-in 4-stage OTel Collector (Receive->Protect->Filter->Forward) + 3 stores + 4 KPI sparklines",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-08 (Dual-Path OTel Collector Zoom) \u2022 LI-55 (7524433958189588482 \u00b7 Raju Dandigam \u2014 Agent Observability Pipeline)",
+      "category": "Observability & OTel Pipeline",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "Staff+ IC / AI Systems Engineer \u2022 Cloud Hyperscaler & Platform Engineering",
+      "best_for": "Agent observability, OpenTelemetry pipelines, PII redaction, tail-sampling, Langfuse/Jaeger/Prometheus sinks, and trace-to-test loops.",
+      "inspired_by": "Raju Dandigam (LI-55 \u00b7 Agent Observability Pipeline) \u2022 Google Cloud Trace + OpenTelemetry + Langfuse + Jaeger + Prometheus",
+      "accent": "#D97706",
+      "hot_topic": "Dual-Path Agent Observability & OpenTelemetry Collector Zoom-In",
+      "grammar_id": "GRAMMAR-08",
+      "persona_id": "staff_swe_builder",
+      "org_id": "cloud_hyperscaler",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T217.svg",
+        "gif": "T217.gif",
+        "png": "T217.png",
+        "drawio": "T217.drawio",
+        "pptx": "T217.pptx"
+      }
+    },
+    {
+      "id": "T218",
+      "name": "Generative GRAMMAR-09: Development-Driven Specs (Quine) & Formal SHACL/OWL Ontology Soul",
+      "best_for_short": "Formal Logic & Spec Quine",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "Staff+ SWE Builder",
+        "Open-Source Ecosystem"
+      ],
+      "when_to_use": "Development-Driven Specs, literate programming agents, neuro-symbolic SHACL/OWL validation, and anti-'ontology washing' architectures.",
+      "dynamic": "Left formal axioms (SHACL/OWL + Literate Spec) vs Right shallow noise, feeding a 4-stage self-compiling Spec <-> Code Quine loop",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-09 (Formal Logic & Spec Quine) \u2022 LI-56 (7523165019518308352 \u00b7 Bill Cox \u2014 Ensemble) & LI-57 (7523812582110203904 \u00b7 Emeka Okoye \u2014 Ontology with a Soul)",
+      "category": "Formal Logic & Executable Specs",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "Staff+ IC / AI Systems Engineer \u2022 Open-Source Maintainer & Builder Community",
+      "best_for": "Development-Driven Specs, literate programming agents, neuro-symbolic SHACL/OWL validation, and anti-'ontology washing' architectures.",
+      "inspired_by": "Bill Cox (LI-56 \u00b7 waywardgeek/ensemble) & Emeka Okoye (LI-57 \u00b7 Ontology with a Soul) \u2022 Google Cloud Vertex AI + SHACL/RDF",
+      "accent": "#0D9488",
+      "hot_topic": "Development-Driven Specs (Quine) & Formal SHACL/OWL Ontology Soul",
+      "grammar_id": "GRAMMAR-09",
+      "persona_id": "staff_swe_builder",
+      "org_id": "open_source_ecosystem",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T218.svg",
+        "gif": "T218.gif",
+        "png": "T218.png",
+        "drawio": "T218.drawio",
+        "pptx": "T218.pptx"
+      }
+    },
+    {
+      "id": "T219",
+      "name": "Generative GRAMMAR-10: C.R.I.S.S.P. 3x6 Agentic SDLC Swimlane: AI Builds, Guards Prove, Human Decides",
+      "best_for_short": "3x6 Agentic SDLC Swimlane",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "CISO & Governance",
+        "Regulated Enterprise"
+      ],
+      "when_to_use": "Agentic SDLC governance, zero-AI deterministic CI/CD release gates, worktree isolation, and human approval boundaries.",
+      "dynamic": "6 horizontal SDLC columns (Discover->Plan->Build->Verify->Review->Release) crossed with 3 actor rows (AI Colleagues, Deterministic Guards, Human Owner)",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-10 (3x6 Agentic SDLC Swimlane) \u2022 LI-58 (7524186859921391616 \u00b7 Richard Edens \u2014 C.R.I.S.S.P. Agentic SDLC Framework)",
+      "category": "3x6 Governance Swimlane Matrix",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "CISO / AI Safety & Risk Officer \u2022 Regulated Enterprise (FinServ, Pharma, Healthcare)",
+      "best_for": "Agentic SDLC governance, zero-AI deterministic CI/CD release gates, worktree isolation, and human approval boundaries.",
+      "inspired_by": "Richard Edens (LI-58 \u00b7 C.R.I.S.S.P. Agentic SDLC) \u2022 Google Cloud Build + Binary Authorization + OpenHands",
+      "accent": "#7C3AED",
+      "hot_topic": "C.R.I.S.S.P. 3x6 Agentic SDLC Swimlane: AI Builds, Guards Prove, Human Decides",
+      "grammar_id": "GRAMMAR-10",
+      "persona_id": "ciso_governance",
+      "org_id": "regulated_enterprise",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T219.svg",
+        "gif": "T219.gif",
+        "png": "T219.png",
+        "drawio": "T219.drawio",
+        "pptx": "T219.pptx"
+      }
+    },
+    {
+      "id": "T220",
+      "name": "Generative GRAMMAR-11: Harness\u00b2 Concentric Frozen-Core & Recursive Scaffolding Synthesis",
+      "best_for_short": "Concentric Recursive Harness\u00b2",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "Staff+ SWE Builder",
+        "Frontier AI Startup"
+      ],
+      "when_to_use": "Recursive agent harnessing, test-time scaffolding synthesis, frozen-weights adaptation, and open-world task generalization.",
+      "dynamic": "Central frozen model weights core surrounded by Domain-Level and Task-Level dynamic scaffolding synthesis rings + 4 corner mutation cards",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-11 (Concentric Recursive Harness\u00b2) \u2022 LI-59 (7518045666653265921 \u00b7 Feroz Mulla \u2014 Google Research Harness\u00b2 Recursive Agent Harnessing)",
+      "category": "Concentric Recursive Architecture",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "Staff+ IC / AI Systems Engineer \u2022 AI-Native Frontier Lab / Hypergrowth Startup",
+      "best_for": "Recursive agent harnessing, test-time scaffolding synthesis, frozen-weights adaptation, and open-world task generalization.",
+      "inspired_by": "Feroz Mulla (LI-59 \u00b7 Google Research Harness\u00b2 arXiv:2604.08523) \u2022 Google Research + Vertex AI Gemini 4 Argon + OpenHands",
+      "accent": "#2563EB",
+      "hot_topic": "Harness\u00b2 Concentric Frozen-Core & Recursive Scaffolding Synthesis",
+      "grammar_id": "GRAMMAR-11",
+      "persona_id": "staff_swe_builder",
+      "org_id": "frontier_ai_startup",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T220.svg",
+        "gif": "T220.gif",
+        "png": "T220.png",
+        "drawio": "T220.drawio",
+        "pptx": "T220.pptx"
+      }
+    },
+    {
+      "id": "T221",
+      "name": "Generative GRAMMAR-12: Frontier AI Startup GTM Org-Ratio Tree (1 FDE : 1.5 AE) & 7-Stage Field Wave",
+      "best_for_short": "GTM Org-Ratio & FDE Wave",
+      "content_types": [
+        "Generative Visual Grammar",
+        "Best Tier",
+        "Product & GTM",
+        "Frontier AI Startup"
+      ],
+      "when_to_use": "AI startup GTM organization design, Forward Deployed Engineer (FDE) operating models, and enterprise field adoption playbooks.",
+      "dynamic": "Top 6-pillar GTM headcount ratio tree (+126 AEs : +92 FDEs) paired with a 7-stage Forward Deployed Engineer field execution wave",
+      "lineage": "Autonomous Visual Grammar GRAMMAR-12 (GTM Org-Ratio & FDE Wave) \u2022 LI-60 (7524126113162330112 \u00b7 Feroz Mulla \u2014 Cognition GTM Org) & LI-34 (7524104105531752448 \u00b7 Naman Pandey \u2014 FDE Guide)",
+      "category": "GTM Org Topology & FDE Playbook",
+      "quality_tier": "Best",
+      "rendering_tech": "Autonomous Generative Layout IR + Zero-Origin W3C SVG + Draw.io XML (@2x Retina)",
+      "audience": "VP Product / GTM & FDE Leader \u2022 AI-Native Frontier Lab / Hypergrowth Startup",
+      "best_for": "AI startup GTM organization design, Forward Deployed Engineer (FDE) operating models, and enterprise field adoption playbooks.",
+      "inspired_by": "Feroz Mulla (LI-60 \u00b7 Cognition GTM Org) & Naman Pandey (LI-34 \u00b7 FDE Quick Guide) \u2022 Google Cloud Consulting + Vertex AI + LangGraph",
+      "accent": "#DC2626",
+      "hot_topic": "Frontier AI Startup GTM Org-Ratio Tree (1 FDE : 1.5 AE) & 7-Stage Field Wave",
+      "grammar_id": "GRAMMAR-12",
+      "persona_id": "product_gtm_leader",
+      "org_id": "frontier_ai_startup",
+      "google_slides_id": "1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY",
+      "google_slides_url": "https://docs.google.com/presentation/d/1vY7Fji2pmT5LKgK0U2NDEqUBaMyaCJhbpyUyyU7lXYY/edit",
+      "files": {
+        "svg": "T221.svg",
+        "gif": "T221.gif",
+        "png": "T221.png",
+        "drawio": "T221.drawio",
+        "pptx": "T221.pptx"
+      }
     }
   ]
 }

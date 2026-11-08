@@ -86,13 +86,13 @@ class TestIdeasMiningFactory(unittest.TestCase):
 
     def test_template_gallery_renders_116_certified_templates_and_23_t79_topic_posts(self) -> None:
         summary = get_gallery_summary()
-        self.assertEqual(summary["template_count"], 116)
-        self.assertEqual(summary["best_count"], 72)
+        self.assertEqual(summary["template_count"], 128)
+        self.assertEqual(summary["best_count"], 84)
         self.assertEqual(summary["high_count"], 44)
         self.assertEqual(summary["medium_low_worst_count"], 0)
         self.assertEqual(summary["t79_topic_posts_count"], 23)
-        self.assertEqual(len(TEMPLATE_META), 116)
-        self.assertEqual(len(list_templates()), 116)
+        self.assertEqual(len(TEMPLATE_META), 128)
+        self.assertEqual(len(list_templates()), 128)
 
         all_renderable_ids = list(TEMPLATE_META.keys()) + [tp["id"] for tp in TOPIC_POSTS_T79]
         for tid in all_renderable_ids:
@@ -191,8 +191,8 @@ class TestIdeasMiningFactory(unittest.TestCase):
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["signal_channels"]), 6)
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["diagram_archetypes_2d"]), 4)
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["presentation_archetypes_12"]), 12)
-        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["creator_profiles"]), 47)
-        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["reviewed_posts"]), 46)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["creator_profiles"]), 55)
+        self.assertEqual(len(CREATOR_MINING_PLAYBOOK["reviewed_posts"]), 60)
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["omnichannel_platforms"]), 10)
         self.assertEqual(len(CREATOR_MINING_PLAYBOOK["x_ecosystem_leaders"]), 15)
         self.assertEqual(len(MINED_TEMPLATE_POSTS_CATALOG), 16)
@@ -203,9 +203,9 @@ class TestIdeasMiningFactory(unittest.TestCase):
         public_posts = [p for p in CREATOR_MINING_PLAYBOOK["reviewed_posts"] if p["availability"] == "PUBLIC_VERIFIED"]
         restricted_posts = [p for p in CREATOR_MINING_PLAYBOOK["reviewed_posts"] if p["availability"] != "PUBLIC_VERIFIED"]
         gif_posts = [p for p in public_posts if p.get("gif_url")]
-        self.assertEqual(len(public_posts), 44)
+        self.assertEqual(len(public_posts), 58)
         self.assertEqual(len(restricted_posts), 2)
-        self.assertEqual(len(gif_posts), 10)
+        self.assertEqual(len(gif_posts), 16)
         for p in public_posts:
             img_path = repo_root / p["image_url"].lstrip("/")
             self.assertTrue(img_path.exists() and img_path.stat().st_size > 1000, f"Missing post image: {img_path}")
@@ -449,6 +449,56 @@ class TestIdeasMiningFactory(unittest.TestCase):
             self.assertIn("#F8FAFC", svg_light)
             self.assertIn("#0B1120", svg_dark)
             self.assertIn("Google Cloud Agentic Architecture Engineering", svg_light)
+
+    def test_autonomous_generative_visual_grammar_and_360_persona_org_matrix(self) -> None:
+        from src.visuals.generative_template_synthesizer import (
+            auto_select_visual_grammar,
+            get_generative_matrix_catalog,
+            synthesize_generative_template_drawio,
+            synthesize_generative_template_svg,
+        )
+
+        cat = get_generative_matrix_catalog()
+        self.assertEqual(cat["status"], "ok")
+        self.assertEqual(cat["grammars_count"], 12)
+        self.assertEqual(cat["personas_count"], 6)
+        self.assertEqual(cat["organizations_count"], 5)
+        self.assertEqual(cat["total_tailored_combinations"], 360)
+
+        sel_finops = auto_select_visual_grammar(
+            "Framework to use AI without overspending and cut zombie license costs",
+            persona_id="c_suite_board",
+            org_id="regulated_enterprise",
+        )
+        self.assertEqual(sel_finops["selected_grammar"]["id"], "GRAMMAR-02")
+        self.assertEqual(sel_finops["selected_grammar"]["template_id"], "T211")
+
+        sel_sdlc = auto_select_visual_grammar(
+            "C.R.I.S.S.P. agentic SDLC where AI builds, guards prove, and a person decides",
+            persona_id="ciso_governance",
+            org_id="regulated_enterprise",
+        )
+        self.assertEqual(sel_sdlc["selected_grammar"]["id"], "GRAMMAR-10")
+        self.assertEqual(sel_sdlc["selected_grammar"]["template_id"], "T219")
+
+        svg_out = synthesize_generative_template_svg(
+            {
+                "topic": "Taxonomy vs Ontology vs Semantic Model vs Knowledge Graph",
+                "persona_id": "vp_principal_architect",
+                "org_id": "strategic_advisory_si",
+            }
+        )
+        drawio_out = synthesize_generative_template_drawio(
+            {
+                "topic": "Taxonomy vs Ontology vs Semantic Model vs Knowledge Graph",
+                "persona_id": "vp_principal_architect",
+                "org_id": "strategic_advisory_si",
+            }
+        )
+        ET.fromstring(svg_out)
+        ET.fromstring(drawio_out)
+        self.assertTrue(audit_zero_origin_svg(svg_out)["passed"])
+        self.assertIn("<mxGraphModel", drawio_out)
 
 
 if __name__ == "__main__":

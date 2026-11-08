@@ -348,7 +348,7 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
         gallery_dir = WORKSPACE_ROOT / "assets" / "template-gallery"
         manifest = json.loads((gallery_dir / "gallery_manifest.json").read_text(encoding="utf-8"))
         templates = manifest.get("templates", [])
-        self.assertEqual(len(templates), 116)
+        self.assertEqual(len(templates), 128)
 
         all_checked_ids = []
         for t in templates:
@@ -380,7 +380,7 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
                 self.assertTrue((gallery_dir / tp["files"]["drawio"]).exists())
                 self.assertTrue((gallery_dir / tp["files"]["pptx"]).exists())
 
-        self.assertEqual(len(all_checked_ids), 139)
+        self.assertEqual(len(all_checked_ids), 151)
 
         for preset_id in ("FLOW-01", "FLOW-02", "FLOW-03", "FLOW-04"):
             bundle = render_step_flow_bundle(preset_id=preset_id, theme="light", compile_gif=False)

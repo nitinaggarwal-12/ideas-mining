@@ -1,22 +1,22 @@
-"""Holistic 46-Post LinkedIn Audit (including 10 Animated 4:5 GIF89a Infographics), 47-Creator Portfolios & 10-Platform Omnichannel Social Intelligence."""
+"""Holistic 60-Post LinkedIn Audit (including 16 Animated 4:5 GIF89a Infographics), 55-Creator Portfolios & 10-Platform Omnichannel Social Intelligence."""
 from typing import Any, Dict, List
 
-AUDIT_SUMMARY_STATS: Dict[str, Any] = {'requested_posts_count': 46,
- 'public_harvested_posts_count': 44,
+AUDIT_SUMMARY_STATS: Dict[str, Any] = {'requested_posts_count': 60,
+ 'public_harvested_posts_count': 58,
  'restricted_posts_count': 2,
  'restricted_activity_ids': ['7523072102111879168', '7522268397041287170'],
- 'unique_batch_authors_count': 36,
+ 'unique_batch_authors_count': 44,
  'foundational_creators_count': 16,
- 'newly_profiled_creators_count': 31,
- 'unified_creators_count': 47,
- 'total_reactions': 21109,
- 'total_comments': 3384,
- 'weighted_discussion_ratio_pct': 16.0,
+ 'newly_profiled_creators_count': 39,
+ 'unified_creators_count': 55,
+ 'total_reactions': 23916,
+ 'total_comments': 4007,
+ 'weighted_discussion_ratio_pct': 16.8,
  'omnichannel_platforms_count': 10,
  'presentation_archetypes_count': 12,
  'signal_channels_count': 6,
  'x_ecosystem_leaders_count': 15,
- 'animated_gif_posts_count': 10}
+ 'animated_gif_posts_count': 16}
 
 PRESENTATION_ARCHETYPES_12: List[Dict[str, Any]] = [{'code': 'PRES-01',
   'name': 'Pilot Illusion vs. Production Reality Split',
@@ -3350,7 +3350,7 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'hook_line_1': 'AI Engineers build models. Forward Deployed Engineers make them work in the real '
                  'world.',
   'hook_formula': "Role Contrast ('AI Engineers build models. FDEs make them work in production.') "
-                  '-> 7-Stage FDE Loop + 6-Spoke Animated Mind-Map',
+                  '→ 7-Stage FDE Loop + 6-Spoke Animated Mind-Map',
   'content_structure': '1080x1350 animated GIF89a mind-map with flowing signal dots connecting a '
                        'central FDE hub to 6 operational spokes (Core Role, Key Responsibilities, '
                        'Technical Stack, Core Skills, FDE vs AI Eng, 7-Step Workflow) + 4-company '
@@ -3415,7 +3415,29 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                '→ Enable long-term ownership.\n'
                '\n'
                'Would you rather build AI products or work directly with enterprises to deploy '
-               'them?'},
+               'them?',
+  'hook_3_lines': 'AI Engineers build models. Forward Deployed Engineers make them work in the '
+                  'real world.\n'
+                  'And companies like OpenAI, Anthropic, and Palantir are investing in this role.\n'
+                  'Why?',
+  'structural_takeaways': ["Opening Hook (Role Contrast ('AI Engineers build models. FDEs make "
+                           "them work in production.') → 7-Stage FDE Loop + 6-Spoke Animated "
+                           "Mind-Map): Front-loads tension in 87 chars before LinkedIn's '…see "
+                           "more' fold.",
+                           'Visual Container (PRES-09 · 1:1 / 4:5 Radial Topology): 1080x1350 '
+                           'animated GIF89a mind-map with flowing signal dots connecting a central '
+                           'FDE hub to 6 operational spokes (Core Role, Key Responsibilities, '
+                           'Technical Stack, Core Skills, FDE vs AI Eng, 7-Step Workflow) + '
+                           '4-company comparison table (Palantir, OpenAI, Anthropic, Scale AI).',
+                           'Engagement Signal (107 reactions · 54 comments · 50.5% ratio): Driven '
+                           'by Career Choice Question (Build AI products vs Deploy with '
+                           'enterprises) and direct Studio Blueprint T75 isomorphism.'],
+  'mentor_review': 'Exceptional 50.5% discussion-to-reaction ratio (54 comments on 107 reactions): '
+                   'Naman Pandey pairs PRES-09 visual contrast with an opinionated practitioner '
+                   'trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T75 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
  {'index': 35,
   'post_code': 'LI-35',
   'activity_id': '7515966494426427392',
@@ -3439,8 +3461,8 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'presentation_archetype_code': 'PRES-12',
   'presentation_archetype_label': 'Live Execution Video, Skill-Tree & Evaluation Ledger',
   'hook_line_1': 'We spent over 1,000 hours with Google Gemini 4 Argon before launch 🔥',
-  'hook_formula': "Insider Pre-Launch Proof ('1,000+ hours with Gemini 4 Argon') -> #1 Vals Index "
-                  '+ 10 Real Demos + ADK Overnight Optimization (+40% session prep, +35% code '
+  'hook_formula': "Insider Pre-Launch Proof ('1,000+ hours with Gemini 4 Argon') → #1 Vals Index + "
+                  '10 Real Demos + ADK Overnight Optimization (+40% session prep, +35% code '
                   'submissions)',
   'content_structure': 'Combines a bold dark launch card ("Google Cloud Gemini 4 Argon") with 7 '
                        'concrete cross-Google demos and an internal ADK-Python overnight harness '
@@ -3484,7 +3506,30 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                'Rolling out globally today in the Gemini API, Google AI Studio, Google '
                'Antigravity, and the Gemini app.\n'
                '\n'
-               'Watch the full video in the comments.'},
+               'Watch the full video in the comments.',
+  'hook_3_lines': 'We spent over 1,000 hours with Google Gemini 4 Argon before launch 🔥\n'
+                  "It's now LIVE, and Smitha Kolan and I put together the 10 demos that stood out "
+                  'most from teams across Google.\n'
+                  'Argon ranks #1 on the Vals Index, which measures how models handle real work '
+                  'across finance, coding, legal, and tax.',
+  'structural_takeaways': ["Opening Hook (Insider Pre-Launch Proof ('1,000+ hours with Gemini 4 "
+                           "Argon') → #1 Vals Index + 10 Real Demos + ADK Overnight Optimization "
+                           '(+40% session prep, +35% code submissions)): Front-loads tension in 68 '
+                           "chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-12 · 16:9 Live Screencast / 4:5 Pipeline Map): '
+                           'Combines a bold dark launch card ("Google Cloud Gemini 4 Argon") with '
+                           '7 concrete cross-Google demos and an internal ADK-Python overnight '
+                           'harness run that sped up session prep by 40% and cold imports by 21%.',
+                           'Engagement Signal (669 reactions · 71 comments · 10.6% ratio): Driven '
+                           'by Timestamped Demo Video in Comments and direct Studio Blueprint T69 '
+                           'isomorphism.'],
+  'mentor_review': 'Breakout 669-reaction reach outlier: Shubham Saboo combines immediate 3-second '
+                   'visual comprehension (Live Execution Video, Skill-Tree & Evaluation Ledger) '
+                   'with high bookmark/save utility (71 comments).',
+  'critic_review': 'High save velocity but 10.6% comment ratio leaves algorithmic depth on the '
+                   'table — replace generic closing tags with a concrete A-vs-B architectural '
+                   'failure question, and mirror onto X with the T69 diagram + Reply #2 repo '
+                   'link.'},
  {'index': 36,
   'post_code': 'LI-36',
   'activity_id': '7515384890612371456',
@@ -3510,7 +3555,7 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'presentation_archetype_label': 'Hub-and-Spoke Concentric Ring & Mind-Map',
   'hook_line_1': "MCP, A2A, and APIs get compared like they're competing for the same job. They're "
                  'not.',
-  'hook_formula': "False-Competition Reframe ('MCP, A2A, and APIs aren't competing') -> 3-Circle "
+  'hook_formula': "False-Competition Reframe ('MCP, A2A, and APIs aren't competing') → 3-Circle "
                   'Animated Venn Diagram + Pairwise Overlap Callouts (72.5% discussion ratio!)',
   'content_structure': '1080x1350 animated GIF89a Venn diagram with rotating dashed rings mapping '
                        'MCP (AI-to-Tools/Context), A2A (Agent-to-Agent Collaboration), and APIs '
@@ -3548,7 +3593,33 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                'overlap and where they hand off to each other.\n'
                '\n'
                'Which of these three do you think is most misunderstood right now?\n'
-               'Based on 8+ years advising enterprises on cloud and AI. Views are my own.'},
+               'Based on 8+ years advising enterprises on cloud and AI. Views are my own.',
+  'hook_3_lines': "MCP, A2A, and APIs get compared like they're competing for the same job. "
+                  "They're not.\n"
+                  'The confusion usually starts when we blur three different responsibilities: '
+                  'connecting AI to tools and context, coordinating agents, and executing '
+                  'deterministic application actions.\n'
+                  '→ MCP sits closer to the model. It gives AI systems structured access to tools, '
+                  'resources, and context.',
+  'structural_takeaways': ["Opening Hook (False-Competition Reframe ('MCP, A2A, and APIs aren't "
+                           "competing') → 3-Circle Animated Venn Diagram + Pairwise Overlap "
+                           'Callouts (72.5% discussion ratio!)): Front-loads tension in 85 chars '
+                           "before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-09 · 1:1 / 4:5 Radial Topology): 1080x1350 '
+                           'animated GIF89a Venn diagram with rotating dashed rings mapping MCP '
+                           '(AI-to-Tools/Context), A2A (Agent-to-Agent Collaboration), and APIs '
+                           '(Application & System Execution) converging at the "Integration Sweet '
+                           'Spot".',
+                           'Engagement Signal (51 reactions · 37 comments · 72.5% ratio): Driven '
+                           'by Practitioner Poll Question ("Which of these three is most '
+                           'misunderstood right now?") and direct Studio Blueprint T76 '
+                           'isomorphism.'],
+  'mentor_review': 'Exceptional 72.5% discussion-to-reaction ratio (37 comments on 51 reactions): '
+                   'Gautami Nadkarni pairs PRES-09 visual contrast with an opinionated '
+                   'practitioner trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T76 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
  {'index': 37,
   'post_code': 'LI-37',
   'activity_id': '7524093365588639744',
@@ -3575,7 +3646,7 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'hook_line_1': 'Everyone wants to implement AI. But why do so many companies struggle to scale '
                  'it?',
   'hook_formula': "Scale Gap ('Building a chatbot takes days; scaling an AI enterprise takes 16 "
-                  "stages') -> Progressive 16-Stage Diagonal Staircase GIF89a (101.5% comment "
+                  "stages') → Progressive 16-Stage Diagonal Staircase GIF89a (101.5% comment "
                   'ratio!)',
   'content_structure': '9.03-second 301-frame animated GIF89a where stages 01 through 16 '
                        'progressively materialize up a diagonal trajectory across 4 phases '
@@ -3630,7 +3701,29 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                'stages.\n'
                '\n'
                'Which of these 16 stages do you think presents the biggest challenge for '
-               'enterprises adopting AI?'},
+               'enterprises adopting AI?',
+  'hook_3_lines': 'Everyone wants to implement AI. But why do so many companies struggle to scale '
+                  'it?\n'
+                  'Building an AI chatbot takes days.\n'
+                  'Turning an entire organization into an AI-powered enterprise?',
+  'structural_takeaways': ["Opening Hook (Scale Gap ('Building a chatbot takes days; scaling an AI "
+                           "enterprise takes 16 stages') → Progressive 16-Stage Diagonal Staircase "
+                           'GIF89a (101.5% comment ratio!)): Front-loads tension in 82 chars '
+                           "before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-01 · 4:5 Portrait Infographic): 9.03-second '
+                           '301-frame animated GIF89a where stages 01 through 16 progressively '
+                           'materialize up a diagonal trajectory across 4 phases (Foundation 1-4, '
+                           'Readiness 5-8, Build 9-12, Scale 13-16) anchored by a full-width AI '
+                           'Governance footer bar (NIST AI RMF, ISO 42001, EU AI Act).',
+                           'Engagement Signal (65 reactions · 66 comments · 101.5% ratio): Driven '
+                           'by 16-Stage Bottleneck Question ("Which of these 16 stages presents '
+                           'the biggest challenge?") and direct Studio Blueprint T73 isomorphism.'],
+  'mentor_review': 'Exceptional 101.5% discussion-to-reaction ratio (66 comments on 65 reactions): '
+                   'Prashant Rathi pairs PRES-01 visual contrast with an opinionated practitioner '
+                   'trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T73 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
  {'index': 38,
   'post_code': 'LI-38',
   'activity_id': '7524121227024662529',
@@ -3655,8 +3748,8 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'presentation_archetype_code': 'PRES-04',
   'presentation_archetype_label': 'Numbered Micro-Flow Card Grid & Diagnostic Matrix',
   'hook_line_1': 'Your AI Agent can think. But can it actually be trusted to act?',
-  'hook_formula': "Trust Gap ('Your AI Agent can think. Can it be trusted to act?') -> 2x3 "
-                  'Animated Bento Grid of 6 AI Harness Primitives',
+  'hook_formula': "Trust Gap ('Your AI Agent can think. Can it be trusted to act?') → 2x3 Animated "
+                  'Bento Grid of 6 AI Harness Primitives',
   'content_structure': '1080x1350 animated GIF89a 2x3 bento grid showing 01 Agent Loop '
                        '(Think->Act->Observe), 02 Tool Calling (with JSON payload snippet), 03 '
                        'Context Management (80K/128K token budget bar), 04 Checkpointing '
@@ -3712,7 +3805,28 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                '→ Route risky decisions for human approval.\n'
                '\n'
                'Which of these 6 concepts would you prioritize when building an enterprise AI '
-               'Agent?'},
+               'Agent?',
+  'hook_3_lines': 'Your AI Agent can think. But can it actually be trusted to act?\n'
+                  'Building an AI Agent is easy.\n'
+                  'Give an LLM a prompt, connect a few tools, and suddenly it can search, write '
+                  'code, and execute tasks.',
+  'structural_takeaways': ["Opening Hook (Trust Gap ('Your AI Agent can think. Can it be trusted "
+                           "to act?') → 2x3 Animated Bento Grid of 6 AI Harness Primitives): "
+                           "Front-loads tension in 63 chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-04 · 4:5 Structured Table / 2x3 Grid): '
+                           '1080x1350 animated GIF89a 2x3 bento grid showing 01 Agent Loop '
+                           '(Think->Act->Observe), 02 Tool Calling (with JSON payload snippet), 03 '
+                           'Context Management (80K/128K token budget bar), 04 Checkpointing '
+                           '(S1->S2->S3 resume), 05 Permissions & Sandboxing, and 06 Guardrails.',
+                           'Engagement Signal (100 reactions · 39 comments · 39.0% ratio): Driven '
+                           'by 6-Concept Priority Question ("Which of these 6 concepts would you '
+                           'prioritize?") and direct Studio Blueprint T81 isomorphism.'],
+  'mentor_review': 'Exceptional 39.0% discussion-to-reaction ratio (39 comments on 100 reactions): '
+                   'Greg Coquillo pairs PRES-04 visual contrast with an opinionated practitioner '
+                   'trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T81 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
  {'index': 39,
   'post_code': 'LI-39',
   'activity_id': '7524078706533834753',
@@ -3738,7 +3852,7 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'presentation_archetype_label': 'Numbered Micro-Flow Card Grid & Diagnostic Matrix',
   'hook_line_1': 'Not all knowledge structures are created equal.',
   'hook_formula': "Disambiguation Hook ('Taxonomy, Ontology, Semantic Model, or Knowledge Graph?') "
-                  '-> 4-Column Animated Topology + 6x4 Comparison Matrix (68.4% discussion ratio!)',
+                  '→ 4-Column Animated Topology + 6x4 Comparison Matrix (68.4% discussion ratio!)',
   'content_structure': 'Hybrid 2-tier 1080x1350 animated GIF89a: top half renders 4 side-by-side '
                        'structural diagrams with pulsing signal nodes; bottom half renders a 6-row '
                        'x 4-column comparison table (Primary Purpose, Core Structure, Key Question '
@@ -3783,7 +3897,29 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                'Best for recommendations, fraud detection, enterprise search, and GraphRAG '
                'applications.\n'
                '\n'
-               'Save this guide for your next AI or data engineering project.'},
+               'Save this guide for your next AI or data engineering project.',
+  'hook_3_lines': 'Not all knowledge structures are created equal.\n'
+                  'Taxonomy, Ontology, Semantic Models, and Knowledge Graphs may sound similar, '
+                  'but each solves a different problem in building intelligent AI systems.\n'
+                  'Here is a practical breakdown for AI engineers:',
+  'structural_takeaways': ["Opening Hook (Disambiguation Hook ('Taxonomy, Ontology, Semantic "
+                           "Model, or Knowledge Graph?') → 4-Column Animated Topology + 6x4 "
+                           'Comparison Matrix (68.4% discussion ratio!)): Front-loads tension in '
+                           "47 chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-04 · 4:5 Structured Table / 2x3 Grid): Hybrid '
+                           '2-tier 1080x1350 animated GIF89a: top half renders 4 side-by-side '
+                           'structural diagrams with pulsing signal nodes; bottom half renders a '
+                           '6-row x 4-column comparison table (Primary Purpose, Core Structure, '
+                           'Key Question Answered, Complexity, Best For, AI Role).',
+                           'Engagement Signal (114 reactions · 78 comments · 68.4% ratio): Driven '
+                           'by Save-This-Guide Bookmark Prompt and direct Studio Blueprint T71 '
+                           'isomorphism.'],
+  'mentor_review': 'Exceptional 68.4% discussion-to-reaction ratio (78 comments on 114 reactions): '
+                   'Gautami Nadkarni pairs PRES-04 visual contrast with an opinionated '
+                   'practitioner trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T71 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
  {'index': 40,
   'post_code': 'LI-40',
   'activity_id': '7523842430933139456',
@@ -3808,8 +3944,8 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'presentation_archetype_label': 'Raw Primary-Artifact Proof Crop (GitHub / arXiv)',
   'hook_line_1': '🛑 Stop using long contexts, for FLOPs sake! Long context is expensive. Output '
                  'tokens cost 3.6-7x more at a 256k context window than at 16k.',
-  'hook_formula': "FLOPs Cost Shock ('Output tokens cost 3.6-7x more at 256K vs 16K') -> NVIDIA "
-                  'arXiv:2611.05306v1 Page-1 Curve -> 3 Compaction Rules + SSSMs',
+  'hook_formula': "FLOPs Cost Shock ('Output tokens cost 3.6-7x more at 256K vs 16K') → NVIDIA "
+                  'arXiv:2611.05306v1 Page-1 Curve → 3 Compaction Rules + SSSMs',
   'content_structure': 'Authentic first-page screenshot of NVIDIA Research paper "You don\'t need '
                        'long context" (arXiv:2611.05306v1) with Figure 1 plotting normalized '
                        'decode cost per token (1x at 16K rising to 3.6x-7x at 256K across GLM 5.2, '
@@ -3845,7 +3981,31 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                'Ultimately, there is no such thing as a long-context task, there is only lazy '
                'engineering.\n'
                '\n'
-               'Paper: https://lnkd.in/gAmjFBEw'},
+               'Paper: https://lnkd.in/gAmjFBEw',
+  'hook_3_lines': '🛑 Stop using long contexts, for FLOPs sake!\n'
+                  'Long context is expensive. Output tokens cost 3.6-7x more at a 256k context '
+                  'window than at 16k.\n'
+                  'We celebrate million-token context windows, but are we even using the first 16k '
+                  'well?',
+  'structural_takeaways': ["Opening Hook (FLOPs Cost Shock ('Output tokens cost 3.6-7x more at "
+                           "256K vs 16K') → NVIDIA arXiv:2611.05306v1 Page-1 Curve → 3 Compaction "
+                           "Rules + SSSMs): Front-loads tension in 43 chars before LinkedIn's "
+                           "'…see more' fold.",
+                           'Visual Container (PRES-06 · 16:9 / 4:5 Authentic Artifact Screenshot): '
+                           'Authentic first-page screenshot of NVIDIA Research paper "You don\'t '
+                           'need long context" (arXiv:2611.05306v1) with Figure 1 plotting '
+                           'normalized decode cost per token (1x at 16K rising to 3.6x-7x at 256K '
+                           'across GLM 5.2, Kimi K2.6, Qwen 3 Coder Next).',
+                           'Engagement Signal (219 reactions · 21 comments · 9.6% ratio): Driven '
+                           'by Direct arXiv Paper Link + Provocative Thesis Close ("There is no '
+                           'such thing as a long-context task, only lazy engineering") and direct '
+                           'Studio Blueprint T72 isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (219 reactions, 9.6% discussion): clean '
+                   'PRES-06 visual hierarchy anchors every paragraph of the 1,396-char copy.',
+  'critic_review': 'High save velocity but 9.6% comment ratio leaves algorithmic depth on the '
+                   'table — replace generic closing tags with a concrete A-vs-B architectural '
+                   'failure question, and mirror onto X with the T72 diagram + Reply #2 repo '
+                   'link.'},
  {'index': 41,
   'post_code': 'LI-41',
   'activity_id': '7523949739776569344',
@@ -3870,7 +4030,7 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'presentation_archetype_label': 'Dark Neon End-to-End Identity & Trace Blueprint',
   'hook_line_1': 'Your AI agent can use an approved tool to perform an unapproved action.',
   'hook_formula': "TOCTOU Security Paradox ('Approved tool, unapproved action: Artifact A staging "
-                  "-> Artifact B prod') -> 12s Animated AgentCore Temporal Policy Gateway GIF89a",
+                  "→ Artifact B prod') → 12s Animated AgentCore Temporal Policy Gateway GIF89a",
   'content_structure': '12-second 180-frame dark-neon 1080x1350 GIF89a showing "The Mismatch" '
                        '(Human Approved Artifact A staging != Agent Requested Artifact B prod), '
                        'AgentCore Gateway Enforcement Point, 4 temporal policy checks, DENY vs '
@@ -3914,7 +4074,28 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                '● A fresh approval when the previous one has already been used.\n'
                '\n'
                'Where would your system catch that change: the agent, the gateway, or the '
-               'deployment service?'},
+               'deployment service?',
+  'hook_3_lines': 'Your AI agent can use an approved tool to perform an unapproved action.\n'
+                  'That is the failure mode I would put in an architecture review.\n'
+                  'Consider a deployment agent.',
+  'structural_takeaways': ["Opening Hook (TOCTOU Security Paradox ('Approved tool, unapproved "
+                           "action: Artifact A staging → Artifact B prod') → 12s Animated "
+                           'AgentCore Temporal Policy Gateway GIF89a): Front-loads tension in 71 '
+                           "chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-05 · 4:5 High-Contrast Dark Poster): 12-second '
+                           '180-frame dark-neon 1080x1350 GIF89a showing "The Mismatch" (Human '
+                           'Approved Artifact A staging != Agent Requested Artifact B prod), '
+                           'AgentCore Gateway Enforcement Point, 4 temporal policy checks, DENY vs '
+                           'ALLOW branches, and 3 Built-In Control cards.',
+                           'Engagement Signal (522 reactions · 146 comments · 28.0% ratio): Driven '
+                           'by 3-Layer Architecture Question ("Where would your system catch that '
+                           'change: the agent, the gateway, or the deployment service?") and '
+                           'direct Studio Blueprint T85 isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (522 reactions, 28.0% discussion): clean '
+                   'PRES-05 visual hierarchy anchors every paragraph of the 1,762-char copy.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T85 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
  {'index': 42,
   'post_code': 'LI-42',
   'activity_id': '7523583998380539905',
@@ -3940,8 +4121,8 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'presentation_archetype_label': 'Engineering Spec Sheet + Cognitive/Hardware Analogy',
   'hook_line_1': 'KV Caching Explained: Ever wondered how LLMs remember thousands of tokens '
                  'without processing everything from scratch every time?',
-  'hook_formula': "First-Principles Explainer ('What is KV caching?') -> Animated Token Grid (15 "
-                  'vs 5 K/V computations = 3.0x less work) + Llama 3 8B 128 KiB/token VRAM Bar',
+  'hook_formula': "First-Principles Explainer ('What is KV caching?') → Animated Token Grid (15 vs "
+                  '5 K/V computations = 3.0x less work) + Llama 3 8B 128 KiB/token VRAM Bar',
   'content_structure': 'Warm editorial cream (#f7f4eb) 11-second animated GIF89a stepping '
                        'row-by-row through "The cat sat on the mat and ran" Without a Cache (15 '
                        'recomputations) vs With a KV Cache (5 computations), plus a live filling '
@@ -3978,7 +4159,31 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                'techniques like MQA, GQA, PagedAttention, and Prefix Caching play an important '
                'role in making LLM inference more efficient.\n'
                '\n'
-               'Check out the document attached in the comment. 👇'},
+               'Check out the document attached in the comment. 👇',
+  'hook_3_lines': 'KV Caching Explained\n'
+                  'Ever wondered how LLMs remember thousands of tokens without processing '
+                  'everything from scratch every time?\n'
+                  "That's where KV Caching comes in.",
+  'structural_takeaways': ["Opening Hook (First-Principles Explainer ('What is KV caching?') → "
+                           'Animated Token Grid (15 vs 5 K/V computations = 3.0x less work) + '
+                           'Llama 3 8B 128 KiB/token VRAM Bar): Front-loads tension in 20 chars '
+                           "before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-08 · 4:5 Editorial Spec Sheet): Warm editorial '
+                           'cream (#f7f4eb) 11-second animated GIF89a stepping row-by-row through '
+                           '"The cat sat on the mat and ran" Without a Cache (15 recomputations) '
+                           'vs With a KV Cache (5 computations), plus a live filling VRAM bar (2 x '
+                           '32 layers x 8 KV heads x 128 dim x 2 bytes = 128 KiB/token = 0.63 GiB '
+                           'at 5,171 tokens).',
+                           'Engagement Signal (602 reactions · 30 comments · 5.0% ratio): Driven '
+                           'by Attached Deep-Dive Document in First Comment + Cross-Platform '
+                           '@techwith_ram Footer and direct Studio Blueprint T84 isomorphism.'],
+  'mentor_review': 'Breakout 602-reaction reach outlier: Ramakrushna Mohapatra combines immediate '
+                   '3-second visual comprehension (Engineering Spec Sheet + Cognitive/Hardware '
+                   'Analogy) with high bookmark/save utility (30 comments).',
+  'critic_review': 'High save velocity but 5.0% comment ratio leaves algorithmic depth on the '
+                   'table — replace generic closing tags with a concrete A-vs-B architectural '
+                   'failure question, and mirror onto X with the T84 diagram + Reply #2 repo '
+                   'link.'},
  {'index': 43,
   'post_code': 'LI-43',
   'activity_id': '7523725600822321153',
@@ -4004,11 +4209,11 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'presentation_archetype_label': 'Side-by-Side A-vs-B Showdown & YES/NO Decision Tree',
   'hook_line_1': 'MLOps and AI app operations are not the same.',
   'hook_formula': "Isomorphic Architecture Contrast ('MLOps and AI app operations are not the "
-                  "same') -> Top/Bottom Mirrored Pipeline GIF89a (95.3% discussion ratio!)",
-  'content_structure': '1080x1350 animated GIF89a placing MLOps (top: Feature store -> '
-                       'Spark/Airflow -> MLflow -> KServe/BentoML -> Evidently drift trigger) '
-                       'directly above AIOps/LLMOps (bottom: pgvector/Pinecone -> Index Refresh -> '
-                       'Ragas/Promptfoo Eval Gates -> LLM Gateway -> Hallucination/Cost trigger) '
+                  "same') → Top/Bottom Mirrored Pipeline GIF89a (95.3% discussion ratio!)",
+  'content_structure': '1080x1350 animated GIF89a placing MLOps (top: Feature store → '
+                       'Spark/Airflow → MLflow → KServe/BentoML → Evidently drift trigger) '
+                       'directly above AIOps/LLMOps (bottom: pgvector/Pinecone → Index Refresh → '
+                       'Ragas/Promptfoo Eval Gates → LLM Gateway → Hallucination/Cost trigger) '
                        'with identical node geometry and flowing dots.',
   'cta_mechanic': 'Practitioner Poll ("Are you working more with traditional ML pipelines or LLM '
                   'applications today?")',
@@ -4047,7 +4252,31 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                'LLM systems also track hallucinations, token costs, latency, and failed agent '
                'runs.\n'
                '\n'
-               'Are you working more with traditional ML pipelines or LLM applications today?'},
+               'Are you working more with traditional ML pipelines or LLM applications today?',
+  'hook_3_lines': 'MLOps and AI app operations are not the same.\n'
+                  'Both help teams move from experiments to reliable production systems. But what '
+                  'they manage, measure, and improve is different.\n'
+                  'MLOps focuses on the lifecycle of trained machine learning models.',
+  'structural_takeaways': ["Opening Hook (Isomorphic Architecture Contrast ('MLOps and AI app "
+                           "operations are not the same') → Top/Bottom Mirrored Pipeline GIF89a "
+                           '(95.3% discussion ratio!)): Front-loads tension in 45 chars before '
+                           "LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-11 · 4:5 Comparative Split / Flowchart): '
+                           '1080x1350 animated GIF89a placing MLOps (top: Feature store → '
+                           'Spark/Airflow → MLflow → KServe/BentoML → Evidently drift trigger) '
+                           'directly above AIOps/LLMOps (bottom: pgvector/Pinecone → Index Refresh '
+                           '→ Ragas/Promptfoo Eval Gates → LLM Gateway → Hallucination/Cost '
+                           'trigger) with identical node geometry and flowing dots.',
+                           'Engagement Signal (85 reactions · 81 comments · 95.3% ratio): Driven '
+                           'by Practitioner Poll ("Are you working more with traditional ML '
+                           'pipelines or LLM applications today?") and direct Studio Blueprint T79 '
+                           'isomorphism.'],
+  'mentor_review': 'Exceptional 95.3% discussion-to-reaction ratio (81 comments on 85 reactions): '
+                   'Umang Chaudhary pairs PRES-11 visual contrast with an opinionated practitioner '
+                   'trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T79 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
  {'index': 44,
   'post_code': 'LI-44',
   'activity_id': '7523934679343947776',
@@ -4072,14 +4301,14 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'presentation_archetype_code': 'PRES-08',
   'presentation_archetype_label': 'Engineering Spec Sheet + Cognitive/Hardware Analogy',
   'hook_line_1': 'An AI agent without memory is just starting from zero every time.',
-  'hook_formula': "Cold-Start Pain ('An AI agent without memory starts from zero every time') -> 4 "
+  'hook_formula': "Cold-Start Pain ('An AI agent without memory starts from zero every time') → 4 "
                   'Animated Memory Bands + Audience Scope Staircase + Real SDKs (93.2% discussion '
                   'ratio!)',
   'content_structure': '12.35-second 247-frame 1080x1350 GIF89a contrasting NO MEMORY vs WITH '
                        'MEMORY, followed by 4 color-coded bands (Type 1 Working, Type 2 Episodic, '
                        'Type 3 Semantic, Type 4 Procedural), a 4-tier audience scope staircase '
-                       '(Session -> User -> Project -> Org) mapped to Claude memory tool, LangMem, '
-                       'and Mem0, and a 4-step Decide -> Store -> Recall -> Prune footer.',
+                       '(Session → User → Project → Org) mapped to Claude memory tool, LangMem, '
+                       'and Mem0, and a 4-step Decide → Store → Recall → Prune footer.',
   'cta_mechanic': 'Advisory Session CTA + Repost Prompt',
   'matched_template_id': 'T83',
   'style_code': 'STYLE-05',
@@ -4113,7 +4342,31 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                'A simple memory workflow is: Decide → Store → Recall → Prune.\n'
                '\n'
                'Good memory is not about remembering everything. It is about remembering the right '
-               'things at the right time.'},
+               'things at the right time.',
+  'hook_3_lines': 'An AI agent without memory is just starting from zero every time.\n'
+                  'It forgets what happened, asks the same questions again and repeats old '
+                  'mistakes.\n'
+                  'That is why good AI agents need more than one kind of memory.',
+  'structural_takeaways': ["Opening Hook (Cold-Start Pain ('An AI agent without memory starts from "
+                           "zero every time') → 4 Animated Memory Bands + Audience Scope Staircase "
+                           '+ Real SDKs (93.2% discussion ratio!)): Front-loads tension in 65 '
+                           "chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-08 · 4:5 Editorial Spec Sheet): 12.35-second '
+                           '247-frame 1080x1350 GIF89a contrasting NO MEMORY vs WITH MEMORY, '
+                           'followed by 4 color-coded bands (Type 1 Working, Type 2 Episodic, Type '
+                           '3 Semantic, Type 4 Procedural), a 4-tier audience scope staircase '
+                           '(Session → User → Project → Org) mapped to Claude memory tool, '
+                           'LangMem, and Mem0, and a 4-step Decide → Store → Recall → Prune '
+                           'footer.',
+                           'Engagement Signal (74 reactions · 69 comments · 93.2% ratio): Driven '
+                           'by Advisory Session CTA + Repost Prompt and direct Studio Blueprint '
+                           'T83 isomorphism.'],
+  'mentor_review': 'Exceptional 93.2% discussion-to-reaction ratio (69 comments on 74 reactions): '
+                   'Hamza Abbas pairs PRES-08 visual contrast with an opinionated practitioner '
+                   'trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T83 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
  {'index': 45,
   'post_code': 'LI-45',
   'activity_id': '7523738566934482944',
@@ -4138,14 +4391,14 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'presentation_archetype_label': 'Side-by-Side A-vs-B Showdown & YES/NO Decision Tree',
   'hook_line_1': "It's easy to get an AI agent to execute a task. The challenge is getting them to "
                  'do it RELIABLY.',
-  'hook_formula': 'Execution vs Reliability Gap -> 4 Critical Harness Decisions (Completion '
+  'hook_formula': 'Execution vs Reliability Gap → 4 Critical Harness Decisions (Completion '
                   'Verification, Sensitive Action Control, Budgets vs Policies, Failure Root-Cause '
                   'Attribution)',
   'content_structure': '4-quadrant dashed-border engineering schematic with Decoding AI wolf '
                        'emblem: (1) Harness verifies outcome against Read-Only Ground Truth DB; '
                        '(2) Allowed vs Blocked Operations; (3) Budgets (End Run) vs Policies '
-                       '(Refuse Action, Continue); (4) YES/NO diamond ("Was the Context Correct? '
-                       '-> No: Fix the Harness | Yes: Replay & Measure Model").',
+                       '(Refuse Action, Continue); (4) YES/NO diamond ("Was the Context Correct? → '
+                       'No: Fix the Harness | Yes: Replay & Measure Model").',
   'cta_mechanic': 'Co-Tagged Guest Breakdown with Tejas Kumar in Decoding AI Magazine',
   'matched_template_id': 'T80',
   'style_code': 'STYLE-02',
@@ -4180,7 +4433,31 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                "4. Who's responsible when something goes wrong?\n"
                'Find the first incorrect step and inspect what the model saw. If the context was '
                'missing or misleading, fix the harness. If the context was correct, replay the '
-               'step and measure how consistently the model fails.'},
+               'step and measure how consistently the model fails.',
+  'hook_3_lines': "It's easy to get an AI agent to execute a task.\n"
+                  "The challenge is getting them to do it RELIABLY (here's what to do)...\n"
+                  'Once your agent loop works, there are 4 critical decisions you MUST make about '
+                  'your harness according to Tejas Kumar.',
+  'structural_takeaways': ['Opening Hook (Execution vs Reliability Gap → 4 Critical Harness '
+                           'Decisions (Completion Verification, Sensitive Action Control, Budgets '
+                           'vs Policies, Failure Root-Cause Attribution)): Front-loads tension in '
+                           "47 chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-11 · 4:5 Comparative Split / Flowchart): '
+                           '4-quadrant dashed-border engineering schematic with Decoding AI wolf '
+                           'emblem: (1) Harness verifies outcome against Read-Only Ground Truth '
+                           'DB; (2) Allowed vs Blocked Operations; (3) Budgets (End Run) vs '
+                           'Policies (Refuse Action, Continue); (4) YES/NO diamond ("Was the '
+                           'Context Correct? → No: Fix the Harness | Yes: Replay & Measure '
+                           'Model").',
+                           'Engagement Signal (58 reactions · 39 comments · 67.2% ratio): Driven '
+                           'by Co-Tagged Guest Breakdown with Tejas Kumar in Decoding AI Magazine '
+                           'and direct Studio Blueprint T80 isomorphism.'],
+  'mentor_review': 'Exceptional 67.2% discussion-to-reaction ratio (39 comments on 58 reactions): '
+                   'Paul Iusztin pairs PRES-11 visual contrast with an opinionated practitioner '
+                   'trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T80 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
  {'index': 46,
   'post_code': 'LI-46',
   'activity_id': '7523723241287229440',
@@ -4207,7 +4484,7 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
   'hook_line_1': 'One of the first LLM apps I helped ship passed every test we wrote. It failed on '
                  'day 2.',
   'hook_formula': "Day-2 Production Failure Story ('Passed all 40 tests we wrote. Failed on Day "
-                  "2.') -> 8-Hub Animated LLM Evals Ecosystem Map (118.2% comment-to-like ratio!)",
+                  "2.') → 8-Hub Animated LLM Evals Ecosystem Map (118.2% comment-to-like ratio!)",
   'content_structure': '1080x1350 animated GIF89a mind-map ("LLM EVALS IMPLEMENTATION QUICK '
                        'GUIDE") radiating from a central LLM Evals node to 8 color-coded hubs: '
                        'Eval Types, Eval Tools (DeepEval/Ragas/promptfoo/Inspect AI vs '
@@ -4250,7 +4527,1608 @@ REVIEWED_LINKEDIN_POSTS: List[Dict[str, Any]] = [{'index': 1,
                'The uncomfortable truth: We spent weeks choosing an eval tool and a day deciding '
                'what "good" meant. It should have been the other way round.\n'
                '\n'
-               "What's the failure that changed how your team does evals?"}]
+               "What's the failure that changed how your team does evals?",
+  'hook_3_lines': 'One of the first LLM apps I helped ship passed every test we wrote. It failed '
+                  'on day 2.\n'
+                  'Which is why I stopped treating evals as a checklist before launch, and started '
+                  'treating them as a system.\n'
+                  'A user asked a question none of our 40 test cases covered. The answer sounded '
+                  'confident, cited a real document, and was wrong. Nobody noticed for a week.',
+  'structural_takeaways': ["Opening Hook (Day-2 Production Failure Story ('Passed all 40 tests we "
+                           "wrote. Failed on Day 2.') → 8-Hub Animated LLM Evals Ecosystem Map "
+                           '(118.2% comment-to-like ratio!)): Front-loads tension in 87 chars '
+                           "before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-09 · 1:1 / 4:5 Radial Topology): 1080x1350 '
+                           'animated GIF89a mind-map ("LLM EVALS IMPLEMENTATION QUICK GUIDE") '
+                           'radiating from a central LLM Evals node to 8 color-coded hubs: Eval '
+                           'Types, Eval Tools (DeepEval/Ragas/promptfoo/Inspect AI vs '
+                           'Braintrust/LangSmith/Langfuse/Arize/Weave), LLM-as-Judge '
+                           '(Position/Verbosity/Self/Sycophancy bias badges), Datasets & Public '
+                           'Benchmarks (GPQA Diamond, SWE-bench Pro, tau^2-bench, OSWorld), Human '
+                           "Review (Cohen's kappa), Red-Teaming (promptfoo, garak, PyRIT), Metrics "
+                           'per Task (6-column grid), and Observability.',
+                           'Engagement Signal (99 reactions · 117 comments · 118.2% ratio): Driven '
+                           'by War-Story Question ("What\'s the failure that changed how your team '
+                           'does evals?") + Diary of an AI Architect Newsletter P.S. and direct '
+                           'Studio Blueprint T82 isomorphism.'],
+  'mentor_review': 'Exceptional 118.2% discussion-to-reaction ratio (117 comments on 99 '
+                   'reactions): Anurag(Anu) Karuparti pairs PRES-09 visual contrast with an '
+                   'opinionated practitioner trade-off that senior engineers actively debate.',
+  'critic_review': 'At 2,145 chars, mid-body bullets risk mobile scroll fatigue — convert into an '
+                   '8-slide 4:5 PDF carousel (Blueprint T82) for LinkedIn/Instagram and distill to '
+                   "a 200-word X 'Banger' post."},
+ {'index': 47,
+  'post_code': 'LI-47',
+  'activity_id': '7524825931560124416',
+  'activity_urn': 'urn:li:activity:7524825931560124416',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524825931560124416/',
+  'published_utc': '2026-11-07',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Vaibhav Aggarwal',
+  'author_handle': 'digitalprocessarchitect',
+  'author_profile_url': 'https://www.linkedin.com/in/digitalprocessarchitect/',
+  'author_headline': 'Digital Process & Enterprise AI Architect | ServiceNow, Agentic Workflows & '
+                     'Enterprise Governance',
+  'reactions': 106,
+  'comments': 79,
+  'discussion_ratio_pct': 74.5,
+  'char_count': 1923,
+  'line_count': 30,
+  'media_type': '4:5 Animated GIF89a Infographic (1080x1350 · Bento Cheatsheet)',
+  'is_gif': True,
+  'image_url': '/assets/creator-radar/posts/7524825931560124416.jpg',
+  'presentation_archetype_code': 'PRES-03',
+  'presentation_archetype_label': 'Multi-Zone Cloud Architecture Swimlane & Bento',
+  'hook_line_1': 'One platform. Multiple AI agents. Endless automation possibilities!',
+  'hook_formula': 'Unified Platform Thesis → 6-Zone Asymmetric Bento Cheatsheet (Stack, '
+                  'Quickstart, 6-Step Studio Spine, Now Assist RAG, Orchestrator Fan-Out, MCP + '
+                  'Control Tower)',
+  'content_structure': 'Asymmetric 2-column Bento Cheatsheet: Left column stacks 5 platform layers '
+                       "(Otto, Now Assist, AI Control Tower, CMDB Data, Models), 5 'Where to "
+                       "Start' bullets, and a 6-step vertical 'Building Agents' spine; Right "
+                       'column shows 3 horizontal micro-architecture flows (Now Assist grounded '
+                       'RAG loop, AI Agent Orchestrator → Triage/Investigate/Resolve fan-out, and '
+                       'MCP Server Action Fabric + 5-stage AI Control Tower).',
+  'cta_mechanic': 'Practitioner Rollout Question + Save/Repost Cheatsheet Prompt',
+  'matched_template_id': 'T210',
+  'style_code': 'STYLE-02',
+  'full_text': 'One platform. Multiple AI agents. Endless automation possibilities!\n'
+               '\n'
+               'What if your IT systems could detect problems, investigate issues, coordinate '
+               'teams, and execute workflows without constant human intervention?\n'
+               '\n'
+               "That's exactly what ServiceNow is moving toward with its AI Platform.\n"
+               '\n'
+               'From intelligent assistants to autonomous agents and enterprise-wide '
+               'orchestration, ServiceNow is bringing AI directly into business operations.\n'
+               '\n'
+               'But the real power lies in how these capabilities work together.\n'
+               '\n'
+               'Here are 7 key components:\n'
+               '\n'
+               '1. Otto – The AI Front Door\n'
+               'A conversational interface that connects employees to AI-powered services and '
+               'workflows.\n'
+               '\n'
+               '2. Now Assist – The AI Copilot\n'
+               'Summarizes tickets, drafts responses, and retrieves relevant knowledge to '
+               'accelerate everyday work.\n'
+               '\n'
+               '3. AI Agents – The Digital Workforce\n'
+               'Autonomously handle defined tasks, investigate issues, and execute actions across '
+               'enterprise systems.\n'
+               '\n'
+               '4. AI Agent Orchestrator – The Coordinator\n'
+               'Breaks complex requests into tasks and assigns them to specialized agents.\n'
+               '\n'
+               '5. AI Agent Studio – The Builder\n'
+               'Helps teams create agents, connect tools, configure guardrails, and test '
+               'real-world scenarios.\n'
+               '\n'
+               '6. ServiceNow MCP Server – The Connector\n'
+               'Connects external AI agents to ServiceNow workflows while enforcing existing '
+               'permissions.\n'
+               '\n'
+               '7. AI Control Tower – The Command Center\n'
+               'Provides centralized oversight of agents, models, governance, performance, and '
+               'costs.\n'
+               '\n'
+               "Here's the bigger picture:\n"
+               '\n'
+               'Now Assist helps people work faster.\n'
+               '\n'
+               'AI Agents execute tasks.\n'
+               '\n'
+               'AI Agent Orchestrator coordinates execution.\n'
+               '\n'
+               'AI Control Tower keeps everything governed.\n'
+               '\n'
+               'And MCP connects external intelligence to enterprise workflows.\n'
+               '\n'
+               "The real transformation isn't adding AI to ServiceNow.\n"
+               '\n'
+               "It's turning disconnected processes into intelligent, coordinated workflows.\n"
+               '\n'
+               "♻️ Repost to help professionals understand ServiceNow's AI ecosystem.\n"
+               '\n'
+               'Follow Vaibhav Aggarwal for more such insights.',
+  'gif_url': '/assets/creator-radar/posts/7524825931560124416.gif',
+  'hook_3_lines': 'One platform. Multiple AI agents. Endless automation possibilities!\n'
+                  'What if your IT systems could detect problems, investigate issues, coordinate '
+                  'teams, and execute workflows without constant human intervention?\n'
+                  "That's exactly what ServiceNow is moving toward with its AI Platform.",
+  'structural_takeaways': ['Opening Hook (Unified Platform Thesis → 6-Zone Asymmetric Bento '
+                           'Cheatsheet (Stack, Quickstart, 6-Step Studio Spine, Now Assist RAG, '
+                           'Orchestrator Fan-Out, MCP + Control Tower)): Front-loads tension in 67 '
+                           "chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-03 · 4:5 / 16:9 Vector Blueprint): Asymmetric '
+                           '2-column Bento Cheatsheet: Left column stacks 5 platform layers (Otto, '
+                           "Now Assist, AI Control Tower, CMDB Data, Models), 5 'Where to Start' "
+                           "bullets, and a 6-step vertical 'Building Agents' spine; Right column "
+                           'shows 3 horizontal micro-architecture flows (Now Assist grounded RAG '
+                           'loop, AI Agent Orchestrator → Triage/Investigate/Resolve fan-out, and '
+                           'MCP Server Action Fabric + 5-stage AI Control Tower).',
+                           'Engagement Signal (106 reactions · 79 comments · 74.5% ratio): Driven '
+                           'by Practitioner Rollout Question + Save/Repost Cheatsheet Prompt and '
+                           'direct Studio Blueprint T210 isomorphism.'],
+  'mentor_review': 'Exceptional 74.5% discussion-to-reaction ratio (79 comments on 106 reactions): '
+                   'Vaibhav Aggarwal pairs PRES-03 visual contrast with an opinionated '
+                   'practitioner trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T210 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
+ {'index': 48,
+  'post_code': 'LI-48',
+  'activity_id': '7524806199293329408',
+  'activity_urn': 'urn:li:activity:7524806199293329408',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524806199293329408/',
+  'published_utc': '2026-11-07',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Prashant Rathi',
+  'author_handle': 'prashantrathi1',
+  'author_profile_url': 'https://uk.linkedin.com/in/prashantrathi1',
+  'author_headline': 'AI Platform & Infrastructure Product Leader | Scaling Enterprise GenAI & '
+                     'MLOps',
+  'reactions': 92,
+  'comments': 81,
+  'discussion_ratio_pct': 88.0,
+  'char_count': 1621,
+  'line_count': 30,
+  'media_type': '4:5 Animated GIF89a Infographic (1080x1350 · 8-Card FinOps Playbook)',
+  'is_gif': True,
+  'image_url': '/assets/creator-radar/posts/7524806199293329408.jpg',
+  'presentation_archetype_code': 'PRES-04',
+  'presentation_archetype_label': 'Numbered Micro-Flow Card Grid & Diagnostic Matrix',
+  'hook_line_1': 'Your AI budget is not the problem. Your AI strategy is!',
+  'hook_formula': "Contrarian FinOps Reframe ('Your AI budget is not the problem—your strategy "
+                  "is') → 8-Card Micro-Chart Playbook (88.0% discussion ratio!)",
+  'content_structure': '2x4 numbered FinOps card grid combining 8 distinct micro-visualizations on '
+                       '1 canvas: (1) Hidden Cost Iceberg SVG; (2) 3 ROI Formula Pills (Monthly '
+                       'Value, ROI, Payback); (3) $ to $$$$ Buy-Before-Build Horizontal Bar '
+                       'Ladder; (4) 3 Cost-vs-Quality Bar Charts (Overkill, Right-Sized, Too '
+                       'Weak); (5) 4-Step Self-Funding Pilot Loop; (6) Break-Even Trajectory '
+                       'Chart; (7) 24-Seat 6x4 License Utilization Grid; (8) Tool-Only vs '
+                       'Tool+Training Value Bar Chart.',
+  'cta_mechanic': 'CFO/Engineering Budget Discipline Prompt + Follow CTA',
+  'matched_template_id': 'T211',
+  'style_code': 'STYLE-04',
+  'full_text': 'Your AI budget is not the problem. Your AI strategy is!\n'
+               '\n'
+               'Companies are spending thousands on AI tools, premium models, and custom '
+               'solutions.\n'
+               '\n'
+               "But buying more AI doesn't automatically deliver better results.\n"
+               '\n'
+               'The secret is knowing where to invest, what to measure, and when to stop.\n'
+               '\n'
+               'Here are 8 ways to get better AI ROI without overspending:\n'
+               '\n'
+               '1. Understand the Real Cost\n'
+               'AI expenses go beyond subscriptions. Include integration, training, maintenance, '
+               'and employee time.\n'
+               '\n'
+               '2. Calculate AI ROI\n'
+               'Measure actual time saved, adoption rates, operating costs, and payback periods.\n'
+               '\n'
+               '3. Buy Before You Build\n'
+               'Use existing tools first. Build custom AI only when ready-made solutions cannot '
+               'meet your needs.\n'
+               '\n'
+               '4. Choose the Right Model\n'
+               'Use smaller, affordable models for simple tasks and premium models for complex '
+               'workflows.\n'
+               '\n'
+               '5. Run Small Pilots\n'
+               'Test one use case for 30 days, measure results, and scale only when value is '
+               'proven.\n'
+               '\n'
+               '6. Monitor AI Spending\n'
+               'Set usage limits, track costs per task, and identify unnecessary expenses early.\n'
+               '\n'
+               '7. Eliminate Unused Licenses\n'
+               'Review subscriptions regularly, reassign inactive seats, and avoid paying for '
+               'unused tools.\n'
+               '\n'
+               '8. Invest in Employee Training\n'
+               'Improve adoption through role-specific training and practical AI workflows.\n'
+               '\n'
+               "Here's what successful AI adoption looks like:\n"
+               '\n'
+               'Start small.\n'
+               'Measure everything.\n'
+               'Optimize continuously.\n'
+               'Scale what delivers measurable value.\n'
+               '\n'
+               "The goal isn't to build the biggest AI stack.\n"
+               '\n'
+               "It's to generate the highest business impact at the lowest sustainable cost.\n"
+               '\n'
+               '♻️ Repost to help teams make smarter AI investments.\n'
+               '\n'
+               'Follow Prashant Rathi for more such insights.',
+  'gif_url': '/assets/creator-radar/posts/7524806199293329408.gif',
+  'hook_3_lines': 'Your AI budget is not the problem. Your AI strategy is!\n'
+                  'Companies are spending thousands on AI tools, premium models, and custom '
+                  'solutions.\n'
+                  "But buying more AI doesn't automatically deliver better results.",
+  'structural_takeaways': ["Opening Hook (Contrarian FinOps Reframe ('Your AI budget is not the "
+                           "problem—your strategy is') → 8-Card Micro-Chart Playbook (88.0% "
+                           "discussion ratio!)): Front-loads tension in 55 chars before LinkedIn's "
+                           "'…see more' fold.",
+                           'Visual Container (PRES-04 · 4:5 Structured Table / 2x3 Grid): 2x4 '
+                           'numbered FinOps card grid combining 8 distinct micro-visualizations on '
+                           '1 canvas: (1) Hidden Cost Iceberg SVG; (2) 3 ROI Formula Pills '
+                           '(Monthly Value, ROI, Payback); (3) $ to $$$$ Buy-Before-Build '
+                           'Horizontal Bar Ladder; (4) 3 Cost-vs-Quality Bar Charts (Overkill, '
+                           'Right-Sized, Too Weak); (5) 4-Step Self-Funding Pilot Loop; (6) '
+                           'Break-Even Trajectory Chart; (7) 24-Seat 6x4 License Utilization Grid; '
+                           '(8) Tool-Only vs Tool+Training Value Bar Chart.',
+                           'Engagement Signal (92 reactions · 81 comments · 88.0% ratio): Driven '
+                           'by CFO/Engineering Budget Discipline Prompt + Follow CTA and direct '
+                           'Studio Blueprint T211 isomorphism.'],
+  'mentor_review': 'Exceptional 88.0% discussion-to-reaction ratio (81 comments on 92 reactions): '
+                   'Prashant Rathi pairs PRES-04 visual contrast with an opinionated practitioner '
+                   'trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T211 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
+ {'index': 49,
+  'post_code': 'LI-49',
+  'activity_id': '7524855506109267968',
+  'activity_urn': 'urn:li:activity:7524855506109267968',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524855506109267968/',
+  'published_utc': '2026-11-07',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Brij Pandey',
+  'author_handle': 'brijpandeyji',
+  'author_profile_url': 'https://www.linkedin.com/in/brijpandeyji',
+  'author_headline': 'AI Architect & Engineer | Agentic Systems, RAG & AI Infrastructure '
+                     '(@learnwithbrij)',
+  'reactions': 565,
+  'comments': 43,
+  'discussion_ratio_pct': 7.6,
+  'char_count': 2660,
+  'line_count': 21,
+  'media_type': '4:5 Animated GIF89a Infographic (1080x1350 · Universal 7-Part Agent Loop)',
+  'is_gif': True,
+  'image_url': '/assets/creator-radar/posts/7524855506109267968.jpg',
+  'presentation_archetype_code': 'PRES-03',
+  'presentation_archetype_label': 'Multi-Zone Cloud Architecture Swimlane & Bento',
+  'hook_line_1': 'One Architecture Diagram That Explains Every AI Agent',
+  'hook_formula': "Framework-Agnostic First-Principles Hook ('Strip away the framework names—every "
+                  "agent is the same 7 components') → Universal Cognitive Loop Diagram (565 "
+                  'reactions!)',
+  'content_structure': 'Canonical 7-component agent loop: Input → Perception Layer → Think '
+                       '(Reasoning Engine: CoT/ReAct/Plan-and-Execute) <-> Remember (Short-term '
+                       "context + Long-term vector/episodic memory) → Decision Diamond ('Can I "
+                       "answer directly?') → Plan (Step 1->2->3) → Act (Tool Execution fan-out to "
+                       'MCP, APIs, Code Exec, DBs, File System, External Services) → Goal '
+                       "Achieved? Loop, bounded by a full-height red 'Guardrails & Safety' pillar "
+                       "on the left and an orange 'Observability Layer' bus at the bottom.",
+  'cta_mechanic': 'Save-Worthy Canonical Reference Poster + Architectural Question',
+  'matched_template_id': 'T212',
+  'style_code': 'STYLE-01',
+  'full_text': 'One Architecture Diagram That Explains Every AI Agent\n'
+               ' \n'
+               'Strip away the framework names and every agent you have ever used is the same '
+               'seven components wired into a loop.\n'
+               ' \n'
+               'Not LangGraph specific. Not CrewAI specific. The pattern holds whether you built '
+               'it yourself in 200 lines or bought it as a platform.\n'
+               ' \n'
+               'Here is the anatomy.\n'
+               ' \n'
+               '𝗣𝗲𝗿𝗰𝗲𝗽𝘁𝗶𝗼𝗻 𝗹𝗮𝘆𝗲𝗿\n'
+               ' Input arrives as user text, API calls, sensor data, events, or scheduled '
+               'triggers. This layer normalizes all of it into something the model can reason '
+               'over. Most teams underinvest here and then blame the model for bad outputs.\n'
+               ' \n'
+               '𝗥𝗲𝗮𝘀𝗼𝗻𝗶𝗻𝗴 𝗲𝗻𝗴𝗶𝗻𝗲\n'
+               ' The LLM, running some structured reasoning pattern: chain of thought, ReAct, plan '
+               'then execute. Its real job is one decision, made repeatedly: can I answer this '
+               'directly, or do I need to act first?\n'
+               ' \n'
+               '𝗣𝗹𝗮𝗻𝗻𝗶𝗻𝗴 𝗺𝗼𝗱𝘂𝗹𝗲\n'
+               ' When the answer is no, the goal gets decomposed into ordered subtasks. This is '
+               'the component people skip when they prototype, and the one they retrofit painfully '
+               'once tasks stop fitting in a single hop.\n'
+               ' \n'
+               '𝗠𝗲𝗺𝗼𝗿𝘆 𝘀𝘆𝘀𝘁𝗲𝗺\n'
+               ' Two distinct systems that get collapsed into one far too often. Short term holds '
+               'conversation context and working state. Long term holds vector stores, episodic '
+               'memory, and learned patterns. Different write policies, different retrieval logic, '
+               'different failure modes.\n'
+               ' \n'
+               '𝗧𝗼𝗼𝗹 𝗲𝘅𝗲𝗰𝘂𝘁𝗶𝗼𝗻 𝗹𝗮𝘆𝗲𝗿\n'
+               ' Where the agent touches the world. MCP servers, API calls, code execution, '
+               'database queries, file systems, external services. Results flow back into '
+               'reasoning, and the loop asks again: goal achieved?\n'
+               ' \n'
+               '𝗚𝘂𝗮𝗿𝗱𝗿𝗮𝗶𝗹𝘀\n'
+               ' Permissions, approval gates, content filtering, rate limits, human checkpoints. '
+               'Notice in the diagram that guardrails run vertically alongside everything rather '
+               'than sitting at one entry point. That placement is the whole argument. A gate at '
+               'the input does nothing about what the agent decides to do on step four.\n'
+               ' \n'
+               '𝗢𝗯𝘀𝗲𝗿𝘃𝗮𝗯𝗶𝗹𝗶𝘁𝘆\n'
+               ' Traces, logs, metrics, cost tracking, latency monitoring. It spans the full width '
+               'because you cannot debug a loop by inspecting one node in it. You need the '
+               'trajectory.\n'
+               ' \n'
+               'The interesting part is not the boxes. It is the two diamonds: "can I answer '
+               'directly" and "goal achieved". Those are the only places the agent actually '
+               'decides anything. Everything else is plumbing. When agents misbehave in '
+               'production, the fault is almost always in how those two checks were specified, not '
+               'in the model doing the reasoning.\n'
+               ' \n'
+               'Where do you draw the line between an agent and a workflow that happens to call an '
+               'LLM? \n'
+               '\n'
+               'My working definition is whether the system chooses its own next step rather than '
+               'following a predetermined path, but that gets blurry the moment a planner writes '
+               'the steps in advance.',
+  'gif_url': '/assets/creator-radar/posts/7524855506109267968.gif',
+  'hook_3_lines': 'One Architecture Diagram That Explains Every AI Agent\n'
+                  'Strip away the framework names and every agent you have ever used is the same '
+                  'seven components wired into a loop.\n'
+                  'Not LangGraph specific. Not CrewAI specific. The pattern holds whether you '
+                  'built it yourself in 200 lines or bought it as a platform.',
+  'structural_takeaways': ["Opening Hook (Framework-Agnostic First-Principles Hook ('Strip away "
+                           "the framework names—every agent is the same 7 components') → Universal "
+                           'Cognitive Loop Diagram (565 reactions!)): Front-loads tension in 53 '
+                           "chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-03 · 4:5 / 16:9 Vector Blueprint): Canonical '
+                           '7-component agent loop: Input → Perception Layer → Think (Reasoning '
+                           'Engine: CoT/ReAct/Plan-and-Execute) <-> Remember (Short-term context + '
+                           "Long-term vector/episodic memory) → Decision Diamond ('Can I answer "
+                           "directly?') → Plan (Step 1->2->3) → Act (Tool Execution fan-out to "
+                           'MCP, APIs, Code Exec, DBs, File System, External Services) → Goal '
+                           "Achieved? Loop, bounded by a full-height red 'Guardrails & Safety' "
+                           "pillar on the left and an orange 'Observability Layer' bus at the "
+                           'bottom.',
+                           'Engagement Signal (565 reactions · 43 comments · 7.6% ratio): Driven '
+                           'by Save-Worthy Canonical Reference Poster + Architectural Question and '
+                           'direct Studio Blueprint T212 isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (565 reactions, 7.6% discussion): clean '
+                   'PRES-03 visual hierarchy anchors every paragraph of the 2,660-char copy.',
+  'critic_review': 'High save velocity but 7.6% comment ratio leaves algorithmic depth on the '
+                   'table — replace generic closing tags with a concrete A-vs-B architectural '
+                   'failure question, and mirror onto X with the T212 diagram + Reply #2 repo '
+                   'link.'},
+ {'index': 50,
+  'post_code': 'LI-50',
+  'activity_id': '7524840702967611393',
+  'activity_urn': 'urn:li:activity:7524840702967611393',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524840702967611393/',
+  'published_utc': '2026-11-07',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Suraj Negi',
+  'author_handle': 'surajnegi-ai',
+  'author_profile_url': 'https://www.linkedin.com/in/surajnegi-ai',
+  'author_headline': 'Enterprise Data & AI Architect | Semantic Layers, Knowledge Graphs & Agentic '
+                     'AI',
+  'reactions': 143,
+  'comments': 4,
+  'discussion_ratio_pct': 2.8,
+  'char_count': 2317,
+  'line_count': 32,
+  'media_type': '4:5 High-Resolution Concept-Disambiguation Blueprint (1080x1200)',
+  'is_gif': False,
+  'image_url': '/assets/creator-radar/posts/7524840702967611393.jpg',
+  'presentation_archetype_code': 'PRES-04',
+  'presentation_archetype_label': 'Numbered Micro-Flow Card Grid & Diagnostic Matrix',
+  'hook_line_1': 'Your AI can query enterprise data. But does it actually understand what that '
+                 'data means?',
+  'hook_formula': 'Query vs Meaning Gap → 4-Rung Concept Striation (Taxonomy vs Ontology vs '
+                  'Semantic Model vs Knowledge Graph) + Concrete Mini-Graph per Row',
+  'content_structure': '4 horizontal color-coded bands (Blue Taxonomy, Indigo Ontology, Amber '
+                       'Semantic Model, Emerald Knowledge Graph) where each band pairs: (Left) '
+                       'Icon + Concept Name, (Center) Guiding Question + Plain-English Definition '
+                       "+ 'Use for:' Pill, and (Right) a concrete mini-diagram using the same "
+                       'e-commerce domain (Product->Electronics->Laptops tree; '
+                       'Customer->places->Order ontology; Revenue=SUM(Order Amount) metric card; '
+                       'Ada->purchased->Laptop-101 instance graph), converging into a bottom '
+                       "4-pillar 'Enterprise Knowledge Architecture' synthesis bar.",
+  'cta_mechanic': 'Enterprise Data Foundation Discussion + Architect Attribution',
+  'matched_template_id': 'T213',
+  'style_code': 'STYLE-02',
+  'full_text': 'Your AI can query enterprise data. But does it actually understand what that data '
+               'means?\n'
+               '\n'
+               'This is one of the distinctions I think we need to get right when designing '
+               'enterprise Data and AI architectures.\n'
+               '\n'
+               'We often come across four terms: Taxonomy, Ontology, Semantic Models and Knowledge '
+               'Graphs.\n'
+               '\n'
+               'They sound similar, but each solves a different problem.\n'
+               '\n'
+               "Let's take a simple example.\n"
+               '\n'
+               'Imagine an enterprise AI agent answering this question:\n'
+               '\n'
+               '"Which customers purchased laptops manufactured by Acme, and how much revenue did '
+               'those products generate last quarter?"\n'
+               '\n'
+               'There is more happening here than just querying a database.\n'
+               '\n'
+               '1. Taxonomy: Classification\n'
+               '\n'
+               'The system needs to understand how products are organised.\n'
+               '\n'
+               'Product → Electronics → Laptops.\n'
+               '\n'
+               '2. Ontology: Business meaning\n'
+               '\n'
+               'It needs to understand that customers place orders, orders contain products, and '
+               'products belong to categories.\n'
+               '\n'
+               'This is where relationships, constraints and business rules become important.\n'
+               '\n'
+               '3. Semantic Model: Business context\n'
+               '\n'
+               'What exactly counts as revenue? Which orders should be included? How is the last '
+               'quarter defined?\n'
+               '\n'
+               'The semantic model provides consistent metrics, dimensions, relationships and '
+               'calculation logic.\n'
+               '\n'
+               '4. Knowledge Graph: Connected information\n'
+               '\n'
+               'Now connect the actual entities.\n'
+               '\n'
+               'Customer → Purchased → Laptop → Manufactured by → Acme.\n'
+               '\n'
+               'This makes it possible to explore relationships across multiple entities, rather '
+               'than treating every record as an isolated piece of information.\n'
+               '\n'
+               'Why does this matter for Enterprise AI?\n'
+               '\n'
+               'Because connecting an LLM to enterprise data is not the same as giving it business '
+               'context.\n'
+               '\n'
+               'A well-designed architecture may combine:\n'
+               '\n'
+               '- Taxonomies for classification.\n'
+               '- Ontologies for shared meaning and business rules.\n'
+               '- Semantic models for governed analytics and metrics.\n'
+               '- Knowledge graphs for connected facts and relationship-based reasoning.\n'
+               '\n'
+               'One important point: these are complementary capabilities, not four mandatory '
+               'layers. Not every AI project needs all of them.\n'
+               '\n'
+               'The architecture should follow the business problem, not the other way around.\n'
+               '\n'
+               'As we move towards Agentic AI, I believe the ability to provide reliable business '
+               'context will be just as important as the models and infrastructure we choose.\n'
+               '\n'
+               '\n'
+               '#EnterpriseAI #DataArchitecture #KnowledgeGraph #SemanticLayer #AgenticAI',
+  'hook_3_lines': 'Your AI can query enterprise data. But does it actually understand what that '
+                  'data means?\n'
+                  'This is one of the distinctions I think we need to get right when designing '
+                  'enterprise Data and AI architectures.\n'
+                  'We often come across four terms: Taxonomy, Ontology, Semantic Models and '
+                  'Knowledge Graphs.',
+  'structural_takeaways': ['Opening Hook (Query vs Meaning Gap → 4-Rung Concept Striation '
+                           '(Taxonomy vs Ontology vs Semantic Model vs Knowledge Graph) + Concrete '
+                           "Mini-Graph per Row): Front-loads tension in 88 chars before LinkedIn's "
+                           "'…see more' fold.",
+                           'Visual Container (PRES-04 · 4:5 Structured Table / 2x3 Grid): 4 '
+                           'horizontal color-coded bands (Blue Taxonomy, Indigo Ontology, Amber '
+                           'Semantic Model, Emerald Knowledge Graph) where each band pairs: (Left) '
+                           'Icon + Concept Name, (Center) Guiding Question + Plain-English '
+                           "Definition + 'Use for:' Pill, and (Right) a concrete mini-diagram "
+                           'using the same e-commerce domain (Product->Electronics->Laptops tree; '
+                           'Customer->places->Order ontology; Revenue=SUM(Order Amount) metric '
+                           'card; Ada->purchased->Laptop-101 instance graph), converging into a '
+                           "bottom 4-pillar 'Enterprise Knowledge Architecture' synthesis bar.",
+                           'Engagement Signal (143 reactions · 4 comments · 2.8% ratio): Driven by '
+                           'Enterprise Data Foundation Discussion + Architect Attribution and '
+                           'direct Studio Blueprint T213 isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (143 reactions, 2.8% discussion): clean '
+                   'PRES-04 visual hierarchy anchors every paragraph of the 2,317-char copy.',
+  'critic_review': 'High save velocity but 2.8% comment ratio leaves algorithmic depth on the '
+                   'table — replace generic closing tags with a concrete A-vs-B architectural '
+                   'failure question, and mirror onto X with the T213 diagram + Reply #2 repo '
+                   'link.'},
+ {'index': 51,
+  'post_code': 'LI-51',
+  'activity_id': '7524810540251066368',
+  'activity_urn': 'urn:li:activity:7524810540251066368',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524810540251066368/',
+  'published_utc': '2026-11-07',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Rakesh Gohel',
+  'author_handle': 'rakeshgohel01',
+  'author_profile_url': 'https://www.linkedin.com/in/rakeshgohel01',
+  'author_headline': 'AI Agents & Enterprise Architecture Creator | Founder of '
+                     'rakeshgohel.substack.com',
+  'reactions': 270,
+  'comments': 27,
+  'discussion_ratio_pct': 10.0,
+  'char_count': 2139,
+  'line_count': 21,
+  'media_type': '4:5 Animated GIF89a Infographic (1080x1350 · IDE Code-Block + Runtime Hybrid)',
+  'is_gif': True,
+  'image_url': '/assets/creator-radar/posts/7524810540251066368.jpg',
+  'presentation_archetype_code': 'PRES-08',
+  'presentation_archetype_label': 'Engineering Spec Sheet + Cognitive/Hardware Analogy',
+  'hook_line_1': 'Microsoft just took the hardest part of building AI agents off your plate and it '
+                 'is already live in public preview 🚀',
+  'hook_formula': 'Breaking Cloud Preview Hook → 3-Step IDE Code-to-Runtime Blueprint (SKILL.md + '
+                  'azure.yaml + azd CLI → Managed Harness)',
+  'content_structure': 'Hybrid code-and-architecture blueprint: Top row embeds dark '
+                       'syntax-highlighted IDE windows for Step 01 '
+                       '(`skills/research-brief/SKILL.md` with highlighted prompt-injection '
+                       "guardrail) and Step 02 (`azure.yaml` agent manifest) plus a green 'Key "
+                       "setup' checklist; Middle row wires dark CLI terminal blocks (`> azd deploy "
+                       '--all`, `> azd ai agent invoke`) into the central Copilot Harness '
+                       'container (Agent loop + Managed sandbox) fanning out to Model/Tools/Files, '
+                       "a 'Meets expectations?' diamond loop, and a bottom 'Platform Runs vs. You "
+                       "Bring' responsibility boundary bar.",
+  'cta_mechanic': 'Substack Newsletter CTA (@rakeshgohel01) + Practitioner Prompt',
+  'matched_template_id': 'T214',
+  'style_code': 'STYLE-06',
+  'full_text': 'Microsoft just took the hardest part of building AI agents off your plate and it '
+               'is already live in public preview 🚀\n'
+               '\n'
+               'The announcement is easy to skim, but the build pattern behind it shows how little '
+               'setup a working agent now needs.\n'
+               '\n'
+               'The Copilot harness in Foundry Agent Service runs the agent loop and the sandbox '
+               "for you. In Microsoft's own example, which uses the preview azd commands, the "
+               'build comes down to two files and two commands, and this is the sequence.\n'
+               '\n'
+               '📌 Write the Skill in SKILL.md\n'
+               '\n'
+               'Create a skills folder with a SKILL.md that holds a name, a description and the '
+               'exact method the agent should follow, including rules such as treating retrieved '
+               'content as data.\n'
+               'Keep one procedure per skill so it stays reusable across agents.\n'
+               '\n'
+               '📌 Define the Agent in azure.yaml\n'
+               '\n'
+               'Declare the skill and the agent in azure.yaml, set the harness type to '
+               'microsoft_copilot_preview, then add your model deployment, instructions and tools '
+               'such as web search and Code Interpreter. \n'
+               '\n'
+               'Choose the harness at creation, because switching it later is not supported yet.\n'
+               '\n'
+               '📌 Deploy and Invoke with azd\n'
+               '\n'
+               'Set your environment values, run azd deploy --all, then azd ai agent invoke with '
+               'your question. \n'
+               '\n'
+               'Test with a question you already know the answer to so quality is easy to judge.\n'
+               '\n'
+               '📌Prefer a Visual Path\n'
+               '\n'
+               'The Foundry portal, the Foundry Toolkit for Visual Studio Code and the GitHub '
+               'Copilot app plugin offer other ways to create agents on the harness. \n'
+               '\n'
+               'Ask your team where agent definitions should live, since azd lets you keep them in '
+               'source control beside your application code.\n'
+               '\n'
+               'Harness runtime is free until 1 December 2026, when consumption billing for '
+               'sandbox compute and memory begins. Model and tool usage are billed separately. '
+               'Official blog and quickstart are in the comments.\n'
+               '\n'
+               'Which workflow would you package into your first SKILL.md? 👇\n'
+               '\n'
+               '📌 More AI agent insights → https://lnkd.in/gatGAt9X \n'
+               '\n'
+               '🛡️ Building agents leadership can trust? JUTEQ AI governance → '
+               'https://lnkd.in/gqbqM5V3\n'
+               '\n'
+               'Save 💾 React 👍 Share ♻️ - follow for daily AI agent breakdowns\n'
+               '\n'
+               '\n'
+               '#AIAgents #AgenticAI #GenerativeAI #EnterpriseAI #AIGovernance #MicrosoftFoundry '
+               '#CopilotHarness',
+  'gif_url': '/assets/creator-radar/posts/7524810540251066368.gif',
+  'hook_3_lines': 'Microsoft just took the hardest part of building AI agents off your plate and '
+                  'it is already live in public preview 🚀\n'
+                  'The announcement is easy to skim, but the build pattern behind it shows how '
+                  'little setup a working agent now needs.\n'
+                  'The Copilot harness in Foundry Agent Service runs the agent loop and the '
+                  "sandbox for you. In Microsoft's own example, which uses the preview azd "
+                  'commands, the build comes down to two files and two commands, and this is the '
+                  'sequence.',
+  'structural_takeaways': ['Opening Hook (Breaking Cloud Preview Hook → 3-Step IDE Code-to-Runtime '
+                           'Blueprint (SKILL.md + azure.yaml + azd CLI → Managed Harness)): '
+                           "Front-loads tension in 116 chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-08 · 4:5 Editorial Spec Sheet): Hybrid '
+                           'code-and-architecture blueprint: Top row embeds dark '
+                           'syntax-highlighted IDE windows for Step 01 '
+                           '(`skills/research-brief/SKILL.md` with highlighted prompt-injection '
+                           "guardrail) and Step 02 (`azure.yaml` agent manifest) plus a green 'Key "
+                           "setup' checklist; Middle row wires dark CLI terminal blocks (`> azd "
+                           'deploy --all`, `> azd ai agent invoke`) into the central Copilot '
+                           'Harness container (Agent loop + Managed sandbox) fanning out to '
+                           "Model/Tools/Files, a 'Meets expectations?' diamond loop, and a bottom "
+                           "'Platform Runs vs. You Bring' responsibility boundary bar.",
+                           'Engagement Signal (270 reactions · 27 comments · 10.0% ratio): Driven '
+                           'by Substack Newsletter CTA (@rakeshgohel01) + Practitioner Prompt and '
+                           'direct Studio Blueprint T214 isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (270 reactions, 10.0% discussion): clean '
+                   'PRES-08 visual hierarchy anchors every paragraph of the 2,139-char copy.',
+  'critic_review': 'High save velocity but 10.0% comment ratio leaves algorithmic depth on the '
+                   'table — replace generic closing tags with a concrete A-vs-B architectural '
+                   'failure question, and mirror onto X with the T214 diagram + Reply #2 repo '
+                   'link.'},
+ {'index': 52,
+  'post_code': 'LI-52',
+  'activity_id': '7524697201546309632',
+  'activity_urn': 'urn:li:activity:7524697201546309632',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524697201546309632/',
+  'published_utc': '2026-11-07',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Sumant Malhotra',
+  'author_handle': 'sumantmalhotra',
+  'author_profile_url': 'https://in.linkedin.com/in/sumantmalhotra',
+  'author_headline': 'Engineering Career & AI Ecosystem Strategist | Highlighting Proof-of-Work '
+                     'Builder Portfolios',
+  'reactions': 92,
+  'comments': 1,
+  'discussion_ratio_pct': 1.1,
+  'char_count': 1166,
+  'line_count': 13,
+  'media_type': '4:5 Dark GitHub Profile & Contribution Heatmap Proof Card',
+  'is_gif': False,
+  'image_url': '/assets/creator-radar/posts/7524697201546309632.jpg',
+  'presentation_archetype_code': 'PRES-06',
+  'presentation_archetype_label': 'Raw Primary-Artifact Proof Crop (GitHub / arXiv)',
+  'hook_line_1': 'A Senior AI Product Manager at Google has something more valuable than 10 AI '
+                 'certifications....‼️',
+  'hook_formula': "Certifications vs Proof-of-Work Contrast ('More valuable than 10 AI "
+                  "certifications: a GitHub profile filled with actual AI projects') → Annotated "
+                  'GitHub Portfolio Proof',
+  'content_structure': 'Full dark-mode GitHub profile proof of Shubham Saboo '
+                       '(`Shubhamsaboo/README.md`, `awesome-llm-apps` 75.8k+ stars, 464 annual '
+                       'contributions heatmap, and 6-bullet build taxonomy covering '
+                       'single/multi-agent MCP systems, ready-to-run clones, RAG chains, and ADK '
+                       'crash courses).',
+  'cta_mechanic': 'Builder Career Proof Callout',
+  'matched_template_id': 'T70',
+  'style_code': 'STYLE-03',
+  'full_text': 'A Senior AI Product Manager at Google has something more valuable than 10 AI '
+               'certifications....‼️\n'
+               '\n'
+               'A GitHub profile filled with actual AI projects.\n'
+               '\n'
+               'Shubham Saboo portfolio includes LLM applications, AI agent frameworks, MCP '
+               'resources, and open-source contributions.\n'
+               '\n'
+               "And here's what aspiring AI PMs should learn from this.\n"
+               '\n'
+               'Your resume tells recruiters what you know. Your portfolio shows what you can '
+               'actually build and understand.\n'
+               '\n'
+               'Aakash Gupta makes a powerful point about hiring: real work samples reveal product '
+               'judgment that interviews often miss.\n'
+               '\n'
+               "You don't need 20 certifications to stand out. Start with 2 meaningful AI "
+               'projects, document your decisions, show what failed, and explain the business '
+               'impact.\n'
+               '\n'
+               'In the AI era, proof of work can be a stronger career signal than another '
+               'impressive job title.\n'
+               '\n'
+               'I recently joined Aakash Gupta to break down real PM take-home assignments and '
+               'what separates shortlisted candidates from rejected ones.\n'
+               '\n'
+               '🎁 Watch our discussion: https://lnkd.in/gTR6RNyA\n'
+               '\n'
+               '🎁 Read the complete playbook: https://lnkd.in/gUC47cwg\n'
+               '\n'
+               'P.S Wishing my LinkedIn Family ❤️  Happy Diwali 🪔 \n'
+               '\n'
+               '#corporate #weekend #career #jobs #linkedin #ctc #salary',
+  'hook_3_lines': 'A Senior AI Product Manager at Google has something more valuable than 10 AI '
+                  'certifications....‼️\n'
+                  'A GitHub profile filled with actual AI projects.\n'
+                  'Shubham Saboo portfolio includes LLM applications, AI agent frameworks, MCP '
+                  'resources, and open-source contributions.',
+  'structural_takeaways': ["Opening Hook (Certifications vs Proof-of-Work Contrast ('More valuable "
+                           'than 10 AI certifications: a GitHub profile filled with actual AI '
+                           "projects') → Annotated GitHub Portfolio Proof): Front-loads tension in "
+                           "97 chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-06 · 16:9 / 4:5 Authentic Artifact Screenshot): '
+                           'Full dark-mode GitHub profile proof of Shubham Saboo '
+                           '(`Shubhamsaboo/README.md`, `awesome-llm-apps` 75.8k+ stars, 464 annual '
+                           'contributions heatmap, and 6-bullet build taxonomy covering '
+                           'single/multi-agent MCP systems, ready-to-run clones, RAG chains, and '
+                           'ADK crash courses).',
+                           'Engagement Signal (92 reactions · 1 comments · 1.1% ratio): Driven by '
+                           'Builder Career Proof Callout and direct Studio Blueprint T70 '
+                           'isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (92 reactions, 1.1% discussion): clean '
+                   'PRES-06 visual hierarchy anchors every paragraph of the 1,166-char copy.',
+  'critic_review': 'High save velocity but 1.1% comment ratio leaves algorithmic depth on the '
+                   'table — replace generic closing tags with a concrete A-vs-B architectural '
+                   'failure question, and mirror onto X with the T70 diagram + Reply #2 repo '
+                   'link.'},
+ {'index': 53,
+  'post_code': 'LI-53',
+  'activity_id': '7524365452991725568',
+  'activity_urn': 'urn:li:activity:7524365452991725568',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524365452991725568/',
+  'published_utc': '2026-11-06',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Prashant Rathi',
+  'author_handle': 'prashantrathi1',
+  'author_profile_url': 'https://uk.linkedin.com/in/prashantrathi1',
+  'author_headline': 'AI Platform & Infrastructure Product Leader | Scaling Enterprise GenAI & '
+                     'MLOps',
+  'reactions': 126,
+  'comments': 71,
+  'discussion_ratio_pct': 56.3,
+  'char_count': 1881,
+  'line_count': 31,
+  'media_type': '4:5 Animated GIF89a Infographic (1080x1350 · 6-Panel Concept Dossier)',
+  'is_gif': True,
+  'image_url': '/assets/creator-radar/posts/7524365452991725568.jpg',
+  'presentation_archetype_code': 'PRES-11',
+  'presentation_archetype_label': 'Side-by-Side A-vs-B Showdown & YES/NO Decision Tree',
+  'hook_line_1': 'Most enterprises have databases full of facts. But AI cannot create value from '
+                 'facts alone.',
+  'hook_formula': 'Facts vs Meaning Thesis → 6-Panel Executive Concept Dossier (Library Analogy, '
+                  '7-Row Table, Closed vs Open World, 5-Rung Ladder of Meaning, 6-Step Flow, '
+                  'Combined Equation)',
+  'content_structure': '6-panel executive reference poster: (1) The Library Analogy (Card Catalog '
+                       'vs Collective Intelligence); (2) 7-row Head-to-Head Comparison table + '
+                       'Closed-World (Unknown=FALSE) vs Open-World (Unknown=UNKNOWN) callouts; (3) '
+                       "Key Capabilities contrast; (4) 5-rung 'Ladder of Meaning' from Folksonomy "
+                       '→ Controlled Vocabulary → Taxonomy → Thesaurus → Ontology; (5) 6-step '
+                       "vertical Reasoning Flow; (6) 'Better Together: Data Model (The How) + "
+                       "Ontology (The What) = Combined Power' synthesis card.",
+  'cta_mechanic': 'Executive Key Takeaway Footer + Discussion Question',
+  'matched_template_id': 'T215',
+  'style_code': 'STYLE-02',
+  'full_text': 'Most enterprises have databases full of facts.\n'
+               '\n'
+               'But AI cannot create value from facts alone.\n'
+               '\n'
+               'It needs context, relationships, and meaning.\n'
+               '\n'
+               'That is where the difference between a data model and an ontology becomes '
+               'important.\n'
+               '\n'
+               'A data model tells your systems how data should be structured, stored, validated, '
+               'and queried.\n'
+               '\n'
+               'An ontology tells your systems what the data means, how concepts relate to each '
+               'other, and what can be inferred from those relationships.\n'
+               '\n'
+               'Think of it like a library.\n'
+               '\n'
+               'A data model is the card catalog.\n'
+               '\n'
+               'It tells you where every book is, how it is classified, and how to retrieve it '
+               'quickly.\n'
+               '\n'
+               'An ontology is the collective intelligence of the library.\n'
+               '\n'
+               'It understands topics, authors, themes, relationships, context, and how one idea '
+               'connects to another.\n'
+               '\n'
+               'This distinction matters even more in the AI era.\n'
+               '\n'
+               'Traditional applications can work well with data models alone.\n'
+               '\n'
+               'They need structure, performance, rules, and integrity.\n'
+               '\n'
+               'But AI systems need more than clean tables.\n'
+               '\n'
+               'They need to reason.\n'
+               '\n'
+               'They need to connect concepts across systems.\n'
+               '\n'
+               'They need to answer semantic questions.\n'
+               '\n'
+               'They need to infer knowledge that was not explicitly stored in one row, column, or '
+               'document.\n'
+               '\n'
+               'That is where ontology becomes powerful.\n'
+               '\n'
+               'A data model answers:\n'
+               '\n'
+               '“What data do we have and where is it stored?”\n'
+               '\n'
+               'An ontology helps answer:\n'
+               '\n'
+               '“What does this data mean and how is it connected?”\n'
+               '\n'
+               'This is why enterprises building serious AI systems cannot stop at schemas, '
+               'pipelines, and dashboards.\n'
+               '\n'
+               'They need a semantic layer that connects business concepts, rules, relationships, '
+               'and context.\n'
+               '\n'
+               'The best architecture is not data model vs ontology.\n'
+               '\n'
+               'It is data model plus ontology.\n'
+               '\n'
+               'Data models give you structure.\n'
+               '\n'
+               'Ontologies give you meaning.\n'
+               '\n'
+               'Together, they help break data silos, improve interoperability, support reasoning, '
+               'and turn enterprise data into a knowledge engine for AI.',
+  'gif_url': '/assets/creator-radar/posts/7524365452991725568.gif',
+  'hook_3_lines': 'Most enterprises have databases full of facts.\n'
+                  'But AI cannot create value from facts alone.\n'
+                  'It needs context, relationships, and meaning.',
+  'structural_takeaways': ['Opening Hook (Facts vs Meaning Thesis → 6-Panel Executive Concept '
+                           'Dossier (Library Analogy, 7-Row Table, Closed vs Open World, 5-Rung '
+                           'Ladder of Meaning, 6-Step Flow, Combined Equation)): Front-loads '
+                           "tension in 46 chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-11 · 4:5 Comparative Split / Flowchart): '
+                           '6-panel executive reference poster: (1) The Library Analogy (Card '
+                           'Catalog vs Collective Intelligence); (2) 7-row Head-to-Head Comparison '
+                           'table + Closed-World (Unknown=FALSE) vs Open-World (Unknown=UNKNOWN) '
+                           "callouts; (3) Key Capabilities contrast; (4) 5-rung 'Ladder of "
+                           "Meaning' from Folksonomy → Controlled Vocabulary → Taxonomy → "
+                           "Thesaurus → Ontology; (5) 6-step vertical Reasoning Flow; (6) 'Better "
+                           "Together: Data Model (The How) + Ontology (The What) = Combined Power' "
+                           'synthesis card.',
+                           'Engagement Signal (126 reactions · 71 comments · 56.3% ratio): Driven '
+                           'by Executive Key Takeaway Footer + Discussion Question and direct '
+                           'Studio Blueprint T215 isomorphism.'],
+  'mentor_review': 'Exceptional 56.3% discussion-to-reaction ratio (71 comments on 126 reactions): '
+                   'Prashant Rathi pairs PRES-11 visual contrast with an opinionated practitioner '
+                   'trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T215 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
+ {'index': 54,
+  'post_code': 'LI-54',
+  'activity_id': '7524444158783291392',
+  'activity_urn': 'urn:li:activity:7524444158783291392',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524444158783291392/',
+  'published_utc': '2026-11-06',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Alex Barády',
+  'author_handle': 'alexbarady',
+  'author_profile_url': 'https://www.linkedin.com/in/alexbarady',
+  'author_headline': 'Co-Founder & AI Organizational Transformation Leader @ Endgame | Agentic '
+                     'Product Management',
+  'reactions': 326,
+  'comments': 62,
+  'discussion_ratio_pct': 19.0,
+  'char_count': 1328,
+  'line_count': 14,
+  'media_type': '4:5 Inverted Triage Funnel & Closed-Loop Pipeline Poster (1080x1350)',
+  'is_gif': False,
+  'image_url': '/assets/creator-radar/posts/7524444158783291392.jpg',
+  'presentation_archetype_code': 'PRES-03',
+  'presentation_archetype_label': 'Multi-Zone Cloud Architecture Swimlane & Bento',
+  'hook_line_1': 'When engineers write code faster, product management becomes the bottleneck.',
+  'hook_formula': "Theory-of-Constraints Shift ('When engineers write code faster, PM becomes the "
+                  "bottleneck') → 5-Step Inverted Agentic Triage Funnel + Closed-Loop Feedback Bus",
+  'content_structure': "4-stage lime-green inverted trapezoid funnel: Step 1 'Gather Every Signal' "
+                       '(6 specialized agents: Market research, Customer signal, Portfolio, '
+                       "Engineering, Analytics, Metrics) → Step 2 'Rank the Backlog' → Step 3 "
+                       "'Cost Every Option (Option · € · wk · Δ)' → Step 4 'Human Decision Gate A: "
+                       "Product Lead Picks One' → Step 5 horizontal 3-stage execution pipeline "
+                       "('Shape the Slice → Build and Ship → Measure the Outcome [Gate B]') with a "
+                       "right-hand dashed feedback loop ('Metrics Feed Step 1') and a 3-column "
+                       'scoring footer (1 Cost · 2 Time to Market · 3 Value).',
+  'cta_mechanic': 'Agentic Organization Transformation Discussion',
+  'matched_template_id': 'T216',
+  'style_code': 'STYLE-02',
+  'full_text': 'When engineers write code faster, product management becomes the bottleneck.\n'
+               '\n'
+               "That's the pattern we keep seeing across the transformations we lead.\n"
+               '\n'
+               "Here's what we've found: once engineering teams adopt agents, the constraint "
+               'moves.\xa0\n'
+               '\n'
+               "It's no longer “can we build this fast enough.” It's “do we actually know what to "
+               'build, and can we decide fast enough to keep up.”\n'
+               '\n'
+               "Most product organizations aren't built for that speed. Research, prioritization, "
+               'and delivery often run on different cadences.\xa0\n'
+               '\n'
+               'As engineering accelerates, those gaps become harder to ignore.\n'
+               '\n'
+               'So we rebuilt the model.\n'
+               '\n'
+               'Agents continuously gather relevant signals and turn them into prioritized '
+               'recommendations based on effort, time to value, and expected impact.\n'
+               '\n'
+               'Your Product Lead decides what to pursue. Agents do the groundwork. Product '
+               'leaders retain judgment and accountability throughout.\n'
+               '\n'
+               'As product and engineering become connected, agents take on more of the delivery '
+               'and measurement work. People retain responsibility for quality and outcomes.\n'
+               '\n'
+               'The result: product management stops being the thing agents wait on, and becomes '
+               'the thing that actually keeps pace with them.\n'
+               '\n'
+               'Want to see how to implement that inside your organization?\n'
+               '\n'
+               'Reach out here 👉 https://lnkd.in/eUbHMFHi\n'
+               '\n'
+               'Follow ENDGAME for updates on how organizations are becoming AI-native.',
+  'hook_3_lines': 'When engineers write code faster, product management becomes the bottleneck.\n'
+                  "That's the pattern we keep seeing across the transformations we lead.\n"
+                  "Here's what we've found: once engineering teams adopt agents, the constraint "
+                  'moves.',
+  'structural_takeaways': ["Opening Hook (Theory-of-Constraints Shift ('When engineers write code "
+                           "faster, PM becomes the bottleneck') → 5-Step Inverted Agentic Triage "
+                           'Funnel + Closed-Loop Feedback Bus): Front-loads tension in 76 chars '
+                           "before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-03 · 4:5 / 16:9 Vector Blueprint): 4-stage '
+                           "lime-green inverted trapezoid funnel: Step 1 'Gather Every Signal' (6 "
+                           'specialized agents: Market research, Customer signal, Portfolio, '
+                           "Engineering, Analytics, Metrics) → Step 2 'Rank the Backlog' → Step 3 "
+                           "'Cost Every Option (Option · € · wk · Δ)' → Step 4 'Human Decision "
+                           "Gate A: Product Lead Picks One' → Step 5 horizontal 3-stage execution "
+                           "pipeline ('Shape the Slice → Build and Ship → Measure the Outcome "
+                           "[Gate B]') with a right-hand dashed feedback loop ('Metrics Feed Step "
+                           "1') and a 3-column scoring footer (1 Cost · 2 Time to Market · 3 "
+                           'Value).',
+                           'Engagement Signal (326 reactions · 62 comments · 19.0% ratio): Driven '
+                           'by Agentic Organization Transformation Discussion and direct Studio '
+                           'Blueprint T216 isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (326 reactions, 19.0% discussion): clean '
+                   'PRES-03 visual hierarchy anchors every paragraph of the 1,328-char copy.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T216 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
+ {'index': 55,
+  'post_code': 'LI-55',
+  'activity_id': '7524433958189588482',
+  'activity_urn': 'urn:li:activity:7524433958189588482',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524433958189588482/',
+  'published_utc': '2026-11-06',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Raju Dandigam',
+  'author_handle': 'raju-dandigam',
+  'author_profile_url': 'https://www.linkedin.com/in/raju-dandigam',
+  'author_headline': 'Principal AI & Distributed Systems Architect | LLMOps, OpenTelemetry & '
+                     'Agentic Reliability',
+  'reactions': 502,
+  'comments': 101,
+  'discussion_ratio_pct': 20.1,
+  'char_count': 1972,
+  'line_count': 38,
+  'media_type': '4:5 Animated GIF89a Infographic (1080x1350 · Dual-Path Observability Pipeline)',
+  'is_gif': True,
+  'image_url': '/assets/creator-radar/posts/7524433958189588482.jpg',
+  'presentation_archetype_code': 'PRES-03',
+  'presentation_archetype_label': 'Multi-Zone Cloud Architecture Swimlane & Bento',
+  'hook_line_1': 'Your AI agent gives the wrong answer. But where did things go wrong?',
+  'hook_formula': "Production Whodunit Hook ('Was it the model? Retrieved data? Failed tool "
+                  "call?') → 7-Stage Dual-Path Sync Request vs Async OTel Collector Pipeline (502 "
+                  'reactions, 101 comments!)',
+  'content_structure': "7-stage dual-path pipeline: (1) Warm amber 'Live request path · the user "
+                       "waits for this' (User <-> Agent app [OpenTelemetry records every step] <-> "
+                       "LLM & Tools); (2) Background async emitter ('Send it out in the background "
+                       "so the user never waits'); (3) Blue zoomed-in 'Collector' container with 4 "
+                       'horizontal stages (`Receive → Protect [PII/API keys] → Filter [tail-sample '
+                       'errors/slow runs] → Forward`); (4) 3 storage sinks with real OSS logos '
+                       '(Trace store: Jaeger/Grafana Tempo; LLM monitoring: Langfuse/Arize '
+                       'Phoenix; Metrics+logs: Prometheus/Grafana Loki); (5) 4 KPI sparkline cards '
+                       '(`4.2s`, `3.1k`, `2.4%`, `97%`); (6) Slack Alert triggers; (7) 4-step '
+                       'continuous improvement loop (`find a bad run → save it as a test → fix the '
+                       'agent → ship again`).',
+  'cta_mechanic': 'Observability Stack Question + Save/Repost Prompt',
+  'matched_template_id': 'T217',
+  'style_code': 'STYLE-01',
+  'full_text': 'Your AI agent gives the wrong answer.\n'
+               '\n'
+               'But where did things go wrong?\n'
+               '\n'
+               'Was it the model? The retrieved data? A failed tool call? Or an unexpected step in '
+               'the workflow?\n'
+               '\n'
+               'Without proper observability, finding the problem becomes guesswork.\n'
+               '\n'
+               "That's why Agent Observability is essential for production AI systems.\n"
+               '\n'
+               'A reliable observability pipeline follows two paths:\n'
+               '\n'
+               '→ The live request path delivers answers to users.\n'
+               '→ The telemetry path records what happened behind the scenes.\n'
+               '\n'
+               "Here's how the complete pipeline works:\n"
+               '\n'
+               '1. Record Every Step\n'
+               'Use OpenTelemetry to capture agent actions, LLM calls, tool executions, and their '
+               'outcomes.\n'
+               '\n'
+               '2. Export Telemetry\n'
+               'Send traces, metrics, and logs asynchronously so monitoring adds minimal delay to '
+               'user requests.\n'
+               '\n'
+               '3. Process Through a Collector\n'
+               'A collector receives telemetry, removes sensitive information, filters unnecessary '
+               'data, and forwards it to monitoring tools.\n'
+               '\n'
+               '4. Store & Analyze\n'
+               'Different tools provide visibility into different parts of execution.\n'
+               '\n'
+               '→ Jaeger and Grafana Tempo for tracing.\n'
+               '→ Langfuse and Arize Phoenix for LLM monitoring.\n'
+               '→ Prometheus and Grafana Loki for metrics and logs.\n'
+               '\n'
+               '5. Build Dashboards\n'
+               'Monitor the numbers that matter:\n'
+               '\n'
+               '→ Response latency\n'
+               '→ Token usage per request\n'
+               '→ Error rates\n'
+               '→ Tool execution success\n'
+               '→ Cost per workflow\n'
+               '\n'
+               '6. Configure Alerts\n'
+               'Notify teams when errors increase, responses slow down, or spending exceeds '
+               'defined limits.\n'
+               '\n'
+               '7. Continuously Improve\n'
+               'Turn failed executions into evaluation cases, fix the underlying problem, and test '
+               'before deploying again.\n'
+               '\n'
+               "Here's the important distinction:\n"
+               '\n'
+               'Monitoring tells you something is wrong.\n'
+               '\n'
+               'Observability helps you understand why.\n'
+               '\n'
+               'And for AI agents, that means visibility into every model call, tool interaction, '
+               'and decision path.\n'
+               '\n'
+               'Because an agent that completes tasks is useful.\n'
+               '\n'
+               'An agent you can debug, evaluate, and improve is production-ready.\n'
+               '\n'
+               'Follow Raju Dandigam for more insights on AI Engineering, Agentic AI, and System '
+               'Design.',
+  'gif_url': '/assets/creator-radar/posts/7524433958189588482.gif',
+  'hook_3_lines': 'Your AI agent gives the wrong answer.\n'
+                  'But where did things go wrong?\n'
+                  'Was it the model? The retrieved data? A failed tool call? Or an unexpected step '
+                  'in the workflow?',
+  'structural_takeaways': ["Opening Hook (Production Whodunit Hook ('Was it the model? Retrieved "
+                           "data? Failed tool call?') → 7-Stage Dual-Path Sync Request vs Async "
+                           'OTel Collector Pipeline (502 reactions, 101 comments!)): Front-loads '
+                           "tension in 37 chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-03 · 4:5 / 16:9 Vector Blueprint): 7-stage '
+                           "dual-path pipeline: (1) Warm amber 'Live request path · the user waits "
+                           "for this' (User <-> Agent app [OpenTelemetry records every step] <-> "
+                           "LLM & Tools); (2) Background async emitter ('Send it out in the "
+                           "background so the user never waits'); (3) Blue zoomed-in 'Collector' "
+                           'container with 4 horizontal stages (`Receive → Protect [PII/API keys] '
+                           '→ Filter [tail-sample errors/slow runs] → Forward`); (4) 3 storage '
+                           'sinks with real OSS logos (Trace store: Jaeger/Grafana Tempo; LLM '
+                           'monitoring: Langfuse/Arize Phoenix; Metrics+logs: Prometheus/Grafana '
+                           'Loki); (5) 4 KPI sparkline cards (`4.2s`, `3.1k`, `2.4%`, `97%`); (6) '
+                           'Slack Alert triggers; (7) 4-step continuous improvement loop (`find a '
+                           'bad run → save it as a test → fix the agent → ship again`).',
+                           'Engagement Signal (502 reactions · 101 comments · 20.1% ratio): Driven '
+                           'by Observability Stack Question + Save/Repost Prompt and direct Studio '
+                           'Blueprint T217 isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (502 reactions, 20.1% discussion): clean '
+                   'PRES-03 visual hierarchy anchors every paragraph of the 1,972-char copy.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T217 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
+ {'index': 56,
+  'post_code': 'LI-56',
+  'activity_id': '7523165019518308352',
+  'activity_urn': 'urn:li:activity:7523165019518308352',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7523165019518308352/',
+  'published_utc': '2026-11-03',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Bill Cox',
+  'author_handle': 'waywardgeek',
+  'author_profile_url': 'https://www.linkedin.com/in/waywardgeek',
+  'author_headline': 'Ex-CTO, Founder & Senior Software Engineer (Google Accessibility Pioneer & '
+                     'Creator of Ensemble)',
+  'reactions': 49,
+  'comments': 21,
+  'discussion_ratio_pct': 42.9,
+  'char_count': 1898,
+  'line_count': 10,
+  'media_type': '16:9 Open-Source Repository Card (`waywardgeek/ensemble`)',
+  'is_gif': False,
+  'image_url': '/assets/creator-radar/posts/7523165019518308352.jpg',
+  'presentation_archetype_code': 'PRES-06',
+  'presentation_archetype_label': 'Raw Primary-Artifact Proof Crop (GitHub / arXiv)',
+  'hook_line_1': 'I use Development-Driven Specs, not Spec-Driven Development.',
+  'hook_formula': "Chiasmus Paradigm Inversion ('Development-Driven Specs, not Spec-Driven "
+                  "Development') → Self-Compiling Book & Agent Quine (`waywardgeek/ensemble`)",
+  'content_structure': "Presents the open-source `waywardgeek/ensemble` repository ('The book that "
+                       "builds an AI coding agent. The agent that builds the next edition'): "
+                       'developers iterate in real code first, extract deterministic executable '
+                       'Markdown specifications, and let the coding agent regenerate verified '
+                       'software versions autonomously.',
+  'cta_mechanic': 'Direct GitHub Repo Link + Practitioner Debate on Executable Specs',
+  'matched_template_id': 'T218',
+  'style_code': 'STYLE-03',
+  'full_text': 'I use Development-Driven Specs, not Spec-Driven Development.\n'
+               '\n'
+               'This results in an executable specification: give it to an AI coding agent like '
+               'Ensemble, and it will execute the specification autonomously, creating a new '
+               'version of the code. This works perfectly when I create new versions of Ensemble '
+               'by executing "The Art of Building AI Coding Agents". I\'ve never seen a more '
+               'successful specification.\n'
+               '\n'
+               'You have to build the spec as you build the code. The processes cannot be '
+               'separated. I do the usual up-front design conversation with the AI, and then ask '
+               'it to write just the TL;DR and exercises sections of the next chapter. After that, '
+               'I pair-program with the AI to implement it, following the TL;DR, writing notes as '
+               'we go to clarify what was unclear, steering the AI in real time towards my '
+               'design.\n'
+               '\n'
+               'Once the new code passes all the exercise graders, only then do I ask the AI to '
+               'read the notes, voice.md file, and write the body of the chapter. Then, I have it '
+               'launch a student to see if it can write the code purely from the chapter and '
+               'graders.\n'
+               '\n'
+               "At the end of this process, I'm the expert, and I don't even need to review the "
+               'code.\n'
+               '\n'
+               'Code is simply the result of executing the right specification. Just another '
+               'artifact of the compiler.\n'
+               '\n'
+               'Stop vibe-coding.\xa0 Become the expert by pair-programming with the AI as you '
+               'build to code, and then build the specs from what you did to build the code.\xa0 '
+               'Don’t document the code to build.\xa0 Document the process, lessons learned, and '
+               'why you built it this way.\xa0 You can’t do that up-front.\n'
+               '\n'
+               'https://lnkd.in/d38idsDW\n'
+               '\n'
+               'If you don’t know how to pair-program with the AI, well, you can always try '
+               'running Ensemble, and listening to the AI as it works.\xa0 It won’t call tools '
+               'until you’ve listened to every word the AI says, and the AI isn’t allowed to '
+               'silently call tools.\n'
+               '\n'
+               'I know this is hard for all of you folks with good vision.\xa0 Get over it.\xa0 '
+               'Just do it.',
+  'hook_3_lines': 'I use Development-Driven Specs, not Spec-Driven Development.\n'
+                  'This results in an executable specification: give it to an AI coding agent like '
+                  'Ensemble, and it will execute the specification autonomously, creating a new '
+                  'version of the code. This works perfectly when I create new versions of '
+                  'Ensemble by executing "The Art of Building AI Coding Agents". I\'ve never seen '
+                  'a more successful specification.\n'
+                  'You have to build the spec as you build the code. The processes cannot be '
+                  'separated. I do the usual up-front design conversation with the AI, and then '
+                  'ask it to write just the TL;DR and exercises sections of the next chapter. '
+                  'After that, I pair-program with the AI to implement it, following the TL;DR, '
+                  'writing notes as we go to clarify what was unclear, steering the AI in real '
+                  'time towards my design.',
+  'structural_takeaways': ["Opening Hook (Chiasmus Paradigm Inversion ('Development-Driven Specs, "
+                           "not Spec-Driven Development') → Self-Compiling Book & Agent Quine "
+                           '(`waywardgeek/ensemble`)): Front-loads tension in 60 chars before '
+                           "LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-06 · 16:9 / 4:5 Authentic Artifact Screenshot): '
+                           "Presents the open-source `waywardgeek/ensemble` repository ('The book "
+                           'that builds an AI coding agent. The agent that builds the next '
+                           "edition'): developers iterate in real code first, extract "
+                           'deterministic executable Markdown specifications, and let the coding '
+                           'agent regenerate verified software versions autonomously.',
+                           'Engagement Signal (49 reactions · 21 comments · 42.9% ratio): Driven '
+                           'by Direct GitHub Repo Link + Practitioner Debate on Executable Specs '
+                           'and direct Studio Blueprint T218 isomorphism.'],
+  'mentor_review': 'Exceptional 42.9% discussion-to-reaction ratio (21 comments on 49 reactions): '
+                   'Bill Cox pairs PRES-06 visual contrast with an opinionated practitioner '
+                   'trade-off that senior engineers actively debate.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T218 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
+ {'index': 57,
+  'post_code': 'LI-57',
+  'activity_id': '7523812582110203904',
+  'activity_urn': 'urn:li:activity:7523812582110203904',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7523812582110203904/',
+  'published_utc': '2026-11-04',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Emeka Okoye',
+  'author_handle': 'emekaokoye',
+  'author_profile_url': 'https://www.linkedin.com/in/emekaokoye',
+  'author_headline': 'Chief Semantic Architect & Knowledge Graph Pioneer | Formal Ontologies '
+                     '(OWL/SHACL) & Neuro-Symbolic AI',
+  'reactions': 207,
+  'comments': 69,
+  'discussion_ratio_pct': 33.3,
+  'char_count': 2216,
+  'line_count': 8,
+  'media_type': "16:9 Conceptual Split-Brain Metaphor ('AI Needs an Ontology with a Soul')",
+  'is_gif': False,
+  'image_url': '/assets/creator-radar/posts/7523812582110203904.jpg',
+  'presentation_archetype_code': 'PRES-02',
+  'presentation_archetype_label': 'Minimalist Dark Conceptual Graph & Leaderboard',
+  'hook_line_1': 'The Nvidia Auto Ontology serves as a prime example of "ontology washing" at '
+                 'industrial scale.',
+  'hook_formula': "Industry Critique ('Ontology Washing at Industrial Scale') → Formal First-Order "
+                  'Logic / SHACL Axioms vs Shallow Metadata Tagging (33.3% discussion ratio)',
+  'content_structure': 'Bicameral glowing heart/graph visual contrasting formal semantic axioms on '
+                       'the left (`∀, ∃, SHACL constraints, OWL Description Logic, '
+                       "machine-verifiable truth`) against disconnected 'ontology noise / shallow "
+                       "metadata' on the right, arguing that enterprise AI requires formal "
+                       'ontological semantics rather than rebranded metadata catalogs.',
+  'cta_mechanic': 'Deep Epistemological & Knowledge Engineering Debate (69 comments)',
+  'matched_template_id': 'T218',
+  'style_code': 'STYLE-05',
+  'full_text': 'The Nvidia Auto Ontology serves as a prime example of "ontology washing" at '
+               'industrial scale, executed with genuine engineering skill, where a highly '
+               'advanced, governed metadata layer is rebranded as a formal ontology. \n'
+               '\n'
+               'In practice, the system functions as an open "semantic context layer" that '
+               'automatically maps database metadata into business terminology, certified SQL '
+               'metrics and table relationships. This allows AI agents to query enterprise data '
+               'safely using protocols like the Model Context Protocol (MCP) or APIs. By doing so, '
+               'it provides practical benefits for agentic analytics, including improved '
+               'answerability verification, clearer data provenance and a lower risk of AI '
+               'hallucinations.\n'
+               '\n'
+               'Despite its utility, the system lacks the foundational engineering of a true '
+               'ontology because it replaces formal logical constraints with lightweight data '
+               'formats and embeddings. Instead of using standardized semantic frameworks like '
+               'RDF/OWL, axioms, or formal logical entailments, it stores its models in a Postgres '
+               'database and exchanges definitions via Apache Ossie YAML. \n'
+               '\n'
+               'In the terminology of semantic engineering, Nvidia has built a sophisticated, '
+               'governed conceptual and metric layer. It handles commoditized data generation '
+               'exceptionally well, but it leaves out the rigorous, intensional definitions and '
+               'active logical restrictions required for formal semantic integrity.\n'
+               '\n'
+               'This architectural shortcut creates a critical vulnerability. Without an active '
+               'logical control plane, AI agents cannot reliably detect meaning drift or '
+               'constraint violations. While the system provides agents with plausible, certified '
+               'data structures, it lacks the semantic "soul", the active reasoning mechanisms, '
+               'needed to autonomously say "No" when business logic is breached. \n'
+               '\n'
+               'As AI agents transition from merely suggesting insights to executing autonomous '
+               'actions, this gap highlights the urgent need for architectures that retain '
+               'genuine, standards-based semantic reasoning to safely guide agentic behavior.\n'
+               '\n'
+               'The article, "AI Needs an Ontology with a Soul", examines why that gap matters and '
+               'what architectural qualities a true control plane must retain as agents move from '
+               'suggestion into execution.\n'
+               'https://lnkd.in/dYN_mjhY',
+  'hook_3_lines': 'The Nvidia Auto Ontology serves as a prime example of "ontology washing" at '
+                  'industrial scale, executed with genuine engineering skill, where a highly '
+                  'advanced, governed metadata layer is rebranded as a formal ontology.\n'
+                  'In practice, the system functions as an open "semantic context layer" that '
+                  'automatically maps database metadata into business terminology, certified SQL '
+                  'metrics and table relationships. This allows AI agents to query enterprise data '
+                  'safely using protocols like the Model Context Protocol (MCP) or APIs. By doing '
+                  'so, it provides practical benefits for agentic analytics, including improved '
+                  'answerability verification, clearer data provenance and a lower risk of AI '
+                  'hallucinations.\n'
+                  'Despite its utility, the system lacks the foundational engineering of a true '
+                  'ontology because it replaces formal logical constraints with lightweight data '
+                  'formats and embeddings. Instead of using standardized semantic frameworks like '
+                  'RDF/OWL, axioms, or formal logical entailments, it stores its models in a '
+                  'Postgres database and exchanges definitions via Apache Ossie YAML.',
+  'structural_takeaways': ["Opening Hook (Industry Critique ('Ontology Washing at Industrial "
+                           "Scale') → Formal First-Order Logic / SHACL Axioms vs Shallow Metadata "
+                           'Tagging (33.3% discussion ratio)): Front-loads tension in 218 chars '
+                           "before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-02 · 1:1 / 4:5 Dark Canvas): Bicameral glowing '
+                           'heart/graph visual contrasting formal semantic axioms on the left (`∀, '
+                           '∃, SHACL constraints, OWL Description Logic, machine-verifiable '
+                           "truth`) against disconnected 'ontology noise / shallow metadata' on "
+                           'the right, arguing that enterprise AI requires formal ontological '
+                           'semantics rather than rebranded metadata catalogs.',
+                           'Engagement Signal (207 reactions · 69 comments · 33.3% ratio): Driven '
+                           'by Deep Epistemological & Knowledge Engineering Debate (69 comments) '
+                           'and direct Studio Blueprint T218 isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (207 reactions, 33.3% discussion): clean '
+                   'PRES-02 visual hierarchy anchors every paragraph of the 2,216-char copy.',
+  'critic_review': 'At 2,216 chars, mid-body bullets risk mobile scroll fatigue — convert into an '
+                   '8-slide 4:5 PDF carousel (Blueprint T218) for LinkedIn/Instagram and distill '
+                   "to a 200-word X 'Banger' post."},
+ {'index': 58,
+  'post_code': 'LI-58',
+  'activity_id': '7524186859921391616',
+  'activity_urn': 'urn:li:activity:7524186859921391616',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524186859921391616/',
+  'published_utc': '2026-11-05',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Richard Edens',
+  'author_handle': 'richardedens',
+  'author_profile_url': 'https://www.linkedin.com/in/richardedens',
+  'author_headline': 'Principal Platform Architect & Creator of C.R.I.S.S.P. Open-Source Agentic '
+                     'SDLC Framework',
+  'reactions': 326,
+  'comments': 64,
+  'discussion_ratio_pct': 19.6,
+  'char_count': 1457,
+  'line_count': 15,
+  'media_type': '16:9 Dark 3-Actor x 6-Stage Agentic SDLC Swimlane Matrix',
+  'is_gif': False,
+  'image_url': '/assets/creator-radar/posts/7524186859921391616.jpg',
+  'presentation_archetype_code': 'PRES-05',
+  'presentation_archetype_label': 'Dark Neon End-to-End Identity & Trace Blueprint',
+  'hook_line_1': 'Today I released C.R.I.S.S.P. as open source: an agentic SDLC framework for '
+                 'Claude Code.',
+  'hook_formula': "9-Word Aphoristic Thesis ('AI colleagues build, guards prove, a person "
+                  "decides') → 3x6 Responsibility Swimlane Matrix (326 reactions, 64 comments)",
+  'content_structure': 'Dark 3-row x 6-column responsibility matrix across `1 Discover → 2 Plan → '
+                       '3 Build → 4 Verify → 5 Review → 6 Release`: Row 1 `AI COLLEAGUES` (5 UX '
+                       'personas debate → epics/options → isolated worktree red-then-green test '
+                       'per commit → crissp run → release notes → `--cluster-plan`); Row 2 `GUARDS '
+                       '(scripts that prove, no AI in the gate)` (secret scrub → monotonic ID → '
+                       'test must fail without change → coverage gate only goes up → dashboard '
+                       'proof → release gate <=7 days, No bypass); Row 3 `PRODUCT OWNER (a person, '
+                       'always)` (asks UX round → picks D-xx → sees plan not noise → starts full '
+                       'run → accepts → y/N production deploy), with a bottom dashed post-release '
+                       'feedback loop.',
+  'cta_mechanic': 'Open-Source Launch + Governance Gate Discussion',
+  'matched_template_id': 'T219',
+  'style_code': 'STYLE-03',
+  'full_text': 'Today I released C.R.I.S.S.P. as open source: an agentic SDLC framework for Claude '
+               'Code we used to build Flow and InnTelligence platforms.\n'
+               '\n'
+               'The idea fits in one line: AI colleagues build, guards prove, a person decides.\n'
+               '\n'
+               "What makes software built with AI trustworthy isn't the AI writing the code. It's "
+               'the agreement around it: • Every change starts with a test that fails without it. '
+               '• Nothing goes live without a green run on exactly the commit being deployed. '
+               "There's no bypass. • Only a person accepts work and deploys.\n"
+               '\n'
+               'C.R.I.S.S.P. packages that way of working into one repository:\n'
+               '\n'
+               '→ Claude as the lead: keeps the backlog, builds test-first, reviews and merges its '
+               "agents' work, writes the release notes, and reports per item. \n"
+               '→ Agents that each build one part in their own worktree. \n'
+               '→ A UX team of five personas, from a 71-year-old who rarely uses a computer to a '
+               'student on a phone. They walk your running product, debate it, and give advice. '
+               'You see before and after side by side, and approve with one click, with a remark '
+               'if you like. \n'
+               '→ Guards: plain scripts, with no AI in the gate. Coverage can only go up. \n'
+               '→ A Helm chart and Terraform for the cluster side.\n'
+               '\n'
+               'Try it in one line: uvx crissp init\n'
+               '\n'
+               'Apache-2.0. The engine uses only the Python standard library.\n'
+               '\n'
+               '👉 https://lnkd.in/exVGXB7j \n'
+               '🌐 https://lnkd.in/epVjR4mA\n'
+               '\n'
+               "I'd love to hear from people building with AI agents: what does your guardrail "
+               'look like?\n'
+               '\n'
+               '#ClaudeCode #AgenticAI #OpenSource',
+  'hook_3_lines': 'Today I released C.R.I.S.S.P. as open source: an agentic SDLC framework for '
+                  'Claude Code we used to build Flow and InnTelligence platforms.\n'
+                  'The idea fits in one line: AI colleagues build, guards prove, a person '
+                  'decides.\n'
+                  "What makes software built with AI trustworthy isn't the AI writing the code. "
+                  "It's the agreement around it: • Every change starts with a test that fails "
+                  'without it. • Nothing goes live without a green run on exactly the commit being '
+                  "deployed. There's no bypass. • Only a person accepts work and deploys.",
+  'structural_takeaways': ["Opening Hook (9-Word Aphoristic Thesis ('AI colleagues build, guards "
+                           "prove, a person decides') → 3x6 Responsibility Swimlane Matrix (326 "
+                           'reactions, 64 comments)): Front-loads tension in 138 chars before '
+                           "LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-05 · 4:5 High-Contrast Dark Poster): Dark 3-row '
+                           'x 6-column responsibility matrix across `1 Discover → 2 Plan → 3 Build '
+                           '→ 4 Verify → 5 Review → 6 Release`: Row 1 `AI COLLEAGUES` (5 UX '
+                           'personas debate → epics/options → isolated worktree red-then-green '
+                           'test per commit → crissp run → release notes → `--cluster-plan`); Row '
+                           '2 `GUARDS (scripts that prove, no AI in the gate)` (secret scrub → '
+                           'monotonic ID → test must fail without change → coverage gate only goes '
+                           'up → dashboard proof → release gate <=7 days, No bypass); Row 3 '
+                           '`PRODUCT OWNER (a person, always)` (asks UX round → picks D-xx → sees '
+                           'plan not noise → starts full run → accepts → y/N production deploy), '
+                           'with a bottom dashed post-release feedback loop.',
+                           'Engagement Signal (326 reactions · 64 comments · 19.6% ratio): Driven '
+                           'by Open-Source Launch + Governance Gate Discussion and direct Studio '
+                           'Blueprint T219 isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (326 reactions, 19.6% discussion): clean '
+                   'PRES-05 visual hierarchy anchors every paragraph of the 1,457-char copy.',
+  'critic_review': 'Strong LinkedIn execution; to 3× omnichannel surface area, pair Blueprint T219 '
+                   'with a 45s zero-intro 9:16 screen walkthrough for YouTube Shorts/X Video and '
+                   'attach a runnable quickstart gist in Self-Reply #2.'},
+ {'index': 59,
+  'post_code': 'LI-59',
+  'activity_id': '7518045666653265921',
+  'activity_urn': 'urn:li:activity:7518045666653265921',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7518045666653265921/',
+  'published_utc': '2026-10-22',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Feroz Mulla',
+  'author_handle': 'ferozmulla',
+  'author_profile_url': 'https://www.linkedin.com/in/ferozmulla',
+  'author_headline': 'Enterprise AI & Cloud GTM Leader | Demystifying Agentic Harnesses, Research '
+                     '& Frontier Org Design',
+  'reactions': 0,
+  'comments': 0,
+  'discussion_ratio_pct': 0.0,
+  'char_count': 1794,
+  'line_count': 11,
+  'media_type': '9:16 Animated Paper Breakdown Video (`Harness²: Recursive Agent Harnessing`)',
+  'is_gif': False,
+  'image_url': '/assets/creator-radar/posts/7518045666653265921.jpg',
+  'presentation_archetype_code': 'PRES-09',
+  'presentation_archetype_label': 'Hub-and-Spoke Concentric Ring & Mind-Map',
+  'hook_line_1': 'Harnessing, Loop Engineering, Agent factory - On Tech social media, it is '
+                 'getting harder to distinguish between genuine AI developments and buzzwords.',
+  'hook_formula': 'Anti-Buzzword Clarity Hook → Concentric Frozen-Core (`MODEL: weights frozen`) + '
+                  'Recursive Scaffolding Rings (`github.com/google-research/harness2`)',
+  'content_structure': 'Minimalist motion explainer dissecting what an Agent Harness actually is '
+                       "('Everything wrapped around the model that lets it act as an agent: MODEL "
+                       '[weights frozen] surrounded by Domain-Level and Task-Level recursive '
+                       'scaffolding that rewrites its own tools and prompts for open-world '
+                       "tasks').",
+  'cta_mechanic': 'First-Principles Terminology Clarification + Google Research Citation',
+  'matched_template_id': 'T220',
+  'style_code': 'STYLE-05',
+  'full_text': 'Harnessing, Loop Engineering, Agent factory -\n'
+               'On Tech social media, it is getting harder to distinguish between genuine AI '
+               'developments and buzzwords coined for social media creds. The real issue with '
+               "tossing these terms around loosely isn't just cognitive fatigue, it gate keeps "
+               'practical techniques from everyday AI builders and users.\n'
+               '\n'
+               'If there is one concept beyond the LLM itself that every practitioner needs to '
+               "understand, it's the harness. Often, it isn't the foundation model derailing your "
+               "agentic workflow; it's the harness it is operating inside (anybody who has ever "
+               'used github copilot may raise their hand now, sorry MSFT).\n'
+               '\n'
+               'Unless you are building a proprietary agent platform, few folks and teams actually '
+               'need to build a bespoke harness from scratch. But everyone can benefit from '
+               'understanding the mechanics of a harness under the hood.\n'
+               '\n'
+               'Harness² - Google Research recently open-sourced Harness², which pulls back the '
+               'curtain on what actually turns a static token-in/token-out model into an agent '
+               'that can write software, use computers and interact with the real world.\n'
+               '\n'
+               'Here is a quick summary (text & reel - my creation, not official)\n'
+               '\n'
+               'TL;DR:\n'
+               '- What is a harness? Everything surrounding the model that enables agentic '
+               'execution: system prompts, guardrails, tools, memory, sub-agents, and runtime '
+               'orchestration.\n'
+               '- The Core Mechanism: Harness² optimizes that execution layer recursively while '
+               'keeping model weights completely frozen.\n'
+               '- Propose → Probe → Compose: The system proposes edits to its own harness files, '
+               'probes candidates across live tasks, and keeps what demonstrably moves the needle '
+               'by contrasting run trajectories, requiring zero ground-truth labels. Proven '
+               'lessons persist into future tasks.\n'
+               '\n'
+               '#Harness2 #AgenticAI #HarnessEngineering #GoogleResearch #AIAgents',
+  'hook_3_lines': 'Harnessing, Loop Engineering, Agent factory -\n'
+                  'On Tech social media, it is getting harder to distinguish between genuine AI '
+                  'developments and buzzwords coined for social media creds. The real issue with '
+                  "tossing these terms around loosely isn't just cognitive fatigue, it gate keeps "
+                  'practical techniques from everyday AI builders and users.\n'
+                  'If there is one concept beyond the LLM itself that every practitioner needs to '
+                  "understand, it's the harness. Often, it isn't the foundation model derailing "
+                  "your agentic workflow; it's the harness it is operating inside (anybody who has "
+                  'ever used github copilot may raise their hand now, sorry MSFT).',
+  'structural_takeaways': ['Opening Hook (Anti-Buzzword Clarity Hook → Concentric Frozen-Core '
+                           '(`MODEL: weights frozen`) + Recursive Scaffolding Rings '
+                           '(`github.com/google-research/harness2`)): Front-loads tension in 45 '
+                           "chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-09 · 1:1 / 4:5 Radial Topology): Minimalist '
+                           'motion explainer dissecting what an Agent Harness actually is '
+                           "('Everything wrapped around the model that lets it act as an agent: "
+                           'MODEL [weights frozen] surrounded by Domain-Level and Task-Level '
+                           'recursive scaffolding that rewrites its own tools and prompts for '
+                           "open-world tasks').",
+                           'Engagement Signal (0 reactions · 0 comments · 0.0% ratio): Driven by '
+                           'First-Principles Terminology Clarification + Google Research Citation '
+                           'and direct Studio Blueprint T220 isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (0 reactions, 0.0% discussion): clean '
+                   'PRES-09 visual hierarchy anchors every paragraph of the 1,794-char copy.',
+  'critic_review': 'High save velocity but 0.0% comment ratio leaves algorithmic depth on the '
+                   'table — replace generic closing tags with a concrete A-vs-B architectural '
+                   'failure question, and mirror onto X with the T220 diagram + Reply #2 repo '
+                   'link.'},
+ {'index': 60,
+  'post_code': 'LI-60',
+  'activity_id': '7524126113162330112',
+  'activity_urn': 'urn:li:activity:7524126113162330112',
+  'post_url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524126113162330112/',
+  'published_utc': '2026-11-05',
+  'availability': 'PUBLIC_VERIFIED',
+  'author_name': 'Feroz Mulla',
+  'author_handle': 'ferozmulla',
+  'author_profile_url': 'https://www.linkedin.com/in/ferozmulla',
+  'author_headline': 'Enterprise AI & Cloud GTM Leader | Demystifying Agentic Harnesses, Research '
+                     '& Frontier Org Design',
+  'reactions': 3,
+  'comments': 0,
+  'discussion_ratio_pct': 0.0,
+  'char_count': 1376,
+  'line_count': 11,
+  'media_type': '16:9 Organizational Headcount & Ratio Topology Chart (`The Sales Team Behind '
+                'Cognition`)',
+  'is_gif': False,
+  'image_url': '/assets/creator-radar/posts/7524126113162330112.jpg',
+  'presentation_archetype_code': 'PRES-04',
+  'presentation_archetype_label': 'Numbered Micro-Flow Card Grid & Diagnostic Matrix',
+  'hook_line_1': 'The evolving GTM Org structure at AI startups (Cognition in this case) may be a '
+                 'sign of things to come for the larger Enterprise players and Hyperscalers.',
+  'hook_formula': "Org-Ratio Signal Hook ('1 FDE for every 1.5 AE at Cognition') → 6-Column GTM "
+                  'Headcount Topology Tree',
+  'content_structure': "6-column organizational chart of Cognition's revenue and field engineering "
+                       'engine (Cedar / Crustdata telemetry): (1) Account Executives (`+126 more`, '
+                       'Sell Devin & Windsurf); (2) Deployed Engineers / FDEs (`+92 more`, Roll '
+                       'Devin out with each customer); (3) Sales Leaders (`+31 more`); (4) Applied '
+                       'AI (`+8 more`, AI Transformation Mgrs); (5) Partnerships (`+17 more`); (6) '
+                       'RevOps (`+15 more`, GTM Engineers).',
+  'cta_mechanic': 'Hyperscaler & Enterprise GTM Org-Design Comparison',
+  'matched_template_id': 'T221',
+  'style_code': 'STYLE-02',
+  'full_text': 'The evolving GTM Org structure at AI startups (Cognition in this case) may be a '
+               'sign of things to come for the larger Enterprise players and Hyperscalers.\n'
+               '\n'
+               'Look at the ratios: There is 1 FDE for every 1.5 AE, paired with a remarkably lean '
+               'pre-sales engineering team (Applied AI SEs). \n'
+               '\n'
+               'This structural shift reveals few key things about the current state of Enterprise '
+               'AI adoption:\n'
+               '1. Transformative AI cannot purely be Self-Service: \n'
+               "Let's get this out of the way - Rolling out AI capabilities across an Enterprise "
+               "is not easy. It isn't plug-and-play. Don't just enable Co-pilot/Claude "
+               'code/Antigravity licenses and hope the chips fall into place.\n'
+               "AI is transformative but implementing Agentic systems isn't just about "
+               'provisioning software. It is a people, process and technology endeavor with deep '
+               'change management at is very core.\n'
+               '\n'
+               '2. Every GTM Role is now a builder role: \n'
+               'If you sit anywhere in the GTM org (even Sales reps), your career direction is '
+               "clear: You got to be building. That doesn't just mean surface-level vibe coding.\n"
+               'It means combining deep domain expertise and customer context to construct story '
+               "boards and working prototypes that prove exactly how a Customer's specific "
+               'day-to-day workflows will transform in production.\n'
+               '\n'
+               'What are the changes you are seeing in your Tech Sales Org?\n'
+               '\n'
+               '#EnterpriseAI #GTM #ForwardDeployedEngineering #AgenticAI #TechSales',
+  'hook_3_lines': 'The evolving GTM Org structure at AI startups (Cognition in this case) may be a '
+                  'sign of things to come for the larger Enterprise players and Hyperscalers.\n'
+                  'Look at the ratios: There is 1 FDE for every 1.5 AE, paired with a remarkably '
+                  'lean pre-sales engineering team (Applied AI SEs).\n'
+                  'This structural shift reveals few key things about the current state of '
+                  'Enterprise AI adoption:',
+  'structural_takeaways': ["Opening Hook (Org-Ratio Signal Hook ('1 FDE for every 1.5 AE at "
+                           "Cognition') → 6-Column GTM Headcount Topology Tree): Front-loads "
+                           "tension in 154 chars before LinkedIn's '…see more' fold.",
+                           'Visual Container (PRES-04 · 4:5 Structured Table / 2x3 Grid): 6-column '
+                           "organizational chart of Cognition's revenue and field engineering "
+                           'engine (Cedar / Crustdata telemetry): (1) Account Executives (`+126 '
+                           'more`, Sell Devin & Windsurf); (2) Deployed Engineers / FDEs (`+92 '
+                           'more`, Roll Devin out with each customer); (3) Sales Leaders (`+31 '
+                           'more`); (4) Applied AI (`+8 more`, AI Transformation Mgrs); (5) '
+                           'Partnerships (`+17 more`); (6) RevOps (`+15 more`, GTM Engineers).',
+                           'Engagement Signal (3 reactions · 0 comments · 0.0% ratio): Driven by '
+                           'Hyperscaler & Enterprise GTM Org-Design Comparison and direct Studio '
+                           'Blueprint T221 isomorphism.'],
+  'mentor_review': 'High-clarity practitioner breakdown (3 reactions, 0.0% discussion): clean '
+                   'PRES-04 visual hierarchy anchors every paragraph of the 1,376-char copy.',
+  'critic_review': 'High save velocity but 0.0% comment ratio leaves algorithmic depth on the '
+                   'table — replace generic closing tags with a concrete A-vs-B architectural '
+                   'failure question, and mirror onto X with the T221 diagram + Reply #2 repo '
+                   'link.'}]
 
 UNIFIED_CREATOR_PROFILES: List[Dict[str, Any]] = [{'name': 'Aishwarya Naresh Reganti',
   'linkedin_url': 'https://www.linkedin.com/in/areganti/',
@@ -4401,9 +6279,15 @@ UNIFIED_CREATOR_PROFILES: List[Dict[str, Any]] = [{'name': 'Aishwarya Naresh Reg
               'substack': 'https://rakeshgohel.substack.com/',
               'youtube': 'https://www.youtube.com/@gohelrakesh',
               'website': 'https://juteq.ca/'},
-  'reviewed_post_ids': ['7519744924825726976', '7522653595452813312'],
+  'reviewed_post_ids': ['7519744924825726976', '7522653595452813312', '7524810540251066368'],
   'in_33_post_audit': True,
-  'all_posts_portfolio': [{'title': 'Sovereign Agent Knowledge: Hot-Swapping Model A <-> Model B '
+  'all_posts_portfolio': [{'title': 'Microsoft just took the hardest part of building AI agents '
+                                    'off your plat (#51)',
+                           'platform': 'LinkedIn',
+                           'format': '4:5 Animated GIF89a Infographic (1080x1350 · IDE Code-Block '
+                                     '+ Runtime Hybrid) (270 👍 · 27 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524810540251066368/'},
+                          {'title': 'Sovereign Agent Knowledge: Hot-Swapping Model A <-> Model B '
                                     'Without Amnesia (#22)',
                            'platform': 'LinkedIn',
                            'format': '4-Quadrant Sovereign Map (648 reactions)',
@@ -4714,8 +6598,21 @@ UNIFIED_CREATOR_PROFILES: List[Dict[str, Any]] = [{'name': 'Aishwarya Naresh Reg
   'reviewed_post_ids': ['7523640257716609024',
                         '7523368890043629568',
                         '7522915347868549120',
-                        '7524093365588639744'],
-  'all_posts_portfolio': [{'title': 'From AI Idea to AI-Implementation: 16-Stage Progressive '
+                        '7524093365588639744',
+                        '7524806199293329408',
+                        '7524365452991725568'],
+  'all_posts_portfolio': [{'title': 'Most enterprises have databases full of facts. But AI cannot '
+                                    'create valu (#53)',
+                           'platform': 'LinkedIn',
+                           'format': '4:5 Animated GIF89a Infographic (1080x1350 · 6-Panel Concept '
+                                     'Dossier) (126 👍 · 71 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524365452991725568/'},
+                          {'title': 'Your AI budget is not the problem. Your AI strategy is! (#48)',
+                           'platform': 'LinkedIn',
+                           'format': '4:5 Animated GIF89a Infographic (1080x1350 · 8-Card FinOps '
+                                     'Playbook) (92 👍 · 81 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524806199293329408/'},
+                          {'title': 'From AI Idea to AI-Implementation: 16-Stage Progressive '
                                     'Staircase GIF89a (#37)',
                            'platform': 'LinkedIn',
                            'format': '4:5 Animated 301-Frame GIF89a (65 👍 · 66 💬 · 101.5% ratio!)',
@@ -4804,8 +6701,13 @@ UNIFIED_CREATOR_PROFILES: List[Dict[str, Any]] = [{'name': 'Aishwarya Naresh Reg
               'instagram': 'https://www.instagram.com/brijpandeyji/',
               'github': 'https://github.com/honestsoul',
               'website': 'https://agenticbit.ai/'},
-  'reviewed_post_ids': ['7523387700360638464', '7523949739776569344'],
-  'all_posts_portfolio': [{'title': 'Approved Tool. Unapproved Action by AI: Temporal Policies in '
+  'reviewed_post_ids': ['7523387700360638464', '7523949739776569344', '7524855506109267968'],
+  'all_posts_portfolio': [{'title': 'One Architecture Diagram That Explains Every AI Agent (#49)',
+                           'platform': 'LinkedIn',
+                           'format': '4:5 Animated GIF89a Infographic (1080x1350 · Universal '
+                                     '7-Part Agent Loop) (565 👍 · 43 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524855506109267968/'},
+                          {'title': 'Approved Tool. Unapproved Action by AI: Temporal Policies in '
                                     'AgentCore (#41)',
                            'platform': 'LinkedIn',
                            'format': '4:5 12s Animated GIF89a State Machine (522 👍 · 146 💬)',
@@ -4836,8 +6738,14 @@ UNIFIED_CREATOR_PROFILES: List[Dict[str, Any]] = [{'name': 'Aishwarya Naresh Reg
   'signature_style': 'De-risks enterprise AI deals by mapping tool-calling and MCP failure modes '
                      'into crisp 3-column diagnostic tables (63.7% comment-to-reaction ratio).',
   'handles': {'linkedin': 'https://www.linkedin.com/in/digitalprocessarchitect'},
-  'reviewed_post_ids': ['7523377842303365121'],
-  'all_posts_portfolio': [{'title': 'Your AI Agent Might Be One Tool Call Away from Disaster: 4 '
+  'reviewed_post_ids': ['7523377842303365121', '7524825931560124416'],
+  'all_posts_portfolio': [{'title': 'One platform. Multiple AI agents. Endless automation '
+                                    'possibilities! (#47)',
+                           'platform': 'LinkedIn',
+                           'format': '4:5 Animated GIF89a Infographic (1080x1350 · Bento '
+                                     'Cheatsheet) (106 👍 · 79 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524825931560124416/'},
+                          {'title': 'Your AI Agent Might Be One Tool Call Away from Disaster: 4 '
                                     'MCP Failures (#07)',
                            'platform': 'LinkedIn',
                            'format': '4-Row Failure Matrix (102 reactions, 65 comments)',
@@ -5558,7 +7466,212 @@ UNIFIED_CREATOR_PROFILES: List[Dict[str, Any]] = [{'name': 'Aishwarya Naresh Reg
                            'platform': 'Substack',
                            'format': 'Weekly Newsletter (3,000+ AI Architects from MSFT, Google, '
                                      'IBM, PwC)',
-                           'url': 'https://anuragkaruparti.substack.com/'}]}]
+                           'url': 'https://anuragkaruparti.substack.com/'}]},
+ {'name': 'Suraj Negi',
+  'linkedin_url': 'https://www.linkedin.com/in/surajnegi-ai',
+  'role': 'Enterprise Data & AI Architect | Semantic Layers, Knowledge Graphs & Agentic AI',
+  'followers': 35000,
+  'style_code': 'STYLE-02',
+  'archetype_label': 'Numbered Micro-Flow Card Grid & Diagnostic Matrix',
+  'post_urn': 'urn:li:activity:7524840702967611393',
+  'template_id': 'T213',
+  'signature_style': '4 horizontal color-coded bands (Blue Taxonomy, Indigo Ontology, Amber '
+                     'Semantic Model, Emerald Knowledge Graph) where each band pairs: (Left) Icon '
+                     "+ Concept Name, (Center) Guiding Question + Plain-English Definition + 'Use "
+                     "for:' Pill, and (Right) a concrete mini-diagram using the same e-commerce "
+                     'domain (Product->Electronics->Laptops tree; Customer->places->Order '
+                     'ontology; Revenue=SUM(Order Amount) metric card; Ada->purchased->Laptop-101 '
+                     "instance graph), converging into a bottom 4-pillar 'Enterprise Knowledge "
+                     "Architecture' synthesis bar.",
+  'handles': {'linkedin': 'https://www.linkedin.com/in/surajnegi-ai'},
+  'reviewed_post_ids': ['7524840702967611393'],
+  'in_33_post_audit': True,
+  'all_posts_portfolio': [{'title': 'Your AI can query enterprise data. But does it actually '
+                                    'understand what  (#50)',
+                           'platform': 'LinkedIn',
+                           'format': '4:5 High-Resolution Concept-Disambiguation Blueprint '
+                                     '(1080x1200) (143 👍 · 4 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524840702967611393/'}]},
+ {'name': 'Sumant Malhotra',
+  'linkedin_url': 'https://in.linkedin.com/in/sumantmalhotra',
+  'role': 'Engineering Career & AI Ecosystem Strategist | Highlighting Proof-of-Work Builder '
+          'Portfolios',
+  'followers': 35000,
+  'style_code': 'STYLE-03',
+  'archetype_label': 'Raw Primary-Artifact Proof Crop (GitHub / arXiv)',
+  'post_urn': 'urn:li:activity:7524697201546309632',
+  'template_id': 'T70',
+  'signature_style': 'Full dark-mode GitHub profile proof of Shubham Saboo '
+                     '(`Shubhamsaboo/README.md`, `awesome-llm-apps` 75.8k+ stars, 464 annual '
+                     'contributions heatmap, and 6-bullet build taxonomy covering '
+                     'single/multi-agent MCP systems, ready-to-run clones, RAG chains, and ADK '
+                     'crash courses).',
+  'handles': {'linkedin': 'https://in.linkedin.com/in/sumantmalhotra'},
+  'reviewed_post_ids': ['7524697201546309632'],
+  'in_33_post_audit': True,
+  'all_posts_portfolio': [{'title': 'A Senior AI Product Manager at Google has something more '
+                                    'valuable than 1 (#52)',
+                           'platform': 'LinkedIn',
+                           'format': '4:5 Dark GitHub Profile & Contribution Heatmap Proof Card '
+                                     '(92 👍 · 1 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524697201546309632/'}]},
+ {'name': 'Alex Barády',
+  'linkedin_url': 'https://www.linkedin.com/in/alexbarady',
+  'role': 'Co-Founder & AI Organizational Transformation Leader @ Endgame | Agentic Product '
+          'Management',
+  'followers': 35000,
+  'style_code': 'STYLE-02',
+  'archetype_label': 'Multi-Zone Cloud Architecture Swimlane & Bento',
+  'post_urn': 'urn:li:activity:7524444158783291392',
+  'template_id': 'T216',
+  'signature_style': "4-stage lime-green inverted trapezoid funnel: Step 1 'Gather Every Signal' "
+                     '(6 specialized agents: Market research, Customer signal, Portfolio, '
+                     "Engineering, Analytics, Metrics) -> Step 2 'Rank the Backlog' -> Step 3 "
+                     "'Cost Every Option (Option · € · wk · Δ)' -> Step 4 'Human Decision Gate A: "
+                     "Product Lead Picks One' -> Step 5 horizontal 3-stage execution pipeline "
+                     "('Shape the Slice -> Build and Ship -> Measure the Outcome [Gate B]') with a "
+                     "right-hand dashed feedback loop ('Metrics Feed Step 1') and a 3-column "
+                     'scoring footer (1 Cost · 2 Time to Market · 3 Value).',
+  'handles': {'linkedin': 'https://www.linkedin.com/in/alexbarady'},
+  'reviewed_post_ids': ['7524444158783291392'],
+  'in_33_post_audit': True,
+  'all_posts_portfolio': [{'title': 'When engineers write code faster, product management becomes '
+                                    'the bottlen (#54)',
+                           'platform': 'LinkedIn',
+                           'format': '4:5 Inverted Triage Funnel & Closed-Loop Pipeline Poster '
+                                     '(1080x1350) (326 👍 · 62 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524444158783291392/'}]},
+ {'name': 'Raju Dandigam',
+  'linkedin_url': 'https://www.linkedin.com/in/raju-dandigam',
+  'role': 'Principal AI & Distributed Systems Architect | LLMOps, OpenTelemetry & Agentic '
+          'Reliability',
+  'followers': 35000,
+  'style_code': 'STYLE-01',
+  'archetype_label': 'Multi-Zone Cloud Architecture Swimlane & Bento',
+  'post_urn': 'urn:li:activity:7524433958189588482',
+  'template_id': 'T217',
+  'signature_style': "7-stage dual-path pipeline: (1) Warm amber 'Live request path · the user "
+                     "waits for this' (User <-> Agent app [OpenTelemetry records every step] <-> "
+                     "LLM & Tools); (2) Background async emitter ('Send it out in the background "
+                     "so the user never waits'); (3) Blue zoomed-in 'Collector' container with 4 "
+                     'horizontal stages (`Receive -> Protect [PII/API keys] -> Filter [tail-sample '
+                     'errors/slow runs] -> Forward`); (4) 3 storage sinks with real OSS logos '
+                     '(Trace store: Jaeger/Grafana Tempo; LLM monitoring: Langfuse/Arize Phoenix; '
+                     'Metrics+logs: Prometheus/Grafana Loki); (5) 4 KPI sparkline cards (`4.2s`, '
+                     '`3.1k`, `2.4%`, `97%`); (6) Slack Alert triggers; (7) 4-step continuous '
+                     'improvement loop (`find a bad run -> save it as a test -> fix the agent -> '
+                     'ship again`).',
+  'handles': {'linkedin': 'https://www.linkedin.com/in/raju-dandigam'},
+  'reviewed_post_ids': ['7524433958189588482'],
+  'in_33_post_audit': True,
+  'all_posts_portfolio': [{'title': 'Your AI agent gives the wrong answer. But where did things go '
+                                    'wrong? (#55)',
+                           'platform': 'LinkedIn',
+                           'format': '4:5 Animated GIF89a Infographic (1080x1350 · Dual-Path '
+                                     'Observability Pipeline) (502 👍 · 101 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524433958189588482/'}]},
+ {'name': 'Bill Cox',
+  'linkedin_url': 'https://www.linkedin.com/in/waywardgeek',
+  'role': 'Ex-CTO, Founder & Senior Software Engineer (Google Accessibility Pioneer & Creator of '
+          'Ensemble)',
+  'followers': 35000,
+  'style_code': 'STYLE-03',
+  'archetype_label': 'Raw Primary-Artifact Proof Crop (GitHub / arXiv)',
+  'post_urn': 'urn:li:activity:7523165019518308352',
+  'template_id': 'T218',
+  'signature_style': "Presents the open-source `waywardgeek/ensemble` repository ('The book that "
+                     "builds an AI coding agent. The agent that builds the next edition'): "
+                     'developers iterate in real code first, extract deterministic executable '
+                     'Markdown specifications, and let the coding agent regenerate verified '
+                     'software versions autonomously.',
+  'handles': {'linkedin': 'https://www.linkedin.com/in/waywardgeek'},
+  'reviewed_post_ids': ['7523165019518308352'],
+  'in_33_post_audit': True,
+  'all_posts_portfolio': [{'title': 'I use Development-Driven Specs, not Spec-Driven Development. '
+                                    '(#56)',
+                           'platform': 'LinkedIn',
+                           'format': '16:9 Open-Source Repository Card (`waywardgeek/ensemble`) '
+                                     '(49 👍 · 21 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7523165019518308352/'}]},
+ {'name': 'Emeka Okoye',
+  'linkedin_url': 'https://www.linkedin.com/in/emekaokoye',
+  'role': 'Chief Semantic Architect & Knowledge Graph Pioneer | Formal Ontologies (OWL/SHACL) & '
+          'Neuro-Symbolic AI',
+  'followers': 35000,
+  'style_code': 'STYLE-05',
+  'archetype_label': 'Minimalist Dark Conceptual Graph & Leaderboard',
+  'post_urn': 'urn:li:activity:7523812582110203904',
+  'template_id': 'T218',
+  'signature_style': 'Bicameral glowing heart/graph visual contrasting formal semantic axioms on '
+                     'the left (`∀, ∃, SHACL constraints, OWL Description Logic, '
+                     "machine-verifiable truth`) against disconnected 'ontology noise / shallow "
+                     "metadata' on the right, arguing that enterprise AI requires formal "
+                     'ontological semantics rather than rebranded metadata catalogs.',
+  'handles': {'linkedin': 'https://www.linkedin.com/in/emekaokoye'},
+  'reviewed_post_ids': ['7523812582110203904'],
+  'in_33_post_audit': True,
+  'all_posts_portfolio': [{'title': 'The Nvidia Auto Ontology serves as a prime example of '
+                                    '"ontology washing" (#57)',
+                           'platform': 'LinkedIn',
+                           'format': "16:9 Conceptual Split-Brain Metaphor ('AI Needs an Ontology "
+                                     "with a Soul') (207 👍 · 69 💬)",
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7523812582110203904/'}]},
+ {'name': 'Richard Edens',
+  'linkedin_url': 'https://www.linkedin.com/in/richardedens',
+  'role': 'Principal Platform Architect & Creator of C.R.I.S.S.P. Open-Source Agentic SDLC '
+          'Framework',
+  'followers': 35000,
+  'style_code': 'STYLE-03',
+  'archetype_label': 'Dark Neon End-to-End Identity & Trace Blueprint',
+  'post_urn': 'urn:li:activity:7524186859921391616',
+  'template_id': 'T219',
+  'signature_style': 'Dark 3-row x 6-column responsibility matrix across `1 Discover -> 2 Plan -> '
+                     '3 Build -> 4 Verify -> 5 Review -> 6 Release`: Row 1 `AI COLLEAGUES` (5 UX '
+                     'personas debate -> epics/options -> isolated worktree red-then-green test '
+                     'per commit -> crissp run -> release notes -> `--cluster-plan`); Row 2 '
+                     '`GUARDS (scripts that prove, no AI in the gate)` (secret scrub -> monotonic '
+                     'ID -> test must fail without change -> coverage gate only goes up -> '
+                     'dashboard proof -> release gate <=7 days, No bypass); Row 3 `PRODUCT OWNER '
+                     '(a person, always)` (asks UX round -> picks D-xx -> sees plan not noise -> '
+                     'starts full run -> accepts -> y/N production deploy), with a bottom dashed '
+                     'post-release feedback loop.',
+  'handles': {'linkedin': 'https://www.linkedin.com/in/richardedens'},
+  'reviewed_post_ids': ['7524186859921391616'],
+  'in_33_post_audit': True,
+  'all_posts_portfolio': [{'title': 'Today I released C.R.I.S.S.P. as open source: an agentic SDLC '
+                                    'framework  (#58)',
+                           'platform': 'LinkedIn',
+                           'format': '16:9 Dark 3-Actor x 6-Stage Agentic SDLC Swimlane Matrix '
+                                     '(326 👍 · 64 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524186859921391616/'}]},
+ {'name': 'Feroz Mulla',
+  'linkedin_url': 'https://www.linkedin.com/in/ferozmulla',
+  'role': 'Enterprise AI & Cloud GTM Leader | Demystifying Agentic Harnesses, Research & Frontier '
+          'Org Design',
+  'followers': 35000,
+  'style_code': 'STYLE-05',
+  'archetype_label': 'Hub-and-Spoke Concentric Ring & Mind-Map',
+  'post_urn': 'urn:li:activity:7518045666653265921',
+  'template_id': 'T220',
+  'signature_style': 'Minimalist motion explainer dissecting what an Agent Harness actually is '
+                     "('Everything wrapped around the model that lets it act as an agent: MODEL "
+                     '[weights frozen] surrounded by Domain-Level and Task-Level recursive '
+                     "scaffolding that rewrites its own tools and prompts for open-world tasks').",
+  'handles': {'linkedin': 'https://www.linkedin.com/in/ferozmulla'},
+  'reviewed_post_ids': ['7518045666653265921', '7524126113162330112'],
+  'in_33_post_audit': True,
+  'all_posts_portfolio': [{'title': 'The evolving GTM Org structure at AI startups (Cognition in '
+                                    'this case) m (#60)',
+                           'platform': 'LinkedIn',
+                           'format': '16:9 Organizational Headcount & Ratio Topology Chart (`The '
+                                     'Sales Team Behind Cognition`) (3 👍 · 0 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7524126113162330112/'},
+                          {'title': 'Harnessing, Loop Engineering, Agent factory - On Tech social '
+                                    'media, it i (#59)',
+                           'platform': 'LinkedIn',
+                           'format': '9:16 Animated Paper Breakdown Video (`Harness²: Recursive '
+                                     'Agent Harnessing`) (0 👍 · 0 💬)',
+                           'url': 'https://www.linkedin.com/feed/update/urn:li:activity:7518045666653265921/'}]}]
 
 X_ECOSYSTEM_LEADERS: List[Dict[str, Any]] = [{'name': 'Andrej Karpathy',
   'handle': '@karpathy',

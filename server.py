@@ -57,6 +57,12 @@ from src.video.multi_platform_transcoder import (
 )
 from src.visuals.canonical_blueprint_minter import compute_canonical_siso
 from src.visuals.canonical_template_registry import get_gallery_summary, list_templates
+from src.visuals.generative_template_synthesizer import (
+    build_generative_layout_ir,
+    get_generative_matrix_catalog,
+    synthesize_generative_template_drawio,
+    synthesize_generative_template_svg,
+)
 from src.visuals.raster_to_dynamic_ir_deconstructor import (
     deconstruct_raster_to_dynamic_continuum,
     evaluate_l6_policy_sandbox_server,
@@ -556,6 +562,10 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 self._send_json(200, {"template_count": len(templates), "templates": templates})
             return
 
+        if path == "/api/templates/generative-matrix":
+            self._send_json(200, get_generative_matrix_catalog())
+            return
+
         if path == "/api/stack-pairings":
             self._send_json(200, {"pairings": OSS_GOOGLE_PAIRINGS})
             return
@@ -847,6 +857,51 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 compile_gif=(compile_gif and not is_test_mode),
             )
             self._send_json(200, bundle)
+            return
+        if path == "/api/templates/generate":
+            topic = str(payload.get("topic") or payload.get("title") or "").strip()[:220]
+            subtitle = str(payload.get("subtitle") or payload.get("summary") or "").strip()[:260]
+            persona_id = str(payload.get("persona_id") or "vp_principal_architect").strip()[:48]
+            org_id = str(payload.get("org_id") or "cloud_hyperscaler").strip()[:48]
+            grammar_id = str(payload.get("grammar_id") or "AUTO").strip()[:24]
+            spec = {
+                "topic": topic or "Autonomous Agentic AI Architecture & Governance Pattern",
+                "subtitle": subtitle,
+                "persona_id": persona_id,
+                "org_id": org_id,
+                "grammar_id": None if grammar_id in ("", "AUTO", "auto") else grammar_id,
+            }
+            ir = build_generative_layout_ir(spec)
+            svg_text = synthesize_generative_template_svg(spec)
+            drawio_xml = synthesize_generative_template_drawio(spec)
+            custom_dir = ASSETS_ROOT / "template-gallery" / "custom_generated"
+            custom_dir.mkdir(parents=True, exist_ok=True)
+            slug = re.sub(r"[^a-z0-9]+", "-", (topic or ir["tid"]).lower()).strip("-")[:48] or "custom-blueprint"
+            file_stem = f"{ir['tid']}_{slug}"
+            (custom_dir / f"{file_stem}.svg").write_text(svg_text, encoding="utf-8")
+            (custom_dir / f"{file_stem}.drawio").write_text(drawio_xml, encoding="utf-8")
+            self._send_json(
+                200,
+                {
+                    "status": "SYNTHESIZED",
+                    "template_id": ir["tid"],
+                    "grammar_id": ir["grammar_id"],
+                    "grammar": ir["grammar"],
+                    "persona": ir["persona"],
+                    "organization": ir["organization"],
+                    "confidence_score": ir["confidence_score"],
+                    "why_selected": ir["why_selected"],
+                    "alternatives": ir["alternatives"],
+                    "svg": svg_text,
+                    "drawio_xml": drawio_xml,
+                    "files": {
+                        "svg_url": f"/assets/template-gallery/custom_generated/{file_stem}.svg",
+                        "drawio_url": f"/assets/template-gallery/custom_generated/{file_stem}.drawio",
+                        "canonical_pptx_url": f"/assets/template-gallery/{ir['tid']}.pptx",
+                        "canonical_gif_url": f"/assets/template-gallery/{ir['tid']}.gif",
+                    },
+                },
+            )
             return
         self._send_json(404, {"error": "Not found"})
 

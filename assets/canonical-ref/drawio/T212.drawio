@@ -1,0 +1,164 @@
+<mxfile host="app.diagrams.net" modified="2026-11-08T17:00:00.000Z" agent="IdeasMintingGenerativeEngine/4.0" version="24.7.8">
+  <diagram id="gen_T212" name="T212 — 7-Part Cognitive Agent Loop">
+    <mxGraphModel dx="920" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="1150" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      <mxCell id="hdr_banner" value="T212 • 7-PART COGNITIVE AGENT LOOP • ENTERPRISE CONTROL &amp; DATA PLANE LENS • CLOUD HYPERSCALER
+Universal 7-Part Cognitive Agent Loop &amp; Guardrail Pillar
+Strip Away Framework Names: Every Production AI Agent Is the Same 7 Components Wired into a Governed Loop
+Stack Anchor: Vertex AI Agent Engine + Cloud Run + AlloyDB pgvector + Cloud Trace  |  KPIs: 99.95% Control Plane SLO · Zero-Trust OBO · Unified Ontology Graph" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="24" width="864" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="SubBanner" value="GOVERNANCE &amp; PERSONA CONTRACT: ARB Invariant: Decouple reasoning state and semantic ontology from single-app schemas.
+Multi-Tenant Control Plane • Global Endpoint Routing • Native MCP &amp; A2A Interoperability" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#E0F2FE;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
+      </mxCell>
+      <mxCell id="guard_pillar" value="SAFETY RAIL
+Guardrails &amp; Policy
+• OAuth 2.1 OBO
+• Approval Gates
+• Model Armor PII
+• Token Rate Limits
+• Human-in-Loop
+• Kill Switch" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FEF2F2;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="212" width="118" height="728" as="geometry" />
+      </mxCell>
+      <mxCell id="n_perceive" value="01 • INPUT &amp; PERCEPTION LAYER
+Perceive Multimodal Signals
+User text, API webhooks, telemetry events, and document streams normalized into typed context." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#475569;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="290" y="212" width="270" height="112" as="geometry" />
+      </mxCell>
+      <mxCell id="n_think" value="02 • THINK (REASONING ENGINE / LLM)
+Chain-of-Thought &amp; ReAct
+Gemini 4 Argon / 3.8 Flash evaluates state, selects next action, and checks completion criteria." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="290" y="356" width="270" height="142" as="geometry" />
+      </mxCell>
+      <mxCell id="n_remember" value="03 • REMEMBER (MEMORY SYSTEM)
+Short-Term &amp; Long-Term State
+• Working Memory: Active turn window &amp; scratchpad
+• Episodic &amp; Semantic: Spanner Graph + AlloyDB pgvector recalled on demand" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="604" y="250" width="288" height="248" as="geometry" />
+      </mxCell>
+      <mxCell id="n_plan" value="04 • PLAN MODULE
+Task Decomposition
+Breaks complex goal into verifiable sub-steps: Step 1 -&gt; Step 2 -&gt; Step 3 with rollback hooks." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F3FF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="168" y="532" width="240" height="144" as="geometry" />
+      </mxCell>
+      <mxCell id="n_decide" value="05 • ROUTING GATE
+Can I Answer Directly?
+YES -&gt; Emit verified output
+NO -&gt; Delegate to Planning &amp; Tool Execution layer." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFBEB;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="440" y="532" width="220" height="144" as="geometry" />
+      </mxCell>
+      <mxCell id="n_act" value="06 • ACT (TOOL EXECUTION LAYER)
+Sandboxed Tool &amp; MCP Invocation
+Executes MCP tools, REST/gRPC APIs, SQL/Graph queries, and gVisor code sandboxes." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="290" y="712" width="310" height="118" as="geometry" />
+      </mxCell>
+      <mxCell id="n_goal" value="07 • VERIFICATION LOOP
+Goal Achieved &amp; Verified?
+YES -&gt; Deliver signed response
+NO -&gt; Feed observation back to Reasoning Engine." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="636" y="712" width="256" height="118" as="geometry" />
+      </mxCell>
+      <mxCell id="n_tools_bar" value="6 STANDARDIZED EXECUTION ADAPTERS
+[1] Model Context Protocol (MCP)  ·  [2] REST/gRPC APIs  ·  [3] Code Sandbox  ·  [4] Spanner/BigQuery  ·  [5] File System  ·  [6] Git/External SaaS
+All tool calls pass through deterministic schema validation and per-turn OAuth 2.1 On-Behalf-Of (OBO) scoping." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="168" y="852" width="724" height="88" as="geometry" />
+      </mxCell>
+      <mxCell id="n_observe_bus" value="CROSS-CUTTING OBSERVABILITY &amp; FINOPS BUS
+OpenTelemetry Distributed Traces • Token &amp; Cost Attribution • Drift &amp; Hallucination Evals • Continuous Replay Set
+Every Perceive -&gt; Think -&gt; Remember -&gt; Plan -&gt; Act span is exported asynchronously with zero user-facing latency." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFF7ED;strokeColor=#EA580C;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="960" width="864" height="96" as="geometry" />
+      </mxCell>
+      <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-03 (T212) • PRINCIPAL ARCHITECT • CLOUD HYPERSCALER" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="1076" width="864" height="48" as="geometry" />
+      </mxCell>
+      <mxCell id="e_gen_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="425" y="324" as="sourcePoint" />
+          <mxPoint x="425" y="356" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="560" y="410" as="sourcePoint" />
+          <mxPoint x="604" y="410" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="604" y="440" as="sourcePoint" />
+          <mxPoint x="560" y="440" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="425" y="498" as="sourcePoint" />
+          <mxPoint x="550" y="532" as="targetPoint" />
+          <Array as="points">
+            <mxPoint x="425" y="515" />
+            <mxPoint x="550" y="515" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="440" y="604" as="sourcePoint" />
+          <mxPoint x="408" y="604" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="288" y="676" as="sourcePoint" />
+          <mxPoint x="290" y="771" as="targetPoint" />
+          <Array as="points">
+            <mxPoint x="288" y="771" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="600" y="771" as="sourcePoint" />
+          <mxPoint x="636" y="771" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="764" y="712" as="sourcePoint" />
+          <mxPoint x="425" y="498" as="targetPoint" />
+          <Array as="points">
+            <mxPoint x="764" y="515" />
+            <mxPoint x="425" y="515" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="445" y="830" as="sourcePoint" />
+          <mxPoint x="445" y="852" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="146" y="425" as="sourcePoint" />
+          <mxPoint x="290" y="425" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="146" y="771" as="sourcePoint" />
+          <mxPoint x="290" y="771" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#EA580C;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="530" y="940" as="sourcePoint" />
+          <mxPoint x="530" y="960" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

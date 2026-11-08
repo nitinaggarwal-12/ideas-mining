@@ -1,0 +1,186 @@
+<mxfile host="app.diagrams.net" modified="2026-11-08T17:00:00.000Z" agent="IdeasMintingGenerativeEngine/4.0" version="24.7.8">
+  <diagram id="gen_T219" name="T219 — 3x6 Agentic SDLC Swimlane">
+    <mxGraphModel dx="920" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="1150" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      <mxCell id="hdr_banner" value="T219 • 3X6 AGENTIC SDLC SWIMLANE • ZERO-TRUST GUARDRAIL &amp; COMPLIANCE LENS • REGULATED ENTERPRISE
+C.R.I.S.S.P. 3x6 Agentic SDLC Swimlane: AI Builds, Guards Prove, Human Decides
+Trustworthy AI Software Engineering Requires Deterministic Non-AI Verification Gates Between Multi-Agent Worktrees and Production
+Stack Anchor: Google Cloud Vertex AI + Spanner Graph + Model Armor + OpenTelemetry  |  KPIs: 0 Static Agent Keys · 100% PII Redacted · Deterministic Kill Switch" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="24" width="864" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="SubBanner" value="GOVERNANCE &amp; PERSONA CONTRACT: Security Mandate: AI colleagues build, deterministic scripts prove, a human owner decides (y/N).
+HIPAA / SOX / GxP Deterministic Audit Trail • VPC-SC + Customer-Managed Encryption (CMEK)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#DBEAFE;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_hdr_1" value="STAGE 01
+DISCOVER" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#2563EB;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="176" y="208" width="112" height="52" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_hdr_2" value="STAGE 02
+PLAN" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#2563EB;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="296" y="208" width="112" height="52" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_hdr_3" value="STAGE 03
+BUILD" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#2563EB;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="416" y="208" width="112" height="52" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_hdr_4" value="STAGE 04
+VERIFY" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#2563EB;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="536" y="208" width="112" height="52" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_hdr_5" value="STAGE 05
+REVIEW" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#2563EB;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="656" y="208" width="112" height="52" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_hdr_6" value="STAGE 06
+RELEASE" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#2563EB;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="776" y="208" width="112" height="52" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_actor_1" value="ROW 1
+Multi-Persona Agents
+AI COLLEAGUES" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F3FF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="276" width="138" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r1_c1" value="S1 · R1
+DISCOVER
+5 UX personas walk product &amp; log F-xx" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="176" y="276" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r1_c2" value="S2 · R1
+PLAN
+Drafts epics, options &amp; trade-offs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="296" y="276" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r1_c3" value="S3 · R1
+BUILD
+Isolated worktree: red test then green" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="416" y="276" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r1_c4" value="S4 · R1
+VERIFY
+Runs full check suite; never fakes pass" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="536" y="276" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r1_c5" value="S5 · R1
+REVIEW
+Reviews diffs &amp; drafts release notes" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="656" y="276" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r1_c6" value="S6 · R1
+RELEASE
+Generates `--cluster-plan` (never deploys)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="776" y="276" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_actor_2" value="ROW 2
+Scripts Prove (0% AI)
+DETERMINISTIC GUARDS" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="524" width="138" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r2_c1" value="S1 · R2
+DISCOVER
+Scrubs secrets &amp; private names" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="176" y="524" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r2_c2" value="S2 · R2
+PLAN
+Monotonic ID &amp; schema lock" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="296" y="524" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r2_c3" value="S3 · R2
+BUILD
+Test must fail without code change" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="416" y="524" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r2_c4" value="S4 · R2
+VERIFY
+Coverage &amp; impact gate (only goes up)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="536" y="524" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r2_c5" value="S5 · R2
+REVIEW
+Signed proof certificate per commit" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="656" y="524" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r2_c6" value="S6 · R2
+RELEASE
+Green full run &lt;=7d; zero bypass" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="776" y="524" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_actor_3" value="ROW 3
+Human Decides (Always)
+PRODUCT OWNER" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFBEB;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="772" width="138" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r3_c1" value="S1 · R3
+DISCOVER
+Triggers UX round &amp; sets token budget" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="176" y="772" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r3_c2" value="S2 · R3
+PLAN
+Makes D-xx architecture decisions" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="296" y="772" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r3_c3" value="S3 · R3
+BUILD
+Inspects clean plan, not raw noise" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="416" y="772" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r3_c4" value="S4 · R3
+VERIFY
+Triggers full verification run" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="536" y="772" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r3_c5" value="S5 · R3
+REVIEW
+Accepts verified deliverables" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="656" y="772" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_r3_c6" value="S6 · R3
+RELEASE
+Approves y/N production push" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="776" y="772" width="112" height="226" as="geometry" />
+      </mxCell>
+      <mxCell id="sdlc_feedback" value="CLOSED-LOOP RELEASE TELEMETRY
+Every production scan, UX round, or post-release incident automatically becomes the next Stage 1 Finding (F-xx)." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#475569;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="1012" width="864" height="48" as="geometry" />
+      </mxCell>
+      <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-10 (T219) • CISO &amp; GOVERNANCE • REGULATED ENTERPRISE" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="1076" width="864" height="48" as="geometry" />
+      </mxCell>
+      <mxCell id="e_gen_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="288" y="234" as="sourcePoint" />
+          <mxPoint x="296" y="234" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="408" y="234" as="sourcePoint" />
+          <mxPoint x="416" y="234" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="528" y="234" as="sourcePoint" />
+          <mxPoint x="536" y="234" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="648" y="234" as="sourcePoint" />
+          <mxPoint x="656" y="234" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="768" y="234" as="sourcePoint" />
+          <mxPoint x="776" y="234" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

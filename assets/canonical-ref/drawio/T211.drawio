@@ -1,0 +1,131 @@
+<mxfile host="app.diagrams.net" modified="2026-11-08T17:00:00.000Z" agent="IdeasMintingGenerativeEngine/4.0" version="24.7.8">
+  <diagram id="gen_T211" name="T211 — 8-Card FinOps Micro-Charts">
+    <mxGraphModel dx="920" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="1150" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      <mxCell id="hdr_banner" value="T211 • 8-CARD FINOPS MICRO-CHARTS • EXECUTIVE ROI &amp; BOARD RISK LENS • REGULATED ENTERPRISE
+Executive AI FinOps &amp; ROI 8-Card Micro-Chart Playbook
+How Engineering &amp; Finance Teams Deliver Verifiable AI Returns Without Blowing Token or License Budgets
+Stack Anchor: Google Cloud Vertex AI + Spanner Graph + Model Armor + OpenTelemetry  |  KPIs: Payback &lt;= 4.2 Months · -68% Cost / Outcome · 100% Audit Lineage" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="24" width="864" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="SubBanner" value="GOVERNANCE &amp; PERSONA CONTRACT: Board Sign-Off Gate: Fund next phase strictly from verified pilot savings.
+HIPAA / SOX / GxP Deterministic Audit Trail • VPC-SC + Customer-Managed Encryption (CMEK)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#DBEAFE;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
+      </mxCell>
+      <mxCell id="fin_card_1" value="Concept • Cost Iceberg
+01 • What AI Really Costs
+📊 License/API is 15% tip; 85% is Data Prep + Integration + Training + Eval Upkeep
+✓ Budget for Day-2 evals &amp; maintenance, never just Day-1 launch" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="208" width="420" height="198" as="geometry" />
+      </mxCell>
+      <mxCell id="fin_card_2" value="Key Formulas • Unit Economics
+02 • The Verified ROI Math
+📊 Monthly Value = Hours Saved × Loaded Rate × Verified Active Adoption %
+✓ Payback (Months) = Setup Cost ÷ Monthly Net Validated Gain" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="472" y="208" width="420" height="198" as="geometry" />
+      </mxCell>
+      <mxCell id="fin_card_3" value="Strategy • $ to $$$$ Escalation
+03 • Buy Before You Build Ladder
+📊 1. Use included features ($) -&gt; 2. Off-the-shelf ($$) -&gt; 3. Low-code ($$$) -&gt; 4. Custom ($$$$)
+✓ Climb one rung only when the rung below fails measured SLOs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="424" width="420" height="198" as="geometry" />
+      </mxCell>
+      <mxCell id="fin_card_4" value="Cost Lever • Tiered Routing
+04 • Right-Size the Model Cascade
+📊 Overkill (Frontier for bool gates) vs Right-Sized (Flash -&gt; Argon cascade) vs Too Weak (Rework!)
+✓ Route 80% of deterministic/triage turns to &lt;15ms small models" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="472" y="424" width="420" height="198" as="geometry" />
+      </mxCell>
+      <mxCell id="fin_card_5" value="Process • Capital Discipline
+05 • 30-Day Self-Funding Pilot Loop
+📊 Pick 1 high-volume use case -&gt; Run 30-day pilot -&gt; Measure net savings -&gt; Scale or Kill
+✓ Fund every subsequent wave strictly from the prior pilot&#x27;s savings" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="640" width="420" height="198" as="geometry" />
+      </mxCell>
+      <mxCell id="fin_card_6" value="Control • FinOps Alerts
+06 • Break-Even &amp; Spend Telemetry
+📊 Track Cost Curve vs Realized Value Curve until Break-Even crossover (Month 3.8)
+✓ Measure cost-per-successful-task (CPSO), never raw token volume" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="472" y="640" width="420" height="198" as="geometry" />
+      </mxCell>
+      <mxCell id="fin_card_7" value="Licenses • 24-Seat Audit Grid
+07 • Cut Zombie Licenses Monthly
+📊 15 Active Power Seats (Green) vs 9 Dormant Seats (Gray) = 37.5% Immediate Waste
+✓ Reclaim &amp; reassign inactive seats every 30 days before buying more" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="856" width="420" height="198" as="geometry" />
+      </mxCell>
+      <mxCell id="fin_card_8" value="People • Adoption Lever
+08 • Role-Based Enablement Multiplier
+📊 Tool Only (1.2x Value/Cost) vs Tool + 45m Role-Based Workflows (3.8x Value/Cost)
+✓ Appoint 1 practitioner AI Champion per squad to compound adoption" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="472" y="856" width="420" height="198" as="geometry" />
+      </mxCell>
+      <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-02 (T211) • C-SUITE &amp; CFO • REGULATED ENTERPRISE" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="1076" width="864" height="48" as="geometry" />
+      </mxCell>
+      <mxCell id="e_gen_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="448" y="307" as="sourcePoint" />
+          <mxPoint x="472" y="307" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="238" y="406" as="sourcePoint" />
+          <mxPoint x="238" y="424" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="682" y="406" as="sourcePoint" />
+          <mxPoint x="682" y="424" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="448" y="523" as="sourcePoint" />
+          <mxPoint x="472" y="523" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="238" y="622" as="sourcePoint" />
+          <mxPoint x="238" y="640" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="682" y="622" as="sourcePoint" />
+          <mxPoint x="682" y="640" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="448" y="739" as="sourcePoint" />
+          <mxPoint x="472" y="739" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="238" y="838" as="sourcePoint" />
+          <mxPoint x="238" y="856" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="682" y="838" as="sourcePoint" />
+          <mxPoint x="682" y="856" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="448" y="955" as="sourcePoint" />
+          <mxPoint x="472" y="955" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

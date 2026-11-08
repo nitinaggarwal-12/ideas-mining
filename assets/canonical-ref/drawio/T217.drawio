@@ -1,0 +1,152 @@
+<mxfile host="app.diagrams.net" modified="2026-11-08T17:00:00.000Z" agent="IdeasMintingGenerativeEngine/4.0" version="24.7.8">
+  <diagram id="gen_T217" name="T217 — Dual-Path OTel Collector Zoom">
+    <mxGraphModel dx="920" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="1150" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      <mxCell id="hdr_banner" value="T217 • DUAL-PATH OTEL COLLECTOR ZOOM • CODE-FIRST HARNESS &amp; RUNTIME LENS • CLOUD HYPERSCALER
+Dual-Path Agent Observability &amp; OpenTelemetry Collector Zoom-In
+Two Paths Run Side-by-Side: The Sub-Second Synchronous User Turn and the Async PII-Scrubbed OTel Telemetry Pipeline
+Stack Anchor: Vertex AI Agent Engine + Cloud Run + AlloyDB pgvector + Cloud Trace  |  KPIs: p95 Turn &lt; 1.1s · pass^3 = 89.4% · Zero AI in Release Gate" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="24" width="864" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="SubBanner" value="GOVERNANCE &amp; PERSONA CONTRACT: Builder Rule: Treat retrieved content as untrusted data; enforce red-to-green test per commit.
+Multi-Tenant Control Plane • Global Endpoint Routing • Native MCP &amp; A2A Interoperability" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#E0F2FE;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_live_lane" value="PATH A • LIVE SYNCHRONOUS REQUEST PATH (THE USER WAITS FOR THIS)
+[User Asks Question]  &lt;===&gt;  [1. Agent App: OpenTelemetry Records Every Step, Prompt &amp; Tool Call]  &lt;===&gt;  [LLM + Tools (DBs, APIs, Search)]
+Sub-second response returned directly to user while telemetry spans are grouped asynchronously in the background." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFBEB;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="208" width="864" height="142" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_async_emit" value="PATH B • ASYNC BACKGROUND TELEMETRY EMITTER
+2. Batch &amp; Emit Spans Quietly (Zero User-Facing Latency)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="230" y="370" width="460" height="76" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_collector_box" value="3. OPENTELEMETRY COLLECTOR (ZOOM-IN) • ONE PLACE TO CLEAN &amp; GOVERN TELEMETRY BEFORE STORAGE" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="466" width="864" height="196" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_col_1" value="3A • RECEIVE
+Ingest OTLP Spans
+Captures traces from every agent &amp; MCP tool" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="48" y="512" width="184" height="130" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_col_2" value="3B • PROTECT
+Redact PII &amp; Keys
+Scrubs PII, secrets, and raw bearer tokens" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="262" y="512" width="184" height="130" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_col_3" value="3C • FILTER
+100% Error Capture
+Keeps all errors &amp; slow turns; tail-samples normal" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="476" y="512" width="184" height="130" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_col_4" value="3D • FORWARD
+Multi-Sink Route
+Exports clean telemetry to specialized backends" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="690" y="512" width="184" height="130" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_sink_1" value="4A • TRACE STORE
+Step-by-Step Run Replay
+Stack: Cloud Trace · Jaeger · Grafana Tempo" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="684" width="268" height="120" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_sink_2" value="4B • LLM &amp; EVAL MONITOR
+Prompts, Cost &amp; Drift
+Stack: Langfuse · Arize Phoenix · Vertex Eval" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="326" y="684" width="268" height="120" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_sink_3" value="4C • METRICS &amp; LOGS
+QPS, Errors &amp; Saturation
+Stack: Cloud Monitoring · Prometheus · Loki" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="624" y="684" width="268" height="120" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_dash" value="5. LIVE SLO DASHBOARDS
+[p95 Latency: 1.08s]   ·   [Tokens/Run: 3.1k]   ·   [Error Rate: 0.8%]   ·   [Tool Success: 98.4%]
+Real-time golden signals correlated by trace_id and agent version." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0F9FF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="824" width="556" height="124" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_alerts" value="6. AUTOMATED ALERTS
+PagerDuty / Slack Triggers
+• Tool error spike &gt; 2%
+• Daily token budget burn
+• p95 latency regression" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FEF2F2;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="604" y="824" width="288" height="124" as="geometry" />
+      </mxCell>
+      <mxCell id="obs_improve" value="7. CONTINUOUS TRACE-TO-EVAL FLYWHEEL
+[Find a Bad Production Run]  ---&gt;  [Convert Trace into Regression Test]  ---&gt;  [Fix Harness / Prompt]  ---&gt;  [Ship Verified Release]" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="968" width="864" height="88" as="geometry" />
+      </mxCell>
+      <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-08 (T217) • STAFF+ SWE BUILDER • CLOUD HYPERSCALER" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="1076" width="864" height="48" as="geometry" />
+      </mxCell>
+      <mxCell id="e_gen_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="232" y="577" as="sourcePoint" />
+          <mxPoint x="262" y="577" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="446" y="577" as="sourcePoint" />
+          <mxPoint x="476" y="577" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="660" y="577" as="sourcePoint" />
+          <mxPoint x="690" y="577" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284C7;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="162" y="662" as="sourcePoint" />
+          <mxPoint x="162" y="684" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="460" y="662" as="sourcePoint" />
+          <mxPoint x="460" y="684" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="758" y="662" as="sourcePoint" />
+          <mxPoint x="758" y="684" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="460" y="350" as="sourcePoint" />
+          <mxPoint x="460" y="370" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="460" y="446" as="sourcePoint" />
+          <mxPoint x="460" y="466" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284C7;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="306" y="804" as="sourcePoint" />
+          <mxPoint x="306" y="824" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="748" y="804" as="sourcePoint" />
+          <mxPoint x="748" y="824" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="460" y="948" as="sourcePoint" />
+          <mxPoint x="460" y="968" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

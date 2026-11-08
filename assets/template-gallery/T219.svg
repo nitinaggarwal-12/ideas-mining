@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 1150" width="920" height="1150">
+<title>T219 • NITIN AGGARWAL • NOVEMBER 2026 • FORMAT LINEAGE: 3-Actor x 6-Stage Responsibility Swimlane (AI Builds · Guards Prove · Human Decides) • Proprietary + Confidential</title>
+<desc>Author: Nitin Aggarwal • November 2026 • Richard Edens (LI-58 · C.R.I.S.S.P. Agentic SDLC) • Google Cloud Build + Binary Authorization + OpenHands</desc>
+<defs>
+<pattern id="genGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.20"/></pattern>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes phaseSpot1 { 0%,24% { opacity: 0.96; stroke-width: 3.4px; } 26%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot2 { 0%,24% { opacity: 0.22; stroke-width: 1.5px; } 25%,49% { opacity: 0.96; stroke-width: 3.4px; } 51%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot3 { 0%,49% { opacity: 0.22; stroke-width: 1.5px; } 50%,74% { opacity: 0.96; stroke-width: 3.4px; } 76%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot4 { 0%,74% { opacity: 0.22; stroke-width: 1.5px; } 75%,99% { opacity: 0.96; stroke-width: 3.4px; } 100% { opacity: 0.22; stroke-width: 1.5px; } }
+.phase-glow-1 { animation: phaseSpot1 4.8s ease-in-out infinite; }
+.phase-glow-2 { animation: phaseSpot2 4.8s ease-in-out infinite; }
+.phase-glow-3 { animation: phaseSpot3 4.8s ease-in-out infinite; }
+.phase-glow-4 { animation: phaseSpot4 4.8s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0" y="0" width="920" height="1150" fill="#F8FAFC"/>
+<rect x="0" y="0" width="920" height="1150" fill="url(#genGrid)"/>
+<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="42.0" y="44.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">T219 • 3X6 AGENTIC SDLC SWIMLANE • ZERO-TRUST GUARDRAIL &amp; COMPLIANCE LENS • REGULATED ENTERPRISE</text>
+<text x="42.0" y="62.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">C.R.I.S.S.P. 3x6 Agentic SDLC Swimlane: AI Builds, Guards Prove, Human Decides</text>
+<text x="42.0" y="86.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Trustworthy AI Software Engineering Requires Deterministic Non-AI Verification Gates Between Multi-Agent Worktrees and Production</text>
+<text x="42.0" y="101.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack Anchor: Google Cloud Vertex AI + Spanner Graph + Model Armor + OpenTelemetry | KPIs: 0 Static Agent Keys · 100% PII Redacted ·</text>
+<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Deterministic Kill Switch</text>
+<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#DBEAFE" stroke="#7C3AED" stroke-width="2"/>
+<text x="42.0" y="170.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: Security Mandate: AI colleagues build, deterministic scripts prove, a human owner decides (y/N).</text>
+<rect x="176.0" y="208.0" width="112.0" height="52.0" rx="8.0" fill="#0F172A" stroke="#2563EB" stroke-width="2"/>
+<text x="190.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#93C5FD">STAGE 01</text>
+<text x="190.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">DISCOVER</text>
+<rect x="296.0" y="208.0" width="112.0" height="52.0" rx="8.0" fill="#0F172A" stroke="#2563EB" stroke-width="2"/>
+<text x="310.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#93C5FD">STAGE 02</text>
+<text x="310.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">PLAN</text>
+<rect x="416.0" y="208.0" width="112.0" height="52.0" rx="8.0" fill="#0F172A" stroke="#2563EB" stroke-width="2"/>
+<text x="430.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#93C5FD">STAGE 03</text>
+<text x="430.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">BUILD</text>
+<rect x="536.0" y="208.0" width="112.0" height="52.0" rx="8.0" fill="#0F172A" stroke="#2563EB" stroke-width="2"/>
+<text x="550.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#93C5FD">STAGE 04</text>
+<text x="550.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">VERIFY</text>
+<rect x="656.0" y="208.0" width="112.0" height="52.0" rx="8.0" fill="#0F172A" stroke="#2563EB" stroke-width="2"/>
+<text x="670.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#93C5FD">STAGE 05</text>
+<text x="670.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">REVIEW</text>
+<rect x="776.0" y="208.0" width="112.0" height="52.0" rx="8.0" fill="#0F172A" stroke="#2563EB" stroke-width="2"/>
+<text x="790.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#93C5FD">STAGE 06</text>
+<text x="790.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">RELEASE</text>
+<rect x="28.0" y="276.0" width="138.0" height="226.0" rx="12.0" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2"/>
+<text x="42.0" y="296.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">ROW 1</text>
+<text x="42.0" y="314.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Multi-Persona</text>
+<text x="42.0" y="332.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Agents</text>
+<text x="42.0" y="350.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">AI COLLEAGUES</text>
+<rect x="176.0" y="276.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="190.0" y="296.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">S1 · R1</text>
+<text x="190.0" y="314.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">DISCOVER</text>
+<text x="190.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">5 UX personas</text>
+<text x="190.0" y="345.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">walk product &amp;</text>
+<text x="190.0" y="360.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">log F-xx</text>
+<rect x="296.0" y="276.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="310.0" y="296.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">S2 · R1</text>
+<text x="310.0" y="314.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">PLAN</text>
+<text x="310.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Drafts epics,</text>
+<text x="310.0" y="345.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">options &amp;</text>
+<text x="310.0" y="360.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">trade-offs</text>
+<rect x="416.0" y="276.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="430.0" y="296.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">S3 · R1</text>
+<text x="430.0" y="314.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">BUILD</text>
+<text x="430.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Isolated</text>
+<text x="430.0" y="345.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">worktree: red</text>
+<text x="430.0" y="360.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">test then green</text>
+<rect x="536.0" y="276.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="550.0" y="296.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">S4 · R1</text>
+<text x="550.0" y="314.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">VERIFY</text>
+<text x="550.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Runs full check</text>
+<text x="550.0" y="345.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">suite; never</text>
+<text x="550.0" y="360.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">fakes pass</text>
+<rect x="656.0" y="276.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="670.0" y="296.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">S5 · R1</text>
+<text x="670.0" y="314.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">REVIEW</text>
+<text x="670.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Reviews diffs &amp;</text>
+<text x="670.0" y="345.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">drafts release</text>
+<text x="670.0" y="360.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">notes</text>
+<rect x="776.0" y="276.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="790.0" y="296.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">S6 · R1</text>
+<text x="790.0" y="314.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">RELEASE</text>
+<text x="790.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Generates</text>
+<text x="790.0" y="345.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">`--cluster-plan`</text>
+<text x="790.0" y="360.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">(never deploys)</text>
+<rect x="28.0" y="524.0" width="138.0" height="226.0" rx="12.0" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
+<text x="42.0" y="544.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">ROW 2</text>
+<text x="42.0" y="562.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Scripts Prove</text>
+<text x="42.0" y="580.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">(0% AI)</text>
+<text x="42.0" y="598.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">DETERMINISTIC</text>
+<text x="42.0" y="613.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">GUARDS</text>
+<rect x="176.0" y="524.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="190.0" y="544.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">S1 · R2</text>
+<text x="190.0" y="562.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">DISCOVER</text>
+<text x="190.0" y="578.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Scrubs secrets &amp;</text>
+<text x="190.0" y="593.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">private names</text>
+<rect x="296.0" y="524.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="310.0" y="544.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">S2 · R2</text>
+<text x="310.0" y="562.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">PLAN</text>
+<text x="310.0" y="578.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Monotonic ID &amp;</text>
+<text x="310.0" y="593.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">schema lock</text>
+<rect x="416.0" y="524.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="430.0" y="544.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">S3 · R2</text>
+<text x="430.0" y="562.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">BUILD</text>
+<text x="430.0" y="578.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Test must fail</text>
+<text x="430.0" y="593.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">without code</text>
+<text x="430.0" y="608.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">change</text>
+<rect x="536.0" y="524.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="550.0" y="544.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">S4 · R2</text>
+<text x="550.0" y="562.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">VERIFY</text>
+<text x="550.0" y="578.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Coverage &amp;</text>
+<text x="550.0" y="593.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">impact gate</text>
+<text x="550.0" y="608.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">(only goes up)</text>
+<rect x="656.0" y="524.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="670.0" y="544.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">S5 · R2</text>
+<text x="670.0" y="562.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">REVIEW</text>
+<text x="670.0" y="578.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Signed proof</text>
+<text x="670.0" y="593.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">certificate per</text>
+<text x="670.0" y="608.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">commit</text>
+<rect x="776.0" y="524.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="790.0" y="544.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">S6 · R2</text>
+<text x="790.0" y="562.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">RELEASE</text>
+<text x="790.0" y="578.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Green full run</text>
+<text x="790.0" y="593.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">&lt;=7d; zero</text>
+<text x="790.0" y="608.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">bypass</text>
+<rect x="28.0" y="772.0" width="138.0" height="226.0" rx="12.0" fill="#FFFBEB" stroke="#D97706" stroke-width="2"/>
+<text x="42.0" y="792.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">ROW 3</text>
+<text x="42.0" y="810.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Human Decides</text>
+<text x="42.0" y="828.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">(Always)</text>
+<text x="42.0" y="846.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">PRODUCT OWNER</text>
+<rect x="176.0" y="772.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+<text x="190.0" y="792.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">S1 · R3</text>
+<text x="190.0" y="810.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">DISCOVER</text>
+<text x="190.0" y="826.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Triggers UX</text>
+<text x="190.0" y="841.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">round &amp; sets</text>
+<text x="190.0" y="856.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">token budget</text>
+<rect x="296.0" y="772.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+<text x="310.0" y="792.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">S2 · R3</text>
+<text x="310.0" y="810.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">PLAN</text>
+<text x="310.0" y="826.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Makes D-xx</text>
+<text x="310.0" y="841.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">architecture</text>
+<text x="310.0" y="856.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">decisions</text>
+<rect x="416.0" y="772.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+<text x="430.0" y="792.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">S3 · R3</text>
+<text x="430.0" y="810.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">BUILD</text>
+<text x="430.0" y="826.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Inspects clean</text>
+<text x="430.0" y="841.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">plan, not raw</text>
+<text x="430.0" y="856.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">noise</text>
+<rect x="536.0" y="772.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+<text x="550.0" y="792.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">S4 · R3</text>
+<text x="550.0" y="810.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">VERIFY</text>
+<text x="550.0" y="826.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Triggers full</text>
+<text x="550.0" y="841.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">verification run</text>
+<rect x="656.0" y="772.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+<text x="670.0" y="792.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">S5 · R3</text>
+<text x="670.0" y="810.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">REVIEW</text>
+<text x="670.0" y="826.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Accepts verified</text>
+<text x="670.0" y="841.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">deliverables</text>
+<rect x="776.0" y="772.0" width="112.0" height="226.0" rx="10.0" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+<text x="790.0" y="792.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">S6 · R3</text>
+<text x="790.0" y="810.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">RELEASE</text>
+<text x="790.0" y="826.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Approves y/N</text>
+<text x="790.0" y="841.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">production push</text>
+<rect x="28.0" y="1012.0" width="864.0" height="48.0" rx="8.0" fill="#F8FAFC" stroke="#475569" stroke-width="2"/>
+<text x="42.0" y="1032.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#475569">CLOSED-LOOP RELEASE TELEMETRY</text>
+<text x="42.0" y="1050.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">Every production scan, UX round, or post-release incident automatically becomes the next Stage 1 Finding (F-xx).</text>
+<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<text x="460.0" y="1105.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-10 (T219) • CISO &amp; GOVERNANCE • REGULATED ENTERPRISE</text>
+<path d="M 288.0 234.0 L 296.0 234.0" fill="none" stroke="#2563EB" stroke-width="2"/>
+<path d="M 408.0 234.0 L 416.0 234.0" fill="none" stroke="#2563EB" stroke-width="2"/>
+<path d="M 528.0 234.0 L 536.0 234.0" fill="none" stroke="#2563EB" stroke-width="2"/>
+<path d="M 648.0 234.0 L 656.0 234.0" fill="none" stroke="#2563EB" stroke-width="2"/>
+<path d="M 768.0 234.0 L 776.0 234.0" fill="none" stroke="#2563EB" stroke-width="2"/>
+<rect x="26.0" y="274.0" width="864.0" height="230.0" rx="12.0" class="phase-glow-1" fill="none" stroke="#7C3AED" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="26.0" y="522.0" width="864.0" height="230.0" rx="12.0" class="phase-glow-2" fill="none" stroke="#059669" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="26.0" y="770.0" width="864.0" height="230.0" rx="12.0" class="phase-glow-3" fill="none" stroke="#D97706" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="26.0" y="1010.0" width="868.0" height="52.0" rx="12.0" class="phase-glow-4" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-opacity="0.78"/>
+<path d="M 288.0 234.0 L 296.0 234.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 288.0 234.0 L 296.0 234.0"/></g>
+<path d="M 408.0 234.0 L 416.0 234.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 408.0 234.0 L 416.0 234.0"/></g>
+<path d="M 528.0 234.0 L 536.0 234.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 528.0 234.0 L 536.0 234.0"/></g>
+<path d="M 648.0 234.0 L 656.0 234.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 648.0 234.0 L 656.0 234.0"/></g>
+<path d="M 768.0 234.0 L 776.0 234.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 768.0 234.0 L 776.0 234.0"/></g>
+<path d="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 6" stroke-dashoffset="0.0"/>
+<g><circle r="7.4" fill="#7C3AED" fill-opacity="0.15"/><circle r="5.0" fill="#7C3AED" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.7" fill="#7C3AED"/><animateMotion dur="3.60s" begin="-0.00s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
+<g><circle r="7.4" fill="#7C3AED" fill-opacity="0.15"/><circle r="5.0" fill="#7C3AED" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.7" fill="#7C3AED"/><animateMotion dur="3.60s" begin="-1.80s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
+</svg>

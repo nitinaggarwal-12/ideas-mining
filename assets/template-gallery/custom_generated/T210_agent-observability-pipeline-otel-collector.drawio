@@ -1,0 +1,246 @@
+<mxfile host="app.diagrams.net" modified="2026-11-08T17:00:00.000Z" agent="IdeasMintingGenerativeEngine/4.0" version="24.7.8">
+  <diagram id="gen_T210" name="T210 — 6-Zone Bento Cheatsheet">
+    <mxGraphModel dx="920" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="1150" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      <mxCell id="hdr_banner" value="T210 • 6-ZONE BENTO CHEATSHEET • CODE-FIRST HARNESS &amp; RUNTIME LENS • CLOUD HYPERSCALER
+Enterprise AI Platform 6-Zone Bento Cheatsheet
+Multi-Persona Generative Blueprint • Zero-Trust Control &amp; Data Plane
+Stack Anchor: Vertex AI Agent Engine + Cloud Run + AlloyDB pgvector + Cloud Trace  |  KPIs: p95 Turn &lt; 1.1s · pass^3 = 89.4% · Zero AI in Release Gate" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="24" width="864" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="SubBanner" value="GOVERNANCE &amp; PERSONA CONTRACT: Builder Rule: Treat retrieved content as untrusted data; enforce red-to-green test per commit.
+Multi-Tenant Control Plane • Global Endpoint Routing • Native MCP &amp; A2A Interoperability" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#E0F2FE;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
+      </mxCell>
+      <mxCell id="bento_stack" value="ZONE 1 • THE 5-LAYER AI STACK
+How the Platform Fits Together
+1. Conversational Front Door (Workspace/Portal)
+2. Domain AI Skills (Grounded RAG &amp; Drafting)
+3. Multi-Agent Orchestrator (Plan &amp; Delegate)
+4. AI Control Tower (Policy, Traces, Kill Switch)
+5. Enterprise Data &amp; Models (Spanner + Gemini)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="208" width="340" height="250" as="geometry" />
+      </mxCell>
+      <mxCell id="bento_start" value="ZONE 2 • WHERE TO START (DAY 1-30)
+5-Step Practitioner Rollout
+• Turn on grounded summarization in 1 workspace
+• Clean &amp; deduplicate KB before AI Search
+• Pilot 1 bounded agent on high-volume tickets
+• Register every agent &amp; MCP tool in Control Tower
+• Track verified minutes saved from Day 1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFBEB;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="474" width="340" height="190" as="geometry" />
+      </mxCell>
+      <mxCell id="bento_build" value="ZONE 3 • BUILDING AGENTS (6-STEP SPINE)
+How Agent Studio &amp; ADK Work
+01 Describe Role &amp; Goal in plain language
+02 Bind Tools (Workflows, Scripts, KB, MCP)
+03 Set Guardrails (OAuth 2.1 OBO + HITL approvals)
+04 Replay 40+ Golden &amp; Adversarial Eval Cases
+05 Publish to Workspace or Event Trigger
+06 Monitor Sessions, Cost &amp; Drift in Control Tower" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="680" width="340" height="376" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_bg_1" value="LANE 4 • GROUNDED SKILL EXECUTION LOOP" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0F9FF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="392" y="208" width="500" height="266" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_1_n_0" value="STEP 01
+User / Agent
+Workspace trigger" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="408" y="264" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_1_n_1" value="STEP 02
+Grounded Skill
+Prompt + Context" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="528" y="264" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_1_n_2" value="STEP 03
+Model Armor
+PII &amp; Safety Gate" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="648" y="264" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_1_n_3" value="STEP 04
+KB + Gemini
+ACL-filtered RAG" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="768" y="264" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_1_foot" value="INVARIANT
+Grounded only in ACL-authorized records • Full CMDB &amp; OTel lineage" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="408" y="398" width="468" height="58" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_bg_2" value="LANE 5 • MULTI-AGENT ORCHESTRATOR FAN-OUT" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="392" y="492" width="500" height="266" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_2_n_0" value="STEP 01
+Incident Ticket
+High-volume event" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="408" y="548" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_2_n_1" value="STEP 02
+Orchestrator
+Decomposes plan" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="528" y="548" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_2_n_2" value="STEP 03
+Specialist Pod
+Triage + Investigate" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="648" y="548" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_2_n_3" value="STEP 04
+Resolve + HITL
+Human approves write" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="768" y="548" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_2_foot" value="INVARIANT
+Grounded only in ACL-authorized records • Full CMDB &amp; OTel lineage" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="408" y="682" width="468" height="58" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_bg_3" value="LANE 6 • MCP ACTION FABRIC &amp; AI CONTROL TOWER" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F3FF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="392" y="776" width="500" height="266" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_3_n_0" value="STEP 01
+External Agent
+Any MCP/A2A peer" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="408" y="832" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_3_n_1" value="STEP 02
+MCP Gateway
+RFC 8693 OBO" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="528" y="832" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_3_n_2" value="STEP 03
+Workflows &amp; DB
+Idempotent action" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="648" y="832" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_3_n_3" value="STEP 04
+Control Tower
+Discover • Govern • ROI" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="768" y="832" width="108" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="lane_3_foot" value="INVARIANT
+Grounded only in ACL-authorized records • Full CMDB &amp; OTel lineage" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="408" y="966" width="468" height="58" as="geometry" />
+      </mxCell>
+      <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-01 (T210) • STAFF+ SWE BUILDER • CLOUD HYPERSCALER" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="1076" width="864" height="48" as="geometry" />
+      </mxCell>
+      <mxCell id="e_gen_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284C7;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="516" y="322" as="sourcePoint" />
+          <mxPoint x="528" y="322" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284C7;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="636" y="322" as="sourcePoint" />
+          <mxPoint x="648" y="322" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284C7;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="756" y="322" as="sourcePoint" />
+          <mxPoint x="768" y="322" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284C7;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="822" y="380" as="sourcePoint" />
+          <mxPoint x="460" y="380" as="targetPoint" />
+          <Array as="points">
+            <mxPoint x="822" y="398" />
+            <mxPoint x="460" y="398" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="516" y="606" as="sourcePoint" />
+          <mxPoint x="528" y="606" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="636" y="606" as="sourcePoint" />
+          <mxPoint x="648" y="606" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="756" y="606" as="sourcePoint" />
+          <mxPoint x="768" y="606" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="822" y="664" as="sourcePoint" />
+          <mxPoint x="460" y="664" as="targetPoint" />
+          <Array as="points">
+            <mxPoint x="822" y="682" />
+            <mxPoint x="460" y="682" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="516" y="890" as="sourcePoint" />
+          <mxPoint x="528" y="890" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="636" y="890" as="sourcePoint" />
+          <mxPoint x="648" y="890" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="756" y="890" as="sourcePoint" />
+          <mxPoint x="768" y="890" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="822" y="948" as="sourcePoint" />
+          <mxPoint x="460" y="948" as="targetPoint" />
+          <Array as="points">
+            <mxPoint x="822" y="966" />
+            <mxPoint x="460" y="966" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="198" y="458" as="sourcePoint" />
+          <mxPoint x="198" y="474" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="198" y="664" as="sourcePoint" />
+          <mxPoint x="198" y="680" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284C7;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="368" y="330" as="sourcePoint" />
+          <mxPoint x="392" y="330" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="368" y="570" as="sourcePoint" />
+          <mxPoint x="392" y="570" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="368" y="860" as="sourcePoint" />
+          <mxPoint x="392" y="860" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

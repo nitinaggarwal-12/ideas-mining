@@ -5153,3 +5153,98 @@ function copyStepFlowPostText() {
   navigator.clipboard?.writeText(full);
   showToast("Copied 6-Beat Step-by-Step Post + Comment #1");
 }
+
+async function triggerSynthesizeCustomTemplate() {
+  const topicInput = document.getElementById("gen-template-topic-input");
+  const personaSelect = document.getElementById("gen-template-persona-select");
+  const orgSelect = document.getElementById("gen-template-org-select");
+  const grammarSelect = document.getElementById("gen-template-grammar-select");
+  const stage = document.getElementById("gen-template-result-stage");
+  const btn = document.getElementById("synthesize-custom-template-btn");
+  if (!stage) return;
+
+  const topic = (topicInput?.value || "").trim() || "Enterprise Agentic AI Governance, FinOps & Runtime Architecture";
+  const persona_id = personaSelect?.value || "vp_principal_architect";
+  const org_id = orgSelect?.value || "cloud_hyperscaler";
+  const grammar_id = grammarSelect?.value || "AUTO";
+
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "Synthesizing Blueprint...";
+  }
+  try {
+    const res = await fetch("/api/templates/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ topic, persona_id, org_id, grammar_id }),
+    });
+    const data = await res.json();
+    if (!res.ok || data.error) {
+      showToast(data.error || "Failed to synthesize custom blueprint");
+      return;
+    }
+    stage.style.display = "block";
+    stage.replaceChildren();
+
+    const metaRow = mkEl("div", "section-header-row");
+    metaRow.style.marginBottom = "12px";
+    const leftInfo = mkEl("div", "min-w-0");
+    const badgeRow = mkEl("div", "masthead-eyebrow-row");
+    badgeRow.append(
+      mkEl("span", "pill-badge pill-emerald", `${data.grammar_id} (${data.template_id}) · ${data.confidence_score}% Fit`),
+      mkEl("span", "pill-badge pill-sky", `Persona: ${data.persona?.short_label || persona_id}`),
+      mkEl("span", "pill-badge pill-amber", `Org: ${data.organization?.short_label || org_id}`)
+    );
+    const titleEl = mkEl("h3", "subsection-heading", `${data.grammar?.name || data.template_id}`);
+    titleEl.style.marginTop = "6px";
+    const whyEl = mkEl("p", "section-description", data.why_selected || "");
+    leftInfo.append(badgeRow, titleEl, whyEl);
+
+    const actions = mkEl("div", "studio-toolbar-actions");
+    if (data.files?.svg_url) {
+      const aSvg = mkEl("a", "btn-secondary", "Open Custom SVG ↗");
+      aSvg.href = safeUrl(data.files.svg_url);
+      aSvg.target = "_blank";
+      aSvg.rel = "noopener";
+      actions.appendChild(aSvg);
+    }
+    if (data.files?.drawio_url) {
+      const aDraw = mkEl("a", "btn-secondary", "Download .drawio");
+      aDraw.href = safeUrl(data.files.drawio_url);
+      aDraw.setAttribute("download", `${data.template_id}_custom.drawio`);
+      actions.appendChild(aDraw);
+    }
+    if (data.files?.canonical_pptx_url) {
+      const aPptx = mkEl("a", "btn-primary", "Download Editable .pptx");
+      aPptx.href = safeUrl(data.files.canonical_pptx_url);
+      aPptx.setAttribute("download", `${data.template_id}.pptx`);
+      actions.appendChild(aPptx);
+    }
+    metaRow.append(leftInfo, actions);
+    stage.appendChild(metaRow);
+
+    const previewWrap = mkEl("div");
+    previewWrap.style.cssText = "background:#f8fafc;border:1px solid #cbd5e1;border-radius:12px;padding:16px;display:flex;justify-content:center;max-height:760px;overflow:auto;";
+    if (data.files?.svg_url) {
+      const img = document.createElement("img");
+      img.src = `${safeUrl(data.files.svg_url)}?t=${Date.now()}`;
+      img.alt = `${data.template_id} synthesized blueprint`;
+      img.style.cssText = "max-width:680px;width:100%;height:auto;border-radius:8px;box-shadow:0 4px 16px rgba(15,23,42,0.08);";
+      previewWrap.appendChild(img);
+    }
+    stage.appendChild(previewWrap);
+    showToast(`Synthesized ${data.grammar_id} (${data.template_id}) for ${data.persona?.short_label}`);
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "✨ Synthesize Custom Blueprint";
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const synthBtn = document.getElementById("synthesize-custom-template-btn");
+  if (synthBtn) {
+    synthBtn.addEventListener("click", () => triggerSynthesizeCustomTemplate());
+  }
+});

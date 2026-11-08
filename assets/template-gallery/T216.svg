@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 1150" width="920" height="1150">
+<title>T216 • NITIN AGGARWAL • NOVEMBER 2026 • FORMAT LINEAGE: 4-Stage Inverted Signal-Triage Funnel -&gt; 3-Stage Build Loop • Proprietary + Confidential</title>
+<desc>Author: Nitin Aggarwal • November 2026 • Alex Barády (LI-54 · How to Run Agentic Product Management) • Google Cloud Vertex AI + Linear/Jira MCP + BigQuery</desc>
+<defs>
+<pattern id="genGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.20"/></pattern>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes phaseSpot1 { 0%,24% { opacity: 0.96; stroke-width: 3.4px; } 26%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot2 { 0%,24% { opacity: 0.22; stroke-width: 1.5px; } 25%,49% { opacity: 0.96; stroke-width: 3.4px; } 51%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot3 { 0%,49% { opacity: 0.22; stroke-width: 1.5px; } 50%,74% { opacity: 0.96; stroke-width: 3.4px; } 76%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot4 { 0%,74% { opacity: 0.22; stroke-width: 1.5px; } 75%,99% { opacity: 0.96; stroke-width: 3.4px; } 100% { opacity: 0.22; stroke-width: 1.5px; } }
+.phase-glow-1 { animation: phaseSpot1 4.8s ease-in-out infinite; }
+.phase-glow-2 { animation: phaseSpot2 4.8s ease-in-out infinite; }
+.phase-glow-3 { animation: phaseSpot3 4.8s ease-in-out infinite; }
+.phase-glow-4 { animation: phaseSpot4 4.8s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0" y="0" width="920" height="1150" fill="#F8FAFC"/>
+<rect x="0" y="0" width="920" height="1150" fill="url(#genGrid)"/>
+<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="42.0" y="44.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">T216 • INVERTED FUNNEL + BUILD LOOP • AGENTIC PRODUCT &amp; FDE GTM LENS • FRONTIER AI STARTUP</text>
+<text x="42.0" y="62.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Agentic Product Management: 4-Stage Signal Funnel &amp; Closed-Loop Delivery</text>
+<text x="42.0" y="86.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">When Engineers Ship Code 5x Faster with Agents, Product Discovery &amp; Prioritization Become the Primary Bottleneck</text>
+<text x="42.0" y="101.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack Anchor: Gemini 4 Argon / 3.8 Flash + ADK + LangGraph + Arize Phoenix | KPIs: 3x Faster Spec-to-Ship · 1 FDE : 1.5 AE Ratio · +42%</text>
+<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Feature Adoption</text>
+<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#EDE9FE" stroke="#059669" stroke-width="2"/>
+<text x="42.0" y="170.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: Product Loop: Let 6 ambient agents gather &amp; cost signals; human product lead owns Gate A.</text>
+<rect x="48.0" y="208.0" width="824.0" height="114.0" rx="14.0" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
+<text x="62.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">STEP 1 • 6 AMBIENT AGENTS GATHER EVERY SIGNAL AROUND THE CLOCK</text>
+<text x="62.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Market Research · Customer Signals · Portfolio Goals · Tech Debt · Product Analytics · Release Metrics</text>
+<rect x="118.0" y="338.0" width="684.0" height="96.0" rx="14.0" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
+<text x="132.0" y="358.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">STEP 2 • AGENTS SYNTHESIZE &amp; RANK THE UNIFIED BACKLOG</text>
+<text x="132.0" y="376.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Strategic Bet · Customer Request · Architecture Debt · Funnel Drop-Off Finding</text>
+<rect x="188.0" y="450.0" width="544.0" height="96.0" rx="14.0" fill="#FEFCE8" stroke="#D97706" stroke-width="2"/>
+<text x="202.0" y="470.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">STEP 3 • AGENTS COST &amp; SIMULATE EVERY OPTION BEFORE HUMANS MEET</text>
+<text x="202.0" y="488.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Option A (€ · Weeks · Δ Metric) | Option B (€ · Weeks · Δ Metric) |</text>
+<text x="202.0" y="506.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Option C (€ · Weeks · Δ Metric)</text>
+<rect x="258.0" y="562.0" width="404.0" height="96.0" rx="14.0" fill="#FEF9C3" stroke="#CA8A04" stroke-width="2"/>
+<text x="272.0" y="582.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#CA8A04">STEP 4 • HUMAN DECISION GATE A: PRODUCT LEAD PICKS ONE BET</text>
+<text x="272.0" y="600.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Agents do the research &amp; costing; your human</text>
+<text x="272.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">leadership team decides what to build.</text>
+<rect x="48.0" y="692.0" width="248.0" height="168.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+<text x="62.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">STEP 5A • ARCHITECT + AGENTS</text>
+<text x="62.0" y="730.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Shape the Slice</text>
+<text x="62.0" y="749.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Product Slice = Epic + User Stories</text>
+<text x="62.0" y="764.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">+ Verifiable Acceptance Tests</text>
+<rect x="336.0" y="692.0" width="248.0" height="168.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="350.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">STEP 5B • ENGINEER + AGENTS</text>
+<text x="350.0" y="730.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Build &amp; Ship</text>
+<text x="350.0" y="749.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Agentic production worktrees with</text>
+<text x="350.0" y="764.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">deterministic CI/CD into users&#x27;</text>
+<text x="350.0" y="779.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">hands</text>
+<rect x="624.0" y="692.0" width="248.0" height="168.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="638.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">STEP 5C • GATE B OUTCOME REVIEW</text>
+<text x="638.0" y="730.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Measure the Outcome</text>
+<text x="638.0" y="749.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Track conversion, retention &amp; LTV</text>
+<text x="638.0" y="764.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">deltas -&gt; feed back into Step 1</text>
+<rect x="48.0" y="888.0" width="824.0" height="168.0" rx="14.0" fill="#F8FAFC" stroke="#059669" stroke-width="2"/>
+<text x="62.0" y="908.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">HOW AGENTS SCORE EVERY OPTION BEFORE ANYONE DECIDES</text>
+<text x="62.0" y="926.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">[1. COST]: People, token compute &amp; infra to build and run | [2. TIME TO MARKET]: Days until users touch it &amp;</text>
+<text x="62.0" y="944.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">signal returns | [3. VALUE]: Expected move in conversion, retention &amp; LTV</text>
+<text x="62.0" y="962.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Closed-Loop Rule: Every production release automatically emits telemetry back into Step 1&#x27;s Metrics Agent.</text>
+<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<text x="460.0" y="1105.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-07 (T216) • PRODUCT &amp; GTM • FRONTIER AI STARTUP</text>
+<path d="M 460.0 322.0 L 460.0 338.0" fill="none" stroke="#059669" stroke-width="2"/>
+<path d="M 460.0 434.0 L 460.0 450.0" fill="none" stroke="#059669" stroke-width="2"/>
+<path d="M 460.0 546.0 L 460.0 562.0" fill="none" stroke="#D97706" stroke-width="2"/>
+<path d="M 296.0 776.0 L 336.0 776.0" fill="none" stroke="#2563EB" stroke-width="2"/>
+<path d="M 584.0 776.0 L 624.0 776.0" fill="none" stroke="#059669" stroke-width="2"/>
+<path d="M 460.0 658.0 L 460.0 692.0" fill="none" stroke="#CA8A04" stroke-width="2"/>
+<path d="M 872.0 776.0 L 896.0 776.0 L 896.0 265.0 L 872.0 265.0" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="6 4"/>
+<rect x="46.0" y="206.0" width="828.0" height="118.0" rx="12.0" class="phase-glow-1" fill="none" stroke="#059669" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="256.0" y="560.0" width="408.0" height="100.0" rx="12.0" class="phase-glow-2" fill="none" stroke="#D97706" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="334.0" y="690.0" width="252.0" height="172.0" rx="12.0" class="phase-glow-3" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="622.0" y="690.0" width="252.0" height="172.0" rx="12.0" class="phase-glow-4" fill="none" stroke="#7C3AED" stroke-width="2.6" stroke-opacity="0.78"/>
+<path d="M 460.0 322.0 L 460.0 338.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 460.0 322.0 L 460.0 338.0"/></g>
+<path d="M 460.0 434.0 L 460.0 450.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 460.0 434.0 L 460.0 450.0"/></g>
+<path d="M 460.0 546.0 L 460.0 562.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#D97706" fill-opacity="0.15"/><circle r="3.8" fill="#D97706" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#D97706" stroke-width="2.0"/><circle r="1.3" fill="#D97706"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 460.0 546.0 L 460.0 562.0"/></g>
+<path d="M 296.0 776.0 L 336.0 776.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 296.0 776.0 L 336.0 776.0"/></g>
+<path d="M 584.0 776.0 L 624.0 776.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 584.0 776.0 L 624.0 776.0"/></g>
+<path d="M 460.0 658.0 L 460.0 692.0" class="flow-line" fill="none" stroke="#CA8A04" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#CA8A04" fill-opacity="0.15"/><circle r="3.8" fill="#CA8A04" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#CA8A04" stroke-width="2.0"/><circle r="1.3" fill="#CA8A04"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 460.0 658.0 L 460.0 692.0"/></g>
+<path d="M 872.0 776.0 L 896.0 776.0 L 896.0 265.0 L 872.0 265.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="7.4" fill="#059669" fill-opacity="0.15"/><circle r="5.0" fill="#059669" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.7" fill="#059669"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 872.0 776.0 L 896.0 776.0 L 896.0 265.0 L 872.0 265.0"/></g>
+<path d="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 6" stroke-dashoffset="0.0"/>
+<g><circle r="7.4" fill="#059669" fill-opacity="0.15"/><circle r="5.0" fill="#059669" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.7" fill="#059669"/><animateMotion dur="3.60s" begin="-0.00s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
+<g><circle r="7.4" fill="#059669" fill-opacity="0.15"/><circle r="5.0" fill="#059669" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.7" fill="#059669"/><animateMotion dur="3.60s" begin="-1.80s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
+</svg>

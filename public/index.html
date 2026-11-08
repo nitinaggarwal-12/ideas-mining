@@ -86,7 +86,7 @@
         </button>
         <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-view="view-gallery" id="tab-btn-gallery">
           <span>Blueprints</span>
-          <span class="tab-count tabular-nums">116</span>
+          <span class="tab-count tabular-nums">128</span>
         </button>
         <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-view="view-repos" id="tab-btn-repos">
           <span>Cloud Repos</span>
@@ -98,7 +98,7 @@
         </button>
         <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-view="view-playbook" id="tab-btn-playbook">
           <span>Creator Radar</span>
-          <span class="tab-count tabular-nums" id="nav-playbook-count">47</span>
+          <span class="tab-count tabular-nums" id="nav-playbook-count">55</span>
         </button>
         <button type="button" role="tab" aria-selected="false" class="nav-tab-btn" data-view="view-openhands" id="tab-btn-openhands">
           <span>Sandbox</span>
@@ -610,20 +610,83 @@
       </div>
     </section>
 
-    <!-- VIEW 2: 116 CERTIFIED VISUAL BLUEPRINTS GALLERY -->
+    <!-- VIEW 2: 128 CERTIFIED VISUAL BLUEPRINTS GALLERY + AUTONOMOUS GRAMMAR INVENTOR -->
     <section id="view-gallery" style="display: none;">
       <div class="workspace-masthead">
         <div class="masthead-copy">
           <div class="masthead-eyebrow-row">
-            <span class="eyebrow-label" id="gallery-count-badge">116 Certified Templates (72 Best + 44 High)</span>
+            <span class="eyebrow-label" id="gallery-count-badge">128 Certified Templates (84 Best + 44 High)</span>
             <span class="eyebrow-divider" aria-hidden="true">·</span>
-            <span class="eyebrow-muted">38 Editable Google Slides Decks · Click Any Artwork to Zoom</span>
+            <span class="eyebrow-muted">12 Generative Visual Grammars × 6 Personas × 5 Orgs (360 Combinations) · 39 Editable Google Slides Decks</span>
           </div>
-          <h1 class="workspace-title">Certified Architecture &amp; Infographic Blueprints</h1>
+          <h1 class="workspace-title">Certified Architecture &amp; Generative Infographic Studio</h1>
           <p class="workspace-subtitle">
-            Curated multi-tier diagrams, PromptCanvas infographics, and sculptural technical posters exported in native Google Slides, PPTX, Draw.io, and Retina PNG/SVG.
+            Synthesize brand-new compositional layouts across 12 Visual Grammars, 6 Executive/Engineering Personas, and 5 Organization Archetypes — or browse 128 certified templates.
           </p>
         </div>
+      </div>
+
+      <!-- AUTONOMOUS VISUAL GRAMMAR & MULTI-PERSONA TEMPLATE INVENTOR -->
+      <div class="studio-surface" id="generative-grammar-inventor-card" data-testid="generative-grammar-inventor-card" style="margin-bottom: 20px; border-left: 4px solid #2563eb;">
+        <div class="section-header-row" style="margin-bottom: 12px;">
+          <div class="min-w-0">
+            <div class="masthead-eyebrow-row">
+              <span class="eyebrow-label">Autonomous Visual Grammar Engine v4.0</span>
+              <span class="eyebrow-divider" aria-hidden="true">·</span>
+              <span class="pill-badge pill-emerald tabular-nums" id="gen-grammar-fit-badge">12 Compositional Grammars × 6 Personas × 5 Orgs = 360 Tailored Layouts</span>
+            </div>
+            <h2 class="section-heading">Synthesize a Custom Visual Framework, Pattern, or Architecture Blueprint</h2>
+            <p class="section-description">
+              Describe any idea, comparison, FinOps model, SDLC workflow, observability pipeline, or GTM operating model. The engine selects or overrides the optimal compositional grammar (T210–T221) and adapts vocabulary, KPIs, and governance gates to your target persona and organization.
+            </p>
+          </div>
+        </div>
+
+        <div class="studio-toolbar" style="margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+          <input
+            type="text"
+            id="gen-template-topic-input"
+            class="input-light"
+            style="flex: 2; min-width: 260px;"
+            placeholder="Enter idea, framework, or pattern (e.g., Taxonomy vs Ontology vs Semantic Model, Agent FinOps ROI, C.R.I.S.S.P. SDLC, OTel Collector)..."
+            aria-label="Topic or framework to synthesize into a custom visual template"
+          />
+          <select id="gen-template-persona-select" class="select-light" aria-label="Select target persona lens">
+            <option value="vp_principal_architect">Persona: VP of AI &amp; Principal Enterprise Architect</option>
+            <option value="c_suite_board">Persona: C-Suite, CFO &amp; Board Investment Committee</option>
+            <option value="staff_swe_builder">Persona: Staff+ AI Systems Engineer &amp; Harness Builder</option>
+            <option value="product_gtm_leader">Persona: AI Product Leader &amp; Forward Deployed Engineer (FDE)</option>
+            <option value="ciso_governance">Persona: CISO, AI Governance &amp; Model Risk Officer</option>
+            <option value="devrel_creator">Persona: Technical Creator, DevRel &amp; Ecosystem Evangelist</option>
+          </select>
+          <select id="gen-template-org-select" class="select-light" aria-label="Select target organization archetype">
+            <option value="cloud_hyperscaler">Org: Cloud Hyperscaler &amp; AI Platform Team</option>
+            <option value="regulated_enterprise">Org: Regulated Global Enterprise (Banking / Pharma / InsurTech)</option>
+            <option value="frontier_ai_startup">Org: Frontier AI-Native Startup &amp; Hypergrowth Product</option>
+            <option value="open_source_ecosystem">Org: Open-Source AI Maintainers &amp; Developer Community</option>
+            <option value="strategic_advisory_si">Org: Enterprise Transformation, Advisory &amp; FDE Practice</option>
+          </select>
+          <select id="gen-template-grammar-select" class="select-light" aria-label="Select compositional visual grammar">
+            <option value="AUTO">⚡ Auto-Select Optimal Visual Grammar (Epistemic Router)</option>
+            <option value="GRAMMAR-01">GRAMMAR-01 (T210) · 6-Zone Asymmetric Bento Cheatsheet</option>
+            <option value="GRAMMAR-02">GRAMMAR-02 (T211) · 8-Card FinOps Micro-Chart Playbook</option>
+            <option value="GRAMMAR-03">GRAMMAR-03 (T212) · Universal 7-Part Cognitive Agent Loop</option>
+            <option value="GRAMMAR-04">GRAMMAR-04 (T213) · 4-Rung Concept Striation + Mini-Graphs</option>
+            <option value="GRAMMAR-05">GRAMMAR-05 (T214) · IDE Code-Block (SKILL.md/YAML) + Runtime</option>
+            <option value="GRAMMAR-06">GRAMMAR-06 (T215) · 6-Panel Concept Dossier &amp; Ladder of Meaning</option>
+            <option value="GRAMMAR-07">GRAMMAR-07 (T216) · 4-Stage Inverted Signal Funnel + Build Loop</option>
+            <option value="GRAMMAR-08">GRAMMAR-08 (T217) · Dual-Path OTel Collector Zoom-In Pipeline</option>
+            <option value="GRAMMAR-09">GRAMMAR-09 (T218) · Bicameral Formal Logic &amp; Spec Quine Loop</option>
+            <option value="GRAMMAR-10">GRAMMAR-10 (T219) · 3x6 Agentic SDLC Responsibility Swimlane</option>
+            <option value="GRAMMAR-11">GRAMMAR-11 (T220) · Concentric Frozen-Core &amp; Recursive Harness²</option>
+            <option value="GRAMMAR-12">GRAMMAR-12 (T221) · Frontier GTM Org-Ratio Tree &amp; 7-Stage FDE Wave</option>
+          </select>
+          <button type="button" class="btn-primary" id="synthesize-custom-template-btn" data-testid="synthesize-custom-template-btn">
+            ✨ Synthesize Custom Blueprint
+          </button>
+        </div>
+
+        <div id="gen-template-result-stage" style="display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid #e2e8f0;"></div>
       </div>
 
       <div class="studio-surface" style="margin-bottom: 20px;">
@@ -633,16 +696,17 @@
             id="gallery-search-input"
             class="input-light"
             style="flex: 2; min-width: 240px;"
-            placeholder="Search 116 blueprints by ID (e.g., T54, T85, T190), topology, domain, or storytelling pattern..."
+            placeholder="Search 128 blueprints by ID (e.g., T54, T85, T160, T210..T221), topology, persona, or storytelling pattern..."
             aria-label="Filter certified visual blueprints"
           />
           <select id="gallery-filter-tier" class="select-light" aria-label="Filter by certified visual quality tier">
-            <option value="ALL">All Tiers (116 Certified · 72 Best + 44 High)</option>
-            <option value="Best">Best Tier Only (72 Blueprints)</option>
+            <option value="ALL">All Tiers (128 Certified · 84 Best + 44 High)</option>
+            <option value="Best">Best Tier Only (84 Blueprints)</option>
             <option value="High">High Tier Only (44 Blueprints)</option>
           </select>
           <select id="gallery-filter-type" class="select-light" aria-label="Filter by content purpose">
             <option value="ALL">All Storytelling Purposes</option>
+            <option value="Generative Visual Grammar">✨ Generative Visual Grammars (T210–T221 · 12 Archetypes)</option>
             <option value="PromptCanvas Infographic">PromptCanvas Canonical Infographics (15 + 23 Variants)</option>
             <option value="Educational">Educational content</option>
             <option value="Professional knowledge sharing">Professional knowledge sharing</option>
@@ -768,12 +832,12 @@
       </div>
     </section>
 
-    <!-- VIEW 3: HOLISTIC CREATOR RADAR, 46-POST AUDIT & 10-PLATFORM OMNICHANNEL PLAYBOOK -->
+    <!-- VIEW 3: HOLISTIC CREATOR RADAR, 60-POST AUDIT & 10-PLATFORM OMNICHANNEL PLAYBOOK -->
     <section id="view-playbook" style="display: none;">
       <div class="workspace-masthead">
         <div class="masthead-copy">
           <div class="masthead-eyebrow-row">
-            <span class="eyebrow-label" id="creator-profiles-count-badge">47 Verified Creators · 46 Audited Posts</span>
+            <span class="eyebrow-label" id="creator-profiles-count-badge">55 Verified Creators · 60 Audited Posts</span>
             <span class="eyebrow-divider" aria-hidden="true">·</span>
             <span class="eyebrow-muted">LinkedIn · X (Twitter) · YouTube · Substack · GitHub · Reddit · HN · IG · TikTok · Bluesky</span>
           </div>
@@ -784,11 +848,11 @@
         <div class="subview-tabs playbook-subtabs" role="tablist" aria-label="Creator Radar Sections" data-testid="playbook-subtabs">
           <button type="button" role="tab" aria-selected="true" class="subview-tab-btn active" data-playbook-panel="playbook-panel-posts" id="playbook-subtab-btn-posts">
             <span>Reviewed Posts</span>
-            <span class="subview-count tabular-nums" id="playbook-posts-count-pill">46</span>
+            <span class="subview-count tabular-nums" id="playbook-posts-count-pill">60</span>
           </button>
           <button type="button" role="tab" aria-selected="false" class="subview-tab-btn" data-playbook-panel="playbook-panel-creators" id="playbook-subtab-btn-creators">
             <span>Creators</span>
-            <span class="subview-count tabular-nums" id="playbook-creators-count-pill">47</span>
+            <span class="subview-count tabular-nums" id="playbook-creators-count-pill">55</span>
           </button>
           <button type="button" role="tab" aria-selected="false" class="subview-tab-btn" data-playbook-panel="playbook-panel-platforms" id="playbook-subtab-btn-platforms">
             <span>Omnichannel &amp; X</span>

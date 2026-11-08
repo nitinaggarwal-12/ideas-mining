@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net" modified="2026-11-08T17:00:00.000Z" agent="IdeasMintingGenerativeEngine/4.0" version="24.7.8">
+  <diagram id="gen_T215" name="T215 — 6-Panel Concept Dossier">
+    <mxGraphModel dx="920" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="1150" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      <mxCell id="hdr_banner" value="T215 • 6-PANEL CONCEPT DOSSIER • ENTERPRISE CONTROL &amp; DATA PLANE LENS • REGULATED ENTERPRISE
+Data Model vs. Ontology: 6-Panel Executive Dossier &amp; Ladder of Meaning
+Why Data Models Dictate How Records Are Stored (Closed-World) While Ontologies Enable Machine Reasoning (Open-World)
+Stack Anchor: Google Cloud Vertex AI + Spanner Graph + Model Armor + OpenTelemetry  |  KPIs: 99.95% Control Plane SLO · Zero-Trust OBO · Unified Ontology Graph" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#4F46E5;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="24" width="864" height="116" as="geometry" />
+      </mxCell>
+      <mxCell id="SubBanner" value="GOVERNANCE &amp; PERSONA CONTRACT: ARB Invariant: Decouple reasoning state and semantic ontology from single-app schemas.
+HIPAA / SOX / GxP Deterministic Audit Trail • VPC-SC + Customer-Managed Encryption (CMEK)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#DBEAFE;strokeColor=#4F46E5;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
+      </mxCell>
+      <mxCell id="dossier_p_1" value="01 • THE CORE ANALOGY
+Library Card Catalog vs. Collective Wisdom
+Data Model = Card Catalog (tells you where every book is stored, zero understanding of contents).
+Ontology = Collective Intelligence (connects ideas across books to infer new knowledge)." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="208" width="268" height="400" as="geometry" />
+      </mxCell>
+      <mxCell id="dossier_p_2" value="02 • HEAD-TO-HEAD &amp; WORLD ASSUMPTION
+Closed-World vs. Open-World Logic
+• Scope: Single App Schema vs Shared Enterprise Domain
+• Closed-World (Data Model): Missing fact = FALSE
+• Open-World (Ontology): Missing fact = UNKNOWN (open for discovery)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="326" y="208" width="268" height="400" as="geometry" />
+      </mxCell>
+      <mxCell id="dossier_p_3" value="03 • KEY CAPABILITIES CONTRAST
+Storage Efficiency vs. Machine Reasoning
+Data Model Can: Enforce table structure, run fast OLTP queries, power standard reports.
+Ontology Can: Represent semantic meaning, infer hidden relationships, unify silos for AI." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F3FF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="624" y="208" width="268" height="400" as="geometry" />
+      </mxCell>
+      <mxCell id="dossier_p_4" value="04 • THE 5-RUNG LADDER OF MEANING
+From Free-Text Tags to Formal Logic
+Rung 1: Folksonomy (Free-text tags)
+Rung 2: Controlled Vocabulary (Standard terms)
+Rung 3: Taxonomy (Parent-child hierarchy)
+Rung 4: Thesaurus (Associative synonyms)
+Rung 5: Ontology (Formal axioms &amp; AI reasoning)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="636" width="268" height="400" as="geometry" />
+      </mxCell>
+      <mxCell id="dossier_p_5" value="05 • 6-STEP ONTOLOGY REASONING FLOW
+How AI Turns Facts into Decisions
+1. Ingest multi-source data -&gt; 2. Map to ontology concepts -&gt; 3. Apply OWL/SHACL rules -&gt; 4. Infer new links -&gt; 5. Answer multi-hop queries -&gt; 6. Learn &amp; evolve continuously." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="326" y="636" width="268" height="400" as="geometry" />
+      </mxCell>
+      <mxCell id="dossier_p_6" value="06 • BETTER TOGETHER EQUATION
+Data Model (The How) + Ontology (The What)
+Data models organize storage; Ontologies give it machine-verifiable meaning.
+Combined Power: Breaks data silos · Unified enterprise meaning · Smarter agent decisions." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F3FF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="624" y="636" width="268" height="400" as="geometry" />
+      </mxCell>
+      <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-06 (T215) • PRINCIPAL ARCHITECT • REGULATED ENTERPRISE" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+        <mxGeometry x="28" y="1076" width="864" height="48" as="geometry" />
+      </mxCell>
+      <mxCell id="e_gen_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="296" y="408" as="sourcePoint" />
+          <mxPoint x="326" y="408" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="162" y="608" as="sourcePoint" />
+          <mxPoint x="162" y="636" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="594" y="408" as="sourcePoint" />
+          <mxPoint x="624" y="408" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="460" y="608" as="sourcePoint" />
+          <mxPoint x="460" y="636" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=block;endFill=1;dashed=1;dashPattern=6 4;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="758" y="608" as="sourcePoint" />
+          <mxPoint x="758" y="636" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="296" y="836" as="sourcePoint" />
+          <mxPoint x="326" y="836" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      <mxCell id="e_gen_7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+        <mxGeometry relative="1" as="geometry">
+          <mxPoint x="594" y="836" as="sourcePoint" />
+          <mxPoint x="624" y="836" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 1150" width="920" height="1150">
+<title>T211 • NITIN AGGARWAL • NOVEMBER 2026 • FORMAT LINEAGE: 8-Card Executive FinOps &amp; ROI Micro-Chart Playbook • Proprietary + Confidential</title>
+<desc>Author: Nitin Aggarwal • November 2026 • Prashant Rathi (LI-48 · Framework to Use AI Without Overspending) • Google Cloud Vertex AI + LiteLLM + OpenTelemetry</desc>
+<defs>
+<pattern id="genGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.20"/></pattern>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes phaseSpot1 { 0%,24% { opacity: 0.96; stroke-width: 3.4px; } 26%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot2 { 0%,24% { opacity: 0.22; stroke-width: 1.5px; } 25%,49% { opacity: 0.96; stroke-width: 3.4px; } 51%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot3 { 0%,49% { opacity: 0.22; stroke-width: 1.5px; } 50%,74% { opacity: 0.96; stroke-width: 3.4px; } 76%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot4 { 0%,74% { opacity: 0.22; stroke-width: 1.5px; } 75%,99% { opacity: 0.96; stroke-width: 3.4px; } 100% { opacity: 0.22; stroke-width: 1.5px; } }
+.phase-glow-1 { animation: phaseSpot1 4.8s ease-in-out infinite; }
+.phase-glow-2 { animation: phaseSpot2 4.8s ease-in-out infinite; }
+.phase-glow-3 { animation: phaseSpot3 4.8s ease-in-out infinite; }
+.phase-glow-4 { animation: phaseSpot4 4.8s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0" y="0" width="920" height="1150" fill="#F8FAFC"/>
+<rect x="0" y="0" width="920" height="1150" fill="url(#genGrid)"/>
+<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="42.0" y="44.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">T211 • 8-CARD FINOPS MICRO-CHARTS • EXECUTIVE ROI &amp; BOARD RISK LENS • REGULATED ENTERPRISE</text>
+<text x="42.0" y="62.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Executive AI FinOps &amp; ROI 8-Card Micro-Chart Playbook</text>
+<text x="42.0" y="86.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">How Engineering &amp; Finance Teams Deliver Verifiable AI Returns Without Blowing Token or License Budgets</text>
+<text x="42.0" y="101.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack Anchor: Google Cloud Vertex AI + Spanner Graph + Model Armor + OpenTelemetry | KPIs: Payback &lt;= 4.2 Months · -68% Cost / Outcome</text>
+<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">· 100% Audit Lineage</text>
+<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#DBEAFE" stroke="#7C3AED" stroke-width="2"/>
+<text x="42.0" y="170.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: Board Sign-Off Gate: Fund next phase strictly from verified pilot savings.</text>
+<rect x="28.0" y="208.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="42.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">Concept • Cost Iceberg</text>
+<text x="42.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">01 • What AI Really Costs</text>
+<text x="42.0" y="265.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 License/API is 15% tip; 85% is Data Prep + Integration +</text>
+<text x="42.0" y="280.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Training + Eval Upkeep</text>
+<text x="42.0" y="295.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Budget for Day-2 evals &amp; maintenance, never just Day-1 launch</text>
+<rect x="472.0" y="208.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="486.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">Key Formulas • Unit Economics</text>
+<text x="486.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">02 • The Verified ROI Math</text>
+<text x="486.0" y="265.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 Monthly Value = Hours Saved × Loaded Rate × Verified Active</text>
+<text x="486.0" y="280.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Adoption %</text>
+<text x="486.0" y="295.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Payback (Months) = Setup Cost ÷ Monthly Net Validated Gain</text>
+<rect x="28.0" y="424.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+<text x="42.0" y="444.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">Strategy • $ to $$$$ Escalation</text>
+<text x="42.0" y="462.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">03 • Buy Before You Build Ladder</text>
+<text x="42.0" y="481.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 1. Use included features ($) -&gt; 2. Off-the-shelf ($$) -&gt; 3.</text>
+<text x="42.0" y="496.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Low-code ($$$) -&gt; 4. Custom ($$$$)</text>
+<text x="42.0" y="511.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Climb one rung only when the rung below fails measured SLOs</text>
+<rect x="472.0" y="424.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+<text x="486.0" y="444.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">Cost Lever • Tiered Routing</text>
+<text x="486.0" y="462.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">04 • Right-Size the Model Cascade</text>
+<text x="486.0" y="481.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 Overkill (Frontier for bool gates) vs Right-Sized (Flash -&gt;</text>
+<text x="486.0" y="496.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Argon cascade) vs Too Weak (Rework!)</text>
+<text x="486.0" y="511.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Route 80% of deterministic/triage turns to &lt;15ms small models</text>
+<rect x="28.0" y="640.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="42.0" y="660.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">Process • Capital Discipline</text>
+<text x="42.0" y="678.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">05 • 30-Day Self-Funding Pilot Loop</text>
+<text x="42.0" y="697.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 Pick 1 high-volume use case -&gt; Run 30-day pilot -&gt; Measure</text>
+<text x="42.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">net savings -&gt; Scale or Kill</text>
+<text x="42.0" y="727.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Fund every subsequent wave strictly from the prior pilot&#x27;s</text>
+<text x="42.0" y="742.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">savings</text>
+<rect x="472.0" y="640.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+<text x="486.0" y="660.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">Control • FinOps Alerts</text>
+<text x="486.0" y="678.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">06 • Break-Even &amp; Spend Telemetry</text>
+<text x="486.0" y="697.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 Track Cost Curve vs Realized Value Curve until Break-Even</text>
+<text x="486.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">crossover (Month 3.8)</text>
+<text x="486.0" y="727.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Measure cost-per-successful-task (CPSO), never raw token</text>
+<text x="486.0" y="742.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">volume</text>
+<rect x="28.0" y="856.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="42.0" y="876.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">Licenses • 24-Seat Audit Grid</text>
+<text x="42.0" y="894.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">07 • Cut Zombie Licenses Monthly</text>
+<text x="42.0" y="913.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 15 Active Power Seats (Green) vs 9 Dormant Seats (Gray) =</text>
+<text x="42.0" y="928.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">37.5% Immediate Waste</text>
+<text x="42.0" y="943.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Reclaim &amp; reassign inactive seats every 30 days before buying</text>
+<text x="42.0" y="958.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">more</text>
+<rect x="472.0" y="856.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="486.0" y="876.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">People • Adoption Lever</text>
+<text x="486.0" y="894.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">08 • Role-Based Enablement Multiplier</text>
+<text x="486.0" y="913.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 Tool Only (1.2x Value/Cost) vs Tool + 45m Role-Based</text>
+<text x="486.0" y="928.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Workflows (3.8x Value/Cost)</text>
+<text x="486.0" y="943.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Appoint 1 practitioner AI Champion per squad to compound</text>
+<text x="486.0" y="958.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">adoption</text>
+<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<text x="460.0" y="1105.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-02 (T211) • C-SUITE &amp; CFO • REGULATED ENTERPRISE</text>
+<path d="M 448.0 307.0 L 472.0 307.0" fill="none" stroke="#7C3AED" stroke-width="2"/>
+<path d="M 238.0 406.0 L 238.0 424.0" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 682.0 406.0 L 682.0 424.0" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 448.0 523.0 L 472.0 523.0" fill="none" stroke="#2563EB" stroke-width="2"/>
+<path d="M 238.0 622.0 L 238.0 640.0" fill="none" stroke="#2563EB" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 682.0 622.0 L 682.0 640.0" fill="none" stroke="#2563EB" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 448.0 739.0 L 472.0 739.0" fill="none" stroke="#7C3AED" stroke-width="2"/>
+<path d="M 238.0 838.0 L 238.0 856.0" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 682.0 838.0 L 682.0 856.0" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 448.0 955.0 L 472.0 955.0" fill="none" stroke="#059669" stroke-width="2"/>
+<rect x="26.0" y="206.0" width="424.0" height="202.0" rx="12.0" class="phase-glow-1" fill="none" stroke="#7C3AED" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="470.0" y="206.0" width="424.0" height="202.0" rx="12.0" class="phase-glow-2" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="26.0" y="638.0" width="424.0" height="202.0" rx="12.0" class="phase-glow-3" fill="none" stroke="#059669" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="470.0" y="854.0" width="424.0" height="202.0" rx="12.0" class="phase-glow-4" fill="none" stroke="#D97706" stroke-width="2.6" stroke-opacity="0.78"/>
+<path d="M 448.0 307.0 L 472.0 307.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 448.0 307.0 L 472.0 307.0"/></g>
+<path d="M 238.0 406.0 L 238.0 424.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 238.0 406.0 L 238.0 424.0"/></g>
+<path d="M 682.0 406.0 L 682.0 424.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 682.0 406.0 L 682.0 424.0"/></g>
+<path d="M 448.0 523.0 L 472.0 523.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 448.0 523.0 L 472.0 523.0"/></g>
+<path d="M 238.0 622.0 L 238.0 640.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 238.0 622.0 L 238.0 640.0"/></g>
+<path d="M 682.0 622.0 L 682.0 640.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 682.0 622.0 L 682.0 640.0"/></g>
+<path d="M 448.0 739.0 L 472.0 739.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 448.0 739.0 L 472.0 739.0"/></g>
+<path d="M 238.0 838.0 L 238.0 856.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 238.0 838.0 L 238.0 856.0"/></g>
+<path d="M 682.0 838.0 L 682.0 856.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 682.0 838.0 L 682.0 856.0"/></g>
+<path d="M 448.0 955.0 L 472.0 955.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 448.0 955.0 L 472.0 955.0"/></g>
+<path d="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 6" stroke-dashoffset="0.0"/>
+<g><circle r="7.4" fill="#7C3AED" fill-opacity="0.15"/><circle r="5.0" fill="#7C3AED" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.7" fill="#7C3AED"/><animateMotion dur="3.60s" begin="-0.00s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
+<g><circle r="7.4" fill="#7C3AED" fill-opacity="0.15"/><circle r="5.0" fill="#7C3AED" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.7" fill="#7C3AED"/><animateMotion dur="3.60s" begin="-1.80s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
+</svg>

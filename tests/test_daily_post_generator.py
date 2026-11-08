@@ -100,28 +100,53 @@ class TestDailyPostGenerator(unittest.TestCase):
                     with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/health", timeout=5) as resp:
                         health = json.loads(resp.read().decode("utf-8"))
                     self.assertEqual(health["status"], "ok")
-                    self.assertEqual(health["template_count"], 116)
-                    self.assertEqual(health["best_count"], 72)
+                    self.assertEqual(health["template_count"], 128)
+                    self.assertEqual(health["best_count"], 84)
                     self.assertEqual(health["high_count"], 44)
                     self.assertEqual(health["repos_count"], 19)
                     self.assertEqual(health["minting_topics_count"], 12)
-                    self.assertEqual(health["creator_profiles_count"], 47)
-                    self.assertEqual(health["reviewed_posts_count"], 46)
-                    self.assertEqual(health["public_reviewed_posts_count"], 44)
+                    self.assertEqual(health["creator_profiles_count"], 55)
+                    self.assertEqual(health["reviewed_posts_count"], 60)
+                    self.assertEqual(health["public_reviewed_posts_count"], 58)
                     self.assertEqual(health["omnichannel_platforms_count"], 10)
                     self.assertEqual(health["mined_template_posts_count"], 16)
 
                     with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/creator-radar", timeout=5) as resp:
                         radar = json.loads(resp.read().decode("utf-8"))
                     self.assertEqual(radar["status"], "ok")
-                    self.assertEqual(len(radar["reviewed_posts"]), 46)
-                    self.assertEqual(len(radar["creator_profiles"]), 47)
+                    self.assertEqual(len(radar["reviewed_posts"]), 60)
+                    self.assertEqual(len(radar["creator_profiles"]), 55)
                     self.assertEqual(len(radar["omnichannel_platforms"]), 10)
                     self.assertEqual(len(radar["x_ecosystem_leaders"]), 15)
 
                     with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/templates", timeout=5) as resp:
                         tpl = json.loads(resp.read().decode("utf-8"))
-                    self.assertEqual(tpl["template_count"], 116)
+                    self.assertEqual(tpl["template_count"], 128)
+
+                    with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/templates/generative-matrix", timeout=5) as resp:
+                        gmat = json.loads(resp.read().decode("utf-8"))
+                    self.assertEqual(gmat["status"], "ok")
+                    self.assertEqual(gmat["total_tailored_combinations"], 360)
+
+                    gen_req = urllib.request.Request(
+                        f"http://127.0.0.1:{port}/api/templates/generate",
+                        data=json.dumps(
+                            {
+                                "topic": "Agent Observability Pipeline & OTel Collector",
+                                "persona_id": "staff_swe_builder",
+                                "org_id": "cloud_hyperscaler",
+                                "grammar_id": "AUTO",
+                            }
+                        ).encode("utf-8"),
+                        headers={"Content-Type": "application/json"},
+                        method="POST",
+                    )
+                    with urllib.request.urlopen(gen_req, timeout=5) as gresp:
+                        gout = json.loads(gresp.read().decode("utf-8"))
+                    self.assertEqual(gout["status"], "SYNTHESIZED")
+                    self.assertEqual(gout["grammar_id"], "GRAMMAR-08")
+                    self.assertEqual(gout["template_id"], "T217")
+                    self.assertIn("<svg", gout["svg"])
 
                     with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/minting-studio", timeout=5) as resp:
                         studio = json.loads(resp.read().decode("utf-8"))

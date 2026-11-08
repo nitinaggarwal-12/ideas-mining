@@ -731,5 +731,65 @@
     "background": "#FAF8F2",
     "height": 1150,
     "width": 920
+  },
+  "T210": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
+  },
+  "T211": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
+  },
+  "T212": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
+  },
+  "T213": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
+  },
+  "T214": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
+  },
+  "T215": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
+  },
+  "T216": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
+  },
+  "T217": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
+  },
+  "T218": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
+  },
+  "T219": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
+  },
+  "T220": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
+  },
+  "T221": {
+    "width": 920,
+    "height": 1150,
+    "background": "#F8FAFC"
   }
 }

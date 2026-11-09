@@ -779,12 +779,29 @@ async function openRepoInspector(slug) {
     });
   }
 
-  // Tab 3: Terraform & ADK Code
+  // Tab 3: Terraform, ADK Code & Reproducible Evals
   const tfTab = document.getElementById("dtab-terraform");
   if (tfTab) {
     tfTab.replaceChildren();
+    if (detail.eval_results && detail.eval_results.metrics) {
+      const m = detail.eval_results.metrics;
+      const evalCard = mkEl("div", "feed-item-card");
+      evalCard.style.cssText = "background:#f8fafc;border:1px solid #cbd5e1;border-left:4px solid #2563eb;padding:12px 14px;border-radius:10px;margin-bottom:14px;";
+      const hdr = mkEl("div", "", `REPRODUCIBLE EVALUATION SUITE · ${detail.eval_results.total_scenarios || 20} SCENARIOS (${detail.eval_results.total_trial_executions || 100} TRIALS)`);
+      hdr.style.cssText = "font-size:11px;font-weight:800;letter-spacing:0.06em;color:#1d4ed8;margin-bottom:6px;";
+      const summaryLine = mkEl(
+        "div",
+        "",
+        `pass^5 Reliability: ${m.naive_pass_pow_5_pct}% → ${m.engineered_pass_pow_5_pct}%  |  Token Reduction: -${m.token_reduction_pct}% (${m.naive_avg_tokens} → ${m.engineered_avg_tokens} tok)  |  p95 Speedup: ${m.p95_latency_speedup_x}x (${m.naive_p95_latency_ms}ms → ${m.engineered_p95_latency_ms}ms)  |  Adversarial Blocked: ${m.adversarial_Shot_blocked_engineered}  |  Cost/1K Runs: $${m.cost_per_1k_workflows_naive_usd} → $${m.cost_per_1k_workflows_engineered_usd}`
+      );
+      summaryLine.style.cssText = "font-size:12.5px;font-weight:700;color:#0f172a;line-height:1.5;";
+      evalCard.append(hdr, summaryLine);
+      tfTab.appendChild(evalCard);
+    }
     [
-      ["1-Click Google Cloud Deployment", `cd generated-repos/${slug} && ./scripts/deploy_gcp_one_click.sh ramp-portal-dev us-west1`],
+      ["1-Click Google Cloud Deployment & Eval Suite Execution", `cd generated-repos/${slug} && python3 evals/run_eval_suite.py && ./scripts/deploy_gcp_one_click.sh ramp-portal-dev us-west1`],
+      ["evals/eval_dataset.jsonl (20 Grounded Enterprise Benchmark Scenarios — Preview)", detail.eval_dataset_preview || ""],
+      ["evals/run_eval_suite.py (Reproducible Naive vs. Engineered Benchmark Runner)", detail.eval_runner_py || ""],
       ["terraform/main.tf (Cloud Run v2 + Vertex AI Global + IAM)", detail.terraform_main || ""],
       ["src/engine.py (Google Cloud ADK + Global Endpoint)", detail.engine_py || ""],
     ].forEach(([label, code]) => {

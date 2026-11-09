@@ -508,11 +508,21 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             receipt = {}
             if (r_dir / "openhands_verification_receipt.json").exists():
                 receipt = json.loads((r_dir / "openhands_verification_receipt.json").read_text(encoding="utf-8"))
+            eval_results = {}
+            if (r_dir / "evals" / "eval_results.json").exists():
+                eval_results = json.loads((r_dir / "evals" / "eval_results.json").read_text(encoding="utf-8"))
+            eval_dataset_preview = ""
+            if (r_dir / "evals" / "eval_dataset.jsonl").exists():
+                eval_dataset_preview = "\n".join((r_dir / "evals" / "eval_dataset.jsonl").read_text(encoding="utf-8").splitlines()[:6])
+            eval_runner_py = (r_dir / "evals" / "run_eval_suite.py").read_text(encoding="utf-8") if (r_dir / "evals" / "run_eval_suite.py").exists() else ""
 
             detail = dict(matched)
             detail["git_commit_sha"] = receipt.get("openhands_trajectory", {}).get("git_commit_sha", "verified")
             detail["terraform_main"] = tf_main
             detail["engine_py"] = engine_py
+            detail["eval_results"] = eval_results
+            detail["eval_dataset_preview"] = eval_dataset_preview
+            detail["eval_runner_py"] = eval_runner_py
             detail["linkedin_post_draft"] = li_draft
             detail["nano_banana_3_prompt"] = nb3_prompt
             detail["architecture_blueprint_spec"] = nb3_prompt

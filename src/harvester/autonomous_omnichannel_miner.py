@@ -743,7 +743,17 @@ def fetch_rss_less_frontier_lab_sitemaps_live(
                         if loc and any(p in loc for p in src["path_prefixes"]):
                             url_tuples.append((lastmod or "2026-11-08", loc))
                 url_tuples.sort(key=lambda x: x[0], reverse=True)
-                for lastmod, loc_url in url_tuples[:limit_per_source]:
+                selected_tuples: List[Tuple[str, str]] = []
+                for pfx in src["path_prefixes"]:
+                    match_pfx = next((ut for ut in url_tuples if pfx in ut[1] and ut not in selected_tuples), None)
+                    if match_pfx:
+                        selected_tuples.append(match_pfx)
+                for ut in url_tuples:
+                    if len(selected_tuples) >= max(limit_per_source, len(src["path_prefixes"])):
+                        break
+                    if ut not in selected_tuples:
+                        selected_tuples.append(ut)
+                for lastmod, loc_url in selected_tuples[:max(limit_per_source, len(src["path_prefixes"]))]:
                     # Check if already in cached_entries
                     existing = next((e for e in cached_entries if e.get("primary_url") == loc_url), None)
                     if existing:
@@ -771,14 +781,21 @@ def fetch_rss_less_frontier_lab_sitemaps_live(
                 pass
 
         if not discovered_now:
-            discovered_now = cached_entries[:limit_per_source] if cached_entries else list(src["verified_seed_entries"])
+            discovered_now = list(cached_entries) if cached_entries else list(src["verified_seed_entries"])
+
+        for seed in src.get("verified_seed_entries", []):
+            if not any(e.get("primary_url") == seed["primary_url"] for e in discovered_now):
+                discovered_now.insert(0, seed)
+
+        eff_limit = max(limit_per_source, len(src.get("path_prefixes", [])) + 1)
+        discovered_now = discovered_now[:eff_limit]
 
         sources_map[sid] = {
             "last_checked_utc": datetime.now(timezone.utc).isoformat(),
             "entries": discovered_now,
         }
 
-        for ent in discovered_now[:limit_per_source]:
+        for ent in discovered_now[:eff_limit]:
             results.append(
                 {
                     "source_pipeline": "PIPE-01 • Frontier Sitemap + OpenGraph Diff",

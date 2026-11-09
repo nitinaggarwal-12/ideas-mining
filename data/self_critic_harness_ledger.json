@@ -1,8 +1,8 @@
 {
   "status": "ALL_GATES_VERIFIED",
   "harness_version": "Harness\u00b2-v2.4-Autonomous-Self-Critic",
-  "last_run_utc": "2026-11-09T06:53:23.087655+00:00",
-  "duration_ms": 1041,
+  "last_run_utc": "2026-11-09T07:14:20.807926+00:00",
+  "duration_ms": 1086,
   "overall_score": 99.9,
   "gates_passed": 8,
   "gates_total": 8,
@@ -149,7 +149,7 @@
     "upstream_pipelines_active": 5,
     "customer_success_invention_radar": {
       "status": "READY",
-      "generated_at": "2026-11-09T06:53:23.087574+00:00",
+      "generated_at": "2026-11-09T07:14:20.807842+00:00",
       "total_inventions": 10,
       "customer_success_pillars": [
         "Zero-Trust MCP & OBO Security (Unblocks CISO/ARB Review)",
@@ -462,9 +462,9 @@
         "recommended_format": "4:5 Animated GIF89a"
       },
       {
-        "signal_id": "AUTO-EF4A2D0E",
-        "title": "Replay-Set Benchmarking for Autonomous PR Review: Measuring Silent Misses & Triage Tax",
-        "source_pipeline": "PIPE-02 \u2022 Verified Engineering Signal Floor",
+        "signal_id": "AUTO-3BB3E05B",
+        "title": "Anthropic Research: Contextual Retrieval & Prompt-Cached BM25 + Embedding Hybrid RAG",
+        "source_pipeline": "PIPE-01 \u2022 Frontier Sitemap + OpenGraph Diff",
         "velocity_proof": null,
         "recommended_template_id": "T212",
         "recommended_format": "4:5 Animated GIF89a"
@@ -473,6 +473,66 @@
   },
   "latest_auto_healed_actions": [],
   "run_history": [
+    {
+      "run_id": "critic-20261109T071420Z",
+      "timestamp_utc": "2026-11-09T07:14:20.807926+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1086,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
+    {
+      "run_id": "critic-20261109T071355Z",
+      "timestamp_utc": "2026-11-09T07:13:55.093266+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1018,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
+    {
+      "run_id": "critic-20261109T071319Z",
+      "timestamp_utc": "2026-11-09T07:13:19.447118+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1028,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
+    {
+      "run_id": "critic-20261109T071022Z",
+      "timestamp_utc": "2026-11-09T07:10:22.575398+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1056,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
+    {
+      "run_id": "critic-20261109T071020Z",
+      "timestamp_utc": "2026-11-09T07:10:20.524089+00:00",
+      "trigger_source": "cli_self_critic_gate",
+      "duration_ms": 1033,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
     {
       "run_id": "critic-20261109T065323Z",
       "timestamp_utc": "2026-11-09T06:53:23.087655+00:00",

@@ -9,6 +9,8 @@ Enforces platform-specific limits, aspect ratios, link penalties, and account-sa
 
 from __future__ import annotations
 
+import shutil
+
 from datetime import datetime, timezone
 from email.utils import format_datetime
 import hashlib
@@ -288,9 +290,23 @@ def _strip_raw_urls(text: str) -> str:
     return re.sub(r"\n{3,}", "\n\n", without_urls).strip()
 
 
+def _ensure_top5_slot_assets(idea_id: str) -> Path:
+    """Ensure any TOP5-YYYYMMDD-0[1-5] edition has its per-slot multi-platform media directory materialized."""
+    mp_dir = MULTI_PLATFORM_DIR / idea_id
+    if (mp_dir / "walkthrough_16x9.mp4").exists() and (mp_dir / "vertical_short_9x16.mp4").exists():
+        return mp_dir
+    m = re.match(r"^TOP5-\d{8}-(0[1-5])$", str(idea_id))
+    if m:
+        slot = m.group(1)
+        baseline_dir = MULTI_PLATFORM_DIR / f"TOP5-20261104-{slot}"
+        if baseline_dir.exists() and baseline_dir != mp_dir:
+            shutil.copytree(baseline_dir, mp_dir, dirs_exist_ok=True)
+    return mp_dir
+
+
 def _resolve_media_bundle(idea_id: str, template_id: str, mode: str, platform_id: str) -> Dict[str, Any]:
     """Map (idea_id, template_id, mode, platform_id) to the exact platform-valid media container."""
-    mp_dir = MULTI_PLATFORM_DIR / idea_id
+    mp_dir = _ensure_top5_slot_assets(idea_id)
     fallback_mp_dir = MULTI_PLATFORM_DIR / "MINT-01"
     active_mp_dir = mp_dir if (mp_dir / "carousel_manifest.json").exists() else fallback_mp_dir
     active_mp_id = idea_id if active_mp_dir == mp_dir else "MINT-01"

@@ -20,7 +20,10 @@ from src.catalog.career_minting_catalog import (
     FLAGSHIP_MINT01_24SLIDE_URL,
     get_minted_repo_specs,
 )
-from src.catalog.post_distribution_directory import resolve_distribution_directory_for_post
+from src.catalog.post_distribution_directory import (
+    get_or_update_linkedin_group_membership_radar,
+    resolve_distribution_directory_for_post,
+)
 from src.catalog.posts_catalog import (
     CREATOR_MINING_PLAYBOOK,
     MINED_TEMPLATE_POSTS_CATALOG,
@@ -556,6 +559,10 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             self._send_json(200, detail)
             return
 
+        if path == "/api/linkedin-groups/membership-radar":
+            self._send_json(200, get_or_update_linkedin_group_membership_radar())
+            return
+
         if path == "/api/distribution-directory":
             entries = []
             for p in ALL_CATALOG_ITEMS:
@@ -835,6 +842,20 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 },
             )
             return
+        if path == "/api/linkedin-groups/membership-radar":
+            gid = str(payload.get("toggle_group_id") or "").strip()
+            new_st = str(payload.get("status") or "").strip()
+            pasted = str(payload.get("pasted_my_groups_text") or "")
+            self._send_json(
+                200,
+                get_or_update_linkedin_group_membership_radar(
+                    toggle_group_id=gid,
+                    new_status=new_st,
+                    pasted_my_groups_text=pasted,
+                ),
+            )
+            return
+
         if path == "/api/publisher/preview":
             idea_id = str(payload.get("idea_id") or "").strip()
             template_id = str(payload.get("template_id") or "").strip()

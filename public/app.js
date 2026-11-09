@@ -5545,3 +5545,107 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   loadAndRenderSelfCriticHarness(false);
 });
+
+
+async function loadAndRenderLinkedinGroupsRadar(payloadOverride = null) {
+  const grid = document.getElementById("linkedin-groups-membership-radar-grid");
+  if (!grid) return;
+  try {
+    let data = payloadOverride;
+    if (!data) {
+      const res = await fetch("/api/linkedin-groups/membership-radar");
+      if (!res.ok) return;
+      data = await res.json();
+    }
+    const pill = document.getElementById("li-groups-unjoined-count-pill");
+    if (pill) {
+      pill.textContent = `${data.unjoined_count}/${data.total_catalog_groups} Unjoined Groups · ${data.unjoined_combined_member_reach} Unjoined Reach (${data.joined_count} Joined)`;
+    }
+    grid.replaceChildren();
+    const groups = data.unjoined_priority_queue && data.unjoined_priority_queue.length
+      ? [...data.unjoined_priority_queue, ...(data.groups || []).filter((g) => g.membership_status === "JOINED")]
+      : (data.groups || []);
+    groups.forEach((g) => {
+      const isJoined = g.membership_status === "JOINED";
+      const card = mkEl("div", "feed-item-card");
+      card.style.cssText = `background:${isJoined ? "#f8fafc" : "#ffffff"};border:1px solid ${isJoined ? "#cbd5e1" : "#bfdbfe"};border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:7px;opacity:${isJoined ? "0.75" : "1"};`;
+
+      const topRow = mkEl("div", "");
+      topRow.style.cssText = "display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;";
+      const tierBadge = mkEl("span", "pill-badge pill-blue", g.tier.split("—")[0].trim());
+      const reachBadge = mkEl("span", "pill-badge pill-emerald tabular-nums", `${g.members} members · Score ${g.visibility_score}`);
+      topRow.append(tierBadge, reachBadge);
+
+      const titleEl = mkEl("h4", "", g.name);
+      titleEl.style.cssText = "margin:0;font-size:14px;font-weight:700;color:#0f172a;line-height:1.35;";
+
+      const probEl = mkEl("div", "", `Unjoined Likelihood: ${g.unjoined_probability} · Moderation: ${g.moderation_speed}`);
+      probEl.style.cssText = "font-size:11.5px;font-weight:700;color:#b45309;background:#fffbeb;border:1px solid #fde68a;padding:4px 8px;border-radius:6px;";
+
+      const whyEl = mkEl("div", "", g.why_join_for_max_visibility);
+      whyEl.style.cssText = "font-size:12px;color:#334155;line-height:1.45;";
+
+      const bestPostsEl = mkEl("div", "", `Best Posts to Share: ${g.best_post_types}`);
+      bestPostsEl.style.cssText = "font-size:11.5px;color:#065f46;font-weight:600;";
+
+      const actRow = mkEl("div", "");
+      actRow.style.cssText = "display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:6px;border-top:1px solid #f1f5f9;flex-wrap:wrap;";
+
+      const openA = mkEl("a", "btn-primary", "Open Group ↗");
+      openA.href = safeUrl(g.direct_group_url);
+      openA.target = "_blank";
+      openA.rel = "noopener";
+      openA.style.cssText = "text-decoration:none;font-size:11.5px;padding:5px 10px;";
+
+      const searchA = mkEl("a", "btn-secondary", "Search on LinkedIn ↗");
+      searchA.href = safeUrl(g.linkedin_search_url);
+      searchA.target = "_blank";
+      searchA.rel = "noopener";
+      searchA.style.cssText = "text-decoration:none;font-size:11.5px;padding:5px 10px;";
+
+      const toggleBtn = mkEl(
+        "button",
+        "btn-secondary",
+        isJoined ? "✓ Joined (Click to Undo)" : "Mark as Joined ✓"
+      );
+      toggleBtn.type = "button";
+      toggleBtn.style.cssText = "font-size:11.5px;padding:5px 10px;";
+      toggleBtn.addEventListener("click", async () => {
+        const nextSt = isJoined ? "NOT_JOINED_YET" : "JOINED";
+        const r = await fetch("/api/linkedin-groups/membership-radar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ toggle_group_id: g.group_id, status: nextSt }),
+        });
+        if (r.ok) {
+          const updated = await r.json();
+          loadAndRenderLinkedinGroupsRadar(updated);
+        }
+      });
+
+      actRow.append(openA, searchA, toggleBtn);
+      card.append(topRow, titleEl, probEl, whyEl, bestPostsEl, actRow);
+      grid.appendChild(card);
+    });
+  } catch (_err) {
+    // Non-fatal
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadAndRenderLinkedinGroupsRadar();
+  document.getElementById("btn-diff-linkedin-groups")?.addEventListener("click", async () => {
+    const inp = document.getElementById("paste-linkedin-groups-input");
+    const txt = inp ? inp.value : "";
+    const r = await fetch("/api/linkedin-groups/membership-radar", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pasted_my_groups_text: txt }),
+    });
+    if (r.ok) {
+      const updated = await r.json();
+      loadAndRenderLinkedinGroupsRadar(updated);
+      showToast(`Matched ${updated.auto_matched_from_paste?.length || 0} joined group(s); showing ${updated.unjoined_count} unjoined groups!`);
+    }
+  });
+});

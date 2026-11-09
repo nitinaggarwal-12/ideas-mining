@@ -3,8 +3,8 @@
     "RSS-LILIAN-WENG": {
       "etag": "\"6a55d3e4-13718\"",
       "last_modified": "Tue, 14 Jul 2026 06:15:00 GMT",
-      "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.417797+00:00",
+      "last_status": "304_NOT_MODIFIED",
+      "last_checked_utc": "2026-11-09T16:01:35.824553+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -40,13 +40,13 @@
     },
     "RSS-ANURAG-SUBSTACK": {
       "last_status": "UNREACHABLE_SKIPPED",
-      "last_checked_utc": "2026-11-09T06:58:07.425946+00:00"
+      "last_checked_utc": "2026-11-09T16:01:35.949619+00:00"
     },
     "RSS-SIMON-WILLISON": {
       "etag": "",
       "last_modified": "Mon, 09 Nov 2026 04:32:33 GMT",
-      "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.443731+00:00",
+      "last_status": "304_NOT_MODIFIED",
+      "last_checked_utc": "2026-11-09T16:01:35.910968+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
@@ -81,8 +81,8 @@
     "RSS-EUGENE-YAN": {
       "etag": "W/\"6ad4f91b-199df\"",
       "last_modified": "Sun, 18 Oct 2026 16:51:39 GMT",
-      "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.451160+00:00",
+      "last_status": "304_NOT_MODIFIED",
+      "last_checked_utc": "2026-11-09T16:01:35.984725+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -117,10 +117,10 @@
       ]
     },
     "RSS-BYTEBYTEGO": {
-      "etag": "W/\"d711b-Sc413uAaF3HdjhmwpmVDV2I9qN8\"",
+      "etag": "W/\"d711b-naUWNNViZlDXCrYnOpJrkj9x7IU\"",
       "last_modified": "",
       "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.466510+00:00",
+      "last_checked_utc": "2026-11-09T16:01:35.965304+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -155,10 +155,10 @@
       ]
     },
     "RSS-DECODING-AI": {
-      "etag": "W/\"1afa7f-RRuLrBJNl54yqx+aLpZ6E/TrDOY\"",
+      "etag": "W/\"1afa7f-1q+GplbnApAJUbHiYDj5BPvM2ug\"",
       "last_modified": "",
       "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.487042+00:00",
+      "last_checked_utc": "2026-11-09T16:01:36.126573+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -195,8 +195,8 @@
     "RSS-CHIP-HUYEN": {
       "etag": "W/\"6a6bdc00-532d2\"",
       "last_modified": "Thu, 30 Jul 2026 23:19:28 GMT",
-      "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.496559+00:00",
+      "last_status": "304_NOT_MODIFIED",
+      "last_checked_utc": "2026-11-09T16:01:36.459604+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -232,13 +232,13 @@
     },
     "RSS-AISHWARYA-SUBSTACK": {
       "last_status": "UNREACHABLE_SKIPPED",
-      "last_checked_utc": "2026-11-09T06:58:07.498795+00:00"
+      "last_checked_utc": "2026-11-09T16:01:36.305762+00:00"
     },
     "RSS-GOOGLE-ADK-RELEASES": {
       "etag": "W/\"3a7a2842cf280879a6abdc746683fbd8\"",
       "last_modified": "",
-      "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.507278+00:00",
+      "last_status": "304_NOT_MODIFIED",
+      "last_checked_utc": "2026-11-09T16:01:36.459097+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
@@ -271,14 +271,48 @@
       ]
     },
     "RSS-GOOGLE-DEEPMIND": {
-      "last_status": "UNREACHABLE_SKIPPED",
-      "last_checked_utc": "2026-11-09T06:58:07.515779+00:00"
+      "etag": "\"5VI_Tg\"",
+      "last_modified": "",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T16:01:38.343346+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Google DeepMind \u2022 Official Research & Frontier Models",
+          "creator_handle": "google-deepmind",
+          "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+          "summary": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips.",
+          "primary_url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Thu, 05 Nov 2026 17:05:16",
+          "metrics_hint": "Direct RSS Syndicate (Frontier Model Architecture + Benchmark & Safety Card)",
+          "corroborating_sources": [
+            "Google DeepMind \u2022 Official Research & Frontier Models",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Google DeepMind \u2022 Official Research & Frontier Models",
+          "creator_handle": "google-deepmind",
+          "title": "Agentic cheminformatics with Google Antigravity",
+          "summary": "Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.",
+          "primary_url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Tue, 03 Nov 2026 17:01:49",
+          "metrics_hint": "Direct RSS Syndicate (Frontier Model Architecture + Benchmark & Safety Card)",
+          "corroborating_sources": [
+            "Google DeepMind \u2022 Official Research & Frontier Models",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
     },
     "RSS-MCP-SPEC": {
       "etag": "W/\"7191ae75046ab0dbda440a547ab2df29\"",
       "last_modified": "",
-      "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.529471+00:00",
+      "last_status": "304_NOT_MODIFIED",
+      "last_checked_utc": "2026-11-09T16:01:36.460610+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
@@ -313,8 +347,8 @@
     "RSS-OPENAI-AGENTS-SDK": {
       "etag": "W/\"478bc7ac2a10b2d8c5c32227810e715b\"",
       "last_modified": "",
-      "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.534095+00:00",
+      "last_status": "304_NOT_MODIFIED",
+      "last_checked_utc": "2026-11-09T16:01:36.556423+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
@@ -349,8 +383,8 @@
     "RSS-ANTHROPIC-CLAUDE-CODE": {
       "etag": "\"cac25827e565855f19d783b57f2601fd\"",
       "last_modified": "",
-      "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.535440+00:00",
+      "last_status": "304_NOT_MODIFIED",
+      "last_checked_utc": "2026-11-09T16:01:36.249348+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
@@ -370,13 +404,13 @@
     },
     "RSS-META-LLAMA-STACK": {
       "last_status": "UNREACHABLE_SKIPPED",
-      "last_checked_utc": "2026-11-09T06:58:07.575693+00:00"
+      "last_checked_utc": "2026-11-09T16:01:37.388795+00:00"
     },
     "RSS-OPENAI-NEWS": {
       "etag": "",
       "last_modified": "",
       "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.610778+00:00",
+      "last_checked_utc": "2026-11-09T16:01:36.032791+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -414,7 +448,7 @@
       "etag": "",
       "last_modified": "Thu, 05 Nov 2026 16:01:08 GMT",
       "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.616612+00:00",
+      "last_checked_utc": "2026-11-09T16:01:36.036319+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -449,10 +483,10 @@
       ]
     },
     "RSS-NATHAN-LAMBERT": {
-      "etag": "W/\"82deb-+Wk+jq+7YLC6qI+uWQ4oJ74jUIA\"",
+      "etag": "W/\"82deb-eovUSP0B8FDx5YJcNsFTv/tMEsM\"",
       "last_modified": "",
       "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.625746+00:00",
+      "last_checked_utc": "2026-11-09T16:01:36.588071+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -489,8 +523,8 @@
     "RSS-AINEWS-SMOL": {
       "etag": "",
       "last_modified": "Fri, 25 Apr 2025 03:14:18 GMT",
-      "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.675025+00:00",
+      "last_status": "304_NOT_MODIFIED",
+      "last_checked_utc": "2026-11-09T16:01:37.426038+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -525,10 +559,10 @@
       ]
     },
     "RSS-SEBASTIAN-RASCHKA": {
-      "etag": "W/\"277a81-W+DPvUepPz4Hp90/rkYlgKicoc0\"",
+      "etag": "W/\"277a81-CJJt+D7ZQSQ4Tn4uUsX6Idtqb1g\"",
       "last_modified": "",
       "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.682929+00:00",
+      "last_checked_utc": "2026-11-09T16:01:36.847519+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -564,13 +598,13 @@
     },
     "RSS-UNWIND-AI": {
       "last_status": "UNREACHABLE_SKIPPED",
-      "last_checked_utc": "2026-11-09T06:58:07.718590+00:00"
+      "last_checked_utc": "2026-11-09T16:01:37.841611+00:00"
     },
     "RSS-AWS-ML-BLOG": {
       "etag": "",
-      "last_modified": "Sat, 07 Nov 2026 00:59:20 GMT",
+      "last_modified": "Mon, 09 Nov 2026 15:31:58 GMT",
       "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.777183+00:00",
+      "last_checked_utc": "2026-11-09T16:01:36.445782+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -607,8 +641,8 @@
     "RSS-NVIDIA-TECH-BLOG": {
       "etag": "\"2b9140979c0d81bca75638603aedf2d3\"",
       "last_modified": "Fri, 06 Nov 2026 22:20:31 GMT",
-      "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:07.914583+00:00",
+      "last_status": "304_NOT_MODIFIED",
+      "last_checked_utc": "2026-11-09T16:01:36.304859+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
@@ -643,8 +677,8 @@
     "RSS-MICROSOFT-RESEARCH": {
       "etag": "\"f9c2739e09921b12a2120c42ef49354b\"",
       "last_modified": "Mon, 09 Nov 2026 05:16:00 GMT",
-      "last_status": "200_OK",
-      "last_checked_utc": "2026-11-09T06:58:08.309506+00:00",
+      "last_status": "CACHED_FALLBACK",
+      "last_checked_utc": "2026-11-09T16:01:38.930984+00:00",
       "cached_items": [
         {
           "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
@@ -679,5 +713,5 @@
       ]
     }
   },
-  "updated_at": "2026-11-09T06:58:08.311132+00:00"
+  "updated_at": "2026-11-09T16:01:38.932472+00:00"
 }

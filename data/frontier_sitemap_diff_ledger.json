@@ -1,7 +1,7 @@
 {
   "sources": {
     "SITEMAP-ANTHROPIC": {
-      "last_checked_utc": "2026-11-09T15:22:59.157861+00:00",
+      "last_checked_utc": "2026-11-09T16:01:38.580138+00:00",
       "entries": [
         {
           "title": "Anthropic Research: Contextual Retrieval & Prompt-Cached BM25 + Embedding Hybrid RAG",
@@ -30,7 +30,7 @@
       ]
     },
     "SITEMAP-MISTRAL": {
-      "last_checked_utc": "2026-11-09T15:22:59.157884+00:00",
+      "last_checked_utc": "2026-11-09T16:01:38.580158+00:00",
       "entries": [
         {
           "title": "Mistral AI Engineering: High-Throughput Sparse MoE & Structured Function Calling at Scale",
@@ -41,5 +41,5 @@
       ]
     }
   },
-  "updated_at": "2026-11-09T15:22:59.157888+00:00"
+  "updated_at": "2026-11-09T16:01:38.580162+00:00"
 }

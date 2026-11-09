@@ -1,8 +1,8 @@
 {
   "status": "ALL_GATES_VERIFIED",
   "harness_version": "Harness\u00b2-v2.4-Autonomous-Self-Critic",
-  "last_run_utc": "2026-11-09T15:22:56.421137+00:00",
-  "duration_ms": 1029,
+  "last_run_utc": "2026-11-09T16:01:35.766166+00:00",
+  "duration_ms": 1028,
   "overall_score": 99.9,
   "gates_passed": 8,
   "gates_total": 8,
@@ -149,7 +149,7 @@
     "upstream_pipelines_active": 5,
     "customer_success_invention_radar": {
       "status": "READY",
-      "generated_at": "2026-11-09T15:22:56.421060+00:00",
+      "generated_at": "2026-11-09T16:01:35.766072+00:00",
       "total_inventions": 10,
       "customer_success_pillars": [
         "Zero-Trust MCP & OBO Security (Unblocks CISO/ARB Review)",
@@ -2111,6 +2111,18 @@
   },
   "latest_auto_healed_actions": [],
   "run_history": [
+    {
+      "run_id": "critic-20261109T160135Z",
+      "timestamp_utc": "2026-11-09T16:01:35.766166+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1028,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
     {
       "run_id": "critic-20261109T152256Z",
       "timestamp_utc": "2026-11-09T15:22:56.421137+00:00",

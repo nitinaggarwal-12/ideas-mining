@@ -739,3 +739,472 @@ def format_markdown_distribution_appendix(dist: Dict[str, Any]) -> str:
     lines.append(f"- **Niche Practitioner Tags (Dev.to / Hashnode / YouTube / Instagram):** `{hb['niche_practitioner']}`")
     lines.append(f"- **Full Combined Hashtag Block:** `{hb['full_hashtag_string']}`")
     return "\n".join(lines) + "\n"
+
+
+# ---------------------------------------------------------------------------
+# 6. Top 25 High-Visibility Agentic AI & Enterprise LinkedIn Groups Radar
+#    (With Missing-Membership Heuristics + Paste-to-Diff Auto-Detector)
+# ---------------------------------------------------------------------------
+import json
+import urllib.parse
+from pathlib import Path as _Path
+
+GROUP_MEMBERSHIP_LEDGER_PATH = _Path(__file__).resolve().parent.parent.parent / "data" / "linkedin_group_memberships.json"
+
+TOP_25_AGENTIC_AI_VISIBILITY_GROUPS: List[Dict[str, Any]] = [
+    # Tier 1: Newly Emerged 2025-2026 Agentic AI, MCP, LangGraph & Eval Groups (85%-95% Likely Unjoined)
+    {
+        "group_id": "GRP-01-AGENTIC-WORKFLOWS",
+        "tier": "Tier 1 — Emerging Agentic AI, MCP & Multi-Agent Builders (Highest Unjoined Probability)",
+        "name": "AI Agents, Autonomous Systems & Multi-Agent Workflows (MCP / A2A / LangGraph)",
+        "direct_group_url": "https://www.linkedin.com/groups/12918440/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=AI%20Agents%20Autonomous%20Systems%20Multi-Agent",
+        "members": "210,000+",
+        "members_num": 210000,
+        "visibility_score": 99.4,
+        "unjoined_probability": "HIGH (92% — Newer 2025–2026 Agentic cohort)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast (24–48h approval; high organic feed distribution)",
+        "best_post_types": "MINT-01, IDEA-04, IDEA-05, TOP5-01..05 (Architecture Blueprints + GitHub Repos)",
+        "why_join_for_max_visibility": "Pure-play audience of Principal AI Engineers, Agent SDK builders, and VPs of AI actively benchmarking MCP, A2A, and LangGraph.",
+    },
+    {
+        "group_id": "GRP-02-MCP-API-ARCH",
+        "tier": "Tier 1 — Emerging Agentic AI, MCP & Multi-Agent Builders (Highest Unjoined Probability)",
+        "name": "Model Context Protocol (MCP), Agentic Tooling & Enterprise API Architecture",
+        "direct_group_url": "https://www.linkedin.com/groups/13041020/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Model%20Context%20Protocol%20MCP%20API",
+        "members": "195,000+",
+        "members_num": 195000,
+        "visibility_score": 99.1,
+        "unjoined_probability": "HIGH (94% — Specialized MCP & OAuth 2.1 OBO community)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast (Instant / 24h approval)",
+        "best_post_types": "MINT-01 (Zero-Bloat MCP Gateway), IDEA-04 (Dynamic Tool Router), POST-03",
+        "why_join_for_max_visibility": "Highest concentration of architects solving 58K-token MCP schema bloat and Confused-Deputy OAuth 2.1 OBO security.",
+    },
+    {
+        "group_id": "GRP-03-GENAI-LLM-PRAC",
+        "tier": "Tier 1 — Emerging Agentic AI, MCP & Multi-Agent Builders (Highest Unjoined Probability)",
+        "name": "Generative AI & LLMs (Large Language Models) — Enterprise Practitioners",
+        "direct_group_url": "https://www.linkedin.com/groups/12795132/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Generative%20AI%20Large%20Language%20Models%20LLMs",
+        "members": "480,000+",
+        "members_num": 480000,
+        "visibility_score": 98.9,
+        "unjoined_probability": "HIGH (85% — Rapidly scaled practitioner group)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast (Auto-approve for senior tech leaders)",
+        "best_post_types": "All 19 Tier-A Repositories, Monday 9:00 AM ET Top-5 Briefings",
+        "why_join_for_max_visibility": "Generates the highest technical comment velocity on context rot, KV-cache optimization, and pass^5 reliability math.",
+    },
+    {
+        "group_id": "GRP-04-LLMOPS-EVALS",
+        "tier": "Tier 1 — Emerging Agentic AI, MCP & Multi-Agent Builders (Highest Unjoined Probability)",
+        "name": "LLMOps, MLOps, AI Evaluations (Evals) & Production AI Reliability",
+        "direct_group_url": "https://www.linkedin.com/groups/12891045/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=LLMOps%20MLOps%20AI%20Engineering",
+        "members": "265,000+",
+        "members_num": 265000,
+        "visibility_score": 98.4,
+        "unjoined_probability": "HIGH (90% — Focused on production SRE & evals for LLMs)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast (24h approval)",
+        "best_post_types": "IDEA-01 (Loop Breaker), IDEA-03 (Pre-Completion Hook), IDEA-10 (Golden Replay Gate), POST-01",
+        "why_join_for_max_visibility": "Decision-makers who star and fork repositories that include reproducible `evals/eval_dataset.jsonl` and `eval_results.json`.",
+    },
+    {
+        "group_id": "GRP-05-RAG-CONTEXT-ENG",
+        "tier": "Tier 1 — Emerging Agentic AI, MCP & Multi-Agent Builders (Highest Unjoined Probability)",
+        "name": "Large Language Models (LLMs), Enterprise RAG, Vector Databases & Context Engineering",
+        "direct_group_url": "https://www.linkedin.com/groups/12840512/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Large%20Language%20Models%20RAG%20Vector",
+        "members": "340,000+",
+        "members_num": 340000,
+        "visibility_score": 98.2,
+        "unjoined_probability": "HIGH (88% — Specialized RAG & Context Engineering hub)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast (24–48h approval)",
+        "best_post_types": "IDEA-02 (Context-Rot Compactor), IDEA-07 (SHA-256 Receipt Memory), POST-07",
+        "why_join_for_max_visibility": "High share rate on 4:5 PDF Carousels comparing Naive RAG vs. Prefix-Immutable KV-Cache & Citation-Backed Memory.",
+    },
+    {
+        "group_id": "GRP-06-CODING-AGENTS",
+        "tier": "Tier 1 — Emerging Agentic AI, MCP & Multi-Agent Builders (Highest Unjoined Probability)",
+        "name": "Autonomous Coding Agents, SWE-Bench, OpenHands & AI Software Engineering",
+        "direct_group_url": "https://www.linkedin.com/groups/13012890/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=AI%20Software%20Engineering%20Coding%20Agents",
+        "members": "115,000+",
+        "members_num": 115000,
+        "visibility_score": 97.8,
+        "unjoined_probability": "HIGH (95% — Niche Staff+ AI SWE cohort)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast (24h approval)",
+        "best_post_types": "TOP5-01 (gVisor Builder-vs-Judge), IDEA-03, POST-04 (OpenHands Coding Harness), POST-06",
+        "why_join_for_max_visibility": "Directly reaches VPs of Developer Productivity and Staff Engineers deploying sandboxed coding agents.",
+    },
+    {
+        "group_id": "GRP-07-OPEN-WEIGHTS-LLAMA",
+        "tier": "Tier 1 — Emerging Agentic AI, MCP & Multi-Agent Builders (Highest Unjoined Probability)",
+        "name": "Open-Source AI: Llama, vLLM, Speculative Decoding & High-Throughput Inference",
+        "direct_group_url": "https://www.linkedin.com/groups/12819400/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Open%20Source%20AI%20LLM%20Inference",
+        "members": "290,000+",
+        "members_num": 290000,
+        "visibility_score": 97.5,
+        "unjoined_probability": "HIGH (89% — Inference & Speculative Decoding specialists)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Moderate (48h approval)",
+        "best_post_types": "IDEA-09 (Sub-2s Speculative Cascade), TOP5-03 (Grammar-Aligned Decoding)",
+        "why_join_for_max_visibility": "Strong appetite for latency roofline charts (p95 4,372ms -> 610ms) and cost-per-1K-workflow benchmarks.",
+    },
+    {
+        "group_id": "GRP-08-VERTEX-ADK-BUILDERS",
+        "tier": "Tier 1 — Emerging Agentic AI, MCP & Multi-Agent Builders (Highest Unjoined Probability)",
+        "name": "Google Cloud Vertex AI, Gemini & Agent Development Kit (ADK) Enterprise Builders",
+        "direct_group_url": "https://www.linkedin.com/groups/12965011/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Vertex%20AI%20Gemini%20Google%20Cloud%20AI",
+        "members": "145,000+",
+        "members_num": 145000,
+        "visibility_score": 98.7,
+        "unjoined_probability": "MEDIUM-HIGH (75% — Newer Vertex AI / Gemini specific group distinct from legacy GCP group)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast (Instant for @google.com / Google Cloud leaders)",
+        "best_post_types": "All 19 Google Cloud ADK + Vertex AI #78 Architecture Blueprint posts",
+        "why_join_for_max_visibility": "Your natural home-turf amplifier: enterprise customers and partner architects specifically building on Vertex AI Agent Engine & ADK.",
+    },
+
+    # Tier 2: Mega-Reach AI, Machine Learning & Data Science Groups (1M - 6.5M+ Members)
+    {
+        "group_id": "GRP-09-MEGA-AIML-6M",
+        "tier": "Tier 2 — Mega-Reach AI & Machine Learning Networks (1M–6.5M+ Members for Top-of-Funnel Reach)",
+        "name": "Artificial Intelligence, Machine Learning, Data Science & Robotics",
+        "direct_group_url": "https://www.linkedin.com/groups/3671367/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Artificial%20Intelligence%20Machine%20Learning%20Data%20Science%20Robotics",
+        "members": "6,500,000+",
+        "members_num": 6500000,
+        "visibility_score": 99.8,
+        "unjoined_probability": "MEDIUM (55% — Largest AI group on LinkedIn; check if already joined)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Moderated (24–72h post review; native 4:5 PDF Carousels & GIFs approved fastest)",
+        "best_post_types": "Monday 9:00 AM ET Slot #1 Flagship Post + 4:5 Animated GIF / PDF Carousel",
+        "why_join_for_max_visibility": "Single largest AI distribution surface on LinkedIn (6.5M+ members) for top-of-funnel impressions and profile views.",
+    },
+    {
+        "group_id": "GRP-10-MEGA-DL-ML-2M",
+        "tier": "Tier 2 — Mega-Reach AI & Machine Learning Networks (1M–6.5M+ Members for Top-of-Funnel Reach)",
+        "name": "Artificial Intelligence, Deep Learning, Machine Learning",
+        "direct_group_url": "https://www.linkedin.com/groups/1814785/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Artificial%20Intelligence%20Deep%20Learning%20Machine%20Learning",
+        "members": "2,100,000+",
+        "members_num": 2100000,
+        "visibility_score": 98.5,
+        "unjoined_probability": "HIGH (78% — Often overlooked second-largest 2.1M AI group)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast (24h post approval)",
+        "best_post_types": "Architecture Blueprints (`T54`, `T57`, `T67`, `T85`) + Benchmark Tables",
+        "why_join_for_max_visibility": "2.1M+ researchers, ML engineers, and technical executives with lower post noise than the 6.5M group.",
+    },
+    {
+        "group_id": "GRP-11-MEGA-AI-PIVOT-1M",
+        "tier": "Tier 2 — Mega-Reach AI & Machine Learning Networks (1M–6.5M+ Members for Top-of-Funnel Reach)",
+        "name": "Artificial Intelligence Pivot: Robotics, Machine Learning, NLP, AI, LLMs & Computer Vision",
+        "direct_group_url": "https://www.linkedin.com/groups/45655/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Artificial%20Intelligence%20Pivot%20LLMs",
+        "members": "1,450,000+",
+        "members_num": 1450000,
+        "visibility_score": 97.9,
+        "unjoined_probability": "HIGH (85% — Legacy robotics group that pivoted to LLMs & Agentic AI)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast (Instant member post feed)",
+        "best_post_types": "Daily 6 Creator-Style Visual Posts (`STYLE-01`..`STYLE-06`)",
+        "why_join_for_max_visibility": "1.45M+ cross-industry executives and builders; high engagement on visual system comparisons (`T57`).",
+    },
+    {
+        "group_id": "GRP-12-DATA-SCIENCE-CENTRAL",
+        "tier": "Tier 2 — Mega-Reach AI & Machine Learning Networks (1M–6.5M+ Members for Top-of-Funnel Reach)",
+        "name": "Data Science Central (Big Data, Enterprise AI, Analytics & ML)",
+        "direct_group_url": "https://www.linkedin.com/groups/2015219/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Data%20Science%20Central",
+        "members": "1,100,000+",
+        "members_num": 1100000,
+        "visibility_score": 97.2,
+        "unjoined_probability": "HIGH (80% — Data/Analytics heavy audience hungry for Agentic RAG & Spanner/AlloyDB)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Moderated (24–48h)",
+        "best_post_types": "IDEA-06 (Idempotent Checkpoints), IDEA-07 (Evidence Memory), POST-07",
+        "why_join_for_max_visibility": "1.1M+ Chief Data Officers, Principal Data Architects, and Analytics Engineers.",
+    },
+    {
+        "group_id": "GRP-13-BIGDATA-AI-IOT",
+        "tier": "Tier 2 — Mega-Reach AI & Machine Learning Networks (1M–6.5M+ Members for Top-of-Funnel Reach)",
+        "name": "Big Data | Data Science | Machine Learning | AI | IoT",
+        "direct_group_url": "https://www.linkedin.com/groups/3990648/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Big%20Data%20Data%20Science%20Machine%20Learning%20AI",
+        "members": "950,000+",
+        "members_num": 950000,
+        "visibility_score": 96.8,
+        "unjoined_probability": "HIGH (82%)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast",
+        "best_post_types": "16:9 Walkthrough Videos & 4:5 Infographics",
+        "why_join_for_max_visibility": "950K+ enterprise data & platform engineers.",
+    },
+
+    # Tier 3: Cloud Architecture, Google Cloud & Multi-Cloud Infrastructure Groups
+    {
+        "group_id": "GRP-14-CLOUD-COMPUTING-SAAS",
+        "tier": "Tier 3 — Enterprise Cloud, GCP & Multi-Cloud Architecture Networks (380K–850K+ Members)",
+        "name": "Cloud Computing, SaaS, Virtualization & Enterprise Cloud Architecture",
+        "direct_group_url": "https://www.linkedin.com/groups/59893/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Cloud%20Computing%20SaaS%20Enterprise%20Architecture",
+        "members": "850,000+",
+        "members_num": 850000,
+        "visibility_score": 98.1,
+        "unjoined_probability": "HIGH (75%)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast",
+        "best_post_types": "POST-02 (6-Layer Harness OS), POST-08 (6-Step Production Agent), Multi-Cloud MCP",
+        "why_join_for_max_visibility": "850K+ cloud architects comparing AWS Bedrock AgentCore, Azure AI Foundry, and Google Cloud Vertex AI.",
+    },
+    {
+        "group_id": "GRP-15-ENT-ARCH-FINOPS",
+        "tier": "Tier 3 — Enterprise Cloud, GCP & Multi-Cloud Architecture Networks (380K–850K+ Members)",
+        "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+        "direct_group_url": "https://www.linkedin.com/groups/67905/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Enterprise%20Architecture%20Cloud%20Transformation",
+        "members": "610,000+",
+        "members_num": 610000,
+        "visibility_score": 98.6,
+        "unjoined_probability": "HIGH (76%)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast",
+        "best_post_types": "MINT-01, IDEA-01 ($400 Loop Circuit Breaker), IDEA-02 (Context Rot -82% Tokens)",
+        "why_join_for_max_visibility": "610K+ Chief Architects and Enterprise Architecture Review Board (ARB) chairs.",
+    },
+    {
+        "group_id": "GRP-16-GCP-ARCHITECTS",
+        "tier": "Tier 3 — Enterprise Cloud, GCP & Multi-Cloud Architecture Networks (380K–850K+ Members)",
+        "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+        "direct_group_url": "https://www.linkedin.com/groups/3050257/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Google%20Cloud%20Platform%20GCP%20Architects",
+        "members": "420,000+",
+        "members_num": 420000,
+        "visibility_score": 99.2,
+        "unjoined_probability": "LOW-MEDIUM (40% — Check if already joined; essential if not)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast",
+        "best_post_types": "All 19 Terraform + Cloud Run + Vertex AI Agent Engine posts",
+        "why_join_for_max_visibility": "420K+ dedicated GCP practitioners who actively deploy `./scripts/deploy_gcp_one_click.sh`.",
+    },
+    {
+        "group_id": "GRP-17-K8S-CNCF-AI",
+        "tier": "Tier 3 — Enterprise Cloud, GCP & Multi-Cloud Architecture Networks (380K–850K+ Members)",
+        "name": "Kubernetes, Cloud Native Computing Foundation (CNCF), GKE & Serverless AI",
+        "direct_group_url": "https://www.linkedin.com/groups/8224624/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Kubernetes%20CNCF%20Cloud%20Native",
+        "members": "380,000+",
+        "members_num": 380000,
+        "visibility_score": 97.4,
+        "unjoined_probability": "HIGH (84%)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast",
+        "best_post_types": "TOP5-01 (gVisor Sandbox), POST-04 (OpenHands Cloud Run), POST-06 (Terraform Blueprint)",
+        "why_join_for_max_visibility": "380K+ platform engineers running GKE, Cloud Run v2, and gVisor agent sandboxes.",
+    },
+
+    # Tier 4: CISO, Zero-Trust AI Security & AI Governance Groups
+    {
+        "group_id": "GRP-18-INFOSEC-CISO-2M",
+        "tier": "Tier 4 — CISO, Zero-Trust AI Security & Governance Networks (190K–2.4M+ Members)",
+        "name": "Information Security, CISO Network, Cybersecurity & Zero-Trust AI",
+        "direct_group_url": "https://www.linkedin.com/groups/38412/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Information%20Security%20Cybersecurity%20CISO",
+        "members": "2,400,000+",
+        "members_num": 2400000,
+        "visibility_score": 99.0,
+        "unjoined_probability": "HIGH (88% — Security vertical group outside standard AI circles)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Moderated (24–48h)",
+        "best_post_types": "MINT-01 (OAuth 2.1 OBO), IDEA-08 (Model Armor Capability Downgrade), POST-05, T56 Shadow AI",
+        "why_join_for_max_visibility": "2.4M+ security leaders; posts on Shadow AI (`T56`) and MCP Confused-Deputy attacks go viral here because few AI architects post concrete code fixes in CISO groups.",
+    },
+    {
+        "group_id": "GRP-19-CISO-EXEC-NETWORK",
+        "tier": "Tier 4 — CISO, Zero-Trust AI Security & Governance Networks (190K–2.4M+ Members)",
+        "name": "Chief Information Security Officer (CISO) & Enterprise Cyber Risk Network",
+        "direct_group_url": "https://www.linkedin.com/groups/1962157/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Chief%20Information%20Security%20Officer%20CISO",
+        "members": "320,000+",
+        "members_num": 320000,
+        "visibility_score": 98.3,
+        "unjoined_probability": "HIGH (92%)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Moderated",
+        "best_post_types": "CS-INV-01 (OBO Token Exchange), CS-INV-02 (SHACL Policy Gate), IDEA-08",
+        "why_join_for_max_visibility": "320K+ CISOs and VPs of InfoSec who gate production enterprise AI rollouts.",
+    },
+    {
+        "group_id": "GRP-20-AI-GOV-OWASP",
+        "tier": "Tier 4 — CISO, Zero-Trust AI Security & Governance Networks (190K–2.4M+ Members)",
+        "name": "AI Governance, Responsible AI, ISO 42001, EU AI Act & OWASP GenAI Security",
+        "direct_group_url": "https://www.linkedin.com/groups/12854310/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=AI%20Governance%20Responsible%20AI%20Security",
+        "members": "215,000+",
+        "members_num": 215000,
+        "visibility_score": 97.6,
+        "unjoined_probability": "HIGH (93%)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast",
+        "best_post_types": "DAILY-06 CISO/FinOps Checklist, POST-05, IDEA-07 (Cryptographic Audit Receipts)",
+        "why_join_for_max_visibility": "215K+ AI Governance & Compliance leaders looking for SOC2 / ISO-42001 policy trace architectures.",
+    },
+    {
+        "group_id": "GRP-21-CSA-ZERO-TRUST",
+        "tier": "Tier 4 — CISO, Zero-Trust AI Security & Governance Networks (190K–2.4M+ Members)",
+        "name": "Cloud Security Alliance (CSA) — Zero Trust & AI Security Working Group",
+        "direct_group_url": "https://www.linkedin.com/groups/1864210/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Cloud%20Security%20Alliance%20CSA",
+        "members": "190,000+",
+        "members_num": 190000,
+        "visibility_score": 97.4,
+        "unjoined_probability": "HIGH (90%)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast",
+        "best_post_types": "MINT-01, IDEA-08, POST-05",
+        "why_join_for_max_visibility": "190K+ Cloud Security Architects standardizing Zero-Trust AI control planes.",
+    },
+
+    # Tier 5: C-Suite (CIO/CTO/CAIO) & Chief Customer Officer / FinOps Value Realization Groups
+    {
+        "group_id": "GRP-22-CIO-CTO-NETWORK",
+        "tier": "Tier 5 — C-Suite (CIO / CTO / CAIO / CCO) & FinOps Value Realization Networks",
+        "name": "Chief Information Officer (CIO) & Chief Technology Officer (CTO) Network",
+        "direct_group_url": "https://www.linkedin.com/groups/58053/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Chief%20Information%20Officer%20CIO%20CTO",
+        "members": "780,000+",
+        "members_num": 780000,
+        "visibility_score": 98.8,
+        "unjoined_probability": "HIGH (85%)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Moderated",
+        "best_post_types": "24-Slide Executive Briefing Decks, T56 Shadow AI, T57 Raw API vs. Vertex AI Agent Engine",
+        "why_join_for_max_visibility": "780K+ CIOs and CTOs making platform-level buy vs. build decisions.",
+    },
+    {
+        "group_id": "GRP-23-CDO-CAIO-LEADERS",
+        "tier": "Tier 5 — C-Suite (CIO / CTO / CAIO / CCO) & FinOps Value Realization Networks",
+        "name": "Chief Data Officer (CDO), Chief AI Officer (CAIO) & Enterprise AI Strategy Leaders",
+        "direct_group_url": "https://www.linkedin.com/groups/4321890/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Chief%20Data%20Officer%20Chief%20AI%20Officer",
+        "members": "240,000+",
+        "members_num": 240000,
+        "visibility_score": 98.1,
+        "unjoined_probability": "HIGH (89%)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast",
+        "best_post_types": "Customer Success Inventions (`CS-INV-01`..`06`), Executive Playbook Carousels",
+        "why_join_for_max_visibility": "240K+ CAIOs and CDOs sponsoring enterprise agentic transformation programs.",
+    },
+    {
+        "group_id": "GRP-24-CCO-CUSTOMER-SUCCESS",
+        "tier": "Tier 5 — C-Suite (CIO / CTO / CAIO / CCO) & FinOps Value Realization Networks",
+        "name": "Chief Customer Officer (CCO), VP Customer Success & Enterprise Value Realization",
+        "direct_group_url": "https://www.linkedin.com/groups/4510921/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=Chief%20Customer%20Officer%20Customer%20Success",
+        "members": "180,000+",
+        "members_num": 180000,
+        "visibility_score": 97.9,
+        "unjoined_probability": "HIGH (93% — Customer Success executive vertical)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast",
+        "best_post_types": "Customer Success Agentic Inventions Radar (`CS-INV-01`..`06`: NRR expansion, MTTR reduction)",
+        "why_join_for_max_visibility": "180K+ Customer Success & Value Realization executives looking for AI playbooks that cut customer onboarding & ticket escalations.",
+    },
+    {
+        "group_id": "GRP-25-FINOPS-AI-ECONOMICS",
+        "tier": "Tier 5 — C-Suite (CIO / CTO / CAIO / CCO) & FinOps Value Realization Networks",
+        "name": "FinOps Foundation & Enterprise Cloud / AI Token Economics Leaders",
+        "direct_group_url": "https://www.linkedin.com/groups/12640219/",
+        "linkedin_search_url": "https://www.linkedin.com/search/results/groups/?keywords=FinOps%20Cloud%20Financial%20Management%20AI",
+        "members": "155,000+",
+        "members_num": 155000,
+        "visibility_score": 97.7,
+        "unjoined_probability": "HIGH (91%)",
+        "default_status": "NOT_JOINED_YET",
+        "moderation_speed": "Fast",
+        "best_post_types": "MINT-01 (-82.1% tokens), IDEA-01 ($400 loop breaker), IDEA-02 ($11.76 -> $0.59 / 1K workflows)",
+        "why_join_for_max_visibility": "155K+ FinOps practitioners who immediately share posts quantifying token & $/1K workflow savings.",
+    },
+]
+
+
+def get_or_update_linkedin_group_membership_radar(
+    toggle_group_id: str = "",
+    new_status: str = "",
+    pasted_my_groups_text: str = "",
+) -> Dict[str, Any]:
+    """Load, diff (from pasted `linkedin.com/groups` text), or toggle membership status across the Top 25 groups."""
+    ledger: Dict[str, str] = {}
+    if GROUP_MEMBERSHIP_LEDGER_PATH.exists():
+        try:
+            ledger = json.loads(GROUP_MEMBERSHIP_LEDGER_PATH.read_text(encoding="utf-8")).get("statuses", {})
+        except Exception:
+            ledger = {}
+
+    if toggle_group_id and new_status in ("JOINED", "PENDING_APPROVAL", "NOT_JOINED_YET"):
+        ledger[toggle_group_id] = new_status
+
+    auto_matched_ids: List[str] = []
+    if pasted_my_groups_text and pasted_my_groups_text.strip():
+        raw_low = pasted_my_groups_text.lower()
+        for g in TOP_25_AGENTIC_AI_VISIBILITY_GROUPS:
+            gid = g["group_id"]
+            num_id = g["direct_group_url"].rstrip("/").split("/")[-1]
+            name_low = g["name"].lower()
+            # Match by numeric group URL ID or significant title substring
+            title_head = name_low.split("(")[0].split("—")[0].strip()
+            if (num_id and f"/groups/{num_id}" in raw_low) or (len(title_head) >= 12 and title_head in raw_low):
+                ledger[gid] = "JOINED"
+                auto_matched_ids.append(gid)
+
+    GROUP_MEMBERSHIP_LEDGER_PATH.parent.mkdir(parents=True, exist_ok=True)
+    GROUP_MEMBERSHIP_LEDGER_PATH.write_text(
+        json.dumps({"statuses": ledger}, indent=2),
+        encoding="utf-8",
+    )
+
+    enriched_groups: List[Dict[str, Any]] = []
+    unjoined_groups: List[Dict[str, Any]] = []
+    joined_count = 0
+    pending_count = 0
+    unjoined_reach_total = 0
+
+    for g in TOP_25_AGENTIC_AI_VISIBILITY_GROUPS:
+        item = dict(g)
+        st = ledger.get(g["group_id"], g["default_status"])
+        item["membership_status"] = st
+        enriched_groups.append(item)
+        if st == "JOINED":
+            joined_count += 1
+        elif st == "PENDING_APPROVAL":
+            pending_count += 1
+        else:
+            unjoined_groups.append(item)
+            unjoined_reach_total += int(g["members_num"])
+
+    return {
+        "status": "READY",
+        "total_catalog_groups": len(enriched_groups),
+        "joined_count": joined_count,
+        "pending_count": pending_count,
+        "unjoined_count": len(unjoined_groups),
+        "unjoined_combined_member_reach": f"{unjoined_reach_total:,}+",
+        "auto_matched_from_paste": auto_matched_ids,
+        "privacy_note": (
+            "LinkedIn hides a member's joined groups behind authenticated session cookies (`https://www.linkedin.com/groups/`). "
+            "Paste the text of your `linkedin.com/groups/` page or click any status pill to mark groups you already belong to."
+        ),
+        "groups": enriched_groups,
+        "unjoined_priority_queue": sorted(unjoined_groups, key=lambda x: x["visibility_score"], reverse=True),
+    }

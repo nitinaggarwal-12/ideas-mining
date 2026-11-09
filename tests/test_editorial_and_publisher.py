@@ -477,6 +477,19 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
         self.assertEqual(len(repo_gate["failures"]), 0)
 
 
+
+        from src.catalog.post_distribution_directory import get_or_update_linkedin_group_membership_radar
+        radar0 = get_or_update_linkedin_group_membership_radar()
+        self.assertEqual(radar0["total_catalog_groups"], 25)
+        self.assertTrue(len(radar0["groups"]) == 25)
+
+        # Test paste-to-diff auto-detection for Google Cloud Platform group (3050257)
+        radar_diff = get_or_update_linkedin_group_membership_radar(
+            pasted_my_groups_text="My Groups: Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders https://www.linkedin.com/groups/3050257/"
+        )
+        self.assertIn("GRP-16-GCP-ARCHITECTS", radar_diff["auto_matched_from_paste"])
+        # Reset back to NOT_JOINED_YET so ledger stays clean
+        get_or_update_linkedin_group_membership_radar(toggle_group_id="GRP-16-GCP-ARCHITECTS", new_status="NOT_JOINED_YET")
+
 if __name__ == "__main__":
     unittest.main()
-

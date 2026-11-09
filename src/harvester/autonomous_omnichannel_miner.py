@@ -197,6 +197,118 @@ CREATOR_AND_LAB_RSS_FEEDS: List[Dict[str, str]] = [
         "focus_cluster": "CLUSTER_MULTIAGENT_MEMORY",
         "typical_format": "Canonical Taxonomy Diagram + Mathematical Formulation",
     },
+    {
+        "feed_id": "RSS-GOOGLE-DEEPMIND",
+        "creator_or_lab": "Google DeepMind • Official Research & Frontier Models",
+        "handle": "google-deepmind",
+        "rss_url": "https://deepmind.google/blog/rss.xml",
+        "focus_cluster": "CLUSTER_INFERENCE_KV",
+        "typical_format": "Frontier Model Architecture + Benchmark & Safety Card",
+    },
+    {
+        "feed_id": "RSS-GOOGLE-RESEARCH",
+        "creator_or_lab": "Google Research • Systems, Algorithms & Agentic AI",
+        "handle": "google-research",
+        "rss_url": "https://research.google/blog/rss/",
+        "focus_cluster": "CLUSTER_MULTIAGENT_MEMORY",
+        "typical_format": "Peer-Reviewed Systems Paper + Open-Source Reference Implementation",
+    },
+    {
+        "feed_id": "RSS-GOOGLE-ADK-RELEASES",
+        "creator_or_lab": "Google Cloud ADK (Agent Development Kit) • GitHub Releases",
+        "handle": "google-adk",
+        "rss_url": "https://github.com/google/adk-python/releases.atom",
+        "focus_cluster": "CLUSTER_MULTIAGENT_MEMORY",
+        "typical_format": "SDK Release Notes + Callback/Tooling API Spec",
+    },
+    {
+        "feed_id": "RSS-OPENAI-NEWS",
+        "creator_or_lab": "OpenAI • Official Research, Product & Safety Releases",
+        "handle": "openai",
+        "rss_url": "https://openai.com/news/rss.xml",
+        "focus_cluster": "CLUSTER_CODING_EVALS",
+        "typical_format": "Frontier Reasoning Benchmark + API Capability Announcement",
+    },
+    {
+        "feed_id": "RSS-OPENAI-AGENTS-SDK",
+        "creator_or_lab": "OpenAI Agents SDK • GitHub Releases Atom",
+        "handle": "openai-agents",
+        "rss_url": "https://github.com/openai/openai-agents-python/releases.atom",
+        "focus_cluster": "CLUSTER_MULTIAGENT_MEMORY",
+        "typical_format": "Agent Handoff & Guardrail SDK Release",
+    },
+    {
+        "feed_id": "RSS-ANTHROPIC-CLAUDE-CODE",
+        "creator_or_lab": "Anthropic • Claude Code & Cookbook GitHub Releases",
+        "handle": "anthropic",
+        "rss_url": "https://github.com/anthropics/anthropic-cookbook/commits/main.atom",
+        "focus_cluster": "CLUSTER_MCP_IDENTITY",
+        "typical_format": "Claude Tool-Use, Sub-Agent Harness & MCP Cookbook Pattern",
+    },
+    {
+        "feed_id": "RSS-MCP-SPEC",
+        "creator_or_lab": "Model Context Protocol (MCP) • Official Spec & SDK Atom",
+        "handle": "modelcontextprotocol",
+        "rss_url": "https://github.com/modelcontextprotocol/python-sdk/releases.atom",
+        "focus_cluster": "CLUSTER_MCP_IDENTITY",
+        "typical_format": "OAuth 2.1 OBO, Streamable HTTP & Tool Discovery Spec Update",
+    },
+    {
+        "feed_id": "RSS-META-LLAMA-STACK",
+        "creator_or_lab": "Meta AI • Llama Stack & FAIR Agentic Runtime Releases",
+        "handle": "meta-llama",
+        "rss_url": "https://github.com/meta-llama/llama-stack/releases.atom",
+        "focus_cluster": "CLUSTER_INFERENCE_KV",
+        "typical_format": "Open-Weights Inference & Agent API Standardization",
+    },
+    {
+        "feed_id": "RSS-MICROSOFT-RESEARCH",
+        "creator_or_lab": "Microsoft Research • AutoGen, Magentic & Systems AI",
+        "handle": "msft-research",
+        "rss_url": "https://www.microsoft.com/en-us/research/feed/",
+        "focus_cluster": "CLUSTER_MULTIAGENT_MEMORY",
+        "typical_format": "Multi-Agent Orchestration & Enterprise Evaluation Research",
+    },
+    {
+        "feed_id": "RSS-NVIDIA-TECH-BLOG",
+        "creator_or_lab": "NVIDIA Technical Blog • TensorRT-LLM, NIM & Dynamo Inference",
+        "handle": "nvidia-ai",
+        "rss_url": "https://developer.nvidia.com/blog/feed",
+        "focus_cluster": "CLUSTER_INFERENCE_KV",
+        "typical_format": "Disaggregated Prefill/Decode & KV-Cache Hardware Roofline",
+    },
+    {
+        "feed_id": "RSS-AWS-ML-BLOG",
+        "creator_or_lab": "AWS Machine Learning Blog • Bedrock AgentCore & Strands",
+        "handle": "aws-ml",
+        "rss_url": "https://aws.amazon.com/blogs/machine-learning/feed/",
+        "focus_cluster": "CLUSTER_GOVERNANCE_FINOPS",
+        "typical_format": "Enterprise Multi-Cloud IAM, Guardrails & Agent Deployment",
+    },
+    {
+        "feed_id": "RSS-AINEWS-SMOL",
+        "creator_or_lab": "Latent Space / smol.ai AINews • 30-Discord + 500-X Daily Digest",
+        "handle": "swyx",
+        "rss_url": "https://buttondown.com/ainews/rss",
+        "focus_cluster": "CLUSTER_CODING_EVALS",
+        "typical_format": "Daily Cross-Community Engineering Synthesis",
+    },
+    {
+        "feed_id": "RSS-SEBASTIAN-RASCHKA",
+        "creator_or_lab": "Sebastian Raschka • Ahead of AI (LLM Architecture & Training)",
+        "handle": "rasbt",
+        "rss_url": "https://magazine.sebastianraschka.com/feed",
+        "focus_cluster": "CLUSTER_INFERENCE_KV",
+        "typical_format": "From-Scratch Architecture Diagrams & Ablation Comparisons",
+    },
+    {
+        "feed_id": "RSS-NATHAN-LAMBERT",
+        "creator_or_lab": "Nathan Lambert • Interconnects (RLHF, Post-Training & Reasoning)",
+        "handle": "natolambert",
+        "rss_url": "https://www.interconnects.ai/feed",
+        "focus_cluster": "CLUSTER_CODING_EVALS",
+        "typical_format": "Frontier Lab Post-Training & Reasoning Model Teardown",
+    },
 ]
 
 
@@ -773,6 +885,7 @@ def run_autonomous_zero_link_discovery(
         "creator_syndicate_feeds": CREATOR_AND_LAB_RSS_FEEDS,
         "format_duration_matrix": EMPIRICAL_FORMAT_DURATION_BENCHMARKS,
         "distribution_channels_and_groups": TARGET_DISTRIBUTION_GROUPS_AND_COMMUNITIES,
+        "frontier_llm_lab_mining_atlas": FRONTIER_LLM_LAB_AND_MARKET_MINING_ATLAS,
         "discovered_signals": enriched_signals[:18],
     }
 
@@ -944,3 +1057,87 @@ def discover_customer_success_agentic_inventions(
         ],
         "inventions": inventions,
     }
+
+
+# ---------------------------------------------------------------------------
+# 9. Frontier LLM Lab & Industry Intelligence Mining Atlas (How Top Platforms Mine)
+# ---------------------------------------------------------------------------
+FRONTIER_LLM_LAB_AND_MARKET_MINING_ATLAS: Dict[str, Any] = {
+    "seven_upstream_mining_tiers": [
+        {
+            "tier": "Tier 1 — Official Frontier Lab Research, Blogs, Changelogs & SDK Atom Feeds",
+            "lead_time": "0–6 hours (Ground-Zero Primary Release)",
+            "how_platforms_mine": "Poll RSS/Atom feeds, GitHub release Atom streams (`/releases.atom`, `/commits/main.atom`), and SHA-256 sitemap/docs changelog diffs every 15 minutes.",
+            "primary_endpoints": [
+                "Google / DeepMind / GCP: deepmind.google/blog/rss.xml, research.google/blog/rss/, cloudblog.withgoogle.com/products/ai-machine-learning/rss/, github.com/google/adk-python/releases.atom, github.com/google/A2A/releases.atom",
+                "Anthropic: anthropic.com/sitemap.xml (news/research/engineering diff), docs.anthropic.com/en/release-notes, github.com/anthropics/claude-code/releases.atom, github.com/modelcontextprotocol/specification/commits.atom",
+                "OpenAI: openai.com/news/rss.xml, platform.openai.com/docs/changelog, github.com/openai/openai-agents-python/releases.atom, github.com/openai/openai-cookbook/commits.atom",
+                "Meta AI (FAIR & Llama): ai.meta.com/blog/rss/, github.com/meta-llama/llama-stack/releases.atom, huggingface.co/api/models?author=meta-llama",
+                "Mistral, DeepSeek, Qwen & Cohere: huggingface.co/api/models?author=mistralai|deepseek-ai|Qwen, github.com/deepseek-ai, docs.cohere.com/changelog",
+                "NVIDIA, Microsoft Research & AWS: developer.nvidia.com/blog/feed, microsoft.com/en-us/research/feed/, aws.amazon.com/blogs/machine-learning/feed/",
+            ],
+        },
+        {
+            "tier": "Tier 2 — Pre-Print Research & Citation-Velocity Aggregators",
+            "lead_time": "48–96 hours before social media carousels",
+            "how_platforms_mine": "Query arXiv OAI-PMH/Atom API at 20:00 EST nightly drop, cross-join with HuggingFace Daily Papers upvotes, Semantic Scholar citation velocity, and OpenReview ICLR/NeurIPS/ICML ratings.",
+            "primary_endpoints": [
+                "export.arxiv.org/api/query (cs.AI, cs.CL, cs.MA, cs.SE, cs.LG, cs.DC)",
+                "huggingface.co/api/daily_papers (curated daily papers + GitHub repo extraction)",
+                "api.semanticscholar.org/graph/v1/paper/search (influentialCitationCount velocity)",
+                "api2.openreview.net/notes (conference oral/spotlight scores before publication)",
+                "emergentmind.com / alphaxiv.org (paper discussion velocity across HN/Reddit/X)",
+            ],
+        },
+        {
+            "tier": "Tier 3 — Code, SDK, Cookbook & Package Registry Breakout Velocity",
+            "lead_time": "24–72 hours before newsletter coverage",
+            "how_platforms_mine": "Track GitHub star-velocity (`stars/day`), fork acceleration, trending repositories by language, and PyPI/npm release streams for agent frameworks.",
+            "primary_endpoints": [
+                "api.github.com/search/repositories?q=topic:mcp+OR+topic:ai-agents+pushed:>YYYY-MM-DD&sort=stars",
+                "github.com/<org>/<repo>/releases.atom (LangGraph, LlamaIndex, OpenHands, CrewAI, PydanticAI, vLLM, LiteLLM)",
+                "pypi.org/rss/updates.xml & npm registry release webhooks",
+            ],
+        },
+        {
+            "tier": "Tier 4 — Empirical Leaderboards, Token Routing & Price/Latency Telemetry",
+            "lead_time": "Real-time production empirical ground truth",
+            "how_platforms_mine": "Ingest real-world token routing share, ELO shifts, and multi-trial agent reliability benchmarks.",
+            "primary_endpoints": [
+                "openrouter.ai/rankings (weekly production token volume by model & app category)",
+                "lmarena.ai (LMSYS Chatbot Arena blind human preference ELO)",
+                "swebench.com (Verified / Multimodal coding agent resolution rates)",
+                "artificialanalysis.ai (TTFT, output tokens/sec, and $/1M token Pareto frontier)",
+            ],
+        },
+        {
+            "tier": "Tier 5 — High-Signal Engineering Newsletters & Discord/X Digest Syndicates",
+            "lead_time": "24–48 hours before mainstream LinkedIn/YouTube creators",
+            "how_platforms_mine": "Subscribe to zero-auth Substack/Buttondown RSS feeds that aggregate 30+ AI engineering Discords and deep architectural teardowns.",
+            "primary_endpoints": [
+                "buttondown.com/ainews/rss (Latent Space / smol.ai daily digest of 30+ AI Discords & 500+ X researchers)",
+                "magazine.sebastianraschka.com/feed (Ahead of AI), interconnects.ai/feed (Nathan Lambert)",
+                "simonwillison.net/atom/everything/, huyenchip.com/feed.xml, eugeneyan.com/rss/, lilianweng.github.io/index.xml",
+                "decodingai.com/feed (Paul Iusztin), blog.bytebytego.com/feed (Alex Xu), theunwindai.com/feed (Shubham Saboo)",
+            ],
+        },
+        {
+            "tier": "Tier 6 — Practitioner Discourse & Production Failure-Mode Forums",
+            "lead_time": "Real-time developer war stories & edge-case caveats",
+            "how_platforms_mine": "Poll Hacker News Algolia frontpage API (`points > 25`), Reddit JSON feeds, Lobste.rs, and DEV.to for 'Show HN', production post-mortems, and benchmark critiques.",
+            "primary_endpoints": [
+                "hn.algolia.com/api/v1/search?tags=story&numericFilters=points>25",
+                "reddit.com/r/{LocalLLaMA,AI_Agents,MachineLearning,ClaudeAI,LangChain}/top.json?t=day",
+                "dev.to/api/articles?tag=ai&top=7, lobste.rs/t/ai.rss",
+            ],
+        },
+        {
+            "tier": "Tier 7 — Cross-Channel Corroboration & Velocity Scoring (AlphaSignal / TLDR AI Pattern)",
+            "lead_time": "Automated noise-filtering gate (top 1% selection)",
+            "how_platforms_mine": "Require >=2 independent signal corroborations within 24–48h (e.g., Frontier Lab Release + HN thread >50 pts, or arXiv paper + HF Daily Paper + GitHub repo >100 stars/day) before minting a briefing.",
+            "primary_endpoints": [
+                "Ideas-Minting Studio `run_autonomous_zero_link_discovery()` (scores Practitioner Utility 35% + Novelty 25% + Quantitative Density 25% + Visualizability 15%)",
+            ],
+        },
+    ]
+}

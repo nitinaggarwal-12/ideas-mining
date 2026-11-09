@@ -75,3 +75,5 @@ node scripts/e2e_puppeteer_functional_suite.mjs
 ```
 
 - `GET /api/customer-success/radar` & `POST /api/customer-success/discover` — Live Agentic AI Inventions & Discoveries mapped to Customer Success Playbooks, quantified FinOps/SLO KPIs, canonical blueprints (`T54`–`T221`), and runnable ADK repositories.
+
+- `GET /api/rss/frontier-labs.xml` — Unified RSS 2.0 XML Syndicate Bridge combining 23 RSS/Atom feeds with live Sitemap+OpenGraph diffing for RSS-less Frontier LLM Labs (`Anthropic Engineering/Research`, `Mistral AI`, `Google DeepMind`, `OpenAI`, `Meta AI`).

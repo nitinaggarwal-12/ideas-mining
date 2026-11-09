@@ -1,0 +1,33 @@
+{
+  "sources": {
+    "SITEMAP-ANTHROPIC": {
+      "last_checked_utc": "2026-11-09T06:53:21.838893+00:00",
+      "entries": [
+        {
+          "title": "Anthropic Engineering: Building Effective Agents \u2014 Composable Workflows vs Autonomous Harnesses",
+          "summary": "Production engineering breakdown showing why simple composable workflows (routing, orchestrator-workers, evaluator-optimizer) outperform unconstrained agent frameworks in enterprise reliability.",
+          "primary_url": "https://www.anthropic.com/engineering/building-effective-agents",
+          "published_at": "2026-11-08"
+        },
+        {
+          "title": "Anthropic Engineering: Claude Code Best Practices & Sub-Agent Context Isolation",
+          "summary": "How to structure CLAUDE.md constitutions, scoped MCP tool permissions, pre-commit verification hooks, and sub-agent context isolation to prevent context rot.",
+          "primary_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+          "published_at": "2026-11-08"
+        }
+      ]
+    },
+    "SITEMAP-MISTRAL": {
+      "last_checked_utc": "2026-11-09T06:53:21.838921+00:00",
+      "entries": [
+        {
+          "title": "Mistral AI Engineering: High-Throughput Sparse MoE & Structured Function Calling at Scale",
+          "summary": "Deploying low-latency tool-calling and deterministic JSON schema enforcement across regulated VPC boundaries with quantized KV-cache paging.",
+          "primary_url": "https://mistral.ai/news/",
+          "published_at": "2026-11-07"
+        }
+      ]
+    }
+  },
+  "updated_at": "2026-11-09T06:53:21.838926+00:00"
+}

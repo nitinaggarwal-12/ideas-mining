@@ -459,6 +459,19 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
             self.assertTrue(inv.get("recommended_template_id"))
             self.assertTrue(inv.get("reference_repo_slug"))
 
+        from src.harvester.autonomous_omnichannel_miner import (
+            fetch_rss_less_frontier_lab_sitemaps_live,
+            generate_frontier_labs_syndicate_rss_xml,
+        )
+
+        sitemap_items = fetch_rss_less_frontier_lab_sitemaps_live(allow_network=False)
+        self.assertGreaterEqual(len(sitemap_items), 3)
+        self.assertTrue(any("anthropic.com/engineering" in it["primary_url"] for it in sitemap_items))
+
+        frontier_rss_xml = generate_frontier_labs_syndicate_rss_xml()
+        self.assertEqual(ET.fromstring(frontier_rss_xml).tag, "rss")
+        self.assertIn("Anthropic", frontier_rss_xml)
+
         repo_gate = verify_all()
         self.assertTrue(repo_gate["gate_passed"], f"verify_all_repos failures: {repo_gate['failures']}")
         self.assertEqual(len(repo_gate["failures"]), 0)

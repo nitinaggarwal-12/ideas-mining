@@ -30,6 +30,7 @@ from src.catalog.stack_pairings import OSS_GOOGLE_PAIRINGS
 from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 from src.harvester.autonomous_omnichannel_miner import (
     discover_customer_success_agentic_inventions,
+    generate_frontier_labs_syndicate_rss_xml,
     get_or_run_autonomous_discovery,
     run_autonomous_zero_link_discovery,
 )
@@ -550,6 +551,17 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
 
         if path == "/api/publisher/outbox":
             self._send_json(200, OUTBOX_MANAGER.list_outbox())
+            return
+
+        if path == "/api/rss/frontier-labs.xml":
+            rss_bytes = generate_frontier_labs_syndicate_rss_xml().encode("utf-8")
+            self.send_response(200)
+            self._send_security_headers()
+            self.send_header("Content-Type", "application/rss+xml; charset=utf-8")
+            self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+            self.send_header("Content-Length", str(len(rss_bytes)))
+            self.end_headers()
+            self.wfile.write(rss_bytes)
             return
 
         if path == "/api/rss/daily-briefing.xml":

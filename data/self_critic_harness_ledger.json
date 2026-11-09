@@ -1,7 +1,7 @@
 {
   "status": "ALL_GATES_VERIFIED",
   "harness_version": "Harness\u00b2-v2.4-Autonomous-Self-Critic",
-  "last_run_utc": "2026-11-09T06:16:42.785439+00:00",
+  "last_run_utc": "2026-11-09T06:53:23.087655+00:00",
   "duration_ms": 1041,
   "overall_score": 99.9,
   "gates_passed": 8,
@@ -149,7 +149,7 @@
     "upstream_pipelines_active": 5,
     "customer_success_invention_radar": {
       "status": "READY",
-      "generated_at": "2026-11-09T06:16:42.785374+00:00",
+      "generated_at": "2026-11-09T06:53:23.087574+00:00",
       "total_inventions": 10,
       "customer_success_pillars": [
         "Zero-Trust MCP & OBO Security (Unblocks CISO/ARB Review)",
@@ -473,6 +473,42 @@
   },
   "latest_auto_healed_actions": [],
   "run_history": [
+    {
+      "run_id": "critic-20261109T065323Z",
+      "timestamp_utc": "2026-11-09T06:53:23.087655+00:00",
+      "trigger_source": "cli_self_critic_gate",
+      "duration_ms": 1041,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
+    {
+      "run_id": "critic-20261109T065236Z",
+      "timestamp_utc": "2026-11-09T06:52:36.829415+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1052,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
+    {
+      "run_id": "critic-20261109T064007Z",
+      "timestamp_utc": "2026-11-09T06:40:07.012495+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1021,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
     {
       "run_id": "critic-20261109T061642Z",
       "timestamp_utc": "2026-11-09T06:16:42.785439+00:00",

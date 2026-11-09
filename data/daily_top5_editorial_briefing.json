@@ -1,13 +1,13 @@
 {
   "status": "READY",
-  "edition_date": "2026-11-04",
-  "generated_at": "2026-11-04T06:49:50.375674+00:00",
+  "edition_date": "2026-11-09",
+  "generated_at": "2026-11-09T06:56:39.777046+00:00",
   "topic_query": "",
   "ideas_count": 5,
   "templates_per_idea": 5,
   "certified_pool_size": 128,
   "dedupe_ledger_window_days": 30,
-  "dedupe_ledger_entries": 5,
+  "dedupe_ledger_entries": 10,
   "mode_contracts": {
     "Carousel": {
       "mode_id": "Carousel",
@@ -233,34 +233,57 @@
   },
   "ideas": [
     {
-      "id": "TOP5-20261104-01",
+      "id": "TOP5-20261109-01",
       "rank": 1,
-      "edition_date": "2026-11-04",
-      "fingerprint": "b95f4e37eb77ef93",
+      "edition_date": "2026-11-09",
+      "fingerprint": "77b19a479fbc2890",
       "unique_30d_verified": true,
-      "cluster_id": "CLUSTER_INFERENCE_KV",
-      "cluster_label": "LLM Serving, KV-Cache & Inference Goodput",
-      "title": "Tiered Speculative Cascade & <15ms Complexity Router",
-      "summary": "Hospital Triage Nurse Resolving 80% of Cases Instantly vs. Sending Every Band-Aid Visit into Open-Heart Surgery Optimize Cost-Per-Successful-Outcome (CPSO) by demoting bool/enum micro-gates to <15ms classifiers and cascading `gemini-3.8-flash` -> `gemini-4-argon`.",
-      "primary_url": "https://github.com/nitinaggarwal-12/ideas-mining",
-      "source_channel": "Google Cloud ADK \u2022 2026 Career-Minting Signal",
+      "cluster_id": "CLUSTER_CODING_EVALS",
+      "cluster_label": "Autonomous Coding Harnesses & Sandbox Evals",
+      "title": "Orthogonal Builder-vs-Judge Coding Agents Inside Isolated gVisor Replay Sandboxes",
+      "summary": "Eliminates circular self-approval in coding agents by pairing a fast Builder model with an orthogonal Judge model gated on seeded defect replay suites, DOM geometry checks, and git SHA receipts.",
+      "primary_url": "https://docs.all-hands.dev/usage/architecture/runtime",
+      "source_channel": "Autonomous SWE \u2022 Sandbox Verification",
       "published_at": "2026-11-04",
-      "metrics_hint": "-68% inference spend while maintaining <1.1s p95 turn latency.",
+      "metrics_hint": "pass^5 stability 41% \u2192 89% \u2022 0 unverified commits \u2022 100% deterministic test gate",
       "scores": {
         "novelty": 88.0,
         "quantitative_density": 99.0,
-        "practitioner_utility": 85.0,
-        "visualizability": 88.0,
-        "composite_score": 89.8,
-        "demand_score": 95.1,
+        "practitioner_utility": 80.0,
+        "visualizability": 85.0,
+        "composite_score": 87.8,
+        "demand_score": 92.9,
         "corroborating_sources": [
-          "Google Cloud ADK",
-          "2026 Career-Minting Signal",
-          "GitHub Velocity"
+          "OpenHands Runtime",
+          "SWE-bench Verified",
+          "arXiv cs.SE"
         ]
       },
       "default_template_id": "T61",
       "default_recommended_mode": "Slidedeck",
+      "omnichannel_prescription": {
+        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "recommended_format_id": "FMT-01-GIF89A-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
+        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
+        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
+        "secondary_format": "43\u201360s Vertical 9:16 Narrated Architecture Short (`MP4` H.264 + Captions)",
+        "why_this_format_wins": "High practitioner utility signal: lead with a 4:5 Animated GIF89a (1080\u00d71350, 7.5s loop) on LinkedIn and a 45s 9:16 Vertical Short for YouTube Shorts / Reels.",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
+          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
+          "X Community: AI Engineers & Agent Builders (85K+)",
+          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
+      },
       "matching_templates": [
         {
           "template_id": "T61",
@@ -292,8 +315,7 @@
             "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 1,
-          "is_primary_recommended": true,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/preview"
+          "is_primary_recommended": true
         },
         {
           "template_id": "T56",
@@ -325,8 +347,7 @@
             "estimated_consumption_time": "30 sec scan"
           },
           "rank": 2,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/preview"
+          "is_primary_recommended": false
         },
         {
           "template_id": "T65",
@@ -358,8 +379,7 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 3,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/preview"
+          "is_primary_recommended": false
         },
         {
           "template_id": "T54",
@@ -391,24 +411,23 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 4,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/preview"
+          "is_primary_recommended": false
         },
         {
-          "template_id": "T63",
-          "name": "PromptCanvas #62: 2x2 Impact vs. Complexity Matrix",
+          "template_id": "T67",
+          "name": "PromptCanvas #66: Self-Healing Torus Loop",
           "quality_tier": "Best",
           "angle_id": "ANGLE_5_EXECUTIVE",
           "angle_label": "Executive 2\u00d72 Matrix, Pyramid & Roadmap",
           "fit_score": 99.2,
-          "best_for_short": "20 use cases across Quick Wins, Bets & Traps",
-          "when_to_use": "Prioritize 20 concrete agent use cases across a 2x2 matrix of Business Impact vs. Technical Complexity (Quick Wins, Strategic Bets, Low Priority, Traps).",
-          "svg_url": "/assets/template-gallery/T63.svg",
-          "png_url": "/assets/template-gallery/T63.png",
-          "gif_url": "/assets/template-gallery/T63.gif",
-          "pptx_url": "/assets/template-gallery/T63.pptx",
-          "drawio_url": "/assets/template-gallery/T63.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/edit?authuser=nitinagga%40google.com",
+          "best_for_short": "4-stage circular autonomous repair cycle",
+          "when_to_use": "Visualize the circular 4-stage autonomous agent loop (01 Generate \u2192 02 Sandbox Test \u2192 03 Eval Gate \u2192 04 Self-Healing Retry or PASS Deploy).",
+          "svg_url": "/assets/template-gallery/T67.svg",
+          "png_url": "/assets/template-gallery/T67.png",
+          "gif_url": "/assets/template-gallery/T67.gif",
+          "pptx_url": "/assets/template-gallery/T67.pptx",
+          "drawio_url": "/assets/template-gallery/T67.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1QZn9qFzEdcICtfc18DYMtbi8Bfxhp2TTW2bEfYjJAls/edit?authuser=nitinagga%40google.com",
           "recommended_mode": "Slidedeck",
           "secondary_modes": [
             "Image",
@@ -416,7 +435,7 @@
             "Slide",
             "Doc"
           ],
-          "mode_rationale": "T63 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
+          "mode_rationale": "T67 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
           "mode_length_budget": {
             "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
             "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
@@ -424,236 +443,63 @@
             "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 5,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/preview"
+          "is_primary_recommended": false
         }
       ]
     },
     {
-      "id": "TOP5-20261104-02",
+      "id": "TOP5-20261109-02",
       "rank": 2,
-      "edition_date": "2026-11-04",
-      "fingerprint": "af44b7714826c5d4",
-      "unique_30d_verified": true,
-      "cluster_id": "CLUSTER_CODING_EVALS",
-      "cluster_label": "Autonomous Coding Harnesses & Sandbox Evals",
-      "title": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks",
-      "summary": "Demonstrates why a 75% single-run agent succeeds across 3 consecutive customer runs only 42.2% of the time (pass^3), pairing sandbox env.reset() isolation with deterministic DB-state checks and restraint tasks.",
-      "primary_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents",
-      "source_channel": "HuggingFace Daily Papers \u2022 Agent Evals",
-      "published_at": "2026-10-29",
-      "metrics_hint": "pass^3 = 42.2% vs pass@3 = 98.4% \u2022 5 graded dimensions \u2022 Explicit 'unknown' judge",
-      "scores": {
-        "novelty": 94.0,
-        "quantitative_density": 99.0,
-        "practitioner_utility": 85.0,
-        "visualizability": 88.0,
-        "composite_score": 91.3,
-        "demand_score": 94.8,
-        "corroborating_sources": [
-          "HuggingFace Daily Papers",
-          "Agent Evals"
-        ]
-      },
-      "default_template_id": "T61",
-      "default_recommended_mode": "Slidedeck",
-      "matching_templates": [
-        {
-          "template_id": "T61",
-          "name": "PromptCanvas #60: 4-Plane Runtime Topology",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_1_ARCHITECTURE",
-          "angle_label": "Architecture & Runtime Topology",
-          "fit_score": 99.2,
-          "best_for_short": "Vertex AI + Cloud Run + GKE gVisor + AlloyDB",
-          "when_to_use": "Show the 4-node enterprise runtime topology separating reasoning (Vertex AI), orchestration (Cloud Run), sandbox (GKE gVisor), and state (AlloyDB).",
-          "svg_url": "/assets/template-gallery/T61.svg",
-          "png_url": "/assets/template-gallery/T61.png",
-          "gif_url": "/assets/template-gallery/T61.gif",
-          "pptx_url": "/assets/template-gallery/T61.pptx",
-          "drawio_url": "/assets/template-gallery/T61.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Slidedeck",
-          "secondary_modes": [
-            "Image",
-            "Carousel",
-            "Slide",
-            "Doc"
-          ],
-          "mode_rationale": "T61 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
-          "mode_length_budget": {
-            "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
-            "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
-            "total_deliverable_size": "12-Slide 3-Act Deck (~650 slide words) or 24-Slide Cloudstyle 2.0 Master (~1,400 words)",
-            "estimated_consumption_time": "15\u201330 min briefing"
-          },
-          "rank": 1,
-          "is_primary_recommended": true,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/preview"
-        },
-        {
-          "template_id": "T56",
-          "name": "PromptCanvas #55: Shadow AI Bubble Conceptual",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_2_CONTRAST",
-          "angle_label": "Before/After & OFF-vs-ON Contrast",
-          "fit_score": 99.2,
-          "best_for_short": "4 perceived tools vs. 24 shadow AI pipelines",
-          "when_to_use": "Contrast what leadership thinks is running (4 approved tools) against 24 shadow AI tools across engineering, meetings, sales, and legal.",
-          "svg_url": "/assets/template-gallery/T56.svg",
-          "png_url": "/assets/template-gallery/T56.png",
-          "gif_url": "/assets/template-gallery/T56.gif",
-          "pptx_url": "/assets/template-gallery/T56.pptx",
-          "drawio_url": "/assets/template-gallery/T56.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Image",
-          "secondary_modes": [
-            "Carousel",
-            "Short_Video",
-            "Text",
-            "Slide"
-          ],
-          "mode_rationale": "T56 is an instant A-vs-B visual contrast poster: a single @2x 4:5 Infographic stops feed scroll in <2 seconds on LinkedIn, Telegram, Instagram, and X.",
-          "mode_length_budget": {
-            "hook_above_fold": "Caption Hook \u2264 180 chars (2 punchy lines above fold) + Poster Header \u2264 9 words",
-            "per_unit_density": "\u2264 12 words per diagram node \u2022 \u2265 11pt crisp vector labels",
-            "total_deliverable_size": "1 @2x PNG/SVG poster + 160\u2013220 word companion narrative (950\u20131,400 chars)",
-            "estimated_consumption_time": "30 sec scan"
-          },
-          "rank": 2,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/preview"
-        },
-        {
-          "template_id": "T83",
-          "name": "Multi-Trial Agent Evals & pass^k Reliability Spine",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_3_QUANTITATIVE",
-          "angle_label": "Funnel, Roofline & Benchmark Matrix",
-          "fit_score": 99.2,
-          "best_for_short": "4-Tier Canonical Spine",
-          "when_to_use": "4-tier vertical architectural spine with quantitative footer.",
-          "svg_url": "/assets/template-gallery/T83.svg",
-          "png_url": "/assets/template-gallery/T83.png",
-          "gif_url": "/assets/template-gallery/T83.gif",
-          "pptx_url": "/assets/template-gallery/T83.pptx",
-          "drawio_url": "/assets/template-gallery/T83.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Doc",
-          "secondary_modes": [
-            "Carousel",
-            "Image",
-            "Slidedeck",
-            "Video"
-          ],
-          "mode_rationale": "T83 carries high quantitative telemetry density: Doc mode gives practitioners both the visual roofline/funnel and reproducible configuration thresholds.",
-          "mode_length_budget": {
-            "hook_above_fold": "TL;DR Architecture Box in first 120 words + Problem Benchmark Table",
-            "per_unit_density": "4\u20136 H2 sections \u00d7 220\u2013320 words + 1 runnable ADK/OSS code block + 1 #78 diagram",
-            "total_deliverable_size": "1,250\u20131,900 words (6\u20139 min read) with canonical_url SEO attribution",
-            "estimated_consumption_time": "7 min deep read"
-          },
-          "rank": 3,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/18xEjBKvc1IDbXy-v0jfKLO-Pilo-OTn_u8vkPovDlWs/preview"
-        },
-        {
-          "template_id": "T54",
-          "name": "PromptCanvas #53: Dual-Agent Process Workflow",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_4_CHECKLIST",
-          "angle_label": "Deployment Checklist & Cheat Sheet",
-          "fit_score": 99.2,
-          "best_for_short": "Primary Coding Agent + Reviewer Agent loop",
-          "when_to_use": "Show a 3-band workflow pairing a Primary Coding Agent with an independent Reviewer Agent across Install, Tool Mounting (YES/NO gate), and Recheck.",
-          "svg_url": "/assets/template-gallery/T54.svg",
-          "png_url": "/assets/template-gallery/T54.png",
-          "gif_url": "/assets/template-gallery/T54.gif",
-          "pptx_url": "/assets/template-gallery/T54.pptx",
-          "drawio_url": "/assets/template-gallery/T54.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Carousel",
-          "secondary_modes": [
-            "Image",
-            "Doc",
-            "Short_Video",
-            "Text"
-          ],
-          "mode_rationale": "T54 structures sequential implementation gates: 1 gate per slide in Carousel mode drives high bookmark/save rates across LinkedIn, Instagram, and TikTok Photo Mode.",
-          "mode_length_budget": {
-            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
-            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
-            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
-            "estimated_consumption_time": "45\u201360 sec swipe"
-          },
-          "rank": 4,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/preview"
-        },
-        {
-          "template_id": "T60",
-          "name": "PromptCanvas #59: Q1-Q4 Quarterly Roadmap Tracks",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_5_EXECUTIVE",
-          "angle_label": "Executive 2\u00d72 Matrix, Pyramid & Roadmap",
-          "fit_score": 99.2,
-          "best_for_short": "Phased Q1-Q4 enterprise agent rollout plan",
-          "when_to_use": "Lay out a 4-quarter enterprise rollout roadmap (Q1 Discovery -> Q2 Sandbox -> Q3 State -> Q4 Fleet) with 8 numbered milestones and ACTIVE toggles.",
-          "svg_url": "/assets/template-gallery/T60.svg",
-          "png_url": "/assets/template-gallery/T60.png",
-          "gif_url": "/assets/template-gallery/T60.gif",
-          "pptx_url": "/assets/template-gallery/T60.pptx",
-          "drawio_url": "/assets/template-gallery/T60.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Slidedeck",
-          "secondary_modes": [
-            "Image",
-            "Carousel",
-            "Slide",
-            "Doc"
-          ],
-          "mode_rationale": "T60 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
-          "mode_length_budget": {
-            "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
-            "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
-            "total_deliverable_size": "12-Slide 3-Act Deck (~650 slide words) or 24-Slide Cloudstyle 2.0 Master (~1,400 words)",
-            "estimated_consumption_time": "15\u201330 min briefing"
-          },
-          "rank": 5,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/preview"
-        }
-      ]
-    },
-    {
-      "id": "TOP5-20261104-03",
-      "rank": 3,
-      "edition_date": "2026-11-04",
-      "fingerprint": "78befd5b51336208",
+      "edition_date": "2026-11-09",
+      "fingerprint": "c8371f5d5b4a10db",
       "unique_30d_verified": true,
       "cluster_id": "CLUSTER_MCP_IDENTITY",
       "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
-      "title": "Zero-Bloat MCP Tool Search with Per-Turn RFC 8693 OAuth 2.1 On-Behalf-Of Exchange",
-      "summary": "Replaces 55K-token static MCP tool dumps and shared service keys with hybrid BM25+Dense Top-4 tool search, frozen system prefixes (94.2% KV hit), and 5-minute narrow-audience OBO JWTs.",
-      "primary_url": "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization",
-      "source_channel": "MCP & Cloud IAM \u2022 Enterprise Security",
-      "published_at": "2026-11-04",
-      "metrics_hint": "55,240 \u2192 1,380 schema tokens (-97.5%) \u2022 4.09x faster p95 \u2022 0 cross-tenant OBO leaks",
+      "title": "Zero-Bloat MCP Gateway: Dynamic Tool Search + OAuth 2.1 OBO",
+      "summary": "Restaurant Sommelier Presenting 4 Paired Wines vs. Dumping a 900-Bottle Cellar Ledger on Your Table Never mount more than top-K (K <= 5) compact tool schemas per turn or share static service-account keys across multi-tenant MCP calls.",
+      "primary_url": "https://github.com/nitinaggarwal-12/ideas-mining",
+      "source_channel": "Google Cloud ADK \u2022 2026 Career-Minting Signal",
+      "published_at": "2026-11-09",
+      "metrics_hint": "-97.5% prompt tokens ($0.42 -> $0.014/turn), 61.0% -> 94.2% tool selection accuracy, 0 Confused-Deputy leaks, CISO zero-trust sign-off.",
       "scores": {
         "novelty": 88.0,
         "quantitative_density": 99.0,
-        "practitioner_utility": 85.0,
-        "visualizability": 84.0,
-        "composite_score": 89.0,
-        "demand_score": 94.5,
+        "practitioner_utility": 80.0,
+        "visualizability": 85.0,
+        "composite_score": 87.8,
+        "demand_score": 92.9,
         "corroborating_sources": [
-          "MCP Spec",
-          "Google Cloud IAM STS",
-          "GitHub Breakout"
+          "Google Cloud ADK",
+          "2026 Career-Minting Signal",
+          "GitHub Velocity"
         ]
       },
       "default_template_id": "T85",
       "default_recommended_mode": "Carousel",
+      "omnichannel_prescription": {
+        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "recommended_format_id": "FMT-01-GIF89A-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
+        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
+        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
+        "secondary_format": "90\u2013150s Widescreen 16:9 Deep-Dive Execution Trace (`MP4` + Interactive Replay Link)",
+        "why_this_format_wins": "Contains a stateful multi-hop message flow or routing loop: a 4:5 Animated GIF89a (8.4s loop @ 20fps, 1080\u00d71350) shows packets moving across trust boundaries inline on LinkedIn without requiring a play click (69.9% avg comment ratio).",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "LinkedIn: Enterprise Cybersecurity, IAM & Zero Trust (190K+)",
+          "LinkedIn: LLMOps, MLOps & Production AI Architects (140K+)",
+          "Reddit: r/AI_Agents (190K+) & r/netsec",
+          "X Community: AI Engineers & Agent Builders (85K+)",
+          "Hacker News + DEV.to (#security, #ai, #architecture)"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
+      },
       "matching_templates": [
         {
           "template_id": "T85",
@@ -669,7 +515,7 @@
           "gif_url": "/assets/template-gallery/T85.gif",
           "pptx_url": "/assets/template-gallery/T85.pptx",
           "drawio_url": "/assets/template-gallery/T85.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/edit?authuser=nitinagga%40google.com",
+          "google_slides_url": "https://docs.google.com/presentation/d/1PsJh1GaF5KnHscqoG5yIhhfjuNwEZtm7228vRHMvdYo/edit?authuser=nitinagga%40google.com",
           "recommended_mode": "Carousel",
           "secondary_modes": [
             "Short_Video",
@@ -686,24 +532,23 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 1,
-          "is_primary_recommended": true,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/preview"
+          "is_primary_recommended": true
         },
         {
-          "template_id": "T95",
-          "name": "Asymmetric Fulcrum Scale Tradeoff",
+          "template_id": "T57",
+          "name": "PromptCanvas #56: Side-by-Side Runtime Toggles",
           "quality_tier": "Best",
           "angle_id": "ANGLE_2_CONTRAST",
           "angle_label": "Before/After & OFF-vs-ON Contrast",
           "fit_score": 99.2,
-          "best_for_short": "Zero-Bloat MCP: 40\u00d7 Fulcrum Leverage",
-          "when_to_use": "Replace 55k static schema deadweight with lazy Top-4 tool search + RFC 8693 OBO ( S.C.O.P.E. )",
-          "svg_url": "/assets/template-gallery/T95.svg",
-          "png_url": "/assets/template-gallery/T95.png",
-          "gif_url": "/assets/template-gallery/T95.gif",
-          "pptx_url": "/assets/template-gallery/T95.pptx",
-          "drawio_url": "/assets/template-gallery/T95.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1t0I2xgsJ0Zuawg-JtrUFkZyARTHEsU7g/edit?authuser=nitinagga%40google.com",
+          "best_for_short": "Stateless API (OFF) vs. Agent Runtime (ON)",
+          "when_to_use": "Compare stateless foundation model inference (OFF toggles) against a managed enterprise agent runtime (ON toggles) across 5 architecture pillars.",
+          "svg_url": "/assets/template-gallery/T57.svg",
+          "png_url": "/assets/template-gallery/T57.png",
+          "gif_url": "/assets/template-gallery/T57.gif",
+          "pptx_url": "/assets/template-gallery/T57.pptx",
+          "drawio_url": "/assets/template-gallery/T57.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM/edit?authuser=nitinagga%40google.com",
           "recommended_mode": "Carousel",
           "secondary_modes": [
             "Short_Video",
@@ -712,7 +557,7 @@
             "Image",
             "Doc"
           ],
-          "mode_rationale": "T95 packs a 4-tier architecture spine + benchmark bar: an 8-slide 4:5 Carousel maximizes LinkedIn/Instagram swipe dwell time while pairing directly with a 43s 9:16 Vertical Short.",
+          "mode_rationale": "T57 packs a 4-tier architecture spine + benchmark bar: an 8-slide 4:5 Carousel maximizes LinkedIn/Instagram swipe dwell time while pairing directly with a 43s 9:16 Vertical Short.",
           "mode_length_budget": {
             "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
             "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
@@ -720,8 +565,7 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 2,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1t0I2xgsJ0Zuawg-JtrUFkZyARTHEsU7g/preview"
+          "is_primary_recommended": false
         },
         {
           "template_id": "T58",
@@ -754,24 +598,23 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 3,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/preview"
+          "is_primary_recommended": false
         },
         {
-          "template_id": "T54",
-          "name": "PromptCanvas #53: Dual-Agent Process Workflow",
+          "template_id": "T95",
+          "name": "Asymmetric Fulcrum Scale Tradeoff",
           "quality_tier": "Best",
           "angle_id": "ANGLE_4_CHECKLIST",
           "angle_label": "Deployment Checklist & Cheat Sheet",
           "fit_score": 99.2,
-          "best_for_short": "Primary Coding Agent + Reviewer Agent loop",
-          "when_to_use": "Show a 3-band workflow pairing a Primary Coding Agent with an independent Reviewer Agent across Install, Tool Mounting (YES/NO gate), and Recheck.",
-          "svg_url": "/assets/template-gallery/T54.svg",
-          "png_url": "/assets/template-gallery/T54.png",
-          "gif_url": "/assets/template-gallery/T54.gif",
-          "pptx_url": "/assets/template-gallery/T54.pptx",
-          "drawio_url": "/assets/template-gallery/T54.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/edit?authuser=nitinagga%40google.com",
+          "best_for_short": "Zero-Bloat MCP: 40\u00d7 Fulcrum Leverage",
+          "when_to_use": "Replace 55k static schema deadweight with lazy Top-4 tool search + RFC 8693 OBO ( S.C.O.P.E. )",
+          "svg_url": "/assets/template-gallery/T95.svg",
+          "png_url": "/assets/template-gallery/T95.png",
+          "gif_url": "/assets/template-gallery/T95.gif",
+          "pptx_url": "/assets/template-gallery/T95.pptx",
+          "drawio_url": "/assets/template-gallery/T95.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1t0I2xgsJ0Zuawg-JtrUFkZyARTHEsU7g/edit?authuser=nitinagga%40google.com",
           "recommended_mode": "Carousel",
           "secondary_modes": [
             "Short_Video",
@@ -780,7 +623,7 @@
             "Image",
             "Doc"
           ],
-          "mode_rationale": "T54 packs a 4-tier architecture spine + benchmark bar: an 8-slide 4:5 Carousel maximizes LinkedIn/Instagram swipe dwell time while pairing directly with a 43s 9:16 Vertical Short.",
+          "mode_rationale": "T95 packs a 4-tier architecture spine + benchmark bar: an 8-slide 4:5 Carousel maximizes LinkedIn/Instagram swipe dwell time while pairing directly with a 43s 9:16 Vertical Short.",
           "mode_length_budget": {
             "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
             "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
@@ -788,24 +631,23 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 4,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/preview"
+          "is_primary_recommended": false
         },
         {
-          "template_id": "T60",
-          "name": "PromptCanvas #59: Q1-Q4 Quarterly Roadmap Tracks",
+          "template_id": "T66",
+          "name": "PromptCanvas #65: 4-Tier Capability Pyramid",
           "quality_tier": "Best",
           "angle_id": "ANGLE_5_EXECUTIVE",
           "angle_label": "Executive 2\u00d72 Matrix, Pyramid & Roadmap",
-          "fit_score": 99.2,
-          "best_for_short": "Phased Q1-Q4 enterprise agent rollout plan",
-          "when_to_use": "Lay out a 4-quarter enterprise rollout roadmap (Q1 Discovery -> Q2 Sandbox -> Q3 State -> Q4 Fleet) with 8 numbered milestones and ACTIVE toggles.",
-          "svg_url": "/assets/template-gallery/T60.svg",
-          "png_url": "/assets/template-gallery/T60.png",
-          "gif_url": "/assets/template-gallery/T60.gif",
-          "pptx_url": "/assets/template-gallery/T60.pptx",
-          "drawio_url": "/assets/template-gallery/T60.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/edit?authuser=nitinagga%40google.com",
+          "fit_score": 98.9,
+          "best_for_short": "Raw Inference \u2192 Tools \u2192 Multi-Agent \u2192 Apex",
+          "when_to_use": "Show the 4-tier evolution of AI systems from Base Foundation Model (01) to Tool Calling (02) to Multi-Agent (03) to Autonomous Self-Healing Apex (04).",
+          "svg_url": "/assets/template-gallery/T66.svg",
+          "png_url": "/assets/template-gallery/T66.png",
+          "gif_url": "/assets/template-gallery/T66.gif",
+          "pptx_url": "/assets/template-gallery/T66.pptx",
+          "drawio_url": "/assets/template-gallery/T66.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/edit?authuser=nitinagga%40google.com",
           "recommended_mode": "Carousel",
           "secondary_modes": [
             "Short_Video",
@@ -814,7 +656,7 @@
             "Image",
             "Doc"
           ],
-          "mode_rationale": "T60 packs a 4-tier architecture spine + benchmark bar: an 8-slide 4:5 Carousel maximizes LinkedIn/Instagram swipe dwell time while pairing directly with a 43s 9:16 Vertical Short.",
+          "mode_rationale": "T66 packs a 4-tier architecture spine + benchmark bar: an 8-slide 4:5 Carousel maximizes LinkedIn/Instagram swipe dwell time while pairing directly with a 43s 9:16 Vertical Short.",
           "mode_length_budget": {
             "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
             "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
@@ -822,56 +664,77 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 5,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/preview"
+          "is_primary_recommended": false
         }
       ]
     },
     {
-      "id": "TOP5-20261104-04",
-      "rank": 4,
-      "edition_date": "2026-11-04",
-      "fingerprint": "ae4b3ed2a44c31c0",
+      "id": "TOP5-20261109-03",
+      "rank": 3,
+      "edition_date": "2026-11-09",
+      "fingerprint": "f215ad7417b45f6e",
       "unique_30d_verified": true,
-      "cluster_id": "CLUSTER_MULTIAGENT_MEMORY",
-      "cluster_label": "Multi-Agent Orchestration, GraphRAG & Memory",
-      "title": "Hierarchical Supervisor Delegation with 5-Stage Progressive Context Compression (1M \u2192 2K)",
-      "summary": "Prevents context rot across multi-agent A2A workflows by isolating noisy worker tool traces inside sub-sessions and returning only schema-validated artifacts to the root supervisor.",
-      "primary_url": "https://google.github.io/adk-docs/",
-      "source_channel": "Multi-Agent Systems \u2022 Context Engineering",
-      "published_at": "2026-11-04",
-      "metrics_hint": "1,000,000 \u2192 2,000 precision tokens \u2022 -78% multi-hop hallucination rate \u2022 3.1x lower cost",
+      "cluster_id": "CLUSTER_INFERENCE_KV",
+      "cluster_label": "LLM Serving, KV-Cache & Inference Goodput",
+      "title": "Grammar-Aligned Speculative Decoding with Zero-Retry Schema Guarantees",
+      "summary": "Compiles JSON Schema and CFG constraints directly into draft-and-verify token masks, achieving 100% valid structured payloads at 2.4x lower p99 decode latency while surfacing token-level calibration scores.",
+      "primary_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/control-generated-output",
+      "source_channel": "arXiv cs.CL \u2022 Structured Generation",
+      "published_at": "2026-10-29",
+      "metrics_hint": "100% schema validity \u2022 0 parse retries \u2022 2.4x faster structured decode",
       "scores": {
         "novelty": 88.0,
         "quantitative_density": 99.0,
-        "practitioner_utility": 80.0,
-        "visualizability": 81.0,
-        "composite_score": 87.0,
-        "demand_score": 92.3,
+        "practitioner_utility": 85.0,
+        "visualizability": 84.0,
+        "composite_score": 89.0,
+        "demand_score": 92.7,
         "corroborating_sources": [
-          "Google ADK Docs",
-          "Linux Foundation A2A",
-          "HuggingFace Papers"
+          "arXiv cs.CL",
+          "Structured Generation"
         ]
       },
-      "default_template_id": "T62",
+      "default_template_id": "T61",
       "default_recommended_mode": "Slidedeck",
+      "omnichannel_prescription": {
+        "recommended_primary_format": "Single @2x 4:5 High-Contrast Architecture / Roofline Cheat-Sheet Poster (`PNG` / `SVG`)",
+        "recommended_format_id": "FMT-05-STATIC-4X5-POSTER",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1200\u00d71500 px (or 1600\u00d72000 px Retina @2x PNG)",
+        "optimal_duration_and_fps": "Static High-DPI Poster \u2022 <2s scroll-stop scan + 25s zoom inspection",
+        "text_copy_budget": "200 \u2013 300 words \u2022 Problem math (`pass@k vs pass^k`) + 3-column symptom-to-fix table + 'One Thing People Miss' box",
+        "secondary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "why_this_format_wins": "High quantitative/mathematical density: pair an arXiv/Benchmark 4:5 Retina Poster (1200\u00d71500) or 4:5 GIF89a Roofline with a 3-column symptom-to-fix table and 'One Thing People Miss' caveat box.",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "Reddit: r/LocalLLaMA (580K+) & r/MachineLearning (3.0M+)",
+          "LinkedIn: LLMOps, MLOps & Production AI Architects (140K+)",
+          "X Community: Systems & GPU Programming (65K+)",
+          "Hacker News Frontpage (`Show HN` / Systems Deep-Dive)"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 2: 128 Certified Templates (`T53`\u2013`T221`) -> 1-Click Retina PNG / SVG / Google Slides"
+      },
       "matching_templates": [
         {
-          "template_id": "T62",
-          "name": "PromptCanvas #61: Multi-Agent Supervisor Tree",
+          "template_id": "T61",
+          "name": "PromptCanvas #60: 4-Plane Runtime Topology",
           "quality_tier": "Best",
           "angle_id": "ANGLE_1_ARCHITECTURE",
           "angle_label": "Architecture & Runtime Topology",
           "fit_score": 99.2,
-          "best_for_short": "Supervisor (01) -> Workers (02a-c) -> Data (03)",
-          "when_to_use": "Illustrate a 3-tier hierarchical delegation tree from Supervisor Agent (01) to 3 Specialized Worker Agents (02a/02b/02c) to Shared Resources (03).",
-          "svg_url": "/assets/template-gallery/T62.svg",
-          "png_url": "/assets/template-gallery/T62.png",
-          "gif_url": "/assets/template-gallery/T62.gif",
-          "pptx_url": "/assets/template-gallery/T62.pptx",
-          "drawio_url": "/assets/template-gallery/T62.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA/edit?authuser=nitinagga%40google.com",
+          "best_for_short": "Vertex AI + Cloud Run + GKE gVisor + AlloyDB",
+          "when_to_use": "Show the 4-node enterprise runtime topology separating reasoning (Vertex AI), orchestration (Cloud Run), sandbox (GKE gVisor), and state (AlloyDB).",
+          "svg_url": "/assets/template-gallery/T61.svg",
+          "png_url": "/assets/template-gallery/T61.png",
+          "gif_url": "/assets/template-gallery/T61.gif",
+          "pptx_url": "/assets/template-gallery/T61.pptx",
+          "drawio_url": "/assets/template-gallery/T61.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/edit?authuser=nitinagga%40google.com",
           "recommended_mode": "Slidedeck",
           "secondary_modes": [
             "Image",
@@ -879,7 +742,7 @@
             "Slide",
             "Doc"
           ],
-          "mode_rationale": "T62 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
+          "mode_rationale": "T61 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
           "mode_length_budget": {
             "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
             "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
@@ -887,8 +750,7 @@
             "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 1,
-          "is_primary_recommended": true,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1DvERrMxcknPFsZzu2FpUzl9e3eTFxY1tHZRgGqTulaA/preview"
+          "is_primary_recommended": true
         },
         {
           "template_id": "T56",
@@ -920,8 +782,7 @@
             "estimated_consumption_time": "30 sec scan"
           },
           "rank": 2,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/preview"
+          "is_primary_recommended": false
         },
         {
           "template_id": "T58",
@@ -953,206 +814,7 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 3,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/100BNZjdo6OceVEOBF6cuN5Agd1-ensZYQw6G-fY2rbU/preview"
-        },
-        {
-          "template_id": "T54",
-          "name": "PromptCanvas #53: Dual-Agent Process Workflow",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_4_CHECKLIST",
-          "angle_label": "Deployment Checklist & Cheat Sheet",
-          "fit_score": 99.2,
-          "best_for_short": "Primary Coding Agent + Reviewer Agent loop",
-          "when_to_use": "Show a 3-band workflow pairing a Primary Coding Agent with an independent Reviewer Agent across Install, Tool Mounting (YES/NO gate), and Recheck.",
-          "svg_url": "/assets/template-gallery/T54.svg",
-          "png_url": "/assets/template-gallery/T54.png",
-          "gif_url": "/assets/template-gallery/T54.gif",
-          "pptx_url": "/assets/template-gallery/T54.pptx",
-          "drawio_url": "/assets/template-gallery/T54.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Carousel",
-          "secondary_modes": [
-            "Image",
-            "Doc",
-            "Short_Video",
-            "Text"
-          ],
-          "mode_rationale": "T54 structures sequential implementation gates: 1 gate per slide in Carousel mode drives high bookmark/save rates across LinkedIn, Instagram, and TikTok Photo Mode.",
-          "mode_length_budget": {
-            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
-            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
-            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
-            "estimated_consumption_time": "45\u201360 sec swipe"
-          },
-          "rank": 4,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/preview"
-        },
-        {
-          "template_id": "T66",
-          "name": "PromptCanvas #65: 4-Tier Capability Pyramid",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_5_EXECUTIVE",
-          "angle_label": "Executive 2\u00d72 Matrix, Pyramid & Roadmap",
-          "fit_score": 99.2,
-          "best_for_short": "Raw Inference \u2192 Tools \u2192 Multi-Agent \u2192 Apex",
-          "when_to_use": "Show the 4-tier evolution of AI systems from Base Foundation Model (01) to Tool Calling (02) to Multi-Agent (03) to Autonomous Self-Healing Apex (04).",
-          "svg_url": "/assets/template-gallery/T66.svg",
-          "png_url": "/assets/template-gallery/T66.png",
-          "gif_url": "/assets/template-gallery/T66.gif",
-          "pptx_url": "/assets/template-gallery/T66.pptx",
-          "drawio_url": "/assets/template-gallery/T66.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Slidedeck",
-          "secondary_modes": [
-            "Image",
-            "Carousel",
-            "Slide",
-            "Doc"
-          ],
-          "mode_rationale": "T66 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
-          "mode_length_budget": {
-            "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
-            "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
-            "total_deliverable_size": "12-Slide 3-Act Deck (~650 slide words) or 24-Slide Cloudstyle 2.0 Master (~1,400 words)",
-            "estimated_consumption_time": "15\u201330 min briefing"
-          },
-          "rank": 5,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1vG6d53WyBpjihung-xI_x1k-VEA5G3RkqmL-SUeuEDI/preview"
-        }
-      ]
-    },
-    {
-      "id": "TOP5-20261104-05",
-      "rank": 5,
-      "edition_date": "2026-11-04",
-      "fingerprint": "f28be6373b0e5682",
-      "unique_30d_verified": true,
-      "cluster_id": "CLUSTER_GOVERNANCE_FINOPS",
-      "cluster_label": "Enterprise AI Governance, FinOps & SRE Reliability",
-      "title": "Shadow AI Discovery & 3-Tier Semantic Model Cascade with Circuit-Breaker Loop Guards",
-      "summary": "Brings unsanctioned departmental AI pipelines behind a unified AI Gateway enforcing Model Armor PII/prompt shields, semantic step deduplication, and Flash-to-Argon complexity routing.",
-      "primary_url": "https://cloud.google.com/security-command-center/docs/model-armor-overview",
-      "source_channel": "AI Platform FinOps & CISO Governance",
-      "published_at": "2026-11-04",
-      "metrics_hint": "24 shadow pipelines governed \u2022 -68% blended inference spend \u2022 0 runaway retry loops",
-      "scores": {
-        "novelty": 88.0,
-        "quantitative_density": 94.0,
-        "practitioner_utility": 75.0,
-        "visualizability": 78.0,
-        "composite_score": 83.6,
-        "demand_score": 88.9,
-        "corroborating_sources": [
-          "Google Cloud Model Armor",
-          "FinOps Foundation",
-          "Enterprise CISO Brief"
-        ]
-      },
-      "default_template_id": "T85",
-      "default_recommended_mode": "Carousel",
-      "matching_templates": [
-        {
-          "template_id": "T85",
-          "name": "Zero-Bloat MCP Gateway & OAuth 2.1 OBO Spine (MINT-01)",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_1_ARCHITECTURE",
-          "angle_label": "Architecture & Runtime Topology",
-          "fit_score": 99.2,
-          "best_for_short": "4-Tier Canonical Spine",
-          "when_to_use": "4-tier vertical architectural spine with quantitative footer.",
-          "svg_url": "/assets/template-gallery/T85.svg",
-          "png_url": "/assets/template-gallery/T85.png",
-          "gif_url": "/assets/template-gallery/T85.gif",
-          "pptx_url": "/assets/template-gallery/T85.pptx",
-          "drawio_url": "/assets/template-gallery/T85.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Carousel",
-          "secondary_modes": [
-            "Short_Video",
-            "Video",
-            "Slidedeck",
-            "Image",
-            "Doc"
-          ],
-          "mode_rationale": "T85 packs a 4-tier architecture spine + benchmark bar: an 8-slide 4:5 Carousel maximizes LinkedIn/Instagram swipe dwell time while pairing directly with a 43s 9:16 Vertical Short.",
-          "mode_length_budget": {
-            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
-            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
-            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
-            "estimated_consumption_time": "45\u201360 sec swipe"
-          },
-          "rank": 1,
-          "is_primary_recommended": true,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1RANJQIr1w21W52hem5Sa8n3zDh82aQii/preview"
-        },
-        {
-          "template_id": "T56",
-          "name": "PromptCanvas #55: Shadow AI Bubble Conceptual",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_2_CONTRAST",
-          "angle_label": "Before/After & OFF-vs-ON Contrast",
-          "fit_score": 99.2,
-          "best_for_short": "4 perceived tools vs. 24 shadow AI pipelines",
-          "when_to_use": "Contrast what leadership thinks is running (4 approved tools) against 24 shadow AI tools across engineering, meetings, sales, and legal.",
-          "svg_url": "/assets/template-gallery/T56.svg",
-          "png_url": "/assets/template-gallery/T56.png",
-          "gif_url": "/assets/template-gallery/T56.gif",
-          "pptx_url": "/assets/template-gallery/T56.pptx",
-          "drawio_url": "/assets/template-gallery/T56.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Image",
-          "secondary_modes": [
-            "Carousel",
-            "Short_Video",
-            "Text",
-            "Slide"
-          ],
-          "mode_rationale": "T56 is an instant A-vs-B visual contrast poster: a single @2x 4:5 Infographic stops feed scroll in <2 seconds on LinkedIn, Telegram, Instagram, and X.",
-          "mode_length_budget": {
-            "hook_above_fold": "Caption Hook \u2264 180 chars (2 punchy lines above fold) + Poster Header \u2264 9 words",
-            "per_unit_density": "\u2264 12 words per diagram node \u2022 \u2265 11pt crisp vector labels",
-            "total_deliverable_size": "1 @2x PNG/SVG poster + 160\u2013220 word companion narrative (950\u20131,400 chars)",
-            "estimated_consumption_time": "30 sec scan"
-          },
-          "rank": 2,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/preview"
-        },
-        {
-          "template_id": "T65",
-          "name": "PromptCanvas #64: 5x4 Feature Evaluation Matrix",
-          "quality_tier": "Best",
-          "angle_id": "ANGLE_3_QUANTITATIVE",
-          "angle_label": "Funnel, Roofline & Benchmark Matrix",
-          "fit_score": 99.2,
-          "best_for_short": "Score 4 agent stacks across 5 prod criteria",
-          "when_to_use": "Evaluate 4 agent architectures (Google ADK + Vertex, LangGraph + Postgres, OpenHands + Docker, Raw API) across 5 weighted production criteria.",
-          "svg_url": "/assets/template-gallery/T65.svg",
-          "png_url": "/assets/template-gallery/T65.png",
-          "gif_url": "/assets/template-gallery/T65.gif",
-          "pptx_url": "/assets/template-gallery/T65.pptx",
-          "drawio_url": "/assets/template-gallery/T65.drawio",
-          "google_slides_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/edit?authuser=nitinagga%40google.com",
-          "recommended_mode": "Carousel",
-          "secondary_modes": [
-            "Carousel",
-            "Image",
-            "Slidedeck",
-            "Video"
-          ],
-          "mode_rationale": "T65 carries high quantitative telemetry density: Carousel mode gives practitioners both the visual roofline/funnel and reproducible configuration thresholds.",
-          "mode_length_budget": {
-            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
-            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
-            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
-            "estimated_consumption_time": "45\u201360 sec swipe"
-          },
-          "rank": 3,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/preview"
+          "is_primary_recommended": false
         },
         {
           "template_id": "T55",
@@ -1184,8 +846,7 @@
             "estimated_consumption_time": "45\u201360 sec swipe"
           },
           "rank": 4,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1nfQlaZjE1Eji9LXTTbByfbX_Kqna-p_93nEqqCiPniA/preview"
+          "is_primary_recommended": false
         },
         {
           "template_id": "T60",
@@ -1217,8 +878,437 @@
             "estimated_consumption_time": "15\u201330 min briefing"
           },
           "rank": 5,
-          "is_primary_recommended": false,
-          "google_slides_preview_url": "https://docs.google.com/presentation/d/1l0P7wONDnMGL57KVv1Lu1ojmtj6KIP0krB0sCn9Pv90/preview"
+          "is_primary_recommended": false
+        }
+      ]
+    },
+    {
+      "id": "TOP5-20261109-04",
+      "rank": 4,
+      "edition_date": "2026-11-09",
+      "fingerprint": "8f1b1fbac1b23a6d",
+      "unique_30d_verified": true,
+      "cluster_id": "CLUSTER_MULTIAGENT_MEMORY",
+      "cluster_label": "Multi-Agent Orchestration, GraphRAG & Memory",
+      "title": "Inter-Agent A2A v0.3 AgentCards, Async Tasks & A2UI",
+      "summary": "Air-Traffic Control Standardized Flight Transponders vs. Pilots Shouting Free-Form Paragraphs Over Walkie-Talkies Pass typed JSON-Schema task artifacts across federated `/.well-known/agent.json` boundaries rather than prose chat histories.",
+      "primary_url": "https://github.com/nitinaggarwal-12/ideas-mining",
+      "source_channel": "Google Cloud ADK \u2022 2026 Career-Minting Signal",
+      "published_at": "2026-11-09",
+      "metrics_hint": "Decouples 10+ cross-org/cross-cloud domain agents with 0% prose-handoff constraint loss.",
+      "scores": {
+        "novelty": 88.0,
+        "quantitative_density": 87.5,
+        "practitioner_utility": 80.0,
+        "visualizability": 85.0,
+        "composite_score": 84.9,
+        "demand_score": 90.0,
+        "corroborating_sources": [
+          "Google Cloud ADK",
+          "2026 Career-Minting Signal",
+          "GitHub Velocity"
+        ]
+      },
+      "default_template_id": "T61",
+      "default_recommended_mode": "Slidedeck",
+      "omnichannel_prescription": {
+        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "recommended_format_id": "FMT-01-GIF89A-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
+        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
+        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
+        "secondary_format": "43\u201360s Vertical 9:16 Narrated Architecture Short (`MP4` H.264 + Captions)",
+        "why_this_format_wins": "High practitioner utility signal: lead with a 4:5 Animated GIF89a (1080\u00d71350, 7.5s loop) on LinkedIn and a 45s 9:16 Vertical Short for YouTube Shorts / Reels.",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
+          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
+          "X Community: AI Engineers & Agent Builders (85K+)",
+          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
+      },
+      "matching_templates": [
+        {
+          "template_id": "T61",
+          "name": "PromptCanvas #60: 4-Plane Runtime Topology",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_1_ARCHITECTURE",
+          "angle_label": "Architecture & Runtime Topology",
+          "fit_score": 99.2,
+          "best_for_short": "Vertex AI + Cloud Run + GKE gVisor + AlloyDB",
+          "when_to_use": "Show the 4-node enterprise runtime topology separating reasoning (Vertex AI), orchestration (Cloud Run), sandbox (GKE gVisor), and state (AlloyDB).",
+          "svg_url": "/assets/template-gallery/T61.svg",
+          "png_url": "/assets/template-gallery/T61.png",
+          "gif_url": "/assets/template-gallery/T61.gif",
+          "pptx_url": "/assets/template-gallery/T61.pptx",
+          "drawio_url": "/assets/template-gallery/T61.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Slidedeck",
+          "secondary_modes": [
+            "Image",
+            "Carousel",
+            "Slide",
+            "Doc"
+          ],
+          "mode_rationale": "T61 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
+            "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
+            "total_deliverable_size": "12-Slide 3-Act Deck (~650 slide words) or 24-Slide Cloudstyle 2.0 Master (~1,400 words)",
+            "estimated_consumption_time": "15\u201330 min briefing"
+          },
+          "rank": 1,
+          "is_primary_recommended": true
+        },
+        {
+          "template_id": "T57",
+          "name": "PromptCanvas #56: Side-by-Side Runtime Toggles",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_2_CONTRAST",
+          "angle_label": "Before/After & OFF-vs-ON Contrast",
+          "fit_score": 99.2,
+          "best_for_short": "Stateless API (OFF) vs. Agent Runtime (ON)",
+          "when_to_use": "Compare stateless foundation model inference (OFF toggles) against a managed enterprise agent runtime (ON toggles) across 5 architecture pillars.",
+          "svg_url": "/assets/template-gallery/T57.svg",
+          "png_url": "/assets/template-gallery/T57.png",
+          "gif_url": "/assets/template-gallery/T57.gif",
+          "pptx_url": "/assets/template-gallery/T57.pptx",
+          "drawio_url": "/assets/template-gallery/T57.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1DHL65kUpMO_Q_a0hlW7gA2xp61H1gPo4irX3KL2xubM/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Image",
+          "secondary_modes": [
+            "Carousel",
+            "Short_Video",
+            "Text",
+            "Slide"
+          ],
+          "mode_rationale": "T57 is an instant A-vs-B visual contrast poster: a single @2x 4:5 Infographic stops feed scroll in <2 seconds on LinkedIn, Telegram, Instagram, and X.",
+          "mode_length_budget": {
+            "hook_above_fold": "Caption Hook \u2264 180 chars (2 punchy lines above fold) + Poster Header \u2264 9 words",
+            "per_unit_density": "\u2264 12 words per diagram node \u2022 \u2265 11pt crisp vector labels",
+            "total_deliverable_size": "1 @2x PNG/SVG poster + 160\u2013220 word companion narrative (950\u20131,400 chars)",
+            "estimated_consumption_time": "30 sec scan"
+          },
+          "rank": 2,
+          "is_primary_recommended": false
+        },
+        {
+          "template_id": "T65",
+          "name": "PromptCanvas #64: 5x4 Feature Evaluation Matrix",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_3_QUANTITATIVE",
+          "angle_label": "Funnel, Roofline & Benchmark Matrix",
+          "fit_score": 99.2,
+          "best_for_short": "Score 4 agent stacks across 5 prod criteria",
+          "when_to_use": "Evaluate 4 agent architectures (Google ADK + Vertex, LangGraph + Postgres, OpenHands + Docker, Raw API) across 5 weighted production criteria.",
+          "svg_url": "/assets/template-gallery/T65.svg",
+          "png_url": "/assets/template-gallery/T65.png",
+          "gif_url": "/assets/template-gallery/T65.gif",
+          "pptx_url": "/assets/template-gallery/T65.pptx",
+          "drawio_url": "/assets/template-gallery/T65.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Carousel",
+          "secondary_modes": [
+            "Carousel",
+            "Image",
+            "Slidedeck",
+            "Video"
+          ],
+          "mode_rationale": "T65 carries high quantitative telemetry density: Carousel mode gives practitioners both the visual roofline/funnel and reproducible configuration thresholds.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
+            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
+            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
+            "estimated_consumption_time": "45\u201360 sec swipe"
+          },
+          "rank": 3,
+          "is_primary_recommended": false
+        },
+        {
+          "template_id": "T54",
+          "name": "PromptCanvas #53: Dual-Agent Process Workflow",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_4_CHECKLIST",
+          "angle_label": "Deployment Checklist & Cheat Sheet",
+          "fit_score": 99.2,
+          "best_for_short": "Primary Coding Agent + Reviewer Agent loop",
+          "when_to_use": "Show a 3-band workflow pairing a Primary Coding Agent with an independent Reviewer Agent across Install, Tool Mounting (YES/NO gate), and Recheck.",
+          "svg_url": "/assets/template-gallery/T54.svg",
+          "png_url": "/assets/template-gallery/T54.png",
+          "gif_url": "/assets/template-gallery/T54.gif",
+          "pptx_url": "/assets/template-gallery/T54.pptx",
+          "drawio_url": "/assets/template-gallery/T54.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Carousel",
+          "secondary_modes": [
+            "Image",
+            "Doc",
+            "Short_Video",
+            "Text"
+          ],
+          "mode_rationale": "T54 structures sequential implementation gates: 1 gate per slide in Carousel mode drives high bookmark/save rates across LinkedIn, Instagram, and TikTok Photo Mode.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
+            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
+            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
+            "estimated_consumption_time": "45\u201360 sec swipe"
+          },
+          "rank": 4,
+          "is_primary_recommended": false
+        },
+        {
+          "template_id": "T63",
+          "name": "PromptCanvas #62: 2x2 Impact vs. Complexity Matrix",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_5_EXECUTIVE",
+          "angle_label": "Executive 2\u00d72 Matrix, Pyramid & Roadmap",
+          "fit_score": 99.2,
+          "best_for_short": "20 use cases across Quick Wins, Bets & Traps",
+          "when_to_use": "Prioritize 20 concrete agent use cases across a 2x2 matrix of Business Impact vs. Technical Complexity (Quick Wins, Strategic Bets, Low Priority, Traps).",
+          "svg_url": "/assets/template-gallery/T63.svg",
+          "png_url": "/assets/template-gallery/T63.png",
+          "gif_url": "/assets/template-gallery/T63.gif",
+          "pptx_url": "/assets/template-gallery/T63.pptx",
+          "drawio_url": "/assets/template-gallery/T63.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1yMKjqvsGOeq_DFDDKUKm504Dm77m6fZ5Oxf7_r-ytlc/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Slidedeck",
+          "secondary_modes": [
+            "Image",
+            "Carousel",
+            "Slide",
+            "Doc"
+          ],
+          "mode_rationale": "T63 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
+            "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
+            "total_deliverable_size": "12-Slide 3-Act Deck (~650 slide words) or 24-Slide Cloudstyle 2.0 Master (~1,400 words)",
+            "estimated_consumption_time": "15\u201330 min briefing"
+          },
+          "rank": 5,
+          "is_primary_recommended": false
+        }
+      ]
+    },
+    {
+      "id": "TOP5-20261109-05",
+      "rank": 5,
+      "edition_date": "2026-11-09",
+      "fingerprint": "8fd5cb46856a9fab",
+      "unique_30d_verified": true,
+      "cluster_id": "CLUSTER_CODING_EVALS",
+      "cluster_label": "Autonomous Coding Harnesses & Sandbox Evals",
+      "title": "walkinglabs/learn-harness-engineering: 8-Phase Agentic Harness Engineering Curriculum",
+      "summary": "Open-source 14-lecture, 8-project curriculum (21K+ stars, 15 languages, MIT) evolving a single real codebase across AGENTS.md rules, scoped memory, multi-session ledgers, Maker-Checker loops, and DAG rollback.",
+      "primary_url": "https://github.com/walkinglabs/learn-harness-engineering",
+      "source_channel": "GitHub Breakout \u2022 Open-Source Harness",
+      "published_at": "2026-10-29",
+      "metrics_hint": "21K+ GitHub stars \u2022 14 lectures & 8 real-app projects \u2022 O(1) graph rollback",
+      "scores": {
+        "novelty": 88.0,
+        "quantitative_density": 99.0,
+        "practitioner_utility": 80.0,
+        "visualizability": 85.0,
+        "composite_score": 87.8,
+        "demand_score": 92.9,
+        "corroborating_sources": [
+          "GitHub Breakout",
+          "Open-Source Harness",
+          "GitHub Velocity"
+        ]
+      },
+      "default_template_id": "T61",
+      "default_recommended_mode": "Slidedeck",
+      "omnichannel_prescription": {
+        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "recommended_format_id": "FMT-01-GIF89A-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
+        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
+        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
+        "secondary_format": "90\u2013150s Widescreen 16:9 Deep-Dive Execution Trace (`MP4` + Interactive Replay Link)",
+        "why_this_format_wins": "Contains a stateful multi-hop message flow or routing loop: a 4:5 Animated GIF89a (8.4s loop @ 20fps, 1080\u00d71350) shows packets moving across trust boundaries inline on LinkedIn without requiring a play click (69.9% avg comment ratio).",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
+          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
+          "X Community: AI Engineers & Agent Builders (85K+)",
+          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
+      },
+      "matching_templates": [
+        {
+          "template_id": "T61",
+          "name": "PromptCanvas #60: 4-Plane Runtime Topology",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_1_ARCHITECTURE",
+          "angle_label": "Architecture & Runtime Topology",
+          "fit_score": 99.2,
+          "best_for_short": "Vertex AI + Cloud Run + GKE gVisor + AlloyDB",
+          "when_to_use": "Show the 4-node enterprise runtime topology separating reasoning (Vertex AI), orchestration (Cloud Run), sandbox (GKE gVisor), and state (AlloyDB).",
+          "svg_url": "/assets/template-gallery/T61.svg",
+          "png_url": "/assets/template-gallery/T61.png",
+          "gif_url": "/assets/template-gallery/T61.gif",
+          "pptx_url": "/assets/template-gallery/T61.pptx",
+          "drawio_url": "/assets/template-gallery/T61.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1MFWDPbPPKA8iNtmy_k6xAvllHCXqV6yRnyMi7445Xwg/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Slidedeck",
+          "secondary_modes": [
+            "Image",
+            "Carousel",
+            "Slide",
+            "Doc"
+          ],
+          "mode_rationale": "T61 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
+            "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
+            "total_deliverable_size": "12-Slide 3-Act Deck (~650 slide words) or 24-Slide Cloudstyle 2.0 Master (~1,400 words)",
+            "estimated_consumption_time": "15\u201330 min briefing"
+          },
+          "rank": 1,
+          "is_primary_recommended": true
+        },
+        {
+          "template_id": "T56",
+          "name": "PromptCanvas #55: Shadow AI Bubble Conceptual",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_2_CONTRAST",
+          "angle_label": "Before/After & OFF-vs-ON Contrast",
+          "fit_score": 99.2,
+          "best_for_short": "4 perceived tools vs. 24 shadow AI pipelines",
+          "when_to_use": "Contrast what leadership thinks is running (4 approved tools) against 24 shadow AI tools across engineering, meetings, sales, and legal.",
+          "svg_url": "/assets/template-gallery/T56.svg",
+          "png_url": "/assets/template-gallery/T56.png",
+          "gif_url": "/assets/template-gallery/T56.gif",
+          "pptx_url": "/assets/template-gallery/T56.pptx",
+          "drawio_url": "/assets/template-gallery/T56.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1ZiYMQKc8xixqqcdmZ9x2KDkGU33YsMox9G9oypfdX7c/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Image",
+          "secondary_modes": [
+            "Carousel",
+            "Short_Video",
+            "Text",
+            "Slide"
+          ],
+          "mode_rationale": "T56 is an instant A-vs-B visual contrast poster: a single @2x 4:5 Infographic stops feed scroll in <2 seconds on LinkedIn, Telegram, Instagram, and X.",
+          "mode_length_budget": {
+            "hook_above_fold": "Caption Hook \u2264 180 chars (2 punchy lines above fold) + Poster Header \u2264 9 words",
+            "per_unit_density": "\u2264 12 words per diagram node \u2022 \u2265 11pt crisp vector labels",
+            "total_deliverable_size": "1 @2x PNG/SVG poster + 160\u2013220 word companion narrative (950\u20131,400 chars)",
+            "estimated_consumption_time": "30 sec scan"
+          },
+          "rank": 2,
+          "is_primary_recommended": false
+        },
+        {
+          "template_id": "T65",
+          "name": "PromptCanvas #64: 5x4 Feature Evaluation Matrix",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_3_QUANTITATIVE",
+          "angle_label": "Funnel, Roofline & Benchmark Matrix",
+          "fit_score": 99.2,
+          "best_for_short": "Score 4 agent stacks across 5 prod criteria",
+          "when_to_use": "Evaluate 4 agent architectures (Google ADK + Vertex, LangGraph + Postgres, OpenHands + Docker, Raw API) across 5 weighted production criteria.",
+          "svg_url": "/assets/template-gallery/T65.svg",
+          "png_url": "/assets/template-gallery/T65.png",
+          "gif_url": "/assets/template-gallery/T65.gif",
+          "pptx_url": "/assets/template-gallery/T65.pptx",
+          "drawio_url": "/assets/template-gallery/T65.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/19jNPE5Z0UfMdkQQPXVRTd4nvS7mT0M-aSR5KP02TBLk/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Carousel",
+          "secondary_modes": [
+            "Carousel",
+            "Image",
+            "Slidedeck",
+            "Video"
+          ],
+          "mode_rationale": "T65 carries high quantitative telemetry density: Carousel mode gives practitioners both the visual roofline/funnel and reproducible configuration thresholds.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
+            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
+            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
+            "estimated_consumption_time": "45\u201360 sec swipe"
+          },
+          "rank": 3,
+          "is_primary_recommended": false
+        },
+        {
+          "template_id": "T54",
+          "name": "PromptCanvas #53: Dual-Agent Process Workflow",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_4_CHECKLIST",
+          "angle_label": "Deployment Checklist & Cheat Sheet",
+          "fit_score": 99.2,
+          "best_for_short": "Primary Coding Agent + Reviewer Agent loop",
+          "when_to_use": "Show a 3-band workflow pairing a Primary Coding Agent with an independent Reviewer Agent across Install, Tool Mounting (YES/NO gate), and Recheck.",
+          "svg_url": "/assets/template-gallery/T54.svg",
+          "png_url": "/assets/template-gallery/T54.png",
+          "gif_url": "/assets/template-gallery/T54.gif",
+          "pptx_url": "/assets/template-gallery/T54.pptx",
+          "drawio_url": "/assets/template-gallery/T54.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1dVVudOs0yK-nKO98PLN9A5V7PPbnTwNQBp2I2AqoQjc/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Carousel",
+          "secondary_modes": [
+            "Image",
+            "Doc",
+            "Short_Video",
+            "Text"
+          ],
+          "mode_rationale": "T54 structures sequential implementation gates: 1 gate per slide in Carousel mode drives high bookmark/save rates across LinkedIn, Instagram, and TikTok Photo Mode.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Headline \u2264 10 words + Caption Hook \u2264 125\u2013210 chars before '\u2026more'",
+            "per_unit_density": "25\u201340 words per slide (1 bold header + \u2264 3 concise bullets)",
+            "total_deliverable_size": "8\u201310 slides (240\u2013360 slide words) + 150\u2013240 word post caption",
+            "estimated_consumption_time": "45\u201360 sec swipe"
+          },
+          "rank": 4,
+          "is_primary_recommended": false
+        },
+        {
+          "template_id": "T81",
+          "name": "8-Phase Harness Engineering Curriculum Spine",
+          "quality_tier": "Best",
+          "angle_id": "ANGLE_5_EXECUTIVE",
+          "angle_label": "Executive 2\u00d72 Matrix, Pyramid & Roadmap",
+          "fit_score": 99.2,
+          "best_for_short": "4-Tier Canonical Spine",
+          "when_to_use": "4-tier vertical architectural spine with quantitative footer.",
+          "svg_url": "/assets/template-gallery/T81.svg",
+          "png_url": "/assets/template-gallery/T81.png",
+          "gif_url": "/assets/template-gallery/T81.gif",
+          "pptx_url": "/assets/template-gallery/T81.pptx",
+          "drawio_url": "/assets/template-gallery/T81.drawio",
+          "google_slides_url": "https://docs.google.com/presentation/d/1JUspmb5kwz56tmyCT6_6f-J_yscjq3ogevV5NHAO4yE/edit?authuser=nitinagga%40google.com",
+          "recommended_mode": "Slidedeck",
+          "secondary_modes": [
+            "Image",
+            "Carousel",
+            "Slide",
+            "Doc"
+          ],
+          "mode_rationale": "T81 frames executive portfolio/roadmap trade-offs: Slidedeck mode equips Principal Architects for leadership reviews and C-suite stakeholder alignment.",
+          "mode_length_budget": {
+            "hook_above_fold": "Slide 1 Title + Slide 2 Executive BLUF Scorecard (3 quantified KPIs)",
+            "per_unit_density": "45\u201365 on-slide words + 90\u2013130 spoken presenter-note words per slide",
+            "total_deliverable_size": "12-Slide 3-Act Deck (~650 slide words) or 24-Slide Cloudstyle 2.0 Master (~1,400 words)",
+            "estimated_consumption_time": "15\u201330 min briefing"
+          },
+          "rank": 5,
+          "is_primary_recommended": false
         }
       ]
     }

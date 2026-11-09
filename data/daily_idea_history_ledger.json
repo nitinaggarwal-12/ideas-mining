@@ -1,7 +1,7 @@
 {
   "window_days": 30,
-  "updated_at": "2026-11-04T06:49:50.375301+00:00",
-  "active_ledger_count": 5,
+  "updated_at": "2026-11-09T06:56:39.776676+00:00",
+  "active_ledger_count": 10,
   "entries": [
     {
       "edition_date": "2026-11-04",
@@ -42,6 +42,46 @@
       "title": "Shadow AI Discovery & 3-Tier Semantic Model Cascade with Circuit-Breaker Loop Guards",
       "primary_url": "https://cloud.google.com/security-command-center/docs/model-armor-overview",
       "cluster_id": "CLUSTER_GOVERNANCE_FINOPS"
+    },
+    {
+      "edition_date": "2026-11-09",
+      "fingerprint": "77b19a479fbc2890",
+      "idea_id": "TOP5-20261109-01",
+      "title": "Orthogonal Builder-vs-Judge Coding Agents Inside Isolated gVisor Replay Sandboxes",
+      "primary_url": "https://docs.all-hands.dev/usage/architecture/runtime",
+      "cluster_id": "CLUSTER_CODING_EVALS"
+    },
+    {
+      "edition_date": "2026-11-09",
+      "fingerprint": "c8371f5d5b4a10db",
+      "idea_id": "TOP5-20261109-02",
+      "title": "Zero-Bloat MCP Gateway: Dynamic Tool Search + OAuth 2.1 OBO",
+      "primary_url": "https://github.com/nitinaggarwal-12/ideas-mining",
+      "cluster_id": "CLUSTER_MCP_IDENTITY"
+    },
+    {
+      "edition_date": "2026-11-09",
+      "fingerprint": "f215ad7417b45f6e",
+      "idea_id": "TOP5-20261109-03",
+      "title": "Grammar-Aligned Speculative Decoding with Zero-Retry Schema Guarantees",
+      "primary_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/control-generated-output",
+      "cluster_id": "CLUSTER_INFERENCE_KV"
+    },
+    {
+      "edition_date": "2026-11-09",
+      "fingerprint": "8f1b1fbac1b23a6d",
+      "idea_id": "TOP5-20261109-04",
+      "title": "Inter-Agent A2A v0.3 AgentCards, Async Tasks & A2UI",
+      "primary_url": "https://github.com/nitinaggarwal-12/ideas-mining",
+      "cluster_id": "CLUSTER_MULTIAGENT_MEMORY"
+    },
+    {
+      "edition_date": "2026-11-09",
+      "fingerprint": "8fd5cb46856a9fab",
+      "idea_id": "TOP5-20261109-05",
+      "title": "walkinglabs/learn-harness-engineering: 8-Phase Agentic Harness Engineering Curriculum",
+      "primary_url": "https://github.com/walkinglabs/learn-harness-engineering",
+      "cluster_id": "CLUSTER_CODING_EVALS"
     }
   ]
 }

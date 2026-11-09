@@ -1,14 +1,14 @@
 {
   "status": "READY",
-  "generated_at": "2026-11-09T06:52:39.603284+00:00",
+  "generated_at": "2026-11-09T06:58:09.294511+00:00",
   "topic_query": "",
   "zero_manual_links_required": true,
-  "total_discovered_signals": 11,
+  "total_discovered_signals": 67,
   "live_channel_counts": {
-    "creator_rss_syndicate": 0,
-    "arxiv_and_hf_papers": 0,
-    "github_and_hn_velocity": 0,
-    "devto_and_reddit_pulse": 0,
+    "creator_rss_syndicate": 41,
+    "arxiv_and_hf_papers": 8,
+    "github_and_hn_velocity": 6,
+    "devto_and_reddit_pulse": 4,
     "curated_verified_floor": 11
   },
   "honest_scraping_reality_audit": {
@@ -517,6 +517,51 @@
       }
     },
     {
+      "signal_id": "AUTO-7457F514",
+      "fingerprint": "7457f514eb9c05df",
+      "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+      "source_channel": "Google Cloud ADK (Agent Development Kit) \u2022 GitHub Releases",
+      "title": "Google Cloud ADK (Agent Development Kit) Release v2.14.0: 2.14.0 (2026-11-04) Highlights This release graduates execution environments, A2A, evaluation, and core.",
+      "summary": "2.14.0 (2026-11-04) Highlights This release graduates execution environments, A2A, evaluation, and core runtime modules from experimental, adds multi-run evaluation and semantic tool argument matching, adds Microsoft Teams and OpenAI.",
+      "primary_url": "https://github.com/google/adk-python/releases/tag/v2.14.0",
+      "published_at": "2026-11-07",
+      "metrics_hint": "Direct Atom Feed (SDK Release Notes + Callback/Tooling API Spec)",
+      "cluster_id": "CLUSTER_MCP_IDENTITY",
+      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
+      "demand_score": 92.0,
+      "scores": {
+        "novelty": 88.0,
+        "quantitative_density": 99.0,
+        "practitioner_utility": 80.0,
+        "visualizability": 85.0,
+        "composite_score": 87.8,
+        "demand_score": 92.0
+      },
+      "prescription": {
+        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "recommended_format_id": "FMT-01-GIF89A-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
+        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
+        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
+        "secondary_format": "43\u201360s Vertical 9:16 Narrated Architecture Short (`MP4` H.264 + Captions)",
+        "why_this_format_wins": "High practitioner utility signal: lead with a 4:5 Animated GIF89a (1080\u00d71350, 7.5s loop) on LinkedIn and a 45s 9:16 Vertical Short for YouTube Shorts / Reels.",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
+          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
+          "X Community: AI Engineers & Agent Builders (85K+)",
+          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
+      }
+    },
+    {
       "signal_id": "AUTO-81F2E9F5",
       "fingerprint": "81f2e9f5b5a1bd77",
       "source_pipeline": "PIPE-02 \u2022 Verified High-Demand Signal Floor",
@@ -605,6 +650,141 @@
         ],
         "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
         "studio_action_route": "View 2: 128 Certified Templates (`T53`\u2013`T221`) -> 1-Click Retina PNG / SVG / Google Slides"
+      }
+    },
+    {
+      "signal_id": "AUTO-6EB5FE2D",
+      "fingerprint": "6eb5fe2d6d4462bb",
+      "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+      "source_channel": "Anthropic \u2022 Claude Code & Cookbook GitHub Releases",
+      "title": "Anthropic: Add a dreaming cookbook (#959)",
+      "summary": "feat(managed_agents): add a dreaming cookbook (#959) Squash merge of 1 commit.",
+      "primary_url": "https://github.com/anthropics/claude-cookbooks/commit/d4bd2fb364a7daa77fa90390800ba3aafffd2d1f",
+      "published_at": "2026-11-04",
+      "metrics_hint": "Direct Atom Feed (Claude Tool-Use, Sub-Agent Harness & MCP Cookbook Pattern)",
+      "cluster_id": "CLUSTER_MCP_IDENTITY",
+      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
+      "demand_score": 91.3,
+      "scores": {
+        "novelty": 88.0,
+        "quantitative_density": 87.5,
+        "practitioner_utility": 85.0,
+        "visualizability": 88.0,
+        "composite_score": 87.0,
+        "demand_score": 91.3
+      },
+      "prescription": {
+        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "recommended_format_id": "FMT-01-GIF89A-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
+        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
+        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
+        "secondary_format": "43\u201360s Vertical 9:16 Narrated Architecture Short (`MP4` H.264 + Captions)",
+        "why_this_format_wins": "High practitioner utility signal: lead with a 4:5 Animated GIF89a (1080\u00d71350, 7.5s loop) on LinkedIn and a 45s 9:16 Vertical Short for YouTube Shorts / Reels.",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "LinkedIn: Google Cloud Architects & Vertex AI Practitioners (220K+)",
+          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
+          "Reddit: r/AI_Agents (190K+) & r/LangChain (115K+)",
+          "X Community: AI Engineers & Agent Builders (85K+)"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
+      }
+    },
+    {
+      "signal_id": "AUTO-0BE3A8E8",
+      "fingerprint": "0be3a8e847d86b22",
+      "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+      "source_channel": "Paul Iusztin \u2022 Decoding AI Magazine",
+      "title": "Harness Engineering Roadmap: Claude Code From First Principles",
+      "summary": "The harness took LangChain's agent from outside the top 30 to the top 5.",
+      "primary_url": "https://www.decodingai.com/p/claude-code-from-scratch-harness-engineering-roadmap",
+      "published_at": "2026-11-09",
+      "metrics_hint": "Direct RSS Syndicate (4:5 Animated GIF89a Architecture + Substack Deep-Dive)",
+      "cluster_id": "CLUSTER_CODING_EVALS",
+      "cluster_label": "Autonomous Coding Harnesses & Sandbox Evals",
+      "demand_score": 90.8,
+      "scores": {
+        "novelty": 88.0,
+        "quantitative_density": 94.0,
+        "practitioner_utility": 80.0,
+        "visualizability": 85.0,
+        "composite_score": 86.5,
+        "demand_score": 90.8
+      },
+      "prescription": {
+        "recommended_primary_format": "8\u201310 Slide Native 4:5 PDF Document Carousel (`1080\u00d71350`)",
+        "recommended_format_id": "FMT-02-PDF-CAROUSEL-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px per page (Native PDF upload)",
+        "optimal_duration_and_fps": "8 \u2013 10 slides \u2022 ~35\u201350s reader swipe dwell time (<= 35 words per slide)",
+        "text_copy_budget": "140 \u2013 220 words accompanying post \u2022 Slide 1 Hook -> Slides 2\u20137 1 Layer/Slide -> Slide 8 Benchmark -> Slide 9 Checklist",
+        "secondary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "why_this_format_wins": "Structured around sequential layers/phases/gates: an 8\u201310 slide 4:5 PDF Carousel (1080\u00d71350, <=35 words/slide) maximizes swipe dwell time and bookmark saves.",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
+          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
+          "X Community: AI Engineers & Agent Builders (85K+)",
+          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 1: Morning Brief & Top 5 -> Select Mode `Carousel` -> Export 8-Slide Spec + `.pptx` / Google Slides"
+      }
+    },
+    {
+      "signal_id": "AUTO-BC17F351",
+      "fingerprint": "bc17f351d9d9f545",
+      "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+      "source_channel": "OpenAI Agents SDK \u2022 GitHub Releases Atom",
+      "title": "Agents SDK v0.24.0-alpha.6",
+      "summary": "Install the preview Use standard CPython 3.10\u20133.14 in a virtual environment. These wheels include the native runtime; no Rust toolchain or source build is needed. This preview is distributed through GitHub Releases, not PyPI.",
+      "primary_url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.6",
+      "published_at": "2026-11-03",
+      "metrics_hint": "Direct Atom Feed (Agent Handoff & Guardrail SDK Release)",
+      "cluster_id": "CLUSTER_MCP_IDENTITY",
+      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
+      "demand_score": 90.2,
+      "scores": {
+        "novelty": 88.0,
+        "quantitative_density": 94.0,
+        "practitioner_utility": 80.0,
+        "visualizability": 81.0,
+        "composite_score": 85.7,
+        "demand_score": 90.2
+      },
+      "prescription": {
+        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "recommended_format_id": "FMT-01-GIF89A-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
+        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
+        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
+        "secondary_format": "43\u201360s Vertical 9:16 Narrated Architecture Short (`MP4` H.264 + Captions)",
+        "why_this_format_wins": "High practitioner utility signal: lead with a 4:5 Animated GIF89a (1080\u00d71350, 7.5s loop) on LinkedIn and a 45s 9:16 Vertical Short for YouTube Shorts / Reels.",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
+          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
+          "X Community: AI Engineers & Agent Builders (85K+)",
+          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
       }
     },
     {
@@ -743,6 +923,97 @@
       }
     },
     {
+      "signal_id": "AUTO-3165D836",
+      "fingerprint": "3165d836874e8133",
+      "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+      "source_channel": "Google Cloud ADK (Agent Development Kit) \u2022 GitHub Releases",
+      "title": "Google Cloud ADK (Agent Development Kit) Release v2.13.0: 2.13.0 (2026-10-22) Highlights This release stabilizes core features while introducing TypeSafe workflow.",
+      "summary": "2.13.0 (2026-10-22) Highlights This release stabilizes core features while introducing TypeSafe workflow classification, live audio interactions, MongoDB integrations, and execution performance improvements.",
+      "primary_url": "https://github.com/google/adk-python/releases/tag/v2.13.0",
+      "published_at": "2026-10-23",
+      "metrics_hint": "Direct Atom Feed (SDK Release Notes + Callback/Tooling API Spec)",
+      "cluster_id": "CLUSTER_MCP_IDENTITY",
+      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
+      "demand_score": 89.8,
+      "scores": {
+        "novelty": 88.0,
+        "quantitative_density": 99.0,
+        "practitioner_utility": 75.0,
+        "visualizability": 82.0,
+        "composite_score": 85.7,
+        "demand_score": 89.8
+      },
+      "prescription": {
+        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "recommended_format_id": "FMT-01-GIF89A-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
+        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
+        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
+        "secondary_format": "90\u2013150s Widescreen 16:9 Deep-Dive Execution Trace (`MP4` + Interactive Replay Link)",
+        "why_this_format_wins": "Contains a stateful multi-hop message flow or routing loop: a 4:5 Animated GIF89a (8.4s loop @ 20fps, 1080\u00d71350) shows packets moving across trust boundaries inline on LinkedIn without requiring a play click (69.9% avg comment ratio).",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
+          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
+          "X Community: AI Engineers & Agent Builders (85K+)",
+          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
+      }
+    },
+    {
+      "signal_id": "AUTO-B63301C4",
+      "fingerprint": "b63301c4e8281379",
+      "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+      "source_channel": "Model Context Protocol (MCP) \u2022 Official Spec & SDK Atom",
+      "title": "Model Context Protocol (MCP) Release v2.3.0: pip install -U mcp . Docs: https://py.sdk.modelcontextprotocol.io/ Mostly fixes, plus three new options.",
+      "summary": "pip install -U mcp . Docs: https://py.sdk.modelcontextprotocol.io/ Mostly fixes, plus three new options. A few things behave differently, so skim these first: Behaviour changes httpx2>=2.10.0 is now required ( #3600 ) It was >=2.5.0 .",
+      "primary_url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.3.0",
+      "published_at": "2026-10-02",
+      "metrics_hint": "Direct Atom Feed (OAuth 2.1 OBO, Streamable HTTP & Tool Discovery Spec Update)",
+      "cluster_id": "CLUSTER_MCP_IDENTITY",
+      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
+      "demand_score": 89.8,
+      "scores": {
+        "novelty": 88.0,
+        "quantitative_density": 99.0,
+        "practitioner_utility": 75.0,
+        "visualizability": 82.0,
+        "composite_score": 85.7,
+        "demand_score": 89.8
+      },
+      "prescription": {
+        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "recommended_format_id": "FMT-01-GIF89A-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
+        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
+        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
+        "secondary_format": "90\u2013150s Widescreen 16:9 Deep-Dive Execution Trace (`MP4` + Interactive Replay Link)",
+        "why_this_format_wins": "Contains a stateful multi-hop message flow or routing loop: a 4:5 Animated GIF89a (8.4s loop @ 20fps, 1080\u00d71350) shows packets moving across trust boundaries inline on LinkedIn without requiring a play click (69.9% avg comment ratio).",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "LinkedIn: Enterprise Cybersecurity, IAM & Zero Trust (190K+)",
+          "LinkedIn: LLMOps, MLOps & Production AI Architects (140K+)",
+          "Reddit: r/AI_Agents (190K+) & r/netsec",
+          "X Community: AI Engineers & Agent Builders (85K+)",
+          "Hacker News + DEV.to (#security, #ai, #architecture)"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
+      }
+    },
+    {
       "signal_id": "AUTO-FBAB865C",
       "fingerprint": "fbab865c4514a6b0",
       "source_pipeline": "PIPE-02 \u2022 Verified High-Demand Signal Floor",
@@ -833,25 +1104,115 @@
       }
     },
     {
-      "signal_id": "AUTO-6F70C087",
-      "fingerprint": "6f70c0876f66e295",
-      "source_pipeline": "PIPE-02 \u2022 Verified Engineering Signal Floor",
-      "source_channel": "Systems Engineering \u2022 LLM Serving",
-      "title": "Disaggregated Prefill-Decode Serving & FP8 KV-Cache Goodput Optimization",
-      "summary": "Separates compute-bound Prefill pools (TTFT) from HBM-bandwidth-bound Decode pools (ITL/TPOT) with PagedAttention, GQA, chunked prefill, and speculative decoding to maximize p99 SLO-compliant Goodput.",
-      "primary_url": "https://docs.vllm.ai/en/latest/",
-      "published_at": "2026-10-29",
-      "metrics_hint": "-50% HBM KV traffic via FP8 \u2022 <4% KV block waste \u2022 p99 TTFT + TPOT Goodput SLO",
-      "cluster_id": "CLUSTER_INFERENCE_KV",
-      "cluster_label": "LLM Serving, KV-Cache & Inference Goodput",
-      "demand_score": 87.1,
+      "signal_id": "AUTO-367D9962",
+      "fingerprint": "367d996219f3a403",
+      "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+      "source_channel": "Latent Space / smol.ai AINews \u2022 30-Discord + 500-X Daily Digest",
+      "title": "[AINews] Grok 3 & 3-mini now API Available",
+      "summary": "X is all you need? AI News for 4/17/2025-4/18/2025. We checked 9 subreddits, 449 Twitters and 29 Discords ( 211 channels, and 8290 messages) for you. Estimated reading time saved (at 200wpm): 650 minutes .",
+      "primary_url": "https://buttondown.com/ainews/archive/ainews-grok-3-3-mini-now-api-available/",
+      "published_at": "2026-11-09",
+      "metrics_hint": "Direct RSS Syndicate (Daily Cross-Community Engineering Synthesis)",
+      "cluster_id": "CLUSTER_MCP_IDENTITY",
+      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
+      "demand_score": 88.5,
+      "scores": {
+        "novelty": 94.0,
+        "quantitative_density": 99.0,
+        "practitioner_utility": 70.0,
+        "visualizability": 75.0,
+        "composite_score": 84.2,
+        "demand_score": 88.5
+      },
+      "prescription": {
+        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "recommended_format_id": "FMT-01-GIF89A-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
+        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
+        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
+        "secondary_format": "43\u201360s Vertical 9:16 Narrated Architecture Short (`MP4` H.264 + Captions)",
+        "why_this_format_wins": "High practitioner utility signal: lead with a 4:5 Animated GIF89a (1080\u00d71350, 7.5s loop) on LinkedIn and a 45s 9:16 Vertical Short for YouTube Shorts / Reels.",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "LinkedIn: Google Cloud Architects & Vertex AI Practitioners (220K+)",
+          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
+          "Reddit: r/AI_Agents (190K+) & r/LangChain (115K+)",
+          "X Community: AI Engineers & Agent Builders (85K+)"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
+      }
+    },
+    {
+      "signal_id": "AUTO-2A172777",
+      "fingerprint": "2a1727775b2acee5",
+      "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+      "source_channel": "OpenAI Agents SDK \u2022 GitHub Releases Atom",
+      "title": "Agents SDK v0.24.0-alpha.7",
+      "summary": "Agents SDK v0.24.0-alpha.7 Highlights Use Classic workflows alongside native execution. Import the retained v0 runtime through agents.classic .",
+      "primary_url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7",
+      "published_at": "2026-11-08",
+      "metrics_hint": "Direct Atom Feed (Agent Handoff & Guardrail SDK Release)",
+      "cluster_id": "CLUSTER_MCP_IDENTITY",
+      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
+      "demand_score": 88.0,
       "scores": {
         "novelty": 88.0,
-        "quantitative_density": 81.0,
-        "practitioner_utility": 85.0,
-        "visualizability": 84.0,
-        "composite_score": 84.5,
-        "demand_score": 87.1
+        "quantitative_density": 94.0,
+        "practitioner_utility": 75.0,
+        "visualizability": 78.0,
+        "composite_score": 83.6,
+        "demand_score": 88.0
+      },
+      "prescription": {
+        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
+        "recommended_format_id": "FMT-01-GIF89A-4X5",
+        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
+        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
+        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
+        "secondary_format": "90\u2013150s Widescreen 16:9 Deep-Dive Execution Trace (`MP4` + Interactive Replay Link)",
+        "why_this_format_wins": "Contains a stateful multi-hop message flow or routing loop: a 4:5 Animated GIF89a (8.4s loop @ 20fps, 1080\u00d71350) shows packets moving across trust boundaries inline on LinkedIn without requiring a play click (69.9% avg comment ratio).",
+        "target_channels": [
+          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
+          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
+          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
+          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
+        ],
+        "target_groups_and_communities": [
+          "LinkedIn: Google Cloud Architects & Vertex AI Practitioners (220K+)",
+          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
+          "Reddit: r/AI_Agents (190K+) & r/LangChain (115K+)",
+          "X Community: AI Engineers & Agent Builders (85K+)"
+        ],
+        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
+        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
+      }
+    },
+    {
+      "signal_id": "AUTO-0933A588",
+      "fingerprint": "0933a5880f6ff002",
+      "source_pipeline": "PIPE-02 \u2022 Multi-Source Discovery",
+      "source_channel": "HuggingFace Daily Papers",
+      "title": "\"PRISM\" Is Not All You Need: Cross-Topic Name Collisions and Scientific Paper Retrieval",
+      "summary": "Scientific names increasingly connect papers from different research topics, leaving readers to recover a paper's identity from context. We study this convergence in 564,861 AI-related arXiv records.",
+      "primary_url": "https://arxiv.org/abs/2611.01362",
+      "published_at": "2026-10-31",
+      "metrics_hint": "1 community upvotes \u2022 arXiv:2611.01362",
+      "cluster_id": "CLUSTER_CODING_EVALS",
+      "cluster_label": "Autonomous Coding Harnesses & Sandbox Evals",
+      "demand_score": 88.0,
+      "scores": {
+        "novelty": 94.0,
+        "quantitative_density": 94.0,
+        "practitioner_utility": 75.0,
+        "visualizability": 82.0,
+        "composite_score": 85.9,
+        "demand_score": 88.0
       },
       "prescription": {
         "recommended_primary_format": "Single @2x 4:5 High-Contrast Architecture / Roofline Cheat-Sheet Poster (`PNG` / `SVG`)",
@@ -868,35 +1229,35 @@
           "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
         ],
         "target_groups_and_communities": [
-          "Reddit: r/LocalLLaMA (580K+) & r/MachineLearning (3.0M+)",
-          "LinkedIn: LLMOps, MLOps & Production AI Architects (140K+)",
-          "X Community: Systems & GPU Programming (65K+)",
-          "Hacker News Frontpage (`Show HN` / Systems Deep-Dive)"
+          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
+          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
+          "X Community: AI Engineers & Agent Builders (85K+)",
+          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
         ],
         "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
         "studio_action_route": "View 2: 128 Certified Templates (`T53`\u2013`T221`) -> 1-Click Retina PNG / SVG / Google Slides"
       }
     },
     {
-      "signal_id": "AUTO-39B2ECF4",
-      "fingerprint": "39b2ecf4e0be00fa",
-      "source_pipeline": "PIPE-02 \u2022 Verified High-Demand Signal Floor",
-      "source_channel": "LLM Inference Systems \u2022 GPU Serving",
-      "title": "Disaggregated Prefill-Decode Pools with FP8 KV-Cache & Speculative Goodput Routing",
-      "summary": "Splits compute-bound prefill workers (TTFT) from memory-bandwidth-bound decode workers (TPOT) over RDMA/NVLink with prefix-aware routing and quantized FP8 KV blocks.",
-      "primary_url": "https://docs.vllm.ai/en/latest/",
-      "published_at": "2026-11-04",
-      "metrics_hint": "-50% KV HBM footprint \u2022 +2.6x p99 SLO-compliant Goodput \u2022 <4% block fragmentation",
-      "cluster_id": "CLUSTER_INFERENCE_KV",
-      "cluster_label": "LLM Serving, KV-Cache & Inference Goodput",
-      "demand_score": 86.5,
+      "signal_id": "AUTO-21444567",
+      "fingerprint": "21444567bbf60313",
+      "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+      "source_channel": "NVIDIA Technical Blog \u2022 TensorRT-LLM, NIM & Dynamo Inference",
+      "title": "Speed Up Image Generation with FLUX 3 Image Klein on NVIDIA Blackwell GPUs",
+      "summary": "When deploying diffusion models in design tools, image editors, and visual production workflows, developers must account for inference latency. Generating an",
+      "primary_url": "https://developer.nvidia.com/blog/speed-up-image-generation-with-flux-3-image-klein-on-nvidia-blackwell-gpus/",
+      "published_at": "2026-11-06",
+      "metrics_hint": "Direct Atom Feed (Disaggregated Prefill/Decode & KV-Cache Hardware Roofline)",
+      "cluster_id": "CLUSTER_MCP_IDENTITY",
+      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
+      "demand_score": 87.5,
       "scores": {
         "novelty": 88.0,
-        "quantitative_density": 87.5,
-        "practitioner_utility": 80.0,
-        "visualizability": 81.0,
-        "composite_score": 84.1,
-        "demand_score": 86.5
+        "quantitative_density": 74.5,
+        "practitioner_utility": 85.0,
+        "visualizability": 84.0,
+        "composite_score": 82.9,
+        "demand_score": 87.5
       },
       "prescription": {
         "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
@@ -917,52 +1278,6 @@
           "LinkedIn: LLMOps, MLOps & Production AI Architects (140K+)",
           "X Community: Systems & GPU Programming (65K+)",
           "Hacker News Frontpage (`Show HN` / Systems Deep-Dive)"
-        ],
-        "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
-        "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"
-      }
-    },
-    {
-      "signal_id": "AUTO-3D7F386A",
-      "fingerprint": "3d7f386a0e598ed5",
-      "source_pipeline": "PIPE-02 \u2022 Verified High-Demand Signal Floor",
-      "source_channel": "AI Platform FinOps & CISO Governance",
-      "title": "Shadow AI Discovery & 3-Tier Semantic Model Cascade with Circuit-Breaker Loop Guards",
-      "summary": "Brings unsanctioned departmental AI pipelines behind a unified AI Gateway enforcing Model Armor PII/prompt shields, semantic step deduplication, and Flash-to-Argon complexity routing.",
-      "primary_url": "https://cloud.google.com/security-command-center/docs/model-armor-overview",
-      "published_at": "2026-11-04",
-      "metrics_hint": "24 shadow pipelines governed \u2022 -68% blended inference spend \u2022 0 runaway retry loops",
-      "cluster_id": "CLUSTER_GOVERNANCE_FINOPS",
-      "cluster_label": "Enterprise AI Governance, FinOps & SRE Reliability",
-      "demand_score": 86.0,
-      "scores": {
-        "novelty": 88.0,
-        "quantitative_density": 94.0,
-        "practitioner_utility": 75.0,
-        "visualizability": 78.0,
-        "composite_score": 83.6,
-        "demand_score": 86.0
-      },
-      "prescription": {
-        "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
-        "recommended_format_id": "FMT-01-GIF89A-4X5",
-        "aspect_ratio_and_px": "4:5 Portrait \u2022 1080\u00d71350 px (or 800\u00d71000 px)",
-        "optimal_duration_and_fps": "6.0s \u2013 12.0s continuous loop @ 15\u201330 fps (90\u2013210 frames, <= 12 MB)",
-        "text_copy_budget": "180 \u2013 260 words \u2022 1-line bold tension hook + 4\u20136 numbered step bullets + Comment #1 source link",
-        "secondary_format": "90\u2013150s Widescreen 16:9 Deep-Dive Execution Trace (`MP4` + Interactive Replay Link)",
-        "why_this_format_wins": "Contains a stateful multi-hop message flow or routing loop: a 4:5 Animated GIF89a (8.4s loop @ 20fps, 1080\u00d71350) shows packets moving across trust boundaries inline on LinkedIn without requiring a play click (69.9% avg comment ratio).",
-        "target_channels": [
-          "LinkedIn Personal Feed (Native 4:5 Upload + Link in Comment #1)",
-          "X (Twitter) 6-Post Technical Thread with Native Media on Post #1",
-          "Substack / DEV.to Canonical Deep-Dive (`Doc` Mode)",
-          "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
-        ],
-        "target_groups_and_communities": [
-          "LinkedIn: Enterprise Cybersecurity, IAM & Zero Trust (190K+)",
-          "LinkedIn: LLMOps, MLOps & Production AI Architects (140K+)",
-          "Reddit: r/AI_Agents (190K+) & r/netsec",
-          "X Community: AI Engineers & Agent Builders (85K+)",
-          "Hacker News + DEV.to (#security, #ai, #architecture)"
         ],
         "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
         "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"

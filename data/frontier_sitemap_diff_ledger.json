@@ -1,24 +1,24 @@
 {
   "sources": {
     "SITEMAP-ANTHROPIC": {
-      "last_checked_utc": "2026-11-09T06:53:21.838893+00:00",
+      "last_checked_utc": "2026-11-09T06:58:09.290551+00:00",
       "entries": [
         {
-          "title": "Anthropic Engineering: Building Effective Agents \u2014 Composable Workflows vs Autonomous Harnesses",
-          "summary": "Production engineering breakdown showing why simple composable workflows (routing, orchestrator-workers, evaluator-optimizer) outperform unconstrained agent frameworks in enterprise reliability.",
-          "primary_url": "https://www.anthropic.com/engineering/building-effective-agents",
+          "title": "Announcements",
+          "summary": "Anthropic is an AI safety and research company that&#x27;s working to build reliable, interpretable, and steerable AI systems.",
+          "primary_url": "https://www.anthropic.com/news/announcements",
           "published_at": "2026-11-08"
         },
         {
-          "title": "Anthropic Engineering: Claude Code Best Practices & Sub-Agent Context Isolation",
-          "summary": "How to structure CLAUDE.md constitutions, scoped MCP tool permissions, pre-commit verification hooks, and sub-agent context isolation to prevent context rot.",
-          "primary_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+          "title": "Features",
+          "summary": "Anthropic is an AI safety and research company that&#x27;s working to build reliable, interpretable, and steerable AI systems.",
+          "primary_url": "https://www.anthropic.com/news/features",
           "published_at": "2026-11-08"
         }
       ]
     },
     "SITEMAP-MISTRAL": {
-      "last_checked_utc": "2026-11-09T06:53:21.838921+00:00",
+      "last_checked_utc": "2026-11-09T06:58:09.290571+00:00",
       "entries": [
         {
           "title": "Mistral AI Engineering: High-Throughput Sparse MoE & Structured Function Calling at Scale",
@@ -29,5 +29,5 @@
       ]
     }
   },
-  "updated_at": "2026-11-09T06:53:21.838926+00:00"
+  "updated_at": "2026-11-09T06:58:09.290576+00:00"
 }

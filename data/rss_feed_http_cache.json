@@ -1,0 +1,683 @@
+{
+  "feeds": {
+    "RSS-LILIAN-WENG": {
+      "etag": "\"6a55d3e4-13718\"",
+      "last_modified": "Tue, 14 Jul 2026 06:15:00 GMT",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.417797+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Lilian Weng \u2022 OpenAI / Frontier Agent Research",
+          "creator_handle": "lilianweng",
+          "title": "Harness Engineering for Self-Improvement",
+          "summary": "The concept of recursive self-improvement (RSI) dates back to I. J. Good (1965) , where he defined an &ldquo;ultraintelligent machine&rdquo; as a system that can surpass humans in all intellectual activities and design better machines to.",
+          "primary_url": "https://lilianweng.github.io/posts/2026-07-04-harness/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Sat, 04 Jul 2026 00:00:00",
+          "metrics_hint": "Direct RSS Syndicate (Canonical Taxonomy Diagram + Mathematical Formulation)",
+          "corroborating_sources": [
+            "Lilian Weng \u2022 OpenAI / Frontier Agent Research",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Lilian Weng \u2022 OpenAI / Frontier Agent Research",
+          "creator_handle": "lilianweng",
+          "title": "Scaling Laws, Carefully",
+          "summary": "Scaling laws are one of the most critical empirical findings in deep learning. The observation is simple in form: the training loss $L$ decreases predictably as we scale up model size $N$, dataset size $D$, and compute $C$, following a.",
+          "primary_url": "https://lilianweng.github.io/posts/2026-06-24-scaling-laws/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Wed, 24 Jun 2026 00:00:00",
+          "metrics_hint": "Direct RSS Syndicate (Canonical Taxonomy Diagram + Mathematical Formulation)",
+          "corroborating_sources": [
+            "Lilian Weng \u2022 OpenAI / Frontier Agent Research",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-ANURAG-SUBSTACK": {
+      "last_status": "UNREACHABLE_SKIPPED",
+      "last_checked_utc": "2026-11-09T06:58:07.425946+00:00"
+    },
+    "RSS-SIMON-WILLISON": {
+      "etag": "",
+      "last_modified": "Mon, 09 Nov 2026 04:32:33 GMT",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.443731+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+          "source_channel": "Simon Willison \u2022 LLM & MCP Engineering Weblog",
+          "creator_handle": "simonw",
+          "title": "The Web Is More Than Enough, by Paul Ford",
+          "summary": "My comment on The Web Is More Than Enough, by Paul Ford &mdash; Hacker News. OK, this comment convinced me to give that a shot.",
+          "primary_url": "https://simonwillison.net/2026/Nov/9/hn-50421091/",
+          "published_at": "2026-11-09",
+          "metrics_hint": "Direct Atom Feed (Code-Backed Proof + CLI/Tool Execution Walkthrough)",
+          "corroborating_sources": [
+            "Simon Willison \u2022 LLM & MCP Engineering Weblog",
+            "Creator Atom Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+          "source_channel": "Simon Willison \u2022 LLM & MCP Engineering Weblog",
+          "creator_handle": "simonw",
+          "title": "Hide your slop PR descriptions behind <details><summary>",
+          "summary": "Most of the changes I make to my projects these days come in the form of PRs opened for me by Claude Code or Codex.",
+          "primary_url": "https://simonwillison.net/2026/Nov/9/details-summary/",
+          "published_at": "2026-11-09",
+          "metrics_hint": "Direct Atom Feed (Code-Backed Proof + CLI/Tool Execution Walkthrough)",
+          "corroborating_sources": [
+            "Simon Willison \u2022 LLM & MCP Engineering Weblog",
+            "Creator Atom Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-EUGENE-YAN": {
+      "etag": "W/\"6ad4f91b-199df\"",
+      "last_modified": "Sun, 18 Oct 2026 16:51:39 GMT",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.451160+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Eugene Yan \u2022 Applied LLM Systems & Evals",
+          "creator_handle": "eugeneyan",
+          "title": "Patterns for Building Cybersecurity Evals",
+          "summary": "A sandboxed target, inputs that influence task difficulty, tools, and a grader.",
+          "primary_url": "https://eugeneyan.com//writing/cybersecurity-evals/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Sun, 21 Jun 2026 00:00:00",
+          "metrics_hint": "Direct RSS Syndicate (Quantitative Eval Matrix + Production Architecture Essay)",
+          "corroborating_sources": [
+            "Eugene Yan \u2022 Applied LLM Systems & Evals",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Eugene Yan \u2022 Applied LLM Systems & Evals",
+          "creator_handle": "eugeneyan",
+          "title": "Using LLMs to Secure Source Code",
+          "summary": "Build a threat model, discover vulnerabilities, verify, triage, and patch.",
+          "primary_url": "https://eugeneyan.com//writing/secure-source-code/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Wed, 27 May 2026 00:00:00",
+          "metrics_hint": "Direct RSS Syndicate (Quantitative Eval Matrix + Production Architecture Essay)",
+          "corroborating_sources": [
+            "Eugene Yan \u2022 Applied LLM Systems & Evals",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-BYTEBYTEGO": {
+      "etag": "W/\"d711b-Sc413uAaF3HdjhmwpmVDV2I9qN8\"",
+      "last_modified": "",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.466510+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Alex Xu \u2022 ByteByteGo System Design",
+          "creator_handle": "alexxubyte",
+          "title": "EP232: 6 Frequently Used Orchestration Frameworks in an AI system",
+          "summary": "Orchestration in an AI system manages tasks across agents, handles failures, shared memory and context.",
+          "primary_url": "https://blog.bytebytego.com/p/ep232-6-frequently-used-orchestration",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Sat, 07 Nov 2026 16:30:58",
+          "metrics_hint": "Direct RSS Syndicate (4:5 Animated GIF89a (30fps) / Multi-Stage System Comparison Poster)",
+          "corroborating_sources": [
+            "Alex Xu \u2022 ByteByteGo System Design",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Alex Xu \u2022 ByteByteGo System Design",
+          "creator_handle": "alexxubyte",
+          "title": "The Hidden Work Behind Every Database Request",
+          "summary": "Read amplification, write amplification, and space amplification show the differences between logical work and physical cost.",
+          "primary_url": "https://blog.bytebytego.com/p/the-hidden-work-behind-every-database",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Thu, 05 Nov 2026 16:31:07",
+          "metrics_hint": "Direct RSS Syndicate (4:5 Animated GIF89a (30fps) / Multi-Stage System Comparison Poster)",
+          "corroborating_sources": [
+            "Alex Xu \u2022 ByteByteGo System Design",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-DECODING-AI": {
+      "etag": "W/\"1afa7f-RRuLrBJNl54yqx+aLpZ6E/TrDOY\"",
+      "last_modified": "",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.487042+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Paul Iusztin \u2022 Decoding AI Magazine",
+          "creator_handle": "pauliusztin",
+          "title": "Harness Engineering Roadmap: Claude Code From First Principles",
+          "summary": "The harness took LangChain's agent from outside the top 30 to the top 5.",
+          "primary_url": "https://www.decodingai.com/p/claude-code-from-scratch-harness-engineering-roadmap",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Tue, 03 Nov 2026 06:01:13",
+          "metrics_hint": "Direct RSS Syndicate (4:5 Animated GIF89a Architecture + Substack Deep-Dive)",
+          "corroborating_sources": [
+            "Paul Iusztin \u2022 Decoding AI Magazine",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Paul Iusztin \u2022 Decoding AI Magazine",
+          "creator_handle": "pauliusztin",
+          "title": "Building a Support Chatbot on Amazon Bedrock",
+          "summary": "One search or an AI agent that can search again? I tested both.",
+          "primary_url": "https://www.decodingai.com/p/agentic-rag-vs-single-search-amazon-bedrock",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Sat, 31 Oct 2026 12:03:27",
+          "metrics_hint": "Direct RSS Syndicate (4:5 Animated GIF89a Architecture + Substack Deep-Dive)",
+          "corroborating_sources": [
+            "Paul Iusztin \u2022 Decoding AI Magazine",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-CHIP-HUYEN": {
+      "etag": "W/\"6a6bdc00-532d2\"",
+      "last_modified": "Thu, 30 Jul 2026 23:19:28 GMT",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.496559+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Chip Huyen \u2022 AI Engineering & Inference Systems",
+          "creator_handle": "chiphuyen",
+          "title": "Common pitfalls when building generative AI applications",
+          "summary": "As we\u2019re still in the early days of building applications with foundation models, it\u2019s normal to make mistakes.",
+          "primary_url": "https://huyenchip.com//2025/01/16/ai-engineering-pitfalls.html",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Thu, 16 Jan 2025 00:00:00",
+          "metrics_hint": "Direct RSS Syndicate (First-Principles Systems Roofline & Bottleneck Analysis)",
+          "corroborating_sources": [
+            "Chip Huyen \u2022 AI Engineering & Inference Systems",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Chip Huyen \u2022 AI Engineering & Inference Systems",
+          "creator_handle": "chiphuyen",
+          "title": "Agents",
+          "summary": "Intelligent agents are considered by many to be the ultimate goal of AI. The classic book by Stuart Russell and Peter Norvig, Artificial Intelligence: A Modern Approach (Prentice Hall, 1995), defines the field of AI research as \u201c the study.",
+          "primary_url": "https://huyenchip.com//2025/01/07/agents.html",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Tue, 07 Jan 2025 00:00:00",
+          "metrics_hint": "Direct RSS Syndicate (First-Principles Systems Roofline & Bottleneck Analysis)",
+          "corroborating_sources": [
+            "Chip Huyen \u2022 AI Engineering & Inference Systems",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-AISHWARYA-SUBSTACK": {
+      "last_status": "UNREACHABLE_SKIPPED",
+      "last_checked_utc": "2026-11-09T06:58:07.498795+00:00"
+    },
+    "RSS-GOOGLE-ADK-RELEASES": {
+      "etag": "W/\"3a7a2842cf280879a6abdc746683fbd8\"",
+      "last_modified": "",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.507278+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+          "source_channel": "Google Cloud ADK (Agent Development Kit) \u2022 GitHub Releases",
+          "creator_handle": "google-adk",
+          "title": "Google Cloud ADK (Agent Development Kit) Release v2.14.0: 2.14.0 (2026-11-04) Highlights This release graduates execution environments, A2A, evaluation, and core.",
+          "summary": "2.14.0 (2026-11-04) Highlights This release graduates execution environments, A2A, evaluation, and core runtime modules from experimental, adds multi-run evaluation and semantic tool argument matching, adds Microsoft Teams and OpenAI.",
+          "primary_url": "https://github.com/google/adk-python/releases/tag/v2.14.0",
+          "published_at": "2026-11-07",
+          "metrics_hint": "Direct Atom Feed (SDK Release Notes + Callback/Tooling API Spec)",
+          "corroborating_sources": [
+            "Google Cloud ADK (Agent Development Kit) \u2022 GitHub Releases",
+            "Creator Atom Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+          "source_channel": "Google Cloud ADK (Agent Development Kit) \u2022 GitHub Releases",
+          "creator_handle": "google-adk",
+          "title": "Google Cloud ADK (Agent Development Kit) Release v2.13.0: 2.13.0 (2026-10-22) Highlights This release stabilizes core features while introducing TypeSafe workflow.",
+          "summary": "2.13.0 (2026-10-22) Highlights This release stabilizes core features while introducing TypeSafe workflow classification, live audio interactions, MongoDB integrations, and execution performance improvements.",
+          "primary_url": "https://github.com/google/adk-python/releases/tag/v2.13.0",
+          "published_at": "2026-10-23",
+          "metrics_hint": "Direct Atom Feed (SDK Release Notes + Callback/Tooling API Spec)",
+          "corroborating_sources": [
+            "Google Cloud ADK (Agent Development Kit) \u2022 GitHub Releases",
+            "Creator Atom Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-GOOGLE-DEEPMIND": {
+      "last_status": "UNREACHABLE_SKIPPED",
+      "last_checked_utc": "2026-11-09T06:58:07.515779+00:00"
+    },
+    "RSS-MCP-SPEC": {
+      "etag": "W/\"7191ae75046ab0dbda440a547ab2df29\"",
+      "last_modified": "",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.529471+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+          "source_channel": "Model Context Protocol (MCP) \u2022 Official Spec & SDK Atom",
+          "creator_handle": "modelcontextprotocol",
+          "title": "Model Context Protocol (MCP) Release v2.3.0: pip install -U mcp . Docs: https://py.sdk.modelcontextprotocol.io/ Mostly fixes, plus three new options.",
+          "summary": "pip install -U mcp . Docs: https://py.sdk.modelcontextprotocol.io/ Mostly fixes, plus three new options. A few things behave differently, so skim these first: Behaviour changes httpx2>=2.10.0 is now required ( #3600 ) It was >=2.5.0 .",
+          "primary_url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.3.0",
+          "published_at": "2026-10-02",
+          "metrics_hint": "Direct Atom Feed (OAuth 2.1 OBO, Streamable HTTP & Tool Discovery Spec Update)",
+          "corroborating_sources": [
+            "Model Context Protocol (MCP) \u2022 Official Spec & SDK Atom",
+            "Creator Atom Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+          "source_channel": "Model Context Protocol (MCP) \u2022 Official Spec & SDK Atom",
+          "creator_handle": "modelcontextprotocol",
+          "title": "Model Context Protocol (MCP) Release v2.2.0: pip install -U mcp . Docs: https://py.sdk.modelcontextprotocol.io/ A few defaults changed in this release.",
+          "summary": "pip install -U mcp . Docs: https://py.sdk.modelcontextprotocol.io/ A few defaults changed in this release.",
+          "primary_url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.2.0",
+          "published_at": "2026-09-07",
+          "metrics_hint": "Direct Atom Feed (OAuth 2.1 OBO, Streamable HTTP & Tool Discovery Spec Update)",
+          "corroborating_sources": [
+            "Model Context Protocol (MCP) \u2022 Official Spec & SDK Atom",
+            "Creator Atom Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-OPENAI-AGENTS-SDK": {
+      "etag": "W/\"478bc7ac2a10b2d8c5c32227810e715b\"",
+      "last_modified": "",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.534095+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+          "source_channel": "OpenAI Agents SDK \u2022 GitHub Releases Atom",
+          "creator_handle": "openai-agents",
+          "title": "Agents SDK v0.24.0-alpha.7",
+          "summary": "Agents SDK v0.24.0-alpha.7 Highlights Use Classic workflows alongside native execution. Import the retained v0 runtime through agents.classic .",
+          "primary_url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7",
+          "published_at": "2026-11-08",
+          "metrics_hint": "Direct Atom Feed (Agent Handoff & Guardrail SDK Release)",
+          "corroborating_sources": [
+            "OpenAI Agents SDK \u2022 GitHub Releases Atom",
+            "Creator Atom Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+          "source_channel": "OpenAI Agents SDK \u2022 GitHub Releases Atom",
+          "creator_handle": "openai-agents",
+          "title": "Agents SDK v0.24.0-alpha.6",
+          "summary": "Install the preview Use standard CPython 3.10\u20133.14 in a virtual environment. These wheels include the native runtime; no Rust toolchain or source build is needed. This preview is distributed through GitHub Releases, not PyPI.",
+          "primary_url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.6",
+          "published_at": "2026-11-03",
+          "metrics_hint": "Direct Atom Feed (Agent Handoff & Guardrail SDK Release)",
+          "corroborating_sources": [
+            "OpenAI Agents SDK \u2022 GitHub Releases Atom",
+            "Creator Atom Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-ANTHROPIC-CLAUDE-CODE": {
+      "etag": "\"cac25827e565855f19d783b57f2601fd\"",
+      "last_modified": "",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.535440+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+          "source_channel": "Anthropic \u2022 Claude Code & Cookbook GitHub Releases",
+          "creator_handle": "anthropic",
+          "title": "Anthropic: Add a dreaming cookbook (#959)",
+          "summary": "feat(managed_agents): add a dreaming cookbook (#959) Squash merge of 1 commit.",
+          "primary_url": "https://github.com/anthropics/claude-cookbooks/commit/d4bd2fb364a7daa77fa90390800ba3aafffd2d1f",
+          "published_at": "2026-11-04",
+          "metrics_hint": "Direct Atom Feed (Claude Tool-Use, Sub-Agent Harness & MCP Cookbook Pattern)",
+          "corroborating_sources": [
+            "Anthropic \u2022 Claude Code & Cookbook GitHub Releases",
+            "Creator Atom Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-META-LLAMA-STACK": {
+      "last_status": "UNREACHABLE_SKIPPED",
+      "last_checked_utc": "2026-11-09T06:58:07.575693+00:00"
+    },
+    "RSS-OPENAI-NEWS": {
+      "etag": "",
+      "last_modified": "",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.610778+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "OpenAI \u2022 Official Research, Product & Safety Releases",
+          "creator_handle": "openai",
+          "title": "Partnering with Hacktron to find vulnerabilities in OpenAI\u2019s systems",
+          "summary": "OpenAI is partnering with Hacktron to find vulnerabilities, test connections with third-party services, and strengthen defenses with frontier AI.",
+          "primary_url": "https://openai.com/index/partnering-with-hacktron",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Fri, 06 Nov 2026 08:00:00",
+          "metrics_hint": "Direct RSS Syndicate (Frontier Reasoning Benchmark + API Capability Announcement)",
+          "corroborating_sources": [
+            "OpenAI \u2022 Official Research, Product & Safety Releases",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "OpenAI \u2022 Official Research, Product & Safety Releases",
+          "creator_handle": "openai",
+          "title": "Measuring how AI agents handle everyday wet-lab science",
+          "summary": "OpenAI introduces BioBasicsBench, a 100-task benchmark measuring how well AI agents interpret raw experimental data and handle everyday wet-lab science.",
+          "primary_url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Fri, 06 Nov 2026 00:00:00",
+          "metrics_hint": "Direct RSS Syndicate (Frontier Reasoning Benchmark + API Capability Announcement)",
+          "corroborating_sources": [
+            "OpenAI \u2022 Official Research, Product & Safety Releases",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-GOOGLE-RESEARCH": {
+      "etag": "",
+      "last_modified": "Thu, 05 Nov 2026 16:01:08 GMT",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.616612+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Google Research \u2022 Systems, Algorithms & Agentic AI",
+          "creator_handle": "google-research",
+          "title": "Detecting signs of hypertension using wearable sensors",
+          "summary": "Health & Bioscience.",
+          "primary_url": "https://research.google/blog/detecting-signs-of-hypertension-using-wearable-sensors/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Thu, 05 Nov 2026 16:01:08",
+          "metrics_hint": "Direct RSS Syndicate (Peer-Reviewed Systems Paper + Open-Source Reference Implementation)",
+          "corroborating_sources": [
+            "Google Research \u2022 Systems, Algorithms & Agentic AI",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Google Research \u2022 Systems, Algorithms & Agentic AI",
+          "creator_handle": "google-research",
+          "title": "Agile Deliberation: How AI helps humans define the gray areas",
+          "summary": "Data Mining & Modeling.",
+          "primary_url": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Wed, 04 Nov 2026 18:07:05",
+          "metrics_hint": "Direct RSS Syndicate (Peer-Reviewed Systems Paper + Open-Source Reference Implementation)",
+          "corroborating_sources": [
+            "Google Research \u2022 Systems, Algorithms & Agentic AI",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-NATHAN-LAMBERT": {
+      "etag": "W/\"82deb-+Wk+jq+7YLC6qI+uWQ4oJ74jUIA\"",
+      "last_modified": "",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.625746+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Nathan Lambert \u2022 Interconnects (RLHF, Post-Training & Reasoning)",
+          "creator_handle": "natolambert",
+          "title": "How big is the open model economy today?",
+          "summary": "Our first open model economy research note for paid subscribers.",
+          "primary_url": "https://www.interconnects.ai/p/how-well-can-we-measure-open-model",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Wed, 04 Nov 2026 16:35:44",
+          "metrics_hint": "Direct RSS Syndicate (Frontier Lab Post-Training & Reasoning Model Teardown)",
+          "corroborating_sources": [
+            "Nathan Lambert \u2022 Interconnects (RLHF, Post-Training & Reasoning)",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Nathan Lambert \u2022 Interconnects (RLHF, Post-Training & Reasoning)",
+          "creator_handle": "natolambert",
+          "title": "Was I wrong about open models & cyber risks?",
+          "summary": "Last week coined the term &#8220;Black October&#8220; after an onslaught of critical vulnerability disclosures, including PHP2Shell and a long-standing GitLab bug, signified the moment when the cyber risks of AI models started to.",
+          "primary_url": "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Fri, 30 Oct 2026 17:36:56",
+          "metrics_hint": "Direct RSS Syndicate (Frontier Lab Post-Training & Reasoning Model Teardown)",
+          "corroborating_sources": [
+            "Nathan Lambert \u2022 Interconnects (RLHF, Post-Training & Reasoning)",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-AINEWS-SMOL": {
+      "etag": "",
+      "last_modified": "Fri, 25 Apr 2025 03:14:18 GMT",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.675025+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Latent Space / smol.ai AINews \u2022 30-Discord + 500-X Daily Digest",
+          "creator_handle": "swyx",
+          "title": "[AINews] We have moved!! Please help us move!",
+          "summary": "Hi Friends, For a little over a year, AINews has been functioning in MVP mode on Buttondown , which is an excellent email service by Justin Duke .",
+          "primary_url": "https://buttondown.com/ainews/archive/ainews-we-have-moved-please-help-us-move/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Fri, 25 Apr 2025 03:14:18",
+          "metrics_hint": "Direct RSS Syndicate (Daily Cross-Community Engineering Synthesis)",
+          "corroborating_sources": [
+            "Latent Space / smol.ai AINews \u2022 30-Discord + 500-X Daily Digest",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Latent Space / smol.ai AINews \u2022 30-Discord + 500-X Daily Digest",
+          "creator_handle": "swyx",
+          "title": "[AINews] Grok 3 & 3-mini now API Available",
+          "summary": "X is all you need? AI News for 4/17/2025-4/18/2025. We checked 9 subreddits, 449 Twitters and 29 Discords ( 211 channels, and 8290 messages) for you. Estimated reading time saved (at 200wpm): 650 minutes .",
+          "primary_url": "https://buttondown.com/ainews/archive/ainews-grok-3-3-mini-now-api-available/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Sat, 19 Apr 2025 05:44:39",
+          "metrics_hint": "Direct RSS Syndicate (Daily Cross-Community Engineering Synthesis)",
+          "corroborating_sources": [
+            "Latent Space / smol.ai AINews \u2022 30-Discord + 500-X Daily Digest",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-SEBASTIAN-RASCHKA": {
+      "etag": "W/\"277a81-W+DPvUepPz4Hp90/rkYlgKicoc0\"",
+      "last_modified": "",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.682929+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Sebastian Raschka \u2022 Ahead of AI (LLM Architecture & Training)",
+          "creator_handle": "rasbt",
+          "title": "Building Reasoning Models from the Ground Up: A Full Video Course",
+          "summary": "Over 11 hours of coding videos on evaluation, inference-time scaling, reinforcement learning, and distillation, with Python and PyTorch.",
+          "primary_url": "https://magazine.sebastianraschka.com/p/building-reasoning-models",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Sat, 24 Oct 2026 11:14:32",
+          "metrics_hint": "Direct RSS Syndicate (From-Scratch Architecture Diagrams & Ablation Comparisons)",
+          "corroborating_sources": [
+            "Sebastian Raschka \u2022 Ahead of AI (LLM Architecture & Training)",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Sebastian Raschka \u2022 Ahead of AI (LLM Architecture & Training)",
+          "creator_handle": "rasbt",
+          "title": "Language Models for Text Classification: From Bag-of-Words to Jev",
+          "summary": "A Visual Guide to RNNs, CNNs, Transformers, and Calibration, with Hands-On Experiments on Accuracy and Efficiency.",
+          "primary_url": "https://magazine.sebastianraschka.com/p/classifier-history-and-jev",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Tue, 29 Sep 2026 10:50:25",
+          "metrics_hint": "Direct RSS Syndicate (From-Scratch Architecture Diagrams & Ablation Comparisons)",
+          "corroborating_sources": [
+            "Sebastian Raschka \u2022 Ahead of AI (LLM Architecture & Training)",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-UNWIND-AI": {
+      "last_status": "UNREACHABLE_SKIPPED",
+      "last_checked_utc": "2026-11-09T06:58:07.718590+00:00"
+    },
+    "RSS-AWS-ML-BLOG": {
+      "etag": "",
+      "last_modified": "Sat, 07 Nov 2026 00:59:20 GMT",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.777183+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "AWS Machine Learning Blog \u2022 Bedrock AgentCore & Strands",
+          "creator_handle": "aws-ml",
+          "title": "SageMaker Inference now supports Multi-Instance GPU to maximize GPU utilization for model endpoints",
+          "summary": "Amazon SageMaker Inference now supports GPU partitioning with NVIDIA Multi-Instance GPU (MIG), which divides one GPU into hardware-isolated partitions so you can run a different model in each or take a right-sized fraction of a newer.",
+          "primary_url": "https://aws.amazon.com/blogs/machine-learning/sagemaker-inference-now-supports-multi-instance-gpu-to-maximize-gpu-utilization-for-model-endpoints/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Fri, 06 Nov 2026 18:01:00",
+          "metrics_hint": "Direct RSS Syndicate (Enterprise Multi-Cloud IAM, Guardrails & Agent Deployment)",
+          "corroborating_sources": [
+            "AWS Machine Learning Blog \u2022 Bedrock AgentCore & Strands",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "AWS Machine Learning Blog \u2022 Bedrock AgentCore & Strands",
+          "creator_handle": "aws-ml",
+          "title": "Taxonomy of agentic primitives in Amazon Quick",
+          "summary": "As we built Amazon Quick, its agents grew from answering questions to taking actions, and the same primitives kept getting rebuilt under different names.",
+          "primary_url": "https://aws.amazon.com/blogs/machine-learning/taxonomy-of-agentic-primitives-in-amazon-quick/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Fri, 06 Nov 2026 17:34:45",
+          "metrics_hint": "Direct RSS Syndicate (Enterprise Multi-Cloud IAM, Guardrails & Agent Deployment)",
+          "corroborating_sources": [
+            "AWS Machine Learning Blog \u2022 Bedrock AgentCore & Strands",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-NVIDIA-TECH-BLOG": {
+      "etag": "\"2b9140979c0d81bca75638603aedf2d3\"",
+      "last_modified": "Fri, 06 Nov 2026 22:20:31 GMT",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:07.914583+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+          "source_channel": "NVIDIA Technical Blog \u2022 TensorRT-LLM, NIM & Dynamo Inference",
+          "creator_handle": "nvidia-ai",
+          "title": "Speed Up Image Generation with FLUX 3 Image Klein on NVIDIA Blackwell GPUs",
+          "summary": "When deploying diffusion models in design tools, image editors, and visual production workflows, developers must account for inference latency. Generating an",
+          "primary_url": "https://developer.nvidia.com/blog/speed-up-image-generation-with-flux-3-image-klein-on-nvidia-blackwell-gpus/",
+          "published_at": "2026-11-06",
+          "metrics_hint": "Direct Atom Feed (Disaggregated Prefill/Decode & KV-Cache Hardware Roofline)",
+          "corroborating_sources": [
+            "NVIDIA Technical Blog \u2022 TensorRT-LLM, NIM & Dynamo Inference",
+            "Creator Atom Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab Atom Syndicate",
+          "source_channel": "NVIDIA Technical Blog \u2022 TensorRT-LLM, NIM & Dynamo Inference",
+          "creator_handle": "nvidia-ai",
+          "title": "Accelerating Reinforcement Learning Weight Refit with the Reshard Collective",
+          "summary": "During reinforcement learning (RL) post-training, training trajectories are generated on the fly by running inference with the current policy model. For",
+          "primary_url": "https://developer.nvidia.com/blog/accelerating-reinforcement-learning-weight-refit-with-the-reshard-collective/",
+          "published_at": "2026-11-06",
+          "metrics_hint": "Direct Atom Feed (Disaggregated Prefill/Decode & KV-Cache Hardware Roofline)",
+          "corroborating_sources": [
+            "NVIDIA Technical Blog \u2022 TensorRT-LLM, NIM & Dynamo Inference",
+            "Creator Atom Syndicate"
+          ]
+        }
+      ]
+    },
+    "RSS-MICROSOFT-RESEARCH": {
+      "etag": "\"f9c2739e09921b12a2120c42ef49354b\"",
+      "last_modified": "Mon, 09 Nov 2026 05:16:00 GMT",
+      "last_status": "200_OK",
+      "last_checked_utc": "2026-11-09T06:58:08.309506+00:00",
+      "cached_items": [
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Microsoft Research \u2022 AutoGen, Magentic & Systems AI",
+          "creator_handle": "msft-research",
+          "title": "Formally verifying agent-written full-stack web apps with PDD Kit",
+          "summary": "AI agents can generate code at a scale that\u2019s hard for humans to review line-by-line. PDD Kit helps ensure the code is doing what the developer intended by creating formal specifications and testing against them.",
+          "primary_url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Thu, 05 Nov 2026 16:00:00",
+          "metrics_hint": "Direct RSS Syndicate (Multi-Agent Orchestration & Enterprise Evaluation Research)",
+          "corroborating_sources": [
+            "Microsoft Research \u2022 AutoGen, Magentic & Systems AI",
+            "Creator RSS Syndicate"
+          ]
+        },
+        {
+          "source_pipeline": "PIPE-01 \u2022 Creator & Frontier Lab RSS Syndicate",
+          "source_channel": "Microsoft Research \u2022 AutoGen, Magentic & Systems AI",
+          "creator_handle": "msft-research",
+          "title": "Learn the rules: The hacker mindset",
+          "summary": "Research Manager Mike Walker reflects on a career spanning hacker culture, cybersecurity, and AI, sharing lessons about trust, teamwork, leadership, and why solving difficult problems requires curiosity, judgment, agility\u2014and an.",
+          "primary_url": "https://www.microsoft.com/en-us/research/podcast/learn-the-rules-the-hacker-mindset/",
+          "published_at": "2026-11-09",
+          "raw_pub_date": "Tue, 03 Nov 2026 17:14:38",
+          "metrics_hint": "Direct RSS Syndicate (Multi-Agent Orchestration & Enterprise Evaluation Research)",
+          "corroborating_sources": [
+            "Microsoft Research \u2022 AutoGen, Magentic & Systems AI",
+            "Creator RSS Syndicate"
+          ]
+        }
+      ]
+    }
+  },
+  "updated_at": "2026-11-09T06:58:08.311132+00:00"
+}

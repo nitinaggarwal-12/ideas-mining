@@ -856,6 +856,27 @@ def _parse_rss_or_atom_xml(
                 or ""
             )[:10]
             if title and link:
+                # Filter out low-signal housekeeping commits (fix/chore/ci/docs/merge) and bare version strings
+                t_low = title.lower().strip()
+                if re.match(r"^(fix|chore|ci|build|style|test|docs|refactor|revert)(\([^)]*\))?:", t_low) or t_low.startswith("merge "):
+                    continue
+                if re.match(r"^(feat|perf)(\([^)]*\))?:", t_low):
+                    lab_short = feed["creator_or_lab"].split("•")[0].strip()
+                    title = f"{lab_short}: {re.sub(r'^(feat|perf)(\([^)]*\))?:\s*', '', title, flags=re.I).strip().capitalize()}"
+                if re.match(r"^v?\d+\.\d+(\.\d+)?([-a-z0-9.]+)?$", t_low):
+                    lab_short = feed["creator_or_lab"].split("•")[0].strip()
+                    clean_desc = summarize_clean_boundary(desc, max_chars=110).replace("...", "").strip()
+                    if (
+                        not clean_desc
+                        or len(clean_desc) < 25
+                        or clean_desc.lower() == t_low
+                        or "bumped " in clean_desc.lower()
+                        or "what's changed add " in clean_desc.lower()
+                    ):
+                        continue
+                    title = f"{lab_short} Release {title}: {clean_desc}"
+                if len(title) < 18:
+                    continue
                 parsed_items.append(
                     {
                         "source_pipeline": "PIPE-01 • Creator & Frontier Lab Atom Syndicate",
@@ -1145,6 +1166,10 @@ def run_autonomous_zero_link_discovery(
         raw_signals.extend(devto_items)
         raw_signals.extend(reddit_items)
 
+    # Always include RSS-less Frontier Lab Sitemap-Diff entries (Anthropic Engineering/Research, Mistral) + verified floor
+    for sm_item in fetch_rss_less_frontier_lab_sitemaps_live(allow_network=False):
+        raw_signals.append(sm_item)
+        live_channel_counts["creator_rss_syndicate"] += 1
     # Always merge our verified high-demand architectural floor so offline/sandboxed runs remain 100% populated
     for sig in CURATED_HIGH_DEMAND_SIGNALS:
         item = dict(sig)

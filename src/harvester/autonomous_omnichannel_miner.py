@@ -9,6 +9,7 @@ Eliminates manual link-feeding by combining 5 sanctioned, zero-CAPTCHA upstream 
 """
 
 from __future__ import annotations
+from src.catalog.post_distribution_directory import resolve_distribution_directory_for_post
 
 import hashlib
 import json
@@ -1458,6 +1459,14 @@ def discover_customer_success_agentic_inventions(
         if filtered:
             inventions = filtered
 
+    for _inv in inventions:
+        if "distribution_directory" not in _inv:
+            _inv["distribution_directory"] = resolve_distribution_directory_for_post(
+                post_id=_inv.get("invention_id", ""),
+                title=_inv.get("invention_title", ""),
+                primary_url=_inv.get("primary_url", ""),
+                source_channel=_inv.get("discovery_lineage", "Enterprise Agentic AI"),
+            )
     return {
         "status": "READY",
         "generated_at": datetime.now(timezone.utc).isoformat(),

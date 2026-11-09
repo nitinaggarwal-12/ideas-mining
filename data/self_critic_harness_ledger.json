@@ -1,8 +1,8 @@
 {
   "status": "ALL_GATES_VERIFIED",
   "harness_version": "Harness\u00b2-v2.4-Autonomous-Self-Critic",
-  "last_run_utc": "2026-11-09T07:14:20.807926+00:00",
-  "duration_ms": 1086,
+  "last_run_utc": "2026-11-09T15:22:56.421137+00:00",
+  "duration_ms": 1029,
   "overall_score": 99.9,
   "gates_passed": 8,
   "gates_total": 8,
@@ -149,7 +149,7 @@
     "upstream_pipelines_active": 5,
     "customer_success_invention_radar": {
       "status": "READY",
-      "generated_at": "2026-11-09T07:14:20.807842+00:00",
+      "generated_at": "2026-11-09T15:22:56.421060+00:00",
       "total_inventions": 10,
       "customer_success_pillars": [
         "Zero-Trust MCP & OBO Security (Unblocks CISO/ARB Review)",
@@ -173,7 +173,177 @@
           "target_org_id": "regulated_financial_healthcare",
           "recommended_template_id": "T85",
           "recommended_grammar_id": "GRAMMAR-04",
-          "reference_repo_slug": "gcp-mcp-zero-bloat-gateway"
+          "reference_repo_slug": "gcp-mcp-zero-bloat-gateway",
+          "distribution_directory": {
+            "post_id": "CS-INV-01",
+            "resolved_profile_key": "MINT-01",
+            "cluster_id": "CLUSTER_MCP_IDENTITY",
+            "linkedin_groups_primary": [
+              {
+                "name": "Model Context Protocol (MCP), Agentic Tooling & Enterprise API Architecture",
+                "url": "https://www.linkedin.com/groups/13041020/",
+                "members": "195,000+",
+                "goal": "Targeted discussion on MCP schema discovery, OAuth 2.1 OBO, and Apigee gateway patterns"
+              },
+              {
+                "name": "Information Security, CISO Network, Cybersecurity & Zero-Trust AI",
+                "url": "https://www.linkedin.com/groups/38412/",
+                "members": "2,400,000+",
+                "goal": "CISO, AppSec, and SecOps shares on prompt-injection containment and OBO least privilege"
+              },
+              {
+                "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+                "url": "https://www.linkedin.com/groups/3050257/",
+                "members": "420,000+",
+                "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+              }
+            ],
+            "linkedin_groups_niche_network": [
+              {
+                "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+                "url": "https://www.linkedin.com/groups/12918440/",
+                "members": "92,000+",
+                "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+              },
+              {
+                "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+                "url": "https://www.linkedin.com/groups/67905/",
+                "members": "610,000+",
+                "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+              },
+              {
+                "name": "Chief Customer Officer (CCO), VP Customer Success & Value Realization",
+                "url": "https://www.linkedin.com/groups/4510921/",
+                "members": "180,000+",
+                "goal": "Customer Success leadership adoption of self-healing agentic playbooks and NRR expansion"
+              }
+            ],
+            "cross_platform_pages_and_communities": [
+              {
+                "platform": "Reddit",
+                "page_or_group": "r/LocalLLaMA & r/AI_Agents",
+                "url": "https://www.reddit.com/r/LocalLLaMA/",
+                "audience": "610K+ LLM Systems Builders",
+                "posting_angle": "Share the 58K -> 1.7K MCP token reduction benchmark table + eval_results.json"
+              },
+              {
+                "platform": "GitHub Discussions",
+                "page_or_group": "modelcontextprotocol/specification Discussions",
+                "url": "https://github.com/modelcontextprotocol/specification/discussions",
+                "audience": "Core MCP Maintainers & Enterprise Adopters",
+                "posting_angle": "Reference RFC 8693 OBO token exchange + progressive Top-K schema discovery"
+              },
+              {
+                "platform": "Dev.to & Hashnode",
+                "page_or_group": "#mcp \u00b7 #googlecloud \u00b7 #ai \u00b7 #security",
+                "url": "https://dev.to/t/mcp",
+                "audience": "Full-Stack & Cloud Native Developers",
+                "posting_angle": "Publish full Terraform + src/engine.py walkthrough with 1-click Cloud Run script"
+              }
+            ],
+            "relevant_companies_and_pages": [
+              {
+                "company_id": "google_cloud",
+                "company_name": "Google Cloud",
+                "linkedin_page_tag": "@Google Cloud",
+                "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+                "x_handle": "@googlecloud",
+                "github_org_url": "https://github.com/GoogleCloudPlatform",
+                "role_in_post": "Primary Cloud Runtime (`Apigee API Hub`, `Vertex AI Agent Engine`, `Cloud Run v2`, `Cloud KMS`)",
+                "reference_title": "Google Cloud Architecture Center: Enterprise AI & ADK",
+                "reference_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview"
+              },
+              {
+                "company_id": "anthropic",
+                "company_name": "Anthropic",
+                "linkedin_page_tag": "@Anthropic",
+                "linkedin_page_url": "https://www.linkedin.com/company/anthropicresearch/",
+                "x_handle": "@AnthropicAI",
+                "github_org_url": "https://github.com/anthropics",
+                "role_in_post": "Originator of the Model Context Protocol (`MCP`) & progressive tool discovery pattern",
+                "reference_title": "Anthropic Engineering: Code Execution & Progressive Tool Discovery with MCP",
+                "reference_url": "https://www.anthropic.com/engineering/code-execution-with-mcp"
+              },
+              {
+                "company_id": "pydantic",
+                "company_name": "Pydantic",
+                "linkedin_page_tag": "@Pydantic",
+                "linkedin_page_url": "https://www.linkedin.com/company/pydantic/",
+                "x_handle": "@pydantic",
+                "github_org_url": "https://github.com/pydantic/pydantic-ai",
+                "role_in_post": "Strict JSON-Schema tool argument validation (`PydanticAI` / `FastMCP`)",
+                "reference_title": "PydanticAI: Type-Safe Agent Tool Validation",
+                "reference_url": "https://ai.pydantic.dev/"
+              },
+              {
+                "company_id": "cloudflare",
+                "company_name": "Cloudflare",
+                "linkedin_page_tag": "@Cloudflare",
+                "linkedin_page_url": "https://www.linkedin.com/company/cloudflare/",
+                "x_handle": "@Cloudflare",
+                "github_org_url": "https://github.com/cloudflare/agents",
+                "role_in_post": "Zero-Trust Remote MCP Server & OAuth 2.1 Edge Gateway reference",
+                "reference_title": "Cloudflare Agents: Building Remote MCP Servers with OAuth",
+                "reference_url": "https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/"
+              }
+            ],
+            "company_mentions_line_linkedin": "@Google Cloud \u00b7 @Anthropic \u00b7 @Pydantic \u00b7 @Cloudflare",
+            "company_mentions_line_x": "@googlecloud @AnthropicAI @pydantic @Cloudflare",
+            "hashtags_bundle": {
+              "linkedin_optimal_5": "#ModelContextProtocol #GoogleCloud #VertexAI #AgenticAI #ZeroTrustAI",
+              "niche_practitioner": "#GoogleCloudADK #OAuth2 #Apigee #ContextEngineering #FastMCP #AIArchitecture",
+              "company_ecosystem": "#GoogleCloud #Anthropic #PydanticAI #ZeroTrust",
+              "full_hashtag_string": "#ModelContextProtocol #GoogleCloud #VertexAI #AgenticAI #ZeroTrustAI #GoogleCloudADK #OAuth2 #Apigee #ContextEngineering #FastMCP #AIArchitecture #Anthropic #PydanticAI #ZeroTrust",
+              "all_tags_list": [
+                "#ModelContextProtocol",
+                "#GoogleCloud",
+                "#VertexAI",
+                "#AgenticAI",
+                "#ZeroTrustAI",
+                "#GoogleCloudADK",
+                "#OAuth2",
+                "#Apigee",
+                "#ContextEngineering",
+                "#FastMCP",
+                "#AIArchitecture",
+                "#Anthropic",
+                "#PydanticAI",
+                "#ZeroTrust"
+              ]
+            },
+            "authoritative_references": [
+              {
+                "organization": "Christian Posta (LI-11) \u00b7 Raju Dandigam (LI-56) \u00b7 Model Context Protocol Spec",
+                "title": "Progressive MCP Tool Discovery & RFC 8693 OAuth 2.1 On-Behalf-Of (OBO) Token Exchange",
+                "url": "https://www.linkedin.com/feed/update/urn:li:activity:7524788557941628928",
+                "citation_type": "Primary Trigger Source"
+              },
+              {
+                "organization": "Google Cloud",
+                "title": "Google Cloud Architecture Center: Enterprise AI & ADK",
+                "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Anthropic",
+                "title": "Anthropic Engineering: Code Execution & Progressive Tool Discovery with MCP",
+                "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Pydantic",
+                "title": "PydanticAI: Type-Safe Agent Tool Validation",
+                "url": "https://ai.pydantic.dev/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Cloudflare",
+                "title": "Cloudflare Agents: Building Remote MCP Servers with OAuth",
+                "url": "https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/",
+                "citation_type": "Official Company Engineering Reference"
+              }
+            ]
+          }
         },
         {
           "invention_id": "CS-INV-02",
@@ -188,7 +358,177 @@
           "target_org_id": "regulated_financial_healthcare",
           "recommended_template_id": "T212",
           "recommended_grammar_id": "GRAMMAR-03",
-          "reference_repo_slug": "05-zero-trust-prompt-injection-guard"
+          "reference_repo_slug": "05-zero-trust-prompt-injection-guard",
+          "distribution_directory": {
+            "post_id": "CS-INV-02",
+            "resolved_profile_key": "MINT-01",
+            "cluster_id": "CLUSTER_MCP_IDENTITY",
+            "linkedin_groups_primary": [
+              {
+                "name": "Model Context Protocol (MCP), Agentic Tooling & Enterprise API Architecture",
+                "url": "https://www.linkedin.com/groups/13041020/",
+                "members": "195,000+",
+                "goal": "Targeted discussion on MCP schema discovery, OAuth 2.1 OBO, and Apigee gateway patterns"
+              },
+              {
+                "name": "Information Security, CISO Network, Cybersecurity & Zero-Trust AI",
+                "url": "https://www.linkedin.com/groups/38412/",
+                "members": "2,400,000+",
+                "goal": "CISO, AppSec, and SecOps shares on prompt-injection containment and OBO least privilege"
+              },
+              {
+                "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+                "url": "https://www.linkedin.com/groups/3050257/",
+                "members": "420,000+",
+                "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+              }
+            ],
+            "linkedin_groups_niche_network": [
+              {
+                "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+                "url": "https://www.linkedin.com/groups/12918440/",
+                "members": "92,000+",
+                "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+              },
+              {
+                "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+                "url": "https://www.linkedin.com/groups/67905/",
+                "members": "610,000+",
+                "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+              },
+              {
+                "name": "Chief Customer Officer (CCO), VP Customer Success & Value Realization",
+                "url": "https://www.linkedin.com/groups/4510921/",
+                "members": "180,000+",
+                "goal": "Customer Success leadership adoption of self-healing agentic playbooks and NRR expansion"
+              }
+            ],
+            "cross_platform_pages_and_communities": [
+              {
+                "platform": "Reddit",
+                "page_or_group": "r/LocalLLaMA & r/AI_Agents",
+                "url": "https://www.reddit.com/r/LocalLLaMA/",
+                "audience": "610K+ LLM Systems Builders",
+                "posting_angle": "Share the 58K -> 1.7K MCP token reduction benchmark table + eval_results.json"
+              },
+              {
+                "platform": "GitHub Discussions",
+                "page_or_group": "modelcontextprotocol/specification Discussions",
+                "url": "https://github.com/modelcontextprotocol/specification/discussions",
+                "audience": "Core MCP Maintainers & Enterprise Adopters",
+                "posting_angle": "Reference RFC 8693 OBO token exchange + progressive Top-K schema discovery"
+              },
+              {
+                "platform": "Dev.to & Hashnode",
+                "page_or_group": "#mcp \u00b7 #googlecloud \u00b7 #ai \u00b7 #security",
+                "url": "https://dev.to/t/mcp",
+                "audience": "Full-Stack & Cloud Native Developers",
+                "posting_angle": "Publish full Terraform + src/engine.py walkthrough with 1-click Cloud Run script"
+              }
+            ],
+            "relevant_companies_and_pages": [
+              {
+                "company_id": "google_cloud",
+                "company_name": "Google Cloud",
+                "linkedin_page_tag": "@Google Cloud",
+                "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+                "x_handle": "@googlecloud",
+                "github_org_url": "https://github.com/GoogleCloudPlatform",
+                "role_in_post": "Primary Cloud Runtime (`Apigee API Hub`, `Vertex AI Agent Engine`, `Cloud Run v2`, `Cloud KMS`)",
+                "reference_title": "Google Cloud Architecture Center: Enterprise AI & ADK",
+                "reference_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview"
+              },
+              {
+                "company_id": "anthropic",
+                "company_name": "Anthropic",
+                "linkedin_page_tag": "@Anthropic",
+                "linkedin_page_url": "https://www.linkedin.com/company/anthropicresearch/",
+                "x_handle": "@AnthropicAI",
+                "github_org_url": "https://github.com/anthropics",
+                "role_in_post": "Originator of the Model Context Protocol (`MCP`) & progressive tool discovery pattern",
+                "reference_title": "Anthropic Engineering: Code Execution & Progressive Tool Discovery with MCP",
+                "reference_url": "https://www.anthropic.com/engineering/code-execution-with-mcp"
+              },
+              {
+                "company_id": "pydantic",
+                "company_name": "Pydantic",
+                "linkedin_page_tag": "@Pydantic",
+                "linkedin_page_url": "https://www.linkedin.com/company/pydantic/",
+                "x_handle": "@pydantic",
+                "github_org_url": "https://github.com/pydantic/pydantic-ai",
+                "role_in_post": "Strict JSON-Schema tool argument validation (`PydanticAI` / `FastMCP`)",
+                "reference_title": "PydanticAI: Type-Safe Agent Tool Validation",
+                "reference_url": "https://ai.pydantic.dev/"
+              },
+              {
+                "company_id": "cloudflare",
+                "company_name": "Cloudflare",
+                "linkedin_page_tag": "@Cloudflare",
+                "linkedin_page_url": "https://www.linkedin.com/company/cloudflare/",
+                "x_handle": "@Cloudflare",
+                "github_org_url": "https://github.com/cloudflare/agents",
+                "role_in_post": "Zero-Trust Remote MCP Server & OAuth 2.1 Edge Gateway reference",
+                "reference_title": "Cloudflare Agents: Building Remote MCP Servers with OAuth",
+                "reference_url": "https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/"
+              }
+            ],
+            "company_mentions_line_linkedin": "@Google Cloud \u00b7 @Anthropic \u00b7 @Pydantic \u00b7 @Cloudflare",
+            "company_mentions_line_x": "@googlecloud @AnthropicAI @pydantic @Cloudflare",
+            "hashtags_bundle": {
+              "linkedin_optimal_5": "#ModelContextProtocol #GoogleCloud #VertexAI #AgenticAI #ZeroTrustAI",
+              "niche_practitioner": "#GoogleCloudADK #OAuth2 #Apigee #ContextEngineering #FastMCP #AIArchitecture",
+              "company_ecosystem": "#GoogleCloud #Anthropic #PydanticAI #ZeroTrust",
+              "full_hashtag_string": "#ModelContextProtocol #GoogleCloud #VertexAI #AgenticAI #ZeroTrustAI #GoogleCloudADK #OAuth2 #Apigee #ContextEngineering #FastMCP #AIArchitecture #Anthropic #PydanticAI #ZeroTrust",
+              "all_tags_list": [
+                "#ModelContextProtocol",
+                "#GoogleCloud",
+                "#VertexAI",
+                "#AgenticAI",
+                "#ZeroTrustAI",
+                "#GoogleCloudADK",
+                "#OAuth2",
+                "#Apigee",
+                "#ContextEngineering",
+                "#FastMCP",
+                "#AIArchitecture",
+                "#Anthropic",
+                "#PydanticAI",
+                "#ZeroTrust"
+              ]
+            },
+            "authoritative_references": [
+              {
+                "organization": "Greg Coquillo (LI-38) \u00b7 Brij kishore Pandey (LI-16) \u00b7 Neuro-Symbolic Enterprise Guardrails",
+                "title": "SHACL / OWL Neuro-Symbolic Formal Logic Gate Before High-Blast-Radius Tool Execution",
+                "url": "https://www.linkedin.com/feed/update/urn:li:activity:7524803599852498944",
+                "citation_type": "Primary Trigger Source"
+              },
+              {
+                "organization": "Google Cloud",
+                "title": "Google Cloud Architecture Center: Enterprise AI & ADK",
+                "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Anthropic",
+                "title": "Anthropic Engineering: Code Execution & Progressive Tool Discovery with MCP",
+                "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Pydantic",
+                "title": "PydanticAI: Type-Safe Agent Tool Validation",
+                "url": "https://ai.pydantic.dev/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Cloudflare",
+                "title": "Cloudflare Agents: Building Remote MCP Servers with OAuth",
+                "url": "https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/",
+                "citation_type": "Official Company Engineering Reference"
+              }
+            ]
+          }
         },
         {
           "invention_id": "CS-INV-03",
@@ -203,7 +543,168 @@
           "target_org_id": "global_fortune500",
           "recommended_template_id": "T213",
           "recommended_grammar_id": "GRAMMAR-04",
-          "reference_repo_slug": "gcp-adk-context-rot-compactor"
+          "reference_repo_slug": "gcp-adk-context-rot-compactor",
+          "distribution_directory": {
+            "post_id": "CS-INV-03",
+            "resolved_profile_key": "IDEA-02",
+            "cluster_id": "CLUSTER_INFERENCE_KV",
+            "linkedin_groups_primary": [
+              {
+                "name": "Generative AI & LLMs (Large Language Models) \u2014 Enterprise Practitioners",
+                "url": "https://www.linkedin.com/groups/12795132/",
+                "members": "480,000+",
+                "goal": "High comment velocity from Staff+ AI engineers solving production reliability bottlenecks"
+              },
+              {
+                "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+                "url": "https://www.linkedin.com/groups/3050257/",
+                "members": "420,000+",
+                "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+              },
+              {
+                "name": "Artificial Intelligence, Machine Learning, Data Science & Robotics",
+                "url": "https://www.linkedin.com/groups/3671367/",
+                "members": "6,500,000+",
+                "goal": "Top-of-funnel impressions, repost velocity, and broad AI leadership visibility"
+              }
+            ],
+            "linkedin_groups_niche_network": [
+              {
+                "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+                "url": "https://www.linkedin.com/groups/67905/",
+                "members": "610,000+",
+                "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+              },
+              {
+                "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+                "url": "https://www.linkedin.com/groups/12918440/",
+                "members": "92,000+",
+                "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+              }
+            ],
+            "cross_platform_pages_and_communities": [
+              {
+                "platform": "Reddit",
+                "page_or_group": "r/LocalLLaMA & r/googlecloud",
+                "url": "https://www.reddit.com/r/googlecloud/",
+                "audience": "580K+ Cloud & Inference Engineers",
+                "posting_angle": "Break down KV-cache prefix pinning, p95 latency (4,372ms -> 610ms), and $/1K workflow savings"
+              },
+              {
+                "platform": "Substack Notes",
+                "page_or_group": "Latent Space / AI Systems Engineering Notes",
+                "url": "https://www.latent.space/",
+                "audience": "AI Systems Architects & FinOps Leads",
+                "posting_angle": "Post the Before/After token & latency roofline card with link to evals/run_eval_suite.py"
+              },
+              {
+                "platform": "Dev.to & Hashnode",
+                "page_or_group": "#llmops \u00b7 #vertexai \u00b7 #performance \u00b7 #finops",
+                "url": "https://dev.to/t/googlecloud",
+                "audience": "Cloud Infrastructure & SRE Practitioners",
+                "posting_angle": "Show exact Context Caching + speculative cascade routing implementation"
+              }
+            ],
+            "relevant_companies_and_pages": [
+              {
+                "company_id": "google_cloud",
+                "company_name": "Google Cloud",
+                "linkedin_page_tag": "@Google Cloud",
+                "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+                "x_handle": "@googlecloud",
+                "github_org_url": "https://github.com/GoogleCloudPlatform",
+                "role_in_post": "Managed Context Caching & `Vertex AI` Global Endpoint KV-cache reuse",
+                "reference_title": "Vertex AI Context Caching & Prefix Optimization",
+                "reference_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview"
+              },
+              {
+                "company_id": "anthropic",
+                "company_name": "Anthropic",
+                "linkedin_page_tag": "@Anthropic",
+                "linkedin_page_url": "https://www.linkedin.com/company/anthropicresearch/",
+                "x_handle": "@AnthropicAI",
+                "github_org_url": "https://github.com/anthropics",
+                "role_in_post": "Context engineering & episodic compaction research for long-horizon agents",
+                "reference_title": "Anthropic Engineering: Effective Context Engineering for AI Agents",
+                "reference_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+              },
+              {
+                "company_id": "langchain",
+                "company_name": "LangChain",
+                "linkedin_page_tag": "@LangChain",
+                "linkedin_page_url": "https://www.linkedin.com/company/langchain/",
+                "x_handle": "@LangChainAI",
+                "github_org_url": "https://github.com/langchain-ai",
+                "role_in_post": "State reducer & message history summarization (`LangMem` / `LangGraph`)",
+                "reference_title": "LangChain: Context Engineering for Agents",
+                "reference_url": "https://blog.langchain.dev/context-engineering-for-agents/"
+              },
+              {
+                "company_id": "llamaindex",
+                "company_name": "LlamaIndex",
+                "linkedin_page_tag": "@LlamaIndex",
+                "linkedin_page_url": "https://www.linkedin.com/company/llamaindex/",
+                "x_handle": "@llama_index",
+                "github_org_url": "https://github.com/run-llama/llama_index",
+                "role_in_post": "Hierarchical document & artifact URI pointer indexing (`Cloud Storage` + `AlloyDB`)",
+                "reference_title": "LlamaIndex: Context-Augmented Production Agents",
+                "reference_url": "https://www.llamaindex.ai/blog"
+              }
+            ],
+            "company_mentions_line_linkedin": "@Google Cloud \u00b7 @Anthropic \u00b7 @LangChain \u00b7 @LlamaIndex",
+            "company_mentions_line_x": "@googlecloud @AnthropicAI @LangChainAI @llama_index",
+            "hashtags_bundle": {
+              "linkedin_optimal_5": "#ContextEngineering #GoogleCloud #VertexAI #AgenticAI #LLMOps",
+              "niche_practitioner": "#KVCache #Anthropic #LangGraph #EnterpriseAI #GenAIArchitecture",
+              "company_ecosystem": "#GoogleCloud #Anthropic #LangGraph #LlamaIndex",
+              "full_hashtag_string": "#ContextEngineering #GoogleCloud #VertexAI #AgenticAI #LLMOps #KVCache #Anthropic #LangGraph #EnterpriseAI #GenAIArchitecture #LlamaIndex",
+              "all_tags_list": [
+                "#ContextEngineering",
+                "#GoogleCloud",
+                "#VertexAI",
+                "#AgenticAI",
+                "#LLMOps",
+                "#KVCache",
+                "#Anthropic",
+                "#LangGraph",
+                "#EnterpriseAI",
+                "#GenAIArchitecture",
+                "#LlamaIndex"
+              ]
+            },
+            "authoritative_references": [
+              {
+                "organization": "Saurav Muralidharan (LI-40) \u00b7 AI Mill (LI-14) \u00b7 Rakesh Gohel (LI-46)",
+                "title": "Pinned KV-Cache Prefix Layout & Episodic Context Compaction (Solving Context Rot)",
+                "url": "https://www.linkedin.com/feed/update/urn:li:activity:7524517275656327168",
+                "citation_type": "Primary Trigger Source"
+              },
+              {
+                "organization": "Google Cloud",
+                "title": "Vertex AI Context Caching & Prefix Optimization",
+                "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Anthropic",
+                "title": "Anthropic Engineering: Effective Context Engineering for AI Agents",
+                "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "LangChain",
+                "title": "LangChain: Context Engineering for Agents",
+                "url": "https://blog.langchain.dev/context-engineering-for-agents/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "LlamaIndex",
+                "title": "LlamaIndex: Context-Augmented Production Agents",
+                "url": "https://www.llamaindex.ai/blog",
+                "citation_type": "Official Company Engineering Reference"
+              }
+            ]
+          }
         },
         {
           "invention_id": "CS-INV-04",
@@ -218,7 +719,168 @@
           "target_org_id": "global_fortune500",
           "recommended_template_id": "T210",
           "recommended_grammar_id": "GRAMMAR-01",
-          "reference_repo_slug": "gcp-harnessevolve-golden-replay-gate"
+          "reference_repo_slug": "gcp-harnessevolve-golden-replay-gate",
+          "distribution_directory": {
+            "post_id": "CS-INV-04",
+            "resolved_profile_key": "IDEA-03",
+            "cluster_id": "CLUSTER_CODING_EVALS",
+            "linkedin_groups_primary": [
+              {
+                "name": "Generative AI & LLMs (Large Language Models) \u2014 Enterprise Practitioners",
+                "url": "https://www.linkedin.com/groups/12795132/",
+                "members": "480,000+",
+                "goal": "High comment velocity from Staff+ AI engineers solving production reliability bottlenecks"
+              },
+              {
+                "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+                "url": "https://www.linkedin.com/groups/12918440/",
+                "members": "92,000+",
+                "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+              },
+              {
+                "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+                "url": "https://www.linkedin.com/groups/3050257/",
+                "members": "420,000+",
+                "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+              }
+            ],
+            "linkedin_groups_niche_network": [
+              {
+                "name": "Artificial Intelligence, Machine Learning, Data Science & Robotics",
+                "url": "https://www.linkedin.com/groups/3671367/",
+                "members": "6,500,000+",
+                "goal": "Top-of-funnel impressions, repost velocity, and broad AI leadership visibility"
+              },
+              {
+                "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+                "url": "https://www.linkedin.com/groups/67905/",
+                "members": "610,000+",
+                "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+              }
+            ],
+            "cross_platform_pages_and_communities": [
+              {
+                "platform": "Hacker News",
+                "page_or_group": "Show HN / Technical Deep Dives",
+                "url": "https://news.ycombinator.com/",
+                "audience": "Principal Systems Engineers & Founders",
+                "posting_angle": "Lead with pass^5 = (pass@1)^5 decay math and reproducible 20-scenario eval_dataset.jsonl"
+              },
+              {
+                "platform": "Reddit",
+                "page_or_group": "r/MachineLearning & r/LanguageTechnology",
+                "url": "https://www.reddit.com/r/MachineLearning/",
+                "audience": "2.9M+ ML Researchers & Applied Scientists",
+                "posting_angle": "Highlight trajectory-level evaluator gates vs. single-turn LLM-as-a-Judge bias"
+              },
+              {
+                "platform": "Substack & Medium",
+                "page_or_group": "AI Engineering & Google Cloud Community",
+                "url": "https://medium.com/google-cloud",
+                "audience": "Enterprise AI Engineering Leaders",
+                "posting_angle": "Embed the 2D Architecture Blueprint SVG + step-by-step trajectory diff table"
+              }
+            ],
+            "relevant_companies_and_pages": [
+              {
+                "company_id": "google_cloud",
+                "company_name": "Google Cloud",
+                "linkedin_page_tag": "@Google Cloud",
+                "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+                "x_handle": "@googlecloud",
+                "github_org_url": "https://github.com/GoogleCloudPlatform",
+                "role_in_post": "Sandboxed `Cloud Run Jobs` verifier & `Vertex AI Evaluation Service`",
+                "reference_title": "Vertex AI GenAI Evaluation Service",
+                "reference_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview"
+              },
+              {
+                "company_id": "openhands",
+                "company_name": "All Hands AI (OpenHands)",
+                "linkedin_page_tag": "@All Hands AI",
+                "linkedin_page_url": "https://www.linkedin.com/company/all-hands-ai/",
+                "x_handle": "@allhands_ai",
+                "github_org_url": "https://github.com/All-Hands-AI/OpenHands",
+                "role_in_post": "Autonomous software engineering runtime (`OpenHands` pre-completion verification hooks)",
+                "reference_title": "OpenHands: Code-Act Verification & Benchmark Harness",
+                "reference_url": "https://docs.all-hands.dev/"
+              },
+              {
+                "company_id": "anthropic",
+                "company_name": "Anthropic",
+                "linkedin_page_tag": "@Anthropic",
+                "linkedin_page_url": "https://www.linkedin.com/company/anthropicresearch/",
+                "x_handle": "@AnthropicAI",
+                "github_org_url": "https://github.com/anthropics",
+                "role_in_post": "Evaluator-Optimizer workflow pattern from *Building Effective Agents*",
+                "reference_title": "Anthropic Engineering: Building Effective Agents",
+                "reference_url": "https://www.anthropic.com/engineering/building-effective-agents"
+              },
+              {
+                "company_id": "weights_biases",
+                "company_name": "Weights & Biases",
+                "linkedin_page_tag": "@Weights & Biases",
+                "linkedin_page_url": "https://www.linkedin.com/company/wandb/",
+                "x_handle": "@weights_biases",
+                "github_org_url": "https://github.com/wandb/weave",
+                "role_in_post": "Trajectory evaluation & assertion tracking (`W&B Weave`)",
+                "reference_title": "Weights & Biases Weave: Evaluating Agent Trajectories",
+                "reference_url": "https://wandb.ai/site/weave"
+              }
+            ],
+            "company_mentions_line_linkedin": "@Google Cloud \u00b7 @All Hands AI \u00b7 @Anthropic \u00b7 @Weights & Biases",
+            "company_mentions_line_x": "@googlecloud @allhands_ai @AnthropicAI @weights_biases",
+            "hashtags_bundle": {
+              "linkedin_optimal_5": "#AIEngineering #AgenticAI #GoogleCloud #OpenHands #LLMEvals",
+              "niche_practitioner": "#VertexAI #SoftwareEngineering #DevOps #TestDrivenDevelopment #CI_CD",
+              "company_ecosystem": "#GoogleCloud #OpenHands #Anthropic #LLMEvals",
+              "full_hashtag_string": "#AIEngineering #AgenticAI #GoogleCloud #OpenHands #LLMEvals #VertexAI #SoftwareEngineering #DevOps #TestDrivenDevelopment #CI_CD #Anthropic",
+              "all_tags_list": [
+                "#AIEngineering",
+                "#AgenticAI",
+                "#GoogleCloud",
+                "#OpenHands",
+                "#LLMEvals",
+                "#VertexAI",
+                "#SoftwareEngineering",
+                "#DevOps",
+                "#TestDrivenDevelopment",
+                "#CI_CD",
+                "#Anthropic"
+              ]
+            },
+            "authoritative_references": [
+              {
+                "organization": "Prashant Rathi (LI-01) \u00b7 Naman Pandey (LI-34) \u00b7 SWE-bench / \u03c4-bench Reliability Standard",
+                "title": "Multi-Trial Reliability Gate (pass^k vs pass@1) & Golden Trajectory Replay Harness",
+                "url": "https://www.linkedin.com/feed/update/urn:li:activity:7523067501476425728",
+                "citation_type": "Primary Trigger Source"
+              },
+              {
+                "organization": "Google Cloud",
+                "title": "Vertex AI GenAI Evaluation Service",
+                "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "All Hands AI (OpenHands)",
+                "title": "OpenHands: Code-Act Verification & Benchmark Harness",
+                "url": "https://docs.all-hands.dev/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Anthropic",
+                "title": "Anthropic Engineering: Building Effective Agents",
+                "url": "https://www.anthropic.com/engineering/building-effective-agents",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Weights & Biases",
+                "title": "Weights & Biases Weave: Evaluating Agent Trajectories",
+                "url": "https://wandb.ai/site/weave",
+                "citation_type": "Official Company Engineering Reference"
+              }
+            ]
+          }
         },
         {
           "invention_id": "CS-INV-05",
@@ -233,7 +895,168 @@
           "target_org_id": "cloud_hyperscaler",
           "recommended_template_id": "T219",
           "recommended_grammar_id": "GRAMMAR-10",
-          "reference_repo_slug": "gcp-adk-loop-circuit-breaker"
+          "reference_repo_slug": "gcp-adk-loop-circuit-breaker",
+          "distribution_directory": {
+            "post_id": "CS-INV-05",
+            "resolved_profile_key": "IDEA-01",
+            "cluster_id": "CLUSTER_INFERENCE_KV",
+            "linkedin_groups_primary": [
+              {
+                "name": "Artificial Intelligence, Machine Learning, Data Science & Robotics",
+                "url": "https://www.linkedin.com/groups/3671367/",
+                "members": "6,500,000+",
+                "goal": "Top-of-funnel impressions, repost velocity, and broad AI leadership visibility"
+              },
+              {
+                "name": "Generative AI & LLMs (Large Language Models) \u2014 Enterprise Practitioners",
+                "url": "https://www.linkedin.com/groups/12795132/",
+                "members": "480,000+",
+                "goal": "High comment velocity from Staff+ AI engineers solving production reliability bottlenecks"
+              },
+              {
+                "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+                "url": "https://www.linkedin.com/groups/3050257/",
+                "members": "420,000+",
+                "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+              }
+            ],
+            "linkedin_groups_niche_network": [
+              {
+                "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+                "url": "https://www.linkedin.com/groups/12918440/",
+                "members": "92,000+",
+                "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+              },
+              {
+                "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+                "url": "https://www.linkedin.com/groups/67905/",
+                "members": "610,000+",
+                "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+              }
+            ],
+            "cross_platform_pages_and_communities": [
+              {
+                "platform": "Reddit",
+                "page_or_group": "r/LocalLLaMA & r/googlecloud",
+                "url": "https://www.reddit.com/r/googlecloud/",
+                "audience": "580K+ Cloud & Inference Engineers",
+                "posting_angle": "Break down KV-cache prefix pinning, p95 latency (4,372ms -> 610ms), and $/1K workflow savings"
+              },
+              {
+                "platform": "Substack Notes",
+                "page_or_group": "Latent Space / AI Systems Engineering Notes",
+                "url": "https://www.latent.space/",
+                "audience": "AI Systems Architects & FinOps Leads",
+                "posting_angle": "Post the Before/After token & latency roofline card with link to evals/run_eval_suite.py"
+              },
+              {
+                "platform": "Dev.to & Hashnode",
+                "page_or_group": "#llmops \u00b7 #vertexai \u00b7 #performance \u00b7 #finops",
+                "url": "https://dev.to/t/googlecloud",
+                "audience": "Cloud Infrastructure & SRE Practitioners",
+                "posting_angle": "Show exact Context Caching + speculative cascade routing implementation"
+              }
+            ],
+            "relevant_companies_and_pages": [
+              {
+                "company_id": "google_cloud",
+                "company_name": "Google Cloud",
+                "linkedin_page_tag": "@Google Cloud",
+                "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+                "x_handle": "@googlecloud",
+                "github_org_url": "https://github.com/GoogleCloudPlatform",
+                "role_in_post": "Cloud Runtime (`Google Cloud ADK`, `Cloud Trace`, `Firestore` trajectory state, `Cloud Billing Budgets`)",
+                "reference_title": "Google Cloud ADK: Deterministic Loop Controls & Callbacks",
+                "reference_url": "https://google.github.io/adk-docs/"
+              },
+              {
+                "company_id": "langchain",
+                "company_name": "LangChain",
+                "linkedin_page_tag": "@LangChain",
+                "linkedin_page_url": "https://www.linkedin.com/company/langchain/",
+                "x_handle": "@LangChainAI",
+                "github_org_url": "https://github.com/langchain-ai",
+                "role_in_post": "Open-source graph orchestration (`LangGraph` recursion limit & cycle detection)",
+                "reference_title": "LangGraph: Controlling Graph Recursion & Loop Termination",
+                "reference_url": "https://langchain-ai.github.io/langgraph/"
+              },
+              {
+                "company_id": "arize_ai",
+                "company_name": "Arize AI",
+                "linkedin_page_tag": "@Arize AI",
+                "linkedin_page_url": "https://www.linkedin.com/company/arizeai/",
+                "x_handle": "@ArizeAI",
+                "github_org_url": "https://github.com/Arize-ai/phoenix",
+                "role_in_post": "OpenTelemetry GenAI span collection (`Arize Phoenix`) for loop root-cause detection",
+                "reference_title": "Arize Phoenix: OpenTelemetry Tracing for Agent Loops",
+                "reference_url": "https://docs.arize.com/phoenix"
+              },
+              {
+                "company_id": "datadog",
+                "company_name": "Datadog",
+                "linkedin_page_tag": "@Datadog",
+                "linkedin_page_url": "https://www.linkedin.com/company/datadog/",
+                "x_handle": "@datadoghq",
+                "github_org_url": "https://github.com/DataDog",
+                "role_in_post": "Enterprise LLM token burn-rate & runaway loop alerting",
+                "reference_title": "Datadog LLM Observability: Monitoring Agentic Workflows",
+                "reference_url": "https://www.datadoghq.com/blog/llm-observability/"
+              }
+            ],
+            "company_mentions_line_linkedin": "@Google Cloud \u00b7 @LangChain \u00b7 @Arize AI \u00b7 @Datadog",
+            "company_mentions_line_x": "@googlecloud @LangChainAI @ArizeAI @datadoghq",
+            "hashtags_bundle": {
+              "linkedin_optimal_5": "#AgenticAI #GoogleCloud #LLMOps #FinOps #AIEngineering",
+              "niche_practitioner": "#VertexAI #LangGraph #OpenTelemetry #CloudRun #SiteReliabilityEngineering",
+              "company_ecosystem": "#GoogleCloud #LangGraph #OpenTelemetry #LLMObservability",
+              "full_hashtag_string": "#AgenticAI #GoogleCloud #LLMOps #FinOps #AIEngineering #VertexAI #LangGraph #OpenTelemetry #CloudRun #SiteReliabilityEngineering #LLMObservability",
+              "all_tags_list": [
+                "#AgenticAI",
+                "#GoogleCloud",
+                "#LLMOps",
+                "#FinOps",
+                "#AIEngineering",
+                "#VertexAI",
+                "#LangGraph",
+                "#OpenTelemetry",
+                "#CloudRun",
+                "#SiteReliabilityEngineering",
+                "#LLMObservability"
+              ]
+            },
+            "authoritative_references": [
+              {
+                "organization": "Raju Dandigam (LI-55) \u00b7 OpenTelemetry GenAI Semantic Conventions",
+                "title": "Asynchronous Out-of-Band OpenTelemetry GenAI Span Collector & Failure Root-Cause Graph",
+                "url": "https://www.linkedin.com/feed/update/urn:li:activity:7524433958189588482",
+                "citation_type": "Primary Trigger Source"
+              },
+              {
+                "organization": "Google Cloud",
+                "title": "Google Cloud ADK: Deterministic Loop Controls & Callbacks",
+                "url": "https://google.github.io/adk-docs/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "LangChain",
+                "title": "LangGraph: Controlling Graph Recursion & Loop Termination",
+                "url": "https://langchain-ai.github.io/langgraph/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Arize AI",
+                "title": "Arize Phoenix: OpenTelemetry Tracing for Agent Loops",
+                "url": "https://docs.arize.com/phoenix",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Datadog",
+                "title": "Datadog LLM Observability: Monitoring Agentic Workflows",
+                "url": "https://www.datadoghq.com/blog/llm-observability/",
+                "citation_type": "Official Company Engineering Reference"
+              }
+            ]
+          }
         },
         {
           "invention_id": "CS-INV-06",
@@ -248,7 +1071,169 @@
           "target_org_id": "ai_native_startup",
           "recommended_template_id": "T211",
           "recommended_grammar_id": "GRAMMAR-02",
-          "reference_repo_slug": "gcp-a2a-typed-blackboard-handoffs"
+          "reference_repo_slug": "gcp-a2a-typed-blackboard-handoffs",
+          "distribution_directory": {
+            "post_id": "CS-INV-06",
+            "resolved_profile_key": "IDEA-05",
+            "cluster_id": "CLUSTER_MULTIAGENT_MEMORY",
+            "linkedin_groups_primary": [
+              {
+                "name": "Generative AI & LLMs (Large Language Models) \u2014 Enterprise Practitioners",
+                "url": "https://www.linkedin.com/groups/12795132/",
+                "members": "480,000+",
+                "goal": "High comment velocity from Staff+ AI engineers solving production reliability bottlenecks"
+              },
+              {
+                "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+                "url": "https://www.linkedin.com/groups/3050257/",
+                "members": "420,000+",
+                "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+              },
+              {
+                "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+                "url": "https://www.linkedin.com/groups/12918440/",
+                "members": "92,000+",
+                "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+              }
+            ],
+            "linkedin_groups_niche_network": [
+              {
+                "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+                "url": "https://www.linkedin.com/groups/67905/",
+                "members": "610,000+",
+                "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+              },
+              {
+                "name": "Chief Customer Officer (CCO), VP Customer Success & Value Realization",
+                "url": "https://www.linkedin.com/groups/4510921/",
+                "members": "180,000+",
+                "goal": "Customer Success leadership adoption of self-healing agentic playbooks and NRR expansion"
+              }
+            ],
+            "cross_platform_pages_and_communities": [
+              {
+                "platform": "Reddit",
+                "page_or_group": "r/AI_Agents & r/LangChain",
+                "url": "https://www.reddit.com/r/AI_Agents/",
+                "audience": "240K+ Multi-Agent Framework Developers",
+                "posting_angle": "Contrast chatty peer-to-peer loops with Typed A2A Blackboard + Cloud Spanner/Firestore state"
+              },
+              {
+                "platform": "GitHub & CNCF",
+                "page_or_group": "A2A Protocol & Google Cloud ADK Community",
+                "url": "https://github.com/google/adk-python",
+                "audience": "Enterprise Multi-Agent Architects",
+                "posting_angle": "Share JSON-Schema handoff contract + SHA-256 evidence receipt verification"
+              },
+              {
+                "platform": "Medium & Hashnode",
+                "page_or_group": "Towards AI & Enterprise Agentic Systems",
+                "url": "https://hashnode.com/n/ai",
+                "audience": "Staff Software Engineers & Tech Leads",
+                "posting_angle": "Walk through 100-session concurrency isolation and zero-context-bleed tests"
+              }
+            ],
+            "relevant_companies_and_pages": [
+              {
+                "company_id": "google_cloud",
+                "company_name": "Google Cloud",
+                "linkedin_page_tag": "@Google Cloud",
+                "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+                "x_handle": "@googlecloud",
+                "github_org_url": "https://github.com/GoogleCloudPlatform",
+                "role_in_post": "Creator of the open `Agent2Agent (A2A)` protocol, `ADK`, & `Cloud Spanner` blackboard state",
+                "reference_title": "Google Cloud: Agent2Agent (A2A) Interoperability Protocol",
+                "reference_url": "https://github.com/google/A2A"
+              },
+              {
+                "company_id": "pydantic",
+                "company_name": "Pydantic",
+                "linkedin_page_tag": "@Pydantic",
+                "linkedin_page_url": "https://www.linkedin.com/company/pydantic/",
+                "x_handle": "@pydantic",
+                "github_org_url": "https://github.com/pydantic/pydantic-ai",
+                "role_in_post": "`Pydantic v2` strict state contract validation between supervisor and worker agents",
+                "reference_title": "Pydantic v2: High-Performance Schema Validation",
+                "reference_url": "https://docs.pydantic.dev/latest/"
+              },
+              {
+                "company_id": "langchain",
+                "company_name": "LangChain",
+                "linkedin_page_tag": "@LangChain",
+                "linkedin_page_url": "https://www.linkedin.com/company/langchain/",
+                "x_handle": "@LangChainAI",
+                "github_org_url": "https://github.com/langchain-ai",
+                "role_in_post": "Typed `StateGraph` channels & deterministic handoffs (`LangGraph`)",
+                "reference_title": "LangGraph Multi-Agent Supervisor & Blackboard Patterns",
+                "reference_url": "https://langchain-ai.github.io/langgraph/concepts/multi_agent/"
+              },
+              {
+                "company_id": "servicenow",
+                "company_name": "ServiceNow",
+                "linkedin_page_tag": "@ServiceNow",
+                "linkedin_page_url": "https://www.linkedin.com/company/servicenow/",
+                "x_handle": "@ServiceNow",
+                "github_org_url": "https://github.com/ServiceNow",
+                "role_in_post": "Enterprise cross-domain ITSM/CRM multi-agent workflow orchestration",
+                "reference_title": "ServiceNow AI Research: Enterprise Multi-Agent Systems",
+                "reference_url": "https://www.servicenow.com/research/"
+              }
+            ],
+            "company_mentions_line_linkedin": "@Google Cloud \u00b7 @Pydantic \u00b7 @LangChain \u00b7 @ServiceNow",
+            "company_mentions_line_x": "@googlecloud @pydantic @LangChainAI @ServiceNow",
+            "hashtags_bundle": {
+              "linkedin_optimal_5": "#MultiAgentSystems #GoogleCloud #A2AProtocol #AgenticAI #EnterpriseArchitecture",
+              "niche_practitioner": "#GoogleCloudADK #Pydantic #LangGraph #CloudSpanner #DistributedSystems",
+              "company_ecosystem": "#GoogleCloud #PydanticAI #LangGraph #ServiceNow",
+              "full_hashtag_string": "#MultiAgentSystems #GoogleCloud #A2AProtocol #AgenticAI #EnterpriseArchitecture #GoogleCloudADK #Pydantic #LangGraph #CloudSpanner #DistributedSystems #PydanticAI #ServiceNow",
+              "all_tags_list": [
+                "#MultiAgentSystems",
+                "#GoogleCloud",
+                "#A2AProtocol",
+                "#AgenticAI",
+                "#EnterpriseArchitecture",
+                "#GoogleCloudADK",
+                "#Pydantic",
+                "#LangGraph",
+                "#CloudSpanner",
+                "#DistributedSystems",
+                "#PydanticAI",
+                "#ServiceNow"
+              ]
+            },
+            "authoritative_references": [
+              {
+                "organization": "Brij kishore Pandey (LI-49, LI-52) \u00b7 Google Cloud A2A Protocol Specification",
+                "title": "Typed Blackboard State Machine & JSON-Schema Contract Handoffs Across A2A Sub-Agents",
+                "url": "https://www.linkedin.com/feed/update/urn:li:activity:7524840702967611393",
+                "citation_type": "Primary Trigger Source"
+              },
+              {
+                "organization": "Google Cloud",
+                "title": "Google Cloud: Agent2Agent (A2A) Interoperability Protocol",
+                "url": "https://github.com/google/A2A",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Pydantic",
+                "title": "Pydantic v2: High-Performance Schema Validation",
+                "url": "https://docs.pydantic.dev/latest/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "LangChain",
+                "title": "LangGraph Multi-Agent Supervisor & Blackboard Patterns",
+                "url": "https://langchain-ai.github.io/langgraph/concepts/multi_agent/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "ServiceNow",
+                "title": "ServiceNow AI Research: Enterprise Multi-Agent Systems",
+                "url": "https://www.servicenow.com/research/",
+                "citation_type": "Official Company Engineering Reference"
+              }
+            ]
+          }
         },
         {
           "invention_id": "CS-LIVE-07",
@@ -263,7 +1248,168 @@
           "target_org_id": "global_fortune500",
           "recommended_template_id": "T212",
           "recommended_grammar_id": "GRAMMAR-03",
-          "reference_repo_slug": "gcp-mcp-zero-bloat-gateway"
+          "reference_repo_slug": "gcp-mcp-zero-bloat-gateway",
+          "distribution_directory": {
+            "post_id": "CS-LIVE-07",
+            "resolved_profile_key": "IDEA-03",
+            "cluster_id": "CLUSTER_CODING_EVALS",
+            "linkedin_groups_primary": [
+              {
+                "name": "Generative AI & LLMs (Large Language Models) \u2014 Enterprise Practitioners",
+                "url": "https://www.linkedin.com/groups/12795132/",
+                "members": "480,000+",
+                "goal": "High comment velocity from Staff+ AI engineers solving production reliability bottlenecks"
+              },
+              {
+                "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+                "url": "https://www.linkedin.com/groups/12918440/",
+                "members": "92,000+",
+                "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+              },
+              {
+                "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+                "url": "https://www.linkedin.com/groups/3050257/",
+                "members": "420,000+",
+                "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+              }
+            ],
+            "linkedin_groups_niche_network": [
+              {
+                "name": "Artificial Intelligence, Machine Learning, Data Science & Robotics",
+                "url": "https://www.linkedin.com/groups/3671367/",
+                "members": "6,500,000+",
+                "goal": "Top-of-funnel impressions, repost velocity, and broad AI leadership visibility"
+              },
+              {
+                "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+                "url": "https://www.linkedin.com/groups/67905/",
+                "members": "610,000+",
+                "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+              }
+            ],
+            "cross_platform_pages_and_communities": [
+              {
+                "platform": "Hacker News",
+                "page_or_group": "Show HN / Technical Deep Dives",
+                "url": "https://news.ycombinator.com/",
+                "audience": "Principal Systems Engineers & Founders",
+                "posting_angle": "Lead with pass^5 = (pass@1)^5 decay math and reproducible 20-scenario eval_dataset.jsonl"
+              },
+              {
+                "platform": "Reddit",
+                "page_or_group": "r/MachineLearning & r/LanguageTechnology",
+                "url": "https://www.reddit.com/r/MachineLearning/",
+                "audience": "2.9M+ ML Researchers & Applied Scientists",
+                "posting_angle": "Highlight trajectory-level evaluator gates vs. single-turn LLM-as-a-Judge bias"
+              },
+              {
+                "platform": "Substack & Medium",
+                "page_or_group": "AI Engineering & Google Cloud Community",
+                "url": "https://medium.com/google-cloud",
+                "audience": "Enterprise AI Engineering Leaders",
+                "posting_angle": "Embed the 2D Architecture Blueprint SVG + step-by-step trajectory diff table"
+              }
+            ],
+            "relevant_companies_and_pages": [
+              {
+                "company_id": "google_cloud",
+                "company_name": "Google Cloud",
+                "linkedin_page_tag": "@Google Cloud",
+                "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+                "x_handle": "@googlecloud",
+                "github_org_url": "https://github.com/GoogleCloudPlatform",
+                "role_in_post": "Sandboxed `Cloud Run Jobs` verifier & `Vertex AI Evaluation Service`",
+                "reference_title": "Vertex AI GenAI Evaluation Service",
+                "reference_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview"
+              },
+              {
+                "company_id": "openhands",
+                "company_name": "All Hands AI (OpenHands)",
+                "linkedin_page_tag": "@All Hands AI",
+                "linkedin_page_url": "https://www.linkedin.com/company/all-hands-ai/",
+                "x_handle": "@allhands_ai",
+                "github_org_url": "https://github.com/All-Hands-AI/OpenHands",
+                "role_in_post": "Autonomous software engineering runtime (`OpenHands` pre-completion verification hooks)",
+                "reference_title": "OpenHands: Code-Act Verification & Benchmark Harness",
+                "reference_url": "https://docs.all-hands.dev/"
+              },
+              {
+                "company_id": "anthropic",
+                "company_name": "Anthropic",
+                "linkedin_page_tag": "@Anthropic",
+                "linkedin_page_url": "https://www.linkedin.com/company/anthropicresearch/",
+                "x_handle": "@AnthropicAI",
+                "github_org_url": "https://github.com/anthropics",
+                "role_in_post": "Evaluator-Optimizer workflow pattern from *Building Effective Agents*",
+                "reference_title": "Anthropic Engineering: Building Effective Agents",
+                "reference_url": "https://www.anthropic.com/engineering/building-effective-agents"
+              },
+              {
+                "company_id": "weights_biases",
+                "company_name": "Weights & Biases",
+                "linkedin_page_tag": "@Weights & Biases",
+                "linkedin_page_url": "https://www.linkedin.com/company/wandb/",
+                "x_handle": "@weights_biases",
+                "github_org_url": "https://github.com/wandb/weave",
+                "role_in_post": "Trajectory evaluation & assertion tracking (`W&B Weave`)",
+                "reference_title": "Weights & Biases Weave: Evaluating Agent Trajectories",
+                "reference_url": "https://wandb.ai/site/weave"
+              }
+            ],
+            "company_mentions_line_linkedin": "@Google Cloud \u00b7 @All Hands AI \u00b7 @Anthropic \u00b7 @Weights & Biases",
+            "company_mentions_line_x": "@googlecloud @allhands_ai @AnthropicAI @weights_biases",
+            "hashtags_bundle": {
+              "linkedin_optimal_5": "#AIEngineering #AgenticAI #GoogleCloud #OpenHands #LLMEvals",
+              "niche_practitioner": "#VertexAI #SoftwareEngineering #DevOps #TestDrivenDevelopment #CI_CD",
+              "company_ecosystem": "#GoogleCloud #OpenHands #Anthropic #LLMEvals",
+              "full_hashtag_string": "#AIEngineering #AgenticAI #GoogleCloud #OpenHands #LLMEvals #VertexAI #SoftwareEngineering #DevOps #TestDrivenDevelopment #CI_CD #Anthropic",
+              "all_tags_list": [
+                "#AIEngineering",
+                "#AgenticAI",
+                "#GoogleCloud",
+                "#OpenHands",
+                "#LLMEvals",
+                "#VertexAI",
+                "#SoftwareEngineering",
+                "#DevOps",
+                "#TestDrivenDevelopment",
+                "#CI_CD",
+                "#Anthropic"
+              ]
+            },
+            "authoritative_references": [
+              {
+                "organization": "HuggingFace Daily Papers \u2022 Agent Evals (PIPE-02 \u2022 Verified Engineering Signal Floor)",
+                "title": "Beyond Single-Run Accuracy: Multi-Trial pass^k Consistency & Restraint Benchmarks",
+                "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents",
+                "citation_type": "Primary Trigger Source"
+              },
+              {
+                "organization": "Google Cloud",
+                "title": "Vertex AI GenAI Evaluation Service",
+                "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "All Hands AI (OpenHands)",
+                "title": "OpenHands: Code-Act Verification & Benchmark Harness",
+                "url": "https://docs.all-hands.dev/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Anthropic",
+                "title": "Anthropic Engineering: Building Effective Agents",
+                "url": "https://www.anthropic.com/engineering/building-effective-agents",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Weights & Biases",
+                "title": "Weights & Biases Weave: Evaluating Agent Trajectories",
+                "url": "https://wandb.ai/site/weave",
+                "citation_type": "Official Company Engineering Reference"
+              }
+            ]
+          }
         },
         {
           "invention_id": "CS-LIVE-08",
@@ -278,7 +1424,177 @@
           "target_org_id": "global_fortune500",
           "recommended_template_id": "T212",
           "recommended_grammar_id": "GRAMMAR-03",
-          "reference_repo_slug": "gcp-mcp-zero-bloat-gateway"
+          "reference_repo_slug": "gcp-mcp-zero-bloat-gateway",
+          "distribution_directory": {
+            "post_id": "CS-LIVE-08",
+            "resolved_profile_key": "MINT-01",
+            "cluster_id": "CLUSTER_MCP_IDENTITY",
+            "linkedin_groups_primary": [
+              {
+                "name": "Model Context Protocol (MCP), Agentic Tooling & Enterprise API Architecture",
+                "url": "https://www.linkedin.com/groups/13041020/",
+                "members": "195,000+",
+                "goal": "Targeted discussion on MCP schema discovery, OAuth 2.1 OBO, and Apigee gateway patterns"
+              },
+              {
+                "name": "Information Security, CISO Network, Cybersecurity & Zero-Trust AI",
+                "url": "https://www.linkedin.com/groups/38412/",
+                "members": "2,400,000+",
+                "goal": "CISO, AppSec, and SecOps shares on prompt-injection containment and OBO least privilege"
+              },
+              {
+                "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+                "url": "https://www.linkedin.com/groups/3050257/",
+                "members": "420,000+",
+                "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+              }
+            ],
+            "linkedin_groups_niche_network": [
+              {
+                "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+                "url": "https://www.linkedin.com/groups/12918440/",
+                "members": "92,000+",
+                "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+              },
+              {
+                "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+                "url": "https://www.linkedin.com/groups/67905/",
+                "members": "610,000+",
+                "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+              },
+              {
+                "name": "Chief Customer Officer (CCO), VP Customer Success & Value Realization",
+                "url": "https://www.linkedin.com/groups/4510921/",
+                "members": "180,000+",
+                "goal": "Customer Success leadership adoption of self-healing agentic playbooks and NRR expansion"
+              }
+            ],
+            "cross_platform_pages_and_communities": [
+              {
+                "platform": "Reddit",
+                "page_or_group": "r/LocalLLaMA & r/AI_Agents",
+                "url": "https://www.reddit.com/r/LocalLLaMA/",
+                "audience": "610K+ LLM Systems Builders",
+                "posting_angle": "Share the 58K -> 1.7K MCP token reduction benchmark table + eval_results.json"
+              },
+              {
+                "platform": "GitHub Discussions",
+                "page_or_group": "modelcontextprotocol/specification Discussions",
+                "url": "https://github.com/modelcontextprotocol/specification/discussions",
+                "audience": "Core MCP Maintainers & Enterprise Adopters",
+                "posting_angle": "Reference RFC 8693 OBO token exchange + progressive Top-K schema discovery"
+              },
+              {
+                "platform": "Dev.to & Hashnode",
+                "page_or_group": "#mcp \u00b7 #googlecloud \u00b7 #ai \u00b7 #security",
+                "url": "https://dev.to/t/mcp",
+                "audience": "Full-Stack & Cloud Native Developers",
+                "posting_angle": "Publish full Terraform + src/engine.py walkthrough with 1-click Cloud Run script"
+              }
+            ],
+            "relevant_companies_and_pages": [
+              {
+                "company_id": "google_cloud",
+                "company_name": "Google Cloud",
+                "linkedin_page_tag": "@Google Cloud",
+                "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+                "x_handle": "@googlecloud",
+                "github_org_url": "https://github.com/GoogleCloudPlatform",
+                "role_in_post": "Primary Cloud Runtime (`Apigee API Hub`, `Vertex AI Agent Engine`, `Cloud Run v2`, `Cloud KMS`)",
+                "reference_title": "Google Cloud Architecture Center: Enterprise AI & ADK",
+                "reference_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview"
+              },
+              {
+                "company_id": "anthropic",
+                "company_name": "Anthropic",
+                "linkedin_page_tag": "@Anthropic",
+                "linkedin_page_url": "https://www.linkedin.com/company/anthropicresearch/",
+                "x_handle": "@AnthropicAI",
+                "github_org_url": "https://github.com/anthropics",
+                "role_in_post": "Originator of the Model Context Protocol (`MCP`) & progressive tool discovery pattern",
+                "reference_title": "Anthropic Engineering: Code Execution & Progressive Tool Discovery with MCP",
+                "reference_url": "https://www.anthropic.com/engineering/code-execution-with-mcp"
+              },
+              {
+                "company_id": "pydantic",
+                "company_name": "Pydantic",
+                "linkedin_page_tag": "@Pydantic",
+                "linkedin_page_url": "https://www.linkedin.com/company/pydantic/",
+                "x_handle": "@pydantic",
+                "github_org_url": "https://github.com/pydantic/pydantic-ai",
+                "role_in_post": "Strict JSON-Schema tool argument validation (`PydanticAI` / `FastMCP`)",
+                "reference_title": "PydanticAI: Type-Safe Agent Tool Validation",
+                "reference_url": "https://ai.pydantic.dev/"
+              },
+              {
+                "company_id": "cloudflare",
+                "company_name": "Cloudflare",
+                "linkedin_page_tag": "@Cloudflare",
+                "linkedin_page_url": "https://www.linkedin.com/company/cloudflare/",
+                "x_handle": "@Cloudflare",
+                "github_org_url": "https://github.com/cloudflare/agents",
+                "role_in_post": "Zero-Trust Remote MCP Server & OAuth 2.1 Edge Gateway reference",
+                "reference_title": "Cloudflare Agents: Building Remote MCP Servers with OAuth",
+                "reference_url": "https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/"
+              }
+            ],
+            "company_mentions_line_linkedin": "@Google Cloud \u00b7 @Anthropic \u00b7 @Pydantic \u00b7 @Cloudflare",
+            "company_mentions_line_x": "@googlecloud @AnthropicAI @pydantic @Cloudflare",
+            "hashtags_bundle": {
+              "linkedin_optimal_5": "#ModelContextProtocol #GoogleCloud #VertexAI #AgenticAI #ZeroTrustAI",
+              "niche_practitioner": "#GoogleCloudADK #OAuth2 #Apigee #ContextEngineering #FastMCP #AIArchitecture",
+              "company_ecosystem": "#GoogleCloud #Anthropic #PydanticAI #ZeroTrust",
+              "full_hashtag_string": "#ModelContextProtocol #GoogleCloud #VertexAI #AgenticAI #ZeroTrustAI #GoogleCloudADK #OAuth2 #Apigee #ContextEngineering #FastMCP #AIArchitecture #Anthropic #PydanticAI #ZeroTrust",
+              "all_tags_list": [
+                "#ModelContextProtocol",
+                "#GoogleCloud",
+                "#VertexAI",
+                "#AgenticAI",
+                "#ZeroTrustAI",
+                "#GoogleCloudADK",
+                "#OAuth2",
+                "#Apigee",
+                "#ContextEngineering",
+                "#FastMCP",
+                "#AIArchitecture",
+                "#Anthropic",
+                "#PydanticAI",
+                "#ZeroTrust"
+              ]
+            },
+            "authoritative_references": [
+              {
+                "organization": "MCP & Cloud IAM \u2022 Enterprise Security (PIPE-02 \u2022 Verified High-Demand Signal Floor)",
+                "title": "Zero-Bloat MCP Tool Search with Per-Turn RFC 8693 OAuth 2.1 On-Behalf-Of Exchange",
+                "url": "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization",
+                "citation_type": "Primary Trigger Source"
+              },
+              {
+                "organization": "Google Cloud",
+                "title": "Google Cloud Architecture Center: Enterprise AI & ADK",
+                "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Anthropic",
+                "title": "Anthropic Engineering: Code Execution & Progressive Tool Discovery with MCP",
+                "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Pydantic",
+                "title": "PydanticAI: Type-Safe Agent Tool Validation",
+                "url": "https://ai.pydantic.dev/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Cloudflare",
+                "title": "Cloudflare Agents: Building Remote MCP Servers with OAuth",
+                "url": "https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/",
+                "citation_type": "Official Company Engineering Reference"
+              }
+            ]
+          }
         },
         {
           "invention_id": "CS-LIVE-09",
@@ -293,7 +1609,168 @@
           "target_org_id": "global_fortune500",
           "recommended_template_id": "T212",
           "recommended_grammar_id": "GRAMMAR-03",
-          "reference_repo_slug": "gcp-mcp-zero-bloat-gateway"
+          "reference_repo_slug": "gcp-mcp-zero-bloat-gateway",
+          "distribution_directory": {
+            "post_id": "CS-LIVE-09",
+            "resolved_profile_key": "IDEA-02",
+            "cluster_id": "CLUSTER_INFERENCE_KV",
+            "linkedin_groups_primary": [
+              {
+                "name": "Generative AI & LLMs (Large Language Models) \u2014 Enterprise Practitioners",
+                "url": "https://www.linkedin.com/groups/12795132/",
+                "members": "480,000+",
+                "goal": "High comment velocity from Staff+ AI engineers solving production reliability bottlenecks"
+              },
+              {
+                "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+                "url": "https://www.linkedin.com/groups/3050257/",
+                "members": "420,000+",
+                "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+              },
+              {
+                "name": "Artificial Intelligence, Machine Learning, Data Science & Robotics",
+                "url": "https://www.linkedin.com/groups/3671367/",
+                "members": "6,500,000+",
+                "goal": "Top-of-funnel impressions, repost velocity, and broad AI leadership visibility"
+              }
+            ],
+            "linkedin_groups_niche_network": [
+              {
+                "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+                "url": "https://www.linkedin.com/groups/67905/",
+                "members": "610,000+",
+                "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+              },
+              {
+                "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+                "url": "https://www.linkedin.com/groups/12918440/",
+                "members": "92,000+",
+                "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+              }
+            ],
+            "cross_platform_pages_and_communities": [
+              {
+                "platform": "Reddit",
+                "page_or_group": "r/LocalLLaMA & r/googlecloud",
+                "url": "https://www.reddit.com/r/googlecloud/",
+                "audience": "580K+ Cloud & Inference Engineers",
+                "posting_angle": "Break down KV-cache prefix pinning, p95 latency (4,372ms -> 610ms), and $/1K workflow savings"
+              },
+              {
+                "platform": "Substack Notes",
+                "page_or_group": "Latent Space / AI Systems Engineering Notes",
+                "url": "https://www.latent.space/",
+                "audience": "AI Systems Architects & FinOps Leads",
+                "posting_angle": "Post the Before/After token & latency roofline card with link to evals/run_eval_suite.py"
+              },
+              {
+                "platform": "Dev.to & Hashnode",
+                "page_or_group": "#llmops \u00b7 #vertexai \u00b7 #performance \u00b7 #finops",
+                "url": "https://dev.to/t/googlecloud",
+                "audience": "Cloud Infrastructure & SRE Practitioners",
+                "posting_angle": "Show exact Context Caching + speculative cascade routing implementation"
+              }
+            ],
+            "relevant_companies_and_pages": [
+              {
+                "company_id": "google_cloud",
+                "company_name": "Google Cloud",
+                "linkedin_page_tag": "@Google Cloud",
+                "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+                "x_handle": "@googlecloud",
+                "github_org_url": "https://github.com/GoogleCloudPlatform",
+                "role_in_post": "Managed Context Caching & `Vertex AI` Global Endpoint KV-cache reuse",
+                "reference_title": "Vertex AI Context Caching & Prefix Optimization",
+                "reference_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview"
+              },
+              {
+                "company_id": "anthropic",
+                "company_name": "Anthropic",
+                "linkedin_page_tag": "@Anthropic",
+                "linkedin_page_url": "https://www.linkedin.com/company/anthropicresearch/",
+                "x_handle": "@AnthropicAI",
+                "github_org_url": "https://github.com/anthropics",
+                "role_in_post": "Context engineering & episodic compaction research for long-horizon agents",
+                "reference_title": "Anthropic Engineering: Effective Context Engineering for AI Agents",
+                "reference_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+              },
+              {
+                "company_id": "langchain",
+                "company_name": "LangChain",
+                "linkedin_page_tag": "@LangChain",
+                "linkedin_page_url": "https://www.linkedin.com/company/langchain/",
+                "x_handle": "@LangChainAI",
+                "github_org_url": "https://github.com/langchain-ai",
+                "role_in_post": "State reducer & message history summarization (`LangMem` / `LangGraph`)",
+                "reference_title": "LangChain: Context Engineering for Agents",
+                "reference_url": "https://blog.langchain.dev/context-engineering-for-agents/"
+              },
+              {
+                "company_id": "llamaindex",
+                "company_name": "LlamaIndex",
+                "linkedin_page_tag": "@LlamaIndex",
+                "linkedin_page_url": "https://www.linkedin.com/company/llamaindex/",
+                "x_handle": "@llama_index",
+                "github_org_url": "https://github.com/run-llama/llama_index",
+                "role_in_post": "Hierarchical document & artifact URI pointer indexing (`Cloud Storage` + `AlloyDB`)",
+                "reference_title": "LlamaIndex: Context-Augmented Production Agents",
+                "reference_url": "https://www.llamaindex.ai/blog"
+              }
+            ],
+            "company_mentions_line_linkedin": "@Google Cloud \u00b7 @Anthropic \u00b7 @LangChain \u00b7 @LlamaIndex",
+            "company_mentions_line_x": "@googlecloud @AnthropicAI @LangChainAI @llama_index",
+            "hashtags_bundle": {
+              "linkedin_optimal_5": "#ContextEngineering #GoogleCloud #VertexAI #AgenticAI #LLMOps",
+              "niche_practitioner": "#KVCache #Anthropic #LangGraph #EnterpriseAI #GenAIArchitecture",
+              "company_ecosystem": "#GoogleCloud #Anthropic #LangGraph #LlamaIndex",
+              "full_hashtag_string": "#ContextEngineering #GoogleCloud #VertexAI #AgenticAI #LLMOps #KVCache #Anthropic #LangGraph #EnterpriseAI #GenAIArchitecture #LlamaIndex",
+              "all_tags_list": [
+                "#ContextEngineering",
+                "#GoogleCloud",
+                "#VertexAI",
+                "#AgenticAI",
+                "#LLMOps",
+                "#KVCache",
+                "#Anthropic",
+                "#LangGraph",
+                "#EnterpriseAI",
+                "#GenAIArchitecture",
+                "#LlamaIndex"
+              ]
+            },
+            "authoritative_references": [
+              {
+                "organization": "arXiv cs.CL \u2022 Structured Generation (PIPE-02 \u2022 Verified Engineering Signal Floor)",
+                "title": "Grammar-Aligned Speculative Decoding with Zero-Retry Schema Guarantees",
+                "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/control-generated-output",
+                "citation_type": "Primary Trigger Source"
+              },
+              {
+                "organization": "Google Cloud",
+                "title": "Vertex AI Context Caching & Prefix Optimization",
+                "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Anthropic",
+                "title": "Anthropic Engineering: Effective Context Engineering for AI Agents",
+                "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "LangChain",
+                "title": "LangChain: Context Engineering for Agents",
+                "url": "https://blog.langchain.dev/context-engineering-for-agents/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "LlamaIndex",
+                "title": "LlamaIndex: Context-Augmented Production Agents",
+                "url": "https://www.llamaindex.ai/blog",
+                "citation_type": "Official Company Engineering Reference"
+              }
+            ]
+          }
         },
         {
           "invention_id": "CS-LIVE-10",
@@ -308,7 +1785,168 @@
           "target_org_id": "global_fortune500",
           "recommended_template_id": "T212",
           "recommended_grammar_id": "GRAMMAR-03",
-          "reference_repo_slug": "gcp-mcp-zero-bloat-gateway"
+          "reference_repo_slug": "gcp-mcp-zero-bloat-gateway",
+          "distribution_directory": {
+            "post_id": "CS-LIVE-10",
+            "resolved_profile_key": "IDEA-03",
+            "cluster_id": "CLUSTER_CODING_EVALS",
+            "linkedin_groups_primary": [
+              {
+                "name": "Generative AI & LLMs (Large Language Models) \u2014 Enterprise Practitioners",
+                "url": "https://www.linkedin.com/groups/12795132/",
+                "members": "480,000+",
+                "goal": "High comment velocity from Staff+ AI engineers solving production reliability bottlenecks"
+              },
+              {
+                "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+                "url": "https://www.linkedin.com/groups/12918440/",
+                "members": "92,000+",
+                "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+              },
+              {
+                "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+                "url": "https://www.linkedin.com/groups/3050257/",
+                "members": "420,000+",
+                "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+              }
+            ],
+            "linkedin_groups_niche_network": [
+              {
+                "name": "Artificial Intelligence, Machine Learning, Data Science & Robotics",
+                "url": "https://www.linkedin.com/groups/3671367/",
+                "members": "6,500,000+",
+                "goal": "Top-of-funnel impressions, repost velocity, and broad AI leadership visibility"
+              },
+              {
+                "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+                "url": "https://www.linkedin.com/groups/67905/",
+                "members": "610,000+",
+                "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+              }
+            ],
+            "cross_platform_pages_and_communities": [
+              {
+                "platform": "Hacker News",
+                "page_or_group": "Show HN / Technical Deep Dives",
+                "url": "https://news.ycombinator.com/",
+                "audience": "Principal Systems Engineers & Founders",
+                "posting_angle": "Lead with pass^5 = (pass@1)^5 decay math and reproducible 20-scenario eval_dataset.jsonl"
+              },
+              {
+                "platform": "Reddit",
+                "page_or_group": "r/MachineLearning & r/LanguageTechnology",
+                "url": "https://www.reddit.com/r/MachineLearning/",
+                "audience": "2.9M+ ML Researchers & Applied Scientists",
+                "posting_angle": "Highlight trajectory-level evaluator gates vs. single-turn LLM-as-a-Judge bias"
+              },
+              {
+                "platform": "Substack & Medium",
+                "page_or_group": "AI Engineering & Google Cloud Community",
+                "url": "https://medium.com/google-cloud",
+                "audience": "Enterprise AI Engineering Leaders",
+                "posting_angle": "Embed the 2D Architecture Blueprint SVG + step-by-step trajectory diff table"
+              }
+            ],
+            "relevant_companies_and_pages": [
+              {
+                "company_id": "google_cloud",
+                "company_name": "Google Cloud",
+                "linkedin_page_tag": "@Google Cloud",
+                "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+                "x_handle": "@googlecloud",
+                "github_org_url": "https://github.com/GoogleCloudPlatform",
+                "role_in_post": "Sandboxed `Cloud Run Jobs` verifier & `Vertex AI Evaluation Service`",
+                "reference_title": "Vertex AI GenAI Evaluation Service",
+                "reference_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview"
+              },
+              {
+                "company_id": "openhands",
+                "company_name": "All Hands AI (OpenHands)",
+                "linkedin_page_tag": "@All Hands AI",
+                "linkedin_page_url": "https://www.linkedin.com/company/all-hands-ai/",
+                "x_handle": "@allhands_ai",
+                "github_org_url": "https://github.com/All-Hands-AI/OpenHands",
+                "role_in_post": "Autonomous software engineering runtime (`OpenHands` pre-completion verification hooks)",
+                "reference_title": "OpenHands: Code-Act Verification & Benchmark Harness",
+                "reference_url": "https://docs.all-hands.dev/"
+              },
+              {
+                "company_id": "anthropic",
+                "company_name": "Anthropic",
+                "linkedin_page_tag": "@Anthropic",
+                "linkedin_page_url": "https://www.linkedin.com/company/anthropicresearch/",
+                "x_handle": "@AnthropicAI",
+                "github_org_url": "https://github.com/anthropics",
+                "role_in_post": "Evaluator-Optimizer workflow pattern from *Building Effective Agents*",
+                "reference_title": "Anthropic Engineering: Building Effective Agents",
+                "reference_url": "https://www.anthropic.com/engineering/building-effective-agents"
+              },
+              {
+                "company_id": "weights_biases",
+                "company_name": "Weights & Biases",
+                "linkedin_page_tag": "@Weights & Biases",
+                "linkedin_page_url": "https://www.linkedin.com/company/wandb/",
+                "x_handle": "@weights_biases",
+                "github_org_url": "https://github.com/wandb/weave",
+                "role_in_post": "Trajectory evaluation & assertion tracking (`W&B Weave`)",
+                "reference_title": "Weights & Biases Weave: Evaluating Agent Trajectories",
+                "reference_url": "https://wandb.ai/site/weave"
+              }
+            ],
+            "company_mentions_line_linkedin": "@Google Cloud \u00b7 @All Hands AI \u00b7 @Anthropic \u00b7 @Weights & Biases",
+            "company_mentions_line_x": "@googlecloud @allhands_ai @AnthropicAI @weights_biases",
+            "hashtags_bundle": {
+              "linkedin_optimal_5": "#AIEngineering #AgenticAI #GoogleCloud #OpenHands #LLMEvals",
+              "niche_practitioner": "#VertexAI #SoftwareEngineering #DevOps #TestDrivenDevelopment #CI_CD",
+              "company_ecosystem": "#GoogleCloud #OpenHands #Anthropic #LLMEvals",
+              "full_hashtag_string": "#AIEngineering #AgenticAI #GoogleCloud #OpenHands #LLMEvals #VertexAI #SoftwareEngineering #DevOps #TestDrivenDevelopment #CI_CD #Anthropic",
+              "all_tags_list": [
+                "#AIEngineering",
+                "#AgenticAI",
+                "#GoogleCloud",
+                "#OpenHands",
+                "#LLMEvals",
+                "#VertexAI",
+                "#SoftwareEngineering",
+                "#DevOps",
+                "#TestDrivenDevelopment",
+                "#CI_CD",
+                "#Anthropic"
+              ]
+            },
+            "authoritative_references": [
+              {
+                "organization": "Autonomous SWE \u2022 Sandbox Verification (PIPE-02 \u2022 Verified High-Demand Signal Floor)",
+                "title": "Orthogonal Builder-vs-Judge Coding Agents Inside Isolated gVisor Replay Sandboxes",
+                "url": "https://docs.all-hands.dev/usage/architecture/runtime",
+                "citation_type": "Primary Trigger Source"
+              },
+              {
+                "organization": "Google Cloud",
+                "title": "Vertex AI GenAI Evaluation Service",
+                "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "All Hands AI (OpenHands)",
+                "title": "OpenHands: Code-Act Verification & Benchmark Harness",
+                "url": "https://docs.all-hands.dev/",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Anthropic",
+                "title": "Anthropic Engineering: Building Effective Agents",
+                "url": "https://www.anthropic.com/engineering/building-effective-agents",
+                "citation_type": "Official Company Engineering Reference"
+              },
+              {
+                "organization": "Weights & Biases",
+                "title": "Weights & Biases Weave: Evaluating Agent Trajectories",
+                "url": "https://wandb.ai/site/weave",
+                "citation_type": "Official Company Engineering Reference"
+              }
+            ]
+          }
         }
       ]
     },
@@ -473,6 +2111,18 @@
   },
   "latest_auto_healed_actions": [],
   "run_history": [
+    {
+      "run_id": "critic-20261109T152256Z",
+      "timestamp_utc": "2026-11-09T15:22:56.421137+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1029,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
     {
       "run_id": "critic-20261109T071420Z",
       "timestamp_utc": "2026-11-09T07:14:20.807926+00:00",

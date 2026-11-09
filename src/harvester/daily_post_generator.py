@@ -15,6 +15,7 @@ Complies with:
 """
 
 from __future__ import annotations
+from src.catalog.post_distribution_directory import resolve_distribution_directory_for_post
 
 import hashlib
 import json
@@ -882,6 +883,16 @@ class DailyLinkedInPostEngine:
         target_date = edition_date.strip() or store.get("latest_edition_date", "")
         edition = (store.get("editions") or {}).get(target_date)
         posts = edition["posts"] if edition else store.get("latest_posts", [])
+        for _p in posts:
+            if "distribution_directory" not in _p:
+                _dist = resolve_distribution_directory_for_post(
+                    post_id=_p.get("id", ""),
+                    title=_p.get("topic_title", ""),
+                    primary_url=_p.get("primary_url", ""),
+                    source_channel=_p.get("source_channel", ""),
+                )
+                _p["distribution_directory"] = _dist
+                _p["company_mentions_line_linkedin"] = _dist["company_mentions_line_linkedin"]
         return {
             "status": "OK",
             "latest_edition_date": store.get("latest_edition_date", target_date),

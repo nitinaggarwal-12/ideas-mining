@@ -828,26 +828,74 @@ async function openRepoInspector(slug) {
       const cols = mkEl("div", "miner-feeds-grid");
       cols.style.marginTop = "10px";
 
+      const distDir = detail.distribution_directory || plan || {};
       const pBox = mkEl("div", "feed-item-card");
       pBox.style.background = "#ffffff";
-      pBox.appendChild(mkEl("div", "eyebrow-label", "PRIMARY HIGH-REACH GROUPS"));
-      (plan.linkedin_groups_primary || []).forEach((g) => {
+      pBox.appendChild(mkEl("div", "eyebrow-label", "PRIMARY HIGH-REACH LINKEDIN GROUPS"));
+      (distDir.linkedin_groups_primary || plan.linkedin_groups_primary || []).forEach((g) => {
         const line = mkEl("div", "", `• ${g.name} (${g.members}) — ${g.goal}`);
         line.style.cssText = "font-size:12px;color:#334155;margin-top:4px;";
+        if (g.url) {
+          const lnk = mkEl("a", "", " [Group ↗]");
+          lnk.href = safeUrl(g.url);
+          lnk.target = "_blank";
+          lnk.style.cssText = "color:#2563eb;font-weight:700;text-decoration:none;margin-left:4px;";
+          line.appendChild(lnk);
+        }
         pBox.appendChild(line);
       });
 
       const nBox = mkEl("div", "feed-item-card");
       nBox.style.background = "#ffffff";
       nBox.appendChild(mkEl("div", "eyebrow-label", "NICHE EXECUTIVE & ARCHITECT GROUPS"));
-      (plan.linkedin_groups_niche_network || []).forEach((g) => {
+      (distDir.linkedin_groups_niche_network || plan.linkedin_groups_niche_network || []).forEach((g) => {
         const line = mkEl("div", "", `• ${g.name} (${g.members}) — ${g.goal}`);
         line.style.cssText = "font-size:12px;color:#334155;margin-top:4px;";
+        if (g.url) {
+          const lnk = mkEl("a", "", " [Group ↗]");
+          lnk.href = safeUrl(g.url);
+          lnk.target = "_blank";
+          lnk.style.cssText = "color:#2563eb;font-weight:700;text-decoration:none;margin-left:4px;";
+          line.appendChild(lnk);
+        }
         nBox.appendChild(line);
       });
 
       cols.append(pBox, nBox);
       planCard.appendChild(cols);
+
+      if (distDir.relevant_companies_and_pages && distDir.relevant_companies_and_pages.length) {
+        const compBox = mkEl("div", "feed-item-card");
+        compBox.style.cssText = "background:#ffffff;margin-top:10px;";
+        compBox.appendChild(mkEl("div", "eyebrow-label", "RELEVANT COMPANY PAGES (@MENTIONS) & OFFICIAL ENGINEERING REFERENCES"));
+        distDir.relevant_companies_and_pages.forEach((c) => {
+          const cRow = mkEl("div", "", `• ${c.linkedin_page_tag} (${c.x_handle}) — ${c.role_in_post} `);
+          cRow.style.cssText = "font-size:12px;color:#0f172a;margin-top:5px;";
+          const refA = mkEl("a", "", `[${c.reference_title} ↗]`);
+          refA.href = safeUrl(c.reference_url);
+          refA.target = "_blank";
+          refA.style.cssText = "color:#1d4ed8;font-weight:700;text-decoration:none;";
+          cRow.appendChild(refA);
+          compBox.appendChild(cRow);
+        });
+        planCard.appendChild(compBox);
+      }
+
+      if (distDir.hashtags_bundle) {
+        const tagBox = mkEl("div", "feed-item-card");
+        tagBox.style.cssText = "background:#f8fafc;margin-top:10px;";
+        tagBox.appendChild(mkEl("div", "eyebrow-label", "HASHTAGS & CROSS-PLATFORM COMMUNITIES"));
+        const tLine = mkEl("div", "", `LinkedIn Optimal 5: ${distDir.hashtags_bundle.linkedin_optimal_5}  |  Full Set: ${distDir.hashtags_bundle.full_hashtag_string}`);
+        tLine.style.cssText = "font-size:12px;font-weight:700;color:#1e40af;margin-top:4px;";
+        tagBox.appendChild(tLine);
+        (distDir.cross_platform_pages_and_communities || []).forEach((cp) => {
+          const cpLine = mkEl("div", "", `• ${cp.platform}: ${cp.page_or_group} (${cp.audience}) — ${cp.posting_angle}`);
+          cpLine.style.cssText = "font-size:11.5px;color:#334155;margin-top:3px;";
+          tagBox.appendChild(cpLine);
+        });
+        planCard.appendChild(tagBox);
+      }
+
       liTab.appendChild(planCard);
     }
 
@@ -2371,8 +2419,12 @@ function switchDailyVisualTab(postId, mode) {
 async function copyDailyPostText(postId) {
   const p = (STATE.dailyPosts || []).find((item) => item.id === postId);
   if (!p) return;
-  const fullPayload = `${p.linkedin_post_text}\n\n${p.hashtags || ""}\n\n---\n${p.first_comment_source}`;
-  await copyTextSafe(fullPayload, `Copied Post + Comment #1 (${p.canonical_template_id})!`);
+  const dd = p.distribution_directory || {};
+  const compTags = dd.company_mentions_line_linkedin ? `\nMentions: ${dd.company_mentions_line_linkedin}` : "";
+  const grpLine = (dd.linkedin_groups_primary || []).map((g) => `${g.name} (${g.url})`).join(" | ");
+  const fullTags = dd.hashtags_bundle?.full_hashtag_string || p.hashtags || "";
+  const fullPayload = `${p.linkedin_post_text}${compTags}\n\n${fullTags}\n\n---\n${p.first_comment_source}${grpLine ? `\nTarget Groups: ${grpLine}` : ""}`;
+  await copyTextSafe(fullPayload, `Copied Post + @Companies + Groups + Comment #1 (${p.canonical_template_id})!`);
 }
 
 function renderDailyGeneratedPosts() {
@@ -2433,9 +2485,22 @@ function renderDailyGeneratedPosts() {
     stage.append(imSvg, imPng);
     top.appendChild(stage);
 
-    const copyBox = mkEl("div", "daily-post-copy-box", `${polishUiTypography(p.linkedin_post_text)}\n\n${p.hashtags || ""}`);
+    const dd = p.distribution_directory || {};
+    const fullHash = dd.hashtags_bundle?.full_hashtag_string || p.hashtags || "";
+    const copyBox = mkEl("div", "daily-post-copy-box", `${polishUiTypography(p.linkedin_post_text)}\n\n${fullHash}`);
     copyBox.id = `daily-copy-text-${p.id}`;
     top.appendChild(copyBox);
+
+    if (dd.relevant_companies_and_pages && dd.relevant_companies_and_pages.length) {
+      const distStrip = mkEl("div", "feed-item-card");
+      distStrip.style.cssText = "background:#f8fafc;border:1px solid #e2e8f0;padding:8px 10px;border-radius:8px;margin-top:8px;font-size:11.5px;color:#334155;";
+      const cLine = mkEl("div", "", `🏢 Companies: ${dd.company_mentions_line_linkedin}`);
+      cLine.style.cssText = "font-weight:700;color:#0f172a;margin-bottom:3px;";
+      const gNames = (dd.linkedin_groups_primary || []).map((g) => `${g.name} (${g.members})`).join(" · ");
+      const gLine = mkEl("div", "", `👥 Groups: ${gNames}`);
+      distStrip.append(cLine, gLine);
+      top.appendChild(distStrip);
+    }
     card.appendChild(top);
 
     const foot = mkEl("div", "repo-card-footer");
@@ -3208,6 +3273,30 @@ function renderTop5ComposerCopySection() {
     mount.appendChild(
       mkEl("div", "composer-followup-note", `First Comment / Reply #2: ${pkg.follow_up_comment}`)
     );
+  }
+
+  const activeIdeaObj = getActiveTop5Idea();
+  const top5Dist = activeIdeaObj?.distribution_directory;
+  if (top5Dist) {
+    const distBar = mkEl("div", "feed-item-card");
+    distBar.setAttribute("data-testid", "top5-distribution-directory-bar");
+    distBar.style.cssText = "background:#f8fafc;border:1px solid #cbd5e1;padding:10px 12px;border-radius:8px;margin-top:8px;font-size:12px;color:#1e293b;";
+    const compRow = mkEl("div", "", `🏢 Tag Companies: ${top5Dist.company_mentions_line_linkedin}  (${top5Dist.company_mentions_line_x})`);
+    compRow.style.cssText = "font-weight:700;color:#0f172a;margin-bottom:4px;";
+    const grpRow = mkEl(
+      "div",
+      "",
+      `👥 Target LinkedIn Groups: ${(top5Dist.linkedin_groups_primary || []).map((g) => `${g.name} (${g.members})`).join(" · ")}`
+    );
+    grpRow.style.cssText = "color:#334155;margin-bottom:4px;";
+    const tagRow = mkEl(
+      "div",
+      "",
+      `#️⃣ Hashtags: ${top5Dist.hashtags_bundle?.full_hashtag_string || ""}`
+    );
+    tagRow.style.cssText = "color:#1d4ed8;font-weight:600;";
+    distBar.append(compRow, grpRow, tagRow);
+    mount.appendChild(distBar);
   }
 
   if (isExpanded || STATE.persona === "builder") {

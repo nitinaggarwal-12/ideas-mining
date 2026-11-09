@@ -20,6 +20,7 @@ from src.catalog.career_minting_catalog import (
     FLAGSHIP_MINT01_24SLIDE_URL,
     get_minted_repo_specs,
 )
+from src.catalog.post_distribution_directory import resolve_distribution_directory_for_post
 from src.catalog.posts_catalog import (
     CREATOR_MINING_PLAYBOOK,
     MINED_TEMPLATE_POSTS_CATALOG,
@@ -473,6 +474,14 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                 item["git_commit_sha"] = receipt.get("openhands_trajectory", {}).get("git_commit_sha", "verified")
                 item["verification"] = receipt.get("verification", {})
                 item["openhands_trajectory"] = receipt.get("openhands_trajectory", {})
+                _pid = item.get("id") or item.get("code") or ""
+                _psrc = item.get("primary_source") if isinstance(item.get("primary_source"), dict) else {}
+                item["distribution_directory"] = resolve_distribution_directory_for_post(
+                    post_id=_pid,
+                    title=item.get("post_title") or item.get("repo_name") or "",
+                    primary_url=_psrc.get("url", ""),
+                    source_channel=_psrc.get("creator", ""),
+                )
                 enriched_repos.append(item)
 
             self._send_json(
@@ -523,11 +532,47 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             detail["eval_results"] = eval_results
             detail["eval_dataset_preview"] = eval_dataset_preview
             detail["eval_runner_py"] = eval_runner_py
+            _pid = detail.get("id") or detail.get("code") or ""
+            _psrc = detail.get("primary_source") if isinstance(detail.get("primary_source"), dict) else {}
+            _dist = resolve_distribution_directory_for_post(
+                post_id=_pid,
+                title=detail.get("post_title") or detail.get("repo_name") or "",
+                primary_url=_psrc.get("url", ""),
+                source_channel=_psrc.get("creator", ""),
+            )
+            detail["distribution_directory"] = _dist
+            if isinstance(detail.get("template_and_distribution_plan"), dict):
+                detail["template_and_distribution_plan"] = dict(detail["template_and_distribution_plan"])
+                detail["template_and_distribution_plan"]["linkedin_groups_primary"] = _dist["linkedin_groups_primary"]
+                detail["template_and_distribution_plan"]["linkedin_groups_niche_network"] = _dist["linkedin_groups_niche_network"]
+                detail["template_and_distribution_plan"]["cross_platform_pages_and_communities"] = _dist["cross_platform_pages_and_communities"]
+                detail["template_and_distribution_plan"]["relevant_companies_and_pages"] = _dist["relevant_companies_and_pages"]
+                detail["template_and_distribution_plan"]["hashtags_bundle"] = _dist["hashtags_bundle"]
+                detail["template_and_distribution_plan"]["authoritative_references"] = _dist["authoritative_references"]
             detail["linkedin_post_draft"] = li_draft
             detail["nano_banana_3_prompt"] = nb3_prompt
             detail["architecture_blueprint_spec"] = nb3_prompt
             detail["slides"] = slides_manifest.get("slides", [])
             self._send_json(200, detail)
+            return
+
+        if path == "/api/distribution-directory":
+            entries = []
+            for p in ALL_CATALOG_ITEMS:
+                _pid = p.get("id") or p.get("code") or ""
+                _psrc = p.get("primary_source") if isinstance(p.get("primary_source"), dict) else {}
+                entries.append({
+                    "post_id": _pid,
+                    "repo_slug": p.get("repo_slug", ""),
+                    "title": p.get("post_title") or p.get("repo_name") or p.get("hook") or "",
+                    "distribution_directory": resolve_distribution_directory_for_post(
+                        post_id=_pid,
+                        title=p.get("post_title") or p.get("repo_name") or "",
+                        primary_url=_psrc.get("url", ""),
+                        source_channel=_psrc.get("creator", ""),
+                    ),
+                })
+            self._send_json(200, {"status": "READY", "total_posts": len(entries), "posts": entries})
             return
 
         if path == "/api/live-mining-feeds":

@@ -1,6 +1,6 @@
 {
   "status": "READY",
-  "generated_at": "2026-11-09T07:14:23.589474+00:00",
+  "generated_at": "2026-11-09T15:22:59.159310+00:00",
   "topic_query": "",
   "zero_manual_links_required": true,
   "total_discovered_signals": 16,
@@ -1150,25 +1150,25 @@
       }
     },
     {
-      "signal_id": "AUTO-F7EE3A3A",
-      "fingerprint": "f7ee3a3ae96b8361",
+      "signal_id": "AUTO-88E356FC",
+      "fingerprint": "88e356fca27747e8",
       "source_pipeline": "PIPE-01 \u2022 Frontier Sitemap + OpenGraph Diff",
       "source_channel": "Anthropic \u2022 Engineering, Research & System Cards (Sitemap + OpenGraph Diff)",
-      "title": "Teaching AI to build scientific models",
-      "summary": "AI for Science grantees Jakob Macke, Daniel Gedon, and Stefan Wahl on how AI is starting to change how scientific models are built and interpreted.",
-      "primary_url": "https://www.anthropic.com/research/teaching-ai-to-build-scientific-models",
-      "published_at": "2026-11-07",
+      "title": "Progress on provable inference for large language models",
+      "summary": "Sharing progress on a powerful type of cryptographic proof known as a zkSNARK, which is uniquely fit for provable inference.",
+      "primary_url": "https://www.anthropic.com/research/provable-inference",
+      "published_at": "2026-11-09",
       "metrics_hint": "Direct Sitemap Diff (Anthropic Engineering Blueprint + Claude Code / MCP Architecture)",
-      "cluster_id": "CLUSTER_MCP_IDENTITY",
-      "cluster_label": "MCP, Tool Routing & Zero-Trust Identity",
-      "demand_score": 79.5,
+      "cluster_id": "CLUSTER_MULTIAGENT_MEMORY",
+      "cluster_label": "Multi-Agent Orchestration, GraphRAG & Memory",
+      "demand_score": 81.7,
       "scores": {
         "novelty": 88.0,
         "quantitative_density": 68.0,
-        "practitioner_utility": 75.0,
-        "visualizability": 78.0,
-        "composite_score": 77.1,
-        "demand_score": 79.5
+        "practitioner_utility": 80.0,
+        "visualizability": 81.0,
+        "composite_score": 79.2,
+        "demand_score": 81.7
       },
       "prescription": {
         "recommended_primary_format": "4:5 Portrait Animated Architecture Infographic (`GIF89a` / Silent Loop)",
@@ -1185,10 +1185,10 @@
           "YouTube Shorts / Reels (45s 9:16 Narrated Trace)"
         ],
         "target_groups_and_communities": [
-          "Reddit: r/ExperiencedDevs (420K+) & r/AI_Agents (190K+)",
-          "LinkedIn: Artificial Intelligence, ML & Generative AI (1.8M+)",
-          "X Community: AI Engineers & Agent Builders (85K+)",
-          "DEV.to (#ai, #testing, #devops) & GitHub Discussions"
+          "Reddit: r/LocalLLaMA (580K+) & r/MachineLearning (3.0M+)",
+          "LinkedIn: LLMOps, MLOps & Production AI Architects (140K+)",
+          "X Community: Systems & GPU Programming (65K+)",
+          "Hacker News Frontpage (`Show HN` / Systems Deep-Dive)"
         ],
         "optimal_posting_window": "Tue\u2013Thu 07:45\u201308:45 AM EST (LinkedIn) \u2022 09:15 AM EST (X & Reddit) \u2022 12:15 PM EST (Shorts)",
         "studio_action_route": "View 10: Step-by-Step Serial & Parallel Trace Studio -> `\ud83c\udf9e\ufe0f Export 4:5 LinkedIn Animated GIF (1080\u00d71350)`"

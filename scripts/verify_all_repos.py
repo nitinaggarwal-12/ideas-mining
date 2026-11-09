@@ -135,6 +135,9 @@ def verify_all() -> dict:
         readme_text = (r_dir / "README.md").read_text(encoding="utf-8") if (r_dir / "README.md").exists() else ""
         if "Open-Source + Google Cloud Stack Pairing" not in readme_text or "LangGraph" not in readme_text:
             failures.append(f"[{slug}] README.md missing the Open-Source + Google Cloud Stack Pairing section")
+        li_draft_text = (r_dir / "linkedin_post_draft.md").read_text(encoding="utf-8") if (r_dir / "linkedin_post_draft.md").exists() else ""
+        if "Target Groups, Pages, `@Company` Mentions, Hashtags & Verified References" not in li_draft_text or "linkedin.com/company/" not in li_draft_text:
+            failures.append(f"[{slug}] linkedin_post_draft.md missing Target Groups, @Company Mentions, Hashtags & Verified References appendix")
         dyn_svg_text = (r_dir / "visuals" / "dynamic-solution-flow.svg").read_text(encoding="utf-8") if (r_dir / "visuals" / "dynamic-solution-flow.svg").exists() else ""
         if dyn_svg_text.count("OSS: ") != 4 or dyn_svg_text.count("GOOGLE: ") != 4:
             failures.append(f"[{slug}] dynamic-solution-flow.svg missing the 4 dual Google+OSS step pills")

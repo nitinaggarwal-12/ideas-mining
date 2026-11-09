@@ -9,6 +9,7 @@ Implements the complete editorial decision pipeline:
 """
 
 from __future__ import annotations
+from src.catalog.post_distribution_directory import resolve_distribution_directory_for_post
 
 from datetime import datetime, timedelta, timezone
 import hashlib
@@ -709,6 +710,13 @@ class DailyTop5EditorialEngine:
                     "default_template_id": lead_tpl["template_id"],
                     "default_recommended_mode": lead_tpl["recommended_mode"],
                     "omnichannel_prescription": prescribe_format_duration_channels_and_groups(idea),
+                    "distribution_directory": resolve_distribution_directory_for_post(
+                        post_id=idea_id,
+                        title=idea["title"],
+                        cluster_id=idea["cluster_id"],
+                        primary_url=idea["primary_url"],
+                        source_channel=idea.get("source_channel", "Verified Signal"),
+                    ),
                     "matching_templates": top5_templates,
                 }
             )
@@ -738,6 +746,15 @@ class DailyTop5EditorialEngine:
                 if cached.get("certified_pool_size") != len(TEMPLATE_META):
                     cached["certified_pool_size"] = len(TEMPLATE_META)
                     DAILY_TOP5_BRIEFING_JSON.write_text(json.dumps(cached, indent=2), encoding="utf-8")
+                for _it in cached.get("ideas", []):
+                    if "distribution_directory" not in _it:
+                        _it["distribution_directory"] = resolve_distribution_directory_for_post(
+                            post_id=_it.get("id", ""),
+                            title=_it.get("title", ""),
+                            cluster_id=_it.get("cluster_id", ""),
+                            primary_url=_it.get("primary_url", ""),
+                            source_channel=_it.get("source_channel", "Verified Signal"),
+                        )
                 if not edition_date or cached.get("edition_date") == edition_date:
                     return cached
             except Exception:

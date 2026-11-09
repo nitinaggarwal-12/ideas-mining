@@ -1,7 +1,7 @@
 {
   "sources": {
     "SITEMAP-ANTHROPIC": {
-      "last_checked_utc": "2026-11-09T07:14:23.587675+00:00",
+      "last_checked_utc": "2026-11-09T15:22:59.157861+00:00",
       "entries": [
         {
           "title": "Anthropic Research: Contextual Retrieval & Prompt-Cached BM25 + Embedding Hybrid RAG",
@@ -22,15 +22,15 @@
           "published_at": "2026-11-08"
         },
         {
-          "title": "Teaching AI to build scientific models",
-          "summary": "AI for Science grantees Jakob Macke, Daniel Gedon, and Stefan Wahl on how AI is starting to change how scientific models are built and interpreted.",
-          "primary_url": "https://www.anthropic.com/research/teaching-ai-to-build-scientific-models",
-          "published_at": "2026-11-07"
+          "title": "Progress on provable inference for large language models",
+          "summary": "Sharing progress on a powerful type of cryptographic proof known as a zkSNARK, which is uniquely fit for provable inference.",
+          "primary_url": "https://www.anthropic.com/research/provable-inference",
+          "published_at": "2026-11-09"
         }
       ]
     },
     "SITEMAP-MISTRAL": {
-      "last_checked_utc": "2026-11-09T07:14:23.587702+00:00",
+      "last_checked_utc": "2026-11-09T15:22:59.157884+00:00",
       "entries": [
         {
           "title": "Mistral AI Engineering: High-Throughput Sparse MoE & Structured Function Calling at Scale",
@@ -41,5 +41,5 @@
       ]
     }
   },
-  "updated_at": "2026-11-09T07:14:23.587708+00:00"
+  "updated_at": "2026-11-09T15:22:59.157888+00:00"
 }

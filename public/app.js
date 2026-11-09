@@ -724,14 +724,15 @@ async function openRepoInspector(slug) {
     const promptBox = mkEl("div", "visual-preview-box");
     const pHdr = mkEl("div", "composer-section-hdr");
     pHdr.style.marginBottom = "8px";
-    pHdr.appendChild(mkEl("strong", "", "Visual Generation Specification (nano_banana_3_prompt.md)"));
+    pHdr.appendChild(mkEl("strong", "", "Canonical 2D Architecture Blueprint Specification (#78 & Poster IR)"));
+    const specText = detail.architecture_blueprint_spec || detail.nano_banana_3_prompt || "";
     const cpBtn = mkEl("button", "btn-secondary", "Copy Spec");
     cpBtn.type = "button";
     cpBtn.addEventListener("click", () =>
-      copyTextSafe(detail.nano_banana_3_prompt || "", "Copied visual generation prompt!")
+      copyTextSafe(specText, "Copied architecture blueprint specification!")
     );
     pHdr.appendChild(cpBtn);
-    const pre = mkEl("pre", "code-block-light", detail.nano_banana_3_prompt || "");
+    const pre = mkEl("pre", "code-block-light", specText);
     pre.id = "nb3-prompt-pre";
     promptBox.append(pHdr, pre);
     visTab.appendChild(promptBox);
@@ -5359,6 +5360,60 @@ async function loadAndRenderSelfCriticHarness(triggerRun = false) {
         acts.append(aSvg, aDio, aPptx);
         card.append(top, h3, sub, acts);
         gapsGrid.appendChild(card);
+      });
+    }
+
+    const csGrid = document.getElementById("customer-success-inventions-grid");
+    const csCountPill = document.getElementById("cs-inventions-count-pill");
+    const csRadar = data.discovery_and_gap_radar?.customer_success_invention_radar;
+    if (csCountPill && csRadar?.inventions) {
+      csCountPill.textContent = `${csRadar.inventions.length} Agentic AI Inventions Mapped to Customer KPIs`;
+    }
+    if (csGrid && csRadar?.inventions) {
+      csGrid.replaceChildren();
+      csRadar.inventions.forEach((inv) => {
+        const card = mkEl("article", "repo-card");
+        const top = mkEl("div", "masthead-eyebrow-row");
+        top.append(
+          mkEl("span", "pill-badge pill-emerald tabular-nums", `${inv.invention_id} · ${inv.recommended_template_id}`),
+          mkEl("span", "pill-badge pill-sky", inv.discovery_category || "Agentic AI Invention")
+        );
+        const h3 = mkEl("h3", "subsection-heading", inv.invention_title);
+        h3.style.margin = "8px 0 6px";
+        const pain = mkEl("p", "", `Customer Blocker: ${inv.customer_pain_point}`);
+        pain.style.cssText = "font-size:11.5px;color:#334155;margin-bottom:6px;line-height:1.45;";
+        const rx = mkEl("p", "", `Playbook Fix: ${inv.customer_success_prescription}`);
+        rx.style.cssText = "font-size:11.5px;color:#0f172a;margin-bottom:6px;line-height:1.45;";
+        const kpi = mkEl("p", "", `Value Realized: ${inv.quantified_value_kpis}`);
+        kpi.style.cssText = "font-size:11.5px;color:#065f46;font-weight:700;margin-bottom:10px;";
+
+        const acts = mkEl("div", "studio-toolbar-actions");
+        const aBp = mkEl("a", "btn-secondary", `Blueprint ${inv.recommended_template_id} ↗`);
+        aBp.href = safeUrl(`/assets/template-gallery/${inv.recommended_template_id}.svg`);
+        aBp.target = "_blank";
+        aBp.rel = "noopener";
+        const btnSynth = mkEl("button", "btn-secondary", "Synthesize Custom Lens");
+        btnSynth.type = "button";
+        btnSynth.addEventListener("click", () => {
+          const tIn = document.getElementById("gen-template-topic-input");
+          const pSel = document.getElementById("gen-template-persona-select");
+          const oSel = document.getElementById("gen-template-org-select");
+          if (tIn) tIn.value = inv.invention_title;
+          if (pSel && inv.target_persona_id) pSel.value = inv.target_persona_id;
+          if (oSel && inv.target_org_id) oSel.value = inv.target_org_id;
+          document.getElementById("tab-btn-gallery")?.click();
+          triggerSynthesizeCustomTemplate();
+        });
+        const btnRepo = mkEl("button", "btn-primary", "Inspect ADK Repo →");
+        btnRepo.type = "button";
+        btnRepo.addEventListener("click", () => {
+          if (typeof openRepoInspector === "function") {
+            openRepoInspector(inv.reference_repo_slug || "gcp-mcp-zero-bloat-gateway");
+          }
+        });
+        acts.append(aBp, btnSynth, btnRepo);
+        card.append(top, h3, pain, rx, kpi, acts);
+        csGrid.appendChild(card);
       });
     }
 

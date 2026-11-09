@@ -1,4 +1,4 @@
-"""Render the Consolidated 116-Template Certified Gallery (72 Best + 44 High, plus 23 T79 Topic Posts) and write gallery_manifest.json."""
+"""Render the Consolidated 116-Template Certified Gallery (84 Best + 44 High, plus 23 T79 Topic Posts) and write gallery_manifest.json."""
 
 from concurrent.futures import ThreadPoolExecutor
 import json

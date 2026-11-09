@@ -13,6 +13,7 @@ sys.path.insert(0, str(WORKSPACE_ROOT))
 from src.catalog.career_minting_catalog import CAREER_MINTING_TOPICS, get_minted_repo_specs
 from src.catalog.posts_catalog import POSTS_CATALOG
 from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
+from src.visuals.canonical_template_registry import get_gallery_summary
 
 
 def verify_all() -> dict:
@@ -38,18 +39,22 @@ def verify_all() -> dict:
     minted_specs = list(get_minted_repo_specs())
     all_items = minted_specs + list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
 
-    # 1b. Audit the 116-template Certified Visual Gallery (72 Best + 44 High, 0 Medium/Low/Worst, 23 T79 Topic Posts)
+    # 1b. Audit the Certified Visual Gallery (128 templates: 84 Best + 44 High, 0 Medium/Low/Worst, 23 T79 Topic Posts)
+    expected_summary = get_gallery_summary()
+    expected_total = expected_summary["template_count"]
+    expected_best = expected_summary["best_count"]
+    expected_high = expected_summary["high_count"]
     gallery_dir = WORKSPACE_ROOT / "assets" / "template-gallery"
     manifest = gallery_dir / "gallery_manifest.json"
     if not manifest.exists():
         failures.append("Template gallery manifest missing: assets/template-gallery/gallery_manifest.json")
     else:
         manifest_data = json.loads(manifest.read_text(encoding="utf-8"))
-        if manifest_data.get("template_count") != 116:
-            failures.append(f"Template gallery manifest expected 116 templates, found {manifest_data.get('template_count')}")
-        if manifest_data.get("best_count") != 72 or manifest_data.get("high_count") != 44:
+        if manifest_data.get("template_count") != expected_total:
+            failures.append(f"Template gallery manifest expected {expected_total} templates, found {manifest_data.get('template_count')}")
+        if manifest_data.get("best_count") != expected_best or manifest_data.get("high_count") != expected_high:
             failures.append(
-                f"Template gallery tier counts mismatch: best={manifest_data.get('best_count')}, high={manifest_data.get('high_count')}"
+                f"Template gallery tier counts mismatch: best={manifest_data.get('best_count')} (expected {expected_best}), high={manifest_data.get('high_count')} (expected {expected_high})"
             )
         if manifest_data.get("medium_low_worst_count", 0) != 0:
             failures.append(f"Found non-zero Medium/Low/Worst templates: {manifest_data.get('medium_low_worst_count')}")

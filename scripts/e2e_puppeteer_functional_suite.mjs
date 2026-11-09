@@ -398,10 +398,10 @@ try {
   );
   await page.click('#miner-subtab-btn-composer');
 
-  // 2. Test View 2: 116 Certified Visual Blueprints + Lightbox Zoom
+  // 2. Test View 2: 128 Certified Visual Blueprints + Lightbox Zoom
   await page.click('#tab-btn-gallery');
   await page.waitForFunction(
-    () => document.querySelectorAll('#gallery-cards-grid .repo-card').length === 116,
+    () => document.querySelectorAll('#gallery-cards-grid .repo-card').length === 128,
     { timeout: 12000 }
   );
   const galleryAllCheck = await page.evaluate(() => ({
@@ -410,8 +410,8 @@ try {
     t79TopicsCount: document.querySelectorAll('[data-testid="t79-topic-posts-showcase"] a').length,
   }));
   recordAssertion(
-    'Blueprints View Renders 116 Templates, 23 T79 Spine Variants & 12 Stack Pairings',
-    galleryAllCheck.cards === 116 && galleryAllCheck.pairings === 12 && galleryAllCheck.t79TopicsCount === 23,
+    'Blueprints View Renders 128 Templates, 23 T79 Spine Variants & 12 Stack Pairings',
+    galleryAllCheck.cards === 128 && galleryAllCheck.pairings === 12 && galleryAllCheck.t79TopicsCount === 23,
     `cards=${galleryAllCheck.cards}, t79Variants=${galleryAllCheck.t79TopicsCount}, pairings=${galleryAllCheck.pairings}`
   );
 
@@ -428,8 +428,8 @@ try {
   const highTierCount = await page.$$eval('#gallery-cards-grid .repo-card', (els) => els.length);
   await page.select('#gallery-filter-tier', 'ALL');
   recordAssertion(
-    'Blueprints Quality Tier Filters (72 Best + 44 High)',
-    bestTierCount === 72 && highTierCount === 44,
+    'Blueprints Quality Tier Filters (84 Best + 44 High)',
+    bestTierCount === 84 && highTierCount === 44,
     `best=${bestTierCount}, high=${highTierCount}`
   );
   await page.mouse.move(10, 10);
@@ -628,16 +628,16 @@ try {
     return { postCards, decodedImgs, creators, platformPills, xLeaders, pres12, channels, archetypes };
   });
   recordAssertion(
-    'Creator Radar Renders 46 Posts (44 Decoded Visuals), 47 Creators, 10 Platforms, 15 X Leaders & 12 Formats',
-    playbookCheck.postCards === 46 &&
-      playbookCheck.decodedImgs === 44 &&
-      playbookCheck.creators === 47 &&
+    'Creator Radar Renders 60 Posts (58 Decoded Visuals), 55 Creators, 10 Platforms, 15 X Leaders & 12 Formats',
+    playbookCheck.postCards === 60 &&
+      playbookCheck.decodedImgs === 58 &&
+      playbookCheck.creators === 55 &&
       playbookCheck.platformPills === 10 &&
       playbookCheck.xLeaders === 15 &&
       playbookCheck.pres12 === 12 &&
       playbookCheck.channels === 6 &&
       playbookCheck.archetypes === 4,
-    `posts=${playbookCheck.postCards} (imgs=${playbookCheck.decodedImgs}/44), creators=${playbookCheck.creators}, platforms=${playbookCheck.platformPills}, xLeaders=${playbookCheck.xLeaders}, pres12=${playbookCheck.pres12}, ch=${playbookCheck.channels}`
+    `posts=${playbookCheck.postCards} (imgs=${playbookCheck.decodedImgs}/58), creators=${playbookCheck.creators}, platforms=${playbookCheck.platformPills}, xLeaders=${playbookCheck.xLeaders}, pres12=${playbookCheck.pres12}, ch=${playbookCheck.channels}`
   );
   // Restore default Posts sub-tab on Playbook
   await page.click('#playbook-subtab-btn-posts');

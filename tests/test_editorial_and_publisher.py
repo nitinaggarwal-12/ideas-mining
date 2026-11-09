@@ -435,6 +435,35 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
         self.assertTrue(rc["geometry_check"]["zero_collision"])
         self.assertEqual(len(rc["persona_critiques"]), 4)
 
+    def test_13_raster_deconstructor_post_code_and_customer_success_radar(self) -> None:
+        from scripts.verify_all_repos import verify_all
+        from src.harvester.autonomous_omnichannel_miner import discover_customer_success_agentic_inventions
+        from src.visuals.raster_to_dynamic_ir_deconstructor import deconstruct_raster_to_dynamic_continuum
+
+        res_li16 = deconstruct_raster_to_dynamic_continuum(source_id_or_path="LI-16", compile_gif=False)
+        self.assertIn("7523000944440008704", res_li16["source_image_name"])
+        self.assertIn("5 layers of agent memory", res_li16["post_title"])
+
+        res_li49 = deconstruct_raster_to_dynamic_continuum(source_id_or_path="LI-49", compile_gif=False)
+        self.assertIn("7524855506109267968", res_li49["source_image_name"])
+        self.assertIn("One Architecture Diagram", res_li49["post_title"])
+
+        cs_radar = discover_customer_success_agentic_inventions(force_live=False)
+        self.assertEqual(cs_radar["status"], "READY")
+        self.assertGreaterEqual(len(cs_radar["inventions"]), 6)
+        for inv in cs_radar["inventions"]:
+            self.assertTrue(inv.get("invention_id"))
+            self.assertTrue(inv.get("customer_pain_point"))
+            self.assertTrue(inv.get("customer_success_prescription"))
+            self.assertTrue(inv.get("quantified_value_kpis"))
+            self.assertTrue(inv.get("recommended_template_id"))
+            self.assertTrue(inv.get("reference_repo_slug"))
+
+        repo_gate = verify_all()
+        self.assertTrue(repo_gate["gate_passed"], f"verify_all_repos failures: {repo_gate['failures']}")
+        self.assertEqual(len(repo_gate["failures"]), 0)
+
 
 if __name__ == "__main__":
     unittest.main()
+

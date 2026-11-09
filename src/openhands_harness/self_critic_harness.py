@@ -26,7 +26,11 @@ from src.catalog.omnichannel_creator_radar import (
     REVIEWED_LINKEDIN_POSTS,
     UNIFIED_CREATOR_PROFILES,
 )
-from src.harvester.autonomous_omnichannel_miner import get_or_run_autonomous_discovery
+import subprocess
+from src.harvester.autonomous_omnichannel_miner import (
+    discover_customer_success_agentic_inventions,
+    get_or_run_autonomous_discovery,
+)
 from src.harvester.daily_top5_editorial_engine import DailyTop5EditorialEngine
 from src.harvester.idea_miner import summarize_clean_boundary
 from src.publisher.multi_platform_publisher import PLATFORM_SPECS
@@ -519,8 +523,22 @@ class AutonomousSelfCriticHarness:
     # Loop 3B: Auto-Heal Missing or Corrupt Template Assets & Discovery Gaps
     # ------------------------------------------------------------------
     def heal_discovery_gap_exemplars(self) -> List[str]:
-        """Ensure all 6 Persona × Org discovery gap exemplars are pre-synthesized and verified on disk."""
+        """Ensure all 128 canonical PNGs and all 6 Persona × Org discovery gap exemplars are verified on disk."""
         actions: List[str] = []
+        for tid in TEMPLATE_META:
+            png_p = GALLERY_DIR / f"{tid}.png"
+            gif_p = GALLERY_DIR / f"{tid}.gif"
+            if (not png_p.exists() or png_p.stat().st_size == 0) and gif_p.exists():
+                try:
+                    subprocess.run(
+                        ["ffmpeg", "-y", "-i", str(gif_p), "-frames:v", "1", str(png_p)],
+                        check=True,
+                        stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL,
+                    )
+                    actions.append(f"Auto-generated missing gallery thumbnail {tid}.png from {tid}.gif.")
+                except Exception:
+                    pass
         CUSTOM_GEN_DIR.mkdir(parents=True, exist_ok=True)
         for gap in DISCOVERY_GAP_EXEMPLAR_SPECS:
             slug = gap["gap_id"].lower()
@@ -602,9 +620,10 @@ class AutonomousSelfCriticHarness:
             }
         )
 
-        # Gate 4: Cross-Format 4-Way Parity (SVG <-> Draw.io <-> PPTX <-> Google Slides)
+        # Gate 4: Cross-Format 5-Way Parity (SVG <-> PNG <-> GIF <-> Draw.io <-> PPTX <-> Google Slides)
         drawio_valid = sum(1 for tid in TEMPLATE_META if _inspect_drawio_xml(GALLERY_DIR / f"{tid}.drawio")["valid"])
         pptx_valid = sum(1 for tid in TEMPLATE_META if _inspect_pptx_zip(GALLERY_DIR / f"{tid}.pptx"))
+        png_valid = sum(1 for tid in TEMPLATE_META if (GALLERY_DIR / f"{tid}.png").exists() and (GALLERY_DIR / f"{tid}.png").stat().st_size > 1000)
         gm_path = GALLERY_DIR / "gallery_manifest.json"
         slides_count = 0
         if gm_path.exists():
@@ -613,15 +632,15 @@ class AutonomousSelfCriticHarness:
                 slides_count = sum(1 for t in gm_data.get("templates", []) if t.get("google_slides_url"))
             except Exception:
                 slides_count = 0
-        g4_pass = drawio_valid == svg_total and pptx_valid == svg_total and slides_count >= 39
+        g4_pass = drawio_valid == svg_total and pptx_valid == svg_total and png_valid == svg_total and slides_count >= 39
         gates.append(
             {
                 "gate_id": "G4_CROSS_FORMAT_4WAY_PARITY",
-                "name": "4-Way Asset Parity (SVG · Draw.io XML · OpenXML PPTX · Google Slides)",
+                "name": "5-Way Asset Parity (SVG · PNG · GIF · Draw.io XML · Editable PPTX · Google Slides)",
                 "status": "PASS" if g4_pass else "FAIL",
                 "score": 100.0 if g4_pass else 80.0,
-                "metrics": f"{drawio_valid}/{svg_total} Draw.io mxGraphModels · {pptx_valid}/{svg_total} Editable PPTX · {slides_count} Live Google Slides",
-                "what_it_prevents": "Prevents broken Draw.io files, non-editable raster PPTX stubs, or missing Google Slides bridges.",
+                "metrics": f"{drawio_valid}/{svg_total} Draw.io · {pptx_valid}/{svg_total} PPTX · {png_valid}/{svg_total} PNG · {slides_count} Live Google Slides",
+                "what_it_prevents": "Prevents missing PNG thumbnails (T210–T221), broken Draw.io files, non-editable PPTX stubs, or missing Google Slides bridges.",
             }
         )
 
@@ -648,10 +667,25 @@ class AutonomousSelfCriticHarness:
         # Gate 6: UI & Catalog Truth Synchronization Gate
         index_html = (PUBLIC_DIR / "index.html").read_text(encoding="utf-8") if (PUBLIC_DIR / "index.html").exists() else ""
         app_js = (PUBLIC_DIR / "app.js").read_text(encoding="utf-8") if (PUBLIC_DIR / "app.js").exists() else ""
-        stale_tokens_present = any(
-            bad in index_html
-            for bad in ("116 Templates", "116 Certified Blueprints", "47 Creator Portfolios", "46 Audited Posts")
-        ) or (".slice(0, 116)" in app_js) or ("In 46-Post Audit" in app_js)
+        stale_tokens_present = (
+            any(
+                bad in index_html
+                for bad in (
+                    "116 Templates",
+                    "116 Certified Blueprints",
+                    "47 Creator Portfolios",
+                    "46 Audited Posts",
+                    "LI-01 · Aishwarya Reganti",
+                    "LI-14 · Brij kishore Pandey",
+                    "LI-34 · Gautami Nadkarni",
+                    "LI-38 · Prashant Rathi",
+                    "LI-40 · Anurag Karuparti",
+                )
+            )
+            or (".slice(0, 116)" in app_js)
+            or ("In 46-Post Audit" in app_js)
+            or ("Visual Generation Specification (nano_banana_3_prompt.md)" in app_js)
+        )
         g6_pass = (not stale_tokens_present) and briefing.get("certified_pool_size") == svg_total
         gates.append(
             {
@@ -745,8 +779,10 @@ class AutonomousSelfCriticHarness:
                 }
             )
 
+        cs_radar = discover_customer_success_agentic_inventions(force_live=refresh_live)
         return {
             "upstream_pipelines_active": 5,
+            "customer_success_invention_radar": cs_radar,
             "tracked_rss_syndicate_feeds": upstream.get("tracked_rss_feeds_count", 15),
             "audited_linkedin_corpus": len(REVIEWED_LINKEDIN_POSTS),
             "verified_creators": len(UNIFIED_CREATOR_PROFILES),

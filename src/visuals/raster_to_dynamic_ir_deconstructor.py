@@ -341,21 +341,26 @@ def deconstruct_raster_to_dynamic_continuum(
         img_path.write_bytes(img_bytes)
     else:
         clean_src = source_id_or_path.strip()
-        # Match by URN, LI-XX index, or relative/local asset path
-        for p in CREATOR_MINING_PLAYBOOK.get("reviewed_posts", []):
+        # Match by post_code (LI-01..LI-60), activity_id/urn, rank, or image_url/url
+        for idx, p in enumerate(CREATOR_MINING_PLAYBOOK.get("reviewed_posts", []), start=1):
+            p_code = str(p.get("post_code") or f"LI-{int(p.get('rank') or p.get('index') or idx):02d}").upper()
+            p_urn = str(p.get("activity_id") or p.get("urn") or "")
+            p_img = str(p.get("image_url") or p.get("local_image") or "")
+            p_url = str(p.get("url") or p.get("post_url") or "")
             if clean_src and (
-                clean_src == str(p.get("urn"))
-                or clean_src.upper() == f"LI-{int(p.get('index', 0)):02d}"
-                or clean_src in str(p.get("local_image") or "")
-                or clean_src in str(p.get("post_url") or "")
+                clean_src.upper() == p_code
+                or clean_src == p_urn
+                or (p_img and clean_src in p_img)
+                or (p_url and clean_src in p_url)
             ):
                 matched_post = p
                 break
-        if matched_post and matched_post.get("local_image"):
-            rel_img = str(matched_post["local_image"]).lstrip("/")
-            cand = WORKSPACE_ROOT / rel_img
-            if cand.exists():
-                img_path = cand
+        if matched_post:
+            raw_img_ref = str(matched_post.get("image_url") or matched_post.get("local_image") or "").lstrip("/")
+            if raw_img_ref:
+                cand = WORKSPACE_ROOT / raw_img_ref
+                if cand.exists():
+                    img_path = cand
         if img_path is None and clean_src.startswith("/assets/"):
             cand = (WORKSPACE_ROOT / clean_src.lstrip("/")).resolve()
             if cand.is_relative_to((WORKSPACE_ROOT / "assets").resolve()) and cand.exists():
@@ -379,8 +384,11 @@ def deconstruct_raster_to_dynamic_continuum(
 
     # 3. Extract semantic topic & structure from matched post or custom hint
     if matched_post:
-        topic_text = f"{matched_post.get('author', '')}: {matched_post.get('hook', '')} — {matched_post.get('core_thesis', '')}"
-        post_title = matched_post.get("hook") or matched_post.get("core_thesis") or img_path.stem
+        author_str = matched_post.get("author_name") or matched_post.get("author") or ""
+        hook_str = matched_post.get("hook_line_1") or matched_post.get("hook") or ""
+        thesis_str = matched_post.get("content_structure") or matched_post.get("core_thesis") or ""
+        topic_text = f"{author_str}: {hook_str} — {thesis_str}".strip(" —:")
+        post_title = hook_str or thesis_str or img_path.stem
     elif custom_hint.strip():
         topic_text = custom_hint.strip()
         post_title = custom_hint.strip()[:88]

@@ -29,6 +29,7 @@ from src.catalog.posts_catalog import (
 from src.catalog.stack_pairings import OSS_GOOGLE_PAIRINGS
 from src.catalog.tomorrow_top10_catalog import TOMORROW_TOP10_IDEAS
 from src.harvester.autonomous_omnichannel_miner import (
+    discover_customer_success_agentic_inventions,
     get_or_run_autonomous_discovery,
     run_autonomous_zero_link_discovery,
 )
@@ -513,6 +514,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             detail["engine_py"] = engine_py
             detail["linkedin_post_draft"] = li_draft
             detail["nano_banana_3_prompt"] = nb3_prompt
+            detail["architecture_blueprint_spec"] = nb3_prompt
             detail["slides"] = slides_manifest.get("slides", [])
             self._send_json(200, detail)
             return
@@ -576,6 +578,12 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
 
         if path == "/api/templates/generative-matrix":
             self._send_json(200, get_generative_matrix_catalog())
+            return
+
+        if path == "/api/customer-success/radar":
+            topic_q = (qs.get("q") or qs.get("topic") or [""])[0].strip()[:180]
+            force_live = (qs.get("refresh") or ["0"])[0].strip().lower() in ("1", "true", "yes")
+            self._send_json(200, discover_customer_success_agentic_inventions(topic_query=topic_q, force_live=force_live))
             return
 
         if path == "/api/harness/self-critic":
@@ -886,6 +894,12 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             )
             self._send_json(200, bundle)
             return
+        if path == "/api/customer-success/discover":
+            topic_q = str(payload.get("topic_query") or payload.get("topic") or "").strip()[:180]
+            force_live = bool(payload.get("force_live", False))
+            self._send_json(200, discover_customer_success_agentic_inventions(topic_query=topic_q, force_live=force_live))
+            return
+
         if path == "/api/harness/self-critic/run":
             auto_heal = bool(payload.get("auto_heal", True))
             refresh_disc = bool(payload.get("refresh_discovery", False))

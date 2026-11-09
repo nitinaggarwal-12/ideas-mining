@@ -73,3 +73,5 @@ STUDIO_TEST_MODE=1 python3 -m unittest discover -s tests -p "test_*.py" -v
 node scripts/verify_arrow_label_inked_pixel_centering.mjs
 node scripts/e2e_puppeteer_functional_suite.mjs
 ```
+
+- `GET /api/customer-success/radar` & `POST /api/customer-success/discover` — Live Agentic AI Inventions & Discoveries mapped to Customer Success Playbooks, quantified FinOps/SLO KPIs, canonical blueprints (`T54`–`T221`), and runnable ADK repositories.

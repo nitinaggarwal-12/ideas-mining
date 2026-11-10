@@ -1,0 +1,20 @@
+steps:
+  - name: 'python:3.11-slim'
+    entrypoint: 'python3'
+    args: ['-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_*.py']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-west1-docker.pkg.dev/$PROJECT_ID/gcp-mcp-zero-bloat-gateway-repo/gcp-mcp-zero-bloat-gateway:latest', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-west1-docker.pkg.dev/$PROJECT_ID/gcp-mcp-zero-bloat-gateway-repo/gcp-mcp-zero-bloat-gateway:latest']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'gcp-mcp-zero-bloat-gateway'
+      - '--image=us-west1-docker.pkg.dev/$PROJECT_ID/gcp-mcp-zero-bloat-gateway-repo/gcp-mcp-zero-bloat-gateway:latest'
+      - '--region=us-west1'
+      - '--platform=managed'
+      - '--set-env-vars=VERTEX_AI_LOCATION=global,FRONTIER_MODEL=gemini-4-argon,FLASH_MODEL=gemini-3.8-flash,THINKING_LEVEL=HIGH'
+options:
+  logging: CLOUD_LOGGING_ONLY

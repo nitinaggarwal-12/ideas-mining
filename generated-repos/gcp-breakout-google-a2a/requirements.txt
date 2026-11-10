@@ -1,0 +1,4 @@
+# Standard library runtime for zero-breakage local verification
+# Optional production Google Cloud SDKs:
+# google-genai>=1.0.0
+# google-cloud-aiplatform>=1.70.0

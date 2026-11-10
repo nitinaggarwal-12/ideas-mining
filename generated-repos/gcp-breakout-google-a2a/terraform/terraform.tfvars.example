@@ -1,0 +1,4 @@
+project_id      = "ramp-portal-dev"
+region          = "us-west1"
+vertex_location = "global"
+service_name    = "gcp-mcp-zero-bloat-gateway"

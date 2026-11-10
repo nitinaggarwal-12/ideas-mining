@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "gcp-vertex-adk": {
+      "command": "python3",
+      "args": [
+        "app.py"
+      ]
+    }
+  }
+}

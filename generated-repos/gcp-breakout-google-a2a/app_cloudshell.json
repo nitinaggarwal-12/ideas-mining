@@ -1,0 +1,26 @@
+{
+  "name": "gcp-mcp-zero-bloat-gateway",
+  "env": {
+    "VERTEX_AI_LOCATION": {
+      "description": "Vertex AI Global Endpoint",
+      "value": "global"
+    },
+    "FRONTIER_MODEL": {
+      "description": "Primary Frontier Reasoning Model",
+      "value": "gemini-4-argon"
+    },
+    "FLASH_MODEL": {
+      "description": "High-Throughput Agent Loop Model",
+      "value": "gemini-3.8-flash"
+    },
+    "THINKING_LEVEL": {
+      "description": "Discrete Thinking Level (HIGH|MEDIUM|LOW)",
+      "value": "HIGH"
+    }
+  },
+  "options": {
+    "allow-unauthenticated": false,
+    "memory": "1Gi",
+    "cpu": "1"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-08T19:48:12.553506+00:00",
+  "updated_at": "2026-11-10T03:51:09.198542+00:00",
   "total_items": 17,
   "pending_count": 0,
   "dispatched_count": 17,
@@ -68,7 +68,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-07T15:48:17.556020+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893253+00:00",
         "missing_env_vars": [
           "TIKTOK_ACCESS_TOKEN"
         ],
@@ -141,7 +141,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-07T15:48:17.556038+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893271+00:00",
         "missing_env_vars": [
           "IG_ACCESS_TOKEN",
           "IG_USER_ID",
@@ -215,7 +215,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-07T15:48:17.556043+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893280+00:00",
         "missing_env_vars": [
           "YOUTUBE_ACCESS_TOKEN"
         ],
@@ -287,7 +287,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-07T15:48:17.556047+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893286+00:00",
         "missing_env_vars": [
           "TELEGRAM_BOT_TOKEN",
           "TELEGRAM_CHAT_ID"
@@ -360,7 +360,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-07T15:48:17.556051+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893291+00:00",
         "missing_env_vars": [
           "LINKEDIN_ACCESS_TOKEN",
           "LINKEDIN_PERSON_URN"
@@ -432,7 +432,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "SHARE_PACKET_READY",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T08:58:41.822490+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893296+00:00",
         "share_intent_url": "https://wa.me/?text=%2ATiered%20Speculative%20Cascade%20%26%20%3C15ms%20Complexity%20Router%2A%20%E2%80%A2%20%2ACore%20Pattern%20%28T61%29%2A%3A%20Hospital%20Triage%20Nurse%20Resolving%2080%25%20of%20Cases%20Instantly%20vs.%20Sending%20Every%20Band-Aid%20Visit%20into%20Open-Heart%20Surgery%20Optimize%20Cost-Per-Successful-Outcome%20%28CPSO%29%20by%20demoting%20bool/enum%20micro-gates%20to%20%3C15ms%20classifiers%20and%20cascading%20%60gemini-3.8-flash%60%20-%3E%20%60gemini-4-argon%60.%20%E2%80%A2%20%2AImpact%2A%3A%20-68%25%20inference%20spend%20while%20maintaining%20%3C1.1s%20p95%20turn%20latency.%20%E2%80%A2%20%2AReference%2A%3A%20https%3A//github.com/nitinaggarwal-12/ideas-mining",
         "note": "Tier-3 compliant 1-Click Share Packet / RSS 2.0 feed ready (zero unofficial scraper risk)."
       }
@@ -498,7 +498,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T08:58:41.822493+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893301+00:00",
         "missing_env_vars": [
           "DEVTO_API_KEY"
         ],
@@ -568,7 +568,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T08:58:41.822496+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893305+00:00",
         "missing_env_vars": [
           "TIKTOK_ACCESS_TOKEN"
         ],
@@ -648,7 +648,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T08:58:41.822499+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893308+00:00",
         "missing_env_vars": [
           "IG_ACCESS_TOKEN",
           "IG_USER_ID",
@@ -720,7 +720,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T08:58:41.822512+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893311+00:00",
         "missing_env_vars": [
           "YOUTUBE_ACCESS_TOKEN"
         ],
@@ -790,7 +790,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T08:58:41.822516+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893314+00:00",
         "missing_env_vars": [
           "TELEGRAM_BOT_TOKEN",
           "TELEGRAM_CHAT_ID"
@@ -861,7 +861,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T08:58:41.822519+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893317+00:00",
         "missing_env_vars": [
           "LINKEDIN_ACCESS_TOKEN",
           "LINKEDIN_PERSON_URN"
@@ -940,7 +940,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T06:48:44.442677+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893320+00:00",
         "missing_env_vars": [
           "TIKTOK_ACCESS_TOKEN"
         ],
@@ -1020,7 +1020,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T06:48:44.442699+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893323+00:00",
         "missing_env_vars": [
           "IG_ACCESS_TOKEN",
           "IG_USER_ID",
@@ -1092,7 +1092,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T06:48:44.442706+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893326+00:00",
         "missing_env_vars": [
           "YOUTUBE_ACCESS_TOKEN"
         ],
@@ -1171,7 +1171,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T06:48:44.442709+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893328+00:00",
         "missing_env_vars": [
           "TELEGRAM_BOT_TOKEN",
           "TELEGRAM_CHAT_ID"
@@ -1251,7 +1251,7 @@
       "dispatch_receipt": {
         "dispatch_mode": "DRY_RUN_VALIDATED",
         "http_status": 200,
-        "dispatched_at": "2026-11-04T06:48:44.442713+00:00",
+        "dispatched_at": "2026-11-10T03:46:49.893331+00:00",
         "missing_env_vars": [
           "LINKEDIN_ACCESS_TOKEN",
           "LINKEDIN_PERSON_URN"

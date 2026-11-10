@@ -22,50 +22,73 @@
 </defs>
 <rect x="0" y="0" width="920" height="1150" fill="#F8FAFC"/>
 <rect x="0" y="0" width="920" height="1150" fill="url(#genGrid)"/>
-<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
-<text x="42.0" y="44.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">T216 • INVERTED FUNNEL + BUILD LOOP • AGENTIC PRODUCT &amp; FDE GTM LENS • TRANSFORMATION &amp; FDE</text>
-<text x="42.0" y="62.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Agentic Product Triage Funnel &amp; 1 FDE : 1.5 AE Forward-Deployed Delivery Loop</text>
-<text x="42.0" y="86.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Replacing 6-month static discovery decks with telemetry-synthesized specs, same-week sandbox PoCs, and production eval sign-off.</text>
-<text x="42.0" y="101.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack Anchor: Enterprise Knowledge Graph + Vertex AI Search + Looker + BigQuery | KPIs: 3x Faster Spec-to-Ship · 1 FDE : 1.5 AE Ratio ·</text>
-<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">+42% Feature Adoption</text>
-<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#F1F5F9" stroke="#059669" stroke-width="2"/>
-<text x="42.0" y="170.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: Product Loop: Let 6 ambient agents gather &amp; cost signals; human product lead owns Gate A.</text>
-<rect x="48.0" y="208.0" width="824.0" height="114.0" rx="14.0" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
-<text x="62.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">STEP 1 • 6 AMBIENT AGENTS GATHER EVERY SIGNAL AROUND THE CLOCK</text>
-<text x="62.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Market Research · Customer Signals · Portfolio Goals · Tech Debt · Product Analytics · Release Metrics</text>
-<rect x="118.0" y="338.0" width="684.0" height="96.0" rx="14.0" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
-<text x="132.0" y="358.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">STEP 2 • AGENTS SYNTHESIZE &amp; RANK THE UNIFIED BACKLOG</text>
-<text x="132.0" y="376.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Strategic Bet · Customer Request · Architecture Debt · Funnel Drop-Off Finding</text>
-<rect x="188.0" y="450.0" width="544.0" height="96.0" rx="14.0" fill="#FEFCE8" stroke="#D97706" stroke-width="2"/>
-<text x="202.0" y="470.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">STEP 3 • AGENTS COST &amp; SIMULATE EVERY OPTION BEFORE HUMANS MEET</text>
-<text x="202.0" y="488.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Option A (€ · Weeks · Δ Metric) | Option B (€ · Weeks · Δ Metric) |</text>
-<text x="202.0" y="506.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Option C (€ · Weeks · Δ Metric)</text>
-<rect x="258.0" y="562.0" width="404.0" height="96.0" rx="14.0" fill="#FEF9C3" stroke="#CA8A04" stroke-width="2"/>
-<text x="272.0" y="582.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#CA8A04">STEP 4 • HUMAN DECISION GATE A: PRODUCT LEAD PICKS ONE BET</text>
-<text x="272.0" y="600.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Agents do the research &amp; costing; your human</text>
-<text x="272.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">leadership team decides what to build.</text>
-<rect x="48.0" y="692.0" width="248.0" height="168.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
-<text x="62.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">STEP 5A • ARCHITECT + AGENTS</text>
-<text x="62.0" y="730.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Shape the Slice</text>
-<text x="62.0" y="749.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Product Slice = Epic + User Stories</text>
-<text x="62.0" y="764.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">+ Verifiable Acceptance Tests</text>
-<rect x="336.0" y="692.0" width="248.0" height="168.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
-<text x="350.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">STEP 5B • ENGINEER + AGENTS</text>
-<text x="350.0" y="730.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Build &amp; Ship</text>
-<text x="350.0" y="749.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Agentic production worktrees with</text>
-<text x="350.0" y="764.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">deterministic CI/CD into users&#x27;</text>
-<text x="350.0" y="779.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">hands</text>
-<rect x="624.0" y="692.0" width="248.0" height="168.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
-<text x="638.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">STEP 5C • GATE B OUTCOME REVIEW</text>
-<text x="638.0" y="730.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Measure the Outcome</text>
-<text x="638.0" y="749.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Track conversion, retention &amp; LTV</text>
-<text x="638.0" y="764.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">deltas -&gt; feed back into Step 1</text>
-<rect x="48.0" y="888.0" width="824.0" height="168.0" rx="14.0" fill="#F8FAFC" stroke="#059669" stroke-width="2"/>
-<text x="62.0" y="908.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">HOW AGENTS SCORE EVERY OPTION BEFORE ANYONE DECIDES</text>
-<text x="62.0" y="926.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">[1. COST]: People, token compute &amp; infra to build and run | [2. TIME TO MARKET]: Days until users touch it &amp;</text>
-<text x="62.0" y="944.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">signal returns | [3. VALUE]: Expected move in conversion, retention &amp; LTV</text>
-<text x="62.0" y="962.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Closed-Loop Rule: Every production release automatically emits telemetry back into Step 1&#x27;s Metrics Agent.</text>
-<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#059669" stroke-width="2.2"/>
+<text x="42.0" y="43.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">T216 • INVERTED FUNNEL + BUILD LOOP • AGENTIC PRODUCT &amp; FDE GTM LENS • TRANSFORMATION &amp; FDE</text>
+<text x="42.0" y="61.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Agentic Product Triage Funnel &amp; 1 FDE : 1.5 AE Forward-Deployed Delivery Loop</text>
+<text x="42.0" y="85.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Replacing 6-month static discovery decks with telemetry-synthesized specs, same-week sandbox PoCs, and production eval sign-off.</text>
+<text x="42.0" y="100.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Stack Anchor: Enterprise Knowledge Graph + Vertex AI Search + Looker + BigQuery | KPIs: 3x Faster Spec-to-Ship · 1 FDE : 1.5 AE</text>
+<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Ratio · +42% Feature Adoption</text>
+<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#F1F5F9" stroke="#059669" stroke-width="2.2"/>
+<text x="42.0" y="169.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: Product Loop: Let 6 ambient agents gather &amp; cost signals; human product lead owns Gate A.</text>
+<rect x="48.0" y="208.0" width="824.0" height="114.0" rx="14.0" fill="#ECFDF5" stroke="#059669" stroke-width="2.2"/>
+<rect x="50.0" y="210.0" width="820.0" height="26.0" rx="12.0" fill="#059669" fill-opacity="0.10"/>
+<text x="62.0" y="227.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">01 • INGRESS &amp; INTENT: AGENTIC PRODUCT TRIAGE</text>
+<text x="62.0" y="249.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Ingress &amp; Schema Gate for Agentic Product Triage</text>
+<text x="62.0" y="267.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Parse caller intent &amp; validate strict JSON/Pydantic contract</text>
+<text x="62.0" y="282.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Mint short-lived RFC 8693 OBO token on Enterprise Knowledge Graph</text>
+<text x="62.0" y="298.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Freeze immutable system prefix (94.2% KV cache hit)</text>
+<rect x="118.0" y="338.0" width="684.0" height="96.0" rx="14.0" fill="#F0FDF4" stroke="#059669" stroke-width="2.2"/>
+<rect x="120.0" y="340.0" width="680.0" height="26.0" rx="12.0" fill="#059669" fill-opacity="0.10"/>
+<text x="132.0" y="357.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">STEP 2 • AGENTS SYNTHESIZE &amp; RANK THE UNIFIED BACKLOG</text>
+<text x="132.0" y="379.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Strategic Bet · Customer Request · Architecture Debt · Funnel Drop-Off Finding</text>
+<rect x="188.0" y="450.0" width="544.0" height="96.0" rx="14.0" fill="#FEFCE8" stroke="#D97706" stroke-width="2.2"/>
+<rect x="190.0" y="452.0" width="540.0" height="26.0" rx="12.0" fill="#D97706" fill-opacity="0.10"/>
+<text x="202.0" y="469.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706">STEP 3 • AGENTS COST &amp; SIMULATE EVERY OPTION BEFORE HUMANS MEET</text>
+<text x="202.0" y="491.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Option A (€ · Weeks · Δ Metric) | Option B (€ · Weeks · Δ Metric) |</text>
+<text x="202.0" y="509.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Option C (€ · Weeks · Δ Metric)</text>
+<rect x="258.0" y="562.0" width="404.0" height="96.0" rx="14.0" fill="#FEF9C3" stroke="#CA8A04" stroke-width="2.2"/>
+<rect x="260.0" y="564.0" width="400.0" height="26.0" rx="12.0" fill="#CA8A04" fill-opacity="0.10"/>
+<text x="272.0" y="581.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#CA8A04">STEP 4 • HUMAN DECISION GATE A: PRODUCT LEAD PICKS ONE BET</text>
+<text x="272.0" y="603.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Agents do the research &amp; costing; your human</text>
+<text x="272.0" y="621.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">leadership team decides what to build.</text>
+<rect x="48.0" y="692.0" width="248.0" height="168.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="50.0" y="694.0" width="244.0" height="26.0" rx="10.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="62.0" y="711.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">02 • DYNAMIC ROUTING: TRIAGE FUNNEL FDE</text>
+<text x="62.0" y="733.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Top-K Semantic Discovery</text>
+<text x="62.0" y="752.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">(Triage Funnel FDE)</text>
+<text x="62.0" y="771.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Hybrid BM25 + dense vector</text>
+<text x="62.0" y="786.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">lookup over Vertex AI Search</text>
+<text x="62.0" y="802.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Mount only Top-4 slim schemas</text>
+<text x="62.0" y="817.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">per turn (-97.5% bloat)</text>
+<text x="62.0" y="833.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Enforce deterministic capability</text>
+<rect x="336.0" y="692.0" width="248.0" height="168.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2.2"/>
+<rect x="338.0" y="694.0" width="244.0" height="26.0" rx="10.0" fill="#059669" fill-opacity="0.10"/>
+<text x="350.0" y="711.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">03 • SANDBOX EXECUTION &amp; STATE</text>
+<text x="350.0" y="733.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Isolated Execution on</text>
+<text x="350.0" y="752.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Enterprise Knowledge Graph</text>
+<text x="350.0" y="771.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Execute bounded tool &amp; subagent</text>
+<text x="350.0" y="786.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">calls with idempotency keys</text>
+<text x="350.0" y="802.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Persist SHA-256 provenance</text>
+<text x="350.0" y="817.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">receipts &amp; episodic state</text>
+<text x="350.0" y="833.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Stream async OpenTelemetry GenAI</text>
+<rect x="624.0" y="692.0" width="248.0" height="168.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="626.0" y="694.0" width="244.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="638.0" y="711.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">04 • ORTHOGONAL JUDGE &amp; SLO GATE</text>
+<text x="638.0" y="733.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Pre-Completion Verification</text>
+<text x="638.0" y="752.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">(Product &amp; GTM)</text>
+<text x="638.0" y="771.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Verify output against 100-trial</text>
+<text x="638.0" y="786.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">golden replay rubric</text>
+<text x="638.0" y="802.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Enforce p95 latency, token</text>
+<text x="638.0" y="817.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">budget &amp; zero-hallucination gates</text>
+<text x="638.0" y="833.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Emit verified executive KPI</text>
+<rect x="48.0" y="888.0" width="824.0" height="168.0" rx="14.0" fill="#F8FAFC" stroke="#059669" stroke-width="2.2"/>
+<rect x="50.0" y="890.0" width="820.0" height="26.0" rx="12.0" fill="#059669" fill-opacity="0.10"/>
+<text x="62.0" y="907.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">05 • CONTINUOUS SELF-HEALING LOOP</text>
+<text x="62.0" y="929.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Production Drift &amp; Trace-to-Eval Flywheel</text>
+<text x="62.0" y="947.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Convert any production anomaly into a permanent regression test</text>
+<text x="62.0" y="962.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Auto-compact stale context turns into typed state blocks</text>
+<text x="62.0" y="978.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Zero unverified mutations across Transformation &amp; FDE</text>
+<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2.2"/>
 <text x="460.0" y="1105.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-07 (T216) • PRODUCT &amp; GTM • TRANSFORMATION &amp; FDE</text>
 <path d="M 460.0 322.0 L 460.0 338.0" fill="none" stroke="#059669" stroke-width="2"/>
 <path d="M 460.0 434.0 L 460.0 450.0" fill="none" stroke="#059669" stroke-width="2"/>
@@ -92,7 +115,4 @@
 <g><circle r="5.6" fill="#CA8A04" fill-opacity="0.15"/><circle r="3.8" fill="#CA8A04" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#CA8A04" stroke-width="2.0"/><circle r="1.3" fill="#CA8A04"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 460.0 658.0 L 460.0 692.0"/></g>
 <path d="M 872.0 776.0 L 896.0 776.0 L 896.0 265.0 L 872.0 265.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
 <g><circle r="7.4" fill="#059669" fill-opacity="0.15"/><circle r="5.0" fill="#059669" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.7" fill="#059669"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 872.0 776.0 L 896.0 776.0 L 896.0 265.0 L 872.0 265.0"/></g>
-<path d="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 6" stroke-dashoffset="0.0"/>
-<g><circle r="7.4" fill="#059669" fill-opacity="0.15"/><circle r="5.0" fill="#059669" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.7" fill="#059669"/><animateMotion dur="3.60s" begin="-0.00s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
-<g><circle r="7.4" fill="#059669" fill-opacity="0.15"/><circle r="5.0" fill="#059669" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.7" fill="#059669"/><animateMotion dur="3.60s" begin="-1.80s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
 </svg>

@@ -516,5 +516,80 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
                     toggle_group_id=g["group_id"], new_status="NOT_JOINED_YET"
                 )
 
+    def test_14_refresh_top5_rotation_custom_blueprint_breakout_repos_and_digital_twin(self) -> None:
+        from src.harvester.daily_top5_editorial_engine import DailyTop5EditorialEngine
+        from src.harvester.live_github_breakout_miner import (
+            mine_live_github_breakout_repos,
+            mint_full_adk_repo_from_github_breakout,
+        )
+        from src.publisher.multi_platform_publisher import MultiPlatformOutboxManager
+        from src.video.canonical_walkthrough_recorder import (
+            build_post_spoken_narration_script,
+            produce_digital_twin_video_for_any_post,
+        )
+        from src.visuals.generative_template_synthesizer import (
+            build_generative_layout_ir,
+            synthesize_generative_template_svg,
+        )
+
+        # 1. Refresh Top 5 must rotate signals and guarantee 5 distinct lead templates & 5 distinct modes
+        eng = DailyTop5EditorialEngine()
+        b_first = eng.generate_daily_top5_briefing(use_live_network=False)
+        b_second = eng.generate_daily_top5_briefing(use_live_network=False)
+        first_fps = {i["fingerprint"] for i in b_first["ideas"]}
+        second_fps = {i["fingerprint"] for i in b_second["ideas"]}
+        self.assertEqual(len(first_fps & second_fps), 0)
+        self.assertEqual(len({i["default_template_id"] for i in b_second["ideas"]}), 5)
+        self.assertEqual(len({i["default_recommended_mode"] for i in b_second["ideas"]}), 5)
+
+        # 2. Re-Verify Queue (when pending_count == 0) must re-verify DRY_RUN_VALIDATED items (>0 processed)
+        mgr = MultiPlatformOutboxManager()
+        reverify_res = mgr.approve_and_publish(outbox_ids=None)
+        self.assertGreaterEqual(len(reverify_res["processed"]), 1)
+
+        # 3. Custom Blueprint Synthesizer adapts interior cards to custom topic and embeds telemetry bars
+        ir = build_generative_layout_ir(
+            {
+                "topic": "Zero-Trust MCP OAuth 2.1 Gateway & Speculative KV-Cache Routing",
+                "persona_id": "vp_principal_architect",
+                "org_id": "cloud_hyperscaler",
+                "grammar_id": "GRAMMAR-02",
+            }
+        )
+        svg_txt = synthesize_generative_template_svg(ir)
+        self.assertIn("VERIFIED TELEMETRY &amp; CONTROL GATE", svg_txt)
+        self.assertIn("Zero-Trust MCP OAuth 2.1 Gateway", svg_txt)
+
+        # 4. Live Fast-Growing Authentic GitHub Repo Miner & 1-Click Minter
+        breakout_res = mine_live_github_breakout_repos(query="mcp", force_live=False)
+        self.assertEqual(breakout_res["status"], "READY")
+        self.assertGreaterEqual(len(breakout_res["repositories"]), 2)
+        mint_res = mint_full_adk_repo_from_github_breakout("google/A2A")
+        self.assertEqual(mint_res["status"], "MINTED_AND_VERIFIED")
+        self.assertTrue(mint_res["verification"]["all_checks_passed"])
+
+        # 5. On-Demand Digital Twin & 1080p30 Walkthrough Producer for Any Post
+        script_bundle = build_post_spoken_narration_script(
+            post_id="IDEA-02",
+            title="Curing 'Context Rot': Why Your Agent Gets Dumber After Turn 12",
+            template_id="T58",
+            repo_slug="gcp-context-rot-tiered-memory",
+        )
+        self.assertEqual(len(script_bundle["acts"]), 6)
+        self.assertGreaterEqual(script_bundle["word_count"], 60)
+
+        vid_manifest = produce_digital_twin_video_for_any_post(
+            post_id="IDEA-01",
+            title="Stopping Infinite Agent Loops & Runaway Token Bills",
+            template_id="T67",
+            repo_slug="gcp-loop-breaker-circuit-adk",
+            force=False,
+        )
+        self.assertEqual(vid_manifest["status"], "PRODUCED")
+        self.assertTrue(vid_manifest["zero_occlusion_verified"])
+        self.assertEqual(vid_manifest["resolution"], "1920x1080")
+
+
 if __name__ == "__main__":
     unittest.main()
+

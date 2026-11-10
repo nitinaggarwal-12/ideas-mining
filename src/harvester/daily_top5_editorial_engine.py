@@ -474,10 +474,17 @@ class DailyTop5EditorialEngine:
                     "cluster_id": idea["cluster_id"],
                 }
             )
+        ring = list(ledger.get("refresh_rotation_ring") or [])
+        for idea in selected_ideas:
+            if idea["fingerprint"] not in ring:
+                ring.append(idea["fingerprint"])
+        if len(ring) > 20:
+            ring = ring[-20:]
         updated = {
             "window_days": 30,
             "updated_at": datetime.now(timezone.utc).isoformat(),
             "active_ledger_count": len(kept),
+            "refresh_rotation_ring": ring,
             "entries": kept,
         }
         DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -512,20 +519,28 @@ class DailyTop5EditorialEngine:
             "corroborating_sources": corroborators[:4],
         }
 
-    def match_top5_orthogonal_templates(self, idea: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def match_top5_orthogonal_templates(
+        self,
+        idea: Dict[str, Any],
+        excluded_lead_ids: Optional[Set[str]] = None,
+        slot_index: int = 1,
+    ) -> List[Dict[str, Any]]:
         """Select 5 distinct certified templates spanning the 5 orthogonal visual storytelling angles."""
         idea_text = f"{idea.get('title', '')} {idea.get('summary', '')} {idea.get('metrics_hint', '')}".lower()
         idea_tokens = set(re.findall(r"[a-z0-9]{3,}", idea_text))
         used_ids: Set[str] = set()
+        excluded_leads = set(excluded_lead_ids or set())
         ranked_matches: List[Dict[str, Any]] = []
 
-        for angle in ORTHOGONAL_TEMPLATE_ANGLES:
+        for angle_idx, angle in enumerate(ORTHOGONAL_TEMPLATE_ANGLES):
             best_tid: Optional[str] = None
             best_score = -1.0
 
-            # Score all 128+23 certified templates for this specific orthogonal angle
+            # Score all certified templates for this orthogonal angle while preventing cross-slot lead collisions
             for tid, tmeta in self.template_catalog.items():
                 if tid in used_ids or tid in BANNED_LEGACY_GEN1_IDS:
+                    continue
+                if angle_idx == 0 and tid in excluded_leads:
                     continue
                 hay = f"{tmeta['name']} {tmeta['best_for_short']} {tmeta['when_to_use']}".lower()
                 hay_tokens = set(re.findall(r"[a-z0-9]{3,}", hay))
@@ -574,6 +589,20 @@ class DailyTop5EditorialEngine:
             )
 
         ranked_matches.sort(key=lambda item: item["fit_score"], reverse=True)
+        # Ensure lead template (index 0) is not in excluded_leads across the 5 daily slots
+        if excluded_leads:
+            for swap_i, cand_m in enumerate(ranked_matches):
+                if cand_m["template_id"] not in excluded_leads:
+                    if swap_i > 0:
+                        ranked_matches.insert(0, ranked_matches.pop(swap_i))
+                    break
+        slot_modes_cycle = ["Slidedeck", "Carousel", "Short_Video", "Video", "Image"]
+        if ranked_matches and 1 <= slot_index <= 5:
+            preferred_mode = slot_modes_cycle[(slot_index - 1) % len(slot_modes_cycle)]
+            if preferred_mode not in ranked_matches[0]["secondary_modes"] and preferred_mode != ranked_matches[0]["recommended_mode"]:
+                ranked_matches[0]["secondary_modes"] = [ranked_matches[0]["recommended_mode"]] + ranked_matches[0]["secondary_modes"][:2]
+            ranked_matches[0]["recommended_mode"] = preferred_mode
+
         for idx, m in enumerate(ranked_matches, start=1):
             m["rank"] = idx
             m["is_primary_recommended"] = idx == 1
@@ -587,24 +616,58 @@ class DailyTop5EditorialEngine:
     ) -> Dict[str, Any]:
         ed_date = edition_date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
         ledger = self._load_history_ledger()
+        rotation_ring: List[str] = list(ledger.get("refresh_rotation_ring") or [])
+
+        # Read currently displayed Top-5 fingerprints so clicking 'Refresh Top 5' ALWAYS rotates to fresh signals!
+        currently_displayed_fps: List[str] = []
+        if DAILY_TOP5_BRIEFING_JSON.exists():
+            try:
+                cur_cached = json.loads(DAILY_TOP5_BRIEFING_JSON.read_text(encoding="utf-8"))
+                for it in cur_cached.get("ideas", []):
+                    fp_val = str(it.get("fingerprint") or "").strip()
+                    if fp_val:
+                        currently_displayed_fps.append(fp_val)
+            except Exception:
+                pass
+
+        for cfp in currently_displayed_fps:
+            if cfp not in rotation_ring:
+                rotation_ring.append(cfp)
+        # Keep rolling ring bounded to last 20 shown signals so after 4 full rotations it wraps cleanly
+        if len(rotation_ring) > 20:
+            rotation_ring = rotation_ring[-20:]
+
         prior_fingerprints: Set[str] = {
             str(e.get("fingerprint"))
             for e in ledger.get("entries", [])
             if e.get("edition_date") != ed_date
-        }
+        } | set(currently_displayed_fps) | set(rotation_ring[-15:])
 
         from src.harvester.autonomous_omnichannel_miner import (
             fetch_creator_syndicate_rss_live,
             fetch_devto_practitioner_pulse_live,
             fetch_reddit_practitioner_json_live,
+            fetch_rss_less_frontier_lab_sitemaps_live,
             prescribe_format_duration_channels_and_groups,
         )
+        from src.harvester.live_github_breakout_miner import AUTHENTIC_FAST_GROWING_GITHUB_REPOS
 
         raw_candidates: List[Dict[str, Any]] = []
         if use_live_network:
             raw_candidates.extend(fetch_creator_syndicate_rss_live(limit_per_feed=2))
             raw_candidates.extend(fetch_devto_practitioner_pulse_live(limit=3))
             raw_candidates.extend(fetch_reddit_practitioner_json_live(limit_per_sub=2))
+            raw_candidates.extend(fetch_rss_less_frontier_lab_sitemaps_live(allow_network=True))
+        for gh in AUTHENTIC_FAST_GROWING_GITHUB_REPOS:
+            raw_candidates.append({
+                "source_channel": f"GitHub Breakout ({gh['owner_repo']} • {gh['stars']:,} ★)",
+                "title": gh["title"],
+                "summary": f"{gh['why_breaking_out']} Enterprise Pain Solved: {gh['enterprise_pain_point']}",
+                "primary_url": gh["github_url"],
+                "published_at": ed_date,
+                "metrics_hint": gh["metrics_benchmark"],
+                "corroborating_sources": ["GitHub Breakout Velocity", gh["category"], gh["google_cloud_pairing"]],
+            })
         if use_live_network or topic_query.strip():
             raw_candidates.extend(
                 self.legacy_post_engine.harvest_latest_topics(
@@ -686,11 +749,30 @@ class DailyTop5EditorialEngine:
                     if len(selected) == 5:
                         break
 
+        # Filter by topic_query if user entered a custom editorial focus in the search bar
+        if topic_query and topic_query.strip():
+            q_tokens = [t for t in re.findall(r"[a-z0-9]{2,}", topic_query.lower()) if len(t) >= 2]
+            if q_tokens:
+                q_matched = [
+                    it for it in enriched
+                    if any(qt in f"{it.get('title','')} {it.get('summary','')} {it.get('source_channel','')}".lower() for qt in q_tokens)
+                ]
+                if len(q_matched) >= 5:
+                    selected = q_matched[:5]
+                elif q_matched:
+                    q_fps = {m["fingerprint"] for m in q_matched}
+                    selected = q_matched + [s for s in selected if s["fingerprint"] not in q_fps]
+                    selected = selected[:5]
+
         ideas_payload: List[Dict[str, Any]] = []
+        used_lead_templates: Set[str] = set()
         for rank_idx, idea in enumerate(selected[:5], start=1):
             idea_id = f"TOP5-{ed_date.replace('-', '')}-{rank_idx:02d}"
-            top5_templates = self.match_top5_orthogonal_templates(idea)
+            top5_templates = self.match_top5_orthogonal_templates(
+                idea, excluded_lead_ids=used_lead_templates, slot_index=rank_idx
+            )
             lead_tpl = top5_templates[0]
+            used_lead_templates.add(lead_tpl["template_id"])
             ideas_payload.append(
                 {
                     "id": idea_id,

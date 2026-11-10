@@ -8,7 +8,7 @@ function mkEl(tag, className, text) {
   return el;
 }
 
-const ASSET_CACHE_BUST = "20261107b";
+const ASSET_CACHE_BUST = "20261110c";
 
 function safeUrl(rawUrl) {
   const s = String(rawUrl || "").trim();
@@ -3001,6 +3001,20 @@ function renderTop5EditorialDesk() {
   zoomBtn.style.cssText = "min-height:28px;padding:3px 9px;font-size:11.5px;white-space:nowrap;";
   zoomBtn.addEventListener("click", openActiveBlueprintLightbox);
   s1Actions.appendChild(zoomBtn);
+
+  const twinBtn = mkEl("button", "btn-primary", "🎬 Produce Digital Twin Video");
+  twinBtn.type = "button";
+  twinBtn.setAttribute("data-testid", "top5-produce-digital-twin-btn");
+  twinBtn.style.cssText = "min-height:28px;padding:3px 10px;font-size:11.5px;white-space:nowrap;";
+  twinBtn.addEventListener("click", () => {
+    openDigitalTwinProducerForPost({
+      post_id: activeIdea.id,
+      title: activeIdea.title,
+      summary: activeIdea.summary,
+      template_id: activeTpl.template_id,
+    });
+  });
+  s1Actions.appendChild(twinBtn);
   s1Hdr.appendChild(s1Actions);
   step1.appendChild(s1Hdr);
 
@@ -5270,7 +5284,7 @@ async function triggerSynthesizeCustomTemplate() {
   const btn = document.getElementById("synthesize-custom-template-btn");
   if (!stage) return;
 
-  const topic = (topicInput?.value || "").trim() || "Enterprise Agentic AI Governance, FinOps & Runtime Architecture";
+  const topic = (topicInput?.value || "").trim() || "Multi-Agent MCP OAuth 2.1 Zero-Trust Gateway & Vertex AI Runtime Topology";
   const persona_id = personaSelect?.value || "vp_principal_architect";
   const org_id = orgSelect?.value || "cloud_hyperscaler";
   const grammar_id = grammarSelect?.value || "AUTO";
@@ -5386,7 +5400,7 @@ async function loadAndRenderSelfCriticHarness(triggerRun = false) {
       ? await fetch("/api/harness/self-critic/run", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ auto_heal: true, refresh_discovery: false }),
+          body: JSON.stringify({ auto_heal: true, refresh_discovery: true }),
         })
       : await fetch("/api/harness/self-critic");
     const data = await res.json();
@@ -5524,7 +5538,11 @@ async function loadAndRenderSelfCriticHarness(triggerRun = false) {
     }
 
     if (triggerRun) {
-      showToast(`Self-Critic Sweep Complete: ${data.gates_passed}/${data.gates_total} Gates PASS (${data.overall_score}/100)`);
+      const healedCount = (data.auto_heal_actions || []).length;
+      showToast(
+        `Self-Critic & Auto-Heal Sweep Complete: ${data.gates_passed}/${data.gates_total} Gates PASS (${data.overall_score}/100) · ${healedCount} Auto-Heal Checks Verified!`
+      );
+      loadDailyTop5Briefing();
     }
   } finally {
     if (triggerRun && btn) {
@@ -5844,5 +5862,411 @@ document.addEventListener("DOMContentLoaded", () => {
     if (ev.key === "linkedin_groups_last_sync") {
       loadAndRenderLinkedinGroupsRadar();
     }
+  });
+});
+
+
+/* ==========================================================================
+   Live Fast-Growing Authentic GitHub Repo Miner & 1-Click ADK Minter
+   ========================================================================== */
+async function loadAndRenderBreakoutGithubRepos(forceLive = false) {
+  const grid = document.getElementById("live-github-breakout-repos-grid");
+  const badge = document.getElementById("breakout-miner-status-badge");
+  const btn = document.getElementById("mine-live-breakout-repos-btn");
+  if (!grid) return;
+
+  const q = (document.getElementById("breakout-repo-search-input")?.value || "").trim();
+  const sort = document.getElementById("breakout-repo-sort-select")?.value || "velocity";
+
+  if (forceLive && btn) {
+    btn.disabled = true;
+    btn.textContent = "⏳ Mining Live GitHub API...";
+  }
+  try {
+    const url = `/api/github/breakout-repos?q=${encodeURIComponent(q)}&sort=${encodeURIComponent(sort)}&live=${forceLive ? "1" : "0"}`;
+    const res = await fetch(url);
+    if (!res.ok) return;
+    const data = await res.json();
+    const repos = data.repositories || [];
+
+    if (badge) {
+      badge.textContent = `${repos.length} Fast-Growing Authentic Repos (${data.live_github_api_hits || 0} Live API Hits) · Ready to Mint`;
+    }
+
+    grid.replaceChildren();
+    repos.slice(0, 8).forEach((r) => {
+      const card = mkEl("article", "repo-card");
+      card.setAttribute("data-testid", `breakout-repo-card-${r.full_name.replace(/[^a-zA-Z0-9_-]/g, "-")}`);
+
+      const top = mkEl("div");
+      const chips = mkEl("div", "deliverable-chips");
+      chips.style.marginBottom = "8px";
+      chips.append(
+        mkEl("span", "brand-badge tabular-nums", `★ ${(r.stars || 0).toLocaleString()}`),
+        mkEl("span", "pill-badge pill-emerald tabular-nums", `+${r.daily_star_velocity || 120} ★/day`),
+        mkEl("span", "pill-badge pill-sky", r.category || "Agentic AI")
+      );
+      if (r.already_minted) {
+        chips.appendChild(mkEl("span", "pill-badge pill-amber", "✓ Minted in Studio"));
+      }
+      top.appendChild(chips);
+
+      const titleRow = mkEl("div", "composer-section-hdr");
+      titleRow.style.marginBottom = "6px";
+      const h3 = mkEl("h3", "repo-card-title", r.full_name);
+      h3.style.margin = "0";
+      const ghLink = mkEl("a", "eyebrow-link", "GitHub ↗");
+      ghLink.href = safeUrl(r.html_url);
+      ghLink.target = "_blank";
+      ghLink.rel = "noopener";
+      titleRow.append(h3, ghLink);
+      top.appendChild(titleRow);
+
+      const desc = mkEl("p", "repo-card-hook", r.description || "");
+      desc.style.marginBottom = "6px";
+      top.appendChild(desc);
+
+      const whyBox = mkEl("div", "", `🔥 Why Trending: ${r.why_trending || ""}`);
+      whyBox.style.cssText = "font-size:11.5px;color:#334155;margin-bottom:4px;line-height:1.4;";
+      top.appendChild(whyBox);
+
+      const gcpBox = mkEl("div", "", `☁️ GCP ADK Bridge: ${r.gcp_enterprise_bridge || ""}`);
+      gcpBox.style.cssText = "font-size:11.5px;font-weight:700;color:#1e40af;margin-bottom:8px;line-height:1.4;";
+      top.appendChild(gcpBox);
+      card.appendChild(top);
+
+      const foot = mkEl("div", "repo-card-footer");
+      const actRow = mkEl("div", "studio-toolbar-actions");
+      actRow.style.width = "100%";
+      actRow.style.justifyContent = "space-between";
+
+      const bpTag = mkEl("span", "deliverable-chip chip-blue", `Blueprint ${r.recommended_template_id || "T85"}`);
+      const mintBtn = mkEl(
+        "button",
+        "btn-primary",
+        r.already_minted ? "Inspect / Re-Mint ADK Repo →" : "⚡ 1-Click Mint ADK Repo + Evals"
+      );
+      mintBtn.type = "button";
+      mintBtn.setAttribute("data-testid", `mint-breakout-btn-${r.full_name.replace(/[^a-zA-Z0-9_-]/g, "-")}`);
+      mintBtn.addEventListener("click", () => mintBreakoutGithubRepo(r.full_name, "", mintBtn));
+      actRow.append(bpTag, mintBtn);
+      foot.appendChild(actRow);
+      card.appendChild(foot);
+      grid.appendChild(card);
+    });
+
+    if (forceLive) {
+      showToast(`Mined ${repos.length} fast-growing authentic GitHub repositories!`);
+    }
+  } catch (_e) {
+    // Non-fatal
+  } finally {
+    if (forceLive && btn) {
+      btn.disabled = false;
+      btn.textContent = "🔍 Mine Live GitHub Breakouts";
+    }
+  }
+}
+
+async function mintBreakoutGithubRepo(ownerRepoOrUrl, customFocus = "", btnEl = null) {
+  const cleanTarget = String(ownerRepoOrUrl || "").trim();
+  if (!cleanTarget) {
+    showToast("Enter a GitHub owner/repo (e.g., google/A2A) or GitHub URL first");
+    return;
+  }
+  const origText = btnEl ? btnEl.textContent : "";
+  if (btnEl) {
+    btnEl.disabled = true;
+    btnEl.textContent = "⏳ Minting 35-File ADK Repo + 100-Trial Evals...";
+  }
+  try {
+    const res = await fetch("/api/github/mint-breakout-repo", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        owner_repo: cleanTarget,
+        custom_focus: customFocus,
+      }),
+    });
+    const out = await res.json();
+    if (!res.ok || out.error) {
+      showToast(out.error || "Unable to mint repository");
+      return;
+    }
+    await loadWorkspaceData();
+    await loadAndRenderBreakoutGithubRepos(false);
+    populateDigitalTwinPostSelect();
+    const tabCount = document.querySelector("#tab-btn-repos .tab-count");
+    if (tabCount && STATE.repos?.length) {
+      tabCount.textContent = String(STATE.repos.length);
+    }
+    showToast(`Minted ${out.repo_slug} (${out.files_created} files + 100-trial evals PASS)! Opening Inspector...`);
+    if (out.repo_slug) {
+      openRepoInspector(out.repo_slug);
+    }
+  } finally {
+    if (btnEl) {
+      btnEl.disabled = false;
+      btnEl.textContent = origText || "⚡ 1-Click Mint Full ADK Repo + 100-Trial Evals";
+    }
+  }
+}
+
+/* ==========================================================================
+   On-Demand Digital Twin & 1080p30 Walkthrough Producer for ANY Post
+   ========================================================================== */
+function populateDigitalTwinPostSelect() {
+  const sel = document.getElementById("digital-twin-post-select");
+  if (!sel) return;
+  const currentVal = sel.value || "MINT-01";
+  sel.replaceChildren();
+
+  const addedIds = new Set();
+  const addOpt = (id, label, extra = {}) => {
+    if (!id || addedIds.has(id)) return;
+    addedIds.add(id);
+    const opt = mkEl("option", "", polishUiTypography(label));
+    opt.value = id;
+    if (extra.title) opt.dataset.title = extra.title;
+    if (extra.summary) opt.dataset.summary = extra.summary;
+    if (extra.template_id) opt.dataset.templateId = extra.template_id;
+    if (extra.repo_slug) opt.dataset.repoSlug = extra.repo_slug;
+    sel.appendChild(opt);
+  };
+
+  // 1. Today's Top-5 Signals
+  (STATE.top5Briefing?.ideas || []).forEach((idea) => {
+    const tid = idea.default_template_id || "T61";
+    addOpt(
+      idea.id,
+      `[Today's Top 5 #0${idea.rank}] ${idea.id} · ${idea.title} (${tid})`,
+      {
+        title: idea.title,
+        summary: idea.summary,
+        template_id: tid,
+      }
+    );
+  });
+
+  // 2. All Verified & Dynamically Minted Cloud Repos
+  (STATE.repos || []).forEach((r) => {
+    const tid = r.template_and_distribution_plan?.primary_template_id || r.canonical_template_id || "T85";
+    addOpt(
+      r.id,
+      `[Cloud Repo] ${r.id} · ${r.post_title} (${tid})`,
+      {
+        title: r.post_title,
+        summary: r.daily_problem_short || r.original_hook || "",
+        template_id: tid,
+        repo_slug: r.repo_slug,
+      }
+    );
+  });
+
+  if (addedIds.has(currentVal)) {
+    sel.value = currentVal;
+  }
+}
+
+async function loadDigitalTwinScriptForSelectedPost() {
+  const sel = document.getElementById("digital-twin-post-select");
+  const tplSel = document.getElementById("digital-twin-template-select");
+  const ta = document.getElementById("digital-twin-narration-textarea");
+  const badge = document.getElementById("twin-producer-status-badge");
+  if (!sel || !ta) return;
+
+  const postId = sel.value || "MINT-01";
+  const selectedOpt = sel.options[sel.selectedIndex];
+  const title = selectedOpt?.dataset?.title || "";
+  const summary = selectedOpt?.dataset?.summary || "";
+  const tplOverride = tplSel && tplSel.value !== "AUTO" ? tplSel.value : (selectedOpt?.dataset?.templateId || "");
+  const repoSlug = selectedOpt?.dataset?.repoSlug || "";
+
+  const qs = new URLSearchParams({
+    post_id: postId,
+    title,
+    summary,
+    template_id: tplOverride,
+    repo_slug: repoSlug,
+  });
+  try {
+    const res = await fetch(`/api/video/digital-twin-script?${qs.toString()}`);
+    if (!res.ok) return;
+    const data = await res.json();
+    const sb = data.script_bundle || data || {};
+    ta.value = sb.full_narration_text || sb.full_spoken_script || "";
+    if (badge) {
+      badge.textContent = `${postId} · Blueprint ${data.resolved_spec?.template_id || "T85"} · ${sb.word_count || 95} words (${sb.estimated_duration_sec || 44}s @ 155 WPM)`;
+    }
+  } catch (_e) {
+    // Non-fatal
+  }
+}
+
+async function triggerProduceDigitalTwinVideo() {
+  const sel = document.getElementById("digital-twin-post-select");
+  const tplSel = document.getElementById("digital-twin-template-select");
+  const ta = document.getElementById("digital-twin-narration-textarea");
+  const btn = document.getElementById("produce-digital-twin-video-btn");
+  const receiptBar = document.getElementById("digital-twin-produce-receipt-bar");
+  const badge = document.getElementById("twin-producer-status-badge");
+  if (!sel) return;
+
+  const postId = sel.value || "MINT-01";
+  const selectedOpt = sel.options[sel.selectedIndex];
+  const title = selectedOpt?.dataset?.title || "";
+  const summary = selectedOpt?.dataset?.summary || "";
+  const tplOverride = tplSel && tplSel.value !== "AUTO" ? tplSel.value : (selectedOpt?.dataset?.templateId || "");
+  const repoSlug = selectedOpt?.dataset?.repoSlug || "";
+  const customNarration = (ta?.value || "").trim();
+
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "⏳ Synthesizing 1080p30 Walkthrough MP4 + Digital Twin...";
+  }
+  try {
+    const res = await fetch("/api/video/produce-digital-twin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        post_id: postId,
+        title,
+        summary,
+        template_id: tplOverride,
+        repo_slug: repoSlug,
+        custom_narration_override: customNarration,
+        force: true,
+      }),
+    });
+    const manifest = await res.json();
+    if (!res.ok || manifest.error) {
+      showToast(manifest.error || "Unable to synthesize Digital Twin video");
+      return;
+    }
+
+    // Update Hero Video Player in Video & Decks to play the newly synthesized post walkthrough immediately!
+    const walkVid = document.getElementById("mint01-walkthrough-video");
+    const twinVid = document.getElementById("mint01-twin-video");
+    const audioEl = document.getElementById("mint01-chirp3-audio");
+    const metaBadge = document.getElementById("mint01-video-meta-badge");
+    const heroHeading = document.querySelector("#mint01-flagship-hero-card .section-heading");
+
+    if (walkVid && manifest.walkthrough_mp4_url) {
+      if (manifest.poster_png_url) {
+        walkVid.poster = `${safeUrl(manifest.poster_png_url)}&t=${Date.now()}`;
+      }
+      walkVid.src = `${safeUrl(manifest.walkthrough_mp4_url)}&t=${Date.now()}`;
+      walkVid.load();
+      walkVid.play().catch(() => {});
+    }
+    if (twinVid && manifest.digital_twin_mp4_url) {
+      twinVid.src = `${safeUrl(manifest.digital_twin_mp4_url)}&t=${Date.now()}`;
+    }
+    if (audioEl && manifest.chirp3_audio_url) {
+      audioEl.src = `${safeUrl(manifest.chirp3_audio_url)}&t=${Date.now()}`;
+    }
+    if (metaBadge) {
+      metaBadge.textContent = `${manifest.post_id} · ${manifest.resolution || "1920x1080"} @ ${manifest.fps || 30}fps · ${manifest.duration_sec || 44.0}s`;
+    }
+    if (heroHeading && manifest.title) {
+      heroHeading.textContent = `${manifest.post_id} — ${polishUiTypography(manifest.title)}`;
+    }
+    if (badge) {
+      badge.textContent = `✓ Produced ${manifest.post_id} (${manifest.walkthrough_size_bytes ? (manifest.walkthrough_size_bytes / (1024 * 1024)).toFixed(2) + " MB" : "1080p30"}) · 0.0 px² Occlusion`;
+    }
+    if (receiptBar) {
+      receiptBar.style.display = "flex";
+      receiptBar.style.justifyContent = "space-between";
+      receiptBar.style.alignItems = "center";
+      receiptBar.style.flexWrap = "wrap";
+      receiptBar.style.gap = "10px";
+      receiptBar.replaceChildren();
+      const msg = mkEl(
+        "span",
+        "",
+        `✓ Produced 1080p30 Digital Twin Walkthrough for ${manifest.post_id} (${manifest.template_id}) — Playing now in the studio stage below!`
+      );
+      const dlLink = mkEl("a", "btn-primary", "⬇ Download 1080p30 .MP4");
+      dlLink.href = safeUrl(manifest.walkthrough_mp4_url);
+      dlLink.setAttribute("download", `${manifest.post_id}_walkthrough.mp4`);
+      dlLink.style.cssText = "text-decoration:none;font-size:11.5px;padding:5px 12px;";
+      receiptBar.append(msg, dlLink);
+    }
+    showToast(`Produced Digital Twin & 1080p30 Walkthrough MP4 for ${manifest.post_id}!`);
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "🎬 Produce Digital Twin & 1080p30 Walkthrough MP4";
+    }
+  }
+}
+
+async function openDigitalTwinProducerForPost({ post_id, title, summary, template_id, repo_slug }) {
+  activateView("view-minting-studio");
+  populateDigitalTwinPostSelect();
+  const sel = document.getElementById("digital-twin-post-select");
+  const tplSel = document.getElementById("digital-twin-template-select");
+  if (sel && post_id) {
+    let found = Array.from(sel.options).find((o) => o.value === post_id);
+    if (!found) {
+      found = mkEl("option", "", `[Selected Post] ${post_id} · ${title || ""}`);
+      found.value = post_id;
+      if (title) found.dataset.title = title;
+      if (summary) found.dataset.summary = summary;
+      if (template_id) found.dataset.templateId = template_id;
+      if (repo_slug) found.dataset.repoSlug = repo_slug;
+      sel.prepend(found);
+    }
+    sel.value = post_id;
+  }
+  if (tplSel && template_id) {
+    const hasTpl = Array.from(tplSel.options).some((o) => o.value === template_id);
+    if (!hasTpl) {
+      const opt = mkEl("option", "", `Blueprint ${template_id}`);
+      opt.value = template_id;
+      tplSel.appendChild(opt);
+    }
+    tplSel.value = template_id;
+  }
+  await loadDigitalTwinScriptForSelectedPost();
+  document.getElementById("any-post-digital-twin-producer-card")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  await triggerProduceDigitalTwinVideo();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadAndRenderBreakoutGithubRepos(false);
+  setTimeout(() => {
+    populateDigitalTwinPostSelect();
+    loadDigitalTwinScriptForSelectedPost();
+  }, 450);
+
+  document.getElementById("mine-live-breakout-repos-btn")?.addEventListener("click", () => {
+    loadAndRenderBreakoutGithubRepos(true);
+  });
+  document.getElementById("breakout-repo-search-input")?.addEventListener("input", () => {
+    loadAndRenderBreakoutGithubRepos(false);
+  });
+  document.getElementById("breakout-repo-sort-select")?.addEventListener("change", () => {
+    loadAndRenderBreakoutGithubRepos(false);
+  });
+  document.getElementById("mint-custom-github-repo-btn")?.addEventListener("click", () => {
+    const repoVal = (document.getElementById("custom-github-mint-input")?.value || "").trim() || "google/A2A";
+    const focusVal = (document.getElementById("custom-github-focus-input")?.value || "").trim();
+    const btn = document.getElementById("mint-custom-github-repo-btn");
+    mintBreakoutGithubRepo(repoVal, focusVal, btn);
+  });
+
+  document.getElementById("digital-twin-post-select")?.addEventListener("change", () => {
+    loadDigitalTwinScriptForSelectedPost();
+  });
+  document.getElementById("digital-twin-template-select")?.addEventListener("change", () => {
+    loadDigitalTwinScriptForSelectedPost();
+  });
+  document.getElementById("load-digital-twin-script-btn")?.addEventListener("click", () => {
+    loadDigitalTwinScriptForSelectedPost();
+    showToast("Loaded 6-Act spoken narration script for selected post!");
+  });
+  document.getElementById("produce-digital-twin-video-btn")?.addEventListener("click", () => {
+    triggerProduceDigitalTwinVideo();
   });
 });

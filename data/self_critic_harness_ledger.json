@@ -1,8 +1,8 @@
 {
   "status": "ALL_GATES_VERIFIED",
   "harness_version": "Harness\u00b2-v2.4-Autonomous-Self-Critic",
-  "last_run_utc": "2026-11-09T16:01:35.766166+00:00",
-  "duration_ms": 1028,
+  "last_run_utc": "2026-11-10T03:48:52.895738+00:00",
+  "duration_ms": 1044,
   "overall_score": 99.9,
   "gates_passed": 8,
   "gates_total": 8,
@@ -59,7 +59,7 @@
       "name": "WCAG 2.2 AA/AAA Contrast & Cognitive Load Density Gate",
       "status": "PASS",
       "score": 99.4,
-      "metrics": "Min font 10.0px \u00b7 Peak card density 39.4 words/card (<=42 cap) \u00b7 Light Theme #F8FAFC",
+      "metrics": "Min font 9.0px \u00b7 Peak card density 28.7 words/card (<=42 cap) \u00b7 Light Theme #F8FAFC",
       "what_it_prevents": "Prevents text-heavy cognitive overload, unreadable tiny labels, and dirty low-contrast backgrounds."
     },
     {
@@ -107,7 +107,7 @@
       "name": "Zero-XSS DOM Safety, 19-Repo Sandbox & 13-Channel Contract Gate",
       "status": "PASS",
       "score": 100.0,
-      "metrics": "0 innerHTML/storage sinks \u00b7 19/19 Runnable ADK Repos (95/95 tests) \u00b7 8 Modes \u00d7 13 Channels = 104 Contracts",
+      "metrics": "0 innerHTML/storage sinks \u00b7 20/19 Runnable ADK Repos (95/95 tests) \u00b7 8 Modes \u00d7 13 Channels = 104 Contracts",
       "what_it_prevents": "Prevents XSS DOM injection, broken repo test suites, or platform character/aspect-ratio violations."
     }
   ],
@@ -149,7 +149,7 @@
     "upstream_pipelines_active": 5,
     "customer_success_invention_radar": {
       "status": "READY",
-      "generated_at": "2026-11-09T16:01:35.766072+00:00",
+      "generated_at": "2026-11-10T03:48:52.895666+00:00",
       "total_inventions": 10,
       "customer_success_pillars": [
         "Zero-Trust MCP & OBO Security (Unblocks CISO/ARB Review)",
@@ -2109,8 +2109,186 @@
       }
     ]
   },
-  "latest_auto_healed_actions": [],
+  "latest_auto_healed_actions": [
+    "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-04 (GRAMMAR-07 \u00d7 product_gtm_leader \u00d7 strategic_advisory_si).",
+    "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-06 (GRAMMAR-11 \u00d7 devrel_creator \u00d7 cloud_hyperscaler)."
+  ],
   "run_history": [
+    {
+      "run_id": "critic-20261110T034852Z",
+      "timestamp_utc": "2026-11-10T03:48:52.895738+00:00",
+      "trigger_source": "cli_self_critic_gate",
+      "duration_ms": 1044,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 2,
+      "auto_healed_actions": [
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-04 (GRAMMAR-07 \u00d7 product_gtm_leader \u00d7 strategic_advisory_si).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-06 (GRAMMAR-11 \u00d7 devrel_creator \u00d7 cloud_hyperscaler)."
+      ]
+    },
+    {
+      "run_id": "critic-20261110T034647Z",
+      "timestamp_utc": "2026-11-10T03:46:47.107993+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1026,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 2,
+      "auto_healed_actions": [
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-04 (GRAMMAR-07 \u00d7 product_gtm_leader \u00d7 strategic_advisory_si).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-06 (GRAMMAR-11 \u00d7 devrel_creator \u00d7 cloud_hyperscaler)."
+      ]
+    },
+    {
+      "run_id": "critic-20261110T034534Z",
+      "timestamp_utc": "2026-11-10T03:45:34.743270+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1035,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 2,
+      "auto_healed_actions": [
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-04 (GRAMMAR-07 \u00d7 product_gtm_leader \u00d7 strategic_advisory_si).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-06 (GRAMMAR-11 \u00d7 devrel_creator \u00d7 cloud_hyperscaler)."
+      ]
+    },
+    {
+      "run_id": "critic-20261110T034508Z",
+      "timestamp_utc": "2026-11-10T03:45:08.456609+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1038,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 2,
+      "auto_healed_actions": [
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-04 (GRAMMAR-07 \u00d7 product_gtm_leader \u00d7 strategic_advisory_si).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-06 (GRAMMAR-11 \u00d7 devrel_creator \u00d7 cloud_hyperscaler)."
+      ]
+    },
+    {
+      "run_id": "critic-20261110T034448Z",
+      "timestamp_utc": "2026-11-10T03:44:48.926066+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1043,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 2,
+      "auto_healed_actions": [
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-04 (GRAMMAR-07 \u00d7 product_gtm_leader \u00d7 strategic_advisory_si).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-06 (GRAMMAR-11 \u00d7 devrel_creator \u00d7 cloud_hyperscaler)."
+      ]
+    },
+    {
+      "run_id": "critic-20261110T034416Z",
+      "timestamp_utc": "2026-11-10T03:44:16.123494+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1030,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 2,
+      "auto_healed_actions": [
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-04 (GRAMMAR-07 \u00d7 product_gtm_leader \u00d7 strategic_advisory_si).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-06 (GRAMMAR-11 \u00d7 devrel_creator \u00d7 cloud_hyperscaler)."
+      ]
+    },
+    {
+      "run_id": "critic-20261110T034400Z",
+      "timestamp_utc": "2026-11-10T03:44:00.054157+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1074,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 2,
+      "auto_healed_actions": [
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-04 (GRAMMAR-07 \u00d7 product_gtm_leader \u00d7 strategic_advisory_si).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-06 (GRAMMAR-11 \u00d7 devrel_creator \u00d7 cloud_hyperscaler)."
+      ]
+    },
+    {
+      "run_id": "critic-20261110T034209Z",
+      "timestamp_utc": "2026-11-10T03:42:09.508429+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1036,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 2,
+      "auto_healed_actions": [
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-04 (GRAMMAR-07 \u00d7 product_gtm_leader \u00d7 strategic_advisory_si).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-06 (GRAMMAR-11 \u00d7 devrel_creator \u00d7 cloud_hyperscaler)."
+      ]
+    },
+    {
+      "run_id": "critic-20261110T034120Z",
+      "timestamp_utc": "2026-11-10T03:41:20.720609+00:00",
+      "trigger_source": "cli_verify",
+      "duration_ms": 1044,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 6,
+      "auto_healed_actions": [
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-01 (GRAMMAR-02 \u00d7 c_suite_board \u00d7 frontier_ai_startup).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-02 (GRAMMAR-08 \u00d7 vp_principal_architect \u00d7 cloud_hyperscaler).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-03 (GRAMMAR-05 \u00d7 staff_swe_builder \u00d7 open_source_ecosystem).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-04 (GRAMMAR-07 \u00d7 product_gtm_leader \u00d7 strategic_advisory_si).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-05 (GRAMMAR-09 \u00d7 ciso_governance \u00d7 regulated_enterprise).",
+        "Auto-synthesized & upgraded high-density discovery gap exemplar GAP-CELL-06 (GRAMMAR-11 \u00d7 devrel_creator \u00d7 cloud_hyperscaler)."
+      ]
+    },
+    {
+      "run_id": "critic-20261110T032133Z",
+      "timestamp_utc": "2026-11-10T03:21:33.055661+00:00",
+      "trigger_source": "api_post_self_critic_run",
+      "duration_ms": 985,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
+    {
+      "run_id": "critic-20261110T025956Z",
+      "timestamp_utc": "2026-11-10T02:59:56.125859+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1017,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
+    {
+      "run_id": "critic-20261110T025519Z",
+      "timestamp_utc": "2026-11-10T02:55:19.010365+00:00",
+      "trigger_source": "unit_test_verification",
+      "duration_ms": 1058,
+      "overall_score": 99.9,
+      "gates_passed": 8,
+      "gates_total": 8,
+      "all_gates_passed": true,
+      "auto_healed_count": 0,
+      "auto_healed_actions": []
+    },
     {
       "run_id": "critic-20261109T160135Z",
       "timestamp_utc": "2026-11-09T16:01:35.766166+00:00",
@@ -2264,78 +2442,6 @@
       "gates_passed": 8,
       "gates_total": 8,
       "all_gates_passed": true,
-      "auto_healed_count": 0,
-      "auto_healed_actions": []
-    },
-    {
-      "run_id": "critic-20261109T061457Z",
-      "timestamp_utc": "2026-11-09T06:14:57.570462+00:00",
-      "trigger_source": "unit_test_verification",
-      "duration_ms": 1030,
-      "overall_score": 99.9,
-      "gates_passed": 8,
-      "gates_total": 8,
-      "all_gates_passed": true,
-      "auto_healed_count": 0,
-      "auto_healed_actions": []
-    },
-    {
-      "run_id": "critic-20261109T061415Z",
-      "timestamp_utc": "2026-11-09T06:14:15.783696+00:00",
-      "trigger_source": "unit_test_verification",
-      "duration_ms": 1074,
-      "overall_score": 99.9,
-      "gates_passed": 8,
-      "gates_total": 8,
-      "all_gates_passed": true,
-      "auto_healed_count": 0,
-      "auto_healed_actions": []
-    },
-    {
-      "run_id": "critic-20261109T061413Z",
-      "timestamp_utc": "2026-11-09T06:14:13.692597+00:00",
-      "trigger_source": "cli_self_critic_gate",
-      "duration_ms": 1073,
-      "overall_score": 99.9,
-      "gates_passed": 8,
-      "gates_total": 8,
-      "all_gates_passed": true,
-      "auto_healed_count": 0,
-      "auto_healed_actions": []
-    },
-    {
-      "run_id": "critic-20261108T193931Z",
-      "timestamp_utc": "2026-11-08T19:39:31.008967+00:00",
-      "trigger_source": "unit_test_verification",
-      "duration_ms": 1036,
-      "overall_score": 99.9,
-      "gates_passed": 8,
-      "gates_total": 8,
-      "all_gates_passed": true,
-      "auto_healed_count": 0,
-      "auto_healed_actions": []
-    },
-    {
-      "run_id": "critic-20261108T193559Z",
-      "timestamp_utc": "2026-11-08T19:35:59.024888+00:00",
-      "trigger_source": "cli_self_critic_gate",
-      "duration_ms": 1038,
-      "overall_score": 99.9,
-      "gates_passed": 8,
-      "gates_total": 8,
-      "all_gates_passed": true,
-      "auto_healed_count": 0,
-      "auto_healed_actions": []
-    },
-    {
-      "run_id": "critic-20261108T193402Z",
-      "timestamp_utc": "2026-11-08T19:34:02.031344+00:00",
-      "trigger_source": "cli_self_critic_gate",
-      "duration_ms": 1038,
-      "overall_score": 78.0,
-      "gates_passed": 3,
-      "gates_total": 8,
-      "all_gates_passed": false,
       "auto_healed_count": 0,
       "auto_healed_actions": []
     }

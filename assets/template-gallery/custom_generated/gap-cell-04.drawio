@@ -14,8 +14,11 @@ Stack Anchor: Enterprise Knowledge Graph + Vertex AI Search + Looker + BigQuery 
 30-Day Self-Funding Pilot Loop • Semantic Ontology Foundation • Change Management &amp; Adoption" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F1F5F9;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
       </mxCell>
-      <mxCell id="funnel_s_1" value="STEP 1 • 6 AMBIENT AGENTS GATHER EVERY SIGNAL AROUND THE CLOCK
-Market Research · Customer Signals · Portfolio Goals · Tech Debt · Product Analytics · Release Metrics" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="funnel_s_1" value="01 • INGRESS &amp; INTENT: AGENTIC PRODUCT TRIAGE
+Ingress &amp; Schema Gate for Agentic Product Triage
+• Parse caller intent &amp; validate strict JSON/Pydantic contract
+• Mint short-lived RFC 8693 OBO token on Enterprise Knowledge Graph
+• Freeze immutable system prefix (94.2% KV cache hit)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="48" y="208" width="824" height="114" as="geometry" />
       </mxCell>
       <mxCell id="funnel_s_2" value="STEP 2 • AGENTS SYNTHESIZE &amp; RANK THE UNIFIED BACKLOG
@@ -30,24 +33,32 @@ Option A (€ · Weeks · Δ Metric)   |   Option B (€ · Weeks · Δ Metric) 
 Agents do the research &amp; costing; your human leadership team decides what to build." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FEF9C3;strokeColor=#CA8A04;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="258" y="562" width="404" height="96" as="geometry" />
       </mxCell>
-      <mxCell id="build_c_1" value="STEP 5A • ARCHITECT + AGENTS
-Shape the Slice
-Product Slice = Epic + User Stories + Verifiable Acceptance Tests" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="build_c_1" value="02 • DYNAMIC ROUTING: TRIAGE FUNNEL FDE
+Top-K Semantic Discovery (Triage Funnel FDE)
+• Hybrid BM25 + dense vector lookup over Vertex AI Search
+• Mount only Top-4 slim schemas per turn (-97.5% bloat)
+• Enforce deterministic capability downgrade on untrusted inputs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="48" y="692" width="248" height="168" as="geometry" />
       </mxCell>
-      <mxCell id="build_c_2" value="STEP 5B • ENGINEER + AGENTS
-Build &amp; Ship
-Agentic production worktrees with deterministic CI/CD into users&#x27; hands" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="build_c_2" value="03 • SANDBOX EXECUTION &amp; STATE
+Isolated Execution on Enterprise Knowledge Graph
+• Execute bounded tool &amp; subagent calls with idempotency keys
+• Persist SHA-256 provenance receipts &amp; episodic state
+• Stream async OpenTelemetry GenAI spans to BigQuery" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="336" y="692" width="248" height="168" as="geometry" />
       </mxCell>
-      <mxCell id="build_c_3" value="STEP 5C • GATE B OUTCOME REVIEW
-Measure the Outcome
-Track conversion, retention &amp; LTV deltas -&gt; feed back into Step 1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="build_c_3" value="04 • ORTHOGONAL JUDGE &amp; SLO GATE
+Pre-Completion Verification (Product &amp; GTM)
+• Verify output against 100-trial golden replay rubric
+• Enforce p95 latency, token budget &amp; zero-hallucination gates
+• Emit verified executive KPI telemetry (3x Faster Spec-to-Ship · 1 FDE : 1.5 AE Ratio)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="624" y="692" width="248" height="168" as="geometry" />
       </mxCell>
-      <mxCell id="funnel_score_foot" value="HOW AGENTS SCORE EVERY OPTION BEFORE ANYONE DECIDES
-[1. COST]: People, token compute &amp; infra to build and run   |   [2. TIME TO MARKET]: Days until users touch it &amp; signal returns   |   [3. VALUE]: Expected move in conversion, retention &amp; LTV
-Closed-Loop Rule: Every production release automatically emits telemetry back into Step 1&#x27;s Metrics Agent." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="funnel_score_foot" value="05 • CONTINUOUS SELF-HEALING LOOP
+Production Drift &amp; Trace-to-Eval Flywheel
+• Convert any production anomaly into a permanent regression test
+• Auto-compact stale context turns into typed state blocks
+• Zero unverified mutations across Transformation &amp; FDE" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="48" y="888" width="824" height="168" as="geometry" />
       </mxCell>
       <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-07 (T216) • PRODUCT &amp; GTM • TRANSFORMATION &amp; FDE" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">

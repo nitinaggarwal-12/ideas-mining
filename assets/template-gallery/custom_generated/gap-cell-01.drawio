@@ -14,52 +14,60 @@ Stack Anchor: Gemini 4 Argon / 3.8 Flash + ADK + LangGraph + Arize Phoenix  |  K
 Sub-Second Speculative Cascade • 1 FDE : 1.5 AE Field Velocity • Continuous Trace-to-Eval" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EDE9FE;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
       </mxCell>
-      <mxCell id="fin_card_1" value="Concept • Cost Iceberg
-01 • What AI Really Costs
-📊 License/API is 15% tip; 85% is Data Prep + Integration + Training + Eval Upkeep
-✓ Budget for Day-2 evals &amp; maintenance, never just Day-1 launch" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="fin_card_1" value="01 • INGRESS &amp; INTENT: UNIT ECONOMICS SEMANTIC
+Ingress &amp; Schema Gate for Unit Economics Semantic
+• Parse caller intent &amp; validate strict JSON/Pydantic contract
+• Mint short-lived RFC 8693 OBO token on Gemini 4 Argon / 3.8 Flash
+• Freeze immutable system prefix (94.2% KV cache hit)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="208" width="420" height="198" as="geometry" />
       </mxCell>
-      <mxCell id="fin_card_2" value="Key Formulas • Unit Economics
-02 • The Verified ROI Math
-📊 Monthly Value = Hours Saved × Loaded Rate × Verified Active Adoption %
-✓ Payback (Months) = Setup Cost ÷ Monthly Net Validated Gain" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="fin_card_2" value="02 • DYNAMIC ROUTING: SEMANTIC CASCADE FINOPS
+Top-K Semantic Discovery (Semantic Cascade FinOps)
+• Hybrid BM25 + dense vector lookup over ADK
+• Mount only Top-4 slim schemas per turn (-97.5% bloat)
+• Enforce deterministic capability downgrade on untrusted inputs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="472" y="208" width="420" height="198" as="geometry" />
       </mxCell>
-      <mxCell id="fin_card_3" value="Strategy • $ to $$$$ Escalation
-03 • Buy Before You Build Ladder
-📊 1. Use included features ($) -&gt; 2. Off-the-shelf ($$) -&gt; 3. Low-code ($$$) -&gt; 4. Custom ($$$$)
-✓ Climb one rung only when the rung below fails measured SLOs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="fin_card_3" value="03 • SANDBOX EXECUTION &amp; STATE
+Isolated Execution on Gemini 4 Argon / 3.8 Flash
+• Execute bounded tool &amp; subagent calls with idempotency keys
+• Persist SHA-256 provenance receipts &amp; episodic state
+• Stream async OpenTelemetry GenAI spans to Arize Phoenix" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="424" width="420" height="198" as="geometry" />
       </mxCell>
-      <mxCell id="fin_card_4" value="Cost Lever • Tiered Routing
-04 • Right-Size the Model Cascade
-📊 Overkill (Frontier for bool gates) vs Right-Sized (Flash -&gt; Argon cascade) vs Too Weak (Rework!)
-✓ Route 80% of deterministic/triage turns to &lt;15ms small models" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="fin_card_4" value="04 • ORTHOGONAL JUDGE &amp; SLO GATE
+Pre-Completion Verification (C-Suite &amp; CFO)
+• Verify output against 100-trial golden replay rubric
+• Enforce p95 latency, token budget &amp; zero-hallucination gates
+• Emit verified executive KPI telemetry (Payback &lt;= 4.2 Months · -68% Cost / Outcome)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="472" y="424" width="420" height="198" as="geometry" />
       </mxCell>
-      <mxCell id="fin_card_5" value="Process • Capital Discipline
-05 • 30-Day Self-Funding Pilot Loop
-📊 Pick 1 high-volume use case -&gt; Run 30-day pilot -&gt; Measure net savings -&gt; Scale or Kill
-✓ Fund every subsequent wave strictly from the prior pilot&#x27;s savings" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="fin_card_5" value="05 • CONTINUOUS SELF-HEALING LOOP
+Production Drift &amp; Trace-to-Eval Flywheel
+• Convert any production anomaly into a permanent regression test
+• Auto-compact stale context turns into typed state blocks
+• Zero unverified mutations across Frontier AI Startup" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="640" width="420" height="198" as="geometry" />
       </mxCell>
-      <mxCell id="fin_card_6" value="Control • FinOps Alerts
-06 • Break-Even &amp; Spend Telemetry
-📊 Track Cost Curve vs Realized Value Curve until Break-Even crossover (Month 3.8)
-✓ Measure cost-per-successful-task (CPSO), never raw token volume" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="fin_card_6" value="06 • MULTI-CLOUD &amp; A2A FEDERATION
+Cross-Boundary A2A &amp; Policy Enforcement
+• Signed Agent Card capability negotiation over HTTPS/mTLS
+• Per-tenant FinOps circuit breaker &amp; spend ceiling
+• Full audit trail aligned with Sub-Second Speculative Cascade • 1 FDE : 1.5 AE " style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="472" y="640" width="420" height="198" as="geometry" />
       </mxCell>
-      <mxCell id="fin_card_7" value="Licenses • 24-Seat Audit Grid
-07 • Cut Zombie Licenses Monthly
-📊 15 Active Power Seats (Green) vs 9 Dormant Seats (Gray) = 37.5% Immediate Waste
-✓ Reclaim &amp; reassign inactive seats every 30 days before buying more" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="fin_card_7" value="07 • DETERMINISTIC ROLLBACK &amp; RECOVERY
+Checkpoint Rewind &amp; Blast-Radius Containment
+• Instant state-graph rewind on tool timeout or schema drift
+• Automatic fallback cascade across Gemini Pro / Flash tiers
+• 99.95% SLO adherence under burst concurrency" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="856" width="420" height="198" as="geometry" />
       </mxCell>
-      <mxCell id="fin_card_8" value="People • Adoption Lever
-08 • Role-Based Enablement Multiplier
-📊 Tool Only (1.2x Value/Cost) vs Tool + 45m Role-Based Workflows (3.8x Value/Cost)
-✓ Appoint 1 practitioner AI Champion per squad to compound adoption" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="fin_card_8" value="08 • EXECUTIVE VALUE REALIZATION
+Verified Production ROI &amp; Adoption
+• Quantified token &amp; latency savings per 1,000 workflows
+• Turnkey Terraform + Cloud Run + ADK deployment blueprint
+• Board Sign-Off Gate: Fund next phase strictly from verified pilot sa" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="472" y="856" width="420" height="198" as="geometry" />
       </mxCell>
       <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-02 (T211) • C-SUITE &amp; CFO • FRONTIER AI STARTUP" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">

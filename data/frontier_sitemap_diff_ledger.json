@@ -1,7 +1,7 @@
 {
   "sources": {
     "SITEMAP-ANTHROPIC": {
-      "last_checked_utc": "2026-11-09T16:01:38.580138+00:00",
+      "last_checked_utc": "2026-11-10T03:46:52.818276+00:00",
       "entries": [
         {
           "title": "Anthropic Research: Contextual Retrieval & Prompt-Cached BM25 + Embedding Hybrid RAG",
@@ -22,15 +22,15 @@
           "published_at": "2026-11-08"
         },
         {
-          "title": "Progress on provable inference for large language models",
-          "summary": "Sharing progress on a powerful type of cryptographic proof known as a zkSNARK, which is uniquely fit for provable inference.",
-          "primary_url": "https://www.anthropic.com/research/provable-inference",
+          "title": "Claude can design electronic prototypes from start to finish",
+          "summary": "We asked Claude to design three electronic devices: a speakerphone, a voice-assistant hub, and a handheld virtual pet. The prototypes worked without any fixes to their circuitry.",
+          "primary_url": "https://www.anthropic.com/research/claude-electronics-design",
           "published_at": "2026-11-09"
         }
       ]
     },
     "SITEMAP-MISTRAL": {
-      "last_checked_utc": "2026-11-09T16:01:38.580158+00:00",
+      "last_checked_utc": "2026-11-10T03:46:52.818296+00:00",
       "entries": [
         {
           "title": "Mistral AI Engineering: High-Throughput Sparse MoE & Structured Function Calling at Scale",
@@ -41,5 +41,5 @@
       ]
     }
   },
-  "updated_at": "2026-11-09T16:01:38.580162+00:00"
+  "updated_at": "2026-11-10T03:46:52.818301+00:00"
 }

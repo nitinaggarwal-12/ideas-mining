@@ -1,7 +1,29 @@
 {
   "window_days": 30,
-  "updated_at": "2026-11-09T06:56:39.776676+00:00",
-  "active_ledger_count": 10,
+  "updated_at": "2026-11-10T03:47:43.895703+00:00",
+  "active_ledger_count": 15,
+  "refresh_rotation_ring": [
+    "d4fe955f5c7b5d07",
+    "8e2ec456ed5a74b0",
+    "c753c101a181bf7f",
+    "48d4b43f428a7a02",
+    "9ded7ae3409b7bc4",
+    "e404a446e5150b0c",
+    "5cf9a7e54795e646",
+    "e483732f4a13ed4c",
+    "55d40b821cf32e5b",
+    "d8e9e3515db6d410",
+    "5995bf9ffc7355a7",
+    "224b9d98620e1627",
+    "6b1afe8f878f58f2",
+    "eb74ecf1343d4f10",
+    "3d3f1f2ab81975c6",
+    "e4d4713be784fb06",
+    "d7ad584b04bbeac6",
+    "f86c878a36986008",
+    "b0cace8a9abea289",
+    "ace513e2f6583efc"
+  ],
   "entries": [
     {
       "edition_date": "2026-11-04",
@@ -82,6 +104,46 @@
       "title": "walkinglabs/learn-harness-engineering: 8-Phase Agentic Harness Engineering Curriculum",
       "primary_url": "https://github.com/walkinglabs/learn-harness-engineering",
       "cluster_id": "CLUSTER_CODING_EVALS"
+    },
+    {
+      "edition_date": "2026-11-10",
+      "fingerprint": "b0cace8a9abea289",
+      "idea_id": "TOP5-20261110-01",
+      "title": "PydanticAI: Type-Safe Dependency-Injected Agent Framework with Strict Validation",
+      "primary_url": "https://github.com/pydantic/pydantic-ai",
+      "cluster_id": "CLUSTER_MCP_IDENTITY"
+    },
+    {
+      "edition_date": "2026-11-10",
+      "fingerprint": "ace513e2f6583efc",
+      "idea_id": "TOP5-20261110-02",
+      "title": "Replay-Set Benchmarking for Autonomous PR Review: Measuring Silent Misses & Triage Tax",
+      "primary_url": "https://cloud.google.com/gemini/docs/codeassist/overview",
+      "cluster_id": "CLUSTER_CODING_EVALS"
+    },
+    {
+      "edition_date": "2026-11-10",
+      "fingerprint": "c753c101a181bf7f",
+      "idea_id": "TOP5-20261110-03",
+      "title": "Agentic Hybrid GraphRAG + Query-Plan Verifier",
+      "primary_url": "https://github.com/nitinaggarwal-12/ideas-mining",
+      "cluster_id": "CLUSTER_MULTIAGENT_MEMORY"
+    },
+    {
+      "edition_date": "2026-11-10",
+      "fingerprint": "d4fe955f5c7b5d07",
+      "idea_id": "TOP5-20261110-04",
+      "title": "Constrained Decoding & CFG Zero-Retry Structured Output",
+      "primary_url": "https://github.com/nitinaggarwal-12/ideas-mining",
+      "cluster_id": "CLUSTER_MCP_IDENTITY"
+    },
+    {
+      "edition_date": "2026-11-10",
+      "fingerprint": "8e2ec456ed5a74b0",
+      "idea_id": "TOP5-20261110-05",
+      "title": "MarkItDown: Zero-Bloat Office/PDF/HTML-to-Markdown Context Compiler for Agents",
+      "primary_url": "https://github.com/microsoft/markitdown",
+      "cluster_id": "CLUSTER_MCP_IDENTITY"
     }
   ]
 }

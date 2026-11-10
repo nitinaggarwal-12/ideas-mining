@@ -22,68 +22,134 @@
 </defs>
 <rect x="0" y="0" width="920" height="1150" fill="#F8FAFC"/>
 <rect x="0" y="0" width="920" height="1150" fill="url(#genGrid)"/>
-<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
-<text x="42.0" y="44.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">T211 • 8-CARD FINOPS MICRO-CHARTS • EXECUTIVE ROI &amp; BOARD RISK LENS • FRONTIER AI STARTUP</text>
-<text x="42.0" y="62.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">AI Unit Economics &amp; Semantic Cascade FinOps Playbook: Cutting Token Burn 68%</text>
-<text x="42.0" y="86.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">How Series-B AI startups route 80% of deterministic micro-gates to &lt;15ms classifiers and Flash tiers before invoking frontier reasoning</text>
-<text x="42.0" y="101.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">models.</text>
-<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack Anchor: Gemini 4 Argon / 3.8 Flash + ADK + LangGraph + Arize Phoenix | KPIs: Payback &lt;= 4.2 Months · -68% Cost / Outcome · 100%</text>
-<text x="42.0" y="131.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Audit Lineage</text>
-<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2"/>
-<text x="42.0" y="170.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: Board Sign-Off Gate: Fund next phase strictly from verified pilot savings.</text>
-<rect x="28.0" y="208.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
-<text x="42.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">Concept • Cost Iceberg</text>
-<text x="42.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">01 • What AI Really Costs</text>
-<text x="42.0" y="265.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 License/API is 15% tip; 85% is Data Prep + Integration +</text>
-<text x="42.0" y="280.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Training + Eval Upkeep</text>
-<text x="42.0" y="295.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Budget for Day-2 evals &amp; maintenance, never just Day-1 launch</text>
-<rect x="472.0" y="208.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
-<text x="486.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">Key Formulas • Unit Economics</text>
-<text x="486.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">02 • The Verified ROI Math</text>
-<text x="486.0" y="265.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 Monthly Value = Hours Saved × Loaded Rate × Verified Active</text>
-<text x="486.0" y="280.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Adoption %</text>
-<text x="486.0" y="295.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Payback (Months) = Setup Cost ÷ Monthly Net Validated Gain</text>
-<rect x="28.0" y="424.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
-<text x="42.0" y="444.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">Strategy • $ to $$$$ Escalation</text>
-<text x="42.0" y="462.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">03 • Buy Before You Build Ladder</text>
-<text x="42.0" y="481.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 1. Use included features ($) -&gt; 2. Off-the-shelf ($$) -&gt; 3.</text>
-<text x="42.0" y="496.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Low-code ($$$) -&gt; 4. Custom ($$$$)</text>
-<text x="42.0" y="511.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Climb one rung only when the rung below fails measured SLOs</text>
-<rect x="472.0" y="424.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
-<text x="486.0" y="444.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">Cost Lever • Tiered Routing</text>
-<text x="486.0" y="462.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">04 • Right-Size the Model Cascade</text>
-<text x="486.0" y="481.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 Overkill (Frontier for bool gates) vs Right-Sized (Flash -&gt;</text>
-<text x="486.0" y="496.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Argon cascade) vs Too Weak (Rework!)</text>
-<text x="486.0" y="511.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Route 80% of deterministic/triage turns to &lt;15ms small models</text>
-<rect x="28.0" y="640.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
-<text x="42.0" y="660.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">Process • Capital Discipline</text>
-<text x="42.0" y="678.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">05 • 30-Day Self-Funding Pilot Loop</text>
-<text x="42.0" y="697.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 Pick 1 high-volume use case -&gt; Run 30-day pilot -&gt; Measure</text>
-<text x="42.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">net savings -&gt; Scale or Kill</text>
-<text x="42.0" y="727.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Fund every subsequent wave strictly from the prior pilot&#x27;s</text>
-<text x="42.0" y="742.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">savings</text>
-<rect x="472.0" y="640.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
-<text x="486.0" y="660.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">Control • FinOps Alerts</text>
-<text x="486.0" y="678.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">06 • Break-Even &amp; Spend Telemetry</text>
-<text x="486.0" y="697.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 Track Cost Curve vs Realized Value Curve until Break-Even</text>
-<text x="486.0" y="712.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">crossover (Month 3.8)</text>
-<text x="486.0" y="727.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Measure cost-per-successful-task (CPSO), never raw token</text>
-<text x="486.0" y="742.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">volume</text>
-<rect x="28.0" y="856.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
-<text x="42.0" y="876.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">Licenses • 24-Seat Audit Grid</text>
-<text x="42.0" y="894.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">07 • Cut Zombie Licenses Monthly</text>
-<text x="42.0" y="913.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 15 Active Power Seats (Green) vs 9 Dormant Seats (Gray) =</text>
-<text x="42.0" y="928.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">37.5% Immediate Waste</text>
-<text x="42.0" y="943.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Reclaim &amp; reassign inactive seats every 30 days before buying</text>
-<text x="42.0" y="958.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">more</text>
-<rect x="472.0" y="856.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
-<text x="486.0" y="876.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">People • Adoption Lever</text>
-<text x="486.0" y="894.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">08 • Role-Based Enablement Multiplier</text>
-<text x="486.0" y="913.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">📊 Tool Only (1.2x Value/Cost) vs Tool + 45m Role-Based</text>
-<text x="486.0" y="928.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Workflows (3.8x Value/Cost)</text>
-<text x="486.0" y="943.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">✓ Appoint 1 practitioner AI Champion per squad to compound</text>
-<text x="486.0" y="958.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">adoption</text>
-<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<text x="42.0" y="43.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">T211 • 8-CARD FINOPS MICRO-CHARTS • EXECUTIVE ROI &amp; BOARD RISK LENS • FRONTIER AI STARTUP</text>
+<text x="42.0" y="61.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">AI Unit Economics &amp; Semantic Cascade FinOps Playbook: Cutting Token Burn 68%</text>
+<text x="42.0" y="85.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">How Series-B AI startups route 80% of deterministic micro-gates to &lt;15ms classifiers and Flash tiers before invoking frontier</text>
+<text x="42.0" y="100.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">reasoning models.</text>
+<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Stack Anchor: Gemini 4 Argon / 3.8 Flash + ADK + LangGraph + Arize Phoenix | KPIs: Payback &lt;= 4.2 Months · -68% Cost / Outcome ·</text>
+<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2.2"/>
+<text x="42.0" y="169.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: Board Sign-Off Gate: Fund next phase strictly from verified pilot savings.</text>
+<rect x="28.0" y="208.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="30.0" y="210.0" width="416.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="42.0" y="227.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">01 • INGRESS &amp; INTENT: UNIT ECONOMICS SEMANTIC</text>
+<text x="42.0" y="249.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Ingress &amp; Schema Gate for Unit Economics Semantic</text>
+<text x="42.0" y="268.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Parse caller intent &amp; validate strict JSON/Pydantic contract</text>
+<text x="42.0" y="283.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Mint short-lived RFC 8693 OBO token on Gemini 4 Argon / 3.8</text>
+<text x="42.0" y="299.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Flash</text>
+<text x="42.0" y="314.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Freeze immutable system prefix (94.2% KV cache hit)</text>
+<rect x="40.0" y="350.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="48.0" y="365.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="426.0" y="365.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">93% SLO PASS</text>
+<rect x="48.0" y="372.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="48.0" y="372.0" width="266.0" height="8.0" rx="4.0" fill="#7C3AED"/>
+<rect x="340.0" y="369.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="376.0" y="380.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="472.0" y="208.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="474.0" y="210.0" width="416.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="486.0" y="227.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">02 • DYNAMIC ROUTING: SEMANTIC CASCADE FINOPS</text>
+<text x="486.0" y="249.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Top-K Semantic Discovery (Semantic Cascade</text>
+<text x="486.0" y="268.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">FinOps)</text>
+<text x="486.0" y="287.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Hybrid BM25 + dense vector lookup over ADK</text>
+<text x="486.0" y="302.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Mount only Top-4 slim schemas per turn (-97.5% bloat)</text>
+<text x="486.0" y="318.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Enforce deterministic capability downgrade on untrusted</text>
+<text x="486.0" y="333.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">inputs</text>
+<rect x="484.0" y="350.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="492.0" y="365.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="870.0" y="365.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">78% SLO PASS</text>
+<rect x="492.0" y="372.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="492.0" y="372.0" width="223.1" height="8.0" rx="4.0" fill="#7C3AED"/>
+<rect x="784.0" y="369.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="820.0" y="380.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="28.0" y="424.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="30.0" y="426.0" width="416.0" height="26.0" rx="10.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="42.0" y="443.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">03 • SANDBOX EXECUTION &amp; STATE</text>
+<text x="42.0" y="465.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Isolated Execution on Gemini 4 Argon / 3.8 Flash</text>
+<text x="42.0" y="484.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Execute bounded tool &amp; subagent calls with idempotency keys</text>
+<text x="42.0" y="499.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Persist SHA-256 provenance receipts &amp; episodic state</text>
+<text x="42.0" y="515.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Stream async OpenTelemetry GenAI spans to Arize Phoenix</text>
+<rect x="40.0" y="566.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#2563EB" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="48.0" y="581.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="426.0" y="581.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">88% SLO PASS</text>
+<rect x="48.0" y="588.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="48.0" y="588.0" width="251.7" height="8.0" rx="4.0" fill="#2563EB"/>
+<rect x="340.0" y="585.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="376.0" y="596.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="472.0" y="424.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="474.0" y="426.0" width="416.0" height="26.0" rx="10.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="486.0" y="443.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">04 • ORTHOGONAL JUDGE &amp; SLO GATE</text>
+<text x="486.0" y="465.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Pre-Completion Verification (C-Suite &amp; CFO)</text>
+<text x="486.0" y="484.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Verify output against 100-trial golden replay rubric</text>
+<text x="486.0" y="499.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Enforce p95 latency, token budget &amp; zero-hallucination gates</text>
+<text x="486.0" y="515.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Emit verified executive KPI telemetry (Payback &lt;= 4.2 Months</text>
+<text x="486.0" y="530.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">· -68% Cost / Outcome)</text>
+<rect x="484.0" y="566.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#2563EB" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="492.0" y="581.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="870.0" y="581.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">90% SLO PASS</text>
+<rect x="492.0" y="588.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="492.0" y="588.0" width="257.4" height="8.0" rx="4.0" fill="#2563EB"/>
+<rect x="784.0" y="585.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="820.0" y="596.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="28.0" y="640.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="30.0" y="642.0" width="416.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="42.0" y="659.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">05 • CONTINUOUS SELF-HEALING LOOP</text>
+<text x="42.0" y="681.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Production Drift &amp; Trace-to-Eval Flywheel</text>
+<text x="42.0" y="700.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Convert any production anomaly into a permanent regression</text>
+<text x="42.0" y="715.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">test</text>
+<text x="42.0" y="731.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Auto-compact stale context turns into typed state blocks</text>
+<text x="42.0" y="746.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Zero unverified mutations across Frontier AI Startup</text>
+<rect x="40.0" y="782.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="48.0" y="797.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="426.0" y="797.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">83% SLO PASS</text>
+<rect x="48.0" y="804.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="48.0" y="804.0" width="237.4" height="8.0" rx="4.0" fill="#7C3AED"/>
+<rect x="340.0" y="801.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="376.0" y="812.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="472.0" y="640.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="474.0" y="642.0" width="416.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="486.0" y="659.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">06 • MULTI-CLOUD &amp; A2A FEDERATION</text>
+<text x="486.0" y="681.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Cross-Boundary A2A &amp; Policy Enforcement</text>
+<text x="486.0" y="700.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Signed Agent Card capability negotiation over HTTPS/mTLS</text>
+<text x="486.0" y="715.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Per-tenant FinOps circuit breaker &amp; spend ceiling</text>
+<text x="486.0" y="731.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Full audit trail aligned with Sub-Second Speculative Cascade</text>
+<text x="486.0" y="746.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• 1 FDE : 1.5 AE</text>
+<rect x="484.0" y="782.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="492.0" y="797.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="870.0" y="797.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">85% SLO PASS</text>
+<rect x="492.0" y="804.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="492.0" y="804.0" width="243.1" height="8.0" rx="4.0" fill="#7C3AED"/>
+<rect x="784.0" y="801.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="820.0" y="812.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="28.0" y="856.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2.2"/>
+<rect x="30.0" y="858.0" width="416.0" height="26.0" rx="10.0" fill="#059669" fill-opacity="0.10"/>
+<text x="42.0" y="875.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">07 • DETERMINISTIC ROLLBACK &amp; RECOVERY</text>
+<text x="42.0" y="897.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Checkpoint Rewind &amp; Blast-Radius Containment</text>
+<text x="42.0" y="916.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Instant state-graph rewind on tool timeout or schema drift</text>
+<text x="42.0" y="931.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Automatic fallback cascade across Gemini Pro / Flash tiers</text>
+<text x="42.0" y="947.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• 99.95% SLO adherence under burst concurrency</text>
+<rect x="40.0" y="998.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#059669" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="48.0" y="1013.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="426.0" y="1013.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">78% SLO PASS</text>
+<rect x="48.0" y="1020.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="48.0" y="1020.0" width="223.1" height="8.0" rx="4.0" fill="#059669"/>
+<rect x="340.0" y="1017.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="376.0" y="1028.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="472.0" y="856.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2.2"/>
+<rect x="474.0" y="858.0" width="416.0" height="26.0" rx="10.0" fill="#059669" fill-opacity="0.10"/>
+<text x="486.0" y="875.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">08 • EXECUTIVE VALUE REALIZATION</text>
+<text x="486.0" y="897.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Verified Production ROI &amp; Adoption</text>
+<text x="486.0" y="916.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Quantified token &amp; latency savings per 1,000 workflows</text>
+<text x="486.0" y="931.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Turnkey Terraform + Cloud Run + ADK deployment blueprint</text>
+<text x="486.0" y="947.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Board Sign-Off Gate: Fund next phase strictly from verified</text>
+<text x="486.0" y="962.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">pilot sa</text>
+<rect x="484.0" y="998.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#059669" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="492.0" y="1013.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="870.0" y="1013.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">80% SLO PASS</text>
+<rect x="492.0" y="1020.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="492.0" y="1020.0" width="228.8" height="8.0" rx="4.0" fill="#059669"/>
+<rect x="784.0" y="1017.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="820.0" y="1028.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2.2"/>
 <text x="460.0" y="1105.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-02 (T211) • C-SUITE &amp; CFO • FRONTIER AI STARTUP</text>
 <path d="M 448.0 307.0 L 472.0 307.0" fill="none" stroke="#7C3AED" stroke-width="2"/>
 <path d="M 238.0 406.0 L 238.0 424.0" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="6 4"/>
@@ -119,7 +185,4 @@
 <g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 682.0 838.0 L 682.0 856.0"/></g>
 <path d="M 448.0 955.0 L 472.0 955.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
 <g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 448.0 955.0 L 472.0 955.0"/></g>
-<path d="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 6" stroke-dashoffset="0.0"/>
-<g><circle r="7.4" fill="#7C3AED" fill-opacity="0.15"/><circle r="5.0" fill="#7C3AED" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.7" fill="#7C3AED"/><animateMotion dur="3.60s" begin="-0.00s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
-<g><circle r="7.4" fill="#7C3AED" fill-opacity="0.15"/><circle r="5.0" fill="#7C3AED" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.7" fill="#7C3AED"/><animateMotion dur="3.60s" begin="-1.80s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
 </svg>

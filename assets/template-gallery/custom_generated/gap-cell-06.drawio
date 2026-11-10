@@ -14,43 +14,60 @@ Stack Anchor: Vertex AI Agent Engine + Cloud Run + AlloyDB pgvector + Cloud Trac
 Multi-Tenant Control Plane • Global Endpoint Routing • Native MCP &amp; A2A Interoperability" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#E0F2FE;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
       </mxCell>
-      <mxCell id="ring_outer" value="OUTER RING • TASK-LEVEL HARNESS
-Rewrites Per-Task Scaffolding &amp; Eval Loops" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="ring_outer" value="01 • INGRESS &amp; INTENT: HARNESS RECURSIVE SELF-CRITI
+Ingress &amp; Schema Gate for Harness Recursive Self-Critic
+• Parse caller intent &amp; validate strict JSON/Pydantic contract
+• Mint short-lived RFC 8693 OBO token on Vertex AI Agent Engine
+• Freeze immutable system prefix (94.2% KV cache hit)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="220" y="300" width="480" height="480" as="geometry" />
       </mxCell>
-      <mxCell id="ring_mid" value="MIDDLE RING • DOMAIN SKILL LIBRARY
-Synthesizes Reusable Domain Tools" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="ring_mid" value="02 • DYNAMIC ROUTING: SELF-CRITIC LOOP FROZEN
+Top-K Semantic Discovery (Self-Critic Loop Frozen)
+• Hybrid BM25 + dense vector lookup over Cloud Run
+• Mount only Top-4 slim schemas per turn (-97.5% bloat)
+• Enforce deterministic capability downgrade on untrusted inputs" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="300" y="380" width="320" height="320" as="geometry" />
       </mxCell>
-      <mxCell id="ring_core" value="FROZEN CORE
-MODEL
-(Weights Frozen)
-Gemini 4 Argon" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#7C3AED;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="ring_core" value="03 • SANDBOX EXECUTION &amp; STATE
+Isolated Execution on Vertex AI Agent Engine
+• Execute bounded tool &amp; subagent calls with idempotency keys
+• Persist SHA-256 provenance receipts &amp; episodic state
+• Stream async OpenTelemetry GenAI spans to Cloud Trace" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#7C3AED;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="380" y="460" width="160" height="160" as="geometry" />
       </mxCell>
-      <mxCell id="h2_corner_1" value="01 • STATIC HARNESS BOTTLENECK
-Fixed Prompts Fail Open Worlds
-Hand-crafted static loops break when encountering unseen tool schemas or novel task topologies." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="h2_corner_1" value="04 • ORTHOGONAL JUDGE &amp; SLO GATE
+Pre-Completion Verification (DevRel &amp; Creator)
+• Verify output against 100-trial golden replay rubric
+• Enforce p95 latency, token budget &amp; zero-hallucination gates
+• Emit verified executive KPI telemetry (3s Scroll-Stop Hook · 6-Zone Bento Density)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="208" width="260" height="172" as="geometry" />
       </mxCell>
-      <mxCell id="h2_corner_2" value="02 • DOMAIN-LEVEL SYNTHESIS
-Persistent Tool &amp; Skill Evolution
-Agent authors, tests, and caches reusable domain skills across tasks without weight updates." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="h2_corner_2" value="05 • CONTINUOUS SELF-HEALING LOOP
+Production Drift &amp; Trace-to-Eval Flywheel
+• Convert any production anomaly into a permanent regression test
+• Auto-compact stale context turns into typed state blocks
+• Zero unverified mutations across Cloud Hyperscaler" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="632" y="208" width="260" height="172" as="geometry" />
       </mxCell>
-      <mxCell id="h2_corner_3" value="03 • TASK-LEVEL REWRITING
-Dynamic Topology Per Turn
-Synthesizes custom verification rubrics, subagent graphs, and context filters for the task at hand." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="h2_corner_3" value="06 • MULTI-CLOUD &amp; A2A FEDERATION
+Cross-Boundary A2A &amp; Policy Enforcement
+• Signed Agent Card capability negotiation over HTTPS/mTLS
+• Per-tenant FinOps circuit breaker &amp; spend ceiling
+• Full audit trail aligned with Multi-Tenant Control Plane • Global Endpoint Rou" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="720" width="260" height="172" as="geometry" />
       </mxCell>
-      <mxCell id="h2_corner_4" value="04 • MEASURED BREAKTHROUGH
-+22pp on NoveltyBench
-Outperforms static agent harnesses while keeping base foundation model weights 100% frozen." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="h2_corner_4" value="07 • DETERMINISTIC ROLLBACK &amp; RECOVERY
+Checkpoint Rewind &amp; Blast-Radius Containment
+• Instant state-graph rewind on tool timeout or schema drift
+• Automatic fallback cascade across Gemini Pro / Flash tiers
+• 99.95% SLO adherence under burst concurrency" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="632" y="720" width="260" height="172" as="geometry" />
       </mxCell>
-      <mxCell id="h2_foot" value="FIRST-PRINCIPLES DEFINITION • WHAT IS AN AGENT HARNESS?
-Harness = Everything Wrapped Around the Frozen-Weights Model That Lets It Perceive, Remember, Plan, Act, and Self-Verify
-Reference: Google Research `Harness²: Recursive Agent Harnessing for an Open World` (`github.com/google-research/harness2`)." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="h2_foot" value="08 • EXECUTIVE VALUE REALIZATION
+Verified Production ROI &amp; Adoption
+• Quantified token &amp; latency savings per 1,000 workflows
+• Turnkey Terraform + Cloud Run + ADK deployment blueprint
+• Creator Playbook: Pair a universal mental model with concrete OSS + " style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="916" width="864" height="140" as="geometry" />
       </mxCell>
       <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-11 (T220) • DEVREL &amp; CREATOR • CLOUD HYPERSCALER" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">

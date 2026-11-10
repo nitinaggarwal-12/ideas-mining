@@ -22,127 +22,149 @@
 </defs>
 <rect x="0" y="0" width="920" height="1150" fill="#F8FAFC"/>
 <rect x="0" y="0" width="920" height="1150" fill="url(#genGrid)"/>
-<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/>
-<text x="42.0" y="44.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626">T221 • GTM ORG-RATIO &amp; FDE WAVE • AGENTIC PRODUCT &amp; FDE GTM LENS • FRONTIER AI STARTUP</text>
-<text x="42.0" y="62.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Frontier AI Startup GTM Org-Ratio Tree (1 FDE : 1.5 AE) &amp; 7-Stage Field Wave</text>
-<text x="42.0" y="86.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">How Hypergrowth AI Leaders Pair Forward Deployed Engineers (+92 FDEs) with Account Executives (+126 AEs) to Turn Pilots into Production</text>
-<text x="42.0" y="101.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack Anchor: Gemini 4 Argon / 3.8 Flash + ADK + LangGraph + Arize Phoenix | KPIs: 3x Faster Spec-to-Ship · 1 FDE : 1.5 AE Ratio · +42%</text>
-<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Feature Adoption</text>
-<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#EDE9FE" stroke="#DC2626" stroke-width="2"/>
-<text x="42.0" y="170.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: Product Loop: Let 6 ambient agents gather &amp; cost signals; human product lead owns Gate A.</text>
-<rect x="28.0" y="208.0" width="864.0" height="62.0" rx="10.0" fill="#0F172A" stroke="#2563EB" stroke-width="2"/>
-<text x="42.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#93C5FD">PART 1 • FRONTIER AI GTM ORG RATIO BENCHMARK (1 FDE FOR EVERY 1.5 ACCOUNT EXECUTIVES)</text>
-<text x="42.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">Why AI-Native Startups Pair Almost 1:1 Forward Deployed Engineers with Quota-Carrying AEs</text>
-<rect x="28.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
-<text x="42.0" y="312.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">ACCOUNT EXECUTIVES</text>
-<text x="42.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+126 Team</text>
-<text x="42.0" y="349.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Enterprise deal</text>
-<text x="42.0" y="364.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">strategy &amp;</text>
-<text x="42.0" y="379.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">executive</text>
-<text x="42.0" y="394.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">sponsorship</text>
-<rect x="174.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/>
-<text x="188.0" y="312.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626">DEPLOYED ENGINEERS</text>
-<text x="188.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+92 FDEs</text>
-<text x="188.0" y="349.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Embed with</text>
-<text x="188.0" y="364.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">customer squads</text>
-<text x="188.0" y="379.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">to ship into prod</text>
-<rect x="320.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
-<text x="334.0" y="312.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">SALES LEADERS</text>
-<text x="334.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+31 Leaders</text>
-<text x="334.0" y="349.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Regional &amp;</text>
-<text x="334.0" y="364.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">vertical revenue</text>
-<text x="334.0" y="379.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">ownership</text>
-<rect x="466.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
-<text x="480.0" y="312.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">APPLIED AI</text>
-<text x="480.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+8 Specialists</text>
-<text x="480.0" y="349.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">AI transformation</text>
-<text x="480.0" y="364.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">&amp; eval</text>
-<text x="480.0" y="379.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">benchmarking</text>
-<rect x="612.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
-<text x="626.0" y="312.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">PARTNERSHIPS</text>
-<text x="626.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+17 Channel</text>
-<text x="626.0" y="349.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Cloud</text>
-<text x="626.0" y="364.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">hyperscalers &amp;</text>
-<text x="626.0" y="379.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">global SIs</text>
-<rect x="758.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
-<text x="772.0" y="312.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0284C7">REVOPS &amp; GTM ENG</text>
-<text x="772.0" y="330.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+15 Builders</text>
-<text x="772.0" y="349.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Automated signal</text>
-<text x="772.0" y="364.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">mining &amp; pipeline</text>
-<text x="772.0" y="379.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">telemetry</text>
-<rect x="28.0" y="534.0" width="864.0" height="56.0" rx="10.0" fill="#FEF2F2" stroke="#DC2626" stroke-width="2"/>
-<text x="42.0" y="554.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626">PART 2 • HOW THE FORWARD DEPLOYED ENGINEER (FDE) OPERATING WAVE RUNS IN PRODUCTION</text>
-<text x="42.0" y="572.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">95% of GenAI Pilots Fail from Integration &amp; Workflow Gaps — FDEs Own the Outcome in Production</text>
-<rect x="28.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/>
-<text x="42.0" y="630.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626">STAGE 01</text>
-<text x="42.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">DISCOVER</text>
-<text x="42.0" y="665.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Shadow end users</text>
-<text x="42.0" y="680.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">&amp; map real data</text>
-<rect x="152.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#0F2942" stroke-width="2"/>
-<text x="166.0" y="630.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F2942">STAGE 02</text>
-<text x="166.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">SCOPE</text>
-<text x="166.0" y="665.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Pick 1 metric &amp;</text>
-<text x="166.0" y="680.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">lock data ACLs</text>
-<rect x="276.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/>
-<text x="290.0" y="630.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626">STAGE 03</text>
-<text x="290.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">PROTOTYPE</text>
-<text x="290.0" y="665.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Thin slice on</text>
-<text x="290.0" y="680.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">live customer</text>
-<text x="290.0" y="695.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">data</text>
-<rect x="400.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#0F2942" stroke-width="2"/>
-<text x="414.0" y="630.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F2942">STAGE 04</text>
-<text x="414.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">EVALUATE</text>
-<text x="414.0" y="665.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Golden set +</text>
-<text x="414.0" y="680.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">red-team edge</text>
-<text x="414.0" y="695.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">cases</text>
-<rect x="524.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/>
-<text x="538.0" y="630.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626">STAGE 05</text>
-<text x="538.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">DEPLOY</text>
-<text x="538.0" y="665.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Wire into</text>
-<text x="538.0" y="680.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">production VPC &amp;</text>
-<text x="538.0" y="695.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">IAM</text>
-<rect x="648.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#0F2942" stroke-width="2"/>
-<text x="662.0" y="630.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0F2942">STAGE 06</text>
-<text x="662.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">ADOPT</text>
-<text x="662.0" y="665.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Train users &amp;</text>
-<text x="662.0" y="680.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">remove friction</text>
-<rect x="772.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/>
-<text x="786.0" y="630.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626">STAGE 07</text>
-<text x="786.0" y="648.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">HAND OFF</text>
-<text x="786.0" y="665.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Runbooks +</text>
-<text x="786.0" y="680.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">customer owns</text>
-<text x="786.0" y="695.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">stack</text>
-<rect x="28.0" y="810.0" width="204.0" height="126.0" rx="10.0" fill="#F8FAFC" stroke="#475569" stroke-width="2"/>
-<text x="42.0" y="830.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#475569">ROLE DISTINCTION</text>
-<text x="42.0" y="848.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Role Distinction</text>
-<text x="42.0" y="865.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">SE wins the deal · Consultant</text>
-<text x="42.0" y="880.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">delivers scope · FDE owns</text>
-<text x="42.0" y="895.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">production business metric</text>
-<rect x="248.0" y="810.0" width="204.0" height="126.0" rx="10.0" fill="#F8FAFC" stroke="#475569" stroke-width="2"/>
-<text x="262.0" y="830.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#475569">INTERVIEW LOOP</text>
-<text x="262.0" y="848.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Interview Loop</text>
-<text x="262.0" y="865.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Ambiguous problem</text>
-<text x="262.0" y="880.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">decomposition · Unfamiliar</text>
-<text x="262.0" y="895.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">codebase debug · System</text>
-<text x="262.0" y="910.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">design</text>
-<rect x="468.0" y="810.0" width="204.0" height="126.0" rx="10.0" fill="#F8FAFC" stroke="#475569" stroke-width="2"/>
-<text x="482.0" y="830.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#475569">SUCCESS METRIC</text>
-<text x="482.0" y="848.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Success Metric</text>
-<text x="482.0" y="865.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Daily active usage · Days</text>
-<text x="482.0" y="880.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">from pilot to prod · Customer</text>
-<text x="482.0" y="895.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">runs without you</text>
-<rect x="688.0" y="810.0" width="204.0" height="126.0" rx="10.0" fill="#F8FAFC" stroke="#475569" stroke-width="2"/>
-<text x="702.0" y="830.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#475569">WATCH-OUTS</text>
-<text x="702.0" y="848.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Watch-Outs</text>
-<text x="702.0" y="865.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Avoid &#x27;Endless FDE&#x27;</text>
-<text x="702.0" y="880.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">consulting traps by</text>
-<text x="702.0" y="895.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">productizing repeatable</text>
-<text x="702.0" y="910.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">patterns</text>
-<rect x="28.0" y="956.0" width="864.0" height="100.0" rx="12.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
-<text x="42.0" y="976.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">ENTERPRISE &amp; HYPERSCALER TAKEAWAY</text>
-<text x="42.0" y="994.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Demand for Forward Deployed AI Engineers Grew +729% YoY Because Integration &amp; Eval Rigor Beat Raw Model Demos</text>
-<text x="42.0" y="1012.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Synthesizes Feroz Mulla&#x27;s Cognition GTM ratio analysis (LI-60) with Naman Pandey&#x27;s FDE operating manual (LI-34).</text>
-<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.2"/>
+<text x="42.0" y="43.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626">T221 • GTM ORG-RATIO &amp; FDE WAVE • AGENTIC PRODUCT &amp; FDE GTM LENS • FRONTIER AI STARTUP</text>
+<text x="42.0" y="61.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Frontier AI Startup GTM Org-Ratio Tree (1 FDE : 1.5 AE) &amp; 7-Stage Field Wave</text>
+<text x="42.0" y="85.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">How Hypergrowth AI Leaders Pair Forward Deployed Engineers (+92 FDEs) with Account Executives (+126 AEs) to Turn Pilots into</text>
+<text x="42.0" y="100.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Production</text>
+<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Stack Anchor: Gemini 4 Argon / 3.8 Flash + ADK + LangGraph + Arize Phoenix | KPIs: 3x Faster Spec-to-Ship · 1 FDE : 1.5 AE Ratio ·</text>
+<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#EDE9FE" stroke="#DC2626" stroke-width="2.2"/>
+<text x="42.0" y="169.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: Product Loop: Let 6 ambient agents gather &amp; cost signals; human product lead owns Gate A.</text>
+<rect x="28.0" y="208.0" width="864.0" height="62.0" rx="10.0" fill="#0F172A" stroke="#2563EB" stroke-width="2.2"/>
+<text x="42.0" y="227.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#93C5FD">PART 1 • FRONTIER AI GTM ORG RATIO BENCHMARK (1 FDE FOR EVERY 1.5 ACCOUNT EXECUTIVES)</text>
+<text x="42.0" y="245.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">Why AI-Native Startups Pair Almost 1:1 Forward Deployed Engineers with Quota-Carrying AEs</text>
+<rect x="28.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="30.0" y="294.0" width="130.0" height="26.0" rx="10.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="42.0" y="311.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">ACCOUNT EXECUTIVES</text>
+<text x="42.0" y="333.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+126 Team</text>
+<text x="42.0" y="352.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Enterprise deal</text>
+<text x="42.0" y="367.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">strategy &amp;</text>
+<text x="42.0" y="383.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">executive</text>
+<text x="42.0" y="398.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">sponsorship</text>
+<rect x="174.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.2"/>
+<rect x="176.0" y="294.0" width="130.0" height="26.0" rx="10.0" fill="#DC2626" fill-opacity="0.10"/>
+<text x="188.0" y="311.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626">DEPLOYED ENGINEERS</text>
+<text x="188.0" y="333.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+92 FDEs</text>
+<text x="188.0" y="352.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Embed with</text>
+<text x="188.0" y="367.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">customer squads</text>
+<text x="188.0" y="383.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">to ship into</text>
+<text x="188.0" y="398.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">prod</text>
+<rect x="320.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2.2"/>
+<rect x="322.0" y="294.0" width="130.0" height="26.0" rx="10.0" fill="#059669" fill-opacity="0.10"/>
+<text x="334.0" y="311.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">SALES LEADERS</text>
+<text x="334.0" y="333.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+31 Leaders</text>
+<text x="334.0" y="352.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Regional &amp;</text>
+<text x="334.0" y="367.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">vertical revenue</text>
+<text x="334.0" y="383.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">ownership</text>
+<rect x="466.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="468.0" y="294.0" width="130.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="480.0" y="311.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">APPLIED AI</text>
+<text x="480.0" y="333.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+8 Specialists</text>
+<text x="480.0" y="352.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">AI</text>
+<text x="480.0" y="367.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">transformation &amp;</text>
+<text x="480.0" y="383.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">eval</text>
+<text x="480.0" y="398.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">benchmarking</text>
+<rect x="612.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#D97706" stroke-width="2.2"/>
+<rect x="614.0" y="294.0" width="130.0" height="26.0" rx="10.0" fill="#D97706" fill-opacity="0.10"/>
+<text x="626.0" y="311.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706">PARTNERSHIPS</text>
+<text x="626.0" y="333.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+17 Channel</text>
+<text x="626.0" y="352.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Cloud</text>
+<text x="626.0" y="367.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">hyperscalers &amp;</text>
+<text x="626.0" y="383.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">global SIs</text>
+<rect x="758.0" y="292.0" width="134.0" height="218.0" rx="12.0" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.2"/>
+<rect x="760.0" y="294.0" width="130.0" height="26.0" rx="10.0" fill="#0284C7" fill-opacity="0.10"/>
+<text x="772.0" y="311.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#0284C7">REVOPS &amp; GTM ENG</text>
+<text x="772.0" y="333.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">+15 Builders</text>
+<text x="772.0" y="352.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Automated signal</text>
+<text x="772.0" y="367.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">mining &amp;</text>
+<text x="772.0" y="383.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">pipeline</text>
+<text x="772.0" y="398.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">telemetry</text>
+<rect x="28.0" y="534.0" width="864.0" height="56.0" rx="10.0" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.2"/>
+<text x="42.0" y="553.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626">PART 2 • HOW THE FORWARD DEPLOYED ENGINEER (FDE) OPERATING WAVE RUNS IN PRODUCTION</text>
+<text x="42.0" y="571.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">95% of GenAI Pilots Fail from Integration &amp; Workflow Gaps — FDEs Own the Outcome in Production</text>
+<rect x="28.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.2"/>
+<rect x="30.0" y="612.0" width="112.0" height="26.0" rx="8.0" fill="#DC2626" fill-opacity="0.10"/>
+<text x="42.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626">STAGE 01</text>
+<text x="42.0" y="651.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">DISCOVER</text>
+<text x="42.0" y="668.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Shadow end users</text>
+<text x="42.0" y="683.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">&amp; map real data</text>
+<rect x="152.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#0F2942" stroke-width="2.2"/>
+<rect x="154.0" y="612.0" width="112.0" height="26.0" rx="8.0" fill="#0F2942" fill-opacity="0.10"/>
+<text x="166.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#0F2942">STAGE 02</text>
+<text x="166.0" y="651.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">SCOPE</text>
+<text x="166.0" y="668.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Pick 1 metric &amp;</text>
+<text x="166.0" y="683.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">lock data ACLs</text>
+<rect x="276.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.2"/>
+<rect x="278.0" y="612.0" width="112.0" height="26.0" rx="8.0" fill="#DC2626" fill-opacity="0.10"/>
+<text x="290.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626">STAGE 03</text>
+<text x="290.0" y="651.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">PROTOTYPE</text>
+<text x="290.0" y="668.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Thin slice on</text>
+<text x="290.0" y="683.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">live customer</text>
+<text x="290.0" y="699.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">data</text>
+<rect x="400.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#0F2942" stroke-width="2.2"/>
+<rect x="402.0" y="612.0" width="112.0" height="26.0" rx="8.0" fill="#0F2942" fill-opacity="0.10"/>
+<text x="414.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#0F2942">STAGE 04</text>
+<text x="414.0" y="651.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">EVALUATE</text>
+<text x="414.0" y="668.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Golden set +</text>
+<text x="414.0" y="683.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">red-team edge</text>
+<text x="414.0" y="699.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">cases</text>
+<rect x="524.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.2"/>
+<rect x="526.0" y="612.0" width="112.0" height="26.0" rx="8.0" fill="#DC2626" fill-opacity="0.10"/>
+<text x="538.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626">STAGE 05</text>
+<text x="538.0" y="651.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">DEPLOY</text>
+<text x="538.0" y="668.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Wire into</text>
+<text x="538.0" y="683.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">production VPC &amp;</text>
+<text x="538.0" y="699.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">IAM</text>
+<rect x="648.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#0F2942" stroke-width="2.2"/>
+<rect x="650.0" y="612.0" width="112.0" height="26.0" rx="8.0" fill="#0F2942" fill-opacity="0.10"/>
+<text x="662.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#0F2942">STAGE 06</text>
+<text x="662.0" y="651.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">ADOPT</text>
+<text x="662.0" y="668.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Train users &amp;</text>
+<text x="662.0" y="683.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">remove friction</text>
+<rect x="772.0" y="610.0" width="116.0" height="172.0" rx="10.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.2"/>
+<rect x="774.0" y="612.0" width="112.0" height="26.0" rx="8.0" fill="#DC2626" fill-opacity="0.10"/>
+<text x="786.0" y="629.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626">STAGE 07</text>
+<text x="786.0" y="651.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">HAND OFF</text>
+<text x="786.0" y="668.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Runbooks +</text>
+<text x="786.0" y="683.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">customer owns</text>
+<text x="786.0" y="699.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">stack</text>
+<rect x="28.0" y="810.0" width="204.0" height="126.0" rx="10.0" fill="#F8FAFC" stroke="#475569" stroke-width="2.2"/>
+<rect x="30.0" y="812.0" width="200.0" height="26.0" rx="8.0" fill="#475569" fill-opacity="0.10"/>
+<text x="42.0" y="829.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#475569">ROLE DISTINCTION</text>
+<text x="42.0" y="851.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Role Distinction</text>
+<text x="42.0" y="868.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">SE wins the deal ·</text>
+<text x="42.0" y="883.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Consultant delivers scope ·</text>
+<text x="42.0" y="899.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">FDE owns production</text>
+<text x="42.0" y="914.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">business metric</text>
+<rect x="248.0" y="810.0" width="204.0" height="126.0" rx="10.0" fill="#F8FAFC" stroke="#475569" stroke-width="2.2"/>
+<rect x="250.0" y="812.0" width="200.0" height="26.0" rx="8.0" fill="#475569" fill-opacity="0.10"/>
+<text x="262.0" y="829.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#475569">INTERVIEW LOOP</text>
+<text x="262.0" y="851.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Interview Loop</text>
+<text x="262.0" y="868.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Ambiguous problem</text>
+<text x="262.0" y="883.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">decomposition · Unfamiliar</text>
+<text x="262.0" y="899.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">codebase debug · System</text>
+<text x="262.0" y="914.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">design</text>
+<rect x="468.0" y="810.0" width="204.0" height="126.0" rx="10.0" fill="#F8FAFC" stroke="#475569" stroke-width="2.2"/>
+<rect x="470.0" y="812.0" width="200.0" height="26.0" rx="8.0" fill="#475569" fill-opacity="0.10"/>
+<text x="482.0" y="829.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#475569">SUCCESS METRIC</text>
+<text x="482.0" y="851.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Success Metric</text>
+<text x="482.0" y="868.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Daily active usage · Days</text>
+<text x="482.0" y="883.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">from pilot to prod ·</text>
+<text x="482.0" y="899.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Customer runs without you</text>
+<rect x="688.0" y="810.0" width="204.0" height="126.0" rx="10.0" fill="#F8FAFC" stroke="#475569" stroke-width="2.2"/>
+<rect x="690.0" y="812.0" width="200.0" height="26.0" rx="8.0" fill="#475569" fill-opacity="0.10"/>
+<text x="702.0" y="829.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#475569">WATCH-OUTS</text>
+<text x="702.0" y="851.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Watch-Outs</text>
+<text x="702.0" y="868.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Avoid &#x27;Endless FDE&#x27;</text>
+<text x="702.0" y="883.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">consulting traps by</text>
+<text x="702.0" y="899.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">productizing repeatable</text>
+<text x="702.0" y="914.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">patterns</text>
+<rect x="28.0" y="956.0" width="864.0" height="100.0" rx="12.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="30.0" y="958.0" width="860.0" height="26.0" rx="10.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="42.0" y="975.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">ENTERPRISE &amp; HYPERSCALER TAKEAWAY</text>
+<text x="42.0" y="997.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Demand for Forward Deployed AI Engineers Grew +729% YoY Because Integration &amp; Eval Rigor Beat Raw Model Demos</text>
+<text x="42.0" y="1015.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Synthesizes Feroz Mulla&#x27;s Cognition GTM ratio analysis (LI-60) with Naman Pandey&#x27;s FDE operating manual (LI-34).</text>
+<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2.2"/>
 <text x="460.0" y="1105.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-12 (T221) • PRODUCT &amp; GTM • FRONTIER AI STARTUP</text>
 <path d="M 95.0 270.0 L 95.0 292.0" fill="none" stroke="#2563EB" stroke-width="2"/>
 <path d="M 241.0 270.0 L 241.0 292.0" fill="none" stroke="#DC2626" stroke-width="2"/>
@@ -184,7 +206,4 @@
 <g><circle r="5.6" fill="#DC2626" fill-opacity="0.15"/><circle r="3.8" fill="#DC2626" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.0"/><circle r="1.3" fill="#DC2626"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 640.0 696.0 L 648.0 696.0"/></g>
 <path d="M 764.0 696.0 L 772.0 696.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
 <g><circle r="5.6" fill="#DC2626" fill-opacity="0.15"/><circle r="3.8" fill="#DC2626" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.0"/><circle r="1.3" fill="#DC2626"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 764.0 696.0 L 772.0 696.0"/></g>
-<path d="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0" class="flow-line" fill="none" stroke="#DC2626" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 6" stroke-dashoffset="0.0"/>
-<g><circle r="7.4" fill="#DC2626" fill-opacity="0.15"/><circle r="5.0" fill="#DC2626" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.0"/><circle r="1.7" fill="#DC2626"/><animateMotion dur="3.60s" begin="-0.00s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
-<g><circle r="7.4" fill="#DC2626" fill-opacity="0.15"/><circle r="5.0" fill="#DC2626" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.0"/><circle r="1.7" fill="#DC2626"/><animateMotion dur="3.60s" begin="-1.80s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
 </svg>

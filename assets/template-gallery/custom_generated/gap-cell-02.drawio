@@ -14,63 +14,85 @@ Stack Anchor: Vertex AI Agent Engine + Cloud Run + AlloyDB pgvector + Cloud Trac
 Multi-Tenant Control Plane • Global Endpoint Routing • Native MCP &amp; A2A Interoperability" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#E0F2FE;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
       </mxCell>
-      <mxCell id="obs_live_lane" value="PATH A • LIVE SYNCHRONOUS REQUEST PATH (THE USER WAITS FOR THIS)
-[User Asks Question]  &lt;===&gt;  [1. Agent App: OpenTelemetry Records Every Step, Prompt &amp; Tool Call]  &lt;===&gt;  [LLM + Tools (DBs, APIs, Search)]
-Sub-second response returned directly to user while telemetry spans are grouped asynchronously in the background." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFBEB;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="obs_live_lane" value="01 • INGRESS &amp; INTENT: ZERO-LATENCY ASYNC OTEL
+Ingress &amp; Schema Gate for Zero-Latency Async OTel
+• Parse caller intent &amp; validate strict JSON/Pydantic contract
+• Mint short-lived RFC 8693 OBO token on Vertex AI Agent Engine
+• Freeze immutable system prefix (94.2% KV cache hit)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFBEB;strokeColor=#D97706;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="208" width="864" height="142" as="geometry" />
       </mxCell>
       <mxCell id="obs_async_emit" value="PATH B • ASYNC BACKGROUND TELEMETRY EMITTER
 2. Batch &amp; Emit Spans Quietly (Zero User-Facing Latency)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="230" y="370" width="460" height="76" as="geometry" />
       </mxCell>
-      <mxCell id="obs_collector_box" value="3. OPENTELEMETRY COLLECTOR (ZOOM-IN) • ONE PLACE TO CLEAN &amp; GOVERN TELEMETRY BEFORE STORAGE" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="obs_collector_box" value="02 • DYNAMIC ROUTING: OTEL GENAI SPAN
+Top-K Semantic Discovery (OTel GenAI Span)
+• Hybrid BM25 + dense vector lookup over Cloud Run
+• Mount only Top-4 slim schemas per turn (-97.5% bloat)
+• Enforce deterministic capability downgrade on untrusted inputs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="466" width="864" height="196" as="geometry" />
       </mxCell>
-      <mxCell id="obs_col_1" value="3A • RECEIVE
-Ingest OTLP Spans
-Captures traces from every agent &amp; MCP tool" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="obs_col_1" value="03 • SANDBOX EXECUTION &amp; STATE
+Isolated Execution on Vertex AI Agent Engine
+• Execute bounded tool &amp; subagent calls with idempotency keys
+• Persist SHA-256 provenance receipts &amp; episodic state
+• Stream async OpenTelemetry GenAI spans to Cloud Trace" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="48" y="512" width="184" height="130" as="geometry" />
       </mxCell>
-      <mxCell id="obs_col_2" value="3B • PROTECT
-Redact PII &amp; Keys
-Scrubs PII, secrets, and raw bearer tokens" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="obs_col_2" value="04 • ORTHOGONAL JUDGE &amp; SLO GATE
+Pre-Completion Verification (Principal Architect)
+• Verify output against 100-trial golden replay rubric
+• Enforce p95 latency, token budget &amp; zero-hallucination gates
+• Emit verified executive KPI telemetry (99.95% Control Plane SLO · Zero-Trust OBO)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="262" y="512" width="184" height="130" as="geometry" />
       </mxCell>
-      <mxCell id="obs_col_3" value="3C • FILTER
-100% Error Capture
-Keeps all errors &amp; slow turns; tail-samples normal" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="obs_col_3" value="05 • CONTINUOUS SELF-HEALING LOOP
+Production Drift &amp; Trace-to-Eval Flywheel
+• Convert any production anomaly into a permanent regression test
+• Auto-compact stale context turns into typed state blocks
+• Zero unverified mutations across Cloud Hyperscaler" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="476" y="512" width="184" height="130" as="geometry" />
       </mxCell>
-      <mxCell id="obs_col_4" value="3D • FORWARD
-Multi-Sink Route
-Exports clean telemetry to specialized backends" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="obs_col_4" value="06 • MULTI-CLOUD &amp; A2A FEDERATION
+Cross-Boundary A2A &amp; Policy Enforcement
+• Signed Agent Card capability negotiation over HTTPS/mTLS
+• Per-tenant FinOps circuit breaker &amp; spend ceiling
+• Full audit trail aligned with Multi-Tenant Control Plane • Global Endpoint Rou" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="690" y="512" width="184" height="130" as="geometry" />
       </mxCell>
-      <mxCell id="obs_sink_1" value="4A • TRACE STORE
-Step-by-Step Run Replay
-Stack: Cloud Trace · Jaeger · Grafana Tempo" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="obs_sink_1" value="07 • DETERMINISTIC ROLLBACK &amp; RECOVERY
+Checkpoint Rewind &amp; Blast-Radius Containment
+• Instant state-graph rewind on tool timeout or schema drift
+• Automatic fallback cascade across Gemini Pro / Flash tiers
+• 99.95% SLO adherence under burst concurrency" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="684" width="268" height="120" as="geometry" />
       </mxCell>
-      <mxCell id="obs_sink_2" value="4B • LLM &amp; EVAL MONITOR
-Prompts, Cost &amp; Drift
-Stack: Langfuse · Arize Phoenix · Vertex Eval" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="obs_sink_2" value="08 • EXECUTIVE VALUE REALIZATION
+Verified Production ROI &amp; Adoption
+• Quantified token &amp; latency savings per 1,000 workflows
+• Turnkey Terraform + Cloud Run + ADK deployment blueprint
+• ARB Invariant: Decouple reasoning state and semantic ontology from s" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="326" y="684" width="268" height="120" as="geometry" />
       </mxCell>
-      <mxCell id="obs_sink_3" value="4C • METRICS &amp; LOGS
-QPS, Errors &amp; Saturation
-Stack: Cloud Monitoring · Prometheus · Loki" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="obs_sink_3" value="01 • INGRESS &amp; INTENT: ZERO-LATENCY ASYNC OTEL
+Ingress &amp; Schema Gate for Zero-Latency Async OTel
+• Parse caller intent &amp; validate strict JSON/Pydantic contract
+• Mint short-lived RFC 8693 OBO token on Vertex AI Agent Engine
+• Freeze immutable system prefix (94.2% KV cache hit)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="624" y="684" width="268" height="120" as="geometry" />
       </mxCell>
-      <mxCell id="obs_dash" value="5. LIVE SLO DASHBOARDS
-[p95 Latency: 1.08s]   ·   [Tokens/Run: 3.1k]   ·   [Error Rate: 0.8%]   ·   [Tool Success: 98.4%]
-Real-time golden signals correlated by trace_id and agent version." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0F9FF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="obs_dash" value="02 • DYNAMIC ROUTING: OTEL GENAI SPAN
+Top-K Semantic Discovery (OTel GenAI Span)
+• Hybrid BM25 + dense vector lookup over Cloud Run
+• Mount only Top-4 slim schemas per turn (-97.5% bloat)
+• Enforce deterministic capability downgrade on untrusted inputs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0F9FF;strokeColor=#0284C7;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="824" width="556" height="124" as="geometry" />
       </mxCell>
-      <mxCell id="obs_alerts" value="6. AUTOMATED ALERTS
-PagerDuty / Slack Triggers
-• Tool error spike &gt; 2%
-• Daily token budget burn
-• p95 latency regression" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FEF2F2;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="obs_alerts" value="03 • SANDBOX EXECUTION &amp; STATE
+Isolated Execution on Vertex AI Agent Engine
+• Execute bounded tool &amp; subagent calls with idempotency keys
+• Persist SHA-256 provenance receipts &amp; episodic state
+• Stream async OpenTelemetry GenAI spans to Cloud Trace" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FEF2F2;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="604" y="824" width="288" height="124" as="geometry" />
       </mxCell>
       <mxCell id="obs_improve" value="7. CONTINUOUS TRACE-TO-EVAL FLYWHEEL

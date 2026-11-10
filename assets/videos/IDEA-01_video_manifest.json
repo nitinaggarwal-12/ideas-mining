@@ -1,0 +1,66 @@
+{
+  "status": "PRODUCED",
+  "zero_occlusion_verified": true,
+  "resolution": "1920x1080",
+  "post_id": "IDEA-01",
+  "title": "Stopping Infinite Agent Loops & Runaway Token Bills",
+  "template_id": "T67",
+  "repo_slug": "gcp-loop-breaker-circuit-adk",
+  "walkthrough_mp4": "/assets/videos/IDEA-01_walkthrough.mp4",
+  "digital_twin_mp4": "/assets/videos/IDEA-01_digital_twin_nitin.mp4",
+  "chirp3_hd_mp3": "/assets/videos/IDEA-01_chirp3_hd.mp3",
+  "poster_png": "/assets/videos/IDEA-01_poster.png",
+  "script_bundle": {
+    "post_id": "IDEA-01",
+    "title": "Stopping Infinite Agent Loops & Runaway Token Bills",
+    "template_id": "T67",
+    "repo_slug": "gcp-loop-breaker-circuit-adk",
+    "voice_name": "en-IN-Chirp3-HD-Charon",
+    "twin_persona": "custom-nitin-aggarwal-live (Omni 1.1 Native AV)",
+    "full_spoken_script": "Welcome to briefing IDEA-01: Stopping Infinite Agent Loops & Runaway Token Bills. In production enterprise deployments, Production Google Cloud ADK and Zero-Trust MCP runtime. Using canonical blueprint T67 and runnable repository gcp-loop-breaker-circuit-adk, we enforce deterministic guardrails, zero-trust OAuth 2.1 token exchange, and 100-trial evaluation gates. Measured benchmark outcome: 98.0% eval accuracy across 100 trials. Clone the full repository and 12-slide deck directly from the Studio.",
+    "word_count": 65,
+    "clauses": [
+      "Welcome to briefing IDEA-01: Stopping Infinite Agent Loops & Runaway Token Bills.",
+      "In production enterprise deployments, Production Google Cloud ADK and Zero-Trust MCP runtime.",
+      "Using canonical blueprint T67 and runnable repository gcp-loop-breaker-circuit-adk, we enforce deterministic guardrails, zero-trust OAuth 2.1 token exchange, and 100-trial evaluation gates.",
+      "Measured benchmark outcome: 98.0% eval accuracy across 100 trials. Clone the full repository and 12-slide deck directly from the Studio."
+    ],
+    "acts": [
+      "Welcome to briefing IDEA-01: Stopping Infinite Agent Loops & Runaway Token Bills.",
+      "In production enterprise deployments, Production Google Cloud ADK and Zero-Trust MCP runtime.",
+      "Using canonical blueprint T67 and runnable repository gcp-loop-breaker-circuit-adk, we enforce deterministic guardrails, zero-trust OAuth 2.1 token exchange, and 100-trial evaluation gates.",
+      "Measured benchmark outcome: 98.0% eval accuracy across 100 trials. Clone the full repository and 12-slide deck directly from the Studio.",
+      "Architecture verification on T67 with zero-occlusion Digital Twin presenter.",
+      "Multi-platform distribution package staged for LinkedIn, YouTube, and GitHub (gcp-loop-breaker-circuit-adk)."
+    ],
+    "pipeline_stages": [
+      {
+        "stage": 1,
+        "name": "Stage 1 \u00b7 Post-Specific Spoken Script & 4-Act Storyboard",
+        "detail": "Distills 'Stopping Infinite Agent Loops & Runaway Token Bi' + metrics (98.0% eval accuracy across 100 trials) into clause-timed narration."
+      },
+      {
+        "stage": 2,
+        "name": "Stage 2 \u00b7 Google Cloud Chirp 3: HD Neural Voice Synthesis",
+        "detail": "Synthesizes 24kHz/48kHz -16 LUFS broadcast narration via Cloud TTS (en-IN-Chirp3-HD-Charon)."
+      },
+      {
+        "stage": 3,
+        "name": "Stage 3 \u00b7 1920x1080 Blueprint + Live CLI + Omni 1.1 Digital Twin PIP Compositor",
+        "detail": "Renders Blueprint T67 (x=18..974), Live CLI & Eval JSON (x=988..1650), and moving Nitin Digital Twin PIP (x=1677..1889, 0.0 px\u00b2 occlusion)."
+      },
+      {
+        "stage": 4,
+        "name": "Stage 4 \u00b7 Faststart MP4 Mastering & Multi-Platform Outbox Binding",
+        "detail": "Outputs /assets/videos/IDEA-01_walkthrough.mp4 + /assets/videos/IDEA-01_digital_twin_nitin.mp4 ready for LinkedIn, YouTube & Shorts."
+      }
+    ]
+  },
+  "ffprobe": {
+    "duration_sec": 8.0,
+    "size_bytes": 2161086,
+    "resolution": "1920x1080 @ 30fps",
+    "voice": "en-IN-Chirp3-HD-Charon",
+    "blueprint_occlusion_px2": 0.0
+  }
+}

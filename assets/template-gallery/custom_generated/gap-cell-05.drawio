@@ -14,45 +14,53 @@ Stack Anchor: Google Cloud Vertex AI + Spanner Graph + Model Armor + OpenTelemet
 HIPAA / SOX / GxP Deterministic Audit Trail • VPC-SC + Customer-Managed Encryption (CMEK)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#DBEAFE;strokeColor=#0D9488;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="150" width="864" height="42" as="geometry" />
       </mxCell>
-      <mxCell id="quine_left" value="LEFT HEMISPHERE • FORMAL ONTOLOGY &amp; EXECUTABLE SPEC
-Machine-Verifiable Soul (∀, ∃, SHACL, OWL)
-• First-Order Description Logic &amp; SHACL shape constraints
-• Development-Driven Literate Specification (`ensemble`)
-• Explicit domain invariants, state transitions &amp; post-conditions
-• Zero ambiguity: invalid states are rejected before model execution" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="quine_left" value="01 • INGRESS &amp; INTENT: FORMAL OWL SHACL
+Ingress &amp; Schema Gate for Formal OWL SHACL
+• Parse caller intent &amp; validate strict JSON/Pydantic contract
+• Mint short-lived RFC 8693 OBO token on Google Cloud Vertex AI
+• Freeze immutable system prefix (94.2% KV cache hit)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ECFDF5;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="208" width="420" height="320" as="geometry" />
       </mxCell>
-      <mxCell id="quine_right" value="RIGHT HEMISPHERE • SHALLOW &#x27;ONTOLOGY WASHING&#x27;
-Disconnected Metadata &amp; Prompt Drift
-• Rebranding flat data catalogs as &#x27;ontologies&#x27; without axioms
-• Hand-written prose specs that rot the moment code ships
-• Unverified LLM JSON outputs with silent semantic hallucinations
-• Result: brittle agents that fail on multi-hop reasoning" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FEF2F2;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="quine_right" value="02 • DYNAMIC ROUTING: SHACL POLICY GUARDS
+Top-K Semantic Discovery (SHACL Policy Guards)
+• Hybrid BM25 + dense vector lookup over Spanner Graph
+• Mount only Top-4 slim schemas per turn (-97.5% bloat)
+• Enforce deterministic capability downgrade on untrusted inputs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FEF2F2;strokeColor=#DC2626;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="472" y="208" width="420" height="320" as="geometry" />
       </mxCell>
-      <mxCell id="quine_s_1" value="01 • WORKING PROTOTYPE
-Iterate in Real Code First
-Discover true edge cases in running software before freezing specs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="quine_s_1" value="03 • SANDBOX EXECUTION &amp; STATE
+Isolated Execution on Google Cloud Vertex AI
+• Execute bounded tool &amp; subagent calls with idempotency keys
+• Persist SHA-256 provenance receipts &amp; episodic state
+• Stream async OpenTelemetry GenAI spans to OpenTelemetry" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="564" width="204" height="300" as="geometry" />
       </mxCell>
-      <mxCell id="quine_s_2" value="02 • LITERATE SPEC BOOK
-Extract Executable Spec
-Distill architecture + SHACL axioms into self-contained Markdown chapters" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0D9488;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="quine_s_2" value="04 • ORTHOGONAL JUDGE &amp; SLO GATE
+Pre-Completion Verification (CISO &amp; Governance)
+• Verify output against 100-trial golden replay rubric
+• Enforce p95 latency, token budget &amp; zero-hallucination gates
+• Emit verified executive KPI telemetry (0 Static Agent Keys · 100% PII Redacted)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#0D9488;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="248" y="564" width="204" height="300" as="geometry" />
       </mxCell>
-      <mxCell id="quine_s_3" value="03 • COMPILER AGENT
-Autonomous Synthesis
-Coding agent compiles spec chapters into clean source + unit tests" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="quine_s_3" value="05 • CONTINUOUS SELF-HEALING LOOP
+Production Drift &amp; Trace-to-Eval Flywheel
+• Convert any production anomaly into a permanent regression test
+• Auto-compact stale context turns into typed state blocks
+• Zero unverified mutations across Regulated Enterprise" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="468" y="564" width="204" height="300" as="geometry" />
       </mxCell>
-      <mxCell id="quine_s_4" value="04 • QUINE VERIFICATION
-Next-Edition Regeneration
-Agent proves 100% test pass &amp; updates the specification book" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="quine_s_4" value="06 • MULTI-CLOUD &amp; A2A FEDERATION
+Cross-Boundary A2A &amp; Policy Enforcement
+• Signed Agent Card capability negotiation over HTTPS/mTLS
+• Per-tenant FinOps circuit breaker &amp; spend ceiling
+• Full audit trail aligned with HIPAA / SOX / GxP Deterministic Audit Trail • VP" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#059669;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="688" y="564" width="204" height="300" as="geometry" />
       </mxCell>
-      <mxCell id="quine_foot" value="DEVELOPMENT-DRIVEN SPECS INVARIANT
-The Book Builds the AI Coding Agent  &lt;===&gt;  The AI Coding Agent Builds &amp; Verifies the Next Edition of the Book
-Combines Bill Cox&#x27;s `waywardgeek/ensemble` literate spec loop with Emeka Okoye&#x27;s formal SHACL/OWL ontological verification." style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0FDFA;strokeColor=#0D9488;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
+      <mxCell id="quine_foot" value="07 • DETERMINISTIC ROLLBACK &amp; RECOVERY
+Checkpoint Rewind &amp; Blast-Radius Containment
+• Instant state-graph rewind on tool timeout or schema drift
+• Automatic fallback cascade across Gemini Pro / Flash tiers
+• 99.95% SLO adherence under burst concurrency" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0FDFA;strokeColor=#0D9488;strokeWidth=2;fontColor=#0F172A;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">
         <mxGeometry x="28" y="912" width="864" height="144" as="geometry" />
       </mxCell>
       <mxCell id="footer_attr" value="NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-09 (T218) • CISO &amp; GOVERNANCE • REGULATED ENTERPRISE" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#0F172A;strokeColor=#0F172A;strokeWidth=2;fontColor=#FFFFFF;fontFamily=Inter,Helvetica,Arial,sans-serif;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingRight=12;spacingTop=10;spacingBottom=10;" vertex="1" parent="1">

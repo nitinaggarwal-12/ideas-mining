@@ -503,12 +503,19 @@ class AutonomousSelfCriticHarness:
                     f"Auto-healed Command Palette slice (.slice(0, 140)) and {total_posts}-Post cohort labels in public/app.js."
                 )
 
-        # 3. Check & Heal data/daily_top5_briefing.json
+        # 3. Check & Heal data/daily_top5_briefing.json (including duplicate lead templates across Top-5 slots)
         briefing_path = DATA_DIR / "daily_top5_briefing.json"
         if briefing_path.exists():
             try:
                 b_data = json.loads(briefing_path.read_text(encoding="utf-8"))
-                if b_data.get("certified_pool_size") != total_tpl:
+                lead_tpls = [i.get("default_template_id") for i in b_data.get("ideas", []) if i.get("default_template_id")]
+                if len(lead_tpls) == 5 and len(set(lead_tpls)) < 5:
+                    rebuilt = DailyTop5EditorialEngine().generate_daily_top5_briefing(use_live_network=False)
+                    new_leads = [i.get("default_template_id") for i in rebuilt.get("ideas", [])]
+                    actions.append(
+                        f"Auto-healed duplicate Top-5 lead templates ({lead_tpls} -> 5 distinct blueprints {new_leads}) in data/daily_top5_briefing.json."
+                    )
+                elif b_data.get("certified_pool_size") != total_tpl:
                     b_data["certified_pool_size"] = total_tpl
                     briefing_path.write_text(json.dumps(b_data, indent=2), encoding="utf-8")
                     actions.append(
@@ -544,12 +551,17 @@ class AutonomousSelfCriticHarness:
             slug = gap["gap_id"].lower()
             svg_p = CUSTOM_GEN_DIR / f"{slug}.svg"
             drawio_p = CUSTOM_GEN_DIR / f"{slug}.drawio"
-            if not svg_p.exists() or not drawio_p.exists():
+            needs_rebuild = (
+                not svg_p.exists()
+                or not drawio_p.exists()
+                or "VERIFIED TELEMETRY &amp; CONTROL GATE" not in svg_p.read_text(encoding="utf-8", errors="ignore")
+            )
+            if needs_rebuild:
                 res = critique_and_heal_generated_blueprint(gap)
                 svg_p.write_text(res["svg_text"], encoding="utf-8")
                 drawio_p.write_text(res["drawio_xml"], encoding="utf-8")
                 actions.append(
-                    f"Auto-synthesized & verified discovery gap exemplar {gap['gap_id']} ({gap['grammar_id']} × {gap['persona_id']} × {gap['org_id']})."
+                    f"Auto-synthesized & upgraded high-density discovery gap exemplar {gap['gap_id']} ({gap['grammar_id']} × {gap['persona_id']} × {gap['org_id']})."
                 )
         return actions
 
@@ -722,7 +734,7 @@ class AutonomousSelfCriticHarness:
         repos_dir = self.workspace_root / "generated-repos"
         repos_count = sum(1 for d in repos_dir.iterdir() if d.is_dir() and (d / "README.md").exists()) if repos_dir.exists() else 0
         channels_count = len(PLATFORM_SPECS)
-        g8_pass = forbidden_dom_sinks == 0 and repos_count == 19 and channels_count == 13
+        g8_pass = forbidden_dom_sinks == 0 and repos_count >= 19 and channels_count == 13
         gates.append(
             {
                 "gate_id": "G8_SECURITY_AND_OMNICHANNEL_CONTRACTS",

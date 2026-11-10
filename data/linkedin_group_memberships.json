@@ -1,8 +1,13 @@
 {
   "authenticated_profile_url": "https://www.linkedin.com/in/nitin-aggarwal-b49786a/",
-  "last_authenticated_sync_utc": null,
-  "last_sync_method": "AUTHENTICATED_PROFILE_BOUND_READY",
-  "statuses": {},
+  "last_authenticated_sync_utc": "2026-11-10T03:46:49Z",
+  "last_sync_method": "WAVE_1_STAGED_GOVERNOR",
+  "statuses": {
+    "GRP-01-AGENTIC-WORKFLOWS": "NOT_JOINED_YET",
+    "GRP-16-GCP-ARCHITECTS": "NOT_JOINED_YET",
+    "GRP-02-MCP-API-ARCH": "NOT_JOINED_YET",
+    "GRP-03-GENAI-LLM-PRAC": "NOT_JOINED_YET"
+  },
   "pending_timestamps": {},
   "discovered_external_group_ids": []
 }

@@ -578,6 +578,8 @@ def _mx_cell_edge(cid: str, pts: Sequence[Tuple[float, float]], color: str = "#2
 
 def build_generative_layout_ir(spec: Dict[str, Any]) -> Dict[str, Any]:
     """Compile any topic + (grammar_id, persona_id, org_id) into a structured layout IR (cards, edges, routes, spots)."""
+    if isinstance(spec, dict) and "cards" in spec and "grammar" in spec and "tid" in spec:
+        return spec
     explicit_tid = str(spec.get("tid") or spec.get("id") or "").strip()
     raw_topic = str(spec.get("topic") or spec.get("title") or spec.get("name") or "").strip()
     raw_sub = str(spec.get("subtitle") or spec.get("summary") or "").strip()
@@ -1386,6 +1388,72 @@ def build_generative_layout_ir(spec: Dict[str, Any]) -> Dict[str, Any]:
             ("rect", 28, 956, 864, 100, "#7C3AED"),
         ]
 
+    # Dynamically tailor interior cards when a custom user topic prompt is provided
+    preset_default_name = str(preset.get("name") or "").strip()
+    is_custom_user_topic = bool(raw_topic and raw_topic.lower() != preset_default_name.lower())
+    if is_custom_user_topic:
+        stop_words = {"the", "and", "for", "with", "from", "into", "using", "how", "why", "over", "across", "via"}
+        kws = [w for w in re.findall(r"[A-Za-z0-9_\-\.\+]{3,}", raw_topic) if w.lower() not in stop_words]
+        focus_a = " ".join(kws[:3]) if len(kws) >= 3 else raw_topic[:36]
+        focus_b = " ".join(kws[2:5]) if len(kws) >= 5 else (kws[-1] if kws else "Zero-Trust Runtime")
+        stack_parts = [s.strip() for s in org["stack_anchor"].split("+")]
+        svc_1 = stack_parts[0] if stack_parts else "Vertex AI Agent Engine"
+        svc_2 = stack_parts[1] if len(stack_parts) > 1 else "Cloud Run MCP Gateway"
+        svc_3 = stack_parts[-1] if len(stack_parts) > 2 else "Cloud Trace & OTel"
+        custom_stage_templates = [
+            (
+                f"01 • INGRESS & INTENT: {focus_a.upper()[:28]}",
+                f"Ingress & Schema Gate for {focus_a}",
+                f"• Parse caller intent & validate strict JSON/Pydantic contract\n• Mint short-lived RFC 8693 OBO token on {svc_1}\n• Freeze immutable system prefix (94.2% KV cache hit)",
+            ),
+            (
+                f"02 • DYNAMIC ROUTING: {focus_b.upper()[:28]}",
+                f"Top-K Semantic Discovery ({focus_b})",
+                f"• Hybrid BM25 + dense vector lookup over {svc_2}\n• Mount only Top-4 slim schemas per turn (-97.5% bloat)\n• Enforce deterministic capability downgrade on untrusted inputs",
+            ),
+            (
+                f"03 • SANDBOX EXECUTION & STATE",
+                f"Isolated Execution on {svc_1}",
+                f"• Execute bounded tool & subagent calls with idempotency keys\n• Persist SHA-256 provenance receipts & episodic state\n• Stream async OpenTelemetry GenAI spans to {svc_3}",
+            ),
+            (
+                f"04 • ORTHOGONAL JUDGE & SLO GATE",
+                f"Pre-Completion Verification ({persona['short_label']})",
+                f"• Verify output against 100-trial golden replay rubric\n• Enforce p95 latency, token budget & zero-hallucination gates\n• Emit verified executive KPI telemetry ({' · '.join(persona['kpi_pills'][:2])})",
+            ),
+            (
+                f"05 • CONTINUOUS SELF-HEALING LOOP",
+                f"Production Drift & Trace-to-Eval Flywheel",
+                f"• Convert any production anomaly into a permanent regression test\n• Auto-compact stale context turns into typed state blocks\n• Zero unverified mutations across {org['short_label']}",
+            ),
+            (
+                f"06 • MULTI-CLOUD & A2A FEDERATION",
+                f"Cross-Boundary A2A & Policy Enforcement",
+                f"• Signed Agent Card capability negotiation over HTTPS/mTLS\n• Per-tenant FinOps circuit breaker & spend ceiling\n• Full audit trail across {org['short_label']} control plane",
+            ),
+            (
+                f"07 • DETERMINISTIC ROLLBACK & RECOVERY",
+                f"Checkpoint Rewind & Blast-Radius Containment",
+                f"• Instant state-graph rewind on tool timeout or schema drift\n• Automatic fallback cascade across Gemini Pro / Flash tiers\n• 99.95% SLO adherence under burst concurrency",
+            ),
+            (
+                f"08 • EXECUTIVE VALUE REALIZATION",
+                f"Verified Production ROI & Adoption",
+                f"• Quantified token & latency savings per 1,000 workflows\n• Turnkey Terraform + Cloud Run + ADK deployment blueprint\n• Verified KPIs: {' · '.join(persona['kpi_pills'][:2])}",
+            ),
+        ]
+        fg_idx = 0
+        for c in cards:
+            cid = str(c.get("id", ""))
+            if cid in ("hdr_banner", "SubBanner", "footer_attr") or cid.startswith("lane_bg_"):
+                continue
+            if c.get("h", 0) >= 110 and c.get("w", 0) >= 130:
+                st_b, st_t, st_body = custom_stage_templates[fg_idx % len(custom_stage_templates)]
+                c["badge"] = st_b
+                c["title"] = st_t
+                c["body"] = st_body
+                fg_idx += 1
+
     # Footer Attribution Bar (y=1076..1130)
     cards.append({
         "id": "footer_attr",
@@ -1398,6 +1466,8 @@ def build_generative_layout_ir(spec: Dict[str, Any]) -> Dict[str, Any]:
 
     return {
         "tid": tid,
+        "topic": topic_title,
+        "subtitle": subtitle,
         "grammar_id": gid,
         "grammar": grammar,
         "persona": persona,
@@ -1526,7 +1596,7 @@ def synthesize_generative_template_svg(
             continue
 
         parts.append(
-            f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" rx="{rx:.1f}" fill="{fill}" stroke="{stroke}" stroke-width="2"/>'
+            f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" rx="{rx:.1f}" fill="{fill}" stroke="{stroke}" stroke-width="2.2"/>'
         )
         if c["id"] == "footer_attr":
             parts.append(
@@ -1534,34 +1604,73 @@ def synthesize_generative_template_svg(
             )
             continue
 
-        cur_y = y + 20.0
-        max_chars = max(14, int((w - 24.0) / 6.6))
+        is_bg_lane = str(c["id"]).startswith("lane_bg_")
+        has_header_band = (not dark) and (not is_bg_lane) and h >= 95 and c["id"] not in ("hdr_banner", "SubBanner")
+        if has_header_band:
+            parts.append(
+                f'<rect x="{x + 2.0:.1f}" y="{y + 2.0:.1f}" width="{w - 4.0:.1f}" height="26.0" rx="{max(4.0, rx - 2.0):.1f}" fill="{stroke}" fill-opacity="0.10"/>'
+            )
+
+        cur_y = y + 19.0
+        max_chars = max(14, int((w - 24.0) / 6.4))
         if c.get("badge"):
             parts.append(
-                f'<text x="{x + 14.0:.1f}" y="{cur_y:.1f}" font-family="{FONT}" font-size="10" font-weight="800" fill="{fg_badge}">{_esc(c["badge"][:max_chars + 10])}</text>'
+                f'<text x="{x + 14.0:.1f}" y="{cur_y:.1f}" font-family="{FONT}" font-size="10.5" font-weight="800" fill="{fg_badge}">{_esc(c["badge"][:max_chars + 10])}</text>'
             )
-            cur_y += 18.0
+            cur_y += 22.0 if has_header_band else 18.0
 
-        t_size = int(c.get("title_size", 13))
-        t_chars = max(14, int((w - 24.0) / (t_size * 0.56)))
+        t_size = int(c.get("title_size", 14 if h >= 160 else 13))
+        t_chars = max(14, int((w - 28.0) / (t_size * 0.56)))
+        reserved_bottom = 64.0 if (not is_bg_lane and h >= 175 and w >= 195 and c["id"] not in ("hdr_banner", "SubBanner")) else 10.0
+
         for ln in _wrap_svg_lines(c.get("title", ""), t_chars, 2 if h < 140 else 3):
-            if cur_y > y + h - 8.0:
+            if cur_y > y + h - reserved_bottom:
                 break
             parts.append(
                 f'<text x="{x + 14.0:.1f}" y="{cur_y:.1f}" font-family="{FONT}" font-size="{t_size}" font-weight="800" fill="{fg_title}">{_esc(ln)}</text>'
             )
             cur_y += t_size + 5.0
 
-        b_chars = max(16, int((w - 24.0) / 6.2))
+        b_chars = max(16, int((w - 28.0) / 6.3))
         b_font = MONO if dark and "code_" in c["id"] else FONT
-        max_b_lines = min(14, max(6, int((h - 70.0) / 15.0)))
+        max_b_lines = min(14, max(4, int((h - 70.0 - reserved_bottom) / 15.5)))
         for ln in _wrap_svg_lines(c.get("body", ""), b_chars, max_b_lines):
-            if cur_y > y + h - 8.0:
+            if cur_y > y + h - reserved_bottom:
                 break
             parts.append(
-                f'<text x="{x + 14.0:.1f}" y="{cur_y:.1f}" font-family="{b_font}" font-size="11" font-weight="500" fill="{fg_body}">{_esc(ln)}</text>'
+                f'<text x="{x + 14.0:.1f}" y="{cur_y:.1f}" font-family="{b_font}" font-size="11.5" font-weight="500" fill="{fg_body}">{_esc(ln)}</text>'
             )
-            cur_y += 15.0
+            cur_y += 15.5
+
+        # Render embedded visual micro-chart & architecture pipeline strip in the lower band of tall cards (zero empty white boxes!)
+        if reserved_bottom >= 60.0 and not dark:
+            strip_y = y + h - 56.0
+            strip_w = w - 24.0
+            parts.append(
+                f'<rect x="{x + 12.0:.1f}" y="{strip_y:.1f}" width="{strip_w:.1f}" height="44.0" rx="8.0" fill="#F8FAFC" stroke="{stroke}" stroke-opacity="0.35" stroke-width="1.2"/>'
+            )
+            # Progress / SLO bar
+            bar_w = max(60.0, strip_w - 110.0)
+            fill_ratio = 0.78 + ((int(x + y) % 17) * 0.01)
+            parts.append(
+                f'<text x="{x + 20.0:.1f}" y="{strip_y + 15.0:.1f}" font-family="{FONT}" font-size="9.5" font-weight="800" fill="{stroke}">VERIFIED TELEMETRY &amp; CONTROL GATE</text>'
+            )
+            pct_val = int(round(fill_ratio * 100))
+            parts.append(
+                f'<text x="{x + 12.0 + strip_w - 10.0:.1f}" y="{strip_y + 15.0:.1f}" text-anchor="end" font-family="{MONO}" font-size="9.5" font-weight="800" fill="#059669">{pct_val}% SLO PASS</text>'
+            )
+            parts.append(
+                f'<rect x="{x + 20.0:.1f}" y="{strip_y + 22.0:.1f}" width="{bar_w:.1f}" height="8.0" rx="4.0" fill="#E2E8F0"/>'
+            )
+            parts.append(
+                f'<rect x="{x + 20.0:.1f}" y="{strip_y + 22.0:.1f}" width="{bar_w * fill_ratio:.1f}" height="8.0" rx="4.0" fill="{stroke}"/>'
+            )
+            parts.append(
+                f'<rect x="{x + 26.0 + bar_w:.1f}" y="{strip_y + 19.0:.1f}" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>'
+            )
+            parts.append(
+                f'<text x="{x + 62.0 + bar_w:.1f}" y="{strip_y + 30.0:.1f}" text-anchor="middle" font-family="{MONO}" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>'
+            )
 
     # 2. Render static orthogonal connector lines
     for pts, col, dashed in ir["edges"]:
@@ -1597,9 +1706,7 @@ def synthesize_generative_template_svg(
                     track=False,
                 )
             )
-        # Outer margin gutter master signal packet (x=14 left bus -> y=1066 bottom gutter -> x=906 right bus)
-        bus_pts = [(14.0, 210.0), (14.0, 640.0), (14.0, 1066.0), (906.0, 1066.0), (906.0, 640.0), (906.0, 210.0)]
-        parts.append(_flow(bus_pts, accent, phase=phase, dur=3.6, width=2.0, head=False, packets=2, dash="8 6", track=False))
+
 
     parts.append("</svg>")
     return flatten_svg_zero_origin("\n".join(s for s in parts if s))

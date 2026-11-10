@@ -22,14 +22,14 @@
 </defs>
 <rect x="0" y="0" width="920" height="1150" fill="#F8FAFC"/>
 <rect x="0" y="0" width="920" height="1150" fill="url(#genGrid)"/>
-<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
-<text x="42.0" y="44.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">T220 • CONCENTRIC RECURSIVE HARNESS² • CODE-FIRST HARNESS &amp; RUNTIME LENS • FRONTIER AI STARTUP</text>
-<text x="42.0" y="62.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Harness² Concentric Frozen-Core &amp; Recursive Scaffolding Synthesis</text>
-<text x="42.0" y="86.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Everything Wrapped Around the Frozen-Weights Model That Rewrites Its Own Domain &amp; Task Scaffolding in Open Worlds (+22pp NoveltyBench)</text>
-<text x="42.0" y="101.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack Anchor: Gemini 4 Argon / 3.8 Flash + ADK + LangGraph + Arize Phoenix | KPIs: p95 Turn &lt; 1.1s · pass^3 = 89.4% · Zero AI in</text>
-<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Release Gate</text>
-<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#EDE9FE" stroke="#2563EB" stroke-width="2"/>
-<text x="42.0" y="170.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: Builder Rule: Treat retrieved content as untrusted data; enforce red-to-green test per commit.</text>
+<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<text x="42.0" y="43.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">T220 • CONCENTRIC RECURSIVE HARNESS² • CODE-FIRST HARNESS &amp; RUNTIME LENS • FRONTIER AI STARTUP</text>
+<text x="42.0" y="61.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Harness² Concentric Frozen-Core &amp; Recursive Scaffolding Synthesis</text>
+<text x="42.0" y="85.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Everything Wrapped Around the Frozen-Weights Model That Rewrites Its Own Domain &amp; Task Scaffolding in Open Worlds (+22pp</text>
+<text x="42.0" y="100.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">NoveltyBench)</text>
+<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Stack Anchor: Gemini 4 Argon / 3.8 Flash + ADK + LangGraph + Arize Phoenix | KPIs: p95 Turn &lt; 1.1s · pass^3 = 89.4% · Zero AI in</text>
+<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#EDE9FE" stroke="#2563EB" stroke-width="2.2"/>
+<text x="42.0" y="169.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: Builder Rule: Treat retrieved content as untrusted data; enforce red-to-green test per commit.</text>
 <circle cx="460.0" cy="540.0" r="240.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.4"/>
 <text x="460.0" y="338.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">OUTER RING • TASK-LEVEL HARNESS</text>
 <text x="460.0" y="354.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Rewrites Per-Task Scaffolding</text>
@@ -42,37 +42,43 @@
 <text x="460.0" y="526.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#93C5FD">FROZEN CORE</text>
 <text x="460.0" y="542.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">MODEL</text>
 <text x="460.0" y="558.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">(Weights Frozen)</text>
-<rect x="28.0" y="208.0" width="260.0" height="172.0" rx="12.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/>
-<text x="42.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626">01 • STATIC HARNESS BOTTLENECK</text>
-<text x="42.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Fixed Prompts Fail Open Worlds</text>
-<text x="42.0" y="264.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Hand-crafted static loops break when</text>
-<text x="42.0" y="279.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">encountering unseen tool schemas or</text>
-<text x="42.0" y="294.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">novel task topologies.</text>
-<rect x="632.0" y="208.0" width="260.0" height="172.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
-<text x="646.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">02 • DOMAIN-LEVEL SYNTHESIS</text>
-<text x="646.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Persistent Tool &amp; Skill</text>
-<text x="646.0" y="264.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Evolution</text>
-<text x="646.0" y="282.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Agent authors, tests, and caches</text>
-<text x="646.0" y="297.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">reusable domain skills across tasks</text>
-<text x="646.0" y="312.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">without weight updates.</text>
-<rect x="28.0" y="720.0" width="260.0" height="172.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
-<text x="42.0" y="740.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">03 • TASK-LEVEL REWRITING</text>
-<text x="42.0" y="758.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Dynamic Topology Per Turn</text>
-<text x="42.0" y="776.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Synthesizes custom verification</text>
-<text x="42.0" y="791.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">rubrics, subagent graphs, and context</text>
-<text x="42.0" y="806.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">filters for the task at hand.</text>
-<rect x="632.0" y="720.0" width="260.0" height="172.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
-<text x="646.0" y="740.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">04 • MEASURED BREAKTHROUGH</text>
-<text x="646.0" y="758.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">+22pp on NoveltyBench</text>
-<text x="646.0" y="776.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Outperforms static agent harnesses</text>
-<text x="646.0" y="791.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">while keeping base foundation model</text>
-<text x="646.0" y="806.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">weights 100% frozen.</text>
-<rect x="28.0" y="916.0" width="864.0" height="140.0" rx="14.0" fill="#F8FAFC" stroke="#2563EB" stroke-width="2"/>
-<text x="42.0" y="936.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">FIRST-PRINCIPLES DEFINITION • WHAT IS AN AGENT HARNESS?</text>
-<text x="42.0" y="954.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Harness = Everything Wrapped Around the Frozen-Weights Model That Lets It Perceive, Remember, Plan, Act,</text>
-<text x="42.0" y="973.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">and Self-Verify</text>
-<text x="42.0" y="992.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Reference: Google Research `Harness²: Recursive Agent Harnessing for an Open World` (`github.com/google-research/harness2`).</text>
-<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<rect x="28.0" y="208.0" width="260.0" height="172.0" rx="12.0" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.2"/>
+<rect x="30.0" y="210.0" width="256.0" height="26.0" rx="10.0" fill="#DC2626" fill-opacity="0.10"/>
+<text x="42.0" y="227.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626">01 • STATIC HARNESS BOTTLENECK</text>
+<text x="42.0" y="249.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Fixed Prompts Fail Open Worlds</text>
+<text x="42.0" y="267.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Hand-crafted static loops break when</text>
+<text x="42.0" y="282.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">encountering unseen tool schemas or</text>
+<text x="42.0" y="298.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">novel task topologies.</text>
+<rect x="632.0" y="208.0" width="260.0" height="172.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2.2"/>
+<rect x="634.0" y="210.0" width="256.0" height="26.0" rx="10.0" fill="#059669" fill-opacity="0.10"/>
+<text x="646.0" y="227.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">02 • DOMAIN-LEVEL SYNTHESIS</text>
+<text x="646.0" y="249.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Persistent Tool &amp; Skill</text>
+<text x="646.0" y="267.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Evolution</text>
+<text x="646.0" y="285.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Agent authors, tests, and caches</text>
+<text x="646.0" y="300.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">reusable domain skills across tasks</text>
+<text x="646.0" y="316.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">without weight updates.</text>
+<rect x="28.0" y="720.0" width="260.0" height="172.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="30.0" y="722.0" width="256.0" height="26.0" rx="10.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="42.0" y="739.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">03 • TASK-LEVEL REWRITING</text>
+<text x="42.0" y="761.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Dynamic Topology Per Turn</text>
+<text x="42.0" y="779.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Synthesizes custom verification</text>
+<text x="42.0" y="794.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">rubrics, subagent graphs, and</text>
+<text x="42.0" y="810.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">context filters for the task at</text>
+<text x="42.0" y="825.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">hand.</text>
+<rect x="632.0" y="720.0" width="260.0" height="172.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="634.0" y="722.0" width="256.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="646.0" y="739.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">04 • MEASURED BREAKTHROUGH</text>
+<text x="646.0" y="761.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">+22pp on NoveltyBench</text>
+<text x="646.0" y="779.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Outperforms static agent harnesses</text>
+<text x="646.0" y="794.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">while keeping base foundation model</text>
+<text x="646.0" y="810.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">weights 100% frozen.</text>
+<rect x="28.0" y="916.0" width="864.0" height="140.0" rx="14.0" fill="#F8FAFC" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="30.0" y="918.0" width="860.0" height="26.0" rx="12.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="42.0" y="935.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">FIRST-PRINCIPLES DEFINITION • WHAT IS AN AGENT HARNESS?</text>
+<text x="42.0" y="957.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Harness = Everything Wrapped Around the Frozen-Weights Model That Lets It Perceive, Remember, Plan, Act,</text>
+<text x="42.0" y="976.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">and Self-Verify</text>
+<text x="42.0" y="995.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Reference: Google Research `Harness²: Recursive Agent Harnessing for an Open World` (`github.com/google-research/harness2`).</text>
+<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2.2"/>
 <text x="460.0" y="1105.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-11 (T220) • STAFF+ SWE BUILDER • FRONTIER AI STARTUP</text>
 <path d="M 288.0 294.0 L 308.0 358.0" fill="none" stroke="#DC2626" stroke-width="2"/>
 <path d="M 632.0 294.0 L 612.0 358.0" fill="none" stroke="#059669" stroke-width="2"/>
@@ -90,7 +96,4 @@
 <g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 288.0 780.0 L 308.0 722.0"/></g>
 <path d="M 632.0 780.0 L 612.0 722.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
 <g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 632.0 780.0 L 612.0 722.0"/></g>
-<path d="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 6" stroke-dashoffset="0.0"/>
-<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="3.60s" begin="-0.00s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
-<g><circle r="7.4" fill="#2563EB" fill-opacity="0.15"/><circle r="5.0" fill="#2563EB" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.7" fill="#2563EB"/><animateMotion dur="3.60s" begin="-1.80s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
 </svg>

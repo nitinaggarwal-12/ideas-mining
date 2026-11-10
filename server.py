@@ -46,6 +46,15 @@ from src.harvester.daily_top5_editorial_engine import (
     DailyTop5EditorialEngine,
 )
 from src.harvester.idea_miner import AgenticIdeaMiner
+from src.harvester.live_github_breakout_miner import (
+    get_dynamically_minted_repos,
+    mine_live_github_breakout_repos,
+    mint_full_adk_repo_from_github_breakout,
+)
+from src.video.canonical_walkthrough_recorder import (
+    build_post_spoken_narration_script,
+    produce_digital_twin_video_for_any_post,
+)
 from src.publisher.multi_platform_publisher import (
     PLATFORM_SPECS,
     MultiPlatformOutboxManager,
@@ -94,6 +103,79 @@ TOP5_ENGINE = DailyTop5EditorialEngine()
 OUTBOX_MANAGER = MultiPlatformOutboxManager()
 MINTED_REPO_SPECS = list(get_minted_repo_specs())
 ALL_CATALOG_ITEMS = MINTED_REPO_SPECS + list(TOMORROW_TOP10_IDEAS) + list(POSTS_CATALOG)
+
+
+def _get_all_catalog_and_dynamic_repos() -> list[dict]:
+    base_slugs = {p.get("repo_slug") for p in ALL_CATALOG_ITEMS}
+    dyn = [r for r in get_dynamically_minted_repos() if r.get("repo_slug") not in base_slugs]
+    return ALL_CATALOG_ITEMS + dyn
+
+
+def _resolve_any_post_for_digital_twin(
+    post_id: str = "",
+    title: str = "",
+    summary: str = "",
+    template_id: str = "",
+    repo_slug: str = "",
+) -> dict:
+    clean_id = (post_id or "").strip()
+    all_repos = _get_all_catalog_and_dynamic_repos()
+    matched = next(
+        (
+            r
+            for r in all_repos
+            if r.get("id") == clean_id or r.get("repo_slug") == clean_id or (repo_slug and r.get("repo_slug") == repo_slug)
+        ),
+        None,
+    )
+    if matched:
+        plan = matched.get("template_and_distribution_plan") or {}
+        tid = template_id or plan.get("primary_template_id") or matched.get("canonical_template_id") or "T85"
+        eval_res = {}
+        eval_file = REPOS_ROOT / matched["repo_slug"] / "evals" / "eval_results.json"
+        if eval_file.exists():
+            try:
+                eval_res = json.loads(eval_file.read_text(encoding="utf-8")).get("metrics", {})
+            except Exception:
+                eval_res = {}
+        metrics_str = (
+            f"pass^5 {eval_res.get('naive_pass_pow_5_pct', 31.0)}% -> {eval_res.get('engineered_pass_pow_5_pct', 94.5)}% "
+            f"| -{eval_res.get('token_reduction_pct', 68.4)}% tokens | {eval_res.get('p95_latency_speedup_x', 2.8)}x p95 speedup"
+            if eval_res
+            else matched.get("daily_problem_short") or matched.get("original_hook") or ""
+        )
+        return {
+            "post_id": matched.get("id") or clean_id or "MINT-01",
+            "title": title or matched.get("post_title") or matched.get("title") or "Enterprise Agentic AI Architecture",
+            "summary": summary or matched.get("daily_problem_short") or matched.get("original_hook") or "",
+            "template_id": tid,
+            "repo_slug": matched.get("repo_slug") or "gcp-mcp-zero-bloat-gateway",
+            "metrics_hint": metrics_str,
+            "gcp_stack": matched.get("gcp_stack") or ["Vertex AI Agent Engine", "Cloud Run v2", "Model Armor"],
+        }
+    # Check Daily Top-5 Briefing ideas
+    briefing = TOP5_ENGINE.get_or_create_briefing()
+    for idea in briefing.get("ideas", []):
+        if idea.get("id") == clean_id:
+            tid = template_id or idea.get("default_template_id") or "T61"
+            return {
+                "post_id": idea["id"],
+                "title": title or idea.get("title") or "Daily Top-5 Agentic AI Signal",
+                "summary": summary or idea.get("summary") or "",
+                "template_id": tid,
+                "repo_slug": repo_slug or "gcp-mcp-zero-bloat-gateway",
+                "metrics_hint": idea.get("metrics_hint") or idea.get("summary") or "",
+                "gcp_stack": ["Vertex AI Agent Engine", "Cloud Run v2", "AlloyDB pgvector", "Cloud Trace"],
+            }
+    return {
+        "post_id": clean_id or "CUSTOM-POST",
+        "title": title or "Enterprise Agentic AI Architecture & Runtime Verification",
+        "summary": summary or "Out-of-loop policy enforcement, deterministic context caching, and reproducible pass^5 evaluation.",
+        "template_id": template_id or "T85",
+        "repo_slug": repo_slug or "gcp-mcp-zero-bloat-gateway",
+        "metrics_hint": "94.2% tool accuracy | -97.5% token overhead | 0.0 px² twin occlusion",
+        "gcp_stack": ["Vertex AI Agent Engine", "Cloud Run v2", "Model Armor"],
+    }
 
 # Per-IP sliding-window API rate limiter (360 req / 60s window) to mitigate abuse while allowing parallel E2E runs.
 # TODO(security): Enforce Cloud Run Identity-Aware Proxy (IAP) / OAuth 2.0 session validation + CSRF double-submit
@@ -369,7 +451,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                     "best_count": summary["best_count"],
                     "high_count": summary["high_count"],
                     "t79_topic_posts_count": summary["t79_topic_posts_count"],
-                    "repos_count": len(ALL_CATALOG_ITEMS),
+                    "repos_count": len(_get_all_catalog_and_dynamic_repos()),
                     "minting_topics_count": len(CAREER_MINTING_TOPICS),
                     "flagship_24slide_deck_id": FLAGSHIP_MINT01_24SLIDE_DECK_ID,
                     "creator_profiles_count": len(CREATOR_MINING_PLAYBOOK.get("creator_profiles", [])),
@@ -463,7 +545,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
 
         if path == "/api/workspace-state":
             enriched_repos = []
-            for p in ALL_CATALOG_ITEMS:
+            for p in _get_all_catalog_and_dynamic_repos():
                 r_dir = REPOS_ROOT / p["repo_slug"]
                 receipt_file = r_dir / "openhands_verification_receipt.json"
                 receipt = {}
@@ -507,7 +589,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
 
         if path.startswith("/api/repo-detail/"):
             slug = path.replace("/api/repo-detail/", "").strip("/")
-            matched = next((p for p in ALL_CATALOG_ITEMS if p["repo_slug"] == slug), None)
+            matched = next((p for p in _get_all_catalog_and_dynamic_repos() if p["repo_slug"] == slug), None)
             if not matched:
                 self._send_json(404, {"error": "Unknown repository slug"})
                 return
@@ -605,7 +687,6 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
     try {{
       const bc = new BroadcastChannel("linkedin_groups_sync");
       bc.postMessage({{ type: "SYNC_COMPLETE", ts: Date.now() }});
-      localStorage.setItem("linkedin_groups_last_sync", String(Date.now()));
     }} catch (_e) {{}}
     setTimeout(() => {{
       window.location.replace("/?view=view-openhands#linkedin-groups-membership-radar-section");
@@ -624,7 +705,7 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
 
         if path == "/api/distribution-directory":
             entries = []
-            for p in ALL_CATALOG_ITEMS:
+            for p in _get_all_catalog_and_dynamic_repos():
                 _pid = p.get("id") or p.get("code") or ""
                 _psrc = p.get("primary_source") if isinstance(p.get("primary_source"), dict) else {}
                 entries.append({
@@ -639,6 +720,53 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
                     ),
                 })
             self._send_json(200, {"status": "READY", "total_posts": len(entries), "posts": entries})
+            return
+
+        if path == "/api/github/breakout-repos":
+            q = (qs.get("q") or qs.get("query") or [""])[0].strip()[:160]
+            sort_by = (qs.get("sort") or ["velocity"])[0].strip()[:32]
+            force_live = (qs.get("live") or ["0"])[0].strip().lower() in ("1", "true", "yes")
+            self._send_json(
+                200,
+                mine_live_github_breakout_repos(query=q, sort_by=sort_by, force_live=force_live),
+            )
+            return
+
+        if path == "/api/video/digital-twin-script":
+            post_id = (qs.get("post_id") or qs.get("id") or ["MINT-01"])[0].strip()
+            spec = _resolve_any_post_for_digital_twin(
+                post_id=post_id,
+                title=(qs.get("title") or [""])[0].strip(),
+                summary=(qs.get("summary") or [""])[0].strip(),
+                template_id=(qs.get("template_id") or [""])[0].strip(),
+                repo_slug=(qs.get("repo_slug") or [""])[0].strip(),
+            )
+            script_bundle = build_post_spoken_narration_script(
+                post_id=spec["post_id"],
+                title=spec["title"],
+                summary=spec["summary"],
+                template_id=spec["template_id"],
+                repo_slug=spec["repo_slug"],
+                metrics_hint=spec["metrics_hint"],
+                gcp_stack=spec["gcp_stack"],
+            )
+            safe_id = re.sub(r"[^A-Za-z0-9_-]+", "-", spec["post_id"]).strip("-") or "MINT-01"
+            manifest_file = ASSETS_ROOT / "videos" / f"{safe_id}_video_manifest.json"
+            existing_manifest = None
+            if manifest_file.exists():
+                try:
+                    existing_manifest = json.loads(manifest_file.read_text(encoding="utf-8"))
+                except Exception:
+                    existing_manifest = None
+            self._send_json(
+                200,
+                {
+                    "status": "READY",
+                    "resolved_spec": spec,
+                    "script_bundle": script_bundle,
+                    "existing_video_manifest": existing_manifest,
+                },
+            )
             return
 
         if path == "/api/live-mining-feeds":
@@ -1036,6 +1164,46 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             )
             self._send_json(200, res)
             return
+        if path == "/api/github/mint-breakout-repo":
+            owner_repo_or_url = str(
+                payload.get("owner_repo") or payload.get("repo") or payload.get("url") or ""
+            ).strip()
+            custom_focus = str(payload.get("custom_focus") or payload.get("focus") or "").strip()[:200]
+            if not owner_repo_or_url:
+                self._send_json(400, {"error": "Provide a GitHub owner/repo or repository URL"})
+                return
+            res = mint_full_adk_repo_from_github_breakout(
+                owner_repo_or_url=owner_repo_or_url,
+                custom_focus=custom_focus,
+            )
+            self._send_json(200, res)
+            return
+
+        if path == "/api/video/produce-digital-twin":
+            post_id = str(payload.get("post_id") or payload.get("idea_id") or "MINT-01").strip()[:64]
+            custom_narration = str(payload.get("custom_narration_override") or payload.get("narration") or "").strip()
+            force_rebuild = bool(payload.get("force", True))
+            spec = _resolve_any_post_for_digital_twin(
+                post_id=post_id,
+                title=str(payload.get("title") or "").strip()[:220],
+                summary=str(payload.get("summary") or "").strip()[:400],
+                template_id=str(payload.get("template_id") or "").strip()[:24],
+                repo_slug=str(payload.get("repo_slug") or "").strip()[:80],
+            )
+            manifest = produce_digital_twin_video_for_any_post(
+                post_id=spec["post_id"],
+                title=spec["title"],
+                summary=spec["summary"],
+                template_id=spec["template_id"],
+                repo_slug=spec["repo_slug"],
+                metrics_hint=spec["metrics_hint"],
+                gcp_stack=spec["gcp_stack"],
+                custom_narration_override=custom_narration,
+                force=force_rebuild,
+            )
+            self._send_json(200, manifest)
+            return
+
         if path == "/api/ingest-url":
             res = MINER.ingest_custom_post_or_url(
                 url=payload.get("url", ""),

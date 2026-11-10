@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 1150" width="920" height="1150">
+<title>T211 • NITIN AGGARWAL • NOVEMBER 2026 • FORMAT LINEAGE: 8-Card Executive FinOps &amp; ROI Micro-Chart Playbook • Proprietary + Confidential</title>
+<desc>Author: Nitin Aggarwal • November 2026 • Prashant Rathi (LI-48 · Framework to Use AI Without Overspending) • Google Cloud Vertex AI + LiteLLM + OpenTelemetry</desc>
+<defs>
+<pattern id="genGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#94A3B8" fill-opacity="0.20"/></pattern>
+<style>
+@keyframes flowDash { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+.flow-line { animation: flowDash 1.0s linear infinite; }
+@keyframes pulseStroke { 0%,100% { stroke-width: 2.4px; } 50% { stroke-width: 5px; } }
+.pulse { animation: pulseStroke 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.blink { animation: blink 1.4s ease-in-out infinite; }
+@keyframes phaseSpot1 { 0%,24% { opacity: 0.96; stroke-width: 3.4px; } 26%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot2 { 0%,24% { opacity: 0.22; stroke-width: 1.5px; } 25%,49% { opacity: 0.96; stroke-width: 3.4px; } 51%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot3 { 0%,49% { opacity: 0.22; stroke-width: 1.5px; } 50%,74% { opacity: 0.96; stroke-width: 3.4px; } 76%,100% { opacity: 0.22; stroke-width: 1.5px; } }
+@keyframes phaseSpot4 { 0%,74% { opacity: 0.22; stroke-width: 1.5px; } 75%,99% { opacity: 0.96; stroke-width: 3.4px; } 100% { opacity: 0.22; stroke-width: 1.5px; } }
+.phase-glow-1 { animation: phaseSpot1 4.8s ease-in-out infinite; }
+.phase-glow-2 { animation: phaseSpot2 4.8s ease-in-out infinite; }
+.phase-glow-3 { animation: phaseSpot3 4.8s ease-in-out infinite; }
+.phase-glow-4 { animation: phaseSpot4 4.8s ease-in-out infinite; }
+</style>
+</defs>
+<rect x="0" y="0" width="920" height="1150" fill="#F8FAFC"/>
+<rect x="0" y="0" width="920" height="1150" fill="url(#genGrid)"/>
+<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<text x="42.0" y="43.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">T211 • 8-CARD FINOPS MICRO-CHARTS • ENTERPRISE CONTROL &amp; DATA PLANE LENS • CLOUD HYPERSCALER</text>
+<text x="42.0" y="61.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Zero-Trust MCP OAuth 2.1 Gateway &amp; Speculative KV-Cache Routing</text>
+<text x="42.0" y="85.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">How Engineering &amp; Finance Teams Deliver Verifiable AI Returns Without Blowing Token or License Budgets</text>
+<text x="42.0" y="100.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Stack Anchor: Vertex AI Agent Engine + Cloud Run + AlloyDB pgvector + Cloud Trace | KPIs: 99.95% Control Plane SLO · Zero-Trust OBO</text>
+<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">· Unified Ontology Graph</text>
+<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#E0F2FE" stroke="#7C3AED" stroke-width="2.2"/>
+<text x="42.0" y="169.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: ARB Invariant: Decouple reasoning state and semantic ontology from single-app schemas.</text>
+<rect x="28.0" y="208.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="30.0" y="210.0" width="416.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="42.0" y="227.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">01 • INGRESS &amp; INTENT: ZERO-TRUST MCP OAUTH</text>
+<text x="42.0" y="249.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Ingress &amp; Schema Gate for Zero-Trust MCP OAuth</text>
+<text x="42.0" y="268.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Parse caller intent &amp; validate strict JSON/Pydantic contract</text>
+<text x="42.0" y="283.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Mint short-lived RFC 8693 OBO token on Vertex AI Agent</text>
+<text x="42.0" y="299.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Engine</text>
+<text x="42.0" y="314.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Freeze immutable system prefix (94.2% KV cache hit)</text>
+<rect x="40.0" y="350.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="48.0" y="365.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="426.0" y="365.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">93% SLO PASS</text>
+<rect x="48.0" y="372.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="48.0" y="372.0" width="266.0" height="8.0" rx="4.0" fill="#7C3AED"/>
+<rect x="340.0" y="369.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="376.0" y="380.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="472.0" y="208.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="474.0" y="210.0" width="416.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="486.0" y="227.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">02 • DYNAMIC ROUTING: OAUTH 2.1 GATEWAY</text>
+<text x="486.0" y="249.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Top-K Semantic Discovery (OAuth 2.1 Gateway)</text>
+<text x="486.0" y="268.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Hybrid BM25 + dense vector lookup over Cloud Run</text>
+<text x="486.0" y="283.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Mount only Top-4 slim schemas per turn (-97.5% bloat)</text>
+<text x="486.0" y="299.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Enforce deterministic capability downgrade on untrusted</text>
+<text x="486.0" y="314.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">inputs</text>
+<rect x="484.0" y="350.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="492.0" y="365.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="870.0" y="365.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">78% SLO PASS</text>
+<rect x="492.0" y="372.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="492.0" y="372.0" width="223.1" height="8.0" rx="4.0" fill="#7C3AED"/>
+<rect x="784.0" y="369.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="820.0" y="380.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="28.0" y="424.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="30.0" y="426.0" width="416.0" height="26.0" rx="10.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="42.0" y="443.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">03 • SANDBOX EXECUTION &amp; STATE</text>
+<text x="42.0" y="465.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Isolated Execution on Vertex AI Agent Engine</text>
+<text x="42.0" y="484.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Execute bounded tool &amp; subagent calls with idempotency keys</text>
+<text x="42.0" y="499.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Persist SHA-256 provenance receipts &amp; episodic state</text>
+<text x="42.0" y="515.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Stream async OpenTelemetry GenAI spans to Cloud Trace</text>
+<rect x="40.0" y="566.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#2563EB" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="48.0" y="581.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="426.0" y="581.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">88% SLO PASS</text>
+<rect x="48.0" y="588.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="48.0" y="588.0" width="251.7" height="8.0" rx="4.0" fill="#2563EB"/>
+<rect x="340.0" y="585.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="376.0" y="596.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="472.0" y="424.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="474.0" y="426.0" width="416.0" height="26.0" rx="10.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="486.0" y="443.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">04 • ORTHOGONAL JUDGE &amp; SLO GATE</text>
+<text x="486.0" y="465.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Pre-Completion Verification (Principal Architect)</text>
+<text x="486.0" y="484.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Verify output against 100-trial golden replay rubric</text>
+<text x="486.0" y="499.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Enforce p95 latency, token budget &amp; zero-hallucination gates</text>
+<text x="486.0" y="515.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Emit verified executive KPI telemetry (99.95% Control Plane</text>
+<text x="486.0" y="530.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">SLO · Zero-Trust OBO)</text>
+<rect x="484.0" y="566.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#2563EB" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="492.0" y="581.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="870.0" y="581.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">90% SLO PASS</text>
+<rect x="492.0" y="588.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="492.0" y="588.0" width="257.4" height="8.0" rx="4.0" fill="#2563EB"/>
+<rect x="784.0" y="585.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="820.0" y="596.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="28.0" y="640.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="30.0" y="642.0" width="416.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="42.0" y="659.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">05 • CONTINUOUS SELF-HEALING LOOP</text>
+<text x="42.0" y="681.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Production Drift &amp; Trace-to-Eval Flywheel</text>
+<text x="42.0" y="700.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Convert any production anomaly into a permanent regression</text>
+<text x="42.0" y="715.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">test</text>
+<text x="42.0" y="731.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Auto-compact stale context turns into typed state blocks</text>
+<text x="42.0" y="746.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Zero unverified mutations across Cloud Hyperscaler</text>
+<rect x="40.0" y="782.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="48.0" y="797.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="426.0" y="797.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">83% SLO PASS</text>
+<rect x="48.0" y="804.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="48.0" y="804.0" width="237.4" height="8.0" rx="4.0" fill="#7C3AED"/>
+<rect x="340.0" y="801.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="376.0" y="812.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="472.0" y="640.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="474.0" y="642.0" width="416.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="486.0" y="659.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">06 • MULTI-CLOUD &amp; A2A FEDERATION</text>
+<text x="486.0" y="681.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Cross-Boundary A2A &amp; Policy Enforcement</text>
+<text x="486.0" y="700.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Signed Agent Card capability negotiation over HTTPS/mTLS</text>
+<text x="486.0" y="715.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Per-tenant FinOps circuit breaker &amp; spend ceiling</text>
+<text x="486.0" y="731.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Full audit trail across Cloud Hyperscaler control plane</text>
+<rect x="484.0" y="782.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#7C3AED" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="492.0" y="797.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#7C3AED">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="870.0" y="797.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">85% SLO PASS</text>
+<rect x="492.0" y="804.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="492.0" y="804.0" width="243.1" height="8.0" rx="4.0" fill="#7C3AED"/>
+<rect x="784.0" y="801.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="820.0" y="812.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="28.0" y="856.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2.2"/>
+<rect x="30.0" y="858.0" width="416.0" height="26.0" rx="10.0" fill="#059669" fill-opacity="0.10"/>
+<text x="42.0" y="875.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">07 • DETERMINISTIC ROLLBACK &amp; RECOVERY</text>
+<text x="42.0" y="897.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Checkpoint Rewind &amp; Blast-Radius Containment</text>
+<text x="42.0" y="916.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Instant state-graph rewind on tool timeout or schema drift</text>
+<text x="42.0" y="931.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Automatic fallback cascade across Gemini Pro / Flash tiers</text>
+<text x="42.0" y="947.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• 99.95% SLO adherence under burst concurrency</text>
+<rect x="40.0" y="998.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#059669" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="48.0" y="1013.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="426.0" y="1013.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">78% SLO PASS</text>
+<rect x="48.0" y="1020.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="48.0" y="1020.0" width="223.1" height="8.0" rx="4.0" fill="#059669"/>
+<rect x="340.0" y="1017.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="376.0" y="1028.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="472.0" y="856.0" width="420.0" height="198.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2.2"/>
+<rect x="474.0" y="858.0" width="416.0" height="26.0" rx="10.0" fill="#059669" fill-opacity="0.10"/>
+<text x="486.0" y="875.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">08 • EXECUTIVE VALUE REALIZATION</text>
+<text x="486.0" y="897.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Verified Production ROI &amp; Adoption</text>
+<text x="486.0" y="916.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Quantified token &amp; latency savings per 1,000 workflows</text>
+<text x="486.0" y="931.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Turnkey Terraform + Cloud Run + ADK deployment blueprint</text>
+<text x="486.0" y="947.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Verified KPIs: 99.95% Control Plane SLO · Zero-Trust OBO</text>
+<rect x="484.0" y="998.0" width="396.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#059669" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="492.0" y="1013.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#059669">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="870.0" y="1013.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">80% SLO PASS</text>
+<rect x="492.0" y="1020.0" width="286.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="492.0" y="1020.0" width="228.8" height="8.0" rx="4.0" fill="#059669"/>
+<rect x="784.0" y="1017.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="820.0" y="1028.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2.2"/>
+<text x="460.0" y="1105.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-02 (T211) • PRINCIPAL ARCHITECT • CLOUD HYPERSCALER</text>
+<path d="M 448.0 307.0 L 472.0 307.0" fill="none" stroke="#7C3AED" stroke-width="2"/>
+<path d="M 238.0 406.0 L 238.0 424.0" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 682.0 406.0 L 682.0 424.0" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 448.0 523.0 L 472.0 523.0" fill="none" stroke="#2563EB" stroke-width="2"/>
+<path d="M 238.0 622.0 L 238.0 640.0" fill="none" stroke="#2563EB" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 682.0 622.0 L 682.0 640.0" fill="none" stroke="#2563EB" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 448.0 739.0 L 472.0 739.0" fill="none" stroke="#7C3AED" stroke-width="2"/>
+<path d="M 238.0 838.0 L 238.0 856.0" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 682.0 838.0 L 682.0 856.0" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M 448.0 955.0 L 472.0 955.0" fill="none" stroke="#059669" stroke-width="2"/>
+<rect x="26.0" y="206.0" width="424.0" height="202.0" rx="12.0" class="phase-glow-1" fill="none" stroke="#7C3AED" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="470.0" y="206.0" width="424.0" height="202.0" rx="12.0" class="phase-glow-2" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="26.0" y="638.0" width="424.0" height="202.0" rx="12.0" class="phase-glow-3" fill="none" stroke="#059669" stroke-width="2.6" stroke-opacity="0.78"/>
+<rect x="470.0" y="854.0" width="424.0" height="202.0" rx="12.0" class="phase-glow-4" fill="none" stroke="#D97706" stroke-width="2.6" stroke-opacity="0.78"/>
+<path d="M 448.0 307.0 L 472.0 307.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 448.0 307.0 L 472.0 307.0"/></g>
+<path d="M 238.0 406.0 L 238.0 424.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 238.0 406.0 L 238.0 424.0"/></g>
+<path d="M 682.0 406.0 L 682.0 424.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 682.0 406.0 L 682.0 424.0"/></g>
+<path d="M 448.0 523.0 L 472.0 523.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 448.0 523.0 L 472.0 523.0"/></g>
+<path d="M 238.0 622.0 L 238.0 640.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 238.0 622.0 L 238.0 640.0"/></g>
+<path d="M 682.0 622.0 L 682.0 640.0" class="flow-line" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#2563EB" fill-opacity="0.15"/><circle r="3.8" fill="#2563EB" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.0"/><circle r="1.3" fill="#2563EB"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 682.0 622.0 L 682.0 640.0"/></g>
+<path d="M 448.0 739.0 L 472.0 739.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 448.0 739.0 L 472.0 739.0"/></g>
+<path d="M 238.0 838.0 L 238.0 856.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 238.0 838.0 L 238.0 856.0"/></g>
+<path d="M 682.0 838.0 L 682.0 856.0" class="flow-line" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#7C3AED" fill-opacity="0.15"/><circle r="3.8" fill="#7C3AED" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.0"/><circle r="1.3" fill="#7C3AED"/><animateMotion dur="1.65s" begin="-0.00s" repeatCount="indefinite" path="M 682.0 838.0 L 682.0 856.0"/></g>
+<path d="M 448.0 955.0 L 472.0 955.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
+<g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 448.0 955.0 L 472.0 955.0"/></g>
+</svg>

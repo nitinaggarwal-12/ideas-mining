@@ -942,10 +942,11 @@ class MultiPlatformOutboxManager:
         target_set = set(outbox_ids or [])
         updated_now: List[Dict[str, Any]] = []
 
+        has_any_pending = any(i.get("status") == "PENDING_APPROVAL" for i in items)
         for item in items:
             if target_set and item.get("outbox_id") not in target_set:
                 continue
-            if not target_set and item.get("status") != "PENDING_APPROVAL":
+            if not target_set and has_any_pending and item.get("status") != "PENDING_APPROVAL":
                 continue
             receipt = self._dispatch_official_api(item)
             item["status"] = receipt["dispatch_mode"]

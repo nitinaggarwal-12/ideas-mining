@@ -22,77 +22,114 @@
 </defs>
 <rect x="0" y="0" width="920" height="1150" fill="#F8FAFC"/>
 <rect x="0" y="0" width="920" height="1150" fill="url(#genGrid)"/>
-<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
-<text x="42.0" y="44.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">T217 • DUAL-PATH OTEL COLLECTOR ZOOM • ENTERPRISE CONTROL &amp; DATA PLANE LENS • CLOUD HYPERSCALER</text>
-<text x="42.0" y="62.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Zero-Latency Async OTel GenAI Span Collector &amp; Drift Evaluation Pipeline</text>
-<text x="42.0" y="86.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Decoupling synchronous user request paths (&lt;0.3ms tap) from asynchronous PII scrubbing, tail-based sampling, and BigQuery/Arize span</text>
-<text x="42.0" y="101.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">sinks.</text>
-<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack Anchor: Vertex AI Agent Engine + Cloud Run + AlloyDB pgvector + Cloud Trace | KPIs: 99.95% Control Plane SLO · Zero-Trust OBO ·</text>
-<text x="42.0" y="131.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Unified Ontology Graph</text>
-<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#E0F2FE" stroke="#D97706" stroke-width="2"/>
-<text x="42.0" y="170.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: ARB Invariant: Decouple reasoning state and semantic ontology from single-app schemas.</text>
-<rect x="28.0" y="208.0" width="864.0" height="142.0" rx="14.0" fill="#FFFBEB" stroke="#D97706" stroke-width="2"/>
-<text x="42.0" y="228.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#D97706">PATH A • LIVE SYNCHRONOUS REQUEST PATH (THE USER WAITS FOR THIS)</text>
-<text x="42.0" y="246.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">[User Asks Question] &lt;===&gt; [1. Agent App: OpenTelemetry Records Every Step, Prompt &amp; Tool Call] &lt;===&gt; [LLM + Tools</text>
-<text x="42.0" y="264.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">(DBs, APIs, Search)]</text>
-<text x="42.0" y="282.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Sub-second response returned directly to user while telemetry spans are grouped asynchronously in the background.</text>
-<rect x="230.0" y="370.0" width="460.0" height="76.0" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
-<text x="244.0" y="390.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">PATH B • ASYNC BACKGROUND TELEMETRY EMITTER</text>
-<text x="244.0" y="408.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">2. Batch &amp; Emit Spans Quietly (Zero User-Facing Latency)</text>
-<rect x="28.0" y="466.0" width="864.0" height="196.0" rx="14.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
-<text x="42.0" y="486.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">3. OPENTELEMETRY COLLECTOR (ZOOM-IN) • ONE PLACE TO CLEAN &amp; GOVERN TELEMETRY BEFORE STORAGE</text>
-<rect x="48.0" y="512.0" width="184.0" height="130.0" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
-<text x="62.0" y="532.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">3A • RECEIVE</text>
-<text x="62.0" y="550.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Ingest OTLP Spans</text>
-<text x="62.0" y="567.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Captures traces from</text>
-<text x="62.0" y="582.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">every agent &amp; MCP tool</text>
-<rect x="262.0" y="512.0" width="184.0" height="130.0" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
-<text x="276.0" y="532.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">3B • PROTECT</text>
-<text x="276.0" y="550.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Redact PII &amp; Keys</text>
-<text x="276.0" y="567.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Scrubs PII, secrets, and</text>
-<text x="276.0" y="582.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">raw bearer tokens</text>
-<rect x="476.0" y="512.0" width="184.0" height="130.0" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
-<text x="490.0" y="532.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">3C • FILTER</text>
-<text x="490.0" y="550.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">100% Error Capture</text>
-<text x="490.0" y="567.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Keeps all errors &amp; slow</text>
-<text x="490.0" y="582.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">turns; tail-samples</text>
-<text x="490.0" y="597.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">normal</text>
-<rect x="690.0" y="512.0" width="184.0" height="130.0" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
-<text x="704.0" y="532.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#2563EB">3D • FORWARD</text>
-<text x="704.0" y="550.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Multi-Sink Route</text>
-<text x="704.0" y="567.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Exports clean telemetry</text>
-<text x="704.0" y="582.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">to specialized backends</text>
-<rect x="28.0" y="684.0" width="268.0" height="120.0" rx="12.0" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
-<text x="42.0" y="704.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0284C7">4A • TRACE STORE</text>
-<text x="42.0" y="722.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Step-by-Step Run Replay</text>
-<text x="42.0" y="739.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack: Cloud Trace · Jaeger · Grafana</text>
-<text x="42.0" y="754.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Tempo</text>
-<rect x="326.0" y="684.0" width="268.0" height="120.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
-<text x="340.0" y="704.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#7C3AED">4B • LLM &amp; EVAL MONITOR</text>
-<text x="340.0" y="722.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Prompts, Cost &amp; Drift</text>
-<text x="340.0" y="739.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack: Langfuse · Arize Phoenix ·</text>
-<text x="340.0" y="754.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Vertex Eval</text>
-<rect x="624.0" y="684.0" width="268.0" height="120.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
-<text x="638.0" y="704.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">4C • METRICS &amp; LOGS</text>
-<text x="638.0" y="722.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">QPS, Errors &amp; Saturation</text>
-<text x="638.0" y="739.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Stack: Cloud Monitoring · Prometheus ·</text>
-<text x="638.0" y="754.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Loki</text>
-<rect x="28.0" y="824.0" width="556.0" height="124.0" rx="12.0" fill="#F0F9FF" stroke="#0284C7" stroke-width="2"/>
-<text x="42.0" y="844.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#0284C7">5. LIVE SLO DASHBOARDS</text>
-<text x="42.0" y="862.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">[p95 Latency: 1.08s] · [Tokens/Run: 3.1k] · [Error Rate: 0.8%] · [Tool</text>
-<text x="42.0" y="880.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Success: 98.4%]</text>
-<text x="42.0" y="898.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">Real-time golden signals correlated by trace_id and agent version.</text>
-<rect x="604.0" y="824.0" width="288.0" height="124.0" rx="12.0" fill="#FEF2F2" stroke="#DC2626" stroke-width="2"/>
-<text x="618.0" y="844.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#DC2626">6. AUTOMATED ALERTS</text>
-<text x="618.0" y="862.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">PagerDuty / Slack Triggers</text>
-<text x="618.0" y="880.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">• Tool error spike &gt; 2%</text>
-<text x="618.0" y="895.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">• Daily token budget burn</text>
-<text x="618.0" y="910.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#334155">• p95 latency regression</text>
-<rect x="28.0" y="968.0" width="864.0" height="88.0" rx="12.0" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
-<text x="42.0" y="988.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#059669">7. CONTINUOUS TRACE-TO-EVAL FLYWHEEL</text>
-<text x="42.0" y="1006.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">[Find a Bad Production Run] ---&gt; [Convert Trace into Regression Test] ---&gt; [Fix Harness / Prompt] ---&gt; [Ship</text>
-<text x="42.0" y="1024.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Verified Release]</text>
-<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<rect x="28.0" y="24.0" width="864.0" height="116.0" rx="14.0" fill="#FFFFFF" stroke="#D97706" stroke-width="2.2"/>
+<text x="42.0" y="43.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706">T217 • DUAL-PATH OTEL COLLECTOR ZOOM • ENTERPRISE CONTROL &amp; DATA PLANE LENS • CLOUD HYPERSCALER</text>
+<text x="42.0" y="61.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#0F172A">Zero-Latency Async OTel GenAI Span Collector &amp; Drift Evaluation Pipeline</text>
+<text x="42.0" y="85.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Decoupling synchronous user request paths (&lt;0.3ms tap) from asynchronous PII scrubbing, tail-based sampling, and BigQuery/Arize span</text>
+<text x="42.0" y="100.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">sinks.</text>
+<text x="42.0" y="116.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">Stack Anchor: Vertex AI Agent Engine + Cloud Run + AlloyDB pgvector + Cloud Trace | KPIs: 99.95% Control Plane SLO · Zero-Trust OBO</text>
+<rect x="28.0" y="150.0" width="864.0" height="42.0" rx="10.0" fill="#E0F2FE" stroke="#D97706" stroke-width="2.2"/>
+<text x="42.0" y="169.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#0F172A">GOVERNANCE &amp; PERSONA CONTRACT: ARB Invariant: Decouple reasoning state and semantic ontology from single-app schemas.</text>
+<rect x="28.0" y="208.0" width="864.0" height="142.0" rx="14.0" fill="#FFFBEB" stroke="#D97706" stroke-width="2.2"/>
+<rect x="30.0" y="210.0" width="860.0" height="26.0" rx="12.0" fill="#D97706" fill-opacity="0.10"/>
+<text x="42.0" y="227.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#D97706">01 • INGRESS &amp; INTENT: ZERO-LATENCY ASYNC OTEL</text>
+<text x="42.0" y="249.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Ingress &amp; Schema Gate for Zero-Latency Async OTel</text>
+<text x="42.0" y="267.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Parse caller intent &amp; validate strict JSON/Pydantic contract</text>
+<text x="42.0" y="282.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Mint short-lived RFC 8693 OBO token on Vertex AI Agent Engine</text>
+<text x="42.0" y="298.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Freeze immutable system prefix (94.2% KV cache hit)</text>
+<rect x="230.0" y="370.0" width="460.0" height="76.0" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<text x="244.0" y="389.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">PATH B • ASYNC BACKGROUND TELEMETRY EMITTER</text>
+<text x="244.0" y="407.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">2. Batch &amp; Emit Spans Quietly (Zero User-Facing Latency)</text>
+<rect x="28.0" y="466.0" width="864.0" height="196.0" rx="14.0" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="30.0" y="468.0" width="860.0" height="26.0" rx="12.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="42.0" y="485.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">02 • DYNAMIC ROUTING: OTEL GENAI SPAN</text>
+<text x="42.0" y="507.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#0F172A">Top-K Semantic Discovery (OTel GenAI Span)</text>
+<text x="42.0" y="526.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Hybrid BM25 + dense vector lookup over Cloud Run</text>
+<text x="42.0" y="541.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Mount only Top-4 slim schemas per turn (-97.5% bloat)</text>
+<text x="42.0" y="557.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Enforce deterministic capability downgrade on untrusted inputs</text>
+<rect x="40.0" y="606.0" width="840.0" height="44.0" rx="8.0" fill="#F8FAFC" stroke="#2563EB" stroke-opacity="0.35" stroke-width="1.2"/>
+<text x="48.0" y="621.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#2563EB">VERIFIED TELEMETRY &amp; CONTROL GATE</text>
+<text x="870.0" y="621.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="800" fill="#059669">79% SLO PASS</text>
+<rect x="48.0" y="628.0" width="730.0" height="8.0" rx="4.0" fill="#E2E8F0"/>
+<rect x="48.0" y="628.0" width="576.7" height="8.0" rx="4.0" fill="#2563EB"/>
+<rect x="784.0" y="625.0" width="72.0" height="16.0" rx="5.0" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="820.0" y="636.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="800" fill="#065F46">GATE OK ✓</text>
+<rect x="48.0" y="512.0" width="184.0" height="130.0" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="50.0" y="514.0" width="180.0" height="26.0" rx="8.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="62.0" y="531.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">03 • SANDBOX EXECUTION &amp; STATE</text>
+<text x="62.0" y="553.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Isolated Execution on</text>
+<text x="62.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Vertex AI Agent Engine</text>
+<text x="62.0" y="587.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Execute bounded tool &amp;</text>
+<text x="62.0" y="602.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">subagent calls with</text>
+<text x="62.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">idempotency keys</text>
+<rect x="262.0" y="512.0" width="184.0" height="130.0" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="264.0" y="514.0" width="180.0" height="26.0" rx="8.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="276.0" y="531.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">04 • ORTHOGONAL JUDGE &amp; SLO GATE</text>
+<text x="276.0" y="553.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Pre-Completion</text>
+<text x="276.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Verification (Principal</text>
+<text x="276.0" y="587.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Verify output against</text>
+<text x="276.0" y="602.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">100-trial golden replay</text>
+<text x="276.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">rubric</text>
+<rect x="476.0" y="512.0" width="184.0" height="130.0" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="478.0" y="514.0" width="180.0" height="26.0" rx="8.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="490.0" y="531.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">05 • CONTINUOUS SELF-HEALING LOOP</text>
+<text x="490.0" y="553.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Production Drift &amp;</text>
+<text x="490.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Trace-to-Eval Flywheel</text>
+<text x="490.0" y="587.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Convert any production</text>
+<text x="490.0" y="602.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">anomaly into a permanent</text>
+<text x="490.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">regression test</text>
+<rect x="690.0" y="512.0" width="184.0" height="130.0" rx="10.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+<rect x="692.0" y="514.0" width="180.0" height="26.0" rx="8.0" fill="#2563EB" fill-opacity="0.10"/>
+<text x="704.0" y="531.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2563EB">06 • MULTI-CLOUD &amp; A2A FEDERATION</text>
+<text x="704.0" y="553.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Cross-Boundary A2A &amp;</text>
+<text x="704.0" y="570.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Policy Enforcement</text>
+<text x="704.0" y="587.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Signed Agent Card</text>
+<text x="704.0" y="602.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">capability negotiation</text>
+<text x="704.0" y="618.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">over HTTPS/mTLS</text>
+<rect x="28.0" y="684.0" width="268.0" height="120.0" rx="12.0" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.2"/>
+<rect x="30.0" y="686.0" width="264.0" height="26.0" rx="10.0" fill="#0284C7" fill-opacity="0.10"/>
+<text x="42.0" y="703.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#0284C7">07 • DETERMINISTIC ROLLBACK &amp; RECOVERY</text>
+<text x="42.0" y="725.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Checkpoint Rewind &amp; Blast-Radius</text>
+<text x="42.0" y="742.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Containment</text>
+<text x="42.0" y="759.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Instant state-graph rewind on tool</text>
+<text x="42.0" y="774.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">timeout or schema drift</text>
+<text x="42.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Automatic fallback cascade across</text>
+<rect x="326.0" y="684.0" width="268.0" height="120.0" rx="12.0" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+<rect x="328.0" y="686.0" width="264.0" height="26.0" rx="10.0" fill="#7C3AED" fill-opacity="0.10"/>
+<text x="340.0" y="703.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#7C3AED">08 • EXECUTIVE VALUE REALIZATION</text>
+<text x="340.0" y="725.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Verified Production ROI &amp; Adoption</text>
+<text x="340.0" y="742.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Quantified token &amp; latency savings</text>
+<text x="340.0" y="757.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">per 1,000 workflows</text>
+<text x="340.0" y="773.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Turnkey Terraform + Cloud Run + ADK</text>
+<text x="340.0" y="788.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">deployment blueprint</text>
+<rect x="624.0" y="684.0" width="268.0" height="120.0" rx="12.0" fill="#FFFFFF" stroke="#059669" stroke-width="2.2"/>
+<rect x="626.0" y="686.0" width="264.0" height="26.0" rx="10.0" fill="#059669" fill-opacity="0.10"/>
+<text x="638.0" y="703.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">01 • INGRESS &amp; INTENT: ZERO-LATENCY ASYNC OTEL</text>
+<text x="638.0" y="725.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Ingress &amp; Schema Gate for</text>
+<text x="638.0" y="742.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#0F172A">Zero-Latency Async OTel</text>
+<text x="638.0" y="759.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Parse caller intent &amp; validate</text>
+<text x="638.0" y="774.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">strict JSON/Pydantic contract</text>
+<text x="638.0" y="790.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Mint short-lived RFC 8693 OBO token</text>
+<rect x="28.0" y="824.0" width="556.0" height="124.0" rx="12.0" fill="#F0F9FF" stroke="#0284C7" stroke-width="2.2"/>
+<rect x="30.0" y="826.0" width="552.0" height="26.0" rx="10.0" fill="#0284C7" fill-opacity="0.10"/>
+<text x="42.0" y="843.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#0284C7">02 • DYNAMIC ROUTING: OTEL GENAI SPAN</text>
+<text x="42.0" y="865.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Top-K Semantic Discovery (OTel GenAI Span)</text>
+<text x="42.0" y="883.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Hybrid BM25 + dense vector lookup over Cloud Run</text>
+<text x="42.0" y="898.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Mount only Top-4 slim schemas per turn (-97.5% bloat)</text>
+<text x="42.0" y="914.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Enforce deterministic capability downgrade on untrusted inputs</text>
+<rect x="604.0" y="824.0" width="288.0" height="124.0" rx="12.0" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.2"/>
+<rect x="606.0" y="826.0" width="284.0" height="26.0" rx="10.0" fill="#DC2626" fill-opacity="0.10"/>
+<text x="618.0" y="843.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#DC2626">03 • SANDBOX EXECUTION &amp; STATE</text>
+<text x="618.0" y="865.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Isolated Execution on Vertex AI</text>
+<text x="618.0" y="883.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Agent Engine</text>
+<text x="618.0" y="901.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Execute bounded tool &amp; subagent calls</text>
+<text x="618.0" y="916.5" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">with idempotency keys</text>
+<text x="618.0" y="932.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#334155">• Persist SHA-256 provenance receipts &amp;</text>
+<rect x="28.0" y="968.0" width="864.0" height="88.0" rx="12.0" fill="#ECFDF5" stroke="#059669" stroke-width="2.2"/>
+<text x="42.0" y="987.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#059669">7. CONTINUOUS TRACE-TO-EVAL FLYWHEEL</text>
+<text x="42.0" y="1005.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">[Find a Bad Production Run] ---&gt; [Convert Trace into Regression Test] ---&gt; [Fix Harness / Prompt] ---&gt; [Ship</text>
+<text x="42.0" y="1023.0" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#0F172A">Verified Release]</text>
+<rect x="28.0" y="1076.0" width="864.0" height="48.0" rx="10.0" fill="#0F172A" stroke="#0F172A" stroke-width="2.2"/>
 <text x="460.0" y="1105.0" text-anchor="middle" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">NITIN AGGARWAL • NOVEMBER 2026 • GENERATIVE VISUAL GRAMMAR GRAMMAR-08 (T217) • PRINCIPAL ARCHITECT • CLOUD HYPERSCALER</text>
 <path d="M 232.0 577.0 L 262.0 577.0" fill="none" stroke="#2563EB" stroke-width="2"/>
 <path d="M 446.0 577.0 L 476.0 577.0" fill="none" stroke="#2563EB" stroke-width="2"/>
@@ -131,7 +168,4 @@
 <g><circle r="5.6" fill="#DC2626" fill-opacity="0.15"/><circle r="3.8" fill="#DC2626" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.0"/><circle r="1.3" fill="#DC2626"/><animateMotion dur="1.35s" begin="-0.00s" repeatCount="indefinite" path="M 748.0 804.0 L 748.0 824.0"/></g>
 <path d="M 460.0 948.0 L 460.0 968.0" class="flow-line" fill="none" stroke="#059669" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 5" stroke-dashoffset="0.0"/>
 <g><circle r="5.6" fill="#059669" fill-opacity="0.15"/><circle r="3.8" fill="#059669" fill-opacity="0.28"/><circle r="2.8" fill="#FFFFFF" stroke="#059669" stroke-width="2.0"/><circle r="1.3" fill="#059669"/><animateMotion dur="1.50s" begin="-0.00s" repeatCount="indefinite" path="M 460.0 948.0 L 460.0 968.0"/></g>
-<path d="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0" class="flow-line" fill="none" stroke="#D97706" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 6" stroke-dashoffset="0.0"/>
-<g><circle r="7.4" fill="#D97706" fill-opacity="0.15"/><circle r="5.0" fill="#D97706" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#D97706" stroke-width="2.0"/><circle r="1.7" fill="#D97706"/><animateMotion dur="3.60s" begin="-0.00s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
-<g><circle r="7.4" fill="#D97706" fill-opacity="0.15"/><circle r="5.0" fill="#D97706" fill-opacity="0.28"/><circle r="3.8" fill="#FFFFFF" stroke="#D97706" stroke-width="2.0"/><circle r="1.7" fill="#D97706"/><animateMotion dur="3.60s" begin="-1.80s" repeatCount="indefinite" path="M 14.0 210.0 L 14.0 640.0 L 14.0 1066.0 L 906.0 1066.0 L 906.0 640.0 L 906.0 210.0"/></g>
 </svg>

@@ -588,6 +588,13 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
         self.assertEqual(vid_manifest["status"], "PRODUCED")
         self.assertTrue(vid_manifest["zero_occlusion_verified"])
         self.assertEqual(vid_manifest["resolution"], "1920x1080")
+        self.assertGreaterEqual(vid_manifest["ffprobe"]["duration_sec"], 43.5)
+        self.assertEqual(vid_manifest["ffprobe"]["scene_count"], 6)
+        self.assertEqual(vid_manifest["ffprobe"]["xfade_seconds"], 0.8)
+        self.assertGreater(vid_manifest["quality_gates"]["twin_motion_frame_diff_rgb"], 1.0)
+        self.assertGreater(vid_manifest["quality_gates"]["scene_transition_frame_diff_rgb"], 1.0)
+        self.assertTrue(vid_manifest["quality_gates"]["all_video_gates_passed"])
+        self.assertIn("auth_mode", breakout_res)
 
 
 if __name__ == "__main__":

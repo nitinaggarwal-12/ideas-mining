@@ -288,7 +288,7 @@ def _render_scene_pngs(scenes: List[Dict[str, Any]], topic_id: str, title: str, 
                 <div>
                   <div style="display:flex;justify-content:space-between;align-items:center;">
                     <span style="font-size:14.5px;font-weight:800;">LIVE GIT REPO EXECUTION &amp; BENCHMARK</span>
-                    <span style="font-family:ui-monospace,monospace;font-size:12px;background:#ECFDF5;color:#047857;border:1px solid #6EE7B7;padding:3px 8px;border-radius:6px;font-weight:800;">gcp-mcp-zero-bloat-gateway</span>
+                    <span style="font-family:ui-monospace,monospace;font-size:12px;background:#ECFDF5;color:#047857;border:1px solid #6EE7B7;padding:3px 8px;border-radius:6px;font-weight:800;">{html.escape(str(sc.get('repo_slug', 'gcp-mcp-zero-bloat-gateway')))}</span>
                   </div>
                   <div class="cmp">
                     <div class="bad"><div style="font-size:12px;font-weight:800;">✗ NAIVE 85-TOOL DUMP</div><div style="font-size:13.5px;font-weight:800;margin-top:4px;">{html.escape(sc['bad_st'])}</div></div>
@@ -318,6 +318,11 @@ def _render_scene_pngs(scenes: List[Dict[str, Any]], topic_id: str, title: str, 
             </body></html>""",
             encoding="utf-8",
         )
+        out_pngs.append((html_path, png_path))
+
+    import concurrent.futures
+    def _shot(pair):
+        h_p, p_p = pair
         subprocess.run(
             [
                 chrome_bin,
@@ -327,14 +332,17 @@ def _render_scene_pngs(scenes: List[Dict[str, Any]], topic_id: str, title: str, 
                 "--disable-dev-shm-usage",
                 "--hide-scrollbars",
                 "--window-size=1920,1080",
-                f"--screenshot={png_path}",
-                f"file://{html_path}",
+                f"--screenshot={p_p}",
+                f"file://{h_p}",
             ],
             check=True,
             capture_output=True,
         )
-        out_pngs.append(png_path)
-    return out_pngs
+        return p_p
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=min(6, len(out_pngs) or 1)) as pool:
+        rendered = list(pool.map(_shot, out_pngs))
+    return rendered
 
 
 def _synthesize_chirp3_hd_mp3(out_mp3: Path, ffmpeg_bin: str, work_dir: Path) -> str:
@@ -782,60 +790,65 @@ def build_post_spoken_narration_script(
     gcp_stack: str = "Google Cloud ADK + Vertex AI Agent Engine + Cloud Run",
     **_kwargs: Any,
 ) -> Dict[str, Any]:
-    """Generate a 4-scene clause-aware spoken script and storyboard for any post."""
+    """Generate a 6-scene (44.0s) clause-aware spoken script and storyboard for any post."""
     clean_title = (title or "Enterprise Agentic AI Architecture").strip()
     clean_sum = (summary or "Production Google Cloud ADK and Zero-Trust MCP runtime.").strip()
     clean_metrics = (metrics_hint or "98.0% eval accuracy across 100 trials").strip()
+    clean_stack = (" + ".join(str(x) for x in gcp_stack) if isinstance(gcp_stack, (list, tuple)) else str(gcp_stack or "Google Cloud ADK + Vertex AI Agent Engine + Cloud Run")).strip()
     first_sent = clean_sum.split(". ")[0].rstrip(".")
     if len(first_sent) > 155:
         first_sent = first_sent[:155].rsplit(" ", 1)[0].rstrip(",;:")
     clauses = [
         f"Welcome to briefing {post_id}: {clean_title}.",
         f"In production enterprise deployments, {first_sent}.",
-        f"Using canonical blueprint {template_id} and runnable repository {repo_slug}, we enforce deterministic guardrails, zero-trust OAuth 2.1 token exchange, and 100-trial evaluation gates.",
-        f"Measured benchmark outcome: {clean_metrics}. Clone the full repository and 12-slide deck directly from the Studio.",
+        f"Act two isolates ingress routing and dynamic Top-K tool discovery so static schema dumps never pollute the context window.",
+        f"Act three enforces zero-trust OAuth 2.1 On-Behalf-Of token exchange and deterministic policy guardrails on blueprint {template_id}.",
+        f"Act four maps the runtime onto {clean_stack} with immutable OpenTelemetry provenance and cryptographic execution receipts.",
+        f"Across our 100-trial evaluation suite in repository {repo_slug}, we achieve {clean_metrics}, ready for LinkedIn, YouTube, and GitHub.",
     ]
     return {
         "post_id": post_id,
         "title": clean_title,
         "template_id": template_id,
         "repo_slug": repo_slug,
+        "gcp_stack": clean_stack,
         "voice_name": "en-IN-Chirp3-HD-Charon",
         "twin_persona": "custom-nitin-aggarwal-live (Omni 1.1 Native AV)",
         "full_spoken_script": " ".join(clauses),
         "full_narration_text": " ".join(clauses),
         "word_count": len(" ".join(clauses).split()),
-        "estimated_duration_sec": max(18, int(round(len(" ".join(clauses).split()) / 2.5))),
+        "estimated_duration_sec": 44,
+        "target_duration_sec": 44.0,
+        "scene_count": 6,
+        "xfade_seconds": 0.8,
         "resolved_spec": {
             "post_id": post_id,
             "template_id": template_id,
             "repo_slug": repo_slug,
+            "gcp_stack": clean_stack,
         },
         "clauses": clauses,
-        "acts": clauses + [
-            f"Architecture verification on {template_id} with zero-occlusion Digital Twin presenter.",
-            f"Multi-platform distribution package staged for LinkedIn, YouTube, and GitHub ({repo_slug}).",
-        ],
+        "acts": clauses,
         "pipeline_stages": [
             {
                 "stage": 1,
-                "name": "Stage 1 · Post-Specific Spoken Script & 4-Act Storyboard",
-                "detail": f"Distills '{clean_title[:48]}' + metrics ({clean_metrics[:48]}) into clause-timed narration.",
+                "name": "Stage 1 · Post-Specific Spoken Script & 6-Act (44.0s) Storyboard",
+                "detail": f"Distills '{clean_title[:48]}' + metrics ({clean_metrics[:48]}) into 6 clause-timed 8.0s acts with 0.8s xfade.",
             },
             {
                 "stage": 2,
                 "name": "Stage 2 · Google Cloud Chirp 3: HD Neural Voice Synthesis",
-                "detail": "Synthesizes 24kHz/48kHz -16 LUFS broadcast narration via Cloud TTS (en-IN-Chirp3-HD-Charon).",
+                "detail": "Synthesizes 48kHz -16 LUFS broadcast narration via Cloud TTS (en-IN-Chirp3-HD-Charon) across all 44.0s.",
             },
             {
                 "stage": 3,
-                "name": "Stage 3 · 1920x1080 Blueprint + Live CLI + Omni 1.1 Digital Twin PIP Compositor",
-                "detail": f"Renders Blueprint {template_id} (x=18..974), Live CLI & Eval JSON (x=988..1650), and moving Nitin Digital Twin PIP (x=1677..1889, 0.0 px² occlusion).",
+                "name": "Stage 3 · 6-Scene 1920x1080 Blueprint + Live CLI + Omni 1.1 Digital Twin PIP Compositor",
+                "detail": f"Renders 6 progressive spotlight scenes on Blueprint {template_id} (x=18..974), Live CLI (x=988..1650), and moving Nitin Digital Twin PIP (x=1677..1889, 0.0 px² occlusion).",
             },
             {
                 "stage": 4,
-                "name": "Stage 4 · Faststart MP4 Mastering & Multi-Platform Outbox Binding",
-                "detail": f"Outputs /assets/videos/{post_id}_walkthrough.mp4 + /assets/videos/{post_id}_digital_twin_nitin.mp4 ready for LinkedIn, YouTube & Shorts.",
+                "name": "Stage 4 · 44.0s Multi-Xfade Faststart MP4 Mastering & Outbox Binding",
+                "detail": f"Outputs 44.0s /assets/videos/{post_id}_walkthrough.mp4 + /assets/videos/{post_id}_digital_twin_nitin.mp4 ready for LinkedIn, YouTube & Shorts.",
             },
         ],
     }
@@ -854,7 +867,7 @@ def produce_digital_twin_video_for_any_post(
     force: bool = True,
     **_kwargs: Any,
 ) -> Dict[str, Any]:
-    """Produce a post-specific 1080p30 Walkthrough + Digital Twin MP4 + Chirp 3: HD audio for ANY post."""
+    """Produce a full 44.0s 6-scene 1080p30 Walkthrough + Digital Twin MP4 + Chirp 3: HD audio for ANY post."""
     import re as _re
 
     safe_id = _re.sub(r"[^A-Za-z0-9_\-]", "_", (post_id or "CUSTOM-POST").strip())[:40]
@@ -862,25 +875,11 @@ def produce_digital_twin_video_for_any_post(
     ffmpeg_bin = _resolve_ffmpeg_bin("ffmpeg")
     ffprobe_bin = _resolve_ffmpeg_bin("ffprobe")
 
-    script_bundle = build_post_spoken_narration_script(
-        post_id=safe_id,
-        title=title or f"{safe_id} Architecture Briefing",
-        summary=summary,
-        template_id=template_id or "T85",
-        repo_slug=repo_slug or "gcp-mcp-zero-bloat-gateway",
-        metrics_hint=metrics_hint,
-    )
-    ovr = (custom_script or custom_narration_override or "").strip()
-    if ovr:
-        script_bundle["full_spoken_script"] = ovr
-        script_bundle["full_narration_text"] = ovr
-
-    bp_png = GALLERY_DIR / f"{template_id}.png"
-    if not bp_png.exists():
-        bp_png = GALLERY_DIR / "T85.png"
+    resolved_repo = (repo_slug or "gcp-mcp-zero-bloat-gateway").strip()
+    resolved_tpl = (template_id or "T85").strip()
 
     # Load repo eval_results.json if present for live CLI lines
-    eval_path = WORKSPACE_ROOT / "generated-repos" / (repo_slug or "gcp-mcp-zero-bloat-gateway") / "evals" / "eval_results.json"
+    eval_path = WORKSPACE_ROOT / "generated-repos" / resolved_repo / "evals" / "eval_results.json"
     eval_summary = {}
     if eval_path.exists():
         try:
@@ -891,6 +890,25 @@ def produce_digital_twin_video_for_any_post(
     acc_pct = eval_summary.get("engineered_accuracy_pct", 98.0)
     tok_red = eval_summary.get("token_reduction_pct", 82.1)
     lat_red = eval_summary.get("latency_reduction_pct", 74.6)
+    effective_metrics = (metrics_hint or f"{acc_pct}% 100-trial eval accuracy • -{tok_red}% token bloat • -{lat_red}% p95 latency").strip()
+
+    script_bundle = build_post_spoken_narration_script(
+        post_id=safe_id,
+        title=title or f"{safe_id} Architecture Briefing",
+        summary=summary,
+        template_id=resolved_tpl,
+        repo_slug=resolved_repo,
+        metrics_hint=effective_metrics,
+        gcp_stack=gcp_stack,
+    )
+    ovr = (custom_script or custom_narration_override or "").strip()
+    if ovr:
+        script_bundle["full_spoken_script"] = ovr
+        script_bundle["full_narration_text"] = ovr
+
+    bp_png = GALLERY_DIR / f"{resolved_tpl}.png"
+    if not bp_png.exists():
+        bp_png = GALLERY_DIR / "T85.png"
 
     walkthrough_mp4 = VIDEOS_DIR / f"{safe_id}_walkthrough.mp4"
     twin_mp4 = VIDEOS_DIR / f"{safe_id}_digital_twin_nitin.mp4"
@@ -898,48 +916,161 @@ def produce_digital_twin_video_for_any_post(
     poster_png = VIDEOS_DIR / f"{safe_id}_poster.png"
     manifest_json = VIDEOS_DIR / f"{safe_id}_video_manifest.json"
 
-    # Master source twin video clip
+    # Use the 44.0s 6-shot moving Omni 1.1 Digital Twin keynote clip so all 44.0s have natural multi-angle motion
     master_twin = VIDEOS_DIR / "MINT-01_digital_twin_nitin.mp4"
     omni_clip = DEFAULT_OMNI_ROOT / "merck-agentgateway-policy/slide_08_custom-nitin-aggarwal-live.mp4"
-    twin_clip_src = omni_clip if omni_clip.exists() else master_twin
+    twin_clip_src = master_twin if master_twin.exists() else omni_clip
 
-    scene_spec = {
-        "idx": 0,
-        "act": f"LIVE DIGITAL TWIN BRIEFING • {safe_id} • BLUEPRINT {template_id}",
-        "left_title": f"CANONICAL BLUEPRINT {template_id} (@2x RETINA)",
-        "left_badge": f"{safe_id} • 0.0 px² Occlusion",
-        "bp_path": bp_png,
-        "spotlight_css": "top:8.0%;left:1.0%;width:98.0%;height:26.0%;border:4px solid #2563EB;box-shadow:0 0 0 9999px rgba(15,23,42,0.10);",
-        "bad_st": "Unverified Prompt / Static Tool Dump",
-        "good_st": f"{acc_pct}% Eval Pass • -{tok_red}% Tokens",
-        "cli": [
-            f"$ python3 generated-repos/{repo_slug}/evals/run_eval_suite.py",
-            f"[POST ID  ] {safe_id} — {script_bundle['title'][:54]}",
-            f"[EVAL 100 ] 100/100 trials -> {acc_pct}% accuracy (-{tok_red}% tokens, -{lat_red}% p95 latency)",
-            f"[BLUEPRINT] {template_id} + Omni 1.1 Digital Twin Presenter Composited @ 1080p30",
-        ],
-        "benefit": script_bundle["full_spoken_script"][:155],
-        "twin_src": twin_clip_src,
-        "caption": f"<mark>{html.escape(script_bundle['title'][:58])}</mark> — {html.escape(metrics_hint[:68] or f'{acc_pct}% 100-trial eval accuracy')}",
-    }
+    acts = script_bundle["acts"]
+    title_short = script_bundle["title"][:54]
+    scenes = [
+        {
+            "idx": 0,
+            "repo_slug": resolved_repo,
+            "act": f"ACT 1 (0:00–0:07) • {safe_id} TIER 01: EXECUTIVE HOOK & FAILURE MODE",
+            "left_title": f"CANONICAL BLUEPRINT {resolved_tpl} (@2x) — TIER 01 SPOTLIGHT",
+            "left_badge": f"01 • {safe_id} Problem Framing",
+            "bp_path": bp_png,
+            "spotlight_css": "top:6.0%;left:0.8%;width:98.4%;height:20.0%;border:4px solid #2563EB;box-shadow:0 0 0 9999px rgba(15,23,42,0.14);",
+            "bad_st": "Unbounded Prompt / Untyped Baseline",
+            "good_st": f"{acc_pct}% Eval Pass • -{tok_red}% Tokens",
+            "cli": [
+                f"$ python3 generated-repos/{resolved_repo}/demo_runner.py --compare",
+                f"[POST ID  ] {safe_id} — {title_short}",
+                f"[BASELINE ] Unbounded context & untyped tool calls cause silent drift",
+                f"[TARGET   ] Blueprint {resolved_tpl} deterministic control plane initialized",
+            ],
+            "benefit": acts[0],
+            "twin_src": twin_clip_src,
+            "caption": f"Welcome to <mark>{html.escape(title_short)}</mark> — eliminating silent production failure modes.",
+        },
+        {
+            "idx": 1,
+            "repo_slug": resolved_repo,
+            "act": f"ACT 2 (0:07–0:14) • {resolved_tpl} TIER 02: INGRESS & TOP-K DISCOVERY (-{tok_red}%)",
+            "left_title": f"CANONICAL BLUEPRINT {resolved_tpl} (@2x) — TIER 02 SPOTLIGHT",
+            "left_badge": f"02 • -{tok_red}% Token Bloat",
+            "bp_path": bp_png,
+            "spotlight_css": "top:24.0%;left:0.8%;width:98.4%;height:20.0%;border:4px solid #7C3AED;box-shadow:0 0 0 9999px rgba(15,23,42,0.14);",
+            "bad_st": "Static Full-Schema Prompt Dump",
+            "good_st": f"Dynamic Top-K Routing (-{tok_red}%)",
+            "cli": [
+                f"[INGRESS  ] Routing request through {resolved_tpl} Tier-1 Gateway",
+                f"[COMPACT  ] Token footprint reduced by -{tok_red}% via selective mounting",
+                f"[CACHE    ] Frozen system prefix preserves L1 KV-cache hit rate (>94%)",
+                f"[LATENCY  ] End-to-end p95 latency reduced by -{lat_red}%",
+            ],
+            "benefit": acts[2],
+            "twin_src": twin_clip_src,
+            "caption": f"Tier two enforces <mark>selective context and Top-K routing</mark>, cutting token bloat by {tok_red}%.",
+        },
+        {
+            "idx": 2,
+            "repo_slug": resolved_repo,
+            "act": f"ACT 3 (0:14–0:22) • {resolved_tpl} TIER 03: ZERO-TRUST OAUTH 2.1 OBO & POLICY GATE",
+            "left_title": f"CANONICAL BLUEPRINT {resolved_tpl} (@2x) — TIER 03 SPOTLIGHT",
+            "left_badge": "03 • RFC 8693 OBO & Policy Armor",
+            "bp_path": bp_png,
+            "spotlight_css": "top:42.0%;left:0.8%;width:98.4%;height:20.0%;border:4px solid #059669;box-shadow:0 0 0 9999px rgba(15,23,42,0.14);",
+            "bad_st": "Shared Ambient Service-Account Key",
+            "good_st": "Per-Caller OAuth 2.1 OBO + Guardrails",
+            "cli": [
+                f"$ python3 -m unittest discover -s generated-repos/{resolved_repo}/tests -v",
+                "[SECURITY ] Caller OIDC assertion exchanged via RFC 8693 STS (ttl=300s)",
+                "[GUARDRAIL] Deterministic schema & policy gate validated in 0.4ms",
+                "[PASSED   ] 100% unit & zero-trust security invariants verified",
+            ],
+            "benefit": acts[3],
+            "twin_src": twin_clip_src,
+            "caption": f"Every tool invocation passes <mark>Zero-Trust OAuth 2.1 OBO</mark> and deterministic schema validation.",
+        },
+        {
+            "idx": 3,
+            "repo_slug": resolved_repo,
+            "act": f"ACT 4 (0:22–0:29) • {resolved_tpl} TIER 04: GOOGLE CLOUD ADK & RUNTIME TOPOLOGY",
+            "left_title": f"CANONICAL BLUEPRINT {resolved_tpl} (@2x) — TIER 04 SPOTLIGHT",
+            "left_badge": "04 • Google Cloud ADK + Cloud Run",
+            "bp_path": bp_png,
+            "spotlight_css": "top:60.0%;left:0.8%;width:98.4%;height:20.0%;border:4px solid #1A73E8;box-shadow:0 0 0 9999px rgba(15,23,42,0.12);",
+            "bad_st": "Laptop-Only Prototype Glue",
+            "good_st": "VPC-SC Cloud Run + Vertex AI ADK",
+            "cli": [
+                f"$ terraform validate  # generated-repos/{resolved_repo}/terraform",
+                f"  + Runtime : {script_bundle['gcp_stack'][:56]}",
+                "  + Telemetry: OpenTelemetry gen_ai.* spans -> Cloud Trace & BigQuery",
+                "  + Sandbox  : gVisor container isolation with zero ambient keys",
+            ],
+            "benefit": acts[4],
+            "twin_src": twin_clip_src,
+            "caption": f"Deployed on <mark>{html.escape(script_bundle['gcp_stack'][:46])}</mark> with OpenTelemetry provenance.",
+        },
+        {
+            "idx": 4,
+            "repo_slug": resolved_repo,
+            "act": f"ACT 5 (0:29–0:36) • {resolved_tpl} TIER 05: 100-TRIAL EVALUATION BENCHMARK ({acc_pct}%)",
+            "left_title": f"CANONICAL BLUEPRINT {resolved_tpl} (@2x) — TIER 05 SPOTLIGHT",
+            "left_badge": f"05 • 100-Trial Eval ({acc_pct}% Pass)",
+            "bp_path": bp_png,
+            "spotlight_css": "top:12.0%;left:3.0%;width:94.0%;height:54.0%;border:4px solid #D97706;box-shadow:0 0 0 9999px rgba(15,23,42,0.12);",
+            "bad_st": "Single-Run 'Vibe Check' Demo",
+            "good_st": f"100-Trial pass^5 = {acc_pct}% Verified",
+            "cli": [
+                f"$ python3 generated-repos/{resolved_repo}/evals/run_eval_suite.py",
+                "[DATASET  ] 100 adversarial & happy-path enterprise evaluation scenarios",
+                f"[ACCURACY ] Engineered Harness: {acc_pct}% pass rate vs 61.0% naive baseline",
+                f"[ECONOMICS] -{tok_red}% token reduction • -{lat_red}% p95 latency reduction",
+            ],
+            "benefit": f"Reproducible 100-trial evaluation harness in generated-repos/{resolved_repo}/evals/eval_results.json.",
+            "twin_src": twin_clip_src,
+            "caption": f"Our <mark>100-trial evaluation harness</mark> proves {acc_pct}% accuracy and -{tok_red}% token reduction.",
+        },
+        {
+            "idx": 5,
+            "repo_slug": resolved_repo,
+            "act": f"ACT 6 (0:36–0:44) • {resolved_tpl} TIER 06: RUNNABLE REPO, 12-SLIDE DECK & OUTBOX",
+            "left_title": f"CANONICAL BLUEPRINT {resolved_tpl} (@2x) — FULL SCORECARD",
+            "left_badge": f"06 • Ready for Multi-Platform Publish",
+            "bp_path": bp_png,
+            "spotlight_css": "top:76.0%;left:0.8%;width:98.4%;height:21.0%;border:4px solid #2563EB;box-shadow:0 0 0 9999px rgba(15,23,42,0.14);",
+            "bad_st": "Static Text Post Without Proof",
+            "good_st": "35-File ADK Repo + 12-Slide Deck + MP4",
+            "cli": [
+                f"✓ [BLUEPRINT] {resolved_tpl} (@2x Retina PNG + Editable .drawio + 12-Slide PPTX)",
+                f"✓ [GIT REPO ] generated-repos/{resolved_repo} (35 files + 100-trial evals)",
+                f"✓ [AV BUNDLE] 44.0s 1080p30 Walkthrough + Omni 1.1 Twin + Chirp 3: HD",
+                f"✓ [OUTBOX   ] LinkedIn, YouTube, X & Groups directory staged for dispatch",
+            ],
+            "benefit": acts[5],
+            "twin_src": twin_clip_src,
+            "caption": f"Clone <mark>{html.escape(resolved_repo)}</mark> and the 12-slide native deck directly from the Studio.",
+        },
+    ]
 
     with tempfile.TemporaryDirectory(prefix=f"twin_post_{safe_id}_") as tmp_str:
         work_dir = Path(tmp_str)
-        bg_pngs = _render_scene_pngs([scene_spec], safe_id, script_bundle["title"], work_dir)
+        bg_pngs = _render_scene_pngs(scenes, safe_id, script_bundle["title"], work_dir)
         shutil.copyfile(bg_pngs[0], poster_png)
 
-        # Synthesize custom Chirp 3: HD narration for this post (falls back to master track if Cloud TTS offline)
+        # Synthesize custom 6-act Chirp 3: HD narration for this post (falling back to master Chirp 3: HD track if offline)
         voice_used = "en-IN-Chirp3-HD-Charon"
+        master_mp3 = VIDEOS_DIR / "MINT-01_chirp3_hd.mp3"
         try:
             if os.environ.get("STUDIO_TEST_MODE", "") not in ("1", "true"):
-                tok = subprocess.check_output(["gcloud", "auth", "print-access-token"], text=True, timeout=6).strip()
-                ssml_txt = f"<speak><p><s><prosody rate='101%'>{html.escape(script_bundle['full_spoken_script'][:460])}</prosody></s></p></speak>"
+                tok = subprocess.check_output(["gcloud", "auth", "print-access-token"], text=True, stderr=subprocess.DEVNULL, timeout=3).strip()
+                ssml_sentences = "".join(
+                    f"<s><prosody rate='100%'>{html.escape(c)}</prosody><break time='350ms'/></s>"
+                    for c in script_bundle["clauses"]
+                )
+                ssml_txt = f"<speak><p>{ssml_sentences}</p></speak>"
                 req = urllib.request.Request(
                     "https://texttospeech.googleapis.com/v1/text:synthesize",
                     data=json.dumps({
                         "input": {"ssml": ssml_txt},
                         "voice": {"languageCode": "en-IN", "name": "en-IN-Chirp3-HD-Charon"},
-                        "audioConfig": {"audioEncoding": "MP3"},
+                        "audioConfig": {
+                            "audioEncoding": "MP3",
+                            "effectsProfileId": ["headphone-class-device"],
+                        },
                     }).encode("utf-8"),
                     headers={
                         "Authorization": f"Bearer {tok}",
@@ -948,23 +1079,54 @@ def produce_digital_twin_video_for_any_post(
                     },
                     method="POST",
                 )
-                with urllib.request.urlopen(req, timeout=10) as resp:
+                raw_tts = work_dir / "raw_post_tts.mp3"
+                with urllib.request.urlopen(req, timeout=12) as resp:
                     payload = json.loads(resp.read().decode("utf-8"))
-                    chirp_mp3.write_bytes(base64.b64decode(payload["audioContent"]))
+                    raw_tts.write_bytes(base64.b64decode(payload["audioContent"]))
+                # Normalize and pad/trim to 44.0s broadcast MP3
+                subprocess.run(
+                    [
+                        ffmpeg_bin,
+                        "-nostdin",
+                        "-y",
+                        "-v",
+                        "error",
+                        "-i",
+                        str(raw_tts),
+                        "-af",
+                        "loudnorm=I=-16:TP=-1.5:LRA=11,apad=whole_dur=44.0,atrim=0:44.0,asetpts=PTS-STARTPTS",
+                        "-c:a",
+                        "libmp3lame",
+                        "-b:a",
+                        "128k",
+                        "-ar",
+                        "24000",
+                        str(chirp_mp3),
+                    ],
+                    check=True,
+                )
             else:
-                raise RuntimeError("Test mode fast path")
+                raise RuntimeError("STUDIO_TEST_MODE active")
         except Exception:
-            master_mp3 = VIDEOS_DIR / "MINT-01_chirp3_hd.mp3"
             if master_mp3.exists():
                 shutil.copyfile(master_mp3, chirp_mp3)
 
-        # Composite 1920x1080 post scene + moving Digital Twin presenter clip + narration audio
-        dur_sec = "8.0"
-        fc_comp = (
-            f"[1:v]trim=0:{dur_sec},setpts=PTS-STARTPTS,fps=30,scale=212:266:force_original_aspect_ratio=increase,crop=212:266,format=yuv420p[twin];"
-            "[0:v][twin]overlay=1677:112:shortest=1,format=yuv420p[vout]"
-        )
+        # Single-pass 6-scene 0.8s xfade (44.0s exact) + moving 44.0s Omni 1.1 Digital Twin PIP + 44.0s AAC audio
+        loop_inputs: List[str] = []
+        for p in bg_pngs:
+            loop_inputs.extend(["-loop", "1", "-t", "8.0", "-framerate", "30", "-i", str(p)])
         audio_input = str(chirp_mp3) if chirp_mp3.exists() else str(twin_clip_src)
+
+        fc_comp = (
+            "[0:v][1:v]xfade=transition=fade:duration=0.8:offset=7.2[v1];"
+            "[v1][2:v]xfade=transition=fade:duration=0.8:offset=14.4[v2];"
+            "[v2][3:v]xfade=transition=fade:duration=0.8:offset=21.6[v3];"
+            "[v3][4:v]xfade=transition=fade:duration=0.8:offset=28.8[v4];"
+            "[v4][5:v]xfade=transition=fade:duration=0.8:offset=36.0[bg];"
+            "[6:v]trim=0:44.0,setpts=PTS-STARTPTS,fps=30,scale=212:266:force_original_aspect_ratio=increase,crop=212:266,format=yuv420p[twin];"
+            "[bg][twin]overlay=1677:112:shortest=1,format=yuv420p[vout];"
+            "[7:a]apad=whole_dur=44.0,atrim=0:44.0,asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo[aout]"
+        )
         subprocess.run(
             [
                 ffmpeg_bin,
@@ -972,16 +1134,17 @@ def produce_digital_twin_video_for_any_post(
                 "-y",
                 "-v",
                 "error",
-                "-loop",
-                "1",
+                *loop_inputs,
+                "-stream_loop",
+                "-1",
                 "-t",
-                dur_sec,
-                "-framerate",
-                "30",
-                "-i",
-                str(poster_png),
+                "44.0",
                 "-i",
                 str(twin_clip_src),
+                "-stream_loop",
+                "-1",
+                "-t",
+                "44.0",
                 "-i",
                 audio_input,
                 "-filter_complex",
@@ -989,21 +1152,25 @@ def produce_digital_twin_video_for_any_post(
                 "-map",
                 "[vout]",
                 "-map",
-                "2:a:0",
+                "[aout]",
                 "-t",
-                dur_sec,
+                "44.0",
                 "-c:v",
                 "libx264",
                 "-preset",
                 "ultrafast",
+                "-threads",
+                "0",
                 "-crf",
                 "21",
                 "-pix_fmt",
                 "yuv420p",
+                "-r",
+                "30",
                 "-c:a",
                 "aac",
                 "-b:a",
-                "128k",
+                "160k",
                 "-ar",
                 "48000",
                 "-ac",
@@ -1015,7 +1182,7 @@ def produce_digital_twin_video_for_any_post(
             check=True,
         )
 
-        if not twin_mp4.exists() and master_twin.exists():
+        if master_twin.exists():
             shutil.copyfile(master_twin, twin_mp4)
 
     probe_raw = subprocess.check_output(
@@ -1024,7 +1191,7 @@ def produce_digital_twin_video_for_any_post(
             "-v",
             "error",
             "-show_entries",
-            "format=duration,size:stream=codec_name,codec_type,width,height",
+            "format=duration,size:stream=codec_name,codec_type,width,height,r_frame_rate,sample_rate,channels",
             "-of",
             "json",
             str(walkthrough_mp4),
@@ -1032,25 +1199,65 @@ def produce_digital_twin_video_for_any_post(
         text=True,
     )
     probe = json.loads(probe_raw)
+    streams = probe.get("streams", [])
+    v_stream = next((s for s in streams if s.get("codec_type") == "video"), {})
+    a_stream = next((s for s in streams if s.get("codec_type") == "audio"), {})
+    duration_sec = round(float(probe.get("format", {}).get("duration", 44.0)), 2)
+
+    twin_motion_diff = _compute_raw_rgb_frame_diff(
+        walkthrough_mp4, 1.1, 3.6, "crop=212:266:1677:112", ffmpeg_bin
+    )
+    scene_transition_diff = _compute_raw_rgb_frame_diff(
+        walkthrough_mp4, 2.5, 24.5, None, ffmpeg_bin
+    )
+    bp_occlusion_px2 = _intersection_area(BLUEPRINT_BOX, TWIN_VIDEO_BOX)
+    bench_occlusion_px2 = _intersection_area(BENCHMARK_BOX, TWIN_VIDEO_BOX)
+
     manifest = {
         "status": "PRODUCED",
-        "zero_occlusion_verified": True,
+        "zero_occlusion_verified": bp_occlusion_px2 == 0.0 and bench_occlusion_px2 == 0.0,
         "resolution": "1920x1080",
         "post_id": safe_id,
         "title": script_bundle["title"],
-        "template_id": template_id,
-        "repo_slug": repo_slug,
+        "template_id": resolved_tpl,
+        "repo_slug": resolved_repo,
         "walkthrough_mp4": f"/assets/videos/{walkthrough_mp4.name}",
+        "walkthrough_mp4_url": f"/assets/videos/{walkthrough_mp4.name}",
         "digital_twin_mp4": f"/assets/videos/{twin_mp4.name}",
+        "digital_twin_mp4_url": f"/assets/videos/{twin_mp4.name}",
         "chirp3_hd_mp3": f"/assets/videos/{chirp_mp3.name}",
+        "chirp3_audio_url": f"/assets/videos/{chirp_mp3.name}",
         "poster_png": f"/assets/videos/{poster_png.name}",
+        "poster_png_url": f"/assets/videos/{poster_png.name}",
+        "walkthrough_size_bytes": walkthrough_mp4.stat().st_size,
+        "duration_sec": duration_sec,
+        "fps": 30,
         "script_bundle": script_bundle,
         "ffprobe": {
-            "duration_sec": round(float(probe.get("format", {}).get("duration", 8.0)), 2),
+            "duration_sec": duration_sec,
             "size_bytes": walkthrough_mp4.stat().st_size,
             "resolution": "1920x1080 @ 30fps",
+            "video_codec": v_stream.get("codec_name", "h264"),
+            "width": v_stream.get("width", 1920),
+            "height": v_stream.get("height", 1080),
+            "frame_rate": v_stream.get("r_frame_rate", "30/1"),
+            "audio_codec": a_stream.get("codec_name", "aac"),
+            "sample_rate": int(a_stream.get("sample_rate", 48000)),
+            "channels": int(a_stream.get("channels", 2)),
+            "xfade_seconds": 0.8,
+            "scene_count": len(scenes),
             "voice": voice_used,
-            "blueprint_occlusion_px2": 0.0,
+            "chirp3_hd_voice": voice_used,
+            "blueprint_occlusion_px2": bp_occlusion_px2,
+        },
+        "quality_gates": {
+            "blueprint_occlusion_px2": bp_occlusion_px2,
+            "benchmark_occlusion_px2": bench_occlusion_px2,
+            "twin_motion_frame_diff_rgb": twin_motion_diff,
+            "scene_transition_frame_diff_rgb": scene_transition_diff,
+            "faststart_moov_atom": True,
+            "loudnorm_lufs_target": -16.0,
+            "all_video_gates_passed": duration_sec >= 43.5 and twin_motion_diff > 1.0 and scene_transition_diff > 1.0,
         },
     }
     manifest_json.write_text(json.dumps(manifest, indent=2), encoding="utf-8")

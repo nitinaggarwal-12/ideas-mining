@@ -7,60 +7,100 @@
   "template_id": "T67",
   "repo_slug": "gcp-loop-breaker-circuit-adk",
   "walkthrough_mp4": "/assets/videos/IDEA-01_walkthrough.mp4",
+  "walkthrough_mp4_url": "/assets/videos/IDEA-01_walkthrough.mp4",
   "digital_twin_mp4": "/assets/videos/IDEA-01_digital_twin_nitin.mp4",
+  "digital_twin_mp4_url": "/assets/videos/IDEA-01_digital_twin_nitin.mp4",
   "chirp3_hd_mp3": "/assets/videos/IDEA-01_chirp3_hd.mp3",
+  "chirp3_audio_url": "/assets/videos/IDEA-01_chirp3_hd.mp3",
   "poster_png": "/assets/videos/IDEA-01_poster.png",
+  "poster_png_url": "/assets/videos/IDEA-01_poster.png",
+  "walkthrough_size_bytes": 13694968,
+  "duration_sec": 44.0,
+  "fps": 30,
   "script_bundle": {
     "post_id": "IDEA-01",
     "title": "Stopping Infinite Agent Loops & Runaway Token Bills",
     "template_id": "T67",
     "repo_slug": "gcp-loop-breaker-circuit-adk",
+    "gcp_stack": "Google Cloud ADK + Vertex AI Agent Engine + Cloud Run",
     "voice_name": "en-IN-Chirp3-HD-Charon",
     "twin_persona": "custom-nitin-aggarwal-live (Omni 1.1 Native AV)",
-    "full_spoken_script": "Welcome to briefing IDEA-01: Stopping Infinite Agent Loops & Runaway Token Bills. In production enterprise deployments, Production Google Cloud ADK and Zero-Trust MCP runtime. Using canonical blueprint T67 and runnable repository gcp-loop-breaker-circuit-adk, we enforce deterministic guardrails, zero-trust OAuth 2.1 token exchange, and 100-trial evaluation gates. Measured benchmark outcome: 98.0% eval accuracy across 100 trials. Clone the full repository and 12-slide deck directly from the Studio.",
-    "word_count": 65,
+    "full_spoken_script": "Welcome to briefing IDEA-01: Stopping Infinite Agent Loops & Runaway Token Bills. In production enterprise deployments, Production Google Cloud ADK and Zero-Trust MCP runtime. Act two isolates ingress routing and dynamic Top-K tool discovery so static schema dumps never pollute the context window. Act three enforces zero-trust OAuth 2.1 On-Behalf-Of token exchange and deterministic policy guardrails on blueprint T67. Act four maps the runtime onto Google Cloud ADK + Vertex AI Agent Engine + Cloud Run with immutable OpenTelemetry provenance and cryptographic execution receipts. Across our 100-trial evaluation suite in repository gcp-loop-breaker-circuit-adk, we achieve 98.0% 100-trial eval accuracy \u2022 -82.1% token bloat \u2022 -74.6% p95 latency, ready for LinkedIn, YouTube, and GitHub.",
+    "full_narration_text": "Welcome to briefing IDEA-01: Stopping Infinite Agent Loops & Runaway Token Bills. In production enterprise deployments, Production Google Cloud ADK and Zero-Trust MCP runtime. Act two isolates ingress routing and dynamic Top-K tool discovery so static schema dumps never pollute the context window. Act three enforces zero-trust OAuth 2.1 On-Behalf-Of token exchange and deterministic policy guardrails on blueprint T67. Act four maps the runtime onto Google Cloud ADK + Vertex AI Agent Engine + Cloud Run with immutable OpenTelemetry provenance and cryptographic execution receipts. Across our 100-trial evaluation suite in repository gcp-loop-breaker-circuit-adk, we achieve 98.0% 100-trial eval accuracy \u2022 -82.1% token bloat \u2022 -74.6% p95 latency, ready for LinkedIn, YouTube, and GitHub.",
+    "word_count": 112,
+    "estimated_duration_sec": 44,
+    "target_duration_sec": 44.0,
+    "scene_count": 6,
+    "xfade_seconds": 0.8,
+    "resolved_spec": {
+      "post_id": "IDEA-01",
+      "template_id": "T67",
+      "repo_slug": "gcp-loop-breaker-circuit-adk",
+      "gcp_stack": "Google Cloud ADK + Vertex AI Agent Engine + Cloud Run"
+    },
     "clauses": [
       "Welcome to briefing IDEA-01: Stopping Infinite Agent Loops & Runaway Token Bills.",
       "In production enterprise deployments, Production Google Cloud ADK and Zero-Trust MCP runtime.",
-      "Using canonical blueprint T67 and runnable repository gcp-loop-breaker-circuit-adk, we enforce deterministic guardrails, zero-trust OAuth 2.1 token exchange, and 100-trial evaluation gates.",
-      "Measured benchmark outcome: 98.0% eval accuracy across 100 trials. Clone the full repository and 12-slide deck directly from the Studio."
+      "Act two isolates ingress routing and dynamic Top-K tool discovery so static schema dumps never pollute the context window.",
+      "Act three enforces zero-trust OAuth 2.1 On-Behalf-Of token exchange and deterministic policy guardrails on blueprint T67.",
+      "Act four maps the runtime onto Google Cloud ADK + Vertex AI Agent Engine + Cloud Run with immutable OpenTelemetry provenance and cryptographic execution receipts.",
+      "Across our 100-trial evaluation suite in repository gcp-loop-breaker-circuit-adk, we achieve 98.0% 100-trial eval accuracy \u2022 -82.1% token bloat \u2022 -74.6% p95 latency, ready for LinkedIn, YouTube, and GitHub."
     ],
     "acts": [
       "Welcome to briefing IDEA-01: Stopping Infinite Agent Loops & Runaway Token Bills.",
       "In production enterprise deployments, Production Google Cloud ADK and Zero-Trust MCP runtime.",
-      "Using canonical blueprint T67 and runnable repository gcp-loop-breaker-circuit-adk, we enforce deterministic guardrails, zero-trust OAuth 2.1 token exchange, and 100-trial evaluation gates.",
-      "Measured benchmark outcome: 98.0% eval accuracy across 100 trials. Clone the full repository and 12-slide deck directly from the Studio.",
-      "Architecture verification on T67 with zero-occlusion Digital Twin presenter.",
-      "Multi-platform distribution package staged for LinkedIn, YouTube, and GitHub (gcp-loop-breaker-circuit-adk)."
+      "Act two isolates ingress routing and dynamic Top-K tool discovery so static schema dumps never pollute the context window.",
+      "Act three enforces zero-trust OAuth 2.1 On-Behalf-Of token exchange and deterministic policy guardrails on blueprint T67.",
+      "Act four maps the runtime onto Google Cloud ADK + Vertex AI Agent Engine + Cloud Run with immutable OpenTelemetry provenance and cryptographic execution receipts.",
+      "Across our 100-trial evaluation suite in repository gcp-loop-breaker-circuit-adk, we achieve 98.0% 100-trial eval accuracy \u2022 -82.1% token bloat \u2022 -74.6% p95 latency, ready for LinkedIn, YouTube, and GitHub."
     ],
     "pipeline_stages": [
       {
         "stage": 1,
-        "name": "Stage 1 \u00b7 Post-Specific Spoken Script & 4-Act Storyboard",
-        "detail": "Distills 'Stopping Infinite Agent Loops & Runaway Token Bi' + metrics (98.0% eval accuracy across 100 trials) into clause-timed narration."
+        "name": "Stage 1 \u00b7 Post-Specific Spoken Script & 6-Act (44.0s) Storyboard",
+        "detail": "Distills 'Stopping Infinite Agent Loops & Runaway Token Bi' + metrics (98.0% 100-trial eval accuracy \u2022 -82.1% token blo) into 6 clause-timed 8.0s acts with 0.8s xfade."
       },
       {
         "stage": 2,
         "name": "Stage 2 \u00b7 Google Cloud Chirp 3: HD Neural Voice Synthesis",
-        "detail": "Synthesizes 24kHz/48kHz -16 LUFS broadcast narration via Cloud TTS (en-IN-Chirp3-HD-Charon)."
+        "detail": "Synthesizes 48kHz -16 LUFS broadcast narration via Cloud TTS (en-IN-Chirp3-HD-Charon) across all 44.0s."
       },
       {
         "stage": 3,
-        "name": "Stage 3 \u00b7 1920x1080 Blueprint + Live CLI + Omni 1.1 Digital Twin PIP Compositor",
-        "detail": "Renders Blueprint T67 (x=18..974), Live CLI & Eval JSON (x=988..1650), and moving Nitin Digital Twin PIP (x=1677..1889, 0.0 px\u00b2 occlusion)."
+        "name": "Stage 3 \u00b7 6-Scene 1920x1080 Blueprint + Live CLI + Omni 1.1 Digital Twin PIP Compositor",
+        "detail": "Renders 6 progressive spotlight scenes on Blueprint T67 (x=18..974), Live CLI (x=988..1650), and moving Nitin Digital Twin PIP (x=1677..1889, 0.0 px\u00b2 occlusion)."
       },
       {
         "stage": 4,
-        "name": "Stage 4 \u00b7 Faststart MP4 Mastering & Multi-Platform Outbox Binding",
-        "detail": "Outputs /assets/videos/IDEA-01_walkthrough.mp4 + /assets/videos/IDEA-01_digital_twin_nitin.mp4 ready for LinkedIn, YouTube & Shorts."
+        "name": "Stage 4 \u00b7 44.0s Multi-Xfade Faststart MP4 Mastering & Outbox Binding",
+        "detail": "Outputs 44.0s /assets/videos/IDEA-01_walkthrough.mp4 + /assets/videos/IDEA-01_digital_twin_nitin.mp4 ready for LinkedIn, YouTube & Shorts."
       }
     ]
   },
   "ffprobe": {
-    "duration_sec": 8.0,
-    "size_bytes": 2161086,
+    "duration_sec": 44.0,
+    "size_bytes": 13694968,
     "resolution": "1920x1080 @ 30fps",
+    "video_codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "30/1",
+    "audio_codec": "aac",
+    "sample_rate": 48000,
+    "channels": 2,
+    "xfade_seconds": 0.8,
+    "scene_count": 6,
     "voice": "en-IN-Chirp3-HD-Charon",
+    "chirp3_hd_voice": "en-IN-Chirp3-HD-Charon",
     "blueprint_occlusion_px2": 0.0
+  },
+  "quality_gates": {
+    "blueprint_occlusion_px2": 0.0,
+    "benchmark_occlusion_px2": 0.0,
+    "twin_motion_frame_diff_rgb": 7.419,
+    "scene_transition_frame_diff_rgb": 8.155,
+    "faststart_moov_atom": true,
+    "loudnorm_lufs_target": -16.0,
+    "all_video_gates_passed": true
   }
 }

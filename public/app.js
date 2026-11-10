@@ -5890,7 +5890,7 @@ async function loadAndRenderBreakoutGithubRepos(forceLive = false) {
     const repos = data.repositories || [];
 
     if (badge) {
-      badge.textContent = `${repos.length} Fast-Growing Authentic Repos (${data.live_github_api_hits || 0} Live API Hits) · Ready to Mint`;
+      badge.textContent = `${repos.length} Fast-Growing Authentic Repos (${data.live_github_api_hits || 0} Live Trending + ETag Zero-Quota Hits) · Ready to Mint`;
     }
 
     grid.replaceChildren();
@@ -6184,7 +6184,7 @@ async function triggerProduceDigitalTwinVideo() {
       const msg = mkEl(
         "span",
         "",
-        `✓ Produced 1080p30 Digital Twin Walkthrough for ${manifest.post_id} (${manifest.template_id}) — Playing now in the studio stage below!`
+        `✓ Produced ${manifest.duration_sec || 44.0}s 6-Scene 1080p30 Digital Twin Walkthrough for ${manifest.post_id} (${manifest.template_id} · 0.8s xfade · 0.0 px² Occlusion) — Playing now below!`
       );
       const dlLink = mkEl("a", "btn-primary", "⬇ Download 1080p30 .MP4");
       dlLink.href = safeUrl(manifest.walkthrough_mp4_url);

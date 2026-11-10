@@ -1240,11 +1240,25 @@
             </p>
           </div>
         </div>
-        <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap;">
-          <input id="paste-linkedin-groups-input" type="text" placeholder="Optional: Cmd+A / Copy text from https://www.linkedin.com/groups/ and paste here to auto-mark your joined groups..." style="flex:1;min-width:280px;padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:12.5px;background:#ffffff;color:#0f172a;" />
-          <button id="btn-diff-linkedin-groups" type="button" class="btn-primary">Auto-Detect My Joined Groups</button>
-          <a href="https://www.linkedin.com/groups/" target="_blank" rel="noopener" class="btn-secondary" style="text-decoration:none;">Open My LinkedIn Groups ↗</a>
+        <div id="li-authenticated-bridge-banner" style="background:#f8fafc;border:1px solid #cbd5e1;border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+            <div style="font-size:12.5px;color:#0f172a;font-weight:600;">
+              🔐 Authenticated Profile Bound: <a id="li-bound-profile-link" href="https://www.linkedin.com/in/nitin-aggarwal-b49786a/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:underline;">https://www.linkedin.com/in/nitin-aggarwal-b49786a/</a>
+              <span id="li-last-sync-badge" class="pill-badge pill-emerald" style="margin-left:8px;">Same-Origin Bookmarklet &amp; 12-Slot Governor Ready</span>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+              <a id="li-bookmarklet-sync-link" href="#linkedin-groups-membership-radar-section" class="btn-primary" style="text-decoration:none;font-size:12px;padding:6px 12px;" title="Drag this button to your Chrome Bookmarks Bar, then click it once on your open linkedin.com tab!">⚡ Bookmarklet: Sync Nitin’s LinkedIn Groups → Studio</a>
+              <button id="btn-copy-li-console-sync" type="button" class="btn-secondary" style="font-size:12px;padding:6px 12px;">📋 Copy 1-Line Console Sync + Open linkedin.com/groups ↗</button>
+              <a href="https://www.linkedin.com/groups/requests" target="_blank" rel="noopener" class="btn-secondary" style="text-decoration:none;font-size:12px;padding:6px 12px;">Pending Requests ↗</a>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+            <input id="paste-linkedin-groups-input" type="text" placeholder="Paste text/HTML from linkedin.com/groups/ (or Copy as cURL / li_at session header for in-memory Voyager API sync)..." style="flex:1;min-width:280px;padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:12.5px;background:#ffffff;color:#0f172a;" />
+            <button id="btn-diff-linkedin-groups" type="button" class="btn-primary">Sync Joined &amp; Pending Groups</button>
+            <a href="https://www.linkedin.com/groups/" target="_blank" rel="noopener" class="btn-secondary" style="text-decoration:none;">Open My LinkedIn Groups ↗</a>
+          </div>
         </div>
+        <div id="li-groups-wave-governor-bar" data-testid="li-groups-wave-governor-bar" style="margin-bottom:14px;"></div>
         <div class="repos-grid" id="linkedin-groups-membership-radar-grid" data-testid="linkedin-groups-membership-radar-grid"></div>
       </div>
 

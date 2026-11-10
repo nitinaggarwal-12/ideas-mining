@@ -1139,43 +1139,435 @@ TOP_25_AGENTIC_AI_VISIBILITY_GROUPS: List[Dict[str, Any]] = [
 ]
 
 
+AUTHENTICATED_LINKEDIN_PROFILE_URL = "https://www.linkedin.com/in/nitin-aggarwal-b49786a/"
+AUTHENTICATED_LINKEDIN_HANDLE = "nitin-aggarwal-b49786a"
+MAX_CONCURRENT_PENDING_CAP = 12
+DAILY_SAFE_JOIN_BUDGET = 8
+
+
+def _is_fast_moderation(speed_str: str) -> bool:
+    low = (speed_str or "").strip().lower()
+    return low.startswith("fast") or "instant" in low or "auto-approve" in low
+
+
+def compute_staged_group_join_waves(
+    unjoined_groups: List[Dict[str, Any]],
+    pending_count: int = 0,
+    pending_timestamps: Dict[str, str] | None = None,
+) -> Dict[str, Any]:
+    """Partition unjoined groups into 3 rate-limit-safe waves governed by LinkedIn's pending-request cap."""
+    pending_timestamps = pending_timestamps or {}
+    available_slots = max(0, MAX_CONCURRENT_PENDING_CAP - int(pending_count))
+    next_safe_batch = min(DAILY_SAFE_JOIN_BUDGET, available_slots, len(unjoined_groups))
+
+    if available_slots >= 6:
+        gov_status = "GREEN_READY"
+        gov_summary = (
+            f"{available_slots}/{MAX_CONCURRENT_PENDING_CAP} pending slots open — safe to request "
+            f"up to {next_safe_batch} groups in the current wave."
+        )
+    elif available_slots > 0:
+        gov_status = "AMBER_THROTTLED"
+        gov_summary = (
+            f"{pending_count}/{MAX_CONCURRENT_PENDING_CAP} pending slots in use — governor limits next batch "
+            f"to {next_safe_batch} group(s) until fast-moderated requests clear."
+        )
+    else:
+        gov_status = "RED_AT_CAP_WAIT_FOR_APPROVALS"
+        gov_summary = (
+            f"At {pending_count}/{MAX_CONCURRENT_PENDING_CAP} concurrent pending cap — pause new requests "
+            f"for 24h while Wave 1 fast-approval groups clear."
+        )
+
+    # Sort fast-approval groups first by visibility_score so Wave 1 clears pending slots in <24h
+    fast_groups = sorted(
+        [g for g in unjoined_groups if _is_fast_moderation(g.get("moderation_speed", ""))],
+        key=lambda x: x["visibility_score"],
+        reverse=True,
+    )
+    moderate_groups = sorted(
+        [g for g in unjoined_groups if not _is_fast_moderation(g.get("moderation_speed", ""))],
+        key=lambda x: x["visibility_score"],
+        reverse=True,
+    )
+    ordered_for_waves = fast_groups + moderate_groups
+
+    wave_defs = [
+        {
+            "wave_number": 1,
+            "wave_id": "WAVE-1-FAST-CLEAR",
+            "title": "Wave 1 (Day 1 Immediate) — 8 Fast-Approve Agentic AI, MCP & LLMOps Groups",
+            "schedule_window": "Execute Immediately (Clears pending slots within 24h)",
+            "rationale": (
+                "Prioritizes Instant/Auto-Approve and 24h-moderated groups first so your pending slots "
+                "drop back toward 0/12 within 24 hours without tripping LinkedIn's pending request limiter."
+            ),
+            "slice": ordered_for_waves[:8],
+        },
+        {
+            "wave_number": 2,
+            "wave_id": "WAVE-2-HIGH-REACH",
+            "title": "Wave 2 (Day 3 After Wave 1 Clears) — 8 Mega-Reach & CISO / Cloud Architecture Groups",
+            "schedule_window": "Execute +48h (Once >= 5 Wave 1 groups approve)",
+            "rationale": (
+                "Queues the 1.85M–6.2M mega-reach feeders and moderated CISO/GCP architecture communities "
+                "once Wave 1 fast-approval slots have freed up."
+            ),
+            "slice": ordered_for_waves[8:16],
+        },
+        {
+            "wave_number": 3,
+            "wave_id": "WAVE-3-EXEC-FINOPS",
+            "title": "Wave 3 (Day 5 Final Cohort) — Remaining Executive C-Suite, CCO, Healthcare & FinOps Groups",
+            "schedule_window": "Execute +96h (Completes all 25/25 high-visibility groups)",
+            "rationale": (
+                "Completes full 20.88M+ reach coverage across CIO/CTO/CAIO, Customer Success (CCO), "
+                "Healthcare/Life Sciences, and FinOps token-economics communities."
+            ),
+            "slice": ordered_for_waves[16:],
+        },
+    ]
+
+    waves_out: List[Dict[str, Any]] = []
+    for w in wave_defs:
+        w_groups = w["slice"]
+        reach_sum = sum(int(g.get("members_num", 0)) for g in w_groups)
+        waves_out.append({
+            "wave_number": w["wave_number"],
+            "wave_id": w["wave_id"],
+            "title": w["title"],
+            "schedule_window": w["schedule_window"],
+            "rationale": w["rationale"],
+            "group_count": len(w_groups),
+            "combined_reach": f"{reach_sum:,}+",
+            "group_ids": [g["group_id"] for g in w_groups],
+            "group_urls": [g["direct_group_url"] for g in w_groups],
+            "groups": [
+                {
+                    "group_id": g["group_id"],
+                    "name": g["name"],
+                    "members": g["members"],
+                    "visibility_score": g["visibility_score"],
+                    "moderation_speed": g["moderation_speed"],
+                    "direct_group_url": g["direct_group_url"],
+                }
+                for g in w_groups
+            ],
+        })
+
+    return {
+        "pending_slot_governor": {
+            "max_concurrent_pending_cap": MAX_CONCURRENT_PENDING_CAP,
+            "daily_safe_join_budget": DAILY_SAFE_JOIN_BUDGET,
+            "current_pending_count": int(pending_count),
+            "available_pending_slots": available_slots,
+            "next_safe_batch_size": next_safe_batch,
+            "governor_status": gov_status,
+            "governor_summary": gov_summary,
+            "pending_timestamps": pending_timestamps,
+        },
+        "staged_join_waves": waves_out,
+    }
+
+
+def build_bookmarklet_and_console_sync_scripts(
+    studio_origin: str = "http://nitinagga.c.googlers.com:8765",
+) -> Dict[str, str]:
+    """Build CSP-safe & Mixed-Content-safe 1-Click Bookmarklet and Console script for `linkedin.com`."""
+    origin = studio_origin.rstrip("/")
+    js_core = (
+        "(async()=>{"
+        "try{"
+        "const ex=(h)=>{const s=new Set();const r=/\\/groups\\/([0-9]{4,12})/g;let m;while((m=r.exec(h))!==null)s.add(m[1]);return Array.from(s);};"
+        "const r1=await fetch('https://www.linkedin.com/groups/',{credentials:'include'}).then(r=>r.text()).catch(()=>document.documentElement.innerHTML);"
+        "const r2=await fetch('https://www.linkedin.com/groups/requests',{credentials:'include'}).then(r=>r.text()).catch(()=>'');"
+        "const pend=ex(r2);"
+        "const pendSet=new Set(pend);"
+        "const joined=ex(r1+' '+document.documentElement.innerHTML).filter(x=>!pendSet.has(x));"
+        "const u='" + origin + "/api/linkedin-groups/sync-redirect?profile=" + AUTHENTICATED_LINKEDIN_HANDLE + "'"
+        "+'&joined='+encodeURIComponent(joined.join(','))"
+        "+'&pending='+encodeURIComponent(pend.join(','));"
+        "window.open(u,'_blank');"
+        "}catch(e){alert('Sync error: '+e.message);}"
+        "})();"
+    )
+    return {
+        "authenticated_profile_url": AUTHENTICATED_LINKEDIN_PROFILE_URL,
+        "bookmarklet_href": f"javascript:{js_core}",
+        "console_oneliner": js_core,
+        "instructions": (
+            "1. Drag '⚡ Sync Nitin\'s LinkedIn Groups → Studio' to your Bookmarks Bar (or click 'Copy 1-Line Console Sync'). "
+            "2. On your open https://www.linkedin.com/in/nitin-aggarwal-b49786a/ or https://www.linkedin.com/groups/ tab, click the bookmarklet (or paste in DevTools Console). "
+            "3. It fetches /groups/ (Joined) and /groups/requests (Pending) same-origin inside your authenticated LinkedIn browser and syncs back to Studio via top-level navigation (zero CSP or Mixed-Content blocks)."
+        ),
+    }
+
+
+def _load_group_ledger_state() -> Dict[str, Any]:
+    default_state: Dict[str, Any] = {
+        "authenticated_profile_url": AUTHENTICATED_LINKEDIN_PROFILE_URL,
+        "last_authenticated_sync_utc": None,
+        "last_sync_method": "DEFAULT_CATALOG_BASELINE",
+        "statuses": {},
+        "pending_timestamps": {},
+        "discovered_external_group_ids": [],
+    }
+    if GROUP_MEMBERSHIP_LEDGER_PATH.exists():
+        try:
+            raw = json.loads(GROUP_MEMBERSHIP_LEDGER_PATH.read_text(encoding="utf-8"))
+            if isinstance(raw, dict):
+                default_state.update(raw)
+                if not isinstance(default_state.get("statuses"), dict):
+                    default_state["statuses"] = {}
+                if not isinstance(default_state.get("pending_timestamps"), dict):
+                    default_state["pending_timestamps"] = {}
+                if not isinstance(default_state.get("discovered_external_group_ids"), list):
+                    default_state["discovered_external_group_ids"] = []
+        except Exception:
+            pass
+    return default_state
+
+
+def _save_group_ledger_state(state: Dict[str, Any]) -> None:
+    GROUP_MEMBERSHIP_LEDGER_PATH.parent.mkdir(parents=True, exist_ok=True)
+    GROUP_MEMBERSHIP_LEDGER_PATH.write_text(
+        json.dumps(state, indent=2),
+        encoding="utf-8",
+    )
+
+
+def _match_text_or_ids_against_catalog(
+    raw_text_or_ids: str,
+    target_status: str,
+    ledger_statuses: Dict[str, str],
+    pending_timestamps: Dict[str, str],
+    now_iso: str,
+) -> Tuple[List[str], List[str]]:
+    """Match numeric LinkedIn group IDs (`/groups/12345`) or titles against the Top 25 catalog."""
+    import re as _re
+
+    matched_catalog_ids: List[str] = []
+    external_numeric_ids: List[str] = []
+    if not raw_text_or_ids or not raw_text_or_ids.strip():
+        return matched_catalog_ids, external_numeric_ids
+
+    raw_low = raw_text_or_ids.lower()
+    extracted_nums = set(_re.findall(r"(?:/groups/|\b)([0-9]{5,12})\b", raw_low))
+
+    catalog_num_map: Dict[str, str] = {}
+    for g in TOP_25_AGENTIC_AI_VISIBILITY_GROUPS:
+        gid = g["group_id"]
+        num_id = g["direct_group_url"].rstrip("/").split("/")[-1]
+        catalog_num_map[num_id] = gid
+        name_low = g["name"].lower()
+        title_head = name_low.split("(")[0].split("—")[0].strip()
+        if (
+            (num_id and (num_id in extracted_nums or f"/groups/{num_id}" in raw_low))
+            or gid.lower() in raw_low
+            or (len(title_head) >= 12 and title_head in raw_low)
+        ):
+            ledger_statuses[gid] = target_status
+            if target_status == "PENDING_APPROVAL":
+                pending_timestamps.setdefault(gid, now_iso)
+            elif target_status == "JOINED":
+                pending_timestamps.pop(gid, None)
+            matched_catalog_ids.append(gid)
+
+    for num in sorted(extracted_nums):
+        if num not in catalog_num_map:
+            external_numeric_ids.append(num)
+
+    return matched_catalog_ids, external_numeric_ids
+
+
+def sync_authenticated_linkedin_groups(
+    profile_url: str = AUTHENTICATED_LINKEDIN_PROFILE_URL,
+    joined_ids_or_text: str = "",
+    pending_ids_or_text: str = "",
+    curl_or_cookie_header: str = "",
+    sync_source: str = "BROWSER_AUTHENTICATED_BRIDGE",
+) -> Dict[str, Any]:
+    """Reconcile Nitin's authenticated LinkedIn joined & pending groups without persisting credentials."""
+    from datetime import datetime as _dt, timezone as _tz
+    import re as _re
+    import urllib.request as _ureq
+
+    now_iso = _dt.now(_tz.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    state = _load_group_ledger_state()
+    if profile_url and profile_url.strip():
+        if profile_url.startswith("http"):
+            state["authenticated_profile_url"] = profile_url.strip()
+        else:
+            state["authenticated_profile_url"] = f"https://www.linkedin.com/in/{profile_url.strip().strip('/')}/"
+
+    ledger = state["statuses"]
+    pending_ts = state["pending_timestamps"]
+
+    joined_Accumulator = joined_ids_or_text or ""
+    pending_Accumulator = pending_ids_or_text or ""
+    live_http_probe_status = "SKIPPED_NO_COOKIE_PROVIDED"
+
+    # Optional in-memory cURL / li_at session fetch (never saved to disk!)
+    if curl_or_cookie_header and curl_or_cookie_header.strip():
+        raw_hdr = curl_or_cookie_header.strip()
+        cookie_val = ""
+        m_cookie = _re.search(r"(?:-H|--header|-b|--cookie)\s+['\"](?:cookie:\s*)?([^'\"]+)['\"]", raw_hdr, _re.I)
+        if m_cookie:
+            cookie_val = m_cookie.group(1).strip()
+        elif "li_at=" in raw_hdr:
+            cookie_val = raw_hdr
+        elif _re.match(r"^[A-Za-z0-9_\-\.=]{25,}$", raw_hdr):
+            cookie_val = f"li_at={raw_hdr}"
+
+        if cookie_val:
+            csrf_tok = ""
+            m_jsess = _re.search(r'JSESSIONID="?([^";\s]+)"?', cookie_val)
+            if m_jsess:
+                csrf_tok = m_jsess.group(1)
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8",
+                "Cookie": cookie_val,
+            }
+            if csrf_tok:
+                headers["csrf-token"] = csrf_tok
+            fetched_chunks = 0
+            for url_target, is_pending in [
+                ("https://www.linkedin.com/groups/", False),
+                ("https://www.linkedin.com/groups/requests", True),
+                ("https://www.linkedin.com/voyager/api/groups/groups?q=myGroups&count=100", False),
+            ]:
+                try:
+                    req = _ureq.Request(url_target, headers=headers, method="GET")
+                    with _ureq.urlopen(req, timeout=5.0) as resp:
+                        body_txt = resp.read().decode("utf-8", errors="ignore")
+                        fetched_chunks += 1
+                        if is_pending:
+                            pending_Accumulator += "\n" + body_txt
+                        else:
+                            joined_Accumulator += "\n" + body_txt
+                except Exception:
+                    pass
+            live_http_probe_status = f"FETCHED_{fetched_chunks}_AUTHENTICATED_ENDPOINTS_IN_MEMORY"
+
+    matched_pending, ext_pending = _match_text_or_ids_against_catalog(
+        pending_Accumulator, "PENDING_APPROVAL", ledger, pending_ts, now_iso
+    )
+    matched_joined, ext_joined = _match_text_or_ids_against_catalog(
+        joined_Accumulator, "JOINED", ledger, pending_ts, now_iso
+    )
+
+    ext_all = sorted(set(state.get("discovered_external_group_ids", [])) | set(ext_joined) | set(ext_pending))
+    state["discovered_external_group_ids"] = ext_all
+    state["last_authenticated_sync_utc"] = now_iso
+    state["last_sync_method"] = sync_source
+    _save_group_ledger_state(state)
+
+    radar = get_or_update_linkedin_group_membership_radar()
+    radar["sync_receipt"] = {
+        "authenticated_profile_url": state["authenticated_profile_url"],
+        "synced_at_utc": now_iso,
+        "sync_source": sync_source,
+        "live_http_probe_status": live_http_probe_status,
+        "matched_joined_catalog_groups": matched_joined,
+        "matched_pending_catalog_groups": matched_pending,
+        "discovered_external_group_ids": ext_all,
+    }
+    return radar
+
+
+def stage_group_join_wave(
+    wave_number: int = 1,
+    max_batch: int = DAILY_SAFE_JOIN_BUDGET,
+) -> Dict[str, Any]:
+    """Stage the next rate-limit-safe wave of unjoined groups as PENDING_APPROVAL and return their URLs."""
+    from datetime import datetime as _dt, timezone as _tz
+
+    now_iso = _dt.now(_tz.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    current = get_or_update_linkedin_group_membership_radar()
+    gov = current["pending_slot_governor"]
+    available_slots = int(gov["available_pending_slots"])
+    safe_limit = min(int(max_batch), available_slots, DAILY_SAFE_JOIN_BUDGET)
+
+    waves = current.get("staged_join_waves", [])
+    selected_wave = next((w for w in waves if int(w["wave_number"]) == int(wave_number)), None)
+    if not selected_wave and waves:
+        selected_wave = waves[0]
+
+    staged_groups: List[Dict[str, Any]] = []
+    if selected_wave and safe_limit > 0:
+        state = _load_group_ledger_state()
+        for g in selected_wave.get("groups", [])[:safe_limit]:
+            gid = g["group_id"]
+            state["statuses"][gid] = "PENDING_APPROVAL"
+            state["pending_timestamps"][gid] = now_iso
+            staged_groups.append(g)
+        state["last_sync_method"] = f"WAVE_{wave_number}_STAGED_GOVERNOR"
+        state["last_authenticated_sync_utc"] = now_iso
+        _save_group_ledger_state(state)
+
+    updated = get_or_update_linkedin_group_membership_radar()
+    updated["staged_wave_receipt"] = {
+        "wave_number": wave_number,
+        "staged_at_utc": now_iso,
+        "staged_count": len(staged_groups),
+        "staged_groups": staged_groups,
+        "staged_urls": [g["direct_group_url"] for g in staged_groups],
+        "throttled_by_governor": safe_limit == 0,
+    }
+    return updated
+
+
 def get_or_update_linkedin_group_membership_radar(
     toggle_group_id: str = "",
     new_status: str = "",
     pasted_my_groups_text: str = "",
+    pasted_pending_groups_text: str = "",
+    studio_origin: str = "http://nitinagga.c.googlers.com:8765",
 ) -> Dict[str, Any]:
-    """Load, diff (from pasted `linkedin.com/groups` text), or toggle membership status across the Top 25 groups."""
-    ledger: Dict[str, str] = {}
-    if GROUP_MEMBERSHIP_LEDGER_PATH.exists():
-        try:
-            ledger = json.loads(GROUP_MEMBERSHIP_LEDGER_PATH.read_text(encoding="utf-8")).get("statuses", {})
-        except Exception:
-            ledger = {}
+    """Load, diff, or toggle membership status across the Top 25 groups with 3-Wave Rate-Limit Governor."""
+    from datetime import datetime as _dt, timezone as _tz
+
+    now_iso = _dt.now(_tz.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    state = _load_group_ledger_state()
+    ledger: Dict[str, str] = state["statuses"]
+    pending_ts: Dict[str, str] = state["pending_timestamps"]
 
     if toggle_group_id and new_status in ("JOINED", "PENDING_APPROVAL", "NOT_JOINED_YET"):
         ledger[toggle_group_id] = new_status
+        if new_status == "PENDING_APPROVAL":
+            pending_ts[toggle_group_id] = now_iso
+        else:
+            pending_ts.pop(toggle_group_id, None)
 
     auto_matched_ids: List[str] = []
-    if pasted_my_groups_text and pasted_my_groups_text.strip():
-        raw_low = pasted_my_groups_text.lower()
-        for g in TOP_25_AGENTIC_AI_VISIBILITY_GROUPS:
-            gid = g["group_id"]
-            num_id = g["direct_group_url"].rstrip("/").split("/")[-1]
-            name_low = g["name"].lower()
-            # Match by numeric group URL ID or significant title substring
-            title_head = name_low.split("(")[0].split("—")[0].strip()
-            if (num_id and f"/groups/{num_id}" in raw_low) or (len(title_head) >= 12 and title_head in raw_low):
-                ledger[gid] = "JOINED"
-                auto_matched_ids.append(gid)
+    auto_matched_pending_ids: List[str] = []
+    if pasted_pending_groups_text and pasted_pending_groups_text.strip():
+        m_pend, ext_p = _match_text_or_ids_against_catalog(
+            pasted_pending_groups_text, "PENDING_APPROVAL", ledger, pending_ts, now_iso
+        )
+        auto_matched_pending_ids.extend(m_pend)
+        state["discovered_external_group_ids"] = sorted(
+            set(state.get("discovered_external_group_ids", [])) | set(ext_p)
+        )
 
-    GROUP_MEMBERSHIP_LEDGER_PATH.parent.mkdir(parents=True, exist_ok=True)
-    GROUP_MEMBERSHIP_LEDGER_PATH.write_text(
-        json.dumps({"statuses": ledger}, indent=2),
-        encoding="utf-8",
-    )
+    if pasted_my_groups_text and pasted_my_groups_text.strip():
+        m_join, ext_j = _match_text_or_ids_against_catalog(
+            pasted_my_groups_text, "JOINED", ledger, pending_ts, now_iso
+        )
+        auto_matched_ids.extend(m_join)
+        state["discovered_external_group_ids"] = sorted(
+            set(state.get("discovered_external_group_ids", [])) | set(ext_j)
+        )
+        state["last_authenticated_sync_utc"] = now_iso
+        state["last_sync_method"] = "PASTED_LINKEDIN_DOM_OR_IDS"
+
+    _save_group_ledger_state(state)
 
     enriched_groups: List[Dict[str, Any]] = []
     unjoined_groups: List[Dict[str, Any]] = []
+    pending_groups: List[Dict[str, Any]] = []
+    joined_groups: List[Dict[str, Any]] = []
     joined_count = 0
     pending_count = 0
     unjoined_reach_total = 0
@@ -1184,27 +1576,56 @@ def get_or_update_linkedin_group_membership_radar(
         item = dict(g)
         st = ledger.get(g["group_id"], g["default_status"])
         item["membership_status"] = st
+        item["pending_requested_at_utc"] = pending_ts.get(g["group_id"])
         enriched_groups.append(item)
         if st == "JOINED":
             joined_count += 1
+            joined_groups.append(item)
         elif st == "PENDING_APPROVAL":
             pending_count += 1
+            pending_groups.append(item)
         else:
             unjoined_groups.append(item)
             unjoined_reach_total += int(g["members_num"])
 
+    waves_and_gov = compute_staged_group_join_waves(
+        unjoined_groups=unjoined_groups,
+        pending_count=pending_count,
+        pending_timestamps=pending_ts,
+    )
+    bridge_scripts = build_bookmarklet_and_console_sync_scripts(studio_origin=studio_origin)
+
+    # Annotate wave number onto each enriched group card
+    group_to_wave: Dict[str, int] = {}
+    for w in waves_and_gov["staged_join_waves"]:
+        for gid in w["group_ids"]:
+            group_to_wave[gid] = w["wave_number"]
+    for item in enriched_groups:
+        item["assigned_join_wave"] = group_to_wave.get(item["group_id"], 0)
+
     return {
         "status": "READY",
+        "authenticated_profile_url": state.get("authenticated_profile_url", AUTHENTICATED_LINKEDIN_PROFILE_URL),
+        "last_authenticated_sync_utc": state.get("last_authenticated_sync_utc"),
+        "last_sync_method": state.get("last_sync_method", "DEFAULT_CATALOG_BASELINE"),
+        "discovered_external_group_ids": state.get("discovered_external_group_ids", []),
         "total_catalog_groups": len(enriched_groups),
         "joined_count": joined_count,
         "pending_count": pending_count,
         "unjoined_count": len(unjoined_groups),
         "unjoined_combined_member_reach": f"{unjoined_reach_total:,}+",
         "auto_matched_from_paste": auto_matched_ids,
+        "auto_matched_pending_from_paste": auto_matched_pending_ids,
+        "pending_slot_governor": waves_and_gov["pending_slot_governor"],
+        "staged_join_waves": waves_and_gov["staged_join_waves"],
+        "authenticated_browser_bridge": bridge_scripts,
         "privacy_note": (
-            "LinkedIn hides a member's joined groups behind authenticated session cookies (`https://www.linkedin.com/groups/`). "
-            "Paste the text of your `linkedin.com/groups/` page or click any status pill to mark groups you already belong to."
+            f"Bound to {state.get('authenticated_profile_url', AUTHENTICATED_LINKEDIN_PROFILE_URL)}. "
+            "Use the 1-Click Bookmarklet / Console Sync on your authenticated linkedin.com tab, paste a cURL/DOM snapshot, "
+            "or launch Wave 1 (8 Fast-Approve Groups) under the 12-Pending-Slot Governor."
         ),
         "groups": enriched_groups,
+        "pending_groups": pending_groups,
+        "joined_groups": joined_groups,
         "unjoined_priority_queue": sorted(unjoined_groups, key=lambda x: x["visibility_score"], reverse=True),
     }

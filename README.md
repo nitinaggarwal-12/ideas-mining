@@ -77,3 +77,12 @@ node scripts/e2e_puppeteer_functional_suite.mjs
 - `GET /api/customer-success/radar` & `POST /api/customer-success/discover` — Live Agentic AI Inventions & Discoveries mapped to Customer Success Playbooks, quantified FinOps/SLO KPIs, canonical blueprints (`T54`–`T221`), and runnable ADK repositories.
 
 - `GET /api/rss/frontier-labs.xml` — Unified RSS 2.0 XML Syndicate Bridge combining 23 RSS/Atom feeds with live Sitemap+OpenGraph diffing for RSS-less Frontier LLM Labs (`Anthropic Engineering/Research`, `Mistral AI`, `Google DeepMind`, `OpenAI`, `Meta AI`).
+
+
+## Authenticated LinkedIn Group Visibility Radar & 3-Wave Pending-Slot Governor
+- **Bound Profile**: `https://www.linkedin.com/in/nitin-aggarwal-b49786a/`
+- **Endpoints**:
+  - `GET / POST /api/linkedin-groups/membership-radar`
+  - `GET /api/linkedin-groups/sync-redirect` (CSP/Mixed-Content-safe top-level navigation callback from the 1-Click Bookmarklet / Console Sync on `https://www.linkedin.com/*`)
+  - `POST /api/linkedin-groups/sync-authenticated` (Reconciles Joined & Pending groups via Bookmarklet, DOM paste, or in-memory `Copy as cURL` / `li_at` Voyager probe)
+  - `POST /api/linkedin-groups/stage-wave` (Stages Wave 1 / 2 / 3 under the 12-Pending-Slot Governor & 8/day Safe Join Budget)

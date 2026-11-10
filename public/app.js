@@ -4073,7 +4073,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadStepFlowStudio(reqPreset || "FLOW-01", reqTheme || "light");
   loadAutonomousMinerData(false);
 
-  const reqView = params.get("view");
+  const reqView = params.get("view") || (window.location.hash === "#linkedin-groups-membership-radar-section" ? "view-openhands" : null);
   activateView(reqView && ALL_VIEWS.includes(reqView) ? reqView : "view-miner");
 
   if (reqView === "view-playbook" && reqSubtab) {
@@ -5547,6 +5547,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+let _activeLiGroupsWaveFilter = 0; // 0 = All Waves, 1 = Wave 1, 2 = Wave 2, 3 = Wave 3
+let _latestLiRadarData = null;
+
 async function loadAndRenderLinkedinGroupsRadar(payloadOverride = null) {
   const grid = document.getElementById("linkedin-groups-membership-radar-grid");
   if (!grid) return;
@@ -5557,23 +5560,147 @@ async function loadAndRenderLinkedinGroupsRadar(payloadOverride = null) {
       if (!res.ok) return;
       data = await res.json();
     }
+    _latestLiRadarData = data;
+
     const pill = document.getElementById("li-groups-unjoined-count-pill");
     if (pill) {
-      pill.textContent = `${data.unjoined_count}/${data.total_catalog_groups} Unjoined Groups · ${data.unjoined_combined_member_reach} Unjoined Reach (${data.joined_count} Joined)`;
+      pill.textContent = `${data.unjoined_count}/${data.total_catalog_groups} Unjoined · ${data.pending_count || 0}/12 Pending · ${data.joined_count} Joined (${data.unjoined_combined_member_reach} Unjoined Reach)`;
     }
+
+    const syncBadge = document.getElementById("li-last-sync-badge");
+    if (syncBadge) {
+      if (data.last_authenticated_sync_utc) {
+        syncBadge.textContent = `Last Synced: ${data.last_authenticated_sync_utc} (${data.last_sync_method})`;
+      } else {
+        syncBadge.textContent = "Same-Origin Bookmarklet & 12-Slot Governor Ready";
+      }
+    }
+
+    const bmLink = document.getElementById("li-bookmarklet-sync-link");
+    if (bmLink && data.authenticated_browser_bridge && data.authenticated_browser_bridge.bookmarklet_href) {
+      bmLink.setAttribute("href", data.authenticated_browser_bridge.bookmarklet_href);
+    }
+
+    // Render 3-Wave Staged Join Queue & Pending-Slot Governor Bar
+    const govBar = document.getElementById("li-groups-wave-governor-bar");
+    if (govBar && data.pending_slot_governor && Array.isArray(data.staged_join_waves)) {
+      govBar.replaceChildren();
+      const gov = data.pending_slot_governor;
+      const shell = mkEl("div", "");
+      shell.style.cssText = "background:#ffffff;border:1px solid #bfdbfe;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:10px;";
+
+      const hdr = mkEl("div", "");
+      hdr.style.cssText = "display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;";
+      const govTitle = mkEl(
+        "div",
+        "",
+        `🛡️ LinkedIn Pending-Request Slot Governor: ${gov.current_pending_count}/${gov.max_concurrent_pending_cap} Active Pending · ${gov.available_pending_slots} Slots Available · Safe Daily Join Budget: ${gov.daily_safe_join_budget}/day`
+      );
+      govTitle.style.cssText = "font-size:13px;font-weight:700;color:#0f172a;";
+      const govSub = mkEl("span", "pill-badge pill-emerald", gov.governor_summary || gov.governor_status);
+      hdr.append(govTitle, govSub);
+
+      const waveRow = mkEl("div", "");
+      waveRow.style.cssText = "display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;";
+
+      data.staged_join_waves.forEach((w) => {
+        const wCard = mkEl("div", "");
+        const isCurrentFilter = _activeLiGroupsWaveFilter === w.wave_number;
+        wCard.style.cssText = `background:${isCurrentFilter ? "#eff6ff" : "#f8fafc"};border:1px solid ${isCurrentFilter ? "#2563eb" : "#cbd5e1"};border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;`;
+
+        const wTop = mkEl("div", "");
+        wTop.style.cssText = "display:flex;justify-content:space-between;align-items:center;gap:6px;";
+        const wBadge = mkEl("span", "pill-badge pill-blue", `Wave ${w.wave_number} · ${w.group_count} Groups`);
+        const wReach = mkEl("span", "pill-badge pill-emerald tabular-nums", `${w.combined_reach} Reach`);
+        wTop.append(wBadge, wReach);
+
+        const wTitle = mkEl("div", "", w.title);
+        wTitle.style.cssText = "font-size:12.5px;font-weight:700;color:#0f172a;line-height:1.35;";
+
+        const wSched = mkEl("div", "", `${w.schedule_window} — ${w.rationale}`);
+        wSched.style.cssText = "font-size:11.5px;color:#334155;line-height:1.4;";
+
+        const wActions = mkEl("div", "");
+        wActions.style.cssText = "display:flex;gap:8px;align-items:center;margin-top:auto;padding-top:4px;flex-wrap:wrap;";
+
+        const stageBtn = mkEl(
+          "button",
+          "btn-primary",
+          w.group_count > 0
+            ? `🚀 Stage & Open Wave ${w.wave_number} (${Math.min(w.group_count, gov.daily_safe_join_budget || 8, Math.max(1, gov.available_pending_slots))} Safe)`
+            : `✓ Wave ${w.wave_number} Staged`
+        );
+        stageBtn.type = "button";
+        stageBtn.disabled = w.group_count === 0 || gov.available_pending_slots === 0;
+        stageBtn.style.cssText = "font-size:11.5px;padding:5px 10px;";
+        stageBtn.addEventListener("click", async () => {
+          const r = await fetch("/api/linkedin-groups/stage-wave", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ wave_number: w.wave_number, max_batch: 8 }),
+          });
+          if (r.ok) {
+            const updated = await r.json();
+            loadAndRenderLinkedinGroupsRadar(updated);
+            const urls = updated.staged_wave_receipt?.staged_urls || [];
+            urls.slice(0, 8).forEach((u, idx) => {
+              setTimeout(() => {
+                try { window.open(u, "_blank", "noopener"); } catch (_e) {}
+              }, idx * 350);
+            });
+            showToast(`Staged ${urls.length} group(s) in Wave ${w.wave_number} as Pending Approval under the 12-slot governor!`);
+          }
+        });
+
+        const filterBtn = mkEl(
+          "button",
+          "btn-secondary",
+          isCurrentFilter ? "Showing Only This Wave (Reset)" : `Filter Wave ${w.wave_number}`
+        );
+        filterBtn.type = "button";
+        filterBtn.style.cssText = "font-size:11.5px;padding:5px 10px;";
+        filterBtn.addEventListener("click", () => {
+          _activeLiGroupsWaveFilter = isCurrentFilter ? 0 : w.wave_number;
+          loadAndRenderLinkedinGroupsRadar(_latestLiRadarData);
+        });
+
+        wActions.append(stageBtn, filterBtn);
+        wCard.append(wTop, wTitle, wSched, wActions);
+        waveRow.appendChild(wCard);
+      });
+
+      shell.append(hdr, waveRow);
+      govBar.appendChild(shell);
+    }
+
     grid.replaceChildren();
-    const groups = data.unjoined_priority_queue && data.unjoined_priority_queue.length
-      ? [...data.unjoined_priority_queue, ...(data.groups || []).filter((g) => g.membership_status === "JOINED")]
+    let groups = data.unjoined_priority_queue && data.unjoined_priority_queue.length
+      ? [
+          ...data.unjoined_priority_queue,
+          ...(data.groups || []).filter((g) => g.membership_status === "PENDING_APPROVAL"),
+          ...(data.groups || []).filter((g) => g.membership_status === "JOINED"),
+        ]
       : (data.groups || []);
+
+    if (_activeLiGroupsWaveFilter > 0) {
+      groups = groups.filter((g) => Number(g.assigned_join_wave) === _activeLiGroupsWaveFilter);
+    }
+
     groups.forEach((g) => {
       const isJoined = g.membership_status === "JOINED";
+      const isPending = g.membership_status === "PENDING_APPROVAL";
       const card = mkEl("div", "feed-item-card");
-      card.style.cssText = `background:${isJoined ? "#f8fafc" : "#ffffff"};border:1px solid ${isJoined ? "#cbd5e1" : "#bfdbfe"};border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:7px;opacity:${isJoined ? "0.75" : "1"};`;
+      const borderCol = isJoined ? "#cbd5e1" : (isPending ? "#f59e0b" : "#bfdbfe");
+      const bgCol = isJoined ? "#f8fafc" : (isPending ? "#fffbeb" : "#ffffff");
+      card.style.cssText = `background:${bgCol};border:1px solid ${borderCol};border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:7px;opacity:${isJoined ? "0.75" : "1"};`;
 
       const topRow = mkEl("div", "");
       topRow.style.cssText = "display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;";
       const tierBadge = mkEl("span", "pill-badge pill-blue", g.tier.split("—")[0].trim());
-      const reachBadge = mkEl("span", "pill-badge pill-emerald tabular-nums", `${g.members} members · Score ${g.visibility_score}`);
+      const waveTag = g.assigned_join_wave
+        ? ` · Wave ${g.assigned_join_wave}`
+        : (isPending ? " · ⏳ Pending" : " · ✓ Joined");
+      const reachBadge = mkEl("span", "pill-badge pill-emerald tabular-nums", `${g.members} · Score ${g.visibility_score}${waveTag}`);
       topRow.append(tierBadge, reachBadge);
 
       const titleEl = mkEl("h4", "", g.name);
@@ -5589,7 +5716,7 @@ async function loadAndRenderLinkedinGroupsRadar(payloadOverride = null) {
       bestPostsEl.style.cssText = "font-size:11.5px;color:#065f46;font-weight:600;";
 
       const actRow = mkEl("div", "");
-      actRow.style.cssText = "display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:6px;border-top:1px solid #f1f5f9;flex-wrap:wrap;";
+      actRow.style.cssText = "display:flex;justify-content:space-between;align-items:center;gap:6px;margin-top:auto;padding-top:6px;border-top:1px solid #f1f5f9;flex-wrap:wrap;";
 
       const openA = mkEl("a", "btn-primary", "Open Group ↗");
       openA.href = safeUrl(g.direct_group_url);
@@ -5597,19 +5724,33 @@ async function loadAndRenderLinkedinGroupsRadar(payloadOverride = null) {
       openA.rel = "noopener";
       openA.style.cssText = "text-decoration:none;font-size:11.5px;padding:5px 10px;";
 
-      const searchA = mkEl("a", "btn-secondary", "Search on LinkedIn ↗");
-      searchA.href = safeUrl(g.linkedin_search_url);
-      searchA.target = "_blank";
-      searchA.rel = "noopener";
-      searchA.style.cssText = "text-decoration:none;font-size:11.5px;padding:5px 10px;";
+      const pendingBtn = mkEl(
+        "button",
+        "btn-secondary",
+        isPending ? "⏳ Pending (Click to Clear)" : "Mark Pending ⏳"
+      );
+      pendingBtn.type = "button";
+      pendingBtn.style.cssText = "font-size:11.5px;padding:5px 9px;";
+      pendingBtn.addEventListener("click", async () => {
+        const nextSt = isPending ? "NOT_JOINED_YET" : "PENDING_APPROVAL";
+        const r = await fetch("/api/linkedin-groups/membership-radar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ toggle_group_id: g.group_id, status: nextSt }),
+        });
+        if (r.ok) {
+          const updated = await r.json();
+          loadAndRenderLinkedinGroupsRadar(updated);
+        }
+      });
 
       const toggleBtn = mkEl(
         "button",
         "btn-secondary",
-        isJoined ? "✓ Joined (Click to Undo)" : "Mark as Joined ✓"
+        isJoined ? "✓ Joined (Undo)" : "Mark Joined ✓"
       );
       toggleBtn.type = "button";
-      toggleBtn.style.cssText = "font-size:11.5px;padding:5px 10px;";
+      toggleBtn.style.cssText = "font-size:11.5px;padding:5px 9px;";
       toggleBtn.addEventListener("click", async () => {
         const nextSt = isJoined ? "NOT_JOINED_YET" : "JOINED";
         const r = await fetch("/api/linkedin-groups/membership-radar", {
@@ -5623,7 +5764,7 @@ async function loadAndRenderLinkedinGroupsRadar(payloadOverride = null) {
         }
       });
 
-      actRow.append(openA, searchA, toggleBtn);
+      actRow.append(openA, pendingBtn, toggleBtn);
       card.append(topRow, titleEl, probEl, whyEl, bestPostsEl, actRow);
       grid.appendChild(card);
     });
@@ -5632,20 +5773,76 @@ async function loadAndRenderLinkedinGroupsRadar(payloadOverride = null) {
   }
 }
 
+function checkHashForLinkedinGroupsRadar() {
+  if (window.location.hash === "#linkedin-groups-membership-radar-section") {
+    if (typeof activateView === "function") {
+      activateView("view-openhands");
+    } else {
+      document.getElementById("tab-btn-openhands")?.click();
+    }
+    setTimeout(() => {
+      document.getElementById("linkedin-groups-membership-radar-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 180);
+  }
+}
+
+window.addEventListener("hashchange", checkHashForLinkedinGroupsRadar);
+
 document.addEventListener("DOMContentLoaded", () => {
   loadAndRenderLinkedinGroupsRadar();
+  checkHashForLinkedinGroupsRadar();
+
+  document.getElementById("btn-copy-li-console-sync")?.addEventListener("click", async () => {
+    const scriptTxt = _latestLiRadarData?.authenticated_browser_bridge?.console_oneliner || "";
+    if (scriptTxt && navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(scriptTxt);
+        showToast("Copied 1-Line Console Sync! Paste in DevTools Console on your linkedin.com/groups tab.");
+      } catch (_e) {}
+    }
+    try {
+      window.open("https://www.linkedin.com/groups/", "_blank", "noopener");
+    } catch (_e) {}
+  });
+
   document.getElementById("btn-diff-linkedin-groups")?.addEventListener("click", async () => {
     const inp = document.getElementById("paste-linkedin-groups-input");
-    const txt = inp ? inp.value : "";
-    const r = await fetch("/api/linkedin-groups/membership-radar", {
+    const txt = (inp ? inp.value : "").trim();
+    const isCurlOrCookie = txt.startsWith("curl ") || txt.includes("li_at=") || txt.includes("-H 'cookie:");
+    const r = await fetch("/api/linkedin-groups/sync-authenticated", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ pasted_my_groups_text: txt }),
+      body: JSON.stringify({
+        profile_url: "https://www.linkedin.com/in/nitin-aggarwal-b49786a/",
+        joined_ids_or_text: isCurlOrCookie ? "" : txt,
+        curl_or_cookie_header: isCurlOrCookie ? txt : "",
+        sync_source: isCurlOrCookie ? "IN_MEMORY_CURL_VOYAGER_SYNC" : "PASTED_DOM_TEXT_SYNC",
+      }),
     });
     if (r.ok) {
       const updated = await r.json();
+      if (inp && isCurlOrCookie) inp.value = ""; // Clear any session token immediately from input box
       loadAndRenderLinkedinGroupsRadar(updated);
-      showToast(`Matched ${updated.auto_matched_from_paste?.length || 0} joined group(s); showing ${updated.unjoined_count} unjoined groups!`);
+      const rec = updated.sync_receipt || {};
+      showToast(
+        `Synced ${rec.matched_joined_catalog_groups?.length || 0} joined & ${rec.matched_pending_catalog_groups?.length || 0} pending catalog groups (${updated.unjoined_count} unjoined)!`
+      );
+    }
+  });
+
+  try {
+    const bc = new BroadcastChannel("linkedin_groups_sync");
+    bc.onmessage = (ev) => {
+      if (ev?.data?.type === "SYNC_COMPLETE") {
+        loadAndRenderLinkedinGroupsRadar();
+        showToast("Live Bookmarklet Sync received from https://www.linkedin.com/in/nitin-aggarwal-b49786a/!");
+      }
+    };
+  } catch (_e) {}
+
+  window.addEventListener("storage", (ev) => {
+    if (ev.key === "linkedin_groups_last_sync") {
+      loadAndRenderLinkedinGroupsRadar();
     }
   });
 });

@@ -23,6 +23,8 @@ from src.catalog.career_minting_catalog import (
 from src.catalog.post_distribution_directory import (
     get_or_update_linkedin_group_membership_radar,
     resolve_distribution_directory_for_post,
+    stage_group_join_wave,
+    sync_authenticated_linkedin_groups,
 )
 from src.catalog.posts_catalog import (
     CREATOR_MINING_PLAYBOOK,
@@ -560,7 +562,64 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             return
 
         if path == "/api/linkedin-groups/membership-radar":
-            self._send_json(200, get_or_update_linkedin_group_membership_radar())
+            host_hdr = self.headers.get("Host") or "nitinagga.c.googlers.com:8765"
+            origin_url = f"http://{host_hdr}"
+            self._send_json(200, get_or_update_linkedin_group_membership_radar(studio_origin=origin_url))
+            return
+
+        if path == "/api/linkedin-groups/sync-redirect":
+            prof_q = (qs.get("profile") or ["https://www.linkedin.com/in/nitin-aggarwal-b49786a/"])[0].strip()
+            joined_q = (qs.get("joined") or [""])[0].strip()
+            pending_q = (qs.get("pending") or [""])[0].strip()
+            res = sync_authenticated_linkedin_groups(
+                profile_url=prof_q,
+                joined_ids_or_text=joined_q,
+                pending_ids_or_text=pending_q,
+                sync_source="BOOKMARKLET_SAME_ORIGIN_REDIRECT",
+            )
+            receipt = res.get("sync_receipt", {})
+            html_doc = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>LinkedIn Groups Authenticated Sync Complete</title>
+  <style>
+    body {{ font-family: Inter, -apple-system, sans-serif; background: #f8fafc; color: #0f172a; display: flex; align-items: center; justify-content: center; min-height: 90vh; margin: 0; }}
+    .card {{ background: #ffffff; border: 1px solid #cbd5e1; border-radius: 14px; padding: 28px 32px; max-width: 560px; box-shadow: 0 10px 25px rgba(15,23,42,0.06); }}
+    h1 {{ font-size: 18px; margin: 0 0 8px; color: #0f172a; }}
+    p {{ font-size: 13.5px; color: #334155; line-height: 1.5; margin: 6px 0; }}
+    .badge {{ display: inline-block; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; margin-bottom: 10px; }}
+    .btn {{ display: inline-block; margin-top: 14px; background: #2563eb; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; }}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">✓ Authenticated LinkedIn Session Synced</span>
+    <h1>LinkedIn Group Memberships Updated</h1>
+    <p><strong>Profile:</strong> <code>{res.get("authenticated_profile_url")}</code></p>
+    <p><strong>Catalog Status:</strong> {res.get("joined_count")} Joined · {res.get("pending_count")} Pending Approval · {res.get("unjoined_count")} Unjoined ({res.get("unjoined_combined_member_reach")} Reach)</p>
+    <p><strong>External / Additional Group IDs Detected:</strong> {len(receipt.get("discovered_external_group_ids", []))}</p>
+    <a class="btn" href="/?view=view-openhands#linkedin-groups-membership-radar-section">Return to Studio Group Visibility Radar →</a>
+  </div>
+  <script>
+    try {{
+      const bc = new BroadcastChannel("linkedin_groups_sync");
+      bc.postMessage({{ type: "SYNC_COMPLETE", ts: Date.now() }});
+      localStorage.setItem("linkedin_groups_last_sync", String(Date.now()));
+    }} catch (_e) {{}}
+    setTimeout(() => {{
+      window.location.replace("/?view=view-openhands#linkedin-groups-membership-radar-section");
+    }}, 1200);
+  </script>
+</body>
+</html>"""
+            body_bytes = html_doc.encode("utf-8")
+            self.send_response(200)
+            self._send_security_headers()
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body_bytes)))
+            self.end_headers()
+            self.wfile.write(body_bytes)
             return
 
         if path == "/api/distribution-directory":
@@ -846,12 +905,46 @@ class StudioRequestHandler(BaseHTTPRequestHandler):
             gid = str(payload.get("toggle_group_id") or "").strip()
             new_st = str(payload.get("status") or "").strip()
             pasted = str(payload.get("pasted_my_groups_text") or "")
+            pasted_pending = str(payload.get("pasted_pending_groups_text") or "")
+            host_hdr = self.headers.get("Host") or "nitinagga.c.googlers.com:8765"
             self._send_json(
                 200,
                 get_or_update_linkedin_group_membership_radar(
                     toggle_group_id=gid,
                     new_status=new_st,
                     pasted_my_groups_text=pasted,
+                    pasted_pending_groups_text=pasted_pending,
+                    studio_origin=f"http://{host_hdr}",
+                ),
+            )
+            return
+
+        if path == "/api/linkedin-groups/sync-authenticated":
+            prof_url = str(payload.get("profile_url") or "https://www.linkedin.com/in/nitin-aggarwal-b49786a/").strip()
+            joined_txt = str(payload.get("joined_ids_or_text") or payload.get("pasted_my_groups_text") or "")
+            pending_txt = str(payload.get("pending_ids_or_text") or payload.get("pasted_pending_groups_text") or "")
+            curl_hdr = str(payload.get("curl_or_cookie_header") or "")
+            sync_src = str(payload.get("sync_source") or "STUDIO_AUTHENTICATED_MODAL").strip()
+            self._send_json(
+                200,
+                sync_authenticated_linkedin_groups(
+                    profile_url=prof_url,
+                    joined_ids_or_text=joined_txt,
+                    pending_ids_or_text=pending_txt,
+                    curl_or_cookie_header=curl_hdr,
+                    sync_source=sync_src,
+                ),
+            )
+            return
+
+        if path == "/api/linkedin-groups/stage-wave":
+            wave_num = int(payload.get("wave_number") or 1)
+            max_b = int(payload.get("max_batch") or 8)
+            self._send_json(
+                200,
+                stage_group_join_wave(
+                    wave_number=wave_num,
+                    max_batch=max_b,
                 ),
             )
             return

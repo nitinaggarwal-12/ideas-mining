@@ -1,5 +1,8 @@
 {
-  "statuses": {
-    "GRP-16-GCP-ARCHITECTS": "NOT_JOINED_YET"
-  }
+  "authenticated_profile_url": "https://www.linkedin.com/in/nitin-aggarwal-b49786a/",
+  "last_authenticated_sync_utc": null,
+  "last_sync_method": "AUTHENTICATED_PROFILE_BOUND_READY",
+  "statuses": {},
+  "pending_timestamps": {},
+  "discovered_external_group_ids": []
 }

@@ -478,18 +478,43 @@ class TestDailyTop5EditorialAndMultiPlatformPublisher(unittest.TestCase):
 
 
 
-        from src.catalog.post_distribution_directory import get_or_update_linkedin_group_membership_radar
+        from src.catalog.post_distribution_directory import (
+            AUTHENTICATED_LINKEDIN_PROFILE_URL,
+            build_bookmarklet_and_console_sync_scripts,
+            get_or_update_linkedin_group_membership_radar,
+            stage_group_join_wave,
+            sync_authenticated_linkedin_groups,
+        )
         radar0 = get_or_update_linkedin_group_membership_radar()
         self.assertEqual(radar0["total_catalog_groups"], 25)
-        self.assertTrue(len(radar0["groups"]) == 25)
+        self.assertEqual(radar0["authenticated_profile_url"], AUTHENTICATED_LINKEDIN_PROFILE_URL)
+        self.assertEqual(len(radar0["staged_join_waves"]), 3)
+        self.assertEqual(radar0["pending_slot_governor"]["max_concurrent_pending_cap"], 12)
+        self.assertEqual(radar0["pending_slot_governor"]["daily_safe_join_budget"], 8)
 
-        # Test paste-to-diff auto-detection for Google Cloud Platform group (3050257)
-        radar_diff = get_or_update_linkedin_group_membership_radar(
-            pasted_my_groups_text="My Groups: Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders https://www.linkedin.com/groups/3050257/"
+        bm = build_bookmarklet_and_console_sync_scripts()
+        self.assertTrue(bm["bookmarklet_href"].startswith("javascript:(async()=>{"))
+        self.assertIn("nitin-aggarwal-b49786a", bm["bookmarklet_href"])
+
+        # Test authenticated sync + wave staging governor
+        sync_res = sync_authenticated_linkedin_groups(
+            profile_url="https://www.linkedin.com/in/nitin-aggarwal-b49786a/",
+            joined_ids_or_text="https://www.linkedin.com/groups/3050257/",
+            pending_ids_or_text="https://www.linkedin.com/groups/12918440/",
+            sync_source="UNIT_TEST_BRIDGE",
         )
-        self.assertIn("GRP-16-GCP-ARCHITECTS", radar_diff["auto_matched_from_paste"])
-        # Reset back to NOT_JOINED_YET so ledger stays clean
-        get_or_update_linkedin_group_membership_radar(toggle_group_id="GRP-16-GCP-ARCHITECTS", new_status="NOT_JOINED_YET")
+        self.assertIn("GRP-16-GCP-ARCHITECTS", sync_res["sync_receipt"]["matched_joined_catalog_groups"])
+        self.assertIn("GRP-01-AGENTIC-WORKFLOWS", sync_res["sync_receipt"]["matched_pending_catalog_groups"])
+
+        stage_res = stage_group_join_wave(wave_number=1, max_batch=2)
+        self.assertEqual(stage_res["staged_wave_receipt"]["staged_count"], 2)
+
+        # Reset back to clean baseline so ledger has 25 unjoined groups ready for live sync
+        for g in stage_res["groups"]:
+            if g["membership_status"] != "NOT_JOINED_YET":
+                get_or_update_linkedin_group_membership_radar(
+                    toggle_group_id=g["group_id"], new_status="NOT_JOINED_YET"
+                )
 
 if __name__ == "__main__":
     unittest.main()

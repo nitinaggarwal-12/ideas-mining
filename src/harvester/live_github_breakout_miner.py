@@ -631,7 +631,11 @@ def mint_full_adk_repo_from_github_breakout(
         }
 
     slug_base = re.sub(r"[^a-z0-9]+", "-", owner_repo.lower()).strip("-")
-    repo_slug = f"gcp-breakout-{slug_base}"[:56].rstrip("-")
+    raw_slug = f"gcp-breakout-{slug_base}"
+    if len(raw_slug) > 52 and "-" in raw_slug[:53]:
+        repo_slug = raw_slug[:53].rsplit("-", 1)[0].rstrip("-")
+    else:
+        repo_slug = raw_slug[:52].rstrip("-")
     target_dir = REPOS_ROOT / repo_slug
     exemplar_dir = REPOS_ROOT / "gcp-mcp-zero-bloat-gateway"
     if not exemplar_dir.exists():

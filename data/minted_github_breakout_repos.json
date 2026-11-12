@@ -1,1 +1,397 @@
-[]
+[
+  {
+    "id": "MCP-AUTH-V2",
+    "code": "MCP-AUTH-V2",
+    "repo_slug": "gcp-breakout-mcp-oauth21-obo-enterprise",
+    "repo_name": "gcp-breakout-mcp-oauth21-obo-enterprise",
+    "post_title": "How MCP Authorization Works End-to-End: OAuth 2.1, CIMD, RFC 8707 & RFC 8693 OBO",
+    "hook": "modelcontextprotocol/mcp-oauth21-obo-enterprise (3,500 \u2605): End-to-End MCP OAuth 2.1 Authorization (RFC 9728, RFC 8414, CIMD, PKCE S256, RFC 9207, RFC 8707) + RFC 8693 On-Behalf-Of (OBO) Upstream Token Exchange + Headless CIBA Step-Up + OPA/Model Armor Tool-Argument Gate",
+    "author": "Nitin Aggarwal (Minted from GitHub Breakout: modelcontextprotocol/mcp-oauth21-obo-enterprise)",
+    "archetype": "Custom Minted Breakout Repo",
+    "canonical_template_id": "T222",
+    "owner_repo": "modelcontextprotocol/mcp-oauth21-obo-enterprise",
+    "github_url": "https://github.com/modelcontextprotocol/mcp-oauth21-obo-enterprise",
+    "stars": 3500,
+    "weekly_star_velocity": 480,
+    "minted_at": "2026-11-12",
+    "primary_source": {
+      "creator": "GitHub Breakout (modelcontextprotocol/mcp-oauth21-obo-enterprise)",
+      "url": "https://github.com/modelcontextprotocol/mcp-oauth21-obo-enterprise",
+      "reactions": 3500
+    },
+    "problem_solved": "End-to-End MCP OAuth 2.1 Authorization (RFC 9728, RFC 8414, CIMD, PKCE S256, RFC 9207, RFC 8707) + RFC 8693 On-Behalf-Of (OBO) Upstream Token Exchange + Headless CIBA Step-Up + OPA/Model Armor Tool-Argument Gate",
+    "architecture_summary": "End-to-End MCP OAuth 2.1 Authorization (RFC 9728, RFC 8414, CIMD, PKCE S256, RFC 9207, RFC 8707) + RFC 8693 On-Behalf-Of (OBO) Upstream Token Exchange + Headless CIBA Step-Up + OPA/Model Armor Tool-Argument Gate Paired with Google Cloud ADK + Vertex AI Agent Engine + Cloud Run + Cloud Trace.",
+    "quantified_roi": "0% token passthrough \u2022 100% per-user RLS preserved via RFC 8693 OBO \u2022 98.0% 100-trial security eval pass",
+    "google_cloud_services": [
+      "Google Cloud ADK",
+      "Vertex AI Agent Engine",
+      "Cloud Run",
+      "Cloud Trace"
+    ],
+    "oss_stack": [
+      "modelcontextprotocol/mcp-oauth21-obo-enterprise",
+      "Google Cloud ADK",
+      "OpenTelemetry"
+    ],
+    "distribution_directory": {
+      "post_id": "MCP-AUTH-V2",
+      "resolved_profile_key": "MINT-01",
+      "cluster_id": "CLUSTER_MCP_IDENTITY",
+      "linkedin_groups_primary": [
+        {
+          "name": "Model Context Protocol (MCP), Agentic Tooling & Enterprise API Architecture",
+          "url": "https://www.linkedin.com/groups/13041020/",
+          "members": "195,000+",
+          "goal": "Targeted discussion on MCP schema discovery, OAuth 2.1 OBO, and Apigee gateway patterns"
+        },
+        {
+          "name": "Information Security, CISO Network, Cybersecurity & Zero-Trust AI",
+          "url": "https://www.linkedin.com/groups/38412/",
+          "members": "2,400,000+",
+          "goal": "CISO, AppSec, and SecOps shares on prompt-injection containment and OBO least privilege"
+        },
+        {
+          "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+          "url": "https://www.linkedin.com/groups/3050257/",
+          "members": "420,000+",
+          "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+        }
+      ],
+      "linkedin_groups_niche_network": [
+        {
+          "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+          "url": "https://www.linkedin.com/groups/12918440/",
+          "members": "92,000+",
+          "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+        },
+        {
+          "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+          "url": "https://www.linkedin.com/groups/67905/",
+          "members": "610,000+",
+          "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+        },
+        {
+          "name": "Chief Customer Officer (CCO), VP Customer Success & Value Realization",
+          "url": "https://www.linkedin.com/groups/4510921/",
+          "members": "180,000+",
+          "goal": "Customer Success leadership adoption of self-healing agentic playbooks and NRR expansion"
+        }
+      ],
+      "cross_platform_pages_and_communities": [
+        {
+          "platform": "Reddit",
+          "page_or_group": "r/LocalLLaMA & r/AI_Agents",
+          "url": "https://www.reddit.com/r/LocalLLaMA/",
+          "audience": "610K+ LLM Systems Builders",
+          "posting_angle": "Share the 58K -> 1.7K MCP token reduction benchmark table + eval_results.json"
+        },
+        {
+          "platform": "GitHub Discussions",
+          "page_or_group": "modelcontextprotocol/specification Discussions",
+          "url": "https://github.com/modelcontextprotocol/specification/discussions",
+          "audience": "Core MCP Maintainers & Enterprise Adopters",
+          "posting_angle": "Reference RFC 8693 OBO token exchange + progressive Top-K schema discovery"
+        },
+        {
+          "platform": "Dev.to & Hashnode",
+          "page_or_group": "#mcp \u00b7 #googlecloud \u00b7 #ai \u00b7 #security",
+          "url": "https://dev.to/t/mcp",
+          "audience": "Full-Stack & Cloud Native Developers",
+          "posting_angle": "Publish full Terraform + src/engine.py walkthrough with 1-click Cloud Run script"
+        }
+      ],
+      "relevant_companies_and_pages": [
+        {
+          "company_id": "google_cloud",
+          "company_name": "Google Cloud",
+          "linkedin_page_tag": "@Google Cloud",
+          "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+          "x_handle": "@googlecloud",
+          "github_org_url": "https://github.com/GoogleCloudPlatform",
+          "role_in_post": "Primary Cloud Runtime (`Apigee API Hub`, `Vertex AI Agent Engine`, `Cloud Run v2`, `Cloud KMS`)",
+          "reference_title": "Google Cloud Architecture Center: Enterprise AI & ADK",
+          "reference_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview"
+        },
+        {
+          "company_id": "anthropic",
+          "company_name": "Anthropic",
+          "linkedin_page_tag": "@Anthropic",
+          "linkedin_page_url": "https://www.linkedin.com/company/anthropicresearch/",
+          "x_handle": "@AnthropicAI",
+          "github_org_url": "https://github.com/anthropics",
+          "role_in_post": "Originator of the Model Context Protocol (`MCP`) & progressive tool discovery pattern",
+          "reference_title": "Anthropic Engineering: Code Execution & Progressive Tool Discovery with MCP",
+          "reference_url": "https://www.anthropic.com/engineering/code-execution-with-mcp"
+        },
+        {
+          "company_id": "pydantic",
+          "company_name": "Pydantic",
+          "linkedin_page_tag": "@Pydantic",
+          "linkedin_page_url": "https://www.linkedin.com/company/pydantic/",
+          "x_handle": "@pydantic",
+          "github_org_url": "https://github.com/pydantic/pydantic-ai",
+          "role_in_post": "Strict JSON-Schema tool argument validation (`PydanticAI` / `FastMCP`)",
+          "reference_title": "PydanticAI: Type-Safe Agent Tool Validation",
+          "reference_url": "https://ai.pydantic.dev/"
+        },
+        {
+          "company_id": "cloudflare",
+          "company_name": "Cloudflare",
+          "linkedin_page_tag": "@Cloudflare",
+          "linkedin_page_url": "https://www.linkedin.com/company/cloudflare/",
+          "x_handle": "@Cloudflare",
+          "github_org_url": "https://github.com/cloudflare/agents",
+          "role_in_post": "Zero-Trust Remote MCP Server & OAuth 2.1 Edge Gateway reference",
+          "reference_title": "Cloudflare Agents: Building Remote MCP Servers with OAuth",
+          "reference_url": "https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/"
+        }
+      ],
+      "company_mentions_line_linkedin": "@Google Cloud \u00b7 @Anthropic \u00b7 @Pydantic \u00b7 @Cloudflare",
+      "company_mentions_line_x": "@googlecloud @AnthropicAI @pydantic @Cloudflare",
+      "hashtags_bundle": {
+        "linkedin_optimal_5": "#ModelContextProtocol #GoogleCloud #VertexAI #AgenticAI #ZeroTrustAI",
+        "niche_practitioner": "#GoogleCloudADK #OAuth2 #Apigee #ContextEngineering #FastMCP #AIArchitecture",
+        "company_ecosystem": "#GoogleCloud #Anthropic #PydanticAI #ZeroTrust",
+        "full_hashtag_string": "#ModelContextProtocol #GoogleCloud #VertexAI #AgenticAI #ZeroTrustAI #GoogleCloudADK #OAuth2 #Apigee #ContextEngineering #FastMCP #AIArchitecture #Anthropic #PydanticAI #ZeroTrust",
+        "all_tags_list": [
+          "#ModelContextProtocol",
+          "#GoogleCloud",
+          "#VertexAI",
+          "#AgenticAI",
+          "#ZeroTrustAI",
+          "#GoogleCloudADK",
+          "#OAuth2",
+          "#Apigee",
+          "#ContextEngineering",
+          "#FastMCP",
+          "#AIArchitecture",
+          "#Anthropic",
+          "#PydanticAI",
+          "#ZeroTrust"
+        ]
+      },
+      "authoritative_references": [
+        {
+          "organization": "MCP Authorization Specification (2025-11-25) + Enterprise RFC 8693 OBO Architecture",
+          "title": "How MCP Authorization Works End-to-End: OAuth 2.1, CIMD, RFC 8707 & RFC 8693 OBO",
+          "url": "https://github.com/nitinaggarwal-12/ideas-mining/tree/main/generated-repos/gcp-breakout-modelcontextprotocol-mcp-oauth21-obo-enterp",
+          "citation_type": "Primary Trigger Source"
+        },
+        {
+          "organization": "Google Cloud",
+          "title": "Google Cloud Architecture Center: Enterprise AI & ADK",
+          "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview",
+          "citation_type": "Official Company Engineering Reference"
+        },
+        {
+          "organization": "Anthropic",
+          "title": "Anthropic Engineering: Code Execution & Progressive Tool Discovery with MCP",
+          "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+          "citation_type": "Official Company Engineering Reference"
+        },
+        {
+          "organization": "Pydantic",
+          "title": "PydanticAI: Type-Safe Agent Tool Validation",
+          "url": "https://ai.pydantic.dev/",
+          "citation_type": "Official Company Engineering Reference"
+        },
+        {
+          "organization": "Cloudflare",
+          "title": "Cloudflare Agents: Building Remote MCP Servers with OAuth",
+          "url": "https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/",
+          "citation_type": "Official Company Engineering Reference"
+        }
+      ]
+    }
+  },
+  {
+    "id": "GH-BRK-01",
+    "code": "GH-BRK-01",
+    "repo_slug": "gcp-breakout-google-a2a",
+    "repo_name": "gcp-breakout-google-a2a",
+    "post_title": "Google Agent2Agent (A2A) Open Interoperability Protocol & Agent Cards",
+    "hook": "google/A2A (19,340 \u2605): Fastest-growing open protocol for cross-cloud agent handoffs (Google Cloud ADK <-> LangGraph <-> AWS/ServiceNow) with MCP tool bridges, OAuth 2.1 scopes, signed JSON Agent Cards, and SSE task streams.",
+    "author": "Nitin Aggarwal (Minted from GitHub Breakout: google/A2A)",
+    "archetype": "Multi-Agent Interoperability",
+    "canonical_template_id": "T85",
+    "owner_repo": "google/A2A",
+    "github_url": "https://github.com/google/A2A",
+    "stars": 19340,
+    "weekly_star_velocity": 2050,
+    "minted_at": "2026-11-12",
+    "primary_source": {
+      "creator": "GitHub Breakout (google/A2A)",
+      "url": "https://github.com/google/A2A",
+      "reactions": 19340
+    },
+    "problem_solved": "Point-to-point untyped JSON glue between vendor agents causes 34% silent context corruption and broken auth scopes.",
+    "architecture_summary": "Fastest-growing open protocol for cross-cloud agent handoffs (Google Cloud ADK <-> LangGraph <-> AWS/ServiceNow) with MCP tool bridges, OAuth 2.1 scopes, signed JSON Agent Cards, and SSE task streams. Paired with Vertex AI Agent Engine + Cloud Run A2A Peer + Spanner Graph State.",
+    "quantified_roi": "0 schema handoff failures \u2022 -64% cross-agent p95 latency \u2022 100% signed Agent Card verification",
+    "google_cloud_services": [
+      "Vertex AI Agent Engine",
+      "Cloud Run A2A Peer",
+      "Spanner Graph State"
+    ],
+    "oss_stack": [
+      "google/A2A",
+      "Google Cloud ADK",
+      "OpenTelemetry"
+    ],
+    "distribution_directory": {
+      "post_id": "GH-BRK-01",
+      "resolved_profile_key": "IDEA-05",
+      "cluster_id": "CLUSTER_MULTIAGENT_MEMORY",
+      "linkedin_groups_primary": [
+        {
+          "name": "Generative AI & LLMs (Large Language Models) \u2014 Enterprise Practitioners",
+          "url": "https://www.linkedin.com/groups/12795132/",
+          "members": "480,000+",
+          "goal": "High comment velocity from Staff+ AI engineers solving production reliability bottlenecks"
+        },
+        {
+          "name": "Google Cloud Platform (GCP) Architects, Developers & Vertex AI Builders",
+          "url": "https://www.linkedin.com/groups/3050257/",
+          "members": "420,000+",
+          "goal": "Direct reach among Principal GCP Architects, Vertex AI Agent Engine users, and Cloud Run teams"
+        },
+        {
+          "name": "Autonomous Agents, LangGraph, CrewAI, FastMCP & OpenHands Builders",
+          "url": "https://www.linkedin.com/groups/12918440/",
+          "members": "92,000+",
+          "goal": "High GitHub repo clone/star conversion and evaluation suite benchmark discussions"
+        }
+      ],
+      "linkedin_groups_niche_network": [
+        {
+          "name": "Enterprise Architecture, FinOps & Cloud Transformation Leaders",
+          "url": "https://www.linkedin.com/groups/67905/",
+          "members": "610,000+",
+          "goal": "CTO, Chief Architect, and FinOps engagement on token economics and SLA governance"
+        },
+        {
+          "name": "Chief Customer Officer (CCO), VP Customer Success & Value Realization",
+          "url": "https://www.linkedin.com/groups/4510921/",
+          "members": "180,000+",
+          "goal": "Customer Success leadership adoption of self-healing agentic playbooks and NRR expansion"
+        }
+      ],
+      "cross_platform_pages_and_communities": [
+        {
+          "platform": "Reddit",
+          "page_or_group": "r/AI_Agents & r/LangChain",
+          "url": "https://www.reddit.com/r/AI_Agents/",
+          "audience": "240K+ Multi-Agent Framework Developers",
+          "posting_angle": "Contrast chatty peer-to-peer loops with Typed A2A Blackboard + Cloud Spanner/Firestore state"
+        },
+        {
+          "platform": "GitHub & CNCF",
+          "page_or_group": "A2A Protocol & Google Cloud ADK Community",
+          "url": "https://github.com/google/adk-python",
+          "audience": "Enterprise Multi-Agent Architects",
+          "posting_angle": "Share JSON-Schema handoff contract + SHA-256 evidence receipt verification"
+        },
+        {
+          "platform": "Medium & Hashnode",
+          "page_or_group": "Towards AI & Enterprise Agentic Systems",
+          "url": "https://hashnode.com/n/ai",
+          "audience": "Staff Software Engineers & Tech Leads",
+          "posting_angle": "Walk through 100-session concurrency isolation and zero-context-bleed tests"
+        }
+      ],
+      "relevant_companies_and_pages": [
+        {
+          "company_id": "google_cloud",
+          "company_name": "Google Cloud",
+          "linkedin_page_tag": "@Google Cloud",
+          "linkedin_page_url": "https://www.linkedin.com/company/google-cloud/",
+          "x_handle": "@googlecloud",
+          "github_org_url": "https://github.com/GoogleCloudPlatform",
+          "role_in_post": "Creator of the open `Agent2Agent (A2A)` protocol, `ADK`, & `Cloud Spanner` blackboard state",
+          "reference_title": "Google Cloud: Agent2Agent (A2A) Interoperability Protocol",
+          "reference_url": "https://github.com/google/A2A"
+        },
+        {
+          "company_id": "pydantic",
+          "company_name": "Pydantic",
+          "linkedin_page_tag": "@Pydantic",
+          "linkedin_page_url": "https://www.linkedin.com/company/pydantic/",
+          "x_handle": "@pydantic",
+          "github_org_url": "https://github.com/pydantic/pydantic-ai",
+          "role_in_post": "`Pydantic v2` strict state contract validation between supervisor and worker agents",
+          "reference_title": "Pydantic v2: High-Performance Schema Validation",
+          "reference_url": "https://docs.pydantic.dev/latest/"
+        },
+        {
+          "company_id": "langchain",
+          "company_name": "LangChain",
+          "linkedin_page_tag": "@LangChain",
+          "linkedin_page_url": "https://www.linkedin.com/company/langchain/",
+          "x_handle": "@LangChainAI",
+          "github_org_url": "https://github.com/langchain-ai",
+          "role_in_post": "Typed `StateGraph` channels & deterministic handoffs (`LangGraph`)",
+          "reference_title": "LangGraph Multi-Agent Supervisor & Blackboard Patterns",
+          "reference_url": "https://langchain-ai.github.io/langgraph/concepts/multi_agent/"
+        },
+        {
+          "company_id": "servicenow",
+          "company_name": "ServiceNow",
+          "linkedin_page_tag": "@ServiceNow",
+          "linkedin_page_url": "https://www.linkedin.com/company/servicenow/",
+          "x_handle": "@ServiceNow",
+          "github_org_url": "https://github.com/ServiceNow",
+          "role_in_post": "Enterprise cross-domain ITSM/CRM multi-agent workflow orchestration",
+          "reference_title": "ServiceNow AI Research: Enterprise Multi-Agent Systems",
+          "reference_url": "https://www.servicenow.com/research/"
+        }
+      ],
+      "company_mentions_line_linkedin": "@Google Cloud \u00b7 @Pydantic \u00b7 @LangChain \u00b7 @ServiceNow",
+      "company_mentions_line_x": "@googlecloud @pydantic @LangChainAI @ServiceNow",
+      "hashtags_bundle": {
+        "linkedin_optimal_5": "#MultiAgentSystems #GoogleCloud #A2AProtocol #AgenticAI #EnterpriseArchitecture",
+        "niche_practitioner": "#GoogleCloudADK #Pydantic #LangGraph #CloudSpanner #DistributedSystems",
+        "company_ecosystem": "#GoogleCloud #PydanticAI #LangGraph #ServiceNow",
+        "full_hashtag_string": "#MultiAgentSystems #GoogleCloud #A2AProtocol #AgenticAI #EnterpriseArchitecture #GoogleCloudADK #Pydantic #LangGraph #CloudSpanner #DistributedSystems #PydanticAI #ServiceNow",
+        "all_tags_list": [
+          "#MultiAgentSystems",
+          "#GoogleCloud",
+          "#A2AProtocol",
+          "#AgenticAI",
+          "#EnterpriseArchitecture",
+          "#GoogleCloudADK",
+          "#Pydantic",
+          "#LangGraph",
+          "#CloudSpanner",
+          "#DistributedSystems",
+          "#PydanticAI",
+          "#ServiceNow"
+        ]
+      },
+      "authoritative_references": [
+        {
+          "organization": "GitHub Breakout \u2022 google/A2A",
+          "title": "Google Agent2Agent (A2A) Open Interoperability Protocol & Agent Cards",
+          "url": "https://github.com/google/A2A",
+          "citation_type": "Primary Trigger Source"
+        },
+        {
+          "organization": "Pydantic",
+          "title": "Pydantic v2: High-Performance Schema Validation",
+          "url": "https://docs.pydantic.dev/latest/",
+          "citation_type": "Official Company Engineering Reference"
+        },
+        {
+          "organization": "LangChain",
+          "title": "LangGraph Multi-Agent Supervisor & Blackboard Patterns",
+          "url": "https://langchain-ai.github.io/langgraph/concepts/multi_agent/",
+          "citation_type": "Official Company Engineering Reference"
+        },
+        {
+          "organization": "ServiceNow",
+          "title": "ServiceNow AI Research: Enterprise Multi-Agent Systems",
+          "url": "https://www.servicenow.com/research/",
+          "citation_type": "Official Company Engineering Reference"
+        }
+      ]
+    }
+  }
+]

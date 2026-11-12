@@ -548,7 +548,7 @@ body {{
 
   <div class="{_act_cls('auth')}" style="left:258px;top:184px;width:492px;height:78px;background:#FFFBEB;border-color:#D97706;z-index:2;">
     <div class="actor-hdr"><span class="actor-badge" style="background:#D97706;">AS</span><span class="actor-name">Authorization Server / IAM STS</span> <span style="font-size:11px;font-weight:700;color:#92400E;margin-left:auto;">Separate role (co-hosted or IdP-delegated)</span></div>
-    <div class="actor-desc">Authenticates user, renders consent, enforces PKCE, mints <code>aud</code>-bound MCP tokens &amp; exchanges <b>RFC 8693 OBO</b> upstream tokens.</div>
+    <div class="actor-desc">Authenticates user, renders consent, enforces PKCE, mints audience-bound (<code>aud</code>) MCP tokens &amp; exchanges <b>RFC 8693 OBO</b> upstream tokens.</div>
   </div>
 
   <div class="edge-tag" style="left:134px;top:200px;z-index:2;">login + consent</div>
@@ -808,7 +808,7 @@ The updated **MCP Authorization specification (`2025-11-25`)** cleanly separates
 Here is the complete **7-Phase, 16-Step Enterprise MCP Authorization Flow**:
 
 1. **Challenge (`POST /mcp`)** -> Server responds `401` + `WWW-Authenticate: resource_metadata, scope`.
-2. **Discover (`RFC 9728` + `RFC 8414`)** -> Client fetches `GET /.well-known/oauth-protected-resource` (notice the trailing `n`!) and Authorization Server metadata verifying mandatory `S256` PKCE support.
+2. **Discover (`RFC 9728` + `RFC 8414`)** -> Client fetches `GET /.well-known/oauth-protected-resource` and Authorization Server metadata verifying mandatory `S256` PKCE support.
 3. **Register** -> Resolve `client_id` in priority order: **Pre-registered > CIMD (Client ID Metadata Document) > DCR (legacy fallback)**.
 4. **Authorize (`PKCE S256` + `state` + `iss`)** -> Browser sign-in with `resource` (RFC 8707), `state` (CSRF), `redirect_uri`, and `iss` (RFC 9207 mix-up protection).
 5. **Token** -> Exchange authorization code + `code_verifier` + `redirect_uri` + `resource` for a short-lived, audience-bound `access_token` (`aud == this MCP server`).

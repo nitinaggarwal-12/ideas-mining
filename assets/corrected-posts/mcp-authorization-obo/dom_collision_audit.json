@@ -1,0 +1,14 @@
+{
+  "width": 1080,
+  "height": 1350,
+  "textCount": 99,
+  "outOfBoundsCount": 0,
+  "oob": [],
+  "overlapCount": 0,
+  "overlaps": [],
+  "pillViolationCount": 0,
+  "pillViolations": [],
+  "bandViolationCount": 0,
+  "bandViolations": [],
+  "foundTypos": []
+}
